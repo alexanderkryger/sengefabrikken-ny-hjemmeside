@@ -1,0 +1,66 @@
+{%- capture style -%}--image-max-width: {{ block.settings.logo_width }}px; --image-mobile-max-width: {{ block.settings.mobile_logo_width }}px{%- endcapture -%}
+
+{%- if block.settings.logo != blank -%}
+  {%- liquid
+    if section.index <= 3
+      assign loading = 'eager'
+    else
+      assign loading = 'lazy'
+    endif
+
+    assign logo_width = block.settings.logo_width
+    assign mobile_logo_width = block.settings.mobile_logo_width
+    assign alt_text = block.settings.logo.alt | default: shop.name
+  -%}
+
+  {%- capture sizes -%}(max-width: 699px) {{ mobile_logo_width }}px, {{ logo_width }}px{%- endcapture -%}
+  {%- capture widths -%}{{ mobile_logo_width | times: 2 | at_most: block.settings.logo.width }}, {{ logo_width | at_most: block.settings.logo.width }}, {{ logo_width | times: 2 | at_most: block.settings.logo.width }}, {{ logo_width | times: 3 | at_most: block.settings.logo.width }}{%- endcapture -%}
+
+  <picture class="constrained-image" style="{{ style }}" {{ block.shopify_attributes }}>
+    {{- block.settings.logo | image_url: width: block.settings.logo.width | image_tag: loading: loading, sizes: sizes, widths: widths, alt: alt_text -}}
+  </picture>
+{%- elsif request.visual_preview_mode or request.design_mode -%}
+  <figure class="constrained-image" style="{{ style }}" {{ block.shopify_attributes }}>
+    {{- 'logo' | placeholder_svg_tag: 'placeholder-svg' -}}
+  </figure>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Logo",
+  "tag": null,
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo",
+      "info": "Brug gerne en PNG eller SVG med transparent baggrund."
+    },
+    {
+      "type": "range",
+      "id": "logo_width",
+      "min": 40,
+      "max": 400,
+      "step": 10,
+      "unit": "px",
+      "label": "Bredde på desktop",
+      "default": 160
+    },
+    {
+      "type": "range",
+      "id": "mobile_logo_width",
+      "min": 30,
+      "max": 300,
+      "step": 10,
+      "unit": "px",
+      "label": "Bredde på mobil",
+      "default": 110
+    }
+  ],
+  "presets": [
+    {
+      "name": "Logo"
+    }
+  ]
+}
+{% endschema %}
