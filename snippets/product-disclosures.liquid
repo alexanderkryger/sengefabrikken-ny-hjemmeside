@@ -1,0 +1,71 @@
+{%- doc -%}
+Renders product disclosures on the product page.
+
+@param {object} product - the product object
+@param {boolean} [collapse_content] - if set to true, wraps disclosures in a collapsible accordion
+@param {boolean} [uppercase_title] - if set to true, the title of the collapsible is automatically uppercased
+@param {string} [icon] - the name of an icon that comes built-in with the theme
+@param {object} [custom_icon] - an optional icon image for the accordion toggle
+@param {string} [alignment] - the alignment of the content
+@param {object} [block] - an optional block to output theme editor attributes
+{%- enddoc -%}
+
+{%- assign disclosures = product.metafields.shopify.disclosure.value -%}
+{%- assign details_html = '' -%}
+
+{%- if disclosures != blank -%}
+  {%- for disclosure in disclosures -%}
+    {%- assign surfaces = disclosure.display_preferences.value.surfaces -%}
+
+    {%- if surfaces contains 'product_page' -%}
+      {%- liquid
+        assign disclosure_title = disclosure.title.value
+        assign img = disclosure.symbol.value
+        assign content = disclosure.content
+      -%}
+
+      {%- capture details_item -%}
+        <div class="prose prose-justify-{{ alignment | default: 'start' }}">
+          {%- if disclosure_title != blank or img != blank -%}
+            <div class="text-with-icon bold">
+              {%- if img != blank -%}
+                {%- render 'icon', image: img, width: 20, mobile_width: 20 -%}
+              {%- endif -%}
+              {%- if disclosure_title != blank -%}
+                <span>{{ disclosure_title | escape }}</span>
+              {%- endif -%}
+            </div>
+          {%- endif -%}
+
+          {{ content | metafield_tag }}
+        </div>
+      {%- endcapture -%}
+
+      {%- assign details_html = details_html | append: details_item -%}
+    {%- endif -%}
+  {%- endfor -%}
+{%- endif -%}
+
+{%- if details_html != blank -%}
+  {%- assign disclosure_label = 'product.disclosures.title' | t -%}
+
+  {%- if collapse_content -%}
+    {%- capture accordion_content -%}<div class="v-stack gap-5">{{- details_html -}}</div>{%- endcapture -%}
+
+    {%- render 'accordion',
+      title: disclosure_label,
+      custom_icon: custom_icon,
+      icon: icon,
+      content: accordion_content,
+      uppercase_title: uppercase_title,
+      block: block
+    -%}
+  {%- else -%}
+    <div class="v-stack gap-2">
+      <p class="bold">{{ disclosure_label }}</p>
+      <div class="v-stack gap-5">
+        {{- details_html -}}
+      </div>
+    </div>
+  {%- endif -%}
+{%- endif -%}
