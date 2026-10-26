@@ -10,7 +10,7 @@
 {
   "current": {
     "subheading_border_radius": 0,
-    "button_border_radius": 30,
+    "button_border_radius": 6,
     "input_border_radius": 30,
     "dialog_backdrop_blur": 12,
     "product_sold_out_badge_background": "#321e1e",
