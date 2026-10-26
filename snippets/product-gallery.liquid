@@ -3,7 +3,7 @@ This component is used to show the product gallery (used in product page and fea
 
 @param {object} [product] - the product to render (if empty, renders placeholder content)
 @param {string} [product_form_id] - the product form id
-@param {string} [desktop_layout] - the layout on desktop (can be "grid", "grid_half", "grid_half_highlight_first" or "carousel")
+@param {string} [desktop_layout] - the layout on desktop (can be "grid", "grid_half", "grid_half_highlight_first", "grid_half_highlight_alternating" or "carousel")
 @param {string} [desktop_carousel_controls] - when desktop layout is set to "carousel", the controls to show (can be "dots", "lines", "numbers", "thumbnails_bottom" or "thumbnails_left")
 @param {string} [mobile_controls] - the controls to show on mobile (can be "lines", "numbers", "dots", "thumbnails" or "none")
 @param {boolean} [enable_media_autoplay] - if set to true videos are autoplayed when switched to
@@ -32,7 +32,7 @@ This component is used to show the product gallery (used in product page and fea
       {%- if desktop_layout == 'grid' -%}
         --product-gallery-carousel-grid: auto-flow dense / minmax(0, 1fr);
         --product-gallery-carousel-scroll-snap-type: none;
-      {%- elsif desktop_layout == 'grid_half' or desktop_layout == 'grid_half_highlight_first' -%}
+      {%- elsif desktop_layout == 'grid_half' or desktop_layout == 'grid_half_highlight_first' or desktop_layout == 'grid_half_highlight_alternating' -%}
         --product-gallery-carousel-grid: auto-flow dense / repeat(2, minmax(0, 1fr));
         --product-gallery-carousel-scroll-snap-type: none;
       {%- elsif desktop_layout == 'carousel' -%}
@@ -42,6 +42,14 @@ This component is used to show the product gallery (used in product page and fea
 
     {%- if desktop_layout == 'grid_half_highlight_first' -%}
       #shopify-section-{{ section.id }} .product-gallery__media:nth-child(1 of :not([hidden])) {
+        grid-column: span 2;
+      }
+    {%- endif -%}
+
+    {%- comment -%}Sengefabrikken: highlight media 1, 4, 7… with two media side by side in between. A lone last media in a half row is also highlighted to avoid an empty cell.{%- endcomment -%}
+    {%- if desktop_layout == 'grid_half_highlight_alternating' -%}
+      #shopify-section-{{ section.id }} .product-gallery__media:nth-child(3n + 1 of :not([hidden])),
+      #shopify-section-{{ section.id }} .product-gallery__media:nth-child(3n + 2 of :not([hidden])):nth-last-child(1 of :not([hidden])) {
         grid-column: span 2;
       }
     {%- endif -%}
