@@ -1,0 +1,61 @@
+{%- doc -%}
+Sengefabrikken: renders a collapsible comparison of the price chain, showing as stacked bars that Sengefabrikken sells
+directly (product and customer service only) while the rest of the industry adds a brand, a reseller and a physical
+store on top of the product. Every bar is configured in the block settings, and bars without a label are hidden.
+
+@param {object} block - the price chain block
+{%- enddoc -%}
+
+{%- capture price_chain_content -%}
+  <div class="v-stack gap-8">
+    {%- if block.settings.heading != blank or block.settings.content != blank -%}
+      <div class="prose prose-justify-center text-center">
+        {%- if block.settings.heading != blank -%}
+          <p class="h5">{{ block.settings.heading }}</p>
+        {%- endif -%}
+
+        {{- block.settings.content -}}
+      </div>
+    {%- endif -%}
+
+    <div class="price-chain">
+      {%- for side in (1..2) -%}
+        {%- liquid
+          if side == 1
+            assign side_prefix = 'left'
+            assign bar_count = 3
+          else
+            assign side_prefix = 'right'
+            assign bar_count = 4
+          endif
+
+          assign column_label_setting = side_prefix | append: '_label'
+        -%}
+
+        <div class="price-chain__column">
+          <div class="price-chain__bars">
+            {%- for i in (1..bar_count) -%}
+              {%- liquid
+                assign bar_label_setting = side_prefix | append: '_bar_' | append: i | append: '_label'
+                assign bar_color_setting = side_prefix | append: '_bar_' | append: i | append: '_color'
+                assign bar_size_setting = side_prefix | append: '_bar_' | append: i | append: '_size'
+              -%}
+
+              {%- if block.settings[bar_label_setting] != blank -%}
+                <div class="price-chain__bar" style="--price-chain-bar-color: {{ block.settings[bar_color_setting] }}; --price-chain-bar-size: {{ block.settings[bar_size_setting] }}">
+                  {{- block.settings[bar_label_setting] -}}
+                </div>
+              {%- endif -%}
+            {%- endfor -%}
+          </div>
+
+          {%- if block.settings[column_label_setting] != blank -%}
+            <p class="{% if side == 1 %}bold{% else %}text-subdued{% endif %}">{{ block.settings[column_label_setting] }}</p>
+          {%- endif -%}
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+{%- endcapture -%}
+
+{%- render 'accordion', title: block.settings.title, content: price_chain_content, open: block.settings.open, use_secondary_background: true, class: 'price-chain-accordion' -%}

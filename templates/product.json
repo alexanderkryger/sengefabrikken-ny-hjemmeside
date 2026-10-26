@@ -102,6 +102,10 @@
         "product_group": {
           "type": "product_group",
           "settings": {}
+        },
+        "price_chain": {
+          "type": "price_chain",
+          "settings": {}
         }
       },
       "block_order": [
@@ -117,6 +121,7 @@
         "product_variations",
         "variant_picker",
         "product_group",
+        "price_chain",
         "buy_buttons"
       ],
       "settings": {

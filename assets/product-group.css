@@ -115,3 +115,43 @@
 .product-group-upsale .product-group__error:empty {
   display: none;
 }
+
+/* Price chain block: stacked bars comparing Sengefabrikken with the rest of the industry */
+
+.price-chain {
+  --price-chain-unit: 1.75rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: end;
+  gap: 1rem;
+  display: grid;
+}
+
+.price-chain__column {
+  text-align: center;
+  gap: .75rem;
+  display: grid;
+}
+
+.price-chain__bars {
+  flex-direction: column-reverse;
+  gap: .375rem;
+  display: flex;
+}
+
+.price-chain__bar {
+  min-height: calc(var(--price-chain-bar-size) * var(--price-chain-unit));
+  color: #fff;
+  background: var(--price-chain-bar-color);
+  border-radius: min(var(--button-border-radius), .5rem);
+  place-content: center;
+  padding: .25rem .5rem;
+  font-size: .875em;
+  display: grid;
+}
+
+@media screen and (min-width: 700px) {
+  .price-chain {
+    --price-chain-unit: 2rem;
+    gap: 2rem;
+  }
+}

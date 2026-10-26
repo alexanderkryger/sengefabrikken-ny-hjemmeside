@@ -267,6 +267,9 @@ no need to manually pass the section as it is globally available)
                 -%}
             {%- endif -%}
 
+          {%- when 'price_chain' -%}
+            {%- render 'price-chain', block: block -%}
+
           {%- when 'product_group' -%}
             {%- if product != blank -%}
               {%- render 'product-group', product: product, product_form_id: product_form_id, block: block -%}
