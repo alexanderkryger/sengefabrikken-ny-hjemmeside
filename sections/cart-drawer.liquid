@@ -170,6 +170,43 @@
               {%- endif -%}
             {%- endfor -%}
 
+            {%- comment -%}Sengefabrikken: accessories (custom.product_upsale) of the products in the cart. Shown to the left of the drawer on desktop{%- endcomment -%}
+
+            {%- if section.settings.show_upsale_panel -%}
+              {%- assign rendered_upsale_ids = '' -%}
+
+              {%- capture upsale_products_markup -%}
+                {%- for line_item in cart.items -%}
+                  {%- for upsale_product in line_item.product.metafields.custom.product_upsale.value -%}
+                    {%- liquid
+                      assign upsale_product_key = '|' | append: upsale_product.id | append: '|'
+                      assign line_items_for_upsale_product = cart.items | where: 'product_id', upsale_product.id
+
+                      if upsale_product.available == false or rendered_upsale_ids contains upsale_product_key or line_items_for_upsale_product.size > 0
+                        continue
+                      endif
+
+                      assign rendered_upsale_ids = rendered_upsale_ids | append: upsale_product_key
+                    -%}
+
+                    {%- render 'product-cross-sell', product: upsale_product, layout: 'horizontal', show_quick_buy: true, background: section.settings.color_scheme.settings.secondary_background -%}
+                  {%- endfor -%}
+                {%- endfor -%}
+              {%- endcapture -%}
+
+              {%- if upsale_products_markup != blank -%}
+                <div class="cart-drawer__upsale">
+                  {%- if section.settings.upsale_panel_title != blank -%}
+                    <p class="h7">{{ section.settings.upsale_panel_title }}</p>
+                  {%- endif -%}
+
+                  <div class="v-stack gap-2">
+                    {{- upsale_products_markup -}}
+                  </div>
+                </div>
+              {%- endif -%}
+            {%- endif -%}
+
             {%- comment -%}CROSS-SELL{%- endcomment -%}
 
             {%- if section.settings.enable_cross_sell -%}
@@ -386,6 +423,7 @@
   </cart-drawer>
 {%- endif -%}
 
+{{- 'cart-drawer-upsale.css' | asset_url | stylesheet_tag -}}
 <script type="module" src="{{ 'line-item-group.js' | asset_url }}"></script>
 
 {% schema %}
@@ -468,6 +506,24 @@
       "label": "t:global.text.title",
       "default": "You may also like",
       "visible_if": "{{ section.settings.enable_cross_sell }}"
+    },
+    {
+      "type": "header",
+      "content": "Tilbehør (custom.product_upsale)"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_upsale_panel",
+      "label": "Vis tilbehør til produkterne i kurven",
+      "info": "Vises til venstre for kurven på desktop og under produkterne på mobil.",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "upsale_panel_title",
+      "label": "Overskrift",
+      "default": "Spar op til 40% på tilbehør",
+      "visible_if": "{{ section.settings.show_upsale_panel }}"
     }
   ],
   "blocks": [

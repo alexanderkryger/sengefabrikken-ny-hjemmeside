@@ -1,0 +1,33 @@
+/*
+ * Sengefabrikken: accessories (custom.product_upsale) in the cart drawer.
+ *
+ * On mobile and tablet, the list is shown below the line items. On desktop, it is placed to the left of the drawer: the
+ * drawer content part is positioned, so the list is positioned against it (and slides in with the drawer), while the
+ * scrolling body part, which is not positioned, does not clip it.
+ */
+
+.cart-drawer__upsale {
+  border-block-start: 1px solid rgb(var(--border-color));
+  grid-template-columns: minmax(0, 1fr);
+  row-gap: 1rem;
+  margin-block-start: .5rem;
+  padding-block-start: 1.5rem;
+  display: grid;
+}
+
+@media screen and (min-width: 1000px) {
+  .cart-drawer__upsale {
+    width: 22rem;
+    background: rgb(var(--background));
+    border-block-start: none;
+    border-inline-end: 1px solid rgb(var(--border-color));
+    overscroll-behavior-y: contain;
+    align-content: start;
+    margin: 0;
+    padding: var(--drawer-body-padding-block) var(--drawer-body-padding-inline);
+    position: absolute;
+    inset-block: 0;
+    inset-inline-end: 100%;
+    overflow-y: auto;
+  }
+}
