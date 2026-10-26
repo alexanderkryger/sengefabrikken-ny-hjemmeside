@@ -1,0 +1,52 @@
+{%- doc -%}
+Sengefabrikken: outputs grouping information for line items added through the product group (see product-group.js).
+Every line of a group shares the same "_ref" property, and the main product line also has the "_group_main" property.
+A line is only considered as a child when the main line of its group is still in the cart, so that it never disappears.
+
+@param {object} line_item - the line item
+@param {string} output - "role" outputs "main", "child" or nothing, "keys" outputs the comma separated keys of every line of the group, and "price" outputs the total final price of the group
+{%- enddoc -%}
+
+{%- liquid
+  assign group_ref = line_item.properties['_ref']
+  assign is_main = false
+  assign has_main = false
+  assign group_keys = line_item.key
+  assign group_price = line_item.final_line_price
+
+  if group_ref != blank
+    if line_item.properties['_group_main'] != blank
+      assign is_main = true
+    endif
+
+    for item in cart.items
+      if item.properties['_ref'] != group_ref
+        continue
+      endif
+
+      if item.properties['_group_main'] != blank
+        assign has_main = true
+      endif
+
+      if item.key != line_item.key
+        assign group_keys = group_keys | append: ',' | append: item.key
+        assign group_price = group_price | plus: item.final_line_price
+      endif
+    endfor
+  endif
+
+  case output
+    when 'role'
+      if is_main
+        echo 'main'
+      elsif has_main
+        echo 'child'
+      endif
+
+    when 'keys'
+      echo group_keys
+
+    when 'price'
+      echo group_price
+  endcase
+-%}

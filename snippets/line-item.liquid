@@ -8,6 +8,18 @@ This component renders a single line item product information, and is used on or
 @param {object} [section]
 {%- enddoc -%}
 
+{%- comment -%}Sengefabrikken: the main line of a product group shows the whole group (see line-item-group snippet){%- endcomment -%}
+{%- capture group_role -%}{%- render 'line-item-group', line_item: line_item, output: 'role' -%}{%- endcapture -%}
+
+{%- if group_role == 'main' -%}
+  {%- capture group_keys -%}{%- render 'line-item-group', line_item: line_item, output: 'keys' -%}{%- endcapture -%}
+  {%- capture group_price -%}{%- render 'line-item-group', line_item: line_item, output: 'price' -%}{%- endcapture -%}
+  {%- assign line_price = group_price | plus: 0 -%}
+  <line-item-group class="contents" line-keys="{{ group_keys }}">
+{%- else -%}
+  {%- assign line_price = line_item.final_line_price -%}
+{%- endif -%}
+
 <line-item class="line-item">
   {%- if line_item.image != blank -%}
     <a href="{{ line_item.url }}" class="line-item__media">
@@ -54,7 +66,7 @@ This component renders a single line item product information, and is used on or
               {%- for property in line_item.properties -%}
                 {%- assign first_character_in_key = property.first | truncate: 1, '' -%}
 
-                {%- if property.last == blank or first_character_in_key == '_' -%}
+                {%- if property.last == blank or first_character_in_key == '_' or group_role == 'main' and property.first == 'main' -%}
                   {%- continue -%}
                 {%- endif -%}
 
@@ -86,6 +98,44 @@ This component renders a single line item product information, and is used on or
           {%- endif -%}
         </div>
 
+        {%- if group_role == 'main' -%}
+          {%- capture group_specifications -%}
+            <div class="v-stack gap-3">
+              {%- for item in cart.items -%}
+                {%- if item.properties['_ref'] != line_item.properties['_ref'] -%}
+                  {%- continue -%}
+                {%- endif -%}
+
+                {%- assign item_compare_at_price = item.variant.compare_at_price | times: item.quantity -%}
+
+                <div class="h-stack align-center gap-3">
+                  {%- if item.image != blank -%}
+                    {{- item.image | image_url: width: item.image.width | image_tag: loading: 'lazy', sizes: '40px', widths: '40,80,120', class: 'constrained-image', style: '--image-max-width: 40px' -}}
+                  {%- endif -%}
+
+                  <p class="grow text-sm">
+                    {%- if item.product.has_only_default_variant -%}
+                      {{- item.product.title -}}
+                    {%- else -%}
+                      <span class="text-subdued">{{ item.product.title }}:</span> {{ item.variant.title }}
+                    {%- endif -%}
+                  </p>
+
+                  <div class="v-stack justify-items-end shrink-0 text-sm">
+                    {%- if item_compare_at_price > item.final_line_price -%}
+                      <span class="text-subdued line-through">{{ item_compare_at_price | money }}</span>
+                    {%- endif -%}
+
+                    <span>{{ item.final_line_price | money }}</span>
+                  </div>
+                </div>
+              {%- endfor -%}
+            </div>
+          {%- endcapture -%}
+
+          {%- render 'accordion', title: 'Vis alle specifikationer', content: group_specifications, use_secondary_background: true -%}
+        {%- endif -%}
+
         {%- render 'cart-disclosures', product: line_item.product -%}
 
         {%- if show_quantity_selector -%}
@@ -110,9 +160,9 @@ This component renders a single line item product information, and is used on or
       <div class="v-stack justify-items-end shrink-0 gap-0.5">
         <span class="line-item__line-price subheading">
           {%- if settings.currency_code_enabled -%}
-            {{- line_item.final_line_price | money_with_currency -}}
+            {{- line_price | money_with_currency -}}
           {%- else -%}
-            {{- line_item.final_line_price | money -}}
+            {{- line_price | money -}}
           {%- endif -%}
         </span>
 
@@ -125,3 +175,7 @@ This component renders a single line item product information, and is used on or
     {%- endif -%}
   </div>
 </line-item>
+
+{%- if group_role == 'main' -%}
+  </line-item-group>
+{%- endif -%}

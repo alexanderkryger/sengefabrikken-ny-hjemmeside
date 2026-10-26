@@ -4,8 +4,8 @@
  * Connects the products from the "custom.group" metafield to the main product form:
  * - when the form is submitted, every group item needing a choice must have a variant selected
  * - the main product and the group items are added to the cart in a single request, linked through the "main" and
- *   "_ref" line item properties
- * - the price block shows the total of the main variant and the group items
+ *   "_ref" line item properties ("_group_main" marks the main product line, see the line-item-group snippet)
+ * - the price block shows the total of the main variant and the selected group items
  *
  * The theme's <product-form> builds its request with `new FormData(form)`, so the items are added by listening to the
  * "formdata" event. Listeners are set on the document (capture phase) as the form is re-rendered on variant change.
@@ -55,6 +55,7 @@ class ProductGroup extends HTMLElement {
     }
 
     item.querySelector('[data-group-item-value]').textContent = event.target.getAttribute('data-label');
+    item.querySelector('[data-group-item-check]').hidden = false;
     item.querySelector('[data-group-item-error]').hidden = true;
 
     this.#updatePrice();
@@ -95,7 +96,7 @@ class ProductGroup extends HTMLElement {
     const formData = event.formData;
     const quantity = formData.get('quantity') || '1';
     const properties = { main: this.getAttribute('main-title'), _ref: Date.now().toString() };
-    const mainItem = { id: formData.get('id'), quantity, properties: { ...properties } };
+    const mainItem = { id: formData.get('id'), quantity, properties: { ...properties, _group_main: 'true' } };
 
     for (const [key, value] of Array.from(formData.entries())) {
       const propertyName = key.match(/^properties\[(.+)\]$/)?.[1];
@@ -139,8 +140,13 @@ class ProductGroup extends HTMLElement {
     let price = this.#mainVariant.price;
     let compareAtPrice = this.#mainVariant.compare_at_price || this.#mainVariant.price;
 
+    // Items needing a choice are only added to the total once a variant is selected
     this.items.forEach((item) => {
-      const source = this.#getSelectedInput(item) || item;
+      const source = item.hasAttribute('data-required') ? this.#getSelectedInput(item) : item;
+
+      if (!source) {
+        return;
+      }
 
       price += parseInt(source.getAttribute('data-price'));
       compareAtPrice += parseInt(source.getAttribute('data-compare-at-price'));

@@ -96,9 +96,10 @@ Render the variant picker option selectors.
 
           <div class="accordion">
             <button type="button" class="accordion__summary w-full" aria-controls="{{ drawer_id }}" aria-expanded="false">
-              <span class="h-stack wrap gap-2">
+              <span class="h-stack wrap align-center gap-2">
                 <span>{{ option.name }}</span>
                 <span class="text-subdued">{{ option.selected_value }}</span>
+                <span class="product-group-check">{%- render 'icon' with 'success-checkmark', width: 9 -%}</span>
               </span>
 
               {%- render 'icon' with 'chevron-right', direction_aware: true -%}

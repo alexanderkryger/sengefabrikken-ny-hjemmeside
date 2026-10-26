@@ -41,10 +41,41 @@
 
                     <tbody class="order-summary__body">
                       {%- for line_item in cart.items -%}
+                        {%- comment -%}Sengefabrikken: lines belonging to a product group are shown inside their main line{%- endcomment -%}
+                        {%- capture group_role -%}{%- render 'line-item-group', line_item: line_item, output: 'role' -%}{%- endcapture -%}
+
+                        {%- if group_role == 'child' -%}
+                          {%- comment -%}Keeps the position of the line in the "updates[]" list submitted with the cart form (one per quantity selector){%- endcomment -%}
+                          <tr hidden>
+                            <td colspan="3">
+                              <input type="hidden" name="updates[]" value="{{ line_item.quantity }}">
+                              <input type="hidden" name="updates[]" value="{{ line_item.quantity }}">
+                            </td>
+                          </tr>
+                          {%- continue -%}
+                        {%- endif -%}
+
+                        {%- liquid
+                          assign line_price = line_item.final_line_price
+
+                          if group_role == 'main'
+                            capture group_keys
+                              render 'line-item-group', line_item: line_item, output: 'keys'
+                            endcapture
+
+                            capture group_price
+                              render 'line-item-group', line_item: line_item, output: 'price'
+                            endcapture
+
+                            assign line_price = group_price | plus: 0
+                          endif
+                        -%}
+
                         <tr>
                           <td>{%- render 'line-item', line_item: line_item, show_line_price: true, hide_unit_price: true, show_quantity_selector: true -%}</td>
 
                           <td class="text-center">
+                            {%- if group_role == 'main' -%}<line-item-group class="contents" line-keys="{{ group_keys }}">{%- endif -%}
                             <line-item>
                               <div class="h-stack gap-5">
                                 {%- render 'quantity-selector', line_item: line_item -%}
@@ -57,15 +88,16 @@
 
                               <div class="line-item__error-container empty:hidden"></div>
                             </line-item>
+                            {%- if group_role == 'main' -%}</line-item-group>{%- endif -%}
                           </td>
 
                           <td class="text-end">
                             <div class="v-stack gap-0 5 justify-items-end">
                               <span>
                                 {%- if settings.currency_code_enabled -%}
-                                  {{- line_item.final_line_price | money_with_currency -}}
+                                  {{- line_price | money_with_currency -}}
                                 {%- else -%}
-                                  {{- line_item.final_line_price | money -}}
+                                  {{- line_price | money -}}
                                 {%- endif -%}
                               </span>
 
@@ -229,6 +261,8 @@
     </div>
   </div>
 </div>
+
+<script type="module" src="{{ 'line-item-group.js' | asset_url }}"></script>
 
 {% schema %}
 {

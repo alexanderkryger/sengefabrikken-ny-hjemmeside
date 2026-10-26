@@ -35,9 +35,10 @@ the cart together (linked through the "main" and "_ref" line item properties), a
 
         <div class="accordion" data-group-item data-required data-price="{{ default_variant.price }}" data-compare-at-price="{{ default_variant.compare_at_price | default: default_variant.price }}">
           <button type="button" class="accordion__summary w-full" aria-controls="{{ drawer_id }}" aria-expanded="false">
-            <span class="h-stack wrap gap-2">
+            <span class="h-stack wrap align-center gap-2">
               <span>{{ group_product.title }}</span>
               <span class="text-subdued" data-group-item-value></span>
+              <span class="product-group-check" data-group-item-check hidden>{%- render 'icon' with 'success-checkmark', width: 9 -%}</span>
             </span>
 
             {%- render 'icon' with 'chevron-right', direction_aware: true -%}

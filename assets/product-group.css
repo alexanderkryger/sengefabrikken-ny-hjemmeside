@@ -60,3 +60,18 @@
 .product-group__error {
   padding-block-end: .75rem;
 }
+
+.product-group-check {
+  width: 1.125rem;
+  height: 1.125rem;
+  color: #fff;
+  background: rgb(var(--success-text));
+  border-radius: var(--rounded-full);
+  flex-shrink: 0;
+  place-content: center;
+  display: inline-grid;
+}
+
+.product-group-check[hidden] {
+  display: none;
+}

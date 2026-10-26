@@ -159,7 +159,15 @@
             {%- comment -%}LINE ITEMS{%- endcomment -%}
 
             {%- for line_item in cart.items -%}
-              {%- render 'line-item', line_item: line_item, show_line_price: true, hide_unit_price: true, show_quantity_selector: true -%}
+              {%- comment -%}Sengefabrikken: lines belonging to a product group are shown inside their main line{%- endcomment -%}
+              {%- capture group_role -%}{%- render 'line-item-group', line_item: line_item, output: 'role' -%}{%- endcapture -%}
+
+              {%- if group_role == 'child' -%}
+                {%- comment -%}Keeps the position of the line in the "updates[]" list submitted with the cart form{%- endcomment -%}
+                <input type="hidden" name="updates[]" value="{{ line_item.quantity }}">
+              {%- else -%}
+                {%- render 'line-item', line_item: line_item, show_line_price: true, hide_unit_price: true, show_quantity_selector: true -%}
+              {%- endif -%}
             {%- endfor -%}
 
             {%- comment -%}CROSS-SELL{%- endcomment -%}
@@ -377,6 +385,8 @@
     {%- endunless -%}
   </cart-drawer>
 {%- endif -%}
+
+<script type="module" src="{{ 'line-item-group.js' | asset_url }}"></script>
 
 {% schema %}
 {
