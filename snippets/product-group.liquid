@@ -4,6 +4,10 @@ a row opening a drawer to pick a variant, while products without variants are al
 element adds the group items to the product form submission, so that the main product and its group items are added to
 the cart together (linked through the "main" and "_ref" line item properties), and shows the total in the price block.
 
+Products whose titles only differ by a trailing number (eg. "Vælg Fasthed 1" and "Vælg Fasthed 2" on double beds) are
+merged into a single row ("Vælg Fasthed") opening one drawer with a section per product. With two products, the
+sections are named "Venstre side" and "Højre side".
+
 @param {object} product - the main product
 @param {string} product_form_id - the ID of the product form
 @param {object} [section]
@@ -12,7 +16,33 @@ the cart together (linked through the "main" and "_ref" line item properties), a
 {%- assign group_products = product.metafields.custom.group.value -%}
 
 {%- if group_products != blank -%}
-  {%- assign main_variant = product.selected_or_first_available_variant -%}
+  {%- liquid
+    assign main_variant = product.selected_or_first_available_variant
+
+    # First pass: find the base titles shared by several products, which are merged into a single row
+    assign seen_keys = ''
+    assign merged_keys = ''
+
+    for group_product in group_products
+      if group_product == product or group_product.available == false or group_product.has_only_default_variant
+        continue
+      endif
+
+      capture base_title
+        render 'product-group-base-title', title: group_product.title
+      endcapture
+
+      assign key = '|' | append: base_title | append: '|'
+
+      if seen_keys contains key
+        assign merged_keys = merged_keys | append: key
+      else
+        assign seen_keys = seen_keys | append: key
+      endif
+    endfor
+
+    assign rendered_keys = ''
+  -%}
 
   <product-group class="product-group" form-id="{{ product_form_id }}" main-title="{{ product.title | escape }}" main-price="{{ main_variant.price }}" main-compare-at-price="{{ main_variant.compare_at_price | default: main_variant.price }}">
     {%- for group_product in group_products -%}
@@ -29,22 +59,132 @@ the cart together (linked through the "main" and "_ref" line item properties), a
             <span class="text-subdued">{{ default_variant.price | money }}</span>
           </div>
         </div>
-      {%- else -%}
-        {%- capture drawer_id -%}product-group-drawer-{{ section.id }}-{{ group_product.id }}{%- endcapture -%}
-        {%- capture input_name -%}product-group-{{ section.id }}-{{ group_product.id }}{%- endcapture -%}
 
-        <div class="accordion" data-group-item data-required data-input-name="{{ input_name }}" data-price="{{ default_variant.price }}" data-compare-at-price="{{ default_variant.compare_at_price | default: default_variant.price }}">
+        {%- continue -%}
+      {%- endif -%}
+
+      {%- capture base_title -%}{%- render 'product-group-base-title', title: group_product.title -%}{%- endcapture -%}
+      {%- assign key = '|' | append: base_title | append: '|' -%}
+
+      {%- if merged_keys contains key -%}
+        {%- if rendered_keys contains key -%}
+          {%- continue -%}
+        {%- endif -%}
+
+        {%- liquid
+          assign rendered_keys = rendered_keys | append: key
+          assign members_count = 0
+
+          for member in group_products
+            if member == product or member.available == false or member.has_only_default_variant
+              continue
+            endif
+
+            capture member_base_title
+              render 'product-group-base-title', title: member.title
+            endcapture
+
+            if member_base_title == base_title
+              assign members_count = members_count | plus: 1
+            endif
+          endfor
+        -%}
+
+        {%- capture drawer_id -%}product-group-drawer-{{ section.id }}-{{ group_product.id }}{%- endcapture -%}
+        {%- assign members_markup = '' -%}
+        {%- assign drawer_sections = '' -%}
+        {%- assign member_index = 0 -%}
+
+        {%- for member in group_products -%}
+          {%- if member == product or member.available == false or member.has_only_default_variant -%}
+            {%- continue -%}
+          {%- endif -%}
+
+          {%- capture member_base_title -%}{%- render 'product-group-base-title', title: member.title -%}{%- endcapture -%}
+
+          {%- if member_base_title != base_title -%}
+            {%- continue -%}
+          {%- endif -%}
+
+          {%- liquid
+            assign member_index = member_index | plus: 1
+            assign member_variant = member.selected_or_first_available_variant
+            assign member_label = member.title
+
+            if members_count == 2
+              if member_index == 1
+                assign member_label = 'Venstre side'
+              else
+                assign member_label = 'Højre side'
+              endif
+            endif
+          -%}
+
+          {%- capture input_name -%}product-group-{{ section.id }}-{{ member.id }}{%- endcapture -%}
+
+          {%- capture members_markup -%}
+            {{- members_markup -}}
+            <span hidden data-group-item data-required data-input-name="{{ input_name }}" data-price="{{ member_variant.price }}" data-compare-at-price="{{ member_variant.compare_at_price | default: member_variant.price }}"></span>
+          {%- endcapture -%}
+
+          {%- capture drawer_sections -%}
+            {{- drawer_sections -}}
+            <div class="v-stack gap-4">
+              <p class="h6">{{ member_label }}</p>
+              {%- render 'product-group-variant-list', group_product: member, input_name: input_name -%}
+            </div>
+          {%- endcapture -%}
+        {%- endfor -%}
+
+        <div class="accordion" data-group-row>
+          {{- members_markup -}}
+
           <button type="button" class="accordion__summary w-full" aria-controls="{{ drawer_id }}" aria-expanded="false">
             <span class="h-stack wrap align-center gap-2">
-              <span>{{ group_product.title }}</span>
-              <span class="text-subdued" data-group-item-value></span>
-              <span class="product-group-check" data-group-item-check hidden>{%- render 'icon' with 'success-checkmark', width: 9 -%}</span>
+              <span>{{ base_title }}</span>
+              <span class="text-subdued" data-group-row-value></span>
+              <span class="product-group-check" data-group-row-check hidden>{%- render 'icon' with 'success-checkmark', width: 9 -%}</span>
             </span>
 
             {%- render 'icon' with 'chevron-right', direction_aware: true -%}
           </button>
 
-          <p class="product-group__error text-error" data-group-item-error hidden>Vælg venligst {{ group_product.title | downcase }}</p>
+          <p class="product-group__error text-error" data-group-row-error hidden>Vælg venligst {{ base_title | remove_first: 'Vælg ' | downcase }} for {% if members_count == 2 %}begge sider{% else %}alle{% endif %}</p>
+
+          <x-drawer id="{{ drawer_id }}" class="drawer color-scheme color-scheme--{{ settings.default_color_scheme.id }}">
+            <span class="h5" slot="header">{{ base_title }}</span>
+
+            <div class="v-stack gap-8">
+              {%- if group_product.description != blank -%}
+                <div class="prose">
+                  {{- group_product.description -}}
+                </div>
+              {%- endif -%}
+
+              {{- drawer_sections -}}
+            </div>
+
+            <dialog-close-button slot="footer" style="display: contents">
+              <button type="button" class="button w-full">Bekræft</button>
+            </dialog-close-button>
+          </x-drawer>
+        </div>
+      {%- else -%}
+        {%- capture drawer_id -%}product-group-drawer-{{ section.id }}-{{ group_product.id }}{%- endcapture -%}
+        {%- capture input_name -%}product-group-{{ section.id }}-{{ group_product.id }}{%- endcapture -%}
+
+        <div class="accordion" data-group-row data-group-item data-required data-input-name="{{ input_name }}" data-price="{{ default_variant.price }}" data-compare-at-price="{{ default_variant.compare_at_price | default: default_variant.price }}">
+          <button type="button" class="accordion__summary w-full" aria-controls="{{ drawer_id }}" aria-expanded="false">
+            <span class="h-stack wrap align-center gap-2">
+              <span>{{ group_product.title }}</span>
+              <span class="text-subdued" data-group-row-value></span>
+              <span class="product-group-check" data-group-row-check hidden>{%- render 'icon' with 'success-checkmark', width: 9 -%}</span>
+            </span>
+
+            {%- render 'icon' with 'chevron-right', direction_aware: true -%}
+          </button>
+
+          <p class="product-group__error text-error" data-group-row-error hidden>Vælg venligst {{ group_product.title | remove_first: 'Vælg ' | downcase }}</p>
 
           <x-drawer id="{{ drawer_id }}" class="drawer color-scheme color-scheme--{{ settings.default_color_scheme.id }}">
             <span class="h5" slot="header">{{ group_product.title }}</span>
@@ -56,55 +196,7 @@ the cart together (linked through the "main" and "_ref" line item properties), a
                 </div>
               {%- endif -%}
 
-              <div class="product-group-option-list">
-                {%- for variant in group_product.variants -%}
-                  {%- unless variant.available -%}
-                    {%- continue -%}
-                  {%- endunless -%}
-
-                  {%- liquid
-                    assign variant_title = variant.title | split: ' - '
-                    assign variant_image = variant.featured_media | default: group_product.featured_media
-                    assign is_upgrade = false
-
-                    if variant.metafields.custom.upgrade != blank
-                      assign is_upgrade = true
-                    endif
-                  -%}
-
-                  <input class="sr-only" type="radio" id="{{ input_name }}-{{ variant.id }}" name="{{ input_name }}" value="{{ variant.id }}" data-label="{{ variant_title.first | escape }}" data-price="{{ variant.price }}" data-compare-at-price="{{ variant.compare_at_price | default: variant.price }}">
-
-                  <label class="product-group-option {% if is_upgrade %}product-group-option--highlighted{% endif %}" for="{{ input_name }}-{{ variant.id }}">
-                    {%- if variant_image != blank -%}
-                      {{- variant_image | image_url: width: variant_image.width | image_tag: loading: 'lazy', sizes: '64px', widths: '64,128,192', class: 'product-group-option__image' -}}
-                    {%- endif -%}
-
-                    <span class="v-stack gap-1">
-                      {%- if is_upgrade -%}
-                        <span class="product-group-option__badge subheading">Opgradering</span>
-                      {%- endif -%}
-
-                      <span>{{ variant_title.first }}</span>
-
-                      {%- if variant_title.size > 1 -%}
-                        <span class="subheading text-subdued">{{ variant_title | slice: 1, 10 | join: ' - ' }}</span>
-                      {%- endif -%}
-
-                      {%- if variant.metafields.custom.ekstra_levering != blank -%}
-                        <span class="subheading text-subdued">Leveringstid: {{ variant.metafields.custom.ekstra_levering }}</span>
-                      {%- endif -%}
-                    </span>
-
-                    <span class="product-group-option__price v-stack">
-                      <span>{{ variant.price | money }}</span>
-
-                      {%- if variant.compare_at_price > variant.price -%}
-                        <span class="text-subdued line-through">{{ variant.compare_at_price | money }}</span>
-                      {%- endif -%}
-                    </span>
-                  </label>
-                {%- endfor -%}
-              </div>
+              {%- render 'product-group-variant-list', group_product: group_product, input_name: input_name -%}
             </div>
 
             <dialog-close-button slot="footer" style="display: contents">

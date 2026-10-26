@@ -1,0 +1,18 @@
+{%- doc -%}
+Sengefabrikken: outputs the title of a product from the product group without its trailing number (eg. "Vælg Fasthed 2"
+outputs "Vælg Fasthed"). Products sharing the same base title are merged into a single row (see the product-group snippet).
+
+@param {string} title - the product title
+{%- enddoc -%}
+
+{%- liquid
+  assign title_words = title | split: ' '
+  assign last_word = title_words | last
+  assign last_word_as_number = last_word | plus: 0 | append: ''
+
+  if title_words.size > 1 and last_word == last_word_as_number
+    echo title | remove_last: last_word | strip
+  else
+    echo title
+  endif
+-%}

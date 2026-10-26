@@ -1,0 +1,57 @@
+{%- doc -%}
+Sengefabrikken: renders the available variants of a product from the product group as a list of radio options (see the
+product-group snippet).
+
+@param {object} group_product - the product from the group
+@param {string} input_name - the name shared by the radio inputs of the product
+{%- enddoc -%}
+
+<div class="product-group-option-list">
+  {%- for variant in group_product.variants -%}
+    {%- unless variant.available -%}
+      {%- continue -%}
+    {%- endunless -%}
+
+    {%- liquid
+      assign variant_title = variant.title | split: ' - '
+      assign variant_image = variant.featured_media | default: group_product.featured_media
+      assign is_upgrade = false
+
+      if variant.metafields.custom.upgrade != blank
+        assign is_upgrade = true
+      endif
+    -%}
+
+    <input class="sr-only" type="radio" id="{{ input_name }}-{{ variant.id }}" name="{{ input_name }}" value="{{ variant.id }}" data-label="{{ variant_title.first | escape }}" data-price="{{ variant.price }}" data-compare-at-price="{{ variant.compare_at_price | default: variant.price }}">
+
+    <label class="product-group-option {% if is_upgrade %}product-group-option--highlighted{% endif %}" for="{{ input_name }}-{{ variant.id }}">
+      {%- if variant_image != blank -%}
+        {{- variant_image | image_url: width: variant_image.width | image_tag: loading: 'lazy', sizes: '64px', widths: '64,128,192', class: 'product-group-option__image' -}}
+      {%- endif -%}
+
+      <span class="v-stack gap-1">
+        {%- if is_upgrade -%}
+          <span class="product-group-option__badge subheading">Opgradering</span>
+        {%- endif -%}
+
+        <span>{{ variant_title.first }}</span>
+
+        {%- if variant_title.size > 1 -%}
+          <span class="subheading text-subdued">{{ variant_title | slice: 1, 10 | join: ' - ' }}</span>
+        {%- endif -%}
+
+        {%- if variant.metafields.custom.ekstra_levering != blank -%}
+          <span class="subheading text-subdued">Leveringstid: {{ variant.metafields.custom.ekstra_levering }}</span>
+        {%- endif -%}
+      </span>
+
+      <span class="product-group-option__price v-stack">
+        <span>{{ variant.price | money }}</span>
+
+        {%- if variant.compare_at_price > variant.price -%}
+          <span class="text-subdued line-through">{{ variant.compare_at_price | money }}</span>
+        {%- endif -%}
+      </span>
+    </label>
+  {%- endfor -%}
+</div>

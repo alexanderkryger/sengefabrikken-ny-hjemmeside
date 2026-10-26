@@ -61,11 +61,24 @@ class ProductGroup extends HTMLElement {
       return;
     }
 
-    item.querySelector('[data-group-item-value]').textContent = event.target.getAttribute('data-label');
-    item.querySelector('[data-group-item-check]').hidden = false;
-    item.querySelector('[data-group-item-error]').hidden = true;
-
+    this.#updateRow(item.closest('[data-group-row]'));
     this.#updatePrice();
+  }
+
+  /**
+   * A row can hold several items (eg. the left and right firmness of a double bed): it shows the selected values, and
+   * is only marked as completed once every item of the row has a selected variant
+   */
+  #updateRow(row) {
+    const selectedInputs = this.items.filter((item) => item.closest('[data-group-row]') === row).map((item) => this.#getSelectedInput(item));
+    const isComplete = selectedInputs.every(Boolean);
+
+    row.querySelector('[data-group-row-value]').textContent = selectedInputs.filter(Boolean).map((input) => input.getAttribute('data-label')).join(' / ');
+    row.querySelector('[data-group-row-check]').hidden = !isComplete;
+
+    if (isComplete) {
+      row.querySelector('[data-group-row-error]').hidden = true;
+    }
   }
 
   #onVariantChange(event) {
@@ -91,8 +104,9 @@ class ProductGroup extends HTMLElement {
     event.preventDefault();
     event.stopPropagation();
 
-    missingItems.forEach((item) => item.querySelector('[data-group-item-error]').hidden = false);
-    missingItems[0].scrollIntoView({ behavior: 'smooth', block: 'center' });
+    const missingRows = [...new Set(missingItems.map((item) => item.closest('[data-group-row]')))];
+    missingRows.forEach((row) => row.querySelector('[data-group-row-error]').hidden = false);
+    missingRows[0].scrollIntoView({ behavior: 'smooth', block: 'center' });
   }
 
   #onFormData(event) {
