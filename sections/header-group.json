@@ -7,7 +7,7 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
- {
+{
   "type": "header",
   "name": "Header group",
   "sections": {
@@ -34,6 +34,7 @@
       "settings": {
         "color_scheme": "scheme-2",
         "enable_sticky": false,
+        "show_on_homepage_only": false,
         "autoplay": true,
         "cycle_speed": 5
       }
@@ -46,10 +47,13 @@
         "hide_on_scroll": true,
         "mobile_layout": "logo_left_navigation_right",
         "desktop_layout": "logo_left_navigation_center",
-        "logo": "{{shop.brand.logo}}",
+        "logo": "shopify://shop_images/Sengefabrikken_logo.svg",
         "logo_max_width": 120,
         "logo_mobile_max_width": 95,
-        "menu": "main-menu",
+        "menu": "main-menu-3-0",
+        "drawer_menu": "",
+        "secondary_menu": "",
+        "customer_account_menu": "customer-account-main-menu",
         "desktop_dropdown_menu_style": "below",
         "menu_open_trigger": "hover",
         "desktop_icon_size": 16,
@@ -58,7 +62,8 @@
         "show_country_name": false,
         "show_country_flag": true,
         "show_locale_selector": false,
-        "transparent_header_text_color": "#ffffff"
+        "transparent_header_text_color": "#ffffff",
+        "transparent_logo": "shopify://shop_images/Sengefabrikken_logo_hvid.svg"
       }
     }
   },
