@@ -62,6 +62,17 @@
             "icon": "picto-info"
           }
         },
+        "product_variations": {
+          "type": "product_variations",
+          "settings": {
+            "option_name": "Farve",
+            "option_value_metafield": "custom.farve_filter",
+            "products": [],
+            "products_metafield": "my_fields.mcolors",
+            "selector_style": "swatch",
+            "swatch_selector_size": "lg"
+          }
+        },
         "variant_picker": {
           "type": "variant_picker",
           "settings": {
@@ -73,6 +84,17 @@
             "block_selector_style": "outline",
             "variant_image_options": "",
             "size_chart_page": ""
+          }
+        },
+        "product_group": {
+          "type": "product_group",
+          "settings": {
+            "size_label": "Størrelse",
+            "upsale_title": "Spar op til 40% på tilbehør",
+            "upsale_image": "shopify://shop_images/imgi_48_1_Senges_t_Packshot_Cream_17.png",
+            "upsale_border_color": "#eea63c",
+            "upsale_heading": "Tilbud",
+            "upsale_text": "<p>Spar op til <strong>40%</strong> på tilbehør ved sengekøb</p>"
           }
         },
         "buy_buttons": {
@@ -88,6 +110,7 @@
             "payment_button_background": "",
             "payment_button_text_color": ""
           }
+<<<<<<< HEAD
         },
         "product_variations": {
           "type": "product_variations",
@@ -106,6 +129,8 @@
         "price_chain": {
           "type": "price_chain",
           "settings": {}
+=======
+>>>>>>> 83cff0efeefebbdc7a49646b0225e4e3857accf2
         }
       },
       "block_order": [
