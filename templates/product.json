@@ -88,6 +88,16 @@
             "payment_button_background": "",
             "payment_button_text_color": ""
           }
+        },
+        "product_variations": {
+          "type": "product_variations",
+          "settings": {
+            "option_name": "Farve",
+            "option_value_metafield": "custom.farve_filter",
+            "products_metafield": "my_fields.mcolors",
+            "selector_style": "swatch",
+            "swatch_selector_size": "lg"
+          }
         }
       },
       "block_order": [
@@ -100,6 +110,7 @@
         "separator",
         "description",
         "disclosures",
+        "product_variations",
         "variant_picker",
         "buy_buttons"
       ],

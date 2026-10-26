@@ -18,6 +18,7 @@ the "image_filter" type is only used for filters.
 @param {boolean} [show_swatch] - if set to true, show the colors as a small tile (block swatch specific)
 @param {string} [style] - the style of the active status. Can be "outline" or "fill" (block swatch specific)
 @param {object} [color_metaobject] - a color metaobject that is used when directly working with it instead of an option (color swatch specific)
+@param {string} [swatch_color] - Sengefabrikken: an explicit color used for the swatch when no swatch or color metaobject is available (color swatch specific)
 @param {string} [size] - can be "sm" for showing small swatches or thumbnails
 @param {string} [label] - an optional label overriding the default option value name
 @param {boolean} [show_tooltip] - if set to true, display a tooltip on hover (color swatch specific)
@@ -73,6 +74,8 @@ the "image_filter" type is only used for filters.
       assign swatch_style = '--swatch-background: url(' | append: swatch_image | append: ')'
     elsif swatch.color != blank
       assign swatch_style = '--swatch-background: linear-gradient(to right, ' | append: swatch.color | append: ', ' | append: swatch.color | append: ')'
+    elsif swatch_color != blank
+      assign swatch_style = '--swatch-background: linear-gradient(to right, ' | append: swatch_color | append: ', ' | append: swatch_color | append: ')'
     else
       # When color or image is not explicitly passed, we parse the config
       assign swatch_config = settings.color_swatch_config | newline_to_br | split: '<br />'

@@ -270,8 +270,19 @@ no need to manually pass the section as it is globally available)
           {%- when 'product_variations' -%}
             {%- liquid
               assign contains_product = false
+              assign product_variations = block.settings.products
 
-              for product_variation in block.settings.products
+              # Sengefabrikken: the variations can also come from a product list metafield (eg. my_fields.mcolors)
+              if block.settings.products_metafield != blank
+                assign products_metafield_parts = block.settings.products_metafield | split: '.'
+                assign product_variations = product.metafields[products_metafield_parts.first][products_metafield_parts.last].value
+
+                if product_variations != blank
+                  assign contains_product = true
+                endif
+              endif
+
+              for product_variation in product_variations
                 if product_variation == product
                   assign contains_product = true
                 endif
@@ -295,7 +306,7 @@ no need to manually pass the section as it is globally available)
                       <p class="text-subdued">{{ block.settings.option_name | escape }}:</p>
 
                       {%- if metafield.type == 'metaobject_reference' -%}
-                        <span>{{ product.metafields[metafield_namespace][metafield_key].value.label }}</span>
+                        <span>{{ metafield.value.farve_navn.value | default: metafield.value.label }}</span>
                       {%- else -%}
                         <span>{{ product.metafields[metafield_namespace][metafield_key].value }}</span>
                       {%- endif -%}
@@ -329,13 +340,18 @@ no need to manually pass the section as it is globally available)
 
                   <div class="variant-picker__option-values {{ list_classes }}">
                     {%- liquid
-                      for product_variation in block.settings.products
+                      for product_variation in product_variations
                         assign color_metaobject = nil
+                        assign swatch_color = nil
                         assign variation_metafield = product_variation.metafields[metafield_namespace][metafield_key]
 
                         if variation_metafield.type == 'metaobject_reference' and variation_metafield.value.system.type == 'shopify--color-pattern'
                           assign label = variation_metafield.value.label
                           assign color_metaobject = variation_metafield.value
+                        elsif variation_metafield.type == 'metaobject_reference' and variation_metafield.value.farve_navn != blank
+                          # Sengefabrikken: "farve_filter" metaobject with "farve_navn" and "swatch" fields
+                          assign label = variation_metafield.value.farve_navn.value
+                          assign swatch_color = variation_metafield.value.swatch.value
                         else
                           assign label = variation_metafield.value
                         endif
@@ -348,7 +364,7 @@ no need to manually pass the section as it is globally available)
 
                         case block.settings.selector_style
                           when 'swatch'
-                            render 'option-value', type: 'swatch', url: product_variation.url, label: label, color_metaobject: color_metaobject, selected: selected, size: block.settings.swatch_selector_size
+                            render 'option-value', type: 'swatch', url: product_variation.url, label: label, color_metaobject: color_metaobject, swatch_color: swatch_color, selected: selected, size: block.settings.swatch_selector_size
 
                           when 'variant_image'
                             render 'option-value', type: 'thumbnail', url: product_variation.url, label: label, image: product_variation.featured_media, selected: selected
@@ -357,7 +373,7 @@ no need to manually pass the section as it is globally available)
                             render 'option-value', type: 'block', url: product_variation.url, label: label, selected: selected
 
                           when 'block_swatch'
-                            render 'option-value', type: 'block', url: product_variation.url, label: label, color_metaobject: color_metaobject, selected: selected, show_swatch: true
+                            render 'option-value', type: 'block', url: product_variation.url, label: label, color_metaobject: color_metaobject, swatch_color: swatch_color, selected: selected, show_swatch: true
                         endcase
                       endfor
                     -%}
