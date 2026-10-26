@@ -54,9 +54,9 @@
       "scheme-1": {
         "settings": {
           "text_color": "#321e1e",
-          "background": "#FEFDF9",
+          "background": "#fefdf9",
           "background_gradient": "",
-          "secondary_background": "#ffffff",
+          "secondary_background": "#F1E4D3",
           "primary_button_background": "#321e1e",
           "primary_button_text_color": "#ffffff",
           "subheading_background": "",
