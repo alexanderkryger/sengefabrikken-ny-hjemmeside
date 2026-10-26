@@ -111,7 +111,7 @@
         "show_sticky_add_to_cart": true,
         "product_media_size": 50,
         "content_alignment": "left",
-        "desktop_media_layout": "grid_half_highlight_first",
+        "desktop_media_layout": "grid_half_highlight_alternating",
         "desktop_carousel_controls": "lines",
         "mobile_controls": "lines",
         "enable_media_autoplay": false,
