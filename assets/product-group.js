@@ -23,7 +23,8 @@ class ProductGroup extends HTMLElement {
 
     const { signal } = this.#abortController;
 
-    this.addEventListener('change', this.#onItemChange.bind(this), { signal });
+    // The theme's drawers are moved to the body while open, so the inputs are not always inside this element
+    document.addEventListener('change', this.#onItemChange.bind(this), { signal });
     document.addEventListener('submit', this.#onSubmit.bind(this), { capture: true, signal });
     document.addEventListener('formdata', this.#onFormData.bind(this), { capture: true, signal });
     document.addEventListener('variant:change', this.#onVariantChange.bind(this), { signal });
@@ -43,12 +44,18 @@ class ProductGroup extends HTMLElement {
     return Array.from(this.querySelectorAll('[data-group-item]'));
   }
 
+  #isProductForm(form) {
+    // Read the attribute, as "form.id" returns the input named "id" of the product form
+    return form?.getAttribute?.('id') === this.formId;
+  }
+
   #getSelectedInput(item) {
-    return item.querySelector('input[type="radio"]:checked');
+    return document.querySelector(`input[name="${item.getAttribute('data-input-name')}"]:checked`);
   }
 
   #onItemChange(event) {
-    const item = event.target.closest('[data-group-item]');
+    const inputName = event.target.getAttribute('name');
+    const item = inputName ? this.querySelector(`[data-group-item][data-input-name="${inputName}"]`) : null;
 
     if (!item) {
       return;
@@ -62,7 +69,7 @@ class ProductGroup extends HTMLElement {
   }
 
   #onVariantChange(event) {
-    if (event.detail.formId !== this.formId || !event.detail.variant) {
+    if (!this.#isProductForm(event.target) || !event.detail.variant) {
       return;
     }
 
@@ -71,7 +78,7 @@ class ProductGroup extends HTMLElement {
   }
 
   #onSubmit(event) {
-    if (event.target.id !== this.formId) {
+    if (!this.#isProductForm(event.target)) {
       return;
     }
 
@@ -89,7 +96,7 @@ class ProductGroup extends HTMLElement {
   }
 
   #onFormData(event) {
-    if (event.target.id !== this.formId) {
+    if (!this.#isProductForm(event.target)) {
       return;
     }
 

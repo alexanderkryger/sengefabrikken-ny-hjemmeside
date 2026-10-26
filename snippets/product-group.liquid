@@ -33,7 +33,7 @@ the cart together (linked through the "main" and "_ref" line item properties), a
         {%- capture drawer_id -%}product-group-drawer-{{ section.id }}-{{ group_product.id }}{%- endcapture -%}
         {%- capture input_name -%}product-group-{{ section.id }}-{{ group_product.id }}{%- endcapture -%}
 
-        <div class="accordion" data-group-item data-required data-price="{{ default_variant.price }}" data-compare-at-price="{{ default_variant.compare_at_price | default: default_variant.price }}">
+        <div class="accordion" data-group-item data-required data-input-name="{{ input_name }}" data-price="{{ default_variant.price }}" data-compare-at-price="{{ default_variant.compare_at_price | default: default_variant.price }}">
           <button type="button" class="accordion__summary w-full" aria-controls="{{ drawer_id }}" aria-expanded="false">
             <span class="h-stack wrap align-center gap-2">
               <span>{{ group_product.title }}</span>
