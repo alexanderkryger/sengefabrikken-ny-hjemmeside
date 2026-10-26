@@ -1,0 +1,119 @@
+{%- doc -%}
+Sengefabrikken: renders the products linked through the "custom.group" metafield. Each product with variants is shown as
+a row opening a drawer to pick a variant, while products without variants are always included. The <product-group>
+element adds the group items to the product form submission, so that the main product and its group items are added to
+the cart together (linked through the "main" and "_ref" line item properties), and shows the total in the price block.
+
+@param {object} product - the main product
+@param {string} product_form_id - the ID of the product form
+@param {object} [section]
+{%- enddoc -%}
+
+{%- assign group_products = product.metafields.custom.group.value -%}
+
+{%- if group_products != blank -%}
+  {%- assign main_variant = product.selected_or_first_available_variant -%}
+
+  <product-group class="product-group" form-id="{{ product_form_id }}" main-title="{{ product.title | escape }}" main-price="{{ main_variant.price }}" main-compare-at-price="{{ main_variant.compare_at_price | default: main_variant.price }}">
+    {%- for group_product in group_products -%}
+      {%- if group_product == product or group_product.available == false -%}
+        {%- continue -%}
+      {%- endif -%}
+
+      {%- assign default_variant = group_product.selected_or_first_available_variant -%}
+
+      {%- if group_product.has_only_default_variant -%}
+        <div class="accordion" data-group-item data-variant-id="{{ default_variant.id }}" data-price="{{ default_variant.price }}" data-compare-at-price="{{ default_variant.compare_at_price | default: default_variant.price }}">
+          <div class="accordion__summary">
+            <span>{{ group_product.title }}</span>
+            <span class="text-subdued">{{ default_variant.price | money }}</span>
+          </div>
+        </div>
+      {%- else -%}
+        {%- capture drawer_id -%}product-group-drawer-{{ section.id }}-{{ group_product.id }}{%- endcapture -%}
+        {%- capture input_name -%}product-group-{{ section.id }}-{{ group_product.id }}{%- endcapture -%}
+
+        <div class="accordion" data-group-item data-required data-price="{{ default_variant.price }}" data-compare-at-price="{{ default_variant.compare_at_price | default: default_variant.price }}">
+          <button type="button" class="accordion__summary w-full" aria-controls="{{ drawer_id }}" aria-expanded="false">
+            <span class="h-stack wrap gap-2">
+              <span>{{ group_product.title }}</span>
+              <span class="text-subdued" data-group-item-value></span>
+            </span>
+
+            {%- render 'icon' with 'chevron-right', direction_aware: true -%}
+          </button>
+
+          <p class="product-group__error text-error" data-group-item-error hidden>Vælg venligst {{ group_product.title | downcase }}</p>
+
+          <x-drawer id="{{ drawer_id }}" class="drawer color-scheme color-scheme--{{ settings.default_color_scheme.id }}">
+            <span class="h5" slot="header">{{ group_product.title }}</span>
+
+            <div class="v-stack gap-6">
+              {%- if group_product.description != blank -%}
+                <div class="prose">
+                  {{- group_product.description -}}
+                </div>
+              {%- endif -%}
+
+              <div class="product-group-option-list">
+                {%- for variant in group_product.variants -%}
+                  {%- unless variant.available -%}
+                    {%- continue -%}
+                  {%- endunless -%}
+
+                  {%- liquid
+                    assign variant_title = variant.title | split: ' - '
+                    assign variant_image = variant.featured_media | default: group_product.featured_media
+                    assign is_upgrade = false
+
+                    if variant.metafields.custom.upgrade != blank
+                      assign is_upgrade = true
+                    endif
+                  -%}
+
+                  <input class="sr-only" type="radio" id="{{ input_name }}-{{ variant.id }}" name="{{ input_name }}" value="{{ variant.id }}" data-label="{{ variant_title.first | escape }}" data-price="{{ variant.price }}" data-compare-at-price="{{ variant.compare_at_price | default: variant.price }}">
+
+                  <label class="product-group-option {% if is_upgrade %}product-group-option--highlighted{% endif %}" for="{{ input_name }}-{{ variant.id }}">
+                    {%- if variant_image != blank -%}
+                      {{- variant_image | image_url: width: variant_image.width | image_tag: loading: 'lazy', sizes: '64px', widths: '64,128,192', class: 'product-group-option__image' -}}
+                    {%- endif -%}
+
+                    <span class="v-stack gap-1">
+                      {%- if is_upgrade -%}
+                        <span class="product-group-option__badge subheading">Opgradering</span>
+                      {%- endif -%}
+
+                      <span>{{ variant_title.first }}</span>
+
+                      {%- if variant_title.size > 1 -%}
+                        <span class="subheading text-subdued">{{ variant_title | slice: 1, 10 | join: ' - ' }}</span>
+                      {%- endif -%}
+
+                      {%- if variant.metafields.custom.ekstra_levering != blank -%}
+                        <span class="subheading text-subdued">Leveringstid: {{ variant.metafields.custom.ekstra_levering }}</span>
+                      {%- endif -%}
+                    </span>
+
+                    <span class="product-group-option__price v-stack">
+                      <span>{{ variant.price | money }}</span>
+
+                      {%- if variant.compare_at_price > variant.price -%}
+                        <span class="text-subdued line-through">{{ variant.compare_at_price | money }}</span>
+                      {%- endif -%}
+                    </span>
+                  </label>
+                {%- endfor -%}
+              </div>
+            </div>
+
+            <dialog-close-button slot="footer" style="display: contents">
+              <button type="button" class="button w-full">Bekræft</button>
+            </dialog-close-button>
+          </x-drawer>
+        </div>
+      {%- endif -%}
+    {%- endfor -%}
+  </product-group>
+
+  <script type="module" src="{{ 'product-group.js' | asset_url }}"></script>
+{%- endif -%}

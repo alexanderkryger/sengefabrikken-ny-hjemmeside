@@ -63,6 +63,8 @@
   }
 </style>
 
+{{- 'product-group.css' | asset_url | stylesheet_tag -}}
+
 <div class="color-scheme color-scheme--{{ section.settings.color_scheme.id }}" {% if section.settings.allow_transparent_header and product.media.size > 0 %}allow-transparent-header{% endif %}>
   <div class="container">
     {%- capture product_form_id -%}product-form-main-{{ product.id }}-{{ section.id }}{%- endcapture -%}
@@ -484,6 +486,10 @@
             {
               "value": "dropdown",
               "label": "t:sections.main_product.blocks.variant_picker.selector_style_options.dropdown"
+            },
+            {
+              "value": "drawer",
+              "label": "Drawer"
             }
           ],
           "default": "block"
@@ -553,6 +559,17 @@
           "id": "size_chart_page",
           "label": "t:sections.main_product.blocks.variant_picker.size_chart_page",
           "info": "t:sections.main_product.blocks.variant_picker.size_chart_page_info"
+        }
+      ]
+    },
+    {
+      "type": "product_group",
+      "name": "Produktgruppe",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "paragraph",
+          "content": "Viser produkterne fra metafeltet custom.group. Produkter med varianter skal vælges i en drawer, før der kan lægges i kurv, og produkter uden varianter kommer automatisk med. Prisblokken viser totalen."
         }
       ]
     },

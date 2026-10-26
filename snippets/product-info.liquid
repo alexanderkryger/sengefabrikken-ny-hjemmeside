@@ -267,6 +267,11 @@ no need to manually pass the section as it is globally available)
                 -%}
             {%- endif -%}
 
+          {%- when 'product_group' -%}
+            {%- if product != blank -%}
+              {%- render 'product-group', product: product, product_form_id: product_form_id -%}
+            {%- endif -%}
+
           {%- when 'product_variations' -%}
             {%- liquid
               assign contains_product = false

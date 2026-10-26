@@ -67,7 +67,7 @@
           "settings": {
             "hide_sold_out_variants": false,
             "separate_options": false,
-            "selector_style": "block",
+            "selector_style": "drawer",
             "swatch_selector_style": "swatch",
             "swatch_selector_size": "lg",
             "block_selector_style": "outline",
@@ -98,6 +98,10 @@
             "selector_style": "swatch",
             "swatch_selector_size": "lg"
           }
+        },
+        "product_group": {
+          "type": "product_group",
+          "settings": {}
         }
       },
       "block_order": [
@@ -112,6 +116,7 @@
         "disclosures",
         "product_variations",
         "variant_picker",
+        "product_group",
         "buy_buttons"
       ],
       "settings": {

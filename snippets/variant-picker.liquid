@@ -6,7 +6,7 @@ Render the variant picker option selectors.
 @param {string} [form_id] - the ID of the form that is listening
 @param {boolean} [hide_sold_out_variants] - if set to true, the sold out or unavailable variants are hidden
 @param {boolean} [separate_options] - if set to true, consecutive options are separated by a border
-@param {string} [selector_style] - the selector style to use for the main selectors
+@param {string} [selector_style] - the selector style to use for the main selectors (Sengefabrikken: "drawer" opens each option in a drawer)
 @param {string} [swatch_selector_style] - the selector style to use for the dedicated swatch selectors
 @param {string} [swatch_selector_size] - the size for the color selectors. Can be either "sm" or "lg"
 @param {string} [block_selector_style] - the selector style to use for the dedicated block selectors
@@ -61,6 +61,7 @@ Render the variant picker option selectors.
       %}
 
       <fieldset class="variant-picker__option justify-{{ alignment }}">
+        {%- unless resolved_option_selector_style == 'drawer' -%}
         <div class="variant-picker__option-info {% if alignment == 'start' %}justify-between{% else %}justify-{{ alignment }}{% endif %}">
           <div class="h-stack gap-2">
             <legend class="text-subdued">{{ option.name }}:</legend>
@@ -83,8 +84,75 @@ Render the variant picker option selectors.
             </x-drawer>
           {%- endif -%}
         </div>
+        {%- endunless -%}
 
-        {%- if resolved_option_selector_style == 'dropdown' -%}
+        {%- if resolved_option_selector_style == 'drawer' -%}
+          {%- comment -%}Sengefabrikken: each option is shown as a row opening a drawer with the option values{%- endcomment -%}
+          {%- capture drawer_id -%}variant-drawer-{{ section.id }}-{{ product.id }}-{{ option.position }}{%- endcapture -%}
+          {%- assign param_name = form_id | append: '-option' | append: option.position -%}
+          {%- assign current_price = product.selected_or_first_available_variant.price -%}
+
+          <legend class="sr-only">{{ option.name }}</legend>
+
+          <div class="accordion">
+            <button type="button" class="accordion__summary w-full" aria-controls="{{ drawer_id }}" aria-expanded="false">
+              <span class="h-stack wrap gap-2">
+                <span>{{ option.name }}</span>
+                <span class="text-subdued">{{ option.selected_value }}</span>
+              </span>
+
+              {%- render 'icon' with 'chevron-right', direction_aware: true -%}
+            </button>
+          </div>
+
+          <x-drawer id="{{ drawer_id }}" class="drawer color-scheme color-scheme--{{ settings.default_color_scheme.id }}">
+            <span class="h5" slot="header">{{ option.name }}</span>
+
+            <div class="product-group-option-list">
+              {%- for option_value in option.values -%}
+                {%- if hide_sold_out_variants == false or option_value.available or option_value.selected -%}
+                  {%- liquid
+                    assign option_value_name = option_value.name | split: ' - '
+                    assign option_value_image = option_value.variant.featured_media
+                    assign price_difference = 0
+
+                    if option_value.variant != blank
+                      assign price_difference = option_value.variant.price | minus: current_price
+                    endif
+                  -%}
+
+                  <input class="sr-only" type="radio" id="{{ param_name }}-{{ option_value.id }}" form="{{ form_id }}" name="{{ param_name }}" {% if option_value.product_url != blank %}data-product-url="{{ option_value.product_url | escape }}"{% endif %} data-option-position="{{ option.position }}" value="{{ option_value.id }}" {% if option_value.selected %}checked{% endif %} {% if option_value.available == false %}disabled{% endif %}>
+
+                  <label class="product-group-option" for="{{ param_name }}-{{ option_value.id }}">
+                    {%- if option_value_image != blank -%}
+                      {{- option_value_image | image_url: width: option_value_image.width | image_tag: loading: 'lazy', sizes: '64px', widths: '64,128,192', class: 'product-group-option__image' -}}
+                    {%- endif -%}
+
+                    <span class="v-stack gap-1">
+                      <span>{{ option_value_name.first }}</span>
+
+                      {%- if option_value_name.size > 1 -%}
+                        <span class="subheading text-subdued">{{ option_value_name | slice: 1, 10 | join: ' - ' }}</span>
+                      {%- endif -%}
+                    </span>
+
+                    <span class="product-group-option__price">
+                      {%- if price_difference > 0 -%}
+                        + {{ price_difference | money }}
+                      {%- elsif price_difference < 0 -%}
+                        - {{ price_difference | abs | money }}
+                      {%- endif -%}
+                    </span>
+                  </label>
+                {%- endif -%}
+              {%- endfor -%}
+            </div>
+
+            <dialog-close-button slot="footer" style="display: contents">
+              <button type="button" class="button w-full">Bekræft</button>
+            </dialog-close-button>
+          </x-drawer>
+        {%- elsif resolved_option_selector_style == 'dropdown' -%}
           <div class="relative">
             {%- capture popover_id -%}popover-variant-dropdown-{{ section.id }}-{{ product.id }}-{{ option.position }}{%- endcapture -%}
 
