@@ -70,8 +70,11 @@ class ProductGroup extends HTMLElement {
    * is only marked as completed once every item of the row has a selected variant
    */
   #updateRow(row) {
-    const selectedInputs = this.items.filter((item) => item.closest('[data-group-row]') === row).map((item) => this.#getSelectedInput(item));
-    const isComplete = selectedInputs.every(Boolean);
+    const rowItems = this.items.filter((item) => item.closest('[data-group-row]') === row);
+    const selectedInputs = rowItems.map((item) => this.#getSelectedInput(item));
+
+    // Rows with optional items only (eg. accessories) are marked as completed as soon as one item is selected
+    const isComplete = rowItems.some((item) => item.hasAttribute('data-required')) ? selectedInputs.every(Boolean) : selectedInputs.some(Boolean);
 
     row.querySelector('[data-group-row-value]').textContent = selectedInputs.filter(Boolean).map((input) => input.getAttribute('data-label')).join(' / ');
     row.querySelector('[data-group-row-check]').hidden = !isComplete;
@@ -161,9 +164,9 @@ class ProductGroup extends HTMLElement {
     let price = this.#mainVariant.price;
     let compareAtPrice = this.#mainVariant.compare_at_price || this.#mainVariant.price;
 
-    // Items needing a choice are only added to the total once a variant is selected
+    // Required and optional items are only added to the total once a variant is selected
     this.items.forEach((item) => {
-      const source = item.hasAttribute('data-required') ? this.#getSelectedInput(item) : item;
+      const source = item.hasAttribute('data-required') || item.hasAttribute('data-optional') ? this.#getSelectedInput(item) : item;
 
       if (!source) {
         return;

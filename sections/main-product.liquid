@@ -16,6 +16,15 @@
     }
   {%- endif -%}
 
+  {%- comment -%}Sengefabrikken: border color of the accessories row of the product group block{%- endcomment -%}
+  {%- for block in section.blocks -%}
+    {%- if block.type == 'product_group' -%}
+      #shopify-section-{{ section.id }} {
+        --product-group-upsale-border-color: {{ block.settings.upsale_border_color.rgb }};
+      }
+    {%- endif -%}
+  {%- endfor -%}
+
   {%- comment -%}Sengefabrikken: gallery media and boxed product info follow the button border radius{%- endcomment -%}
   #shopify-section-{{ section.id }} .product-gallery__media {
     border-radius: var(--button-border-radius);
@@ -570,6 +579,50 @@
         {
           "type": "paragraph",
           "content": "Viser produkterne fra metafeltet custom.group. Produkter med varianter skal vælges i en drawer, før der kan lægges i kurv, og produkter uden varianter kommer automatisk med. Prisblokken viser totalen."
+        },
+        {
+          "type": "header",
+          "content": "Størrelse (on_product.size)"
+        },
+        {
+          "type": "text",
+          "id": "size_label",
+          "label": "Overskrift",
+          "default": "Størrelse"
+        },
+        {
+          "type": "header",
+          "content": "Tilbehør (custom.product_upsale)"
+        },
+        {
+          "type": "text",
+          "id": "upsale_title",
+          "label": "Tekst på knappen",
+          "default": "Spar op til 40% på tilbehør"
+        },
+        {
+          "type": "image_picker",
+          "id": "upsale_image",
+          "label": "Billede på knappen",
+          "info": "Hvis tomt bruges billedet fra det første tilbehør."
+        },
+        {
+          "type": "color",
+          "id": "upsale_border_color",
+          "label": "Kantfarve",
+          "default": "#eea63c"
+        },
+        {
+          "type": "text",
+          "id": "upsale_heading",
+          "label": "Overskrift i drawer",
+          "default": "Tilbud"
+        },
+        {
+          "type": "richtext",
+          "id": "upsale_text",
+          "label": "Tekst i drawer",
+          "default": "<p>Spar op til <strong>40%</strong> på tilbehør ved sengekøb</p>"
         }
       ]
     },

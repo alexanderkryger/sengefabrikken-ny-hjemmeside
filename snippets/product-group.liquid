@@ -8,14 +8,25 @@ Products whose titles only differ by a trailing number (eg. "Vælg Fasthed 1" an
 merged into a single row ("Vælg Fasthed") opening one drawer with a section per product. With two products, the
 sections are named "Venstre side" and "Højre side".
 
+Two other metafields are rendered as well:
+- "on_product.size": the same product in other sizes, shown as a row opening a drawer with links to each size (the name
+  comes from the "custom.size_name" metafield)
+- "custom.product_upsale": discounted accessories, shown as a highlighted row opening a drawer where several products can
+  be selected. Selected accessories are added to the cart with the group.
+
 @param {object} product - the main product
 @param {string} product_form_id - the ID of the product form
+@param {object} [block] - the product group block, holding the texts used for the accessories
 @param {object} [section]
 {%- enddoc -%}
 
-{%- assign group_products = product.metafields.custom.group.value -%}
+{%- liquid
+  assign group_products = product.metafields.custom.group.value
+  assign size_products = product.metafields.on_product.size.value
+  assign upsale_products = product.metafields.custom.product_upsale.value
+-%}
 
-{%- if group_products != blank -%}
+{%- if group_products != blank or size_products != blank or upsale_products != blank -%}
   {%- liquid
     assign main_variant = product.selected_or_first_available_variant
 
@@ -45,6 +56,64 @@ sections are named "Venstre side" and "Højre side".
   -%}
 
   <product-group class="product-group" form-id="{{ product_form_id }}" main-title="{{ product.title | escape }}" main-price="{{ main_variant.price }}" main-compare-at-price="{{ main_variant.compare_at_price | default: main_variant.price }}">
+    {%- comment -%}SIZES (on_product.size){%- endcomment -%}
+
+    {%- if size_products != blank -%}
+      {%- capture drawer_id -%}product-group-size-drawer-{{ section.id }}{%- endcapture -%}
+
+      <div class="accordion">
+        <button type="button" class="accordion__summary w-full" aria-controls="{{ drawer_id }}" aria-expanded="false">
+          <span class="h-stack wrap align-center gap-2">
+            <span>{{ block.settings.size_label | default: 'Størrelse' }}</span>
+            <span class="text-subdued">{{ product.metafields.custom.size_name.value | default: product.title }}</span>
+          </span>
+
+          {%- render 'icon' with 'chevron-right', direction_aware: true -%}
+        </button>
+
+        <x-drawer id="{{ drawer_id }}" class="drawer color-scheme color-scheme--{{ settings.default_color_scheme.id }}">
+          <span class="h5" slot="header">{{ block.settings.size_label | default: 'Størrelse' }}</span>
+
+          {%- liquid
+            assign size_list_contains_product = false
+
+            for size_product in size_products
+              if size_product == product
+                assign size_list_contains_product = true
+                break
+              endif
+            endfor
+          -%}
+
+          <div class="product-group-option-list">
+            {%- unless size_list_contains_product -%}
+              <span class="product-group-option is-selected" aria-current="page">
+                <span class="product-group-option__title">{{ product.metafields.custom.size_name.value | default: product.title }}</span>
+                <span class="product-group-option__price">{{ product.selected_or_first_available_variant.price | money }}</span>
+              </span>
+            {%- endunless -%}
+
+            {%- for size_product in size_products -%}
+              {%- if size_product == product -%}
+                <span class="product-group-option is-selected" aria-current="page">
+              {%- else -%}
+                <a href="{{ size_product.url }}" class="product-group-option">
+              {%- endif -%}
+                <span class="product-group-option__title">{{ size_product.metafields.custom.size_name.value | default: size_product.title }}</span>
+                <span class="product-group-option__price">{{ size_product.selected_or_first_available_variant.price | money }}</span>
+              {%- if size_product == product -%}
+                </span>
+              {%- else -%}
+                </a>
+              {%- endif -%}
+            {%- endfor -%}
+          </div>
+        </x-drawer>
+      </div>
+    {%- endif -%}
+
+    {%- comment -%}GROUP (custom.group){%- endcomment -%}
+
     {%- for group_product in group_products -%}
       {%- if group_product == product or group_product.available == false -%}
         {%- continue -%}
@@ -206,6 +275,95 @@ sections are named "Venstre side" and "Højre side".
         </div>
       {%- endif -%}
     {%- endfor -%}
+
+    {%- comment -%}ACCESSORIES (custom.product_upsale){%- endcomment -%}
+
+    {%- if upsale_products != blank -%}
+      {%- capture drawer_id -%}product-group-upsale-drawer-{{ section.id }}{%- endcapture -%}
+      {%- assign upsale_title = block.settings.upsale_title | default: 'Spar op til 40% på tilbehør' -%}
+      {%- assign upsale_image = block.settings.upsale_image | default: upsale_products.first.featured_media -%}
+
+      <div class="product-group-upsale" data-group-row>
+        {%- for upsale_product in upsale_products -%}
+          {%- if upsale_product.available -%}
+            {%- assign upsale_variant = upsale_product.selected_or_first_available_variant -%}
+            <span hidden data-group-item data-optional data-input-name="product-group-upsale-{{ section.id }}-{{ upsale_product.id }}" data-price="{{ upsale_variant.price }}" data-compare-at-price="{{ upsale_variant.compare_at_price | default: upsale_variant.price }}"></span>
+          {%- endif -%}
+        {%- endfor -%}
+
+        <button type="button" class="product-group-upsale__button" aria-controls="{{ drawer_id }}" aria-expanded="false">
+          {%- if upsale_image != blank -%}
+            {{- upsale_image | image_url: width: upsale_image.width | image_tag: loading: 'lazy', sizes: '48px', widths: '48,96,144', class: 'product-group-upsale__image' -}}
+          {%- endif -%}
+
+          <span class="v-stack gap-1 text-start">
+            <span>{{ upsale_title }}</span>
+            <span class="text-sm text-subdued" data-group-row-value></span>
+          </span>
+
+          <span class="product-group-check" data-group-row-check hidden>{%- render 'icon' with 'success-checkmark', width: 9 -%}</span>
+          {%- render 'icon' with 'chevron-right', direction_aware: true -%}
+        </button>
+
+        <p class="product-group__error text-error" data-group-row-error hidden></p>
+
+        <x-drawer id="{{ drawer_id }}" class="drawer color-scheme color-scheme--{{ settings.default_color_scheme.id }}">
+          <span class="h5" slot="header">{{ block.settings.upsale_heading | default: upsale_title }}</span>
+
+          <div class="v-stack gap-6">
+            {%- if block.settings.upsale_text != blank -%}
+              <div class="prose">
+                {{- block.settings.upsale_text -}}
+              </div>
+            {%- endif -%}
+
+            <div class="product-group-option-list">
+              {%- for upsale_product in upsale_products -%}
+                {%- unless upsale_product.available -%}
+                  {%- continue -%}
+                {%- endunless -%}
+
+                {%- liquid
+                  assign upsale_variant = upsale_product.selected_or_first_available_variant
+                  assign upsale_product_title = upsale_product.title | split: ' - '
+                  assign upsale_product_image = upsale_variant.featured_media | default: upsale_product.featured_media
+                -%}
+
+                {%- capture input_id -%}product-group-upsale-{{ section.id }}-{{ upsale_product.id }}{%- endcapture -%}
+
+                <input class="sr-only" type="checkbox" id="{{ input_id }}" name="{{ input_id }}" value="{{ upsale_variant.id }}" data-label="{{ upsale_product_title.first | escape }}" data-price="{{ upsale_variant.price }}" data-compare-at-price="{{ upsale_variant.compare_at_price | default: upsale_variant.price }}">
+
+                <label class="product-group-option" for="{{ input_id }}">
+                  {%- if upsale_product_image != blank -%}
+                    {{- upsale_product_image | image_url: width: upsale_product_image.width | image_tag: loading: 'lazy', sizes: '64px', widths: '64,128,192', class: 'product-group-option__image' -}}
+                  {%- endif -%}
+
+                  <span class="v-stack gap-1">
+                    <span>{{ upsale_product_title.first }}</span>
+
+                    {%- if upsale_product_title.size > 1 -%}
+                      <span class="subheading text-subdued">{{ upsale_product_title | slice: 1, 10 | join: ' - ' }}</span>
+                    {%- endif -%}
+                  </span>
+
+                  <span class="product-group-option__price v-stack">
+                    <span>{{ upsale_variant.price | money }}</span>
+
+                    {%- if upsale_variant.compare_at_price > upsale_variant.price -%}
+                      <span class="text-subdued line-through">{{ upsale_variant.compare_at_price | money }}</span>
+                    {%- endif -%}
+                  </span>
+                </label>
+              {%- endfor -%}
+            </div>
+          </div>
+
+          <dialog-close-button slot="footer" style="display: contents">
+            <button type="button" class="button w-full">Bekræft</button>
+          </dialog-close-button>
+        </x-drawer>
+      </div>
+    {%- endif -%}
   </product-group>
 
   <script type="module" src="{{ 'product-group.js' | asset_url }}"></script>

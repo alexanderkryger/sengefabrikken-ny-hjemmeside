@@ -269,7 +269,7 @@ no need to manually pass the section as it is globally available)
 
           {%- when 'product_group' -%}
             {%- if product != blank -%}
-              {%- render 'product-group', product: product, product_form_id: product_form_id -%}
+              {%- render 'product-group', product: product, product_form_id: product_form_id, block: block -%}
             {%- endif -%}
 
           {%- when 'product_variations' -%}
