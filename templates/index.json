@@ -27,22 +27,33 @@
             "overlay_opacity": 20
           },
           "blocks": {
-            "heading_Qy8Uf4": {
-              "type": "heading",
+            "logo_hNU9tj": {
+              "type": "logo",
+              "name": "Logo",
               "settings": {
-                "text": "Slide",
-                "heading_size": "h1",
-                "html_tag": "p",
-                "indent": "none",
-                "highlight_effect": "default",
-                "highlight_accent_color": "",
-                "highlight_text_color": ""
+                "logo": "shopify://shop_images/SF-staerke_priser.svg",
+                "logo_width": 400,
+                "mobile_logo_width": 110
+              },
+              "blocks": {}
+            },
+            "button_pBNrTP": {
+              "type": "button",
+              "name": "t:blocks.button.name",
+              "settings": {
+                "text": "Se alle favoritter her",
+                "url": "",
+                "open_in_new_tab": false,
+                "style": "solid",
+                "background": "#FDDC7A",
+                "text_color": "#650620"
               },
               "blocks": {}
             }
           },
           "block_order": [
-            "heading_Qy8Uf4"
+            "logo_hNU9tj",
+            "button_pBNrTP"
           ]
         },
         "slideshow-controls": {
