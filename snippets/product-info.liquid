@@ -10,6 +10,7 @@ no need to manually pass the section as it is globally available)
 @param {string} [content_alignment] - the alignment of the content
 @param {string} [context] - the context of the product info. Can be "main_product", "featured_product" or "quick_buy"
 @param {boolean} [boxed] - Sengefabrikken: if set to true, the block list is wrapped in a box (desktop only)
+@param {object} [box_color_scheme] - Sengefabrikken: the color scheme used for the box when boxed is true (desktop only)
 @param {object} [section]
 @param {object} [recommendations]
 {%- enddoc -%}
@@ -27,7 +28,7 @@ no need to manually pass the section as it is globally available)
 {%- assign alignment = content_alignment | replace: 'left', 'start' | replace: 'right', 'end' | default: 'start' -%}
 
 <safe-sticky class="product-info text-{{ alignment }}">
-  <div class="product-info__block-list {% if boxed %}product-info__block-list--boxed{% endif %}">
+  <div class="product-info__block-list {% if boxed %}product-info__block-list--boxed color-scheme color-scheme--{{ box_color_scheme.id }}{% endif %}">
     {%- liquid
       assign inside_block_group_context = false
       assign current_block_group_name = ''

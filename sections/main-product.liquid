@@ -23,9 +23,33 @@
   }
 
   {%- if section.settings.boxed_product_info -%}
+    {%- comment -%}On mobile the box is removed: the color scheme variables are reset so the product info keeps the section colors{%- endcomment -%}
+    @media screen and (max-width: 999px) {
+      #shopify-section-{{ section.id }} .product-info__block-list--boxed {
+        --accent: inherit;
+        --background: inherit;
+        --background-gradient: inherit;
+        --background-secondary: inherit;
+        --has-transparent-background: inherit;
+        --has-filled-background: inherit;
+        --text-color: inherit;
+        --border-color: inherit;
+        --subheading-background: inherit;
+        --subheading-border: inherit;
+        --subheading-text-color: inherit;
+        --subheading-has-padding: inherit;
+        --heading-highlight-accent-color: inherit;
+        --heading-highlight-text-color: inherit;
+        --button-background-primary: inherit;
+        --button-text-primary: inherit;
+        --input-background: inherit;
+        --input-text-color: inherit;
+        background: none;
+      }
+    }
+
     @media screen and (min-width: 1000px) {
       #shopify-section-{{ section.id }} .product-info__block-list--boxed {
-        background: rgb(var(--background-secondary));
         border-radius: var(--button-border-radius);
         padding: {{ section.settings.product_info_box_padding | divided_by: 16.0 }}rem;
       }
@@ -64,6 +88,7 @@
             product_form_id: product_form_id,
             content_alignment: section.settings.content_alignment,
             boxed: section.settings.boxed_product_info,
+            box_color_scheme: section.settings.product_info_box_color_scheme,
             context: 'main_product'
         -%}
       </div>
@@ -146,8 +171,15 @@
       "type": "checkbox",
       "id": "boxed_product_info",
       "label": "Vis produktinfo i en boks",
-      "info": "Kun på desktop. Boksen bruger farveskemaets sekundære baggrund og knappernes hjørneradius.",
+      "info": "Kun på desktop. Boksen bruger knappernes hjørneradius.",
       "default": false
+    },
+    {
+      "type": "color_scheme",
+      "id": "product_info_box_color_scheme",
+      "label": "Boksens farveskema",
+      "default": "scheme-2",
+      "visible_if": "{{ section.settings.boxed_product_info }}"
     },
     {
       "type": "range",
