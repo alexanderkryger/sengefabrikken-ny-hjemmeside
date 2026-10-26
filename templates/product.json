@@ -111,7 +111,7 @@
         "show_sticky_add_to_cart": true,
         "product_media_size": 50,
         "content_alignment": "left",
-        "boxed_product_info": true,
+        "boxed_product_info": false,
         "product_info_box_color_scheme": "scheme-4",
         "product_info_box_padding": 40,
         "desktop_media_layout": "grid_half_highlight_alternating",
