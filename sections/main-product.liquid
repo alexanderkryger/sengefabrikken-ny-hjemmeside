@@ -16,6 +16,20 @@
     }
   {%- endif -%}
 
+  {%- comment -%}Sengefabrikken: boxed product info{%- endcomment -%}
+  {%- if section.settings.boxed_product_info -%}
+    #shopify-section-{{ section.id }} .product-info__block-list--boxed {
+      padding: {{ section.settings.product_info_box_mobile_padding | divided_by: 16.0 }}rem;
+      border-radius: {{ section.settings.product_info_box_border_radius | divided_by: 16.0 }}rem;
+    }
+
+    @media screen and (min-width: 1000px) {
+      #shopify-section-{{ section.id }} .product-info__block-list--boxed {
+        padding: {{ section.settings.product_info_box_padding | divided_by: 16.0 }}rem;
+      }
+    }
+  {%- endif -%}
+
   @media screen and (min-width: 1000px) {
     #shopify-section-{{ section.id }} {
       --product-grid: auto / minmax(0, {{ section.settings.product_media_size | divided_by: 100.0 }}fr) minmax(0, {{ 100.0 | minus: section.settings.product_media_size | divided_by: 100.0 }}fr);
@@ -47,6 +61,8 @@
             product: product,
             product_form_id: product_form_id,
             content_alignment: section.settings.content_alignment,
+            boxed: section.settings.boxed_product_info,
+            box_color_scheme: section.settings.product_info_box_color_scheme,
             context: 'main_product'
         -%}
       </div>
@@ -124,6 +140,52 @@
       "type": "text_alignment",
       "id": "content_alignment",
       "label": "t:global.text.alignment"
+    },
+    {
+      "type": "checkbox",
+      "id": "boxed_product_info",
+      "label": "Vis produktinfo i en boks",
+      "default": false
+    },
+    {
+      "type": "color_scheme",
+      "id": "product_info_box_color_scheme",
+      "label": "Boksens farveskema",
+      "default": "scheme-2",
+      "visible_if": "{{ section.settings.boxed_product_info }}"
+    },
+    {
+      "type": "range",
+      "id": "product_info_box_padding",
+      "label": "Boksens indre afstand på desktop",
+      "min": 16,
+      "max": 64,
+      "step": 4,
+      "unit": "px",
+      "default": 40,
+      "visible_if": "{{ section.settings.boxed_product_info }}"
+    },
+    {
+      "type": "range",
+      "id": "product_info_box_mobile_padding",
+      "label": "Boksens indre afstand på mobil",
+      "min": 12,
+      "max": 40,
+      "step": 4,
+      "unit": "px",
+      "default": 20,
+      "visible_if": "{{ section.settings.boxed_product_info }}"
+    },
+    {
+      "type": "range",
+      "id": "product_info_box_border_radius",
+      "label": "Boksens hjørneradius",
+      "min": 0,
+      "max": 30,
+      "step": 2,
+      "unit": "px",
+      "default": 0,
+      "visible_if": "{{ section.settings.boxed_product_info }}"
     },
     {
       "type": "header",
