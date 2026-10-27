@@ -14,7 +14,9 @@
       "blocks": {
         "price_chain": {
           "type": "price_chain",
-          "settings": {}
+          "settings": {
+            "color_scheme": "scheme-5"
+          }
         },
         "vendor": {
           "type": "vendor",

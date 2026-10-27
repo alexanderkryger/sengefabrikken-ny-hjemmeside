@@ -13,8 +13,8 @@
     "button_border_radius": 6,
     "input_border_radius": 30,
     "dialog_backdrop_blur": 12,
-    "product_on_sale_accent": "#F6A429",
-    "product_sold_out_badge_background": "#321e1e",
+    "product_on_sale_accent": "#F2AA3C",
+    "product_sold_out_badge_background": "#2f1300",
     "product_custom_badge_background": "#ffffff",
     "text_font": "instrument_sans_n4",
     "text_font_size_mobile": 12,
@@ -54,36 +54,36 @@
     "color_schemes": {
       "scheme-1": {
         "settings": {
-          "text_color": "#321e1e",
+          "text_color": "#2f1300",
           "background": "#fefdf9",
           "background_gradient": "",
-          "secondary_background": "#F1E4D3",
-          "primary_button_background": "#321e1e",
+          "secondary_background": "#f1eeeb",
+          "primary_button_background": "#650621",
           "primary_button_text_color": "#ffffff",
           "subheading_background": "",
           "subheading_border_color": "",
-          "subheading_text_color": "#321e1e",
-          "heading_highlight_accent_color": "#321e1e",
+          "subheading_text_color": "#2f1300",
+          "heading_highlight_accent_color": "#650621",
           "heading_highlight_text_color": "#ffffff",
           "input_background": "#ffffff",
-          "input_text_color": "#321e1e"
+          "input_text_color": "#2f1300"
         }
       },
       "scheme-2": {
         "settings": {
-          "text_color": "#321e1e",
+          "text_color": "#2f1300",
           "background": "#ffffff",
           "background_gradient": "",
-          "secondary_background": "#faf4f0",
-          "primary_button_background": "#321e1e",
+          "secondary_background": "#faf7f4",
+          "primary_button_background": "#650621",
           "primary_button_text_color": "#ffffff",
           "subheading_background": "",
           "subheading_border_color": "",
-          "subheading_text_color": "#321e1e",
-          "heading_highlight_accent_color": "#321e1e",
+          "subheading_text_color": "#2f1300",
+          "heading_highlight_accent_color": "#650621",
           "heading_highlight_text_color": "#ffffff",
           "input_background": "#ffffff",
-          "input_text_color": "#321e1e"
+          "input_text_color": "#2f1300"
         }
       },
       "scheme-3": {
@@ -93,85 +93,120 @@
           "background_gradient": "",
           "secondary_background": "#f0f0f0",
           "primary_button_background": "#ffffff",
-          "primary_button_text_color": "#080912",
+          "primary_button_text_color": "#2f1300",
           "subheading_background": "",
           "subheading_border_color": "rgba(0,0,0,0)",
           "subheading_text_color": "#ffffff",
-          "heading_highlight_accent_color": "#030305",
+          "heading_highlight_accent_color": "#650621",
           "heading_highlight_text_color": "#ffffff",
           "input_background": "#ffffff",
-          "input_text_color": "#030305"
+          "input_text_color": "#2f1300"
         }
       },
       "scheme-4": {
         "settings": {
-          "text_color": "#faf4f0",
-          "background": "#321e1e",
+          "text_color": "#fefdf9",
+          "background": "#2f1300",
           "background_gradient": "",
-          "secondary_background": "#ffffff",
-          "primary_button_background": "#faf4f0",
-          "primary_button_text_color": "#321e1e",
+          "secondary_background": "#806f63",
+          "primary_button_background": "#f2aa3c",
+          "primary_button_text_color": "#2f1300",
           "subheading_background": "",
           "subheading_border_color": "",
-          "subheading_text_color": "#faf4f0",
-          "heading_highlight_accent_color": "#faf4f0",
-          "heading_highlight_text_color": "#321e1e",
-          "input_background": "#230f0f",
-          "input_text_color": "#ffffff"
+          "subheading_text_color": "#fefdf9",
+          "heading_highlight_accent_color": "#f2aa3c",
+          "heading_highlight_text_color": "#2f1300",
+          "input_background": "#fefdf9",
+          "input_text_color": "#2f1300"
         }
       },
       "scheme-5": {
         "settings": {
-          "text_color": "#321e1e",
-          "background": "#f1e4d3",
+          "text_color": "#2f1300",
+          "background": "#f1eeeb",
           "background_gradient": "",
           "secondary_background": "#ffffff",
-          "primary_button_background": "#321e1e",
+          "primary_button_background": "#650621",
           "primary_button_text_color": "#ffffff",
           "subheading_background": "",
           "subheading_border_color": "",
-          "subheading_text_color": "#321e1e",
-          "heading_highlight_accent_color": "#a32a1a",
+          "subheading_text_color": "#2f1300",
+          "heading_highlight_accent_color": "#650621",
           "heading_highlight_text_color": "#ffffff",
           "input_background": "#ffffff",
-          "input_text_color": "#321e1e"
+          "input_text_color": "#2f1300"
         }
       },
       "scheme-6": {
         "settings": {
           "text_color": "#ffffff",
-          "background": "#52572e",
+          "background": "#650621",
           "background_gradient": "",
-          "secondary_background": "#ffffff",
+          "secondary_background": "#480418",
           "primary_button_background": "#ffffff",
-          "primary_button_text_color": "#52572e",
+          "primary_button_text_color": "#650621",
           "subheading_background": "",
           "subheading_border_color": "",
           "subheading_text_color": "#ffffff",
-          "heading_highlight_accent_color": "#ffffff",
-          "heading_highlight_text_color": "#52572e",
+          "heading_highlight_accent_color": "#dcb7b9",
+          "heading_highlight_text_color": "#650621",
           "input_background": "#ffffff",
-          "input_text_color": "#52572e"
+          "input_text_color": "#650621"
         }
       },
       "scheme-7": {
         "settings": {
-          "text_color": "#ffffff",
-          "background": "#000000",
+          "text_color": "#2f1300",
+          "background": "#f2aa3c",
           "background_gradient": "",
-          "secondary_background": "#000000",
-          "primary_button_background": "#ffffff",
-          "primary_button_text_color": "#000000",
+          "secondary_background": "#ffdc7a",
+          "primary_button_background": "#2f1300",
+          "primary_button_text_color": "#ffffff",
           "subheading_background": "",
           "subheading_border_color": "",
-          "subheading_text_color": "#ffffff",
-          "heading_highlight_accent_color": "#ffffff",
+          "subheading_text_color": "#2f1300",
+          "heading_highlight_accent_color": "#650621",
           "heading_highlight_text_color": "#ffffff",
-          "input_background": "#000000",
-          "input_text_color": "#ffffff"
+          "input_background": "#ffffff",
+          "input_text_color": "#2f1300"
+        }
+      },
+      "scheme-8": {
+        "settings": {
+          "text_color": "#2f1300",
+          "background": "#f2f7fc",
+          "background_gradient": "",
+          "secondary_background": "#d9e8f5",
+          "primary_button_background": "#2f1300",
+          "primary_button_text_color": "#ffffff",
+          "subheading_background": "",
+          "subheading_border_color": "",
+          "subheading_text_color": "#2f1300",
+          "heading_highlight_accent_color": "#6da8de",
+          "heading_highlight_text_color": "#2f1300",
+          "input_background": "#ffffff",
+          "input_text_color": "#2f1300"
+        }
+      },
+      "scheme-9": {
+        "settings": {
+          "text_color": "#2f1300",
+          "background": "#dcb7b9",
+          "background_gradient": "",
+          "secondary_background": "#faf7f4",
+          "primary_button_background": "#650621",
+          "primary_button_text_color": "#ffffff",
+          "subheading_background": "",
+          "subheading_border_color": "",
+          "subheading_text_color": "#2f1300",
+          "heading_highlight_accent_color": "#650621",
+          "heading_highlight_text_color": "#ffffff",
+          "input_background": "#ffffff",
+          "input_text_color": "#2f1300"
         }
       }
-    }
+    },
+    "success_color": "#659A5F"
   },
   "installed_preset_name": "Stretch",
   "presets": {
