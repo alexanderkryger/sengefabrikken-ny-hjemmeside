@@ -35,6 +35,7 @@
         "color_scheme": "scheme-6",
         "enable_sticky": false,
         "show_on_homepage_only": false,
+        "show_arrows": false,
         "autoplay": true,
         "cycle_speed": 5
       }
@@ -58,7 +59,7 @@
         "menu_open_trigger": "hover",
         "desktop_icon_size": 16,
         "drawer_show_nested_menu_indicator": false,
-        "show_country_selector": true,
+        "show_country_selector": false,
         "show_country_name": false,
         "show_country_flag": true,
         "show_locale_selector": false,
