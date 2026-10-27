@@ -1,34 +1,93 @@
 {%- doc -%}
-Sengefabrikken: sticky button at the bottom of the collection page (mobile and desktop) that opens the filter drawer,
-showing the selected filter values below its text. It reuses the theme's floating button element, so it is only visible
-between the collection toolbar and the footer.
+Sengefabrikken: sticky button at the bottom of the collection page (mobile and desktop) that opens a popover to choose
+the size and the color, shown next to each other. Only the list filters based on a metafield are shown, and only one
+value can be selected per filter: each option links to the collection with the other values of the filter removed.
+
+The button reuses the theme's floating button element, so it is only visible between the collection toolbar and the
+footer.
 
 @param {object} data_source - the source from which the data is extracted (collection or search)
 {%- enddoc -%}
 
 {%- liquid
   assign active_filter_labels = '' | split: ''
+  assign picker_filters = '' | split: ''
 
   for filter in data_source.filters
+    if filter.type != 'list'
+      continue
+    endif
+
+    unless filter.param_name contains '.m.'
+      continue
+    endunless
+
+    assign filter_as_array = filter | sort
+    assign picker_filters = picker_filters | concat: filter_as_array
+
     for active_value in filter.active_values
       assign active_value_label = active_value.label | split: '~~~'
       assign active_filter_labels = active_filter_labels | concat: active_value_label
     endfor
   endfor
+
+  assign popover_id = 'collection-filter-popover-' | append: section.id
 -%}
 
-{{- 'collection-filter-bar.css' | asset_url | stylesheet_tag -}}
+{%- if picker_filters.size > 0 -%}
+  {{- 'collection-filter-bar.css' | asset_url | stylesheet_tag -}}
 
-{%- capture filter_bar_content -%}
-  <span class="v-stack">
-    <span>{{ section.settings.sticky_filter_text }}</span>
+  {%- capture filter_bar_content -%}
+    <span class="v-stack">
+      <span>{{ section.settings.sticky_filter_text }}</span>
 
-    {%- if active_filter_labels.size > 0 -%}
-      <span class="collection-filter-bar__values">{{ active_filter_labels | join: ' · ' }}</span>
-    {%- endif -%}
-  </span>
-{%- endcapture -%}
+      {%- if active_filter_labels.size > 0 -%}
+        <span class="collection-filter-bar__values">{{ active_filter_labels | join: ' · ' }}</span>
+      {%- endif -%}
+    </span>
+  {%- endcapture -%}
 
-<collection-facets-floating-button class="collection__floating-button collection-filter-bar">
-  {%- render 'button', type: 'button', content: filter_bar_content, size: 'xl', icon: 'filters', icon_position: 'before_text', stretch: true, aria_controls: 'facets-drawer' -%}
-</collection-facets-floating-button>
+  <collection-facets-floating-button class="collection__floating-button collection-filter-bar">
+    {%- render 'button', type: 'button', content: filter_bar_content, size: 'xl', icon: 'filters', icon_position: 'before_text', stretch: true, aria_controls: popover_id -%}
+
+    <x-popover id="{{ popover_id }}" class="popover collection-filter-popover color-scheme color-scheme--{{ settings.default_color_scheme.id }}" template="drawer-popover-default-template" preferred-position="above" close-on-listbox-change role="dialog">
+      <p slot="header" class="h6">{{ section.settings.sticky_filter_text }}</p>
+
+      <div class="collection-filter-popover__columns" style="--collection-filter-column-count: {{ picker_filters.size }}">
+        {%- for filter in picker_filters -%}
+          <div class="collection-filter-popover__column">
+            <p class="subheading text-subdued">{{ filter.label }}</p>
+
+            {%- liquid
+              if filter.url_to_remove contains '?'
+                assign filter_base_url = filter.url_to_remove | append: '&'
+              else
+                assign filter_base_url = filter.url_to_remove | append: '?'
+              endif
+            -%}
+
+            <div class="collection-filter-popover__options">
+              {%- for filter_value in filter.values -%}
+                {%- if filter_value.count == 0 and filter_value.active == false -%}
+                  {%- continue -%}
+                {%- endif -%}
+
+                {%- assign encoded_filter_value = filter_value.value | url_encode -%}
+
+                <a href="{{ filter_base_url }}{{ filter_value.param_name }}={{ encoded_filter_value }}#collection" class="collection-filter-option {% if filter_value.active %}is-selected{% endif %}" {% if filter_value.active %}aria-current="true"{% endif %}>
+                  {%- if filter_value.swatch.image != blank -%}
+                    <span class="collection-filter-option__swatch" style="background-image: url({{ filter_value.swatch.image | image_url: width: 40 }})"></span>
+                  {%- elsif filter_value.swatch.color != blank -%}
+                    <span class="collection-filter-option__swatch" style="background-color: {{ filter_value.swatch.color }}"></span>
+                  {%- endif -%}
+
+                  <span>{{ filter_value.label }}</span>
+                </a>
+              {%- endfor -%}
+            </div>
+          </div>
+        {%- endfor -%}
+      </div>
+    </x-popover>
+  </collection-facets-floating-button>
+{%- endif -%}

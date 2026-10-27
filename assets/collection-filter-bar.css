@@ -1,4 +1,4 @@
-/* Sengefabrikken: sticky filter button of the collection page (see the collection-filter-bar snippet) */
+/* Sengefabrikken: sticky filter button of the collection page and its popover (see the collection-filter-bar snippet) */
 
 .collection-filter-bar .button__content {
   text-align: start;
@@ -11,8 +11,86 @@
   text-transform: none;
 }
 
+.collection-filter-popover::part(content) {
+  border-radius: var(--button-border-radius) var(--button-border-radius) 0 0;
+}
+
+/* The close button comes first in the header of the popover template, it is moved after the title */
+.collection-filter-popover::part(close-button) {
+  grid-area: 1 / 2;
+}
+
+.collection-filter-popover__columns {
+  grid-template-columns: repeat(var(--collection-filter-column-count), minmax(0, 1fr));
+  gap: 1rem;
+  display: grid;
+}
+
+.collection-filter-popover__column {
+  align-content: start;
+  gap: .75rem;
+  display: grid;
+}
+
+.collection-filter-popover__options {
+  gap: .5rem;
+  display: grid;
+}
+
+.collection-filter-option {
+  border-radius: var(--button-border-radius);
+  background: rgb(var(--background-secondary));
+  text-align: center;
+  border: 1px solid #0000;
+  justify-content: center;
+  align-items: center;
+  gap: .5rem;
+  padding: .875rem 1rem;
+  transition: border-color .2s;
+  display: flex;
+}
+
+.collection-filter-option:hover {
+  border-color: rgb(var(--border-color));
+}
+
+.collection-filter-option.is-selected {
+  border-color: rgb(var(--accent));
+}
+
+.collection-filter-option__swatch {
+  border: 1px solid rgb(var(--text-color) / .15);
+  background-position: center;
+  background-size: cover;
+  border-radius: 50%;
+  flex-shrink: 0;
+  width: 1rem;
+  height: 1rem;
+}
+
 @media screen and (min-width: 1000px) {
   .collection-filter-bar {
     inset-block-end: 1.5rem;
+  }
+
+  .collection-filter-popover::part(content) {
+    border-radius: var(--button-border-radius);
+    width: min(36rem, 100vw - 2rem);
+    max-width: none;
+    max-height: min(36rem, 70vh);
+    padding: 0;
+    inset-inline-start: 50%;
+    translate: -50%;
+  }
+
+  .collection-filter-popover::part(header) {
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    padding: 1.25rem 1.5rem .5rem;
+    display: grid;
+  }
+
+  .collection-filter-popover::part(body) {
+    padding: .75rem 1.5rem 1.5rem;
   }
 }
