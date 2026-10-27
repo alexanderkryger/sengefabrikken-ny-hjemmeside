@@ -28,6 +28,11 @@
   }
 </style>
 
+{%- comment -%}Sengefabrikken: default filter values (eg. 180x200 and Sand){%- endcomment -%}
+{%- if show_filters -%}
+  {%- render 'collection-default-filters', data_source: collection -%}
+{%- endif -%}
+
 <div class="color-scheme color-scheme--{{ section.settings.color_scheme.id }}">
   {%- if collection.all_products_count == 0 -%}
     <div class="container">
@@ -75,7 +80,10 @@
           {%- endif -%}
         {%- endpaginate -%}
 
-        {%- if show_filters or section.settings.show_sort_by -%}
+        {%- comment -%}Sengefabrikken: the sticky filter button replaces the floating button of the theme{%- endcomment -%}
+        {%- if show_filters and section.settings.sticky_filter_button -%}
+          {%- render 'collection-filter-bar', data_source: collection -%}
+        {%- elsif show_filters or section.settings.show_sort_by -%}
           {%- render 'collection-facets-floating-button', data_source: collection -%}
         {%- endif -%}
       </div>
@@ -229,6 +237,37 @@ on desktop based on the settings
       "id": "open_filters_by_default",
       "label": "t:global.faceting.open_filters_by_default",
       "default": false
+    },
+    {
+      "type": "header",
+      "content": "Filtre (Sengefabrikken)"
+    },
+    {
+      "type": "checkbox",
+      "id": "only_metafield_filters",
+      "label": "Vis kun metafelt-filtre",
+      "info": "Skjuler filtre, der ikke bygger på et metafelt (fx pris, lager og varianter).",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "sticky_filter_button",
+      "label": "Vis fast filterknap i bunden",
+      "info": "Vises på både mobil og desktop og åbner filtrene.",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "sticky_filter_text",
+      "label": "Tekst på filterknap",
+      "default": "Vælg størrelse og farve"
+    },
+    {
+      "type": "text",
+      "id": "default_filter_values",
+      "label": "Standardfiltre",
+      "info": "Kommasepareret, fx \"180x200, Sand\". Vælges automatisk første gang en kunde åbner kollektionen.",
+      "default": "180x200, Sand"
     },
     {
       "type": "select",

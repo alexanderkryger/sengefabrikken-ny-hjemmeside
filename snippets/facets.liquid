@@ -61,6 +61,13 @@ Display the facets for a given resource.
     {%- endif -%}
 
     {%- for filter in source.filters -%}
+      {%- comment -%}Sengefabrikken: only the filters based on a metafield can be shown (eg. size and color){%- endcomment -%}
+      {%- if section.settings.only_metafield_filters -%}
+        {%- unless filter.param_name contains '.m.' -%}
+          {%- continue -%}
+        {%- endunless -%}
+      {%- endif -%}
+
       {%- if filter.param_name == 'filter.v.availability' -%}
         {%- comment -%}
         IMPLEMENTATION NOTE: we are doing an exception for the availability filter, where we display it differently

@@ -1,0 +1,70 @@
+{%- doc -%}
+Sengefabrikken: applies default filter values (eg. "180x200, Sand") the first time a customer opens a collection. When
+no filter is active, the page is reloaded with the filter values whose label matches the "default_filter_values" setting
+of the section. It only happens once per collection and browser session, so customers can still clear the filters.
+
+@param {object} data_source - the collection
+{%- enddoc -%}
+
+{%- liquid
+  assign default_filter_params = ''
+  assign has_active_filters = false
+  assign default_filter_values = section.settings.default_filter_values | downcase | split: ','
+
+  for filter in data_source.filters
+    if filter.active_values.size > 0
+      assign has_active_filters = true
+    endif
+
+    if filter.type != 'list'
+      continue
+    endif
+
+    for default_filter_raw_value in default_filter_values
+      assign default_filter_value = default_filter_raw_value | strip
+
+      if default_filter_value == blank
+        continue
+      endif
+
+      assign default_filter_match = false
+
+      for filter_value in filter.values
+        assign filter_value_label = filter_value.label | downcase
+
+        if filter_value_label contains default_filter_value and filter_value.count > 0
+          assign encoded_filter_value = filter_value.value | url_encode
+          assign default_filter_params = default_filter_params | append: '&' | append: filter_value.param_name | append: '=' | append: encoded_filter_value
+          assign default_filter_match = true
+          break
+        endif
+      endfor
+
+      if default_filter_match
+        break
+      endif
+    endfor
+  endfor
+-%}
+
+{%- if has_active_filters == false and default_filter_params != blank and request.design_mode == false -%}
+  <script>
+    (() => {
+      const storageKey = 'default-filters-{{ data_source.id }}';
+
+      try {
+        if (sessionStorage.getItem(storageKey)) {
+          return;
+        }
+
+        sessionStorage.setItem(storageKey, '1');
+      } catch (error) {
+        return;
+      }
+
+      const params = new URLSearchParams(window.location.search);
+      new URLSearchParams({{ default_filter_params | remove_first: '&' | json }}).forEach((value, key) => params.append(key, value));
+      window.location.replace(`${window.location.pathname}?${params.toString()}${window.location.hash}`);
+    })();
+  </script>
+{%- endif -%}

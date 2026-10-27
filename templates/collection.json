@@ -1,1 +1,21 @@
-{"sections":{"banner":{"type":"collection-banner","settings":{}},"main":{"type":"main-collection","settings":{}}},"order":["banner","main"]}
+{
+  "sections": {
+    "banner": {
+      "type": "collection-banner",
+      "settings": {}
+    },
+    "main": {
+      "type": "main-collection",
+      "settings": {
+        "only_metafield_filters": true,
+        "sticky_filter_button": true,
+        "sticky_filter_text": "Vælg størrelse og farve",
+        "default_filter_values": "180x200, Sand"
+      }
+    }
+  },
+  "order": [
+    "banner",
+    "main"
+  ]
+}

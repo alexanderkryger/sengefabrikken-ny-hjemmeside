@@ -1,0 +1,18 @@
+/* Sengefabrikken: sticky filter button of the collection page (see the collection-filter-bar snippet) */
+
+.collection-filter-bar .button__content {
+  text-align: start;
+}
+
+.collection-filter-bar__values {
+  opacity: .75;
+  font-size: .8125rem;
+  font-weight: normal;
+  text-transform: none;
+}
+
+@media screen and (min-width: 1000px) {
+  .collection-filter-bar {
+    inset-block-end: 1.5rem;
+  }
+}
