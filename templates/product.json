@@ -45,10 +45,6 @@
             "right_bar_4_size": 2
           }
         },
-        "vendor": {
-          "type": "vendor",
-          "settings": {}
-        },
         "title": {
           "type": "title",
           "settings": {
@@ -148,7 +144,6 @@
       },
       "block_order": [
         "price_chain",
-        "vendor",
         "title",
         "badges",
         "price",
