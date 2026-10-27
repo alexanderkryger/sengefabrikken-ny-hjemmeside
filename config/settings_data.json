@@ -17,7 +17,9 @@
     "product_sold_out_badge_background": "#2f1300",
     "product_custom_badge_background": "#ffffff",
     "success_color": "#659A5F",
-    "text_font": "instrument_sans_n4",
+    "vicky_font_usage": "all_headings",
+    "vicky_font_weight": "500",
+    "text_font": "montserrat_n4",
     "text_font_size_mobile": 12,
     "text_font_size_desktop": 13,
     "text_font_text_transform": "normal",
@@ -30,9 +32,10 @@
     "subheading_font": "instrument_sans_n5",
     "subheading_text_transform": "none",
     "subheading_icon": "circle",
+    "button_text_font": "body",
     "button_font_size_mobile": 12,
     "button_font_size_desktop": 13,
-    "button_text_transform": "lowercase",
+    "button_text_transform": "none",
     "heading_default_highlight_effect": "underline_pencil",
     "currency_code_enabled": false,
     "button_animation": "up",
@@ -207,9 +210,7 @@
           "input_text_color": "#2f1300"
         }
       }
-    },
-    "vicky_font_usage": "all_headings",
-    "vicky_font_weight": "400"
+    }
   },
   "installed_preset_name": "Stretch",
   "presets": {
