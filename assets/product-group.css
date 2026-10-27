@@ -187,3 +187,9 @@
     position: relative;
   }
 }
+
+/* Sengefabrikken: the simplified product title keeps the capitalization of the product title (headings are lowercased) */
+
+.product-title--simplified {
+  text-transform: none;
+}

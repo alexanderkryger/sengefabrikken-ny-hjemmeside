@@ -147,11 +147,11 @@ no need to manually pass the section as it is globally available)
             {%- endif -%}
 
             {%- if request.page_type == 'product' and context == 'main_product' -%}
-              <h1 class="product-title {{ block.settings.heading_tag }}">
+              <h1 class="product-title {% if block.settings.simplify_title %}product-title--simplified{% endif %} {{ block.settings.heading_tag }}">
                 {{- product_title -}}
               </h1>
             {%- else -%}
-              <h2 class="product-title {% if context == 'quick_buy' %}h4{% else %}{{ block.settings.heading_tag }}{% endif %}">
+              <h2 class="product-title {% if block.settings.simplify_title %}product-title--simplified{% endif %} {% if context == 'quick_buy' %}h4{% else %}{{ block.settings.heading_tag }}{% endif %}">
                 <a href="{{ product.url }}">{{ product_title }}</a>
               </h2>
             {%- endif -%}
