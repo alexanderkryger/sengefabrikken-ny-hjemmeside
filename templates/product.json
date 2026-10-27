@@ -48,11 +48,11 @@
         "title": {
           "type": "title",
           "settings": {
-            "heading_tag": "h3",
+            "heading_tag": "h5",
             "simplify_title": true,
             "show_price": true,
             "show_splash": true,
-            "price_size": "h4"
+            "price_size": "h5"
           }
         },
         "badges": {

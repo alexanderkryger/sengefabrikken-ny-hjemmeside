@@ -204,7 +204,12 @@ class ProductGroup extends HTMLElement {
   }
 }
 
+// Like the "money_without_trailing_zeros" filter, the decimals are removed when they are zero
 function formatMoney(cents) {
+  return formatMoneyWithDecimals(cents).replace(/[.,]00(?!\d)/, '');
+}
+
+function formatMoneyWithDecimals(cents) {
   const settings = window.themeVariables.settings;
   const format = settings.currencyCodeEnabled ? settings.moneyWithCurrencyFormat : settings.moneyFormat;
 
