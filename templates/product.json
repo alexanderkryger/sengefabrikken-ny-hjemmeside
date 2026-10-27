@@ -15,7 +15,34 @@
         "price_chain": {
           "type": "price_chain",
           "settings": {
-            "color_scheme": "scheme-5"
+            "title": "Hvorfor er vores priser så lave?",
+            "open": false,
+            "color_scheme": "scheme-6",
+            "heading": "Vi giver besparelserne videre til dig!",
+            "content": "<p>Det er kun dig og os. Vi har ingen forhandlere eller fysiske butikker. Det giver dig den bedste kombination af kvalitet, design og service – til priser, der ellers ville være umulige.</p>",
+            "left_label": "Sengefabrikken",
+            "left_bar_1_label": "Produkt",
+            "left_bar_1_color": "#5e0b23",
+            "left_bar_1_size": 3,
+            "left_bar_2_label": "Kundeservice",
+            "left_bar_2_color": "#eea63c",
+            "left_bar_2_size": 1,
+            "left_bar_3_label": "",
+            "left_bar_3_color": "#eea63c",
+            "left_bar_3_size": 1,
+            "right_label": "Sengebranchen",
+            "right_bar_1_label": "Produkt",
+            "right_bar_1_color": "#2f1300",
+            "right_bar_1_size": 3,
+            "right_bar_2_label": "Brand",
+            "right_bar_2_color": "#7a7a7a",
+            "right_bar_2_size": 2,
+            "right_bar_3_label": "Forhandler",
+            "right_bar_3_color": "#a8a8a8",
+            "right_bar_3_size": 1,
+            "right_bar_4_label": "Fysisk butik",
+            "right_bar_4_color": "#4a4a4a",
+            "right_bar_4_size": 2
           }
         },
         "vendor": {
@@ -25,7 +52,8 @@
         "title": {
           "type": "title",
           "settings": {
-            "heading_tag": "h3"
+            "heading_tag": "h3",
+            "simplify_title": true
           }
         },
         "badges": {
@@ -143,7 +171,7 @@
         "product_media_size": 60,
         "content_alignment": "left",
         "boxed_product_info": true,
-        "product_info_box_color_scheme": "scheme-4",
+        "product_info_box_color_scheme": "scheme-5",
         "product_info_box_padding": 40,
         "desktop_media_layout": "grid_half_highlight_alternating",
         "desktop_carousel_controls": "lines",
