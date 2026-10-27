@@ -15,9 +15,16 @@
   border-radius: var(--button-border-radius) var(--button-border-radius) 0 0;
 }
 
-/* The close button comes first in the header of the popover template, it is moved after the title */
+/* The close button is placed in the upper right corner of the popover */
 .collection-filter-popover::part(close-button) {
-  grid-area: 1 / 2;
+  z-index: 1;
+  position: absolute;
+  inset-block-start: 1rem;
+  inset-inline-end: 1rem;
+}
+
+.collection-filter-popover::part(header) {
+  padding-inline-end: 4rem;
 }
 
 .collection-filter-popover__columns {
@@ -84,10 +91,8 @@
   }
 
   .collection-filter-popover::part(header) {
-    grid-template-columns: minmax(0, 1fr) auto;
-    align-items: center;
-    padding: 1.25rem 1.5rem .5rem;
-    display: grid;
+    padding: 1.25rem 4rem .5rem 1.5rem;
+    display: block;
   }
 
   .collection-filter-popover::part(body) {

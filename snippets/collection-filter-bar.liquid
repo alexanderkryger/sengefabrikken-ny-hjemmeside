@@ -1,6 +1,7 @@
 {%- doc -%}
 Sengefabrikken: sticky button at the bottom of the collection page (mobile and desktop) that opens a popover to choose
-the size and the color, shown next to each other. Only the list filters based on a metafield are shown, and only one
+the size and the color, shown next to each other. Only the list filters based on a metafield, whose name is listed in the "picker_filter_labels"
+setting, are shown, and only one
 value can be selected per filter: each option links to the collection with the other values of the filter removed.
 
 The button reuses the theme's floating button element, so it is only visible between the collection toolbar and the
@@ -12,6 +13,14 @@ footer.
 {%- liquid
   assign active_filter_labels = '' | split: ''
   assign picker_filters = '' | split: ''
+  assign picker_filter_labels = '' | split: ''
+
+  assign picker_filter_raw_labels = section.settings.picker_filter_labels | split: ','
+
+  for picker_filter_raw_label in picker_filter_raw_labels
+    assign picker_filter_label = picker_filter_raw_label | downcase | strip | split: '~~~'
+    assign picker_filter_labels = picker_filter_labels | concat: picker_filter_label
+  endfor
 
   for filter in data_source.filters
     if filter.type != 'list'
@@ -21,6 +30,14 @@ footer.
     unless filter.param_name contains '.m.'
       continue
     endunless
+
+    assign filter_label = filter.label | downcase | strip
+
+    if picker_filter_labels.size > 0
+      unless picker_filter_labels contains filter_label
+        continue
+      endunless
+    endif
 
     assign filter_as_array = filter | sort
     assign picker_filters = picker_filters | concat: filter_as_array

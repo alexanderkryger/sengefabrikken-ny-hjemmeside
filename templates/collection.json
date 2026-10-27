@@ -10,7 +10,8 @@
         "only_metafield_filters": true,
         "sticky_filter_button": true,
         "sticky_filter_text": "Vælg størrelse og farve",
-        "default_filter_values": "180x200, Sand"
+        "default_filter_values": "180x200, Sand",
+        "picker_filter_labels": "Størrelse, Farve"
       }
     }
   },
