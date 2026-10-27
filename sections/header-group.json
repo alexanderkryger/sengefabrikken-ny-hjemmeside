@@ -35,6 +35,7 @@
         "color_scheme": "scheme-6",
         "enable_sticky": false,
         "show_on_homepage_only": false,
+        "show_arrows": false,
         "autoplay": true,
         "cycle_speed": 5
       }
