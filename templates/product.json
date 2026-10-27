@@ -130,9 +130,9 @@
         "buy_buttons": {
           "type": "buy_buttons",
           "settings": {
-            "show_payment_button": true,
+            "show_payment_button": false,
             "show_gift_card_recipient": true,
-            "show_quantity_selector": true,
+            "show_quantity_selector": false,
             "add_quantity_selector_spacing": true,
             "atc_button_style": "solid",
             "atc_button_background": "",
