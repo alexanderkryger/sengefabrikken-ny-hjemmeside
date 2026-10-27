@@ -292,6 +292,34 @@
     "settings": [
       {
         "type": "header",
+        "content": "Vicky (Sengefabrikken)"
+      },
+      {
+        "type": "select",
+        "id": "vicky_font_usage",
+        "label": "Brug Vicky til",
+        "info": "Fonten er uploadet i temaets assets. Størrelse, bogstavafstand og store/små bogstaver følger indstillingerne for overskrifter.",
+        "options": [
+          { "value": "none", "label": "Ingen" },
+          { "value": "product_title", "label": "Produkttitel" },
+          { "value": "all_headings", "label": "Alle overskrifter" }
+        ],
+        "default": "none"
+      },
+      {
+        "type": "select",
+        "id": "vicky_font_weight",
+        "label": "Vicky – tykkelse",
+        "options": [
+          { "value": "400", "label": "Regular" },
+          { "value": "500", "label": "Medium" },
+          { "value": "600", "label": "SemiBold" },
+          { "value": "700", "label": "Bold" }
+        ],
+        "default": "400"
+      },
+      {
+        "type": "header",
         "content": "t:theme_settings.typography.body_text_category"
       },
       {

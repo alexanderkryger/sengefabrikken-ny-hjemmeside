@@ -1,0 +1,57 @@
+{%- doc -%}
+Sengefabrikken: loads the Vicky font (uploaded in the assets folder) and uses it for the product title or all the headings,
+depending on the "vicky_font_usage" theme setting. It overrides the heading font variables of the theme, so the font
+size, letter spacing and text transform settings of the headings still apply.
+{%- enddoc -%}
+
+{%- if settings.vicky_font_usage != 'none' -%}
+  <link rel="preload" href="{{ 'vicky-regular.woff2' | asset_url }}" as="font" type="font/woff2" crossorigin>
+
+  <style>
+    @font-face {
+      font-family: Vicky;
+      src: url({{ 'vicky-regular.woff2' | asset_url }}) format('woff2');
+      font-weight: 400;
+      font-style: normal;
+      font-display: fallback;
+    }
+
+    @font-face {
+      font-family: Vicky;
+      src: url({{ 'vicky-italic.woff2' | asset_url }}) format('woff2');
+      font-weight: 400;
+      font-style: italic;
+      font-display: fallback;
+    }
+
+    @font-face {
+      font-family: Vicky;
+      src: url({{ 'vicky-medium.woff2' | asset_url }}) format('woff2');
+      font-weight: 500;
+      font-style: normal;
+      font-display: fallback;
+    }
+
+    @font-face {
+      font-family: Vicky;
+      src: url({{ 'vicky-semibold.woff2' | asset_url }}) format('woff2');
+      font-weight: 600;
+      font-style: normal;
+      font-display: fallback;
+    }
+
+    @font-face {
+      font-family: Vicky;
+      src: url({{ 'vicky-bold.woff2' | asset_url }}) format('woff2');
+      font-weight: 700;
+      font-style: normal;
+      font-display: fallback;
+    }
+
+    {% if settings.vicky_font_usage == 'all_headings' %}:root{% else %}.product-title{% endif %} {
+      --heading-font-family: Vicky, {{ settings.heading_font.family }}, {{ settings.heading_font.fallback_families }};
+      --heading-font-weight: {{ settings.vicky_font_weight }};
+      --heading-font-style: normal;
+    }
+  </style>
+{%- endif -%}

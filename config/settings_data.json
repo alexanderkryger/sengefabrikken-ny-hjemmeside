@@ -207,7 +207,9 @@
           "input_text_color": "#2f1300"
         }
       }
-    }
+    },
+    "vicky_font_usage": "product_title",
+    "vicky_font_weight": "400"
   },
   "installed_preset_name": "Stretch",
   "presets": {
