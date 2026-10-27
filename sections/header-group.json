@@ -17,13 +17,13 @@
         "message-1": {
           "type": "message",
           "settings": {
-            "text": "New: discover our latest products"
+            "text": "Danskproducerede kvalitetssenge"
           }
         },
         "message-2": {
           "type": "message",
           "settings": {
-            "text": "Free shipping"
+            "text": "100 dages prøve"
           }
         }
       },
@@ -31,9 +31,8 @@
         "message-1",
         "message-2"
       ],
-      "disabled": true,
       "settings": {
-        "color_scheme": "scheme-2",
+        "color_scheme": "scheme-6",
         "enable_sticky": false,
         "show_on_homepage_only": false,
         "autoplay": true,
