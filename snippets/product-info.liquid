@@ -28,6 +28,17 @@ no need to manually pass the section as it is globally available)
 {%- assign alignment = content_alignment | replace: 'left', 'start' | replace: 'right', 'end' | default: 'start' -%}
 
 <safe-sticky class="product-info text-{{ alignment }}">
+  {%- comment -%}Sengefabrikken: the price comparison is shown as a tab on top of the block list, whatever its position{%- endcomment -%}
+  {%- if context == 'main_product' -%}
+    {%- for block in section.blocks -%}
+      {%- if block.type == 'price_chain' -%}
+        <div class="product-info__price-chain color-scheme color-scheme--{{ block.settings.color_scheme.id }}" {{ block.shopify_attributes }}>
+          {%- render 'price-chain', block: block -%}
+        </div>
+      {%- endif -%}
+    {%- endfor -%}
+  {%- endif -%}
+
   <div class="product-info__block-list {% if boxed %}product-info__block-list--boxed color-scheme color-scheme--{{ box_color_scheme.id }}{% endif %}">
     {%- liquid
       assign inside_block_group_context = false
@@ -48,6 +59,11 @@ no need to manually pass the section as it is globally available)
     -%}
 
     {%- for block in filtered_blocks -%}
+      {%- comment -%}Sengefabrikken: the price comparison is rendered above the block list{%- endcomment -%}
+      {%- if block.type == 'price_chain' -%}
+        {%- continue -%}
+      {%- endif -%}
+
       {% liquid
         assign next_block_index = forloop.index0 | plus: 1
         assign next_block = filtered_blocks[next_block_index]
@@ -266,10 +282,6 @@ no need to manually pass the section as it is globally available)
                   size_chart_page: block.settings.size_chart_page 
                 -%}
             {%- endif -%}
-
-          {%- when 'price_chain' -%}
-            {%- comment -%}Sengefabrikken: price comparison (see the price-chain snippet){%- endcomment -%}
-            {%- render 'price-chain', block: block -%}
 
           {%- when 'product_group' -%}
             {%- if product != blank -%}

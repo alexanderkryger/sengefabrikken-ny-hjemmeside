@@ -155,3 +155,35 @@
     gap: 2rem;
   }
 }
+
+/* Sengefabrikken: the price comparison tab on top of the product info (on desktop, the box overlaps its rounded end) */
+
+.product-info__price-chain {
+  border-radius: var(--button-border-radius);
+  margin-block-end: 1.5rem;
+  overflow: hidden;
+}
+
+.price-chain-accordion {
+  --accordion-inline-padding: 1rem;
+  box-shadow: none;
+}
+
+@media screen and (min-width: 700px) {
+  .price-chain-accordion {
+    --accordion-inline-padding: 1.75rem;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .product-info__price-chain:has(+ .product-info__block-list--boxed) {
+    border-end-start-radius: 0;
+    border-end-end-radius: 0;
+    margin-block-end: calc(-1 * var(--button-border-radius));
+    padding-block-end: var(--button-border-radius);
+  }
+
+  .product-info__price-chain + .product-info__block-list--boxed {
+    position: relative;
+  }
+}
