@@ -22,7 +22,8 @@
         {%- assign carousel_id = 'carousel-' | append: section.id -%}
 
         <announcement-bar id="{{ carousel_id }}" allow-swipe cell-selector=".announcement-bar__message-list > *" {% if section.settings.autoplay %}autoplay="{{ section.settings.cycle_speed }}"{% endif %} class="announcement-bar">
-          {%- if section.blocks.size > 1 -%}
+          {%- comment -%}Sengefabrikken: the arrows can be hidden{%- endcomment -%}
+          {%- if section.blocks.size > 1 and section.settings.show_arrows -%}
             <carousel-prev-button aria-controls="{{ carousel_id }}">
               <button type="button" class="tap-area">
                 <span class="sr-only">{{ 'general.accessibility.previous' | t }}</span>
@@ -41,7 +42,8 @@
             {%- endfor -%}
           </div>
 
-          {%- if section.blocks.size > 1 -%}
+          {%- comment -%}Sengefabrikken: the arrows can be hidden{%- endcomment -%}
+          {%- if section.blocks.size > 1 and section.settings.show_arrows -%}
             <carousel-next-button aria-controls="{{ carousel_id }}">
               <button type="button" class="tap-area">
                 <span class="sr-only">{{ 'general.accessibility.next' | t }}</span>
@@ -86,6 +88,13 @@
       "id": "show_on_homepage_only",
       "label": "t:sections.announcement_bar.show_on_homepage_only",
       "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "show_arrows",
+      "label": "Vis pile",
+      "info": "Uden pile skifter beskederne kun automatisk (slå automatisk skift til) eller ved swipe på mobil.",
+      "default": true
     },
     {
       "type": "checkbox",
