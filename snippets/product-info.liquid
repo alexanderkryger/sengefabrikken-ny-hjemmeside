@@ -146,6 +146,7 @@ no need to manually pass the section as it is globally available)
               {%- assign product_title = product_title | split: ' | ' | first | strip | split: ' - ' | join: '<br>' -%}
             {%- endif -%}
 
+            {%- capture product_title_html -%}
             {%- if request.page_type == 'product' and context == 'main_product' -%}
               <h1 class="product-title {% if block.settings.simplify_title %}product-title--simplified{% endif %} {{ block.settings.heading_tag }}">
                 {{- product_title -}}
@@ -154,6 +155,14 @@ no need to manually pass the section as it is globally available)
               <h2 class="product-title {% if block.settings.simplify_title %}product-title--simplified{% endif %} {% if context == 'quick_buy' %}h4{% else %}{{ block.settings.heading_tag }}{% endif %}">
                 <a href="{{ product.url }}">{{ product_title }}</a>
               </h2>
+            {%- endif -%}
+            {%- endcapture -%}
+
+            {%- comment -%}Sengefabrikken: the price can be shown next to the title (see the product-title-price snippet){%- endcomment -%}
+            {%- if block.settings.show_price and product != blank and context != 'quick_buy' -%}
+              {%- render 'product-title-price', product: product, block: block, title: product_title_html -%}
+            {%- else -%}
+              {{- product_title_html -}}
             {%- endif -%}
 
           {%- when 'sku' -%}
@@ -692,6 +701,11 @@ no need to manually pass the section as it is globally available)
         assign allow_partial_rerender = false
 
         if block_types_allowing_partial_rerender contains block.type
+          assign allow_partial_rerender = true
+        endif
+
+        # Sengefabrikken: the title block holds the price when "show_price" is enabled
+        if block.type == 'title' and block.settings.show_price
           assign allow_partial_rerender = true
         endif
       -%}

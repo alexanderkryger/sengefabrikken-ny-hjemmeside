@@ -176,16 +176,21 @@ class ProductGroup extends HTMLElement {
       compareAtPrice += parseInt(source.getAttribute('data-compare-at-price'));
     });
 
-    const priceList = this.closest('.product-info')?.querySelector('[data-block-type="price"] price-list');
+    // The price can be shown in the price block and next to the title (see the product-title-price snippet)
+    const productInfo = this.closest('.product-info');
 
-    if (!priceList) {
-      return;
-    }
+    productInfo?.querySelectorAll('[data-block-type="price"] price-list, [data-block-type="title"] price-list').forEach((priceList) => {
+      this.#setAmount(priceList.querySelector('sale-price'), price);
 
-    this.#setAmount(priceList.querySelector('sale-price'), price);
+      if (compareAtPrice > price) {
+        this.#setAmount(priceList.querySelector('compare-at-price'), compareAtPrice);
+      }
+    });
 
-    if (compareAtPrice > price) {
-      this.#setAmount(priceList.querySelector('compare-at-price'), compareAtPrice);
+    const saving = productInfo?.querySelector('[data-product-title-price-saving]');
+
+    if (saving && compareAtPrice > price) {
+      saving.textContent = `-${Math.round((compareAtPrice - price) * 100 / compareAtPrice)}%`;
     }
   }
 

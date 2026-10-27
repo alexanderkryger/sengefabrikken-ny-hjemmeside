@@ -49,7 +49,10 @@
           "type": "title",
           "settings": {
             "heading_tag": "h3",
-            "simplify_title": true
+            "simplify_title": true,
+            "show_price": true,
+            "show_splash": true,
+            "price_size": "h4"
           }
         },
         "badges": {
@@ -60,7 +63,8 @@
           "type": "price",
           "settings": {
             "show_taxes_notice": false
-          }
+          },
+          "disabled": true
         },
         "rating": {
           "type": "rating",

@@ -384,6 +384,36 @@
           "label": "Forenklet titel",
           "info": "Viser kun teksten før \"|\", delt op i linjer ved \" - \". F.eks. bliver \"Fabrikkens - Komfort | Kontinental (Sort) 210x210 cm.\" til \"Fabrikkens\" og \"Komfort\".",
           "default": false
+        },
+        {
+          "type": "header",
+          "content": "Pris (Sengefabrikken)"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_price",
+          "label": "Vis pris ved siden af titlen",
+          "info": "Skjul pris-blokken, når denne er slået til. Uden førpris vises teksten fra metafeltet custom.splash_text under prisen.",
+          "default": false
+        },
+        {
+          "type": "select",
+          "id": "price_size",
+          "label": "Prisens størrelse",
+          "options": [
+            { "value": "h3", "label": "Large" },
+            { "value": "h4", "label": "Medium" },
+            { "value": "h5", "label": "Small" },
+            { "value": "h6", "label": "X-Small" }
+          ],
+          "default": "h4"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_splash",
+          "label": "Vis splash",
+          "info": "Viser besparelsen i procent, eller teksten fra custom.splash_text når der ikke er en førpris.",
+          "default": true
         }
       ]
     },

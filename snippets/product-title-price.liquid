@@ -1,0 +1,51 @@
+{%- doc -%}
+Sengefabrikken: shows the price next to the product title, with the compare at price below it, and an optional splash
+icon in the top corner of the product info showing the saving in percent. When the variant is not on sale, the
+"custom.splash_text" product metafield is shown below the price and in the splash instead.
+
+The prices are rendered with the theme's price-list, so the product-group script keeps updating them, and the block is
+re-rendered on variant change.
+
+@param {object} product - the product
+@param {object} block - the title block
+@param {string} title - the rendered title heading
+{%- enddoc -%}
+
+{%- liquid
+  assign title_price_variant = product.selected_or_first_available_variant
+  assign splash_text = product.metafields.custom.splash_text.value
+  assign is_on_sale = false
+
+  if title_price_variant.compare_at_price > title_price_variant.price
+    assign is_on_sale = true
+    assign saving = title_price_variant.compare_at_price | minus: title_price_variant.price | times: 100.0 | divided_by: title_price_variant.compare_at_price | round
+  endif
+-%}
+
+<div class="product-title-price" style="--product-title-price-size: var(--text-{{ block.settings.price_size }})">
+  {{- title -}}
+
+  <div class="product-title-price__price">
+    {%- render 'price-list', product: product, variant: title_price_variant, alignment: 'end', context: 'product' -%}
+
+    {%- if is_on_sale == false and splash_text != blank -%}
+      <p class="product-title-price__note text-subdued">{{ splash_text }}</p>
+    {%- endif -%}
+  </div>
+
+  {%- if block.settings.show_splash -%}
+    {%- if is_on_sale or splash_text != blank -%}
+      <div class="product-title-price__splash">
+        <img src="{{ 'splash-icon.svg' | asset_url }}" alt="" width="142" height="142" loading="lazy">
+
+        <span class="product-title-price__splash-text" {% if is_on_sale %}data-product-title-price-saving{% endif %}>
+          {%- if is_on_sale -%}
+            -{{ saving }}%
+          {%- else -%}
+            {{- splash_text -}}
+          {%- endif -%}
+        </span>
+      </div>
+    {%- endif -%}
+  {%- endif -%}
+</div>
