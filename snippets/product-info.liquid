@@ -138,6 +138,14 @@ no need to manually pass the section as it is globally available)
               {%- assign product_title = 'general.on_boarding.product_title' | t -%}
             {%- endif -%}
 
+            {%- comment -%}
+              Sengefabrikken: the simplified title only keeps the model name, shown on one line per part. For instance,
+              "Fabrikkens - Komfort | Kontinental (Sort) 210x210 cm." becomes "Fabrikkens" and "Komfort"
+            {%- endcomment -%}
+            {%- if block.settings.simplify_title -%}
+              {%- assign product_title = product_title | split: ' | ' | first | strip | split: ' - ' | join: '<br>' -%}
+            {%- endif -%}
+
             {%- if request.page_type == 'product' and context == 'main_product' -%}
               <h1 class="product-title {{ block.settings.heading_tag }}">
                 {{- product_title -}}
