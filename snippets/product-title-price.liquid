@@ -22,7 +22,7 @@ is re-rendered on variant change.
   endif
 -%}
 
-<div class="product-title-price" style="--product-title-price-size: var(--text-{{ block.settings.price_size }})">
+<div class="product-title-price" style="--product-title-price-size: var(--text-{{ block.settings.price_size }}); --product-title-price-color: {{ block.settings.price_color }}">
   {{- title -}}
 
   <div class="product-title-price__price">

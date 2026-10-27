@@ -52,7 +52,8 @@
             "simplify_title": true,
             "show_price": true,
             "show_splash": true,
-            "price_size": "h5"
+            "price_size": "h5",
+            "price_color": "#c87d0a"
           }
         },
         "badges": {
