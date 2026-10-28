@@ -103,6 +103,22 @@
         "swatch_selector_size": "lg"
       }
     },
+    "trustpilot_reviews_MGtkrf": {
+      "type": "trustpilot-reviews",
+      "name": "Trustpilot anmeldelser",
+      "settings": {
+        "color_scheme": "",
+        "heading_size": "h4",
+        "score_suffix": "på Trustpilot",
+        "count_prefix": "Baseret på",
+        "count_suffix": "anmeldelser",
+        "disclosure": "Viser vores 4- og 5-stjernede anmeldelser",
+        "autoscroll": true,
+        "seconds_per_card": 20,
+        "card_background": "#f6f1ec",
+        "card_border_color": "#e0dcd9"
+      }
+    },
     "seo_text": {
       "type": "seo-text",
       "blocks": {
@@ -179,11 +195,100 @@
         "color_scheme": "",
         "heading_size": "h4"
       }
+    },
+    "faq_iWRBk6": {
+      "type": "faq",
+      "blocks": {
+        "question_t8Ft4Y": {
+          "type": "question",
+          "settings": {
+            "question": "Er det sikkert at købe seng online?",
+            "answer": "<p>Ja, det er det i hvert fald. Vi mener faktisk at vores gunstige betingelser giver dig bedre forudsætninger for at vælge den helt rigtige seng - selvom du ikke kan prøve den inden køb. Der er således en enorm forskel på at prøve en seng i en fysisk butik med alt tøj på i 2-3 minutter kontra at sove i den hjemme i dit soveværelse 7-9 timer hver eneste nat.&nbsp;</p><p>Hvis du, imod forventning, får valgt et produkt der ikke passer til dig, så tilbyder vi 30 dages gratis returret samt 100 dages gratis ombytning af fasthed på alle vores senge.</p>",
+            "icon": "none",
+            "icon_width": 24,
+            "mobile_icon_width": 20
+          }
+        },
+        "question_eC46R9": {
+          "type": "question",
+          "settings": {
+            "question": "Har I en butik eller et showroom?",
+            "answer": "<p>Nej, vi er 100% online - og har ingen butikker eller showrooms. Dette er et helt bevidst valg, da vi ved at holde vores faste omkostninger på et absolut minimum, har mulighed for at optimere både fleksibilitet og priser.&nbsp;</p><p>Hvis du, imod forventning, får valgt et produkt der ikke passer til dig, så tilbyder vi 100 dages gratis retur samt 100 dages gratis ombytning af fasthed på alle vores senge.</p>",
+            "icon": "none",
+            "icon_width": 24,
+            "mobile_icon_width": 20
+          }
+        },
+        "question_iwn6LJ": {
+          "type": "question",
+          "settings": {
+            "question": "Hvad koster levering?",
+            "answer": "<p>Leveringsprisen afhænger af den valgte leveringsform samt leveringsadressen, og den endelige pris vises altid tydeligt på bestillingssiden, inden du gennemfører dit køb.</p><p>Mindre varer, herunder sengetøj, dyner og puder, leveres til din adresse med GLS, mens større varer som senge og madrasser leveres med DSV.</p><p>Standardlevering sker til kantsten. Ønsker du en mere bekvem levering, har du mulighed for at tilkøbe ekstra serviceydelser, så leveringen tilpasses dine behov. Vi tilbyder blandt andet opbæring/indbæring, montering samt bortskaffelse af din nuværende seng. Alle tilkøb kan vælges direkte på bestillingssiden.</p>",
+            "icon": "none",
+            "icon_width": 24,
+            "mobile_icon_width": 20
+          }
+        },
+        "question_xTn6RH": {
+          "type": "question",
+          "settings": {
+            "question": "Hvor lang er jeres leveringstid?",
+            "answer": "<p>Leveringstiden på vores produkter spænder vidt og bredt. Leveringstiden på et produkt vil altid fremgå af produktsiden samt på din ordrebekræftelse.&nbsp;</p><p>Som udgangspunkt vil små varer, som dyner, puder og sengetøj, altid kunne leveres indenfor 1-3 hverdage. Senge, vi har færdigproduceret og stående klar på lager, vil typisk have en leveringstid på op til 15 hverdage, imens senge i ukurante størrelser samt specialmål har en leveringstid på 3-7 uger.</p>",
+            "icon": "none",
+            "icon_width": 24,
+            "mobile_icon_width": 20
+          }
+        },
+        "question_EpMpw6": {
+          "type": "question",
+          "settings": {
+            "question": "Kan jeg ønske levering en bestemt dag?",
+            "answer": "<p>Ja, det kan du. Hvis du ønsker levering en bestemt dag, så skal du blot notere det som ordrekommentar. Herefter vil vi videreformidle den ønskede dag til både vores pakkeri samt det eksterne leveringsfirma, der står for den endelige levering.&nbsp;</p><p>Vi kan ikke garantere levering den ønskede dag, men vi vil altid forsøge at imødekomme det bedst muligt - og det lykkes heldigvis også i 95% af alle tilfælde. Skulle vi mod forventning ikke være i stand til at levere den ønskede dag, så vil leveringen som regel finde sted dagen efter i stedet.</p><p>Uanset hvad, så vil din ordre aldrig blive leveret, uden at du har godkendt leveringsdag og tidsinterval over SMS.</p>",
+            "icon": "none",
+            "icon_width": 24,
+            "mobile_icon_width": 20
+          }
+        },
+        "question_4wexcF": {
+          "type": "question",
+          "settings": {
+            "question": "Kan jeg afdrage beløbet over en periode?",
+            "answer": "<p>At investere i en ny seng er en stor udgift i de flestes privatøkonomi. Derfor tilbyder vi finansiering gennem Anyday, hvor du kan splitte din betaling op i 4 lige store rater – helt uden renter og gebyrer.</p><p>Du ser altid de præcise omkostninger, inden du gennemfører købet, og der tilføjes ingen skjulte gebyrer.</p>",
+            "icon": "none",
+            "icon_width": 24,
+            "mobile_icon_width": 20
+          }
+        }
+      },
+      "block_order": [
+        "question_t8Ft4Y",
+        "question_eC46R9",
+        "question_iwn6LJ",
+        "question_xTn6RH",
+        "question_EpMpw6",
+        "question_4wexcF"
+      ],
+      "name": "t:sections.faq.name",
+      "settings": {
+        "color_scheme": "",
+        "layout": "split",
+        "accordion_style": "border",
+        "question_style": "text",
+        "subheading": "",
+        "title": "Ofte stillede spørgsmål",
+        "title_tag": "h3",
+        "content": "<p>Har du brug for hjælp til valget af ny seng, topmadras eller noget helt tredje? Vores kompetente team af sengevejledere, søvnspecialister og syvsovere sidder klar til at hjælpe dig alle ugens dage fra 09.00 - 18.00. Vi er online, når du har tid.</p>",
+        "button_text": "",
+        "button_url": "",
+        "button_style": "solid"
+      }
     }
   },
   "order": [
     "banner",
     "main",
-    "seo_text"
+    "trustpilot_reviews_MGtkrf",
+    "seo_text",
+    "faq_iWRBk6"
   ]
 }
