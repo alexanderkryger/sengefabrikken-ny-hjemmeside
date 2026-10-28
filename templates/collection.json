@@ -19,7 +19,8 @@
         "collection_title_size": "h2",
         "content_position": "place-self-center",
         "background_color_scheme": "",
-        "image_size": "auto",
+        "image": "shopify://shop_images/collection_banner_test.jpg",
+        "image_size": "lg",
         "quick_navigation_menu": ""
       }
     },
