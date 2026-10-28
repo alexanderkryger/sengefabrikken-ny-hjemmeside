@@ -1,7 +1,8 @@
 {%- doc -%}
-Sengefabrikken: applies default filter values (eg. "180x200, Sand") the first time a customer opens a collection. When
-no filter is active, the page is reloaded with the filter values whose label matches the "default_filter_values" setting
-of the section. It only happens once per collection and browser session, so customers can still clear the filters.
+Sengefabrikken: applies default filter values (eg. "180x200, Sand") on the collections whose "custom.default_filters"
+metafield is set to true. When a customer opens such a collection without any active filter, the page is reloaded with
+the filter values whose label matches the "default_filter_values" setting of the section. Clearing the filters on the
+page does not reload it, so customers can still browse without filters.
 
 @param {object} data_source - the collection
 {%- enddoc -%}
@@ -10,6 +11,10 @@ of the section. It only happens once per collection and browser session, so cust
   assign default_filter_params = ''
   assign has_active_filters = false
   assign default_filter_values = section.settings.default_filter_values | downcase | split: ','
+
+  if data_source.metafields.custom.default_filters.value != true
+    assign default_filter_values = '' | split: ','
+  endif
 
   for filter in data_source.filters
     if filter.active_values.size > 0
@@ -50,18 +55,6 @@ of the section. It only happens once per collection and browser session, so cust
 {%- if has_active_filters == false and default_filter_params != blank and request.design_mode == false -%}
   <script>
     (() => {
-      const storageKey = 'default-filters-{{ data_source.id }}';
-
-      try {
-        if (sessionStorage.getItem(storageKey)) {
-          return;
-        }
-
-        sessionStorage.setItem(storageKey, '1');
-      } catch (error) {
-        return;
-      }
-
       const params = new URLSearchParams(window.location.search);
       new URLSearchParams({{ default_filter_params | remove_first: '&' | json }}).forEach((value, key) => params.append(key, value));
       window.location.replace(`${window.location.pathname}?${params.toString()}${window.location.hash}`);
