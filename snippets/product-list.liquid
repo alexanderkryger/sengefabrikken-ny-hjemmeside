@@ -71,6 +71,11 @@ This component display a list of product that can be used in collection, search.
         {%- continue -%}
       {%- endif -%}
 
+      {%- if block.type == 'sengefabrikken_split' -%}
+        {%- render 'sengefabrikken-split-promo', block: block -%}
+        {%- continue -%}
+      {%- endif -%}
+
       <div class="product-list__promo {% if block.settings.image == blank and settings.product_listing_spacing == 'none' %}outline{% endif %} color-scheme color-scheme--{{ block.settings.color_scheme.id }}" {% if settings.stagger_products %}reveal-on-scroll="true"{% endif %} style="--product-list-promo-row-span: {{ block.settings.size | split: '_' | last }}; --product-list-promo-column-span: {{ block.settings.size | split: '_' | first }}" {{ block.shopify_attributes }}>
         <div class="content-box min-h-full">
           <div class="content-box__background-media with-overlay" style="--overlay: {{ block.settings.overlay_color.rgb }} / {{ block.settings.overlay_opacity | divided_by: 100.0 }}">
@@ -89,7 +94,8 @@ This component display a list of product that can be used in collection, search.
           </div>
 
           {%- if block.settings.heading != blank or block.settings.content != blank or block.settings.subheading != blank -%}
-            <div class="{{ block.settings.content_position }}">
+            {%- comment -%}Sengefabrikken: the width of the content can be limited (block setting){%- endcomment -%}
+            <div class="{{ block.settings.content_position }} {% if block.settings.content_width != blank and block.settings.content_width != 'auto' %}max-w-{{ block.settings.content_width }}{% endif %}">
               <div class="prose prose-justify-{{ block.settings.content_position | split: '-' | last }}">
                 {%- if block.settings.subheading != blank -%}
                   {%- render 'subheading', content: block.settings.subheading -%}
@@ -100,7 +106,7 @@ This component display a list of product that can be used in collection, search.
                 {%- endif -%}
 
                 {%- if block.settings.content != blank -%}
-                  <div class="max-w-xs">
+                  <div {% if block.settings.content_width == blank or block.settings.content_width == 'auto' %}class="max-w-xs"{% endif %}>
                     {{- block.settings.content -}}
                   </div>
                 {%- endif -%}

@@ -1,0 +1,70 @@
+/*
+ * Sengefabrikken: block with a text next to an image or a video, shown in the product list of the collection page (see
+ * the sengefabrikken-split-promo snippet).
+ */
+
+.sengefabrikken-split-promo {
+  border-radius: .75rem;
+  grid-column: 1 / -1;
+  padding: 1rem;
+  display: block;
+}
+
+.sengefabrikken-split-promo__inner {
+  grid-template-columns: minmax(0, 1fr);
+  align-items: center;
+  gap: 1.5rem;
+  display: grid;
+}
+
+.sengefabrikken-split-promo__text {
+  padding: .5rem;
+}
+
+.sengefabrikken-split-promo__media {
+  aspect-ratio: 16 / 10;
+  border-radius: .5rem;
+  overflow: hidden;
+}
+
+.sengefabrikken-split-promo__media > *,
+.sengefabrikken-split-promo__media img,
+.sengefabrikken-split-promo__media video,
+.sengefabrikken-split-promo__media svg {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.sengefabrikken-split-promo__author {
+  align-items: center;
+  gap: 1rem;
+  display: flex;
+}
+
+.sengefabrikken-split-promo__author-image {
+  object-fit: cover;
+  border-radius: 9999px;
+  flex-shrink: 0;
+  width: 3.75rem;
+  height: 3.75rem;
+}
+
+@media screen and (min-width: 700px) {
+  .sengefabrikken-split-promo {
+    padding: 1.5rem;
+  }
+
+  .sengefabrikken-split-promo__inner {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 3rem;
+  }
+
+  .sengefabrikken-split-promo__inner--reverse .sengefabrikken-split-promo__media {
+    order: -1;
+  }
+
+  .sengefabrikken-split-promo__text {
+    padding: 1.5rem;
+  }
+}

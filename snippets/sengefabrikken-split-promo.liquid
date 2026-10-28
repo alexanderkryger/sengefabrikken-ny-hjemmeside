@@ -1,0 +1,66 @@
+{%- doc -%}
+Sengefabrikken: block shown in the product list of the collection page, with a text (for instance a quote with its
+author) next to an image or a video. It always takes the full width of the list.
+
+@param {object} block - the "sengefabrikken_split" block
+{%- enddoc -%}
+
+{{- 'sengefabrikken-split-promo.css' | asset_url | stylesheet_tag -}}
+
+<div class="sengefabrikken-split-promo color-scheme color-scheme--{{ block.settings.color_scheme.id }}" {{ block.shopify_attributes }}>
+  <div class="sengefabrikken-split-promo__inner {% if block.settings.media_position == 'left' %}sengefabrikken-split-promo__inner--reverse{% endif %}">
+    <div class="sengefabrikken-split-promo__text v-stack gap-6">
+      {%- if block.settings.subheading != blank or block.settings.heading != blank or block.settings.content != blank -%}
+        <div class="prose">
+          {%- if block.settings.subheading != blank -%}
+            {%- render 'subheading', content: block.settings.subheading -%}
+          {%- endif -%}
+
+          {%- if block.settings.heading != blank -%}
+            {%- render 'heading', content: block.settings.heading, style: block.settings.heading_size -%}
+          {%- endif -%}
+
+          {{- block.settings.content -}}
+        </div>
+      {%- endif -%}
+
+      {%- if block.settings.author_name != blank or block.settings.author_image != blank -%}
+        <div class="sengefabrikken-split-promo__author">
+          {%- if block.settings.author_image != blank -%}
+            {{- block.settings.author_image | image_url: width: 120 | image_tag: loading: 'lazy', class: 'sengefabrikken-split-promo__author-image', sizes: '60px', widths: '60,120' -}}
+          {%- endif -%}
+
+          <div class="v-stack">
+            {%- if block.settings.author_name != blank -%}
+              <p class="text-sm bold">{{ block.settings.author_name }}</p>
+            {%- endif -%}
+
+            {%- if block.settings.author_role != blank -%}
+              <p class="text-xs text-subdued">{{ block.settings.author_role }}</p>
+            {%- endif -%}
+          </div>
+        </div>
+      {%- endif -%}
+
+      {%- if block.settings.button_text != blank -%}
+        <div>
+          {%- render 'button', content: block.settings.button_text, href: block.settings.url, style: block.settings.style, external: block.settings.open_in_new_tab -%}
+        </div>
+      {%- endif -%}
+    </div>
+
+    <div class="sengefabrikken-split-promo__media">
+      {%- if block.settings.video != blank -%}
+        {%- if block.settings.autoplay -%}
+          {%- render 'media', media: block.settings.video, autoplay: true, loop: true, muted: true, controls: false, show_play_button: false -%}
+        {%- else -%}
+          {%- render 'media', media: block.settings.video, autoplay: false, controls: false, poster: block.settings.image -%}
+        {%- endif -%}
+      {%- elsif block.settings.image != blank -%}
+        {%- render 'media', media: block.settings.image, sizes: '(max-width: 699px) 100vw, 50vw', preload: false -%}
+      {%- else -%}
+        {{- 'lifestyle-1' | placeholder_svg_tag: 'placeholder' -}}
+      {%- endif -%}
+    </div>
+  </div>
+</div>
