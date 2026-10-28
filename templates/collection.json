@@ -26,11 +26,32 @@
     "main": {
       "type": "main-collection",
       "blocks": {
+        "sengefabrikken_split_HeTfkb": {
+          "type": "sengefabrikken_split",
+          "settings": {
+            "color_scheme": "scheme-5",
+            "position": 4,
+            "media_position": "right",
+            "image": "shopify://shop_images/trae.png",
+            "autoplay": false,
+            "subheading": "",
+            "heading": "“En dansk seng der holder i mange år”",
+            "heading_size": "h3",
+            "content": "",
+            "author_image": "shopify://shop_images/malthe_sengesnedker.png",
+            "author_name": "Malthe Elefsen",
+            "author_role": "Sengesnedker",
+            "button_text": "",
+            "url": "",
+            "open_in_new_tab": false,
+            "style": "solid"
+          }
+        },
         "image_t7Xw9K": {
           "type": "image",
           "settings": {
             "color_scheme": "scheme-3",
-            "position": 5,
+            "position": 4,
             "size": "1_1",
             "image": "shopify://shop_images/thress.png",
             "mobile_image": "shopify://shop_images/thress_mobile.png",
@@ -50,6 +71,7 @@
         }
       },
       "block_order": [
+        "sengefabrikken_split_HeTfkb",
         "image_t7Xw9K"
       ],
       "settings": {
@@ -68,8 +90,8 @@
         "product_card_style": "sengefabrikken",
         "product_card_two_columns": false,
         "product_card_row_background": "#fff4e2",
-        "show_toolbar": true,
-        "show_active_facets": true,
+        "show_toolbar": false,
+        "show_active_facets": false,
         "only_metafield_filters": true,
         "sticky_filter_button": true,
         "sticky_filter_text": "Vælg størrelse og farve",
