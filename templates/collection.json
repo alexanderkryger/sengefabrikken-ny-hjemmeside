@@ -39,14 +39,14 @@
         "show_filter_values_count": true,
         "open_filters_by_default": false,
         "product_card_style": "sengefabrikken",
+        "product_card_two_columns": false,
+        "product_card_row_background": "#fff4e2",
         "only_metafield_filters": true,
         "sticky_filter_button": true,
         "sticky_filter_text": "Vælg størrelse og farve",
         "picker_filter_labels": "Størrelse, Farve",
         "default_filter_values": "180x200, Sand",
-        "swatch_selector_size": "lg",
-        "product_card_row_background": "#fff4e2",
-        "product_card_two_columns": true
+        "swatch_selector_size": "lg"
       }
     }
   },
