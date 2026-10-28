@@ -25,6 +25,32 @@
     },
     "main": {
       "type": "main-collection",
+      "blocks": {
+        "image_t7Xw9K": {
+          "type": "image",
+          "settings": {
+            "color_scheme": "scheme-3",
+            "position": 5,
+            "size": "1_1",
+            "image": "shopify://shop_images/thress.png",
+            "mobile_image": "shopify://shop_images/thress_mobile.png",
+            "overlay_color": "#000000",
+            "overlay_opacity": 20,
+            "content_position": "place-self-end-start",
+            "subheading": "Bevarer de danske traditioner",
+            "heading": "Vi planter 100 træer i Danmark, hver gang du køber for en seng",
+            "heading_size": "h4",
+            "content": "",
+            "button_text": "",
+            "url": "",
+            "open_in_new_tab": false,
+            "style": "solid"
+          }
+        }
+      },
+      "block_order": [
+        "image_t7Xw9K"
+      ],
       "settings": {
         "color_scheme": "",
         "products_per_page": 36,
@@ -41,6 +67,8 @@
         "product_card_style": "sengefabrikken",
         "product_card_two_columns": false,
         "product_card_row_background": "#fff4e2",
+        "show_toolbar": true,
+        "show_active_facets": true,
         "only_metafield_filters": true,
         "sticky_filter_button": true,
         "sticky_filter_text": "Vælg størrelse og farve",
