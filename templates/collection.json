@@ -107,7 +107,7 @@
       "type": "trustpilot-reviews",
       "name": "Trustpilot anmeldelser",
       "settings": {
-        "color_scheme": "",
+        "color_scheme": "scheme-5",
         "heading_size": "h4",
         "score_suffix": "på Trustpilot",
         "count_prefix": "Baseret på",
@@ -192,7 +192,7 @@
         "text_zmVLti"
       ],
       "settings": {
-        "color_scheme": "",
+        "color_scheme": "scheme-1",
         "heading_size": "h4"
       }
     },
@@ -271,6 +271,7 @@
       "name": "t:sections.faq.name",
       "settings": {
         "color_scheme": "",
+        "use_page_width": true,
         "layout": "split",
         "accordion_style": "border",
         "question_style": "text",
