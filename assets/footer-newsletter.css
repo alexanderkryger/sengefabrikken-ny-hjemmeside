@@ -1,0 +1,38 @@
+/*
+ * Sengefabrikken: logo above the newsletter of the footer, and email field attached to the subscribe button (see the
+ * newsletter block of the footer section).
+ */
+
+.footer__newsletter-logo {
+  height: auto;
+  max-width: 100%;
+}
+
+.footer__newsletter-form--attached {
+  flex-wrap: nowrap;
+  gap: 0;
+}
+
+.footer__newsletter-form--attached > .form-control {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.footer__newsletter-form--attached .input {
+  border: none;
+  border-start-start-radius: var(--button-border-radius);
+  border-end-start-radius: var(--button-border-radius);
+  border-start-end-radius: 0;
+  border-end-end-radius: 0;
+  height: 100%;
+}
+
+.footer__newsletter-form--attached > .button {
+  border-start-start-radius: 0;
+  border-end-start-radius: 0;
+}
+
+/* Errors and success messages are shown on their own line */
+.footer__newsletter-form--attached:has(.banner) {
+  flex-wrap: wrap;
+}

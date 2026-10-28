@@ -107,6 +107,12 @@
 
                 {%- when 'newsletter' -%}
                   <div class="v-stack gap-4.5">
+                    {%- comment -%}Sengefabrikken: optional logo above the newsletter{%- endcomment -%}
+                    {%- if block.settings.logo != blank -%}
+                      {%- assign footer_logo_width_2x = block.settings.logo_width | times: 2 -%}
+                      {{- block.settings.logo | image_url: width: footer_logo_width_2x | image_tag: loading: 'lazy', width: block.settings.logo_width, class: 'footer__newsletter-logo' -}}
+                    {%- endif -%}
+
                     {%- if block.settings.title != blank -%}
                       <p class="subheading">{{ block.settings.title }}</p>
                     {%- endif -%}
@@ -121,7 +127,23 @@
                       {%- assign newsletter_form_id = 'newsletter-form-' | append: section.id -%}
 
                       <div class="v-stack gap-4">
-                        {%- form 'customer', id: newsletter_form_id, class: 'form-row' -%}
+                        {%- comment -%}Sengefabrikken: the email field can be attached to the button and get its own colors{%- endcomment -%}
+                        {%- liquid
+                          assign newsletter_form_class = 'form-row'
+
+                          if block.settings.attach_button
+                            assign newsletter_form_class = 'form-row footer__newsletter-form--attached'
+                          endif
+
+                          assign newsletter_form_style = ''
+
+                          if block.settings.input_background != blank and block.settings.input_background != 'rgba(0,0,0,0)'
+                            assign newsletter_form_style = '--input-background: ' | append: block.settings.input_background.rgb | append: '; --input-text-color: ' | append: block.settings.input_text_color.rgb | append: '; --has-transparent-background: 0'
+                          endif
+                        -%}
+
+                        <div {% if newsletter_form_style != blank %}style="{{ newsletter_form_style }}"{% endif %}>
+                        {%- form 'customer', id: newsletter_form_id, class: newsletter_form_class -%}
                           {%- if form.posted_successfully? -%}
                             {%- assign success_message = 'general.newsletter.subscribed_successfully' | t -%}
                             {%- render 'banner', content: success_message, status: 'success', text_alignment: 'center' -%}
@@ -140,6 +162,7 @@
                             {%- render 'button', type: 'submit', content: button_label, background: block.settings.button_background, text_color: block.settings.button_text_color -%}
                           {%- endif -%}
                         {%- endform -%}
+                        </div>
 
                         {%- if block.settings.disclaimer_text != blank -%}
                           <div class="prose text-subdued text-sm">
@@ -225,6 +248,9 @@
     </div>
   </div>
 </div>
+
+{%- comment -%}Sengefabrikken: newsletter logo and attached email field{%- endcomment -%}
+{{- 'footer-newsletter.css' | asset_url | stylesheet_tag -}}
 
 {% schema %}
 {
@@ -391,6 +417,21 @@
           "content": "t:sections.footer.blocks.newsletter.newsletter_info"
         },
         {
+          "type": "image_picker",
+          "id": "logo",
+          "label": "Logo (Sengefabrikken)"
+        },
+        {
+          "type": "range",
+          "id": "logo_width",
+          "label": "Logobredde",
+          "min": 60,
+          "max": 400,
+          "step": 10,
+          "unit": "px",
+          "default": 160
+        },
+        {
           "type": "inline_richtext",
           "id": "title",
           "label": "t:global.text.heading",
@@ -407,6 +448,28 @@
           "id": "disclaimer_text",
           "label": "t:sections.footer.blocks.newsletter.disclaimer_text",
           "default": "<p>By signing up to our newsletter, you agree with our privacy policy.</p>"
+        },
+        {
+          "type": "header",
+          "content": "Emailfelt (Sengefabrikken)"
+        },
+        {
+          "type": "checkbox",
+          "id": "attach_button",
+          "label": "Sæt knappen fast på feltet",
+          "default": true
+        },
+        {
+          "type": "color",
+          "id": "input_background",
+          "label": "Baggrund",
+          "default": "#faf7f4"
+        },
+        {
+          "type": "color",
+          "id": "input_text_color",
+          "label": "Tekstfarve",
+          "default": "#2f1300"
         }
       ]
     },
