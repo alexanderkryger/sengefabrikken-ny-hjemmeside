@@ -17,6 +17,25 @@
   padding-inline: max(var(--container-gutter), (100% - var(--container-max-width)) / 2);
 }
 
+/* Image and video blocks: the theme sizes them from the rows of its own cards, so they get the height of a wide card */
+.product-list--sengefabrikken > .product-list__promo {
+  border-radius: .75rem;
+  grid-column: 1 / -1;
+  margin: 0;
+  display: block;
+  overflow: hidden;
+}
+
+.product-list--sengefabrikken .product-list__promo .content-box {
+  height: 100%;
+}
+
+@media screen and (min-width: 700px) {
+  .product-list--sengefabrikken .product-list__promo .content-box {
+    min-height: 22rem;
+  }
+}
+
 .sengefabrikken-card {
   --sengefabrikken-card-ribbon-height: 2rem;
   --sengefabrikken-card-border-color: rgb(var(--border-color));

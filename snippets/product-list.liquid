@@ -51,7 +51,16 @@ This component display a list of product that can be used in collection, search.
 
   {%- for product in products -%}
     {%- for block in blocks -%}
-      {%- if has_active_filters or paginate.current_page > 1 or forloop.parentloop.index != block.settings.position -%}
+      {%- liquid
+        # Sengefabrikken: a promo block at the third position would split the row with the second and third cards, so it is moved after this row
+        assign promo_position = block.settings.position
+
+        if card_style == 'sengefabrikken' and promo_position == 3
+          assign promo_position = 4
+        endif
+      -%}
+
+      {%- if has_active_filters or paginate.current_page > 1 or forloop.parentloop.index != promo_position -%}
         {%- continue -%}
       {%- endif -%}
 
