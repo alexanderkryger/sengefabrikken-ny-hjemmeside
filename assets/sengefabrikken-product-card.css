@@ -177,6 +177,37 @@
   gap: 1.25rem;
 }
 
+.sengefabrikken-card__corner-icon, .sengefabrikken-card__header-icon {
+  display: contents;
+}
+
+/* On mobile and tablet, the wide card looks like the other cards: the price is shown below the title and the quality
+   icon on the media. On desktop, the price is shown below the bullets and the quality icon next to the title */
+@media screen and (max-width: 999px) {
+  .sengefabrikken-card--wide .sengefabrikken-card__header {
+    border-block-end: none;
+    padding-block-end: 0;
+  }
+
+  .sengefabrikken-card--wide .sengefabrikken-card__price-block {
+    order: -1;
+  }
+
+  .sengefabrikken-card--wide .sengefabrikken-card__header {
+    order: -2;
+  }
+
+  .sengefabrikken-card__header-icon {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .sengefabrikken-card--wide .sengefabrikken-card__corner-icon {
+    display: none;
+  }
+}
+
 .sengefabrikken-card__details {
   grid-template-columns: minmax(0, 1fr);
   align-content: start;

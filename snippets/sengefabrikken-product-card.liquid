@@ -118,15 +118,15 @@ It shows:
       </span>
     {%- endif -%}
 
-    {%- comment -%}On the wide card, the quality icon is shown next to the title instead{%- endcomment -%}
-    {%- if product_label != blank or show_quality_icon and wide != true -%}
+    {%- comment -%}On desktop, the wide card shows the quality icon next to the title instead (see the CSS){%- endcomment -%}
+    {%- if product_label != blank or show_quality_icon -%}
       <span class="sengefabrikken-card__corner">
         {%- if product_label != blank -%}
           <span class="sengefabrikken-card__label">{{ product_label }}</span>
         {%- endif -%}
 
-        {%- if show_quality_icon and wide != true -%}
-          {{- quality_icon -}}
+        {%- if show_quality_icon -%}
+          <span class="sengefabrikken-card__corner-icon">{{- quality_icon -}}</span>
         {%- endif -%}
       </span>
     {%- endif -%}
@@ -147,7 +147,7 @@ It shows:
   {%- endcapture -%}
 
   {%- capture card_price -%}
-    <div class="v-stack">
+    <div class="sengefabrikken-card__price-block v-stack">
       <span class="sengefabrikken-card__price">{{ card_variant.price | money_without_trailing_zeros }}</span>
 
       {%- if is_on_sale -%}
@@ -214,10 +214,11 @@ It shows:
         {{- card_title -}}
 
         {%- if show_quality_icon -%}
-          {{- quality_icon -}}
+          <span class="sengefabrikken-card__header-icon">{{- quality_icon -}}</span>
         {%- endif -%}
       </div>
 
+      {%- comment -%}On mobile and tablet, the price is moved below the title (see the CSS){%- endcomment -%}
       {{- card_bullets -}}
       {{- card_price -}}
       {{- card_rating -}}
