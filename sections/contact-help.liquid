@@ -1,0 +1,268 @@
+{%- comment -%}
+  Sengefabrikken: "need help?" section with an image next to a text and a list of contact options (phone, email, chat).
+  A contact option can open the Intercom chat instead of following a link.
+{%- endcomment -%}
+
+<div class="color-scheme color-scheme--{{ section.settings.color_scheme.id }}">
+  <div class="container section-spacing">
+    <div class="contact-help {% if section.settings.image_position == 'right' %}contact-help--reverse{% endif %}">
+      <div class="contact-help__media">
+        {%- if section.settings.image != blank -%}
+          {{- section.settings.image | image_url: width: section.settings.image.width | image_tag: loading: 'lazy', sizes: '(max-width: 999px) 100vw, 50vw', widths: '400,600,800,1000,1200,1400' -}}
+        {%- endif -%}
+      </div>
+
+      <div class="contact-help__content v-stack gap-6">
+        {%- if section.settings.heading != blank or section.settings.content != blank -%}
+          <div class="prose">
+            {%- if section.settings.heading != blank -%}
+              <h2 class="{{ section.settings.heading_size }}">{{ section.settings.heading }}</h2>
+            {%- endif -%}
+
+            {%- if section.settings.content != blank -%}
+              <div class="text-sm">{{ section.settings.content }}</div>
+            {%- endif -%}
+          </div>
+        {%- endif -%}
+
+        {%- if section.blocks.size > 0 -%}
+          <ul class="contact-help__list unstyled-list" role="list">
+            {%- for block in section.blocks -%}
+              <li {{ block.shopify_attributes }}>
+                {%- capture contact_content -%}
+                  {%- render 'icon' with block.settings.icon, width: 20 -%}
+                  <span>{{ block.settings.text }}</span>
+                {%- endcapture -%}
+
+                {%- if block.settings.open_chat -%}
+                  <button type="button" class="contact-help__item link-faded" data-intercom-open>{{- contact_content -}}</button>
+                {%- elsif block.settings.link != blank -%}
+                  <a href="{{ block.settings.link }}" class="contact-help__item link-faded">{{- contact_content -}}</a>
+                {%- else -%}
+                  <span class="contact-help__item">{{- contact_content -}}</span>
+                {%- endif -%}
+              </li>
+            {%- endfor -%}
+          </ul>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% stylesheet %}
+  .contact-help {
+    grid-template-columns: minmax(0, 1fr);
+    align-items: center;
+    gap: 2rem;
+    display: grid;
+  }
+
+  .contact-help__media {
+    background: rgb(var(--text-color) / .06);
+    border-radius: .75rem;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+  }
+
+  .contact-help__media img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+
+  .contact-help__content {
+    max-width: 34rem;
+  }
+
+  .contact-help__list {
+    border-block-start: 1px solid rgb(var(--border-color));
+    gap: 1rem;
+    padding-block-start: 1.5rem;
+    display: grid;
+  }
+
+  .contact-help__item {
+    text-align: start;
+    align-items: center;
+    gap: .75rem;
+    font-size: .875rem;
+    display: flex;
+  }
+
+  .contact-help__item svg {
+    flex-shrink: 0;
+  }
+
+  @media screen and (min-width: 1000px) {
+    .contact-help {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 3rem;
+    }
+
+    .contact-help--reverse .contact-help__media {
+      order: 1;
+    }
+
+    .contact-help__content {
+      padding-inline: 1.5rem;
+    }
+  }
+{% endstylesheet %}
+
+{% javascript %}
+  /* Sengefabrikken: the "chat" contact option opens the Intercom messenger */
+  document.addEventListener('click', (event) => {
+    if (event.target.closest('[data-intercom-open]') && typeof window.Intercom === 'function') {
+      window.Intercom('show');
+    }
+  });
+{% endjavascript %}
+
+{% schema %}
+{
+  "name": "Brug for hjælp",
+  "class": "shopify-section--contact-help",
+  "tag": "section",
+  "disabled_on": {
+    "groups": ["header", "custom.overlay"]
+  },
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:global.colors.scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "t:global.image.image"
+    },
+    {
+      "type": "select",
+      "id": "image_position",
+      "label": "Placering af billede",
+      "options": [
+        {
+          "value": "left",
+          "label": "Venstre"
+        },
+        {
+          "value": "right",
+          "label": "Højre"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "t:global.text.heading",
+      "default": "Har du brug for hjælp?"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "label": "t:global.text.heading_size",
+      "options": [
+        {
+          "value": "h3",
+          "label": "Large"
+        },
+        {
+          "value": "h4",
+          "label": "Medium"
+        },
+        {
+          "value": "h5",
+          "label": "Small"
+        }
+      ],
+      "default": "h4"
+    },
+    {
+      "type": "richtext",
+      "id": "content",
+      "label": "t:global.text.content",
+      "default": "<p>Hvis du stadig er i tvivl omkring valg af seng, må du endelig ikke tøve med at kontakte vores kompetente sengevejledere alle ugens dage fra kl. 08.00-23.00.</p>"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "contact",
+      "name": "Kontaktmulighed",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Ikon",
+          "options": [
+            {
+              "value": "picto-phone",
+              "label": "Telefon"
+            },
+            {
+              "value": "envelope",
+              "label": "Email"
+            },
+            {
+              "value": "picto-chat",
+              "label": "Chat"
+            }
+          ],
+          "default": "picto-phone"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Tekst",
+          "default": "Telefon: 89 87 82 59"
+        },
+        {
+          "type": "text",
+          "id": "link",
+          "label": "t:global.text.link",
+          "info": "Fx tel:89878259 eller mailto:kontakt@sengefabrikken.dk"
+        },
+        {
+          "type": "checkbox",
+          "id": "open_chat",
+          "label": "Åbn Intercom chat",
+          "info": "Linket ignoreres, og chatten åbnes i stedet.",
+          "default": false
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Brug for hjælp",
+      "blocks": [
+        {
+          "type": "contact",
+          "settings": {
+            "icon": "picto-phone",
+            "text": "Telefon: 89 87 82 59"
+          }
+        },
+        {
+          "type": "contact",
+          "settings": {
+            "icon": "envelope",
+            "text": "Email: kontakt@sengefabrikken.dk"
+          }
+        },
+        {
+          "type": "contact",
+          "settings": {
+            "icon": "picto-chat",
+            "text": "Chat med os",
+            "open_chat": true
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
