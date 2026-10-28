@@ -210,7 +210,7 @@
   flex-shrink: 0;
 }
 
-/* The two cards following a wide card share a row, with a full width background (the shadow and clip path extend it to
+/* The second and third cards share a row, with a full width background (the shadow and clip path extend it to
    the edges of the screen without causing a horizontal scroll) */
 .sengefabrikken-card-row {
   background: var(--sengefabrikken-card-row-background, transparent);
@@ -231,7 +231,7 @@
 }
 
 @media screen and (min-width: 700px) {
-  .product-list.product-list--sengefabrikken {
+  .product-list.product-list--sengefabrikken-two-columns {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -240,8 +240,11 @@
   }
 
   .sengefabrikken-card-row {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
     padding-block: 2.5rem;
+  }
+
+  .product-list--sengefabrikken-two-columns .sengefabrikken-card-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .sengefabrikken-card__details {

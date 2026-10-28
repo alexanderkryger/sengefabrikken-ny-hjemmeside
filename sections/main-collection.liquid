@@ -73,7 +73,7 @@
           {%- else -%}
             <div class="collection__results">
               {%- render 'active-facets', source: collection, hash: "#collection" -%}
-              {%- render 'product-list', products: collection.products, allow_highlight: true, paginate: paginate, blocks: section.blocks, output_override_attributes: true, card_style: section.settings.product_card_style, card_row_background: section.settings.product_card_row_background -%}
+              {%- render 'product-list', products: collection.products, allow_highlight: true, paginate: paginate, blocks: section.blocks, output_override_attributes: true, card_style: section.settings.product_card_style, card_row_background: section.settings.product_card_row_background, card_two_columns: section.settings.product_card_two_columns -%}
             </div>
 
             {%- render 'pagination', paginate: paginate, facet: true, hash: '#collection' -%}
@@ -254,9 +254,16 @@ on desktop based on the settings
       "default": "default"
     },
     {
+      "type": "checkbox",
+      "id": "product_card_two_columns",
+      "label": "Vis to kort ved siden af hinanden",
+      "info": "Kun Sengefabrikken card. Uden to kolonner vises alle kort brede.",
+      "default": true
+    },
+    {
       "type": "color",
       "id": "product_card_row_background",
-      "label": "Baggrund bag rækken med to kort",
+      "label": "Baggrund bag kort 2 og 3",
       "info": "Kun Sengefabrikken card. Vises i fuld bredde.",
       "default": "#fff4e2"
     },

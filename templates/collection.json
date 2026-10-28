@@ -45,7 +45,8 @@
         "picker_filter_labels": "Størrelse, Farve",
         "default_filter_values": "180x200, Sand",
         "swatch_selector_size": "lg",
-        "product_card_row_background": "#fff4e2"
+        "product_card_row_background": "#fff4e2",
+        "product_card_two_columns": true
       }
     }
   },

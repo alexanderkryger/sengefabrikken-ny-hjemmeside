@@ -14,14 +14,15 @@ This component display a list of product that can be used in collection, search.
 @param {object} [paginate] - an optional paginate object when product list is rendered in context of collection pages
 @param {object} [section]
 @param {string} [card_style] - Sengefabrikken: "sengefabrikken" renders the Sengefabrikken card, laid out as one wide card followed by two cards
-@param {string} [card_row_background] - Sengefabrikken: background color of the rows with two Sengefabrikken cards (full width)
+@param {string} [card_row_background] - Sengefabrikken: background color of the row with the second and third Sengefabrikken cards (full width)
+@param {boolean} [card_two_columns] - Sengefabrikken: if set to true, the Sengefabrikken cards that are not wide are shown two per row
 {%- enddoc -%}
 
 {%- if card_style == 'sengefabrikken' -%}
   {{- 'sengefabrikken-product-card.css' | asset_url | stylesheet_tag -}}
 {%- endif -%}
 
-<product-list {% if id %}id="{{ id }}"{% endif %} class="product-list {% if card_style == 'sengefabrikken' %}product-list--sengefabrikken{% endif %} {% if stack == false or spotlight == false %}product-list--carousel scroll-area bleed{% endif %} {% if spotlight %}product-list--spotlight scroll-area bleed{% if settings.product_listing_spacing == 'none' %}border{% endif %}{% endif %}" {% if output_override_attributes %}mobile-items-per-row="{{ cart.attributes.product_card_mobile_items_per_row | default: section.settings.products_per_row_mobile }}" desktop-layout="{{ cart.attributes.product_card_desktop_layout | default: 'grid' }}"{% endif %}>
+<product-list {% if id %}id="{{ id }}"{% endif %} class="product-list {% if card_style == 'sengefabrikken' %}product-list--sengefabrikken {% if card_two_columns %}product-list--sengefabrikken-two-columns{% endif %}{% endif %} {% if stack == false or spotlight == false %}product-list--carousel scroll-area bleed{% endif %} {% if spotlight %}product-list--spotlight scroll-area bleed{% if settings.product_listing_spacing == 'none' %}border{% endif %}{% endif %}" {% if output_override_attributes %}mobile-items-per-row="{{ cart.attributes.product_card_mobile_items_per_row | default: section.settings.products_per_row_mobile }}" desktop-layout="{{ cart.attributes.product_card_desktop_layout | default: 'grid' }}"{% endif %}>
   {%- liquid
     assign has_active_filters = false
 
@@ -103,24 +104,27 @@ This component display a list of product that can be used in collection, search.
       </div>
     {%- endfor -%}
 
-    {%- comment -%}Sengefabrikken: every third card (starting with the first one) is a wide card{%- endcomment -%}
+    {%- comment -%}
+      Sengefabrikken: with two columns, every third card (starting with the first one) is a wide card and the two others
+      are shown next to each other. Without two columns, every card is wide. In both cases, the second and third cards are
+      wrapped in a row with its own full width background.
+    {%- endcomment -%}
     {%- if card_style == 'sengefabrikken' -%}
       {%- liquid
         assign sengefabrikken_card_index = forloop.index0 | modulo: 3
-        assign sengefabrikken_card_wide = false
+        assign sengefabrikken_card_wide = true
 
-        if sengefabrikken_card_index == 0
-          assign sengefabrikken_card_wide = true
+        if card_two_columns and sengefabrikken_card_index != 0
+          assign sengefabrikken_card_wide = false
         endif
 
-        # The two cards following a wide card are wrapped in a row, which can have its own background
-        if sengefabrikken_card_index == 1
+        if forloop.index == 2
           echo '<div class="sengefabrikken-card-row" style="--sengefabrikken-card-row-background: ' | append: card_row_background | append: '">'
         endif
 
         render 'sengefabrikken-product-card', product: product, wide: sengefabrikken_card_wide, position: forloop.index
 
-        if sengefabrikken_card_index == 2 or sengefabrikken_card_index == 1 and forloop.last
+        if forloop.index == 3 or forloop.index == 2 and forloop.last
           echo '</div>'
         endif
       -%}
