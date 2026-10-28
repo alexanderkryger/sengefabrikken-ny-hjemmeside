@@ -42,10 +42,13 @@
   overflow: hidden;
 }
 
+/* The image is cropped to fill the media, so its own size never sets the height of the card */
 .sengefabrikken-card__image {
   object-fit: cover;
   width: 100%;
   height: 100%;
+  position: absolute;
+  inset: 0;
   transition: transform .4s ease-in-out;
 }
 
@@ -238,9 +241,10 @@
     grid-column: 1 / -1;
   }
 
+  /* The height of the wide card is set by its info, the media fills it */
   .sengefabrikken-card--wide .sengefabrikken-card__media {
     aspect-ratio: auto;
-    min-height: 100%;
+    min-height: 22rem;
   }
 
   .sengefabrikken-card--wide .sengefabrikken-card__info {
