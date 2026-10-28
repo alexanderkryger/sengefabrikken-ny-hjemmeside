@@ -30,6 +30,11 @@
   height: 100%;
 }
 
+/* The theme only fades the blocks in when the list contains its own product cards, so they would stay invisible */
+.product-list--sengefabrikken > .product-list__promo[reveal-on-scroll] {
+  opacity: 1;
+}
+
 @media screen and (min-width: 700px) {
   .product-list--sengefabrikken .product-list__promo .content-box {
     min-height: 22rem;
