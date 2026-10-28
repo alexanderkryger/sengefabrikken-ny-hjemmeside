@@ -5,6 +5,11 @@
   gap: 1.5rem;
 }
 
+/* The cards use the same width as the other sections (the default product list goes edge to edge) */
+.collection__results:has(.product-list--sengefabrikken) {
+  padding-inline: var(--container-gutter);
+}
+
 .sengefabrikken-card {
   --sengefabrikken-card-ribbon-height: 2rem;
   --sengefabrikken-card-border-color: rgb(var(--border-color));
