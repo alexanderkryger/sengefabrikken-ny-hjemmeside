@@ -1,0 +1,210 @@
+{%- comment -%}
+  Sengefabrikken: SEO text shown below the product list. Each block holds the text for a filter value (eg. "180x200"),
+  and the block matching the active filters is shown. A block without filter value is shown when no other block
+  matches. As the filters only re-render the main collection section, the <seo-text> element switches the visible
+  block when the filters change (see seo-text.js).
+{%- endcomment -%}
+
+{%- liquid
+  assign active_block_id = ''
+  assign default_block_id = ''
+
+  for block in section.blocks
+    assign block_filter_value = block.settings.filter_value | strip | downcase
+
+    if block_filter_value == blank
+      if default_block_id == blank
+        assign default_block_id = block.id
+      endif
+
+      continue
+    endif
+
+    for filter in collection.filters
+      for active_value in filter.active_values
+        assign active_value_label = active_value.label | downcase
+        assign active_value_value = active_value.value | downcase
+
+        if active_value_label contains block_filter_value or active_value_value contains block_filter_value
+          assign active_block_id = block.id
+          break
+        endif
+      endfor
+
+      if active_block_id != blank
+        break
+      endif
+    endfor
+
+    if active_block_id != blank
+      break
+    endif
+  endfor
+
+  if active_block_id == blank
+    assign active_block_id = default_block_id
+  endif
+-%}
+
+{%- if section.blocks.size > 0 -%}
+  <script type="module" src="{{ 'seo-text.js' | asset_url }}"></script>
+
+  <div class="color-scheme color-scheme--{{ section.settings.color_scheme.id }}">
+    <div class="container section-spacing">
+      <seo-text class="seo-text">
+        {%- for block in section.blocks -%}
+          {%- liquid
+            assign block_filter_value = block.settings.filter_value | strip | downcase
+            assign show_block = false
+
+            if block.id == active_block_id
+              assign show_block = true
+            endif
+
+            # In the theme editor, the selected block is always shown
+            if request.design_mode and active_block_id == blank and forloop.first
+              assign show_block = true
+            endif
+          -%}
+
+          <div class="seo-text__item" data-filter-value="{{ block_filter_value | escape }}" {% unless show_block %}hidden{% endunless %} {{ block.shopify_attributes }}>
+            {%- for column in (1..2) -%}
+              {%- liquid
+                assign heading_setting = 'heading_' | append: column
+                assign text_setting = 'text_' | append: column
+              -%}
+
+              {%- if block.settings[heading_setting] != blank or block.settings[text_setting] != blank -%}
+                <div class="prose">
+                  {%- if block.settings[heading_setting] != blank -%}
+                    <h2 class="{{ section.settings.heading_size }}">{{ block.settings[heading_setting] }}</h2>
+                  {%- endif -%}
+
+                  {{- block.settings[text_setting] -}}
+                </div>
+              {%- endif -%}
+            {%- endfor -%}
+          </div>
+        {%- endfor -%}
+      </seo-text>
+    </div>
+  </div>
+{%- endif -%}
+
+{% stylesheet %}
+  .seo-text__item {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2rem;
+    display: grid;
+  }
+
+  @media screen and (min-width: 1000px) {
+    .seo-text__item {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 4rem;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "SEO tekst",
+  "class": "shopify-section--seo-text",
+  "tag": "section",
+  "disabled_on": {
+    "groups": ["header", "footer", "custom.overlay"]
+  },
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Tilføj en tekst pr. filterværdi, fx 180x200. Teksten, hvis filterværdi matcher det valgte filter, vises. En tekst uden filterværdi vises, når ingen andre matcher."
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:global.colors.scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "label": "t:global.text.heading_size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "X-Large"
+        },
+        {
+          "value": "h3",
+          "label": "Large"
+        },
+        {
+          "value": "h4",
+          "label": "Medium"
+        },
+        {
+          "value": "h5",
+          "label": "Small"
+        }
+      ],
+      "default": "h4"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "text",
+      "name": "Tekst",
+      "settings": [
+        {
+          "type": "text",
+          "id": "filter_value",
+          "label": "Filterværdi",
+          "info": "Fx 180x200. Lad feltet være tomt for teksten, der vises uden filter."
+        },
+        {
+          "type": "header",
+          "content": "Kolonne 1"
+        },
+        {
+          "type": "text",
+          "id": "heading_1",
+          "label": "t:global.text.heading"
+        },
+        {
+          "type": "richtext",
+          "id": "text_1",
+          "label": "Tekst"
+        },
+        {
+          "type": "header",
+          "content": "Kolonne 2"
+        },
+        {
+          "type": "text",
+          "id": "heading_2",
+          "label": "t:global.text.heading"
+        },
+        {
+          "type": "richtext",
+          "id": "text_2",
+          "label": "Tekst"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "SEO tekst",
+      "blocks": [
+        {
+          "type": "text",
+          "settings": {
+            "heading_1": "Overskrift",
+            "text_1": "<p>Skriv en tekst om kollektionen.</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
