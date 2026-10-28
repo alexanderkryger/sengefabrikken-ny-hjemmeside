@@ -1,1 +1,83 @@
-{"type":"footer","name":"Footer group","sections":{"trust-icons":{"type":"trust-icons","blocks":{"item-1":{"type":"item","settings":{"title":"Worldwide delivery","content":"Receive your order anywhere in the world."}},"item-2":{"type":"item","settings":{"title":"Fast shipping","content":"Super fast shipping in 48 hours."}},"item-3":{"type":"item","settings":{"title":"Customer service","content":"We are available from monday to friday to answer your questions."}},"item-4":{"type":"item","settings":{"title":"Secure payment","content":"Your payment information is processed securely."}}},"block_order":["item-1","item-2","item-3","item-4"],"settings":{"color_scheme":"scheme-2"}},"footer":{"type":"footer","blocks":{"newsletter":{"type":"newsletter","settings":{}},"links":{"type":"links","settings":{"menu":"footer","show_menu_title":true}},"text":{"type":"text","settings":{"title":"About","content":"<p>Use this text area to tell your customers about your brand and vision. You can change it in the theme editor.<\/p>"}}},"block_order":["newsletter","links","text"],"settings":{}}},"order":["trust-icons","footer"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "type": "footer",
+  "name": "Footer group",
+  "sections": {
+    "footer": {
+      "type": "footer",
+      "blocks": {
+        "newsletter": {
+          "type": "newsletter",
+          "settings": {
+            "title": "Newsletter",
+            "content": "<p>Sign up to our newsletter to receive exclusive offers.</p>",
+            "disclaimer_text": "<p>By signing up to our newsletter, you agree with our privacy policy.</p>"
+          }
+        },
+        "links": {
+          "type": "links",
+          "settings": {
+            "menu": "footer",
+            "collapse_on_mobile": true,
+            "show_menu_title": true,
+            "menu_title": ""
+          }
+        },
+        "links_aJQXEz": {
+          "type": "links",
+          "settings": {
+            "menu": "guides",
+            "collapse_on_mobile": true,
+            "show_menu_title": true,
+            "menu_title": ""
+          }
+        },
+        "links_ExGqKw": {
+          "type": "links",
+          "settings": {
+            "menu": "popul-re-produkter",
+            "collapse_on_mobile": true,
+            "show_menu_title": true,
+            "menu_title": ""
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "title": "About",
+            "content": "<p>Use this text area to tell your customers about your brand and vision. You can change it in the theme editor.</p>",
+            "enable_follow_on_shop": true
+          }
+        }
+      },
+      "block_order": [
+        "newsletter",
+        "links",
+        "links_aJQXEz",
+        "links_ExGqKw",
+        "text"
+      ],
+      "settings": {
+        "color_scheme": "scheme-6",
+        "show_social_media": true,
+        "show_payment_icons": true,
+        "show_powered_by_shopify": true,
+        "show_country_selector": true,
+        "show_country_name": true,
+        "show_country_flag": true,
+        "show_locale_selector": true
+      }
+    }
+  },
+  "order": [
+    "footer"
+  ]
+}
