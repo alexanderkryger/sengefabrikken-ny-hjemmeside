@@ -49,12 +49,12 @@
     <div id="collection" class="collection">
       {%- comment -%}
         Sengefabrikken: the toolbar can be hidden. An empty element with the toolbar class is kept, as the floating filter
-        button uses the toolbar to know when to show up
+        button uses the toolbar to know when to show up. It keeps the same spacing as the bottom of the section
       {%- endcomment -%}
       {%- if section.settings.show_toolbar -%}
         {%- render 'collection-toolbar' -%}
       {%- else -%}
-        <div class="collection__toolbar" style="padding: 0; border: 0" aria-hidden="true"></div>
+        <div class="collection__toolbar" style="padding: 0; border: 0; height: min(4rem, var(--section-vertical-spacing))" aria-hidden="true"></div>
       {%- endif -%}
 
       <div class="collection__inner">
