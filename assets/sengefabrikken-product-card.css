@@ -210,16 +210,14 @@
   flex-shrink: 0;
 }
 
-/* The second and third cards share a row, with a full width background (the shadow and clip path extend it to
-   the edges of the screen without causing a horizontal scroll) */
+/* The second and third cards share a row, shown as a rounded box with its own background */
 .sengefabrikken-card-row {
   background: var(--sengefabrikken-card-row-background, transparent);
-  box-shadow: 0 0 0 100vmax var(--sengefabrikken-card-row-background, transparent);
-  clip-path: inset(0 -100vmax);
+  border-radius: .75rem;
   grid-template-columns: minmax(0, 1fr);
   grid-column: 1 / -1;
   gap: 1.5rem;
-  padding-block: 2rem;
+  padding: 1rem;
   display: grid;
 }
 
@@ -240,7 +238,7 @@
   }
 
   .sengefabrikken-card-row {
-    padding-block: 2.5rem;
+    padding: 1.5rem;
   }
 
   .product-list--sengefabrikken-two-columns .sengefabrikken-card-row {
