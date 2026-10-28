@@ -37,6 +37,7 @@
             "overlay_color": "#000000",
             "overlay_opacity": 20,
             "content_position": "place-self-end-start",
+            "content_width": "md",
             "subheading": "Bevarer de danske traditioner",
             "heading": "Vi planter 100 træer i Danmark, hver gang du køber for en seng",
             "heading_size": "h4",
