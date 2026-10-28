@@ -70,7 +70,8 @@
 
     {%- when 'background' -%}
       <div class="content-box min-h-{{ section.settings.image_size }}">
-        <div class="content-box__background-media">
+        {%- comment -%}Sengefabrikken: optional overlay on the image{%- endcomment -%}
+        <div class="content-box__background-media {% if section.settings.overlay_opacity > 0 %}with-overlay{% endif %}" {% if section.settings.overlay_opacity > 0 %}style="--overlay: {{ section.settings.overlay_color.rgb }} / {{ section.settings.overlay_opacity | divided_by: 100.0 }}"{% endif %}>
           {{- image | image_url: width: image.width | image_tag: sizes: '100vw', widths: '200,300,400,500,600,700,800,900,1000,1200,1400,1600,1800,2000,2200,2400,2600,2800,3000,3200' -}}
         </div>
   
@@ -308,6 +309,24 @@
       "info": "t:global.image.ratio_avoid_cropping_info",
       "default": "auto",
       "visible_if": "{{ section.settings.layout != 'plain' }}"
+    },
+    {
+      "type": "color",
+      "id": "overlay_color",
+      "label": "t:global.colors.image_overlay_color",
+      "default": "#000000",
+      "visible_if": "{{ section.settings.layout == 'background' }}"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "label": "t:global.colors.image_overlay_opacity",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 0,
+      "visible_if": "{{ section.settings.layout == 'background' }}"
     },
     {
       "type": "header",
