@@ -58,9 +58,16 @@ This component display a list of product that can be used in collection, search.
         if card_style == 'sengefabrikken' and promo_position == 3
           assign promo_position = 4
         endif
+
+        # Sengefabrikken: the collection always has the default filters (size and color) active, so the blocks are still shown when filtered
+        assign hide_promo = has_active_filters
+
+        if card_style == 'sengefabrikken'
+          assign hide_promo = false
+        endif
       -%}
 
-      {%- if has_active_filters or paginate.current_page > 1 or forloop.parentloop.index != promo_position -%}
+      {%- if hide_promo or paginate.current_page > 1 or forloop.parentloop.index != promo_position -%}
         {%- continue -%}
       {%- endif -%}
 
