@@ -1,0 +1,196 @@
+{%- comment -%}
+  Sengefabrikken: Trustpilot reviews. The score, the number of reviews and the reviews come from the shop metafield
+  "custom.trustpilot_widget_data", which is kept up to date by the n8n Trustpilot sync.
+{%- endcomment -%}
+
+{%- assign data = shop.metafields.custom.trustpilot_widget_data.value -%}
+
+{%- if data.reviews.size > 0 -%}
+  {{- 'trustpilot-reviews.css' | asset_url | stylesheet_tag -}}
+
+  {%- liquid
+    assign score_formatted = data.trust_score | append: '' | replace: '.', ','
+
+    # Danish thousands separator (1.801)
+    assign total_formatted = data.total_reviews | append: ''
+
+    if total_formatted.size > 3
+      assign head_length = total_formatted.size | minus: 3
+      assign total_head = total_formatted | slice: 0, head_length
+      assign total_tail = total_formatted | slice: head_length, 3
+      assign total_formatted = total_head | append: '.' | append: total_tail
+    endif
+  -%}
+
+  <style>
+    #shopify-section-{{ section.id }} {
+      --trustpilot-reviews-duration: {{ data.reviews.size | times: section.settings.seconds_per_card }}s;
+      --trustpilot-reviews-card-background: {{ section.settings.card_background }};
+      --trustpilot-reviews-card-border-color: {{ section.settings.card_border_color }};
+    }
+  </style>
+
+  <div class="color-scheme color-scheme--{{ section.settings.color_scheme.id }}">
+    <div class="container section-spacing">
+      <div class="trustpilot-reviews">
+        <div class="trustpilot-reviews__summary">
+          <p class="{{ section.settings.heading_size }}">
+            {{- data.label | escape }}<br>
+            {{- score_formatted }} {{ section.settings.score_suffix | escape -}}
+          </p>
+
+          <a href="{{ data.profile_url }}" target="_blank" rel="noopener noreferrer" class="trustpilot-reviews__details v-stack gap-1.5">
+            <span class="text-sm">{{ section.settings.count_prefix | escape }} {{ total_formatted }} {{ section.settings.count_suffix | escape }}</span>
+            {%- render 'trustpilot-stars', rating: data.stars -%}
+            <img class="trustpilot-reviews__logo" src="{{ 'trustpilot-logo.svg' | asset_url }}" alt="Trustpilot" width="77" height="20" loading="lazy">
+
+            {%- if section.settings.disclosure != blank -%}
+              <span class="text-xs text-subdued">{{ section.settings.disclosure | escape }}</span>
+            {%- endif -%}
+          </a>
+        </div>
+
+        <div class="trustpilot-reviews__viewport {% if section.settings.autoscroll %}trustpilot-reviews__viewport--autoscroll{% else %}scroll-area{% endif %}">
+          <div class="trustpilot-reviews__track">
+            {%- liquid
+              if section.settings.autoscroll
+                assign group_count = 2
+              else
+                assign group_count = 1
+              endif
+            -%}
+
+            {%- for group in (1..group_count) -%}
+              <div class="trustpilot-reviews__group" {% if forloop.index > 1 %}aria-hidden="true"{% endif %}>
+                {%- for review in data.reviews -%}
+                  <div class="trustpilot-reviews__card">
+                    <p class="h6">{{ review.author | escape }}</p>
+                    <p class="trustpilot-reviews__text text-sm">{{ review.text | escape }}</p>
+
+                    <div class="trustpilot-reviews__meta">
+                      {%- render 'trustpilot-stars', rating: review.stars -%}
+                      <time class="text-xs text-subdued" datetime="{{ review.date }}">{{ review.date | date: '%d/%m/%y' }}</time>
+                    </div>
+                  </div>
+                {%- endfor -%}
+              </div>
+            {%- endfor -%}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{%- elsif request.design_mode -%}
+  <div class="container section-spacing">
+    <p class="text-center">Ingen anmeldelser i metafeltet <code>custom.trustpilot_widget_data</code> endnu. Sektionen vises ikke på butikken, før data er synkroniseret.</p>
+  </div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Trustpilot anmeldelser",
+  "class": "shopify-section--trustpilot-reviews",
+  "tag": "section",
+  "disabled_on": {
+    "groups": ["header", "custom.overlay"]
+  },
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Score, antal og anmeldelser hentes automatisk fra shop-metafeltet custom.trustpilot_widget_data, som opdateres af n8n Trustpilot sync."
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:global.colors.scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "label": "t:global.text.heading_size",
+      "options": [
+        {
+          "value": "h3",
+          "label": "Large"
+        },
+        {
+          "value": "h4",
+          "label": "Medium"
+        },
+        {
+          "value": "h5",
+          "label": "Small"
+        }
+      ],
+      "default": "h4"
+    },
+    {
+      "type": "text",
+      "id": "score_suffix",
+      "label": "Tekst efter score",
+      "default": "på Trustpilot"
+    },
+    {
+      "type": "text",
+      "id": "count_prefix",
+      "label": "Tekst før antal",
+      "default": "Baseret på"
+    },
+    {
+      "type": "text",
+      "id": "count_suffix",
+      "label": "Tekst efter antal",
+      "default": "anmeldelser"
+    },
+    {
+      "type": "text",
+      "id": "disclosure",
+      "label": "Oplysning om udvalg",
+      "info": "Trustpilots retningslinjer kræver denne oplysning, når kun udvalgte stjerner vises.",
+      "default": "Viser vores 4- og 5-stjernede anmeldelser"
+    },
+    {
+      "type": "header",
+      "content": "Anmeldelser"
+    },
+    {
+      "type": "checkbox",
+      "id": "autoscroll",
+      "label": "Rul automatisk",
+      "info": "Stopper, når musen holdes over. Ellers kan der rulles manuelt.",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "seconds_per_card",
+      "label": "Sekunder pr. kort",
+      "info": "Højere tal giver langsommere rul.",
+      "min": 4,
+      "max": 40,
+      "step": 2,
+      "unit": "s",
+      "default": 20,
+      "visible_if": "{{ section.settings.autoscroll }}"
+    },
+    {
+      "type": "color",
+      "id": "card_background",
+      "label": "Kort baggrund",
+      "default": "#f6f1ec"
+    },
+    {
+      "type": "color",
+      "id": "card_border_color",
+      "label": "Kort kant",
+      "default": "#e0dcd9"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Trustpilot anmeldelser",
+      "category": "Anmeldelser"
+    }
+  ]
+}
+{% endschema %}

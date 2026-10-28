@@ -1,0 +1,149 @@
+/*
+ * Sengefabrikken: Trustpilot reviews section and stars (see the trustpilot-reviews section and trustpilot-stars snippet).
+ */
+
+.trustpilot-stars {
+  --trustpilot-star-size: 1.125rem;
+  gap: 2px;
+  flex-shrink: 0;
+  display: flex;
+}
+
+.trustpilot-stars__star {
+  width: var(--trustpilot-star-size);
+  height: var(--trustpilot-star-size);
+  background: linear-gradient(90deg, #00b67a var(--trustpilot-star-fill), #dcdce6 var(--trustpilot-star-fill));
+  place-items: center;
+  display: grid;
+}
+
+.trustpilot-stars__star svg {
+  width: 100%;
+  height: auto;
+}
+
+.trustpilot-reviews {
+  --trustpilot-reviews-gap: 1rem;
+  --trustpilot-reviews-card-width: 17.5rem;
+  gap: 2rem;
+  display: grid;
+}
+
+.trustpilot-reviews__summary {
+  justify-items: center;
+  gap: 1.5rem;
+  text-align: center;
+  display: grid;
+}
+
+.trustpilot-reviews__details {
+  align-items: center;
+}
+
+.trustpilot-reviews__details .trustpilot-stars {
+  --trustpilot-star-size: 1.25rem;
+}
+
+.trustpilot-reviews__logo {
+  width: 4.8rem;
+  height: auto;
+}
+
+.trustpilot-reviews__viewport {
+  min-width: 0;
+}
+
+.trustpilot-reviews__viewport--autoscroll {
+  overflow: hidden;
+}
+
+.trustpilot-reviews__track {
+  width: max-content;
+  display: flex;
+}
+
+.trustpilot-reviews__viewport--autoscroll .trustpilot-reviews__track {
+  animation: trustpilot-reviews-marquee var(--trustpilot-reviews-duration) linear infinite;
+}
+
+.trustpilot-reviews__viewport--autoscroll:hover .trustpilot-reviews__track,
+.trustpilot-reviews__viewport--autoscroll:focus-within .trustpilot-reviews__track {
+  animation-play-state: paused;
+}
+
+/* Each group ends with the gap, so that moving the track by one group loops seamlessly */
+.trustpilot-reviews__group {
+  gap: var(--trustpilot-reviews-gap);
+  padding-inline-end: var(--trustpilot-reviews-gap);
+  display: flex;
+}
+
+.trustpilot-reviews__card {
+  background: var(--trustpilot-reviews-card-background);
+  border: 1px solid var(--trustpilot-reviews-card-border-color);
+  border-radius: .75rem;
+  flex: 0 0 var(--trustpilot-reviews-card-width);
+  flex-direction: column;
+  gap: .75rem;
+  min-height: 12.5rem;
+  padding: 1.5rem;
+  display: flex;
+}
+
+.trustpilot-reviews__text {
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+  overflow: hidden;
+}
+
+.trustpilot-reviews__meta {
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-block-start: auto;
+  display: flex;
+}
+
+@keyframes trustpilot-reviews-marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media screen and (min-width: 700px) {
+  .trustpilot-reviews {
+    --trustpilot-reviews-card-width: 20rem;
+  }
+
+  .trustpilot-reviews__card {
+    padding: 2rem;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .trustpilot-reviews {
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 4rem;
+  }
+
+  .trustpilot-reviews__summary {
+    text-align: start;
+    justify-items: start;
+    align-content: space-between;
+  }
+
+  .trustpilot-reviews__details {
+    align-items: start;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .trustpilot-reviews__viewport--autoscroll {
+    overflow-x: auto;
+  }
+
+  .trustpilot-reviews__viewport--autoscroll .trustpilot-reviews__track {
+    animation: none;
+  }
+}

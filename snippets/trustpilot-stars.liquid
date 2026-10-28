@@ -1,0 +1,20 @@
+{%- doc -%}
+Sengefabrikken: renders Trustpilot stars (a white star on a green square). The star after the rating is partially
+filled for the decimals, rounded to the half star like Trustpilot does.
+
+@param {number} rating - the rating, out of 5
+{%- enddoc -%}
+
+{%- liquid
+  assign rating_rounded = rating | times: 2 | round | divided_by: 2.0
+-%}
+
+<span class="trustpilot-stars" role="img" aria-label="{{ rating }} / 5">
+  {%- for i in (1..5) -%}
+    {%- assign star_fill = rating_rounded | minus: forloop.index0 | at_least: 0 | at_most: 1 | times: 100 | round -%}
+
+    <span class="trustpilot-stars__star" style="--trustpilot-star-fill: {{ star_fill }}%">
+      <svg aria-hidden="true" focusable="false" viewBox="0 0 25 25"><path fill="#fff" d="M12.5 4L14.4084 9.87336L20.584 9.87336L15.5878 13.5033L17.4962 19.3766L12.5 15.7467L7.50383 19.3766L9.41219 13.5033L4.41602 9.87336L10.5916 9.87336L12.5 4Z"/></svg>
+    </span>
+  {%- endfor -%}
+</span>
