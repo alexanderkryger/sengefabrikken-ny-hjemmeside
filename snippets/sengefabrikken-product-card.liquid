@@ -6,7 +6,8 @@ snippet).
 It shows:
 - the ribbon matching the product tags (theme settings > Sengefabrikken ribbons)
 - the splash with the saving in percent, or the "custom.splash_text" metafield when the product is not on sale
-- the Danish quality icon ("custom.dansk_produceret_kvalitetsseng_ikon" metafield)
+- a label from the product tags ("__label:Få tilbage") and the Danish quality icon
+  ("custom.dansk_produceret_kvalitetsseng_ikon" metafield)
 - the delivery time badge ("custom.leveringstid" metafield)
 - the bullet list from the "custom.product_card_h_jre_side_tekst" metaobject (title and content, where "**" is
   replaced by a checkmark)
@@ -69,6 +70,16 @@ It shows:
   endif
 
   assign bullets = product.metafields.custom.product_card_h_jre_side_tekst.value
+
+  # A tag such as "__label:Få tilbage" is shown as a label in the top corner of the media
+  assign product_label = blank
+
+  for tag in product.tags
+    if tag contains '__label:'
+      assign product_label = tag | split: '__label:' | last | strip
+      break
+    endif
+  endfor
 -%}
 
 <article class="sengefabrikken-card {% if wide %}sengefabrikken-card--wide{% endif %} {% if ribbon_index > 0 %}sengefabrikken-card--ribbon{% endif %} color-scheme color-scheme--{{ settings.product_card_color_scheme.id }}" {% if ribbon_index > 0 %}style="--sengefabrikken-card-ribbon-background: {{ settings[ribbon_color_setting] }}; --sengefabrikken-card-ribbon-text-color: {{ settings[ribbon_text_color_setting] }}"{% endif %}>
@@ -97,8 +108,16 @@ It shows:
       </span>
     {%- endif -%}
 
-    {%- if product.metafields.custom.dansk_produceret_kvalitetsseng_ikon != blank -%}
-      <img class="sengefabrikken-card__quality-icon" src="{{ 'dansk-kvalitet.svg' | asset_url }}" alt="Danskproduceret kvalitetsseng" width="107" height="107" loading="lazy">
+    {%- if product_label != blank or product.metafields.custom.dansk_produceret_kvalitetsseng_ikon != blank -%}
+      <span class="sengefabrikken-card__corner">
+        {%- if product_label != blank -%}
+          <span class="sengefabrikken-card__label">{{ product_label }}</span>
+        {%- endif -%}
+
+        {%- if product.metafields.custom.dansk_produceret_kvalitetsseng_ikon != blank -%}
+          <img class="sengefabrikken-card__quality-icon" src="{{ 'dansk-kvalitet.svg' | asset_url }}" alt="Danskproduceret kvalitetsseng" width="107" height="107" loading="lazy">
+        {%- endif -%}
+      </span>
     {%- endif -%}
 
     {%- if product.metafields.custom.leveringstid != blank -%}
@@ -106,11 +125,18 @@ It shows:
     {%- endif -%}
   </a>
 
-  <div class="sengefabrikken-card__info">
+  {%- capture card_rating -%}
     {%- if product.metafields.reviews.rating.value != blank -%}
       <div class="sengefabrikken-card__rating">
         {%- render 'product-rating', product: product, display_mode: 'count', alignment: 'center' -%}
       </div>
+    {%- endif -%}
+  {%- endcapture -%}
+
+  <div class="sengefabrikken-card__info">
+    {%- comment -%}The wide card shows the rating on top and a link at the bottom, the other cards show the rating at the bottom{%- endcomment -%}
+    {%- if wide -%}
+      {{- card_rating -}}
     {%- endif -%}
 
     <div class="sengefabrikken-card__details">
@@ -127,7 +153,7 @@ It shows:
           <span class="sengefabrikken-card__price">{{ card_variant.price | money_without_trailing_zeros }}</span>
 
           {%- if is_on_sale -%}
-            <span class="text-xs text-subdued">Før <span class="line-through">{{ card_variant.compare_at_price | money_without_trailing_zeros }}</span></span>
+            <span class="text-xs text-subdued line-through">Vejl. udsalgspris: {{ card_variant.compare_at_price | money_without_trailing_zeros }}</span>
           {%- elsif splash_text != blank -%}
             <span class="text-xs text-subdued">{{ splash_text }}</span>
           {%- endif -%}
@@ -135,21 +161,36 @@ It shows:
       </div>
 
       {%- if bullets != blank -%}
-        {%- capture checkmark_icon -%}{%- render 'icon' with 'success-checkmark', width: 12 -%}{%- endcapture -%}
+        {%- assign bullet_list = bullets.content.value | strip_html | split: '**' -%}
 
         <div class="sengefabrikken-card__bullets">
           {%- if bullets.title.value != blank -%}
             <p class="sengefabrikken-card__bullets-title">{{ bullets.title.value }}</p>
           {%- endif -%}
 
-          <div class="sengefabrikken-card__bullets-content">{{ bullets.content.value | replace: '**', checkmark_icon }}</div>
+          <ul class="sengefabrikken-card__bullet-list" role="list">
+            {%- for bullet in bullet_list -%}
+              {%- assign bullet_text = bullet | strip -%}
+
+              {%- if bullet_text != blank -%}
+                <li class="sengefabrikken-card__bullet">
+                  {%- render 'icon' with 'success-checkmark', width: 12 -%}
+                  <span>{{ bullet_text }}</span>
+                </li>
+              {%- endif -%}
+            {%- endfor -%}
+          </ul>
         </div>
       {%- endif -%}
     </div>
 
-    <a href="{{ product.url }}" class="sengefabrikken-card__link">
-      {%- render 'icon' with 'arrow-right', width: 12, direction_aware: true -%}
-      Læs mere om {% if ribbon_index > 0 %}{{ ribbon_text }}{% else %}produktet{% endif %}
-    </a>
+    {%- if wide -%}
+      <a href="{{ product.url }}" class="sengefabrikken-card__link">
+        {%- render 'icon' with 'arrow-right', width: 12, direction_aware: true -%}
+        Læs mere om {% if ribbon_index > 0 %}{{ ribbon_text }}{% else %}produktet{% endif %}
+      </a>
+    {%- else -%}
+      {{- card_rating -}}
+    {%- endif -%}
   </div>
 </article>

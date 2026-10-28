@@ -36,7 +36,7 @@
 }
 
 .sengefabrikken-card__media {
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 16 / 10;
   display: block;
   position: relative;
   overflow: hidden;
@@ -84,12 +84,26 @@
   line-height: 1.1;
 }
 
-.sengefabrikken-card__quality-icon {
-  width: 3.5rem;
-  height: auto;
+.sengefabrikken-card__corner {
+  justify-items: end;
+  gap: .75rem;
+  display: grid;
   position: absolute;
   inset-block-start: 1rem;
   inset-inline-end: 1rem;
+}
+
+.sengefabrikken-card__label {
+  color: #fff;
+  background: #650621;
+  border-radius: .25rem;
+  padding: .375rem .75rem;
+  font-size: .8125rem;
+}
+
+.sengefabrikken-card__quality-icon {
+  width: 3.5rem;
+  height: auto;
 }
 
 .sengefabrikken-card__delivery {
@@ -112,10 +126,16 @@
 }
 
 .sengefabrikken-card__rating {
-  border-block-end: 1px solid rgb(var(--border-color));
+  border-block-start: 1px solid rgb(var(--border-color));
   justify-items: center;
-  padding-block-end: 1rem;
+  padding-block-start: 1rem;
   display: grid;
+}
+
+.sengefabrikken-card--wide .sengefabrikken-card__rating {
+  border-block: none;
+  border-block-end: 1px solid rgb(var(--border-color));
+  padding-block: 0 1rem;
 }
 
 .sengefabrikken-card__details {
@@ -140,20 +160,28 @@
 }
 
 .sengefabrikken-card__bullets-title {
-  margin-block-end: .75rem;
+  margin-block-end: .625rem;
   font-weight: 500;
 }
 
-.sengefabrikken-card__bullets-content {
-  white-space: pre-line;
-  font-size: .875rem;
-  line-height: 1.8;
+.sengefabrikken-card__bullet-list {
+  gap: .375rem;
+  margin: 0;
+  padding: 0;
+  font-size: .8125rem;
+  line-height: 1.4;
+  list-style: none;
+  display: grid;
 }
 
-.sengefabrikken-card__bullets-content svg {
-  vertical-align: middle;
-  margin-inline-end: .375rem;
-  display: inline-block;
+.sengefabrikken-card__bullet {
+  align-items: baseline;
+  gap: .5rem;
+  display: flex;
+}
+
+.sengefabrikken-card__bullet svg {
+  flex-shrink: 0;
 }
 
 .sengefabrikken-card__link {
