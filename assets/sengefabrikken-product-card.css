@@ -5,6 +5,13 @@
   gap: 1.5rem;
 }
 
+/* The theme lays out the children of the product list with a subgrid (for its own cards), which stacks the cards of a
+   row on top of each other, so it is disabled here (this rule must stay before the card rules) */
+.product-list--sengefabrikken > * {
+  grid-template-rows: none;
+  grid-row: auto;
+}
+
 /* The cards use the same width as the other sections (the default product list goes edge to edge) */
 .collection__results:has(.product-list--sengefabrikken) {
   padding-inline: max(var(--container-gutter), (100% - var(--container-max-width)) / 2);
