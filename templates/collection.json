@@ -102,10 +102,120 @@
         "default_filter_values": "180x200, Sand",
         "swatch_selector_size": "lg"
       }
+    },
+    "seo_text": {
+      "type": "multi-column",
+      "blocks": {
+        "section-header": {
+          "type": "_section-header",
+          "static": true,
+          "settings": {
+            "title": "Kontinentalsenge - 180x200 cm – Danskproducerede kvalitetssenge til spotpriser",
+            "content": "",
+            "text_alignment": "left",
+            "heading_size": "h5",
+            "title_icon": "none",
+            "show_scrolling_title": false
+          }
+        },
+        "column_1": {
+          "type": "_multi-column-column",
+          "settings": {
+            "color_scheme": "",
+            "text_alignment": "left"
+          },
+          "blocks": {
+            "text_1": {
+              "type": "rich-text",
+              "settings": {
+                "text": "<ul><li>Stilrene og indbydende senge produceret af danske håndværkere.</li><li>15-25 års fabriksgaranti imod brud på træramme og fjedre.</li><li>Altid komplet løsning inkl. valgfri sengeben og komfortabel topmadras til at fuldende din søvn.</li><li>Gratis levering med vores fragtmand direkte til din adresse.</li></ul><p>Mangler I en ny dobbeltseng? Så kan det være, det er en kontinentalseng 180x200 der er lige præcis det I søger. <a href=\"/collections/kontinental-senge\" title=\"Kontinentalsenge\">Kontinentalsenge</a> forener skøn komfort og individualiseret støtte med et moderne design og lang levetid - og det kommer derfor ikke som nogen overraskelse, at det er lige præcis denne type seng, som er vores absolut mest populære.</p><p>Hos Sengefabrikken finder du et stort udvalg af danskproducerede kontinentalsenge 180x200, der spænder bredt, hvad angår indhold, farve og udseende. Alle vores kontinentalsenge har dog det tilfældes, at de er opbygget ud fra samme skitse.</p><p>Du kan i vores udvalg også finde en <a href=\"/collections/kontinental-senge\" title=\"Kontinentalseng i 160x200\">kontinentalseng i 160x200</a>, <a href=\"/collections/kontinental-senge\" title=\"Kontinentalseng i 140x200\">en kontinentalseng i 140x200</a> og en <a href=\"/collections/kontinental-senge\" title=\"Kontinentalseng i 200x200\">kontinentalseng i 200x200</a></p>",
+                "content_width": "full"
+              }
+            },
+            "heading_1": {
+              "type": "heading",
+              "settings": {
+                "text": "Opbygning af kontinentalseng 180x200",
+                "heading_size": "h3",
+                "html_tag": "h2",
+                "indent": "none",
+                "highlight_effect": "default"
+              }
+            },
+            "text_2": {
+              "type": "rich-text",
+              "settings": {
+                "text": "<ul><li>Kontinentalbunde i massiv træramme med fast skumbase eller fjedreindlæg.</li><li>Vendbar springmadras med fjedre, komfortzoner og polstring.</li><li>Komfortabel topmadras med behageligt betræk.</li></ul><p>Kontinentalbundene nederst skaber et stærkt og solidt fundament, hvorfra sengens øvrige madrasser får optimale arbejdsbetingelser. Bundenes primære formål er således netop at skabe en stabil og holdbar platform, der bidrager positivt til sengens komfort og levetid. Herudover er bundene med til at give kontinentalsengen det karakteristiske udseende – der i fagsprog kaldes en ”sandwich”, fordi sengen består af de tre individuelle madraslag.</p><p>Den vendbare springmadras, som er sengekonstruktionens midterste madras, er også sengens primære komfortlag. Det er denne madras, der sørger for, at din krop får den helt rigtige støtte natten igennem. Alle vores kontinental senge 180 er med et 7-zonet fjedreindlæg. Madrassen er opbygget med 220 individuelle pocket fjedre pr. m2. Alle fjedrene fungerer som individuelle støttepunkter, som giver dig den optimale støtte, der hvor du har mest brug for det.</p><p>Dit valg af fasthed afhænger naturligvis af dine præferencer, men i høj grad også af, hvor meget du vejer. Vores anbefaling er at vælge <em>medium</em>, hvis du vejer under 70 kg., <em>fast</em>, hvis du vejer mellem 70 kg. og 95/100 kg. og <em>xtra fast</em> hvis du vejer over 95/100 kg.</p>",
+                "content_width": "full"
+              }
+            }
+          },
+          "block_order": [
+            "text_1",
+            "heading_1",
+            "text_2"
+          ]
+        },
+        "column_2": {
+          "type": "_multi-column-column",
+          "settings": {
+            "color_scheme": "",
+            "text_alignment": "left"
+          },
+          "blocks": {
+            "text_3": {
+              "type": "rich-text",
+              "settings": {
+                "text": "<p>Som sengens øverste madras og din primære berøringsflade tilfører topmadrassen det sidste niveau af komfort og støtte. Ved alle vores kontinentalsenge 180x200 cm. medfølger en komfortabel topmadras, så du får en komplet løsning.</p><p>Udover topmadras og muligheden for at vælge fasthed, får du også sengeben med i prisen - og så leverer vi altid gratis hjem til dig. Hos os er gennemsigtighed vigtigt, og derfor ved du også altid, hvad der er inkluderet i prisen, når du handler hos os.</p>",
+                "content_width": "full"
+              }
+            },
+            "heading_2": {
+              "type": "heading",
+              "settings": {
+                "text": "Køb billig kontinentalseng online",
+                "heading_size": "h3",
+                "html_tag": "h2",
+                "indent": "none",
+                "highlight_effect": "default"
+              }
+            },
+            "text_4": {
+              "type": "rich-text",
+              "settings": {
+                "text": "<ul><li>100% online til din fordel.</li><li>100 dages ombytning af fasthed og/eller topmadras.</li><li>Få professionel hjælp af sengevejledere hver dag fra 8-22.</li></ul><p>Det behøves ikke være svært at købe seng online; Sengefabrikken har altid været 100 % online, hvilket er et helt bevidst valg. Vores onlinestrategi gør os således billigere og mere fleksible end stort set alle andre på markedet; herudover er der en enorm stor forskel på at prøveligge en seng med alt dit tøj på i 5 minutter kontra at sove i din seng 6-9 timer hver eneste nat. Bare fordi du har prøvet en seng fysisk – og ligget godt i den i 5 minutter – så er det altså langt fra sikkert, at det er den rigtige seng for dig og din krop. Her anbefaler vi senge ud fra faktuelle forhold såsom vægt og højde, der på sigt er bedre måleinstrumenter i henhold til at sikre dig den helt rigtige støtte både nu og i fremtiden.</p><p>For at gøre det endnu nemmere for dig, så emballerer vi alle vores senge i gennemsigtig emballage, således du kan besigtige farven, den generelle kvalitet samt prøveligge sengen, når den bliver leveret. Hvis fx farven ikke stemmer overens med dine forventninger, så henter vi sengen igen kvit og frit. Herudover har du sågar også mulighed for at prøve sengen hjemme i dit soveværelse i helt op til 100 dage og stadig justere fastheden af springmadrassen; hvis du imod forventning får valgt en for fast eller for blød springmadras, så kan du altså få denne ombyttet og dermed tilpasse komforten, så den passer perfekt til dig.</p><p>Det tager selvfølgelig tid for kroppen at vænne sig til en ny kontinentalseng; særligt hvis du skifter fra en almindelig til en kontinental seng 180, der som sagt er noget anderledes rent opbygningsmæssigt, og derfor også vil støtte din krop på en anderledes og mere dyb facon. Det kan derfor sagtens tage 2-4 uger at vænne sig til en ny seng, <strong>hvorfor vi tilbyder ombytning af topmadras eller fasthed i helt op til 100 dage efter levering</strong>.</p><p>Vores ombytning af fasthed kombineret med vores solide danske håndværk i form af kvalitetsmaterialer fra top til bund – hvor du oven i købet får minimum 15 års garanti – er din sikkerhed for at gøre en god og tilfredsstillende handel på både kort og lang sigt.</p>",
+                "content_width": "full"
+              }
+            }
+          },
+          "block_order": [
+            "text_3",
+            "heading_2",
+            "text_4"
+          ]
+        }
+      },
+      "block_order": [
+        "column_1",
+        "column_2"
+      ],
+      "settings": {
+        "color_scheme": "",
+        "show_internal_borders": false,
+        "add_horizontal_spacing": true,
+        "add_top_spacing": true,
+        "add_bottom_spacing": true,
+        "items_per_row": 2,
+        "stack_on_mobile": true,
+        "stack_on_desktop": true,
+        "column_spacing": "lg",
+        "row_spacing": "md"
+      }
     }
   },
   "order": [
     "banner",
-    "main"
+    "main",
+    "seo_text"
   ]
 }
