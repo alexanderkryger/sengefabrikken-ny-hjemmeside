@@ -7,7 +7,7 @@
 
 /* The cards use the same width as the other sections (the default product list goes edge to edge) */
 .collection__results:has(.product-list--sengefabrikken) {
-  padding-inline: var(--container-gutter);
+  padding-inline: max(var(--container-gutter), (100% - var(--container-max-width)) / 2);
 }
 
 .sengefabrikken-card {

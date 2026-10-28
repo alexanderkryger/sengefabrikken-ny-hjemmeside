@@ -1400,6 +1400,31 @@
     ]
   },
   {
+    "name": "Sengefabrikken layout",
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "Sektioner, der ikke er i fuld bredde, centreres og bliver højst så brede som sidebredden. Afstanden i siderne er 20px på mobil, 32px på tablet og 48px på desktop."
+      },
+      {
+        "type": "checkbox",
+        "id": "page_full_width",
+        "label": "Fuld bredde",
+        "default": false
+      },
+      {
+        "type": "range",
+        "id": "page_width",
+        "label": "Maks. sidebredde",
+        "min": 1000,
+        "max": 1920,
+        "step": 20,
+        "unit": "px",
+        "default": 1400
+      }
+    ]
+  },
+  {
     "name": "Sengefabrikken ribbons",
     "settings": [
       {
