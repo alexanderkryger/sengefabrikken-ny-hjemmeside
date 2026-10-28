@@ -144,20 +144,6 @@
   display: flex;
 }
 
-.sengefabrikken-card__stars {
-  gap: 2px;
-  display: flex;
-}
-
-/* Trustpilot style stars: green squares, partially filled for the decimals */
-.sengefabrikken-card__star {
-  background: linear-gradient(90deg, #00b67a var(--sengefabrikken-card-star-fill), #dcdce6 var(--sengefabrikken-card-star-fill));
-  place-items: center;
-  width: 1.125rem;
-  height: 1.125rem;
-  display: grid;
-}
-
 .sengefabrikken-card__header {
   border-block-end: 1px solid rgb(var(--border-color));
   justify-content: space-between;

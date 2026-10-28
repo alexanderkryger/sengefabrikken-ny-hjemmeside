@@ -39,35 +39,16 @@ This component generates a review badge from the product metafields information.
 {%- unless hide_rating -%}
   <div class="rating-badge {% if alignment %}justify-{{ alignment }}{% endif %}">
     <div class="rating-badge__stars" role="img" aria-label="{{ 'general.rating.info' | t: rating_value: rating_value, rating_max: rating_max }}">
-      {%- liquid
-        if show_single_star
-          if rating_count == 0
-            render 'icon' with 'star-rating-empty'
-          else
-            render 'icon' with 'star-rating'
-          endif
-        else
-          for i in (1..rating_max)
-            if rating_count == 0
-              render 'icon' with 'star-rating-empty'
-            else
-              if i <= rating_value
-                render 'icon' with 'star-rating'
-              else
-                if rating_decimal == 0.5
-                  render 'icon' with 'star-rating-half'
-                elsif rating_decimal == 1
-                  render 'icon' with 'star-rating'
-                else
-                  render 'icon' with 'star-rating-empty'
-                endif
-
-                assign rating_decimal = false
-              endif
-            endif
-          endfor
-        endif
-      -%}
+      {%- comment -%}Sengefabrikken: Yotpo style stars (see the yotpo-stars snippet){%- endcomment -%}
+      {%- if show_single_star -%}
+        {%- if rating_count == 0 -%}
+          {%- render 'yotpo-stars', rating: 0, star_count: 1 -%}
+        {%- else -%}
+          {%- render 'yotpo-stars', rating: 1, rating_max: 1, star_count: 1 -%}
+        {%- endif -%}
+      {%- else -%}
+        {%- render 'yotpo-stars', rating: rating_value, rating_max: rating_max -%}
+      {%- endif -%}
     </div>
 
     {%- if display_mode == 'count' -%}

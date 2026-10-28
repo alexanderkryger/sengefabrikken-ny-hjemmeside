@@ -1,0 +1,25 @@
+{%- doc -%}
+Sengefabrikken: renders the review stars in the Yotpo style (a cream star on a green square). The rating comes from the
+Shopify review metafields ("reviews.rating" and "reviews.rating_count"), which Yotpo keeps in sync, so the stars are
+rendered on the server without loading the Yotpo widget. The last star is partially filled for the decimals.
+
+@param {number} rating - the rating
+@param {number} [rating_max] - the maximum rating (default to 5)
+@param {number} [star_count] - the number of stars to show (default to 5, use 1 to show a single star)
+{%- enddoc -%}
+
+{%- liquid
+  assign rating_max = rating_max | default: 5
+  assign star_count = star_count | default: 5
+  assign rating_on_scale = rating | times: 1.0 | times: star_count | divided_by: rating_max
+-%}
+
+<span class="yotpo-stars" role="img" aria-label="{{ rating | round: 1 }} / {{ rating_max }}">
+  {%- for i in (1..star_count) -%}
+    {%- assign star_fill = rating_on_scale | minus: forloop.index0 | at_least: 0 | at_most: 1 | times: 100 | round -%}
+
+    <span class="yotpo-stars__star" style="--yotpo-star-fill: {{ star_fill }}%">
+      <svg aria-hidden="true" focusable="false" viewBox="0 0 17.32 16.01"><path fill="currentColor" d="M8.37718 1.7957C8.47172 1.52961 8.84803 1.5296 8.94256 1.79569L10.3087 5.64106C10.3512 5.7607 10.4644 5.84063 10.5914 5.84063L14.9513 5.84063C15.2483 5.84063 15.3647 6.2261 15.1173 6.3905L11.6375 8.70269C11.5229 8.77887 11.4748 8.92329 11.5209 9.05299L12.8607 12.8241C12.9572 13.0958 12.6521 13.334 12.4119 13.1744L8.8259 10.7916C8.72531 10.7247 8.59444 10.7247 8.49384 10.7916L4.9078 13.1744C4.66761 13.334 4.36254 13.0958 4.45908 12.8241L5.79886 9.05299C5.84494 8.92329 5.79684 8.77887 5.6822 8.70269L2.20243 6.3905C1.95501 6.2261 2.0714 5.84063 2.36846 5.84063L6.72834 5.84063C6.8553 5.84063 6.96852 5.7607 7.01103 5.64106L8.37718 1.7957Z"/></svg>
+    </span>
+  {%- endfor -%}
+</span>

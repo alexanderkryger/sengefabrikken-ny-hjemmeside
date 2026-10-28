@@ -1,0 +1,31 @@
+/*
+ * Sengefabrikken: review stars in the Yotpo style (see the yotpo-stars snippet). Each star is a green square, the part
+ * above the rating being grey, with a cream star on top.
+ */
+
+.yotpo-stars {
+  --yotpo-star-size: 1.125rem;
+  gap: 2px;
+  flex-shrink: 0;
+  display: flex;
+}
+
+.yotpo-stars__star {
+  width: var(--yotpo-star-size);
+  height: calc(var(--yotpo-star-size) * 16 / 17.32);
+  color: #fefdf9;
+  background: linear-gradient(90deg, #24ac65 var(--yotpo-star-fill), #dcdce6 var(--yotpo-star-fill));
+  border-radius: 1px;
+  place-items: center;
+  display: grid;
+}
+
+.yotpo-stars__star svg {
+  width: 100%;
+  height: auto;
+}
+
+/* The theme rating badge (product page rating block and the standard product card) */
+.rating-badge .yotpo-stars {
+  --yotpo-star-size: 1rem;
+}

@@ -188,20 +188,11 @@ It shows:
       {%- liquid
         assign rating_value = product.metafields.reviews.rating.value.rating
         assign rating_max = product.metafields.reviews.rating.value.scale_max | default: 5
-        assign rating_out_of_five = rating_value | times: 5.0 | divided_by: rating_max
         assign rating_count = product.metafields.reviews.rating_count.value | default: 0
       -%}
 
       <div class="sengefabrikken-card__rating">
-        <span class="sengefabrikken-card__stars" role="img" aria-label="{{ rating_value | round: 1 }} / {{ rating_max }}">
-          {%- for star in (1..5) -%}
-            {%- assign star_fill = rating_out_of_five | minus: forloop.index0 | at_least: 0 | at_most: 1 | times: 100 | round -%}
-
-            <span class="sengefabrikken-card__star" style="--sengefabrikken-card-star-fill: {{ star_fill }}%">
-              <svg aria-hidden="true" focusable="false" width="12" viewBox="0 0 24 24"><path fill="#fff" d="m12 2 2.9 6.9 7.1.6-5.4 4.7 1.6 7L12 17.3l-6.2 3.9 1.6-7L2 9.5l7.1-.6z"/></svg>
-            </span>
-          {%- endfor -%}
-        </span>
+        {%- render 'yotpo-stars', rating: rating_value, rating_max: rating_max -%}
 
         <span class="text-sm">{{ rating_count }} anmeldelser</span>
       </div>
