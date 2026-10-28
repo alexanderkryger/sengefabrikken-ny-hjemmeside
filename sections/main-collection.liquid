@@ -47,7 +47,15 @@
     </div>
   {%- else -%}
     <div id="collection" class="collection">
-      {%- render 'collection-toolbar' -%}
+      {%- comment -%}
+        Sengefabrikken: the toolbar can be hidden. An empty element with the toolbar class is kept, as the floating filter
+        button uses the toolbar to know when to show up
+      {%- endcomment -%}
+      {%- if section.settings.show_toolbar -%}
+        {%- render 'collection-toolbar' -%}
+      {%- else -%}
+        <div class="collection__toolbar" style="padding: 0; border: 0" aria-hidden="true"></div>
+      {%- endif -%}
 
       <div class="collection__inner">
         {%- paginate collection.products by section.settings.products_per_page -%}
@@ -72,7 +80,9 @@
             </div>
           {%- else -%}
             <div class="collection__results">
-              {%- render 'active-facets', source: collection, hash: "#collection" -%}
+              {%- if section.settings.show_active_facets -%}
+                {%- render 'active-facets', source: collection, hash: "#collection" -%}
+              {%- endif -%}
               {%- render 'product-list', products: collection.products, allow_highlight: true, paginate: paginate, blocks: section.blocks, output_override_attributes: true, card_style: section.settings.product_card_style, card_row_background: section.settings.product_card_row_background, card_two_columns: section.settings.product_card_two_columns -%}
             </div>
 
@@ -270,6 +280,20 @@ on desktop based on the settings
     {
       "type": "header",
       "content": "Filtre (Sengefabrikken)"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_toolbar",
+      "label": "Vis værktøjslinje",
+      "info": "Linjen over produkterne med filtre, sortering og visning.",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_active_facets",
+      "label": "Vis aktive filtre",
+      "info": "De valgte filtre over produkterne, som kan fjernes enkeltvis.",
+      "default": true
     },
     {
       "type": "checkbox",
