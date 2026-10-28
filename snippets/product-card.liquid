@@ -70,6 +70,23 @@ based on your desired layout (and remove most of the settings associated), and t
     assign product_card_classes = product_card_classes | append: ' product-card--bordered'
   endif
 
+  # Sengefabrikken: a ribbon is shown on top of the card when the product has a tag matching the text of one of the
+  # ribbons (theme settings > Sengefabrikken ribbons). The first matching ribbon is used.
+  assign ribbon_index = 0
+
+  for ribbon_number in (1..6)
+    assign ribbon_text_setting = 'ribbon_text_' | append: ribbon_number
+    assign ribbon_text = settings[ribbon_text_setting] | strip
+
+    if ribbon_text != blank and product.tags contains ribbon_text
+      assign ribbon_index = ribbon_number
+      assign ribbon_color_setting = 'ribbon_color_' | append: ribbon_number
+      assign ribbon_text_color_setting = 'ribbon_text_color_' | append: ribbon_number
+      assign product_card_classes = product_card_classes | append: ' product-card--ribbon'
+      break
+    endif
+  endfor
+
   if settings.product_card_info_position == 'outside'
     assign product_card_classes = product_card_classes | append: ' product-card--info-outside'
   else
@@ -122,7 +139,11 @@ based on your desired layout (and remove most of the settings associated), and t
   endif
 -%}
 
-<product-card class="{{ product_card_classes }} color-scheme color-scheme--{{ color_scheme.id }}" {% if reveal and settings.stagger_products %}reveal-on-scroll="true"{% endif %} handle="{{ product.handle | escape }}">
+<product-card class="{{ product_card_classes }} color-scheme color-scheme--{{ color_scheme.id }}" {% if reveal and settings.stagger_products %}reveal-on-scroll="true"{% endif %} handle="{{ product.handle | escape }}" {% if ribbon_index > 0 %}style="--product-card-ribbon-background: {{ settings[ribbon_color_setting] }}; --product-card-ribbon-text-color: {{ settings[ribbon_text_color_setting] }}"{% endif %}>
+  {%- if ribbon_index > 0 -%}
+    <p class="product-card__ribbon">{{ ribbon_text }}</p>
+  {%- endif -%}
+
   {%- comment -%}
   --------------------------------------------------------------------------------------------------------------------
   PRODUCT MEDIA

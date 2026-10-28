@@ -1,0 +1,35 @@
+/* Sengefabrikken: ribbon on top of the product cards, based on the product tags (see the product-card snippet) */
+
+.product-card--ribbon {
+  --product-card-ribbon-height: 2rem;
+  border: 2px solid var(--product-card-ribbon-background);
+  border-radius: .75rem;
+  padding-block-start: var(--product-card-ribbon-height);
+  overflow: clip;
+}
+
+.product-card__ribbon {
+  z-index: 1;
+  height: var(--product-card-ribbon-height);
+  background: var(--product-card-ribbon-background);
+  color: var(--product-card-ribbon-text-color);
+  text-align: center;
+  place-content: center;
+  padding-inline: .75rem;
+  font-size: .8125rem;
+  line-height: 1.2;
+  display: grid;
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline: 0;
+}
+
+@media screen and (min-width: 700px) {
+  .product-card--ribbon {
+    --product-card-ribbon-height: 2.25rem;
+  }
+
+  .product-card__ribbon {
+    font-size: .875rem;
+  }
+}

@@ -300,9 +300,18 @@
         "label": "Brug Vicky til",
         "info": "Fonten er uploadet i temaets assets. Størrelse, bogstavafstand og store/små bogstaver følger indstillingerne for overskrifter.",
         "options": [
-          { "value": "none", "label": "Ingen" },
-          { "value": "product_title", "label": "Produkttitel" },
-          { "value": "all_headings", "label": "Alle overskrifter" }
+          {
+            "value": "none",
+            "label": "Ingen"
+          },
+          {
+            "value": "product_title",
+            "label": "Produkttitel"
+          },
+          {
+            "value": "all_headings",
+            "label": "Alle overskrifter"
+          }
         ],
         "default": "none"
       },
@@ -311,10 +320,22 @@
         "id": "vicky_font_weight",
         "label": "Vicky – tykkelse",
         "options": [
-          { "value": "400", "label": "Regular" },
-          { "value": "500", "label": "Medium" },
-          { "value": "600", "label": "SemiBold" },
-          { "value": "700", "label": "Bold" }
+          {
+            "value": "400",
+            "label": "Regular"
+          },
+          {
+            "value": "500",
+            "label": "Medium"
+          },
+          {
+            "value": "600",
+            "label": "SemiBold"
+          },
+          {
+            "value": "700",
+            "label": "Bold"
+          }
         ],
         "default": "400"
       },
@@ -1375,6 +1396,143 @@
         "type": "url",
         "id": "social_21buttons",
         "label": "21 Buttons"
+      }
+    ]
+  },
+  {
+    "name": "Sengefabrikken ribbons",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Ribbon 1"
+      },
+      {
+        "type": "text",
+        "id": "ribbon_text_1",
+        "label": "Ribbon-tekst",
+        "info": "Produkter med et tag, der er præcis det samme som teksten, får ribbonen på produktkortet."
+      },
+      {
+        "type": "color",
+        "id": "ribbon_color_1",
+        "label": "Ribbon-farve",
+        "default": "#000000"
+      },
+      {
+        "type": "color",
+        "id": "ribbon_text_color_1",
+        "label": "Tekstfarve",
+        "default": "#ffffff"
+      },
+      {
+        "type": "header",
+        "content": "Ribbon 2"
+      },
+      {
+        "type": "text",
+        "id": "ribbon_text_2",
+        "label": "Ribbon-tekst",
+        "info": "Produkter med et tag, der er præcis det samme som teksten, får ribbonen på produktkortet."
+      },
+      {
+        "type": "color",
+        "id": "ribbon_color_2",
+        "label": "Ribbon-farve",
+        "default": "#000000"
+      },
+      {
+        "type": "color",
+        "id": "ribbon_text_color_2",
+        "label": "Tekstfarve",
+        "default": "#ffffff"
+      },
+      {
+        "type": "header",
+        "content": "Ribbon 3"
+      },
+      {
+        "type": "text",
+        "id": "ribbon_text_3",
+        "label": "Ribbon-tekst",
+        "info": "Produkter med et tag, der er præcis det samme som teksten, får ribbonen på produktkortet."
+      },
+      {
+        "type": "color",
+        "id": "ribbon_color_3",
+        "label": "Ribbon-farve",
+        "default": "#000000"
+      },
+      {
+        "type": "color",
+        "id": "ribbon_text_color_3",
+        "label": "Tekstfarve",
+        "default": "#ffffff"
+      },
+      {
+        "type": "header",
+        "content": "Ribbon 4"
+      },
+      {
+        "type": "text",
+        "id": "ribbon_text_4",
+        "label": "Ribbon-tekst",
+        "info": "Produkter med et tag, der er præcis det samme som teksten, får ribbonen på produktkortet."
+      },
+      {
+        "type": "color",
+        "id": "ribbon_color_4",
+        "label": "Ribbon-farve",
+        "default": "#000000"
+      },
+      {
+        "type": "color",
+        "id": "ribbon_text_color_4",
+        "label": "Tekstfarve",
+        "default": "#ffffff"
+      },
+      {
+        "type": "header",
+        "content": "Ribbon 5"
+      },
+      {
+        "type": "text",
+        "id": "ribbon_text_5",
+        "label": "Ribbon-tekst",
+        "info": "Produkter med et tag, der er præcis det samme som teksten, får ribbonen på produktkortet."
+      },
+      {
+        "type": "color",
+        "id": "ribbon_color_5",
+        "label": "Ribbon-farve",
+        "default": "#000000"
+      },
+      {
+        "type": "color",
+        "id": "ribbon_text_color_5",
+        "label": "Tekstfarve",
+        "default": "#ffffff"
+      },
+      {
+        "type": "header",
+        "content": "Ribbon 6"
+      },
+      {
+        "type": "text",
+        "id": "ribbon_text_6",
+        "label": "Ribbon-tekst",
+        "info": "Produkter med et tag, der er præcis det samme som teksten, får ribbonen på produktkortet."
+      },
+      {
+        "type": "color",
+        "id": "ribbon_color_6",
+        "label": "Ribbon-farve",
+        "default": "#000000"
+      },
+      {
+        "type": "color",
+        "id": "ribbon_text_color_6",
+        "label": "Tekstfarve",
+        "default": "#ffffff"
       }
     ]
   },

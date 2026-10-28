@@ -54,6 +54,8 @@
     {{ content_for_header }}
 
     {{- 'theme.css' | asset_url | stylesheet_tag: preload: true -}}
+    {%- comment -%}Sengefabrikken: ribbon on the product cards{%- endcomment -%}
+    {{- 'product-card-ribbon.css' | asset_url | stylesheet_tag -}}
   </head>
 
   {% liquid
