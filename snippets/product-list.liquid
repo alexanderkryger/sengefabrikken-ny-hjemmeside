@@ -13,9 +13,14 @@ This component display a list of product that can be used in collection, search.
 @param {boolean} [output_override_attributes] - only for collection page, we allow customers to switch the layout. To avoid CLS, we have to save the attribute in the cart and apply it to the product list. A better approach would be to use container query around cards, but unfortunately we are using subgrid, and currently in browsers, subgrid and container queries can't be used together, so we have to revert to this approach
 @param {object} [paginate] - an optional paginate object when product list is rendered in context of collection pages
 @param {object} [section]
+@param {string} [card_style] - Sengefabrikken: "sengefabrikken" renders the Sengefabrikken card, laid out as one wide card followed by two cards
 {%- enddoc -%}
 
-<product-list {% if id %}id="{{ id }}"{% endif %} class="product-list {% if stack == false or spotlight == false %}product-list--carousel scroll-area bleed{% endif %} {% if spotlight %}product-list--spotlight scroll-area bleed{% if settings.product_listing_spacing == 'none' %}border{% endif %}{% endif %}" {% if output_override_attributes %}mobile-items-per-row="{{ cart.attributes.product_card_mobile_items_per_row | default: section.settings.products_per_row_mobile }}" desktop-layout="{{ cart.attributes.product_card_desktop_layout | default: 'grid' }}"{% endif %}>
+{%- if card_style == 'sengefabrikken' -%}
+  {{- 'sengefabrikken-product-card.css' | asset_url | stylesheet_tag -}}
+{%- endif -%}
+
+<product-list {% if id %}id="{{ id }}"{% endif %} class="product-list {% if card_style == 'sengefabrikken' %}product-list--sengefabrikken{% endif %} {% if stack == false or spotlight == false %}product-list--carousel scroll-area bleed{% endif %} {% if spotlight %}product-list--spotlight scroll-area bleed{% if settings.product_listing_spacing == 'none' %}border{% endif %}{% endif %}" {% if output_override_attributes %}mobile-items-per-row="{{ cart.attributes.product_card_mobile_items_per_row | default: section.settings.products_per_row_mobile }}" desktop-layout="{{ cart.attributes.product_card_desktop_layout | default: 'grid' }}"{% endif %}>
   {%- liquid
     assign has_active_filters = false
 
@@ -97,7 +102,21 @@ This component display a list of product that can be used in collection, search.
       </div>
     {%- endfor -%}
 
-    {%- render 'product-card', product: product, reveal: true, allow_highlight: allow_highlight, sizes: sizes, force_no_border: spotlight, section_color_scheme: section_color_scheme, prefix_id: prefix_id, position: forloop.index -%}
+    {%- comment -%}Sengefabrikken: every third card (starting with the first one) is a wide card{%- endcomment -%}
+    {%- if card_style == 'sengefabrikken' -%}
+      {%- liquid
+        assign sengefabrikken_card_index = forloop.index0 | modulo: 3
+        assign sengefabrikken_card_wide = false
+
+        if sengefabrikken_card_index == 0
+          assign sengefabrikken_card_wide = true
+        endif
+
+        render 'sengefabrikken-product-card', product: product, wide: sengefabrikken_card_wide, position: forloop.index
+      -%}
+    {%- else -%}
+      {%- render 'product-card', product: product, reveal: true, allow_highlight: allow_highlight, sizes: sizes, force_no_border: spotlight, section_color_scheme: section_color_scheme, prefix_id: prefix_id, position: forloop.index -%}
+    {%- endif -%}
   {%- else -%}
     {%- if show_placeholder -%}
       {%- for i in (1..4) -%}

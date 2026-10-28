@@ -1,0 +1,220 @@
+/* Sengefabrikken: product card of the collection page (see the sengefabrikken-product-card snippet) */
+
+.product-list.product-list--sengefabrikken {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1.5rem;
+}
+
+.sengefabrikken-card {
+  --sengefabrikken-card-ribbon-height: 2rem;
+  --sengefabrikken-card-border-color: rgb(var(--border-color));
+  border: 1px solid var(--sengefabrikken-card-border-color);
+  border-radius: .75rem;
+  flex-direction: column;
+  display: flex;
+  overflow: clip;
+}
+
+.sengefabrikken-card--ribbon {
+  --sengefabrikken-card-border-color: var(--sengefabrikken-card-ribbon-background);
+}
+
+.sengefabrikken-card__ribbon {
+  height: var(--sengefabrikken-card-ribbon-height);
+  background: var(--sengefabrikken-card-ribbon-background);
+  color: var(--sengefabrikken-card-ribbon-text-color);
+  text-align: center;
+  place-content: center;
+  padding-inline: .75rem;
+  font-size: .8125rem;
+  display: grid;
+}
+
+.sengefabrikken-card__media {
+  aspect-ratio: 4 / 3;
+  display: block;
+  position: relative;
+  overflow: hidden;
+}
+
+.sengefabrikken-card__image {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  transition: transform .4s ease-in-out;
+}
+
+@media (hover: hover) {
+  .sengefabrikken-card__media:hover .sengefabrikken-card__image {
+    transform: scale(1.03);
+  }
+}
+
+.sengefabrikken-card__splash {
+  width: 4.5rem;
+  place-items: center;
+  display: grid;
+  position: absolute;
+  inset-block-start: .5rem;
+  inset-inline-start: .5rem;
+  rotate: -12deg;
+}
+
+.sengefabrikken-card__splash > * {
+  grid-area: 1 / 1;
+}
+
+.sengefabrikken-card__splash img {
+  width: 100%;
+  height: auto;
+}
+
+.sengefabrikken-card__splash-text {
+  color: #2f1300;
+  font-family: var(--heading-font-family);
+  text-align: center;
+  max-width: 60%;
+  font-size: .75rem;
+  font-weight: 500;
+  line-height: 1.1;
+}
+
+.sengefabrikken-card__quality-icon {
+  width: 3.5rem;
+  height: auto;
+  position: absolute;
+  inset-block-start: 1rem;
+  inset-inline-end: 1rem;
+}
+
+.sengefabrikken-card__delivery {
+  color: #fff;
+  background: #650621;
+  border-radius: .25rem;
+  padding: .25rem .5rem;
+  font-size: .75rem;
+  position: absolute;
+  inset-block-end: .75rem;
+  inset-inline-start: .75rem;
+}
+
+.sengefabrikken-card__info {
+  flex-grow: 1;
+  grid-template-rows: auto 1fr auto;
+  align-content: start;
+  padding: 1rem 1.25rem;
+  display: grid;
+}
+
+.sengefabrikken-card__rating {
+  border-block-end: 1px solid rgb(var(--border-color));
+  justify-items: center;
+  padding-block-end: 1rem;
+  display: grid;
+}
+
+.sengefabrikken-card__details {
+  grid-template-columns: minmax(0, 1fr);
+  align-content: start;
+  gap: 1.5rem;
+  padding-block: 1.25rem;
+  display: grid;
+}
+
+.sengefabrikken-card__title {
+  font-size: 1.125rem;
+  line-height: 1.2;
+}
+
+.sengefabrikken-card__price {
+  color: #c87d0a;
+  font-family: var(--heading-font-family);
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.sengefabrikken-card__bullets-title {
+  margin-block-end: .75rem;
+  font-weight: 500;
+}
+
+.sengefabrikken-card__bullets-content {
+  white-space: pre-line;
+  font-size: .875rem;
+  line-height: 1.8;
+}
+
+.sengefabrikken-card__bullets-content svg {
+  vertical-align: middle;
+  margin-inline-end: .375rem;
+  display: inline-block;
+}
+
+.sengefabrikken-card__link {
+  border-block-start: 1px solid rgb(var(--border-color));
+  justify-content: center;
+  align-items: center;
+  gap: .625rem;
+  padding-block-start: 1rem;
+  font-size: .875rem;
+  display: flex;
+}
+
+@media screen and (min-width: 700px) {
+  .product-list.product-list--sengefabrikken {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .sengefabrikken-card--wide {
+    grid-column: 1 / -1;
+  }
+
+  .sengefabrikken-card__details {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .sengefabrikken-card__splash {
+    width: 6rem;
+    inset-block-start: 1rem;
+    inset-inline-start: 1rem;
+  }
+
+  .sengefabrikken-card__splash-text {
+    font-size: .875rem;
+  }
+
+  .sengefabrikken-card__quality-icon {
+    width: 4.5rem;
+  }
+
+  .sengefabrikken-card__info {
+    padding: 1.25rem 2rem;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  /* The wide card shows the media next to the info, the ribbon stays above both */
+  .sengefabrikken-card--wide {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-rows: auto 1fr;
+    display: grid;
+  }
+
+  .sengefabrikken-card--wide .sengefabrikken-card__ribbon {
+    grid-column: 1 / -1;
+  }
+
+  .sengefabrikken-card--wide .sengefabrikken-card__media {
+    aspect-ratio: auto;
+    min-height: 100%;
+  }
+
+  .sengefabrikken-card--wide .sengefabrikken-card__info {
+    padding: 2rem 3rem;
+  }
+
+  .sengefabrikken-card--wide .sengefabrikken-card__details {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

@@ -1,0 +1,155 @@
+{%- doc -%}
+Sengefabrikken: product card used on the collection page when the "Sengefabrikken" card style is selected. The cards are
+laid out as one wide card (media next to the info) followed by two cards next to each other (see the product-list
+snippet).
+
+It shows:
+- the ribbon matching the product tags (theme settings > Sengefabrikken ribbons)
+- the splash with the saving in percent, or the "custom.splash_text" metafield when the product is not on sale
+- the Danish quality icon ("custom.dansk_produceret_kvalitetsseng_ikon" metafield)
+- the delivery time badge ("custom.leveringstid" metafield)
+- the bullet list from the "custom.product_card_h_jre_side_tekst" metaobject (title and content, where "**" is
+  replaced by a checkmark)
+
+@param {object} product - the product to render
+@param {boolean} [wide] - if set to true, the media is shown next to the info on desktop
+@param {number} [position] - the position of the card in the list, used to eagerly load the first images
+{%- enddoc -%}
+
+{%- liquid
+  assign card_variant = product.selected_or_first_available_variant
+  assign splash_text = product.metafields.custom.splash_text.value
+  assign is_on_sale = false
+
+  if card_variant.compare_at_price > card_variant.price
+    assign is_on_sale = true
+    assign saving = card_variant.compare_at_price | minus: card_variant.price | times: 100.0 | divided_by: card_variant.compare_at_price | round
+  endif
+
+  assign ribbon_index = 0
+
+  for ribbon_number in (1..6)
+    assign ribbon_text_setting = 'ribbon_text_' | append: ribbon_number
+    assign ribbon_text = settings[ribbon_text_setting] | strip
+
+    if ribbon_text != blank and product.tags contains ribbon_text
+      assign ribbon_index = ribbon_number
+      assign ribbon_color_setting = 'ribbon_color_' | append: ribbon_number
+      assign ribbon_text_color_setting = 'ribbon_text_color_' | append: ribbon_number
+      break
+    endif
+  endfor
+
+  # "Fabrikkens - Komfort | Kontinental (Sort) 180x200 cm." is shown as "Kontinental - 180x200 cm." and "Fabrikkens Komfort"
+  if product.title contains ' | '
+    assign card_title = product.title | split: ' | ' | first | remove: ' -' | strip
+    assign card_type = product.title | split: ' | ' | last | split: '(' | first | strip
+    assign card_size = product.title | split: ')' | last | strip
+
+    if card_size != blank and card_size != card_type
+      assign card_subtitle = card_type | append: ' - ' | append: card_size
+    else
+      assign card_subtitle = card_type
+    endif
+  else
+    assign card_title = product.title
+    assign card_subtitle = blank
+  endif
+
+  if wide
+    assign card_sizes = '(max-width: 999px) 100vw, 50vw'
+  else
+    assign card_sizes = '(max-width: 699px) 100vw, 50vw'
+  endif
+
+  if position <= 3
+    assign card_loading = 'eager'
+  else
+    assign card_loading = 'lazy'
+  endif
+
+  assign bullets = product.metafields.custom.product_card_h_jre_side_tekst.value
+-%}
+
+<article class="sengefabrikken-card {% if wide %}sengefabrikken-card--wide{% endif %} {% if ribbon_index > 0 %}sengefabrikken-card--ribbon{% endif %} color-scheme color-scheme--{{ settings.product_card_color_scheme.id }}" {% if ribbon_index > 0 %}style="--sengefabrikken-card-ribbon-background: {{ settings[ribbon_color_setting] }}; --sengefabrikken-card-ribbon-text-color: {{ settings[ribbon_text_color_setting] }}"{% endif %}>
+  {%- if ribbon_index > 0 -%}
+    <p class="sengefabrikken-card__ribbon">{{ ribbon_text }}</p>
+  {%- endif -%}
+
+  <a href="{{ product.url }}" class="sengefabrikken-card__media">
+    {%- if product.featured_media != blank -%}
+      {{- product.featured_media | image_url: width: product.featured_media.width | image_tag: loading: card_loading, sizes: card_sizes, widths: '400,600,800,1000,1200,1400,1600,1800', class: 'sengefabrikken-card__image' -}}
+    {%- else -%}
+      {{- 'product-1' | placeholder_svg_tag: 'sengefabrikken-card__image placeholder' -}}
+    {%- endif -%}
+
+    {%- if is_on_sale or splash_text != blank -%}
+      <span class="sengefabrikken-card__splash">
+        <img src="{{ 'splash-icon.svg' | asset_url }}" alt="" width="142" height="142" loading="lazy">
+
+        <span class="sengefabrikken-card__splash-text">
+          {%- if is_on_sale -%}
+            -{{ saving }}%
+          {%- else -%}
+            {{- splash_text -}}
+          {%- endif -%}
+        </span>
+      </span>
+    {%- endif -%}
+
+    {%- if product.metafields.custom.dansk_produceret_kvalitetsseng_ikon != blank -%}
+      <img class="sengefabrikken-card__quality-icon" src="{{ 'dansk-kvalitet.svg' | asset_url }}" alt="Danskproduceret kvalitetsseng" width="107" height="107" loading="lazy">
+    {%- endif -%}
+
+    {%- if product.metafields.custom.leveringstid != blank -%}
+      <span class="sengefabrikken-card__delivery">Levering ({{ product.metafields.custom.leveringstid }})</span>
+    {%- endif -%}
+  </a>
+
+  <div class="sengefabrikken-card__info">
+    {%- if product.metafields.reviews.rating.value != blank -%}
+      <div class="sengefabrikken-card__rating">
+        {%- render 'product-rating', product: product, display_mode: 'count', alignment: 'center' -%}
+      </div>
+    {%- endif -%}
+
+    <div class="sengefabrikken-card__details">
+      <div class="v-stack gap-4">
+        <a href="{{ product.url }}" class="v-stack gap-0.5">
+          {%- if card_subtitle != blank -%}
+            <span class="text-sm text-subdued">{{ card_subtitle }}</span>
+          {%- endif -%}
+
+          <span class="sengefabrikken-card__title heading">{{ card_title }}</span>
+        </a>
+
+        <div class="v-stack">
+          <span class="sengefabrikken-card__price">{{ card_variant.price | money_without_trailing_zeros }}</span>
+
+          {%- if is_on_sale -%}
+            <span class="text-xs text-subdued">Før <span class="line-through">{{ card_variant.compare_at_price | money_without_trailing_zeros }}</span></span>
+          {%- elsif splash_text != blank -%}
+            <span class="text-xs text-subdued">{{ splash_text }}</span>
+          {%- endif -%}
+        </div>
+      </div>
+
+      {%- if bullets != blank -%}
+        {%- capture checkmark_icon -%}{%- render 'icon' with 'success-checkmark', width: 12 -%}{%- endcapture -%}
+
+        <div class="sengefabrikken-card__bullets">
+          {%- if bullets.title.value != blank -%}
+            <p class="sengefabrikken-card__bullets-title">{{ bullets.title.value }}</p>
+          {%- endif -%}
+
+          <div class="sengefabrikken-card__bullets-content">{{ bullets.content.value | replace: '**', checkmark_icon }}</div>
+        </div>
+      {%- endif -%}
+    </div>
+
+    <a href="{{ product.url }}" class="sengefabrikken-card__link">
+      {%- render 'icon' with 'arrow-right', width: 12, direction_aware: true -%}
+      Læs mere om {% if ribbon_index > 0 %}{{ ribbon_text }}{% else %}produktet{% endif %}
+    </a>
+  </div>
+</article>
