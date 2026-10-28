@@ -19,8 +19,10 @@
         "collection_title_size": "h2",
         "content_position": "place-self-center",
         "background_color_scheme": "",
-        "image": "shopify://shop_images/collection_banner_test.jpg",
+        "image": "shopify://shop_images/collectionbanner_kontinental.png",
         "image_size": "lg",
+        "overlay_color": "#000000",
+        "overlay_opacity": 20,
         "quick_navigation_menu": ""
       }
     },
