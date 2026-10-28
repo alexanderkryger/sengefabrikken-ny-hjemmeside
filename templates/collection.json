@@ -21,6 +21,8 @@
         "background_color_scheme": "",
         "image": "shopify://shop_images/collection_banner_test.jpg",
         "image_size": "lg",
+        "overlay_color": "#000000",
+        "overlay_opacity": 20,
         "quick_navigation_menu": ""
       }
     },
