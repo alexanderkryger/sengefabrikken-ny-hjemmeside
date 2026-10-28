@@ -14,6 +14,7 @@ This component display a list of product that can be used in collection, search.
 @param {object} [paginate] - an optional paginate object when product list is rendered in context of collection pages
 @param {object} [section]
 @param {string} [card_style] - Sengefabrikken: "sengefabrikken" renders the Sengefabrikken card, laid out as one wide card followed by two cards
+@param {string} [card_row_background] - Sengefabrikken: background color of the rows with two Sengefabrikken cards (full width)
 {%- enddoc -%}
 
 {%- if card_style == 'sengefabrikken' -%}
@@ -112,7 +113,16 @@ This component display a list of product that can be used in collection, search.
           assign sengefabrikken_card_wide = true
         endif
 
+        # The two cards following a wide card are wrapped in a row, which can have its own background
+        if sengefabrikken_card_index == 1
+          echo '<div class="sengefabrikken-card-row" style="--sengefabrikken-card-row-background: ' | append: card_row_background | append: '">'
+        endif
+
         render 'sengefabrikken-product-card', product: product, wide: sengefabrikken_card_wide, position: forloop.index
+
+        if sengefabrikken_card_index == 2 or sengefabrikken_card_index == 1 and forloop.last
+          echo '</div>'
+        endif
       -%}
     {%- else -%}
       {%- render 'product-card', product: product, reveal: true, allow_highlight: allow_highlight, sizes: sizes, force_no_border: spotlight, section_color_scheme: section_color_scheme, prefix_id: prefix_id, position: forloop.index -%}

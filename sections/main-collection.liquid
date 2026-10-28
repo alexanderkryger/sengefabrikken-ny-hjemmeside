@@ -73,7 +73,7 @@
           {%- else -%}
             <div class="collection__results">
               {%- render 'active-facets', source: collection, hash: "#collection" -%}
-              {%- render 'product-list', products: collection.products, allow_highlight: true, paginate: paginate, blocks: section.blocks, output_override_attributes: true, card_style: section.settings.product_card_style -%}
+              {%- render 'product-list', products: collection.products, allow_highlight: true, paginate: paginate, blocks: section.blocks, output_override_attributes: true, card_style: section.settings.product_card_style, card_row_background: section.settings.product_card_row_background -%}
             </div>
 
             {%- render 'pagination', paginate: paginate, facet: true, hash: '#collection' -%}
@@ -252,6 +252,13 @@ on desktop based on the settings
         { "value": "sengefabrikken", "label": "Sengefabrikken card" }
       ],
       "default": "default"
+    },
+    {
+      "type": "color",
+      "id": "product_card_row_background",
+      "label": "Baggrund bag rækken med to kort",
+      "info": "Kun Sengefabrikken card. Vises i fuld bredde.",
+      "default": "#fff4e2"
     },
     {
       "type": "header",
