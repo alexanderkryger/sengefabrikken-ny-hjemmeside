@@ -171,6 +171,12 @@
   flex-shrink: 0;
 }
 
+/* The wide card stacks its header, bullets, price and rating with spacing on every screen size */
+.sengefabrikken-card--wide .sengefabrikken-card__info {
+  grid-template-rows: none;
+  gap: 1.25rem;
+}
+
 .sengefabrikken-card__details {
   grid-template-columns: minmax(0, 1fr);
   align-content: start;
@@ -294,7 +300,6 @@
   }
 
   .sengefabrikken-card--wide .sengefabrikken-card__info {
-    grid-template-rows: none;
     align-content: center;
     gap: 1.5rem;
     padding: 2rem 3rem;
