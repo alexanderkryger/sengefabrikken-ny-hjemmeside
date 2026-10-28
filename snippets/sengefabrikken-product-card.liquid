@@ -196,6 +196,14 @@ It shows:
 
         <span class="text-sm">{{ rating_count }} anmeldelser</span>
       </div>
+    {%- elsif settings.yotpo_app_key != blank -%}
+      {%- comment -%}Not every product is synced to the metafields by Yotpo, so the rating is then fetched from Yotpo{%- endcomment -%}
+      <yotpo-rating class="sengefabrikken-card__rating" product-id="{{ product.id }}" app-key="{{ settings.yotpo_app_key }}" hidden>
+        <template>
+          {%- render 'yotpo-stars', rating: 0 -%}
+          <span class="text-sm"><span data-yotpo-count></span> anmeldelser</span>
+        </template>
+      </yotpo-rating>
     {%- endif -%}
   {%- endcapture -%}
 

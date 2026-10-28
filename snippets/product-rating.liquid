@@ -14,6 +14,10 @@ This component generates a review badge from the product metafields information.
     assign rating_value = product.metafields.reviews.rating.value.rating | round: 1
     assign rating_count = product.metafields.reviews.rating_count.value
     assign rating_max = product.metafields.reviews.rating.value.scale_max
+  elsif product != blank and settings.yotpo_app_key != blank
+    # Sengefabrikken: the rating is fetched from Yotpo when it is not synced to the metafields (see yotpo-rating.js)
+    assign hide_rating = true
+    assign use_yotpo_fallback = true
   elsif show_empty
     assign rating_value = 0.0
     assign rating_count = 0
@@ -58,3 +62,23 @@ This component generates a review badge from the product metafields information.
     {%- endif -%}
   </div>
 {%- endunless -%}
+
+{%- if use_yotpo_fallback -%}
+  <yotpo-rating class="rating-badge {% if alignment %}justify-{{ alignment }}{% endif %}" product-id="{{ product.id }}" app-key="{{ settings.yotpo_app_key }}" hidden>
+    <template>
+      <div class="rating-badge__stars">
+        {%- if show_single_star -%}
+          {%- render 'yotpo-stars', rating: 0, star_count: 1 -%}
+        {%- else -%}
+          {%- render 'yotpo-stars', rating: 0 -%}
+        {%- endif -%}
+      </div>
+
+      {%- if display_mode == 'count' -%}
+        <span class="subheading">(<span data-yotpo-count></span>)</span>
+      {%- else -%}
+        <span class="subheading">(<span data-yotpo-score></span>)</span>
+      {%- endif -%}
+    </template>
+  </yotpo-rating>
+{%- endif -%}

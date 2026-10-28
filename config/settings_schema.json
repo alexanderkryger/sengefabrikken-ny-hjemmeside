@@ -1425,6 +1425,18 @@
     ]
   },
   {
+    "name": "Sengefabrikken anmeldelser",
+    "settings": [
+      {
+        "type": "text",
+        "id": "yotpo_app_key",
+        "label": "Yotpo app key",
+        "info": "Bruges til at hente bedømmelsen fra Yotpo, når den ikke er synkroniseret til produktets metafelter.",
+        "default": "38zJ9C2Es8axV9rhS6GfuDmstgkw4S3bnKYE10X0"
+      }
+    ]
+  },
+  {
     "name": "Sengefabrikken ribbons",
     "settings": [
       {
