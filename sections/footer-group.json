@@ -63,9 +63,14 @@
         "newsletter": {
           "type": "newsletter",
           "settings": {
-            "title": "Newsletter",
-            "content": "<p>Sign up to our newsletter to receive exclusive offers.</p>",
-            "disclaimer_text": "<p>By signing up to our newsletter, you agree with our privacy policy.</p>"
+            "logo": "shopify://shop_images/Sengefabrikken_logo_hvid.svg",
+            "logo_width": 160,
+            "title": "",
+            "content": "<p>Hos Sengefabrikken leverer vi direkte fra fabrikken til dig, uden fordyrende mellemled undervejs. Du fortjener at sove godt – og det vil vi gerne hjælpe dig med!</p>",
+            "disclaimer_text": "<p>By signing up to our newsletter, you agree with our privacy policy.</p>",
+            "attach_button": true,
+            "input_background": "#faf7f4",
+            "input_text_color": "#2f1300"
           }
         },
         "links": {
@@ -94,22 +99,13 @@
             "show_menu_title": true,
             "menu_title": ""
           }
-        },
-        "text": {
-          "type": "text",
-          "settings": {
-            "title": "About",
-            "content": "<p>Use this text area to tell your customers about your brand and vision. You can change it in the theme editor.</p>",
-            "enable_follow_on_shop": true
-          }
         }
       },
       "block_order": [
         "newsletter",
         "links",
         "links_aJQXEz",
-        "links_ExGqKw",
-        "text"
+        "links_ExGqKw"
       ],
       "settings": {
         "color_scheme": "scheme-6",
