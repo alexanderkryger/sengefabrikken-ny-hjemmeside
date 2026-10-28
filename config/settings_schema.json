@@ -1421,6 +1421,26 @@
         "step": 20,
         "unit": "px",
         "default": 1400
+      },
+      {
+        "type": "header",
+        "content": "Betalingsikoner"
+      },
+      {
+        "type": "image_picker",
+        "id": "payment_icons_image",
+        "label": "Billede med betalingsikoner",
+        "info": "Vises i footeren i stedet for Shopifys betalingsikoner."
+      },
+      {
+        "type": "range",
+        "id": "payment_icons_image_width",
+        "label": "Bredde",
+        "min": 100,
+        "max": 600,
+        "step": 10,
+        "unit": "px",
+        "default": 300
       }
     ]
   },

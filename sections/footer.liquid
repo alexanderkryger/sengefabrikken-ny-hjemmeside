@@ -210,7 +210,11 @@
       <div class="v-stack gap-3">
         <p class="text-sm">© {{ 'now' | date: '%Y' }} - {{ shop.name }} {%- if section.settings.show_powered_by_shopify -%}{{ powered_by_link }}{%- endif -%}</p>
 
-        {%- if section.settings.show_payment_icons and shop.enabled_payment_types.size > 0 -%}
+        {%- comment -%}Sengefabrikken: the payment icons can be replaced by an image (theme settings > Sengefabrikken layout){%- endcomment -%}
+        {%- if section.settings.show_payment_icons and settings.payment_icons_image != blank -%}
+          {%- assign payment_image_style = 'height: auto; max-width: 100%; width: ' | append: settings.payment_icons_image_width | append: 'px' -%}
+          {{- settings.payment_icons_image | image_url: width: 1200 | image_tag: loading: 'lazy', style: payment_image_style, sizes: '(max-width: 699px) 100vw, 600px', widths: '300,600,900,1200' -}}
+        {%- elsif section.settings.show_payment_icons and shop.enabled_payment_types.size > 0 -%}
           <ul class="h-stack gap-4 wrap unstyled-list">
             {%- for type in shop.enabled_payment_types -%}
               <li>{{- type | payment_type_svg_tag -}}</li>
