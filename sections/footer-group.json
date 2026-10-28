@@ -11,6 +11,52 @@
   "type": "footer",
   "name": "Footer group",
   "sections": {
+    "contact_help_JMqK4c": {
+      "type": "contact-help",
+      "blocks": {
+        "contact_LCbgfr": {
+          "type": "contact",
+          "settings": {
+            "icon": "picto-phone",
+            "text": "Telefon: 89 87 82 59",
+            "link": "",
+            "open_chat": false
+          }
+        },
+        "contact_zQXWrA": {
+          "type": "contact",
+          "settings": {
+            "icon": "envelope",
+            "text": "Email: kontakt@sengefabrikken.dk",
+            "link": "",
+            "open_chat": false
+          }
+        },
+        "contact_eY3C3T": {
+          "type": "contact",
+          "settings": {
+            "icon": "picto-chat",
+            "text": "Chat med os",
+            "link": "",
+            "open_chat": true
+          }
+        }
+      },
+      "block_order": [
+        "contact_LCbgfr",
+        "contact_zQXWrA",
+        "contact_eY3C3T"
+      ],
+      "name": "Brug for hjælp",
+      "settings": {
+        "color_scheme": "scheme-8",
+        "image": "shopify://shop_images/mathias_kundeservice_dd98efd7-0fa0-4f21-baab-4ca67ac6a88e.jpg",
+        "image_position": "left",
+        "heading": "Har du brug for hjælp?",
+        "heading_size": "h4",
+        "content": "<p>Hvis du stadig er i tvivl omkring valg af seng, må du endelig ikke tøve med at kontakte vores kompetente sengevejledere alle ugens dage fra kl. 09.00-18.00.</p>"
+      }
+    },
     "footer": {
       "type": "footer",
       "blocks": {
@@ -78,6 +124,7 @@
     }
   },
   "order": [
+    "contact_help_JMqK4c",
     "footer"
   ]
 }
