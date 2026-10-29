@@ -101,7 +101,7 @@
   width: 100%;
   padding: .5rem 1rem .5rem .5rem;
   border: 1px solid rgb(var(--product-group-upsale-border-color, var(--accent)));
-  border-radius: var(--input-border-radius);
+  border-radius: var(--button-border-radius);
   display: grid;
 }
 
@@ -109,7 +109,7 @@
   width: 3rem;
   aspect-ratio: 1;
   object-fit: cover;
-  border-radius: calc(var(--input-border-radius) / 2);
+  border-radius: min(var(--button-border-radius), .5rem);
 }
 
 .product-group-upsale .product-group__error:empty {
