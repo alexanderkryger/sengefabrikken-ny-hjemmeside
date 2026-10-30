@@ -1,0 +1,513 @@
+{%- comment -%}
+  Sengefabrikken: explains why the beds cost less. A centered intro, a row of key numbers counting up when shown
+  (count-up.js) and value chains comparing the bed industry with Sengefabrikken, each step being a box and the
+  customer the rounded box at the end. Boxes have the same width in all chains, so shorter chains are visibly shorter.
+{%- endcomment -%}
+
+{%- liquid
+  assign stat_blocks = section.blocks | where: 'type', 'stat'
+  assign chain_blocks = section.blocks | where: 'type', 'chain'
+
+  assign column_count = 1
+
+  for chain_block in chain_blocks
+    assign chain_steps = chain_block.settings.steps | split: ','
+    assign chain_column_count = chain_steps.size | plus: 1
+
+    if chain_column_count > column_count
+      assign column_count = chain_column_count
+    endif
+  endfor
+-%}
+
+<script type="module" src="{{ 'count-up.js' | asset_url }}"></script>
+
+<style>
+  #shopify-section-{{ section.id }} {
+    --value-chain-columns: {{ column_count }};
+    --value-chain-step-background: {{ section.settings.step_background }};
+    --value-chain-step-text-color: {{ section.settings.step_text_color }};
+  }
+</style>
+
+<div class="color-scheme color-scheme--{{ section.settings.color_scheme.id }}">
+  <div class="container section-spacing">
+    <div class="value-chain v-stack gap-12 sm:gap-16">
+      {%- if section.settings.heading != blank or section.settings.content != blank -%}
+        <div class="prose text-center max-w-md justify-self-center">
+          {%- if section.settings.heading != blank -%}
+            <h2 class="{{ section.settings.heading_size }}">{{ section.settings.heading }}</h2>
+          {%- endif -%}
+
+          {{- section.settings.content -}}
+        </div>
+      {%- endif -%}
+
+      {%- if stat_blocks.size > 0 -%}
+        <div class="value-chain__stats" style="--value-chain-stat-count: {{ stat_blocks.size }}">
+          {%- for block in stat_blocks -%}
+            {%- liquid
+              assign stat_text = block.settings.value | strip
+              assign stat_number = stat_text | remove: '.' | replace: ',', '.'
+              assign stat_decimals = 0
+              assign product_price = false
+
+              if stat_text contains ','
+                assign stat_parts = stat_text | split: ','
+                assign stat_decimals = stat_parts.last.size
+              endif
+
+              if block.settings.use_product_price and product != blank
+                assign product_price = true
+                assign stat_number = product.selected_or_first_available_variant.price | divided_by: 100
+                assign stat_text = stat_number | append: ''
+
+                if stat_text.size > 3
+                  assign head_length = stat_text.size | minus: 3
+                  assign stat_head = stat_text | slice: 0, head_length
+                  assign stat_tail = stat_text | slice: head_length, 3
+                  assign stat_text = stat_head | append: '.' | append: stat_tail
+                endif
+              endif
+            -%}
+
+            <div class="value-chain__stat" {{ block.shopify_attributes }}>
+              <p class="value-chain__stat-value {{ section.settings.stat_size }}">
+                <count-up value="{{ stat_number }}" decimals="{{ stat_decimals }}" {% if product_price %}product-price{% endif %}>{{ stat_text }}</count-up>
+
+                {%- if block.settings.suffix != blank -%}
+                  {{ ' ' }}<span>{{ block.settings.suffix }}</span>
+                {%- endif -%}
+              </p>
+
+              {%- if block.settings.label != blank -%}
+                <p class="subheading">{{ block.settings.label }}</p>
+              {%- endif -%}
+
+              {%- if block.settings.text != blank -%}
+                <p class="value-chain__stat-text text-sm">{{ block.settings.text }}</p>
+              {%- endif -%}
+            </div>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+
+      {%- for block in chain_blocks -%}
+        {%- assign chain_steps = block.settings.steps | split: ',' -%}
+
+        <div class="value-chain__chain v-stack gap-6" style="--value-chain-you-background: {{ block.settings.you_background }}; --value-chain-step-count: {{ chain_steps.size | plus: 1 }}" {{ block.shopify_attributes }}>
+          {%- if block.settings.heading != blank or block.settings.text != blank -%}
+            <div class="v-stack gap-2">
+              {%- if block.settings.heading != blank -%}
+                <h3 class="{{ section.settings.chain_heading_size }}">{{ block.settings.heading }}</h3>
+              {%- endif -%}
+
+              {%- if block.settings.text != blank -%}
+                <p>{{ block.settings.text }}</p>
+              {%- endif -%}
+            </div>
+          {%- endif -%}
+
+          <div class="value-chain__row">
+            <ol class="value-chain__steps unstyled-list" role="list">
+              {%- for step in chain_steps -%}
+                {%- assign step_label = step | strip -%}
+
+                {%- if step_label != blank -%}
+                  <li class="value-chain__step subheading">{{ step_label }}</li>
+                {%- endif -%}
+              {%- endfor -%}
+
+              <li class="value-chain__step value-chain__step--you subheading">
+                {%- render 'icon' with 'picto-happy', width: 16 -%}
+                <span>{{ block.settings.you_label }}</span>
+              </li>
+            </ol>
+
+            {%- if block.settings.caption != blank -%}
+              <p class="value-chain__caption subheading">
+                <span>{{ block.settings.caption }}</span>
+              </p>
+            {%- endif -%}
+          </div>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% stylesheet %}
+  .value-chain__stats {
+    grid-template-columns: repeat(var(--value-chain-stat-count), minmax(0, 1fr));
+    border-block: 1px solid rgb(var(--border-color));
+    padding-block: 2rem;
+    display: grid;
+  }
+
+  .value-chain__stat {
+    text-align: center;
+    align-content: start;
+    gap: .5rem;
+    padding-inline: .75rem;
+    display: grid;
+  }
+
+  .value-chain__stat + .value-chain__stat {
+    border-inline-start: 1px solid rgb(var(--border-color));
+  }
+
+  .value-chain__stat-value {
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
+
+  .value-chain__stat-text {
+    margin-block-start: .5rem;
+  }
+
+  .value-chain__row {
+    width: calc(100% * var(--value-chain-step-count) / var(--value-chain-columns));
+    gap: 1.25rem;
+    display: grid;
+  }
+
+  .value-chain__steps {
+    grid-template-columns: repeat(var(--value-chain-step-count), minmax(0, 1fr));
+    gap: 3px;
+    display: grid;
+  }
+
+  .value-chain .value-chain__step {
+    color: var(--value-chain-step-text-color);
+    background: var(--value-chain-step-background);
+    text-align: center;
+    overflow-wrap: anywhere;
+    hyphens: auto;
+    place-content: center;
+    min-height: 4.5rem;
+    padding: .5rem .25rem;
+    font-size: .625rem;
+    display: grid;
+  }
+
+  .value-chain .value-chain__step--you {
+    background: var(--value-chain-you-background);
+    border-start-end-radius: 999px;
+    border-end-end-radius: 999px;
+    grid-auto-flow: column;
+    justify-content: center;
+    align-items: center;
+    gap: .375rem;
+  }
+
+  .value-chain .value-chain__caption {
+    text-align: center;
+    border: 1px dashed rgb(var(--text-color) / .4);
+    border-block-start: 0;
+    justify-content: center;
+    align-items: flex-end;
+    height: .5rem;
+    font-size: .625rem;
+    display: flex;
+  }
+
+  .value-chain__caption span {
+    background: rgb(var(--background));
+    padding-inline: 1rem;
+    line-height: 1;
+    transform: translateY(50%);
+  }
+
+  @media screen and (max-width: 699px) {
+    .value-chain__stats {
+      padding-block: 1.5rem;
+    }
+
+    .value-chain__stat {
+      padding-inline: .5rem;
+    }
+
+    .value-chain__stat-value span {
+      font-size: .75em;
+    }
+
+    .value-chain__caption span {
+      padding-inline: .5rem;
+    }
+  }
+
+  @media screen and (min-width: 700px) {
+    .value-chain__stats {
+      padding-block: 2.5rem;
+    }
+
+    .value-chain__stat {
+      padding-inline: 2rem;
+    }
+
+    .value-chain .value-chain__step {
+      min-height: 7rem;
+      padding: 1rem;
+      font-size: .75rem;
+    }
+
+    .value-chain .value-chain__caption {
+      font-size: .75rem;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Værdikæde",
+  "class": "shopify-section--value-chain",
+  "tag": "section",
+  "disabled_on": {
+    "groups": ["header", "custom.overlay"]
+  },
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:global.colors.scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "t:global.text.heading",
+      "default": "Vi giver besparelserne videre til dig!"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "label": "t:global.text.heading_size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "X-Large"
+        },
+        {
+          "value": "h3",
+          "label": "Large"
+        },
+        {
+          "value": "h4",
+          "label": "Medium"
+        },
+        {
+          "value": "h5",
+          "label": "Small"
+        }
+      ],
+      "default": "h3"
+    },
+    {
+      "type": "richtext",
+      "id": "content",
+      "label": "t:global.text.content",
+      "default": "<p>Det er kun dig og os. Vi har ingen forhandlere eller fysiske butikker, og materialerne er nøje udvalgt. Det giver dig den bedste kombination af kvalitet, design og service, til priser der ellers ville være umulige.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Nøgletal"
+    },
+    {
+      "type": "select",
+      "id": "stat_size",
+      "label": "Størrelse på tal",
+      "options": [
+        {
+          "value": "h3",
+          "label": "Large"
+        },
+        {
+          "value": "h4",
+          "label": "Medium"
+        },
+        {
+          "value": "h5",
+          "label": "Small"
+        }
+      ],
+      "default": "h4"
+    },
+    {
+      "type": "header",
+      "content": "Værdikæder"
+    },
+    {
+      "type": "select",
+      "id": "chain_heading_size",
+      "label": "Størrelse på overskrift",
+      "options": [
+        {
+          "value": "h4",
+          "label": "Large"
+        },
+        {
+          "value": "h5",
+          "label": "Medium"
+        },
+        {
+          "value": "h6",
+          "label": "Small"
+        }
+      ],
+      "default": "h5"
+    },
+    {
+      "type": "color",
+      "id": "step_background",
+      "label": "Baggrund på led",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "step_text_color",
+      "label": "Tekst på led",
+      "default": "#2f1300"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "stat",
+      "name": "Nøgletal",
+      "limit": 4,
+      "settings": [
+        {
+          "type": "text",
+          "id": "value",
+          "label": "Tal",
+          "info": "Fx 25, 100 eller 1,44. Tæller op fra 0, når sektionen vises.",
+          "default": "25"
+        },
+        {
+          "type": "text",
+          "id": "suffix",
+          "label": "Enhed",
+          "info": "Fx år, % eller kr",
+          "default": "år"
+        },
+        {
+          "type": "checkbox",
+          "id": "use_product_price",
+          "label": "Brug produktets pris",
+          "info": "Kun på produktsider. Følger den valgte variant.",
+          "default": false
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Overskrift",
+          "default": "Garanti"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Tekst"
+        }
+      ]
+    },
+    {
+      "type": "chain",
+      "name": "Værdikæde",
+      "limit": 4,
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "t:global.text.heading",
+          "default": "Sengebranchen"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Tekst",
+          "default": "Sengen går gennem brand, forhandler og fysisk butik, før den når dig. Hvert led lægger sin avance oven i prisen."
+        },
+        {
+          "type": "text",
+          "id": "steps",
+          "label": "Led",
+          "info": "Adskil med komma, fx Producent, Brand, Forhandler",
+          "default": "Producent, Brand, Forhandler, Fysisk butik"
+        },
+        {
+          "type": "text",
+          "id": "you_label",
+          "label": "Sidste led",
+          "default": "Dig"
+        },
+        {
+          "type": "color",
+          "id": "you_background",
+          "label": "Baggrund på sidste led",
+          "default": "#e2ded6"
+        },
+        {
+          "type": "text",
+          "id": "caption",
+          "label": "Tekst under",
+          "default": "Flere led. Højere pris."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Værdikæde",
+      "blocks": [
+        {
+          "type": "stat",
+          "settings": {
+            "value": "25",
+            "suffix": "år",
+            "label": "Garanti"
+          }
+        },
+        {
+          "type": "stat",
+          "settings": {
+            "value": "100",
+            "suffix": "%",
+            "label": "Danskproduceret",
+            "text": "Nøje udvalgte materialer, produceret i Danmark."
+          }
+        },
+        {
+          "type": "stat",
+          "settings": {
+            "value": "2.995",
+            "suffix": "kr",
+            "label": "Din pris",
+            "use_product_price": true
+          }
+        },
+        {
+          "type": "chain",
+          "settings": {
+            "heading": "Sengebranchen",
+            "text": "Sengen går gennem brand, forhandler og fysisk butik, før den når dig. Hvert led lægger sin avance oven i prisen.",
+            "steps": "Producent, Brand, Forhandler, Fysisk butik",
+            "you_label": "Dig",
+            "you_background": "#e2ded6",
+            "caption": "Flere led. Højere pris."
+          }
+        },
+        {
+          "type": "chain",
+          "settings": {
+            "heading": "Sengefabrikken",
+            "text": "Vi køber direkte hos producenten og sælger direkte til dig. Ingen forhandlere, ingen fysiske butikker, ingen avance til mellemled.",
+            "steps": "Producent, Sengefabrikken",
+            "you_label": "Dig",
+            "you_background": "#efe0bd",
+            "caption": "Kun dig og os. Mere seng for pengene."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
