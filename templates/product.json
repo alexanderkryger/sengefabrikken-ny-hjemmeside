@@ -208,7 +208,7 @@
         "media_alignment_offset": 0,
         "media_mobile_alignment_offset": 0,
         "hide_media_on_mobile": true,
-        "content_width": 600,
+        "content_percentage_width": 45,
         "text_alignment": "center",
         "subheading": "",
         "title": "Derfor er Trykaflastende det fornuftige valg",

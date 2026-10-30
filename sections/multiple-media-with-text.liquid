@@ -49,7 +49,7 @@
 
   @media screen and (min-width: 1000px) {
     #shopify-section-{{ section.id }} {
-      --multiple-media-with-text-grid: {% if section.settings.media_position_desktop == 'before_text' %}"media-wrapper content-wrapper" / minmax(0, 1fr) minmax(0, {{ section.settings.content_width }}px){% else %}"content-wrapper media-wrapper" / minmax(0, {{ section.settings.content_width }}px) minmax(0, 1fr){% endif %};
+      --multiple-media-with-text-grid: {% if section.settings.media_position_desktop == 'before_text' %}"media-wrapper content-wrapper" / minmax(0, {{ 100 | minus: section.settings.content_percentage_width }}fr) minmax(0, {{ section.settings.content_percentage_width }}fr){% else %}"content-wrapper media-wrapper" / minmax(0, {{ section.settings.content_percentage_width }}fr) minmax(0, {{ 100 | minus: section.settings.content_percentage_width }}fr){% endif %};
     }
   }
 </style>
@@ -277,17 +277,25 @@
     padding-block-end: 1.5rem;
   }
 
+  .multiple-media-with-text__text {
+    --prose-default-spacing: 1rem;
+  }
+
   .multiple-media-with-text__text ul {
+    margin-inline-start: 0;
+    margin-block-end: -.5rem;
     padding-inline-start: 0;
     list-style: none;
   }
 
-  .multiple-media-with-text__text li {
+  .multiple-media-with-text__text ul li {
+    break-inside: avoid;
+    padding-block-end: .5rem;
     padding-inline-start: 1.75em;
     position: relative;
   }
 
-  .multiple-media-with-text__text li:before {
+  .multiple-media-with-text__text ul li:before {
     content: "";
     background: currentColor;
     -webkit-mask: var(--multiple-media-with-text-checkmark) no-repeat center / contain;
@@ -327,6 +335,7 @@
 
     .multiple-media-with-text__text ul {
       column-count: 2;
+      column-gap: 1.5rem;
     }
 
     .multiple-media-with-text__icon {
@@ -496,13 +505,13 @@
     },
     {
       "type": "range",
-      "id": "content_width",
-      "min": 300,
-      "max": 600,
-      "step": 25,
-      "unit": "px",
+      "id": "content_percentage_width",
+      "min": 25,
+      "max": 60,
+      "step": 5,
+      "unit": "%",
       "label": "Tekstens bredde på desktop",
-      "default": 375
+      "default": 40
     },
     {
       "type": "select",
