@@ -1,0 +1,784 @@
+{%- comment -%}
+  Sengefabrikken: one or two (optionally overlapping) images or videos next to an info card. The card can show a
+  heading with the "Danskproduceret kvalitetsseng" icon, the color variations of the product (my_fields.mcolors),
+  two text areas with optional borders, customer service contact details and buttons. Ported from the old theme.
+{%- endcomment -%}
+
+<style>
+  #shopify-section-{{ section.id }} {
+    --multiple-media-with-text-grid: {% if section.settings.media_position_mobile == 'before_text' %}"media-wrapper" "content-wrapper"{% else %}"content-wrapper" "media-wrapper"{% endif %} / minmax(0, 1fr);
+    --multiple-media-with-text-media-alignment-offset: {{ section.settings.media_mobile_alignment_offset }}px;
+    --multiple-media-with-text-media-gap: {% if section.settings.media_layout == 'overlap' %}0{% else %}.5rem{% endif %};
+
+    {%- capture grid_auto_rows -%}
+      {%- if section.blocks.size > 1 -%}
+        {%- if section.settings.media_alignment == 'start' -%}
+          [offset-start] minmax(0, var(--multiple-media-with-text-media-alignment-offset)) [offset-end main-start] minmax(0, 1fr) [main-end]
+        {%- elsif section.settings.media_alignment == 'end' -%}
+          [main-start] minmax(0, 1fr) [main-end offset-start] minmax(0, var(--multiple-media-with-text-media-alignment-offset)) [offset-end]
+        {%- endif -%}
+      {%- endif -%}
+    {%- endcapture -%}
+
+    --multiple-media-with-text-media-grid-auto-rows: {{ grid_auto_rows | default: 'auto' }};
+    --multiple-media-with-text-media-grid-auto-columns: {% if section.settings.media_layout == 'overlap' %}minmax(0, 1.75fr) minmax(0, .8fr) minmax(0, .8fr){% else %}minmax(0, 1fr){% endif %};
+    --multiple-media-with-text-border-color: {{ section.settings.border_color }};
+    --multiple-media-with-text-checkmark: url("{{ 'checkmark.svg' | asset_url }}");
+  }
+
+  @media screen and (min-width: 700px) {
+    #shopify-section-{{ section.id }} {
+      --multiple-media-with-text-media-alignment-offset: {{ section.settings.media_alignment_offset }}px;
+      --multiple-media-with-text-media-gap: {% if section.settings.media_layout == 'overlap' %}0{% else %}.625rem{% endif %};
+
+      {%- capture grid_auto_columns -%}
+        {%- if section.settings.media_layout == 'overlap' -%}
+          {%- if section.settings.media_position_desktop == 'before_text' -%}
+            minmax(0, 1.85fr) minmax(0, .35fr) minmax(0, 1.4fr)
+          {%- else -%}
+            minmax(0, 1.4fr) minmax(0, .35fr) minmax(0, 1.85fr)
+          {%- endif -%}
+        {%- else -%}
+          minmax(0, 1fr) minmax(0, 1fr)
+        {%- endif -%}
+      {%- endcapture -%}
+
+      --multiple-media-with-text-media-grid-auto-columns: {{ grid_auto_columns }};
+    }
+  }
+
+  @media screen and (min-width: 1000px) {
+    #shopify-section-{{ section.id }} {
+      --multiple-media-with-text-grid: {% if section.settings.media_position_desktop == 'before_text' %}"media-wrapper content-wrapper" / minmax(0, 1fr) minmax(0, {{ section.settings.content_width }}px){% else %}"content-wrapper media-wrapper" / minmax(0, {{ section.settings.content_width }}px) minmax(0, 1fr){% endif %};
+    }
+  }
+</style>
+
+{%- liquid
+  assign color_variations = ''
+
+  if section.settings.show_color_swatch and product != blank
+    assign color_variations = product.metafields.my_fields.mcolors.value
+  endif
+-%}
+
+<div class="color-scheme color-scheme--{{ section.settings.color_scheme.id }}" {% if section.settings.custom_id != blank %}id="{{ section.settings.custom_id | handle }}"{% endif %}>
+  <div class="container section-spacing">
+    <div class="multiple-media-with-text {% if section.settings.media_layout == 'overlap' %}multiple-media-with-text--overlap{% endif %} {% if section.settings.media_position_desktop == 'after_text' %}multiple-media-with-text--reverse{% endif %}">
+      <div class="multiple-media-with-text__media-wrapper">
+        {%- for block in section.blocks -%}
+          {%- liquid
+            assign media_class = ''
+
+            if block.settings.hide_on_mobile
+              assign media_class = 'sm-max:hidden'
+            endif
+
+            assign media_style = ''
+
+            if forloop.first and section.blocks.size > 1
+              if section.settings.media_alignment == 'start'
+                assign media_style = 'grid-row-start: offset-end;'
+              elsif section.settings.media_alignment == 'end'
+                assign media_style = 'grid-row-end: main-end;'
+              endif
+            endif
+          -%}
+
+          <div class="multiple-media-with-text__media align-self-{{ section.settings.media_alignment }} {{ media_class }}" style="--media-rotate: {{ block.settings.rotation }}deg; {{ media_style }}" {{ block.shopify_attributes }}>
+            {%- if block.type == 'image' and block.settings.image != blank -%}
+              {{- block.settings.image | image_url: width: block.settings.image.width | image_tag: loading: 'lazy', sizes: '(max-width: 699px) 50vw, 500px', widths: '200,300,400,500,600,800,1000,1200' -}}
+            {%- elsif block.type == 'video' and block.settings.video != blank -%}
+              {%- render 'media', media: block.settings.video, autoplay: true, loop: true -%}
+            {%- else -%}
+              {%- capture placeholder_class -%}{% cycle 'placeholder', 'placeholder placeholder--invert' %}{%- endcapture -%}
+              {{- 'lifestyle-1' | placeholder_svg_tag: placeholder_class -}}
+            {%- endif -%}
+          </div>
+        {%- endfor -%}
+      </div>
+
+      <div class="multiple-media-with-text__content-wrapper">
+        {%- if section.settings.image != blank or section.settings.video != blank -%}
+          <div class="multiple-media-with-text__content-media {% if section.settings.hide_media_on_mobile %}sm-max:hidden{% endif %}">
+            {%- if section.settings.video != blank -%}
+              {%- render 'media', media: section.settings.video, autoplay: true, loop: true -%}
+            {%- else -%}
+              {{- section.settings.image | image_url: width: section.settings.image.width | image_tag: loading: 'lazy', sizes: '(max-width: 699px) 100vw, 500px', widths: '200,300,400,500,600,800,1000' -}}
+            {%- endif -%}
+          </div>
+        {%- endif -%}
+
+        <div class="multiple-media-with-text__content align-self-{{ section.settings.text_alignment }} v-stack gap-6">
+          {%- if section.settings.subheading != blank -%}
+            <p class="subheading">{{ section.settings.subheading }}</p>
+          {%- endif -%}
+
+          {%- if section.settings.title != blank or section.settings.show_icon -%}
+            <div class="multiple-media-with-text__title">
+              {%- if section.settings.title != blank -%}
+                <h2 class="{{ section.settings.heading_size }}">{{ section.settings.title }}</h2>
+              {%- endif -%}
+
+              {%- if section.settings.show_icon -%}
+                <img class="multiple-media-with-text__icon" src="{{ 'dansk-kvalitet.svg' | asset_url }}" alt="Danskproduceret kvalitetsseng" width="107" height="107" loading="lazy">
+              {%- endif -%}
+            </div>
+          {%- endif -%}
+
+          {%- if color_variations != blank -%}
+            <div class="h-stack wrap gap-4">
+              <p class="text-sm">{{ section.settings.color_swatch_label }}</p>
+
+              <div class="h-stack wrap gap-3">
+                {%- for color_variation in color_variations -%}
+                  {%- liquid
+                    assign color_object = color_variation.metafields.custom.farve_filter.value
+                    assign color_label = color_object.farve_navn.value | default: color_variation.title
+
+                    if color_variation == product
+                      assign selected = true
+                    else
+                      assign selected = false
+                    endif
+
+                    render 'option-value', type: 'swatch', url: color_variation.url, label: color_label, swatch_color: color_object.swatch.value, selected: selected, size: 'sm', show_tooltip: true
+                  -%}
+                {%- endfor -%}
+              </div>
+            </div>
+          {%- endif -%}
+
+          {%- if section.settings.content != blank -%}
+            <div class="multiple-media-with-text__text prose text-sm {% if section.settings.content_border_top %}multiple-media-with-text__text--border-top{% endif %} {% if section.settings.content_border_bottom %}multiple-media-with-text__text--border-bottom{% endif %}">
+              {{- section.settings.content -}}
+            </div>
+          {%- endif -%}
+
+          {%- if section.settings.content_below != blank -%}
+            <div class="multiple-media-with-text__text prose text-sm {% if section.settings.content_below_border_top %}multiple-media-with-text__text--border-top{% endif %} {% if section.settings.content_below_border_bottom %}multiple-media-with-text__text--border-bottom{% endif %}">
+              {{- section.settings.content_below -}}
+            </div>
+          {%- endif -%}
+
+          {%- if section.settings.phone != blank or section.settings.email != blank or section.settings.chat != blank -%}
+            <ul class="multiple-media-with-text__contact unstyled-list" role="list">
+              {%- if section.settings.phone != blank -%}
+                <li>
+                  <a href="tel:{{ section.settings.phone | remove: ' ' }}" class="multiple-media-with-text__contact-item link-faded">
+                    {%- render 'icon' with 'picto-phone', width: 20 -%}
+                    <span>{{ section.settings.phone }}</span>
+
+                    {%- if section.settings.phone_hours != blank -%}
+                      <span class="text-subdued">{{ section.settings.phone_hours }}</span>
+                    {%- endif -%}
+                  </a>
+                </li>
+              {%- endif -%}
+
+              {%- if section.settings.email != blank -%}
+                <li>
+                  <a href="mailto:{{ section.settings.email }}" class="multiple-media-with-text__contact-item link-faded">
+                    {%- render 'icon' with 'envelope', width: 20 -%}
+                    <span>{{ section.settings.email }}</span>
+                  </a>
+                </li>
+              {%- endif -%}
+
+              {%- if section.settings.chat != blank -%}
+                <li>
+                  <button type="button" class="multiple-media-with-text__contact-item link-faded" data-intercom-open>
+                    {%- render 'icon' with 'picto-chat', width: 20 -%}
+                    <span>{{ section.settings.chat }}</span>
+                  </button>
+                </li>
+              {%- endif -%}
+            </ul>
+          {%- endif -%}
+
+          {%- if section.settings.button_1_text != blank or section.settings.button_2_text != blank -%}
+            <div class="h-stack wrap gap-4">
+              {%- if section.settings.button_1_text != blank -%}
+                {%- render 'button', href: section.settings.button_1_link, content: section.settings.button_1_text, style: section.settings.button_1_style -%}
+              {%- endif -%}
+
+              {%- if section.settings.button_2_text != blank -%}
+                {%- render 'button', href: section.settings.button_2_link, content: section.settings.button_2_text, style: section.settings.button_2_style -%}
+              {%- endif -%}
+            </div>
+          {%- endif -%}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% stylesheet %}
+  .multiple-media-with-text {
+    grid: var(--multiple-media-with-text-grid);
+    gap: 2rem;
+    display: grid;
+  }
+
+  .multiple-media-with-text__media-wrapper {
+    grid-area: media-wrapper;
+    grid: var(--multiple-media-with-text-media-grid-auto-rows) / auto-flow var(--multiple-media-with-text-media-grid-auto-columns);
+    column-gap: var(--multiple-media-with-text-media-gap);
+    display: grid;
+  }
+
+  .multiple-media-with-text__media {
+    grid-row: 1 / -1;
+    rotate: var(--media-rotate, 0deg);
+  }
+
+  .multiple-media-with-text__media :is(img, video, svg),
+  .multiple-media-with-text__content-media :is(img, video) {
+    border-radius: .75rem;
+    width: 100%;
+    height: auto;
+  }
+
+  .multiple-media-with-text--overlap .multiple-media-with-text__media:first-child {
+    grid-column: 1 / 3;
+  }
+
+  .multiple-media-with-text--overlap .multiple-media-with-text__media:nth-child(2) {
+    grid-column: 2 / 4;
+  }
+
+  .multiple-media-with-text__content-wrapper {
+    grid-area: content-wrapper;
+    align-content: center;
+    gap: 2rem;
+    display: grid;
+  }
+
+  .multiple-media-with-text__title {
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    display: flex;
+  }
+
+  .multiple-media-with-text__icon {
+    flex-shrink: 0;
+    width: 4.5rem;
+    height: auto;
+  }
+
+  .multiple-media-with-text__text--border-top {
+    border-block-start: 1px solid var(--multiple-media-with-text-border-color);
+    padding-block-start: 1.5rem;
+  }
+
+  .multiple-media-with-text__text--border-bottom {
+    border-block-end: 1px solid var(--multiple-media-with-text-border-color);
+    padding-block-end: 1.5rem;
+  }
+
+  .multiple-media-with-text__text ul {
+    padding-inline-start: 0;
+    list-style: none;
+  }
+
+  .multiple-media-with-text__text li {
+    padding-inline-start: 1.75em;
+    position: relative;
+  }
+
+  .multiple-media-with-text__text li:before {
+    content: "";
+    background: var(--multiple-media-with-text-checkmark) no-repeat center / contain;
+    width: 1em;
+    height: 1em;
+    position: absolute;
+    inset-block-start: .3em;
+    inset-inline-start: 0;
+  }
+
+  .multiple-media-with-text__contact {
+    gap: 1rem;
+    display: grid;
+  }
+
+  .multiple-media-with-text__contact-item {
+    text-align: start;
+    align-items: center;
+    gap: .75rem;
+    font-weight: 500;
+    display: flex;
+  }
+
+  .multiple-media-with-text__contact-item svg {
+    flex-shrink: 0;
+  }
+
+  @media screen and (min-width: 700px) {
+    .multiple-media-with-text--overlap.multiple-media-with-text--reverse .multiple-media-with-text__media:first-child {
+      grid-column: 1 / 4;
+    }
+
+    .multiple-media-with-text--overlap.multiple-media-with-text--reverse .multiple-media-with-text__media:nth-child(2) {
+      grid-column: 1 / 3;
+    }
+
+    .multiple-media-with-text__text ul {
+      column-count: 2;
+    }
+
+    .multiple-media-with-text__icon {
+      width: 6.6875rem;
+    }
+  }
+
+  @media screen and (min-width: 1000px) {
+    .multiple-media-with-text {
+      gap: 3rem;
+    }
+  }
+{% endstylesheet %}
+
+{% javascript %}
+  /* Sengefabrikken: the "chat" contact option opens the Intercom messenger */
+  document.addEventListener('click', (event) => {
+    if (event.target.closest('.multiple-media-with-text [data-intercom-open]') && typeof window.Intercom === 'function') {
+      window.Intercom('show');
+    }
+  });
+{% endjavascript %}
+
+{% schema %}
+{
+  "name": "Medier med tekst",
+  "class": "shopify-section--multiple-media-with-text",
+  "tag": "section",
+  "max_blocks": 2,
+  "disabled_on": {
+    "groups": ["header", "custom.overlay"]
+  },
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:global.colors.scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "text",
+      "id": "custom_id",
+      "label": "Anker-ID",
+      "info": "Giv sektionen et unikt ID, så der kan linkes direkte til den (fx #farver)."
+    },
+    {
+      "type": "header",
+      "content": "Rækkefølge"
+    },
+    {
+      "type": "select",
+      "id": "media_position_desktop",
+      "label": "Placering af medier på desktop",
+      "options": [
+        {
+          "value": "before_text",
+          "label": "Venstre"
+        },
+        {
+          "value": "after_text",
+          "label": "Højre"
+        }
+      ],
+      "default": "before_text"
+    },
+    {
+      "type": "select",
+      "id": "media_position_mobile",
+      "label": "Placering af medier på mobil",
+      "options": [
+        {
+          "value": "before_text",
+          "label": "Før tekst"
+        },
+        {
+          "value": "after_text",
+          "label": "Efter tekst"
+        }
+      ],
+      "default": "before_text"
+    },
+    {
+      "type": "header",
+      "content": "Medier",
+      "info": "Tilføj op til 2 billeder eller videoer som blokke."
+    },
+    {
+      "type": "select",
+      "id": "media_layout",
+      "label": "Layout",
+      "options": [
+        {
+          "value": "overlap",
+          "label": "Overlappende"
+        },
+        {
+          "value": "separated",
+          "label": "Ved siden af hinanden"
+        }
+      ],
+      "default": "overlap"
+    },
+    {
+      "type": "select",
+      "id": "media_alignment",
+      "label": "Lodret placering",
+      "options": [
+        {
+          "value": "start",
+          "label": "Top"
+        },
+        {
+          "value": "center",
+          "label": "Midte"
+        },
+        {
+          "value": "end",
+          "label": "Bund"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "range",
+      "id": "media_alignment_offset",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Forskydning på desktop",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "media_mobile_alignment_offset",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Forskydning på mobil",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Billede eller video over teksten"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "t:global.image.image"
+    },
+    {
+      "type": "video",
+      "id": "video",
+      "label": "t:global.video.video",
+      "info": "Vises i stedet for billedet."
+    },
+    {
+      "type": "checkbox",
+      "id": "hide_media_on_mobile",
+      "label": "Skjul på mobil",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Indhold"
+    },
+    {
+      "type": "range",
+      "id": "content_width",
+      "min": 300,
+      "max": 600,
+      "step": 25,
+      "unit": "px",
+      "label": "Tekstens bredde på desktop",
+      "default": 375
+    },
+    {
+      "type": "select",
+      "id": "text_alignment",
+      "label": "Lodret placering",
+      "options": [
+        {
+          "value": "start",
+          "label": "Top"
+        },
+        {
+          "value": "center",
+          "label": "Midte"
+        },
+        {
+          "value": "end",
+          "label": "Bund"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "subheading",
+      "label": "t:global.text.subheading"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "title",
+      "label": "t:global.text.heading",
+      "default": "Vis dit produkt frem"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "label": "t:global.text.heading_size",
+      "options": [
+        {
+          "value": "h3",
+          "label": "Large"
+        },
+        {
+          "value": "h4",
+          "label": "Medium"
+        },
+        {
+          "value": "h5",
+          "label": "Small"
+        }
+      ],
+      "default": "h4"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_icon",
+      "label": "Vis \"Danskproduceret kvalitetsseng\" ikon",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "show_color_swatch",
+      "label": "Vis farver",
+      "info": "Kun på produktsider. Farverne hentes fra metafeltet my_fields.mcolors.",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "color_swatch_label",
+      "label": "Overskrift for farver",
+      "default": "Farver",
+      "visible_if": "{{ section.settings.show_color_swatch }}"
+    },
+    {
+      "type": "richtext",
+      "id": "content",
+      "label": "Tekst",
+      "info": "Punktlister vises med flueben i 2 kolonner.",
+      "default": "<p>Skriv lidt om dine produkter, kollektioner eller dit brand.</p>"
+    },
+    {
+      "type": "checkbox",
+      "id": "content_border_top",
+      "label": "Streg over teksten",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "content_border_bottom",
+      "label": "Streg under teksten",
+      "default": true
+    },
+    {
+      "type": "richtext",
+      "id": "content_below",
+      "label": "Tekst nedenunder"
+    },
+    {
+      "type": "checkbox",
+      "id": "content_below_border_top",
+      "label": "Streg over teksten nedenunder",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "content_below_border_bottom",
+      "label": "Streg under teksten nedenunder",
+      "default": false
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Stregfarve",
+      "default": "#e0dcd9"
+    },
+    {
+      "type": "header",
+      "content": "Kundeservice"
+    },
+    {
+      "type": "text",
+      "id": "phone",
+      "label": "Telefon",
+      "info": "Fx 89 87 82 59"
+    },
+    {
+      "type": "text",
+      "id": "phone_hours",
+      "label": "Åbningstid",
+      "info": "Vises efter telefonnummeret, fx (08.00-23.00)"
+    },
+    {
+      "type": "text",
+      "id": "email",
+      "label": "Email"
+    },
+    {
+      "type": "text",
+      "id": "chat",
+      "label": "Chat tekst",
+      "info": "Åbner Intercom chatten, fx Chat med os"
+    },
+    {
+      "type": "header",
+      "content": "Knap 1"
+    },
+    {
+      "type": "text",
+      "id": "button_1_text",
+      "label": "t:global.text.text"
+    },
+    {
+      "type": "url",
+      "id": "button_1_link",
+      "label": "t:global.text.link"
+    },
+    {
+      "type": "select",
+      "id": "button_1_style",
+      "label": "t:global.text.style",
+      "options": [
+        {
+          "value": "outline",
+          "label": "Kant"
+        },
+        {
+          "value": "solid",
+          "label": "Udfyldt"
+        },
+        {
+          "value": "link",
+          "label": "Link"
+        }
+      ],
+      "default": "solid"
+    },
+    {
+      "type": "header",
+      "content": "Knap 2"
+    },
+    {
+      "type": "text",
+      "id": "button_2_text",
+      "label": "t:global.text.text"
+    },
+    {
+      "type": "url",
+      "id": "button_2_link",
+      "label": "t:global.text.link"
+    },
+    {
+      "type": "select",
+      "id": "button_2_style",
+      "label": "t:global.text.style",
+      "options": [
+        {
+          "value": "outline",
+          "label": "Kant"
+        },
+        {
+          "value": "solid",
+          "label": "Udfyldt"
+        },
+        {
+          "value": "link",
+          "label": "Link"
+        }
+      ],
+      "default": "outline"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "t:global.image.image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "t:global.image.image"
+        },
+        {
+          "type": "range",
+          "id": "rotation",
+          "min": -15,
+          "max": 15,
+          "step": 1,
+          "unit": "°",
+          "label": "Rotation",
+          "default": 0
+        },
+        {
+          "type": "checkbox",
+          "id": "hide_on_mobile",
+          "label": "Skjul på mobil",
+          "default": false
+        }
+      ]
+    },
+    {
+      "type": "video",
+      "name": "t:global.video.video",
+      "settings": [
+        {
+          "type": "video",
+          "id": "video",
+          "label": "t:global.video.video"
+        },
+        {
+          "type": "range",
+          "id": "rotation",
+          "min": -15,
+          "max": 15,
+          "step": 1,
+          "unit": "°",
+          "label": "Rotation",
+          "default": 0
+        },
+        {
+          "type": "checkbox",
+          "id": "hide_on_mobile",
+          "label": "Skjul på mobil",
+          "default": false
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Medier med tekst",
+      "blocks": [
+        {
+          "type": "image"
+        },
+        {
+          "type": "image"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
