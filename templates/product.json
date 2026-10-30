@@ -234,10 +234,86 @@
         "button_2_link": "",
         "button_2_style": "outline"
       }
+    },
+    "value_chain_VHg3BX": {
+      "type": "value-chain",
+      "blocks": {
+        "stat_Q38H4g": {
+          "type": "stat",
+          "settings": {
+            "value": "25",
+            "suffix": "år",
+            "use_product_price": false,
+            "label": "Garanti",
+            "text": ""
+          }
+        },
+        "stat_AzHNFT": {
+          "type": "stat",
+          "settings": {
+            "value": "100",
+            "suffix": "%",
+            "use_product_price": false,
+            "label": "Danskproduceret",
+            "text": "Nøje udvalgte materialer, produceret i Danmark."
+          }
+        },
+        "stat_7aw7Jw": {
+          "type": "stat",
+          "settings": {
+            "value": "2.995",
+            "suffix": "kr",
+            "use_product_price": true,
+            "label": "Din pris",
+            "text": ""
+          }
+        },
+        "chain_zUPKaH": {
+          "type": "chain",
+          "settings": {
+            "heading": "Sengebranchen",
+            "text": "Sengen går gennem brand, forhandler og fysisk butik, før den når dig. Hvert led lægger sin avance oven i prisen.",
+            "steps": "Producent, Brand, Forhandler, Fysisk butik",
+            "you_label": "Dig",
+            "you_background": "#e2ded6",
+            "caption": "Flere led. Højere pris."
+          }
+        },
+        "chain_AyrRGw": {
+          "type": "chain",
+          "settings": {
+            "heading": "Sengefabrikken",
+            "text": "Vi køber direkte hos producenten og sælger direkte til dig. Ingen forhandlere, ingen fysiske butikker, ingen avance til mellemled.",
+            "steps": "Producent, Sengefabrikken",
+            "you_label": "Dig",
+            "you_background": "#efe0bd",
+            "caption": "Kun dig og os. Mere seng for pengene."
+          }
+        }
+      },
+      "block_order": [
+        "stat_Q38H4g",
+        "stat_AzHNFT",
+        "stat_7aw7Jw",
+        "chain_zUPKaH",
+        "chain_AyrRGw"
+      ],
+      "name": "Værdikæde",
+      "settings": {
+        "color_scheme": "scheme-8",
+        "heading": "Vi giver besparelserne videre til dig!",
+        "heading_size": "h3",
+        "content": "<p>Det er kun dig og os. Vi har ingen forhandlere eller fysiske butikker, og materialerne er nøje udvalgt. Det giver dig den bedste kombination af kvalitet, design og service, til priser der ellers ville være umulige.</p>",
+        "stat_size": "h4",
+        "chain_heading_size": "h5",
+        "step_background": "#ffffff",
+        "step_text_color": "#2f1300"
+      }
     }
   },
   "order": [
     "main",
-    "multiple_media_with_text_LbJBFz"
+    "multiple_media_with_text_LbJBFz",
+    "value_chain_VHg3BX"
   ]
 }
