@@ -23,7 +23,7 @@
     --multiple-media-with-text-media-grid-auto-rows: {{ grid_auto_rows | default: 'auto' }};
     --multiple-media-with-text-media-grid-auto-columns: {% if section.settings.media_layout == 'overlap' %}minmax(0, 1.75fr) minmax(0, .8fr) minmax(0, .8fr){% else %}minmax(0, 1fr){% endif %};
     --multiple-media-with-text-border-color: {{ section.settings.border_color }};
-    --multiple-media-with-text-checkmark: url("{{ 'checkmark.svg' | asset_url }}");
+    --multiple-media-with-text-checkmark: url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 11 9%27%3E%3Cpath fill=%27none%27 stroke=%27%23000%27 stroke-width=%271.5%27 d=%27m1 4.5 3 3 6-6%27/%3E%3C/svg%3E");
   }
 
   @media screen and (min-width: 700px) {
@@ -289,7 +289,9 @@
 
   .multiple-media-with-text__text li:before {
     content: "";
-    background: var(--multiple-media-with-text-checkmark) no-repeat center / contain;
+    background: currentColor;
+    -webkit-mask: var(--multiple-media-with-text-checkmark) no-repeat center / contain;
+    mask: var(--multiple-media-with-text-checkmark) no-repeat center / contain;
     width: 1em;
     height: 1em;
     position: absolute;
