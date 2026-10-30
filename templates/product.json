@@ -51,9 +51,9 @@
             "heading_tag": "h5",
             "simplify_title": true,
             "show_price": true,
-            "show_splash": true,
             "price_size": "h5",
-            "price_color": "#c87d0a"
+            "price_color": "#c87d0a",
+            "show_splash": true
           }
         },
         "badges": {
@@ -62,10 +62,10 @@
         },
         "price": {
           "type": "price",
+          "disabled": true,
           "settings": {
             "show_taxes_notice": false
-          },
-          "disabled": true
+          }
         },
         "rating": {
           "type": "rating",
@@ -182,40 +182,62 @@
         "max_image_zoom_level": 3
       }
     },
-    "related-products": {
-      "type": "related-products",
+    "multiple_media_with_text_LbJBFz": {
+      "type": "multiple-media-with-text",
       "blocks": {
-        "section-header": {
-          "type": "_section-header",
-          "static": true,
+        "video_nhxzqp": {
+          "type": "video",
           "settings": {
-            "subheading": "",
-            "title": "Related products",
-            "content": "",
-            "button_text": "",
-            "button_link": "",
-            "button_style": "outline",
-            "text_alignment": "left",
-            "heading_size": "h3",
-            "title_icon": "none",
-            "show_scrolling_title": false
-          },
-          "blocks": {}
+            "video": "shopify://files/videos/tromso_kontinental_video_247bf640-9d6c-40af-8d58-e6f57fd59bd3.mp4",
+            "rotation": 0,
+            "hide_on_mobile": false
+          }
         }
       },
+      "block_order": [
+        "video_nhxzqp"
+      ],
+      "name": "Medier med tekst",
       "settings": {
         "color_scheme": "",
-        "stack_products": true,
-        "recommendations_count": 4,
-        "products_per_row_mobile": "1",
-        "products_per_row_desktop": 4,
-        "show_view_all_button": true,
-        "show_scrolling_bar": true
+        "custom_id": "",
+        "media_position_desktop": "before_text",
+        "media_position_mobile": "before_text",
+        "media_layout": "overlap",
+        "media_alignment": "center",
+        "media_alignment_offset": 0,
+        "media_mobile_alignment_offset": 0,
+        "hide_media_on_mobile": true,
+        "content_width": 600,
+        "text_alignment": "center",
+        "subheading": "",
+        "title": "Derfor er Trykaflastende det fornuftige valg",
+        "heading_size": "h5",
+        "show_icon": true,
+        "show_color_swatch": false,
+        "color_swatch_label": "Farver",
+        "content": "<p><strong>Hvis du køber Trykaflastende får du:</strong></p><ul><li>60 mm. trykaflastende topmadras.</li><li>7 unikke komfortzoner.</li><li>Danskproduceret kvalitetsseng.</li><li>25 års garanti.</li></ul>",
+        "content_border_top": true,
+        "content_border_bottom": true,
+        "content_below": "<p><strong>Vores mest aflastende seng til dig, der har brug for lidt ekstra.</strong></p>",
+        "content_below_border_top": false,
+        "content_below_border_bottom": false,
+        "border_color": "#e0dcd9",
+        "phone": "",
+        "phone_hours": "",
+        "email": "",
+        "chat": "",
+        "button_1_text": "",
+        "button_1_link": "",
+        "button_1_style": "solid",
+        "button_2_text": "",
+        "button_2_link": "",
+        "button_2_style": "outline"
       }
     }
   },
   "order": [
     "main",
-    "related-products"
+    "multiple_media_with_text_LbJBFz"
   ]
 }
