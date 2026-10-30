@@ -3,6 +3,7 @@
  *
  * Counts a number up from 0 the first time it scrolls into view, formatted the Danish way (2.995 / 1,44). The final
  * number is rendered by Liquid, so it is shown as is when JavaScript is off or the visitor prefers reduced motion.
+ * The duration (in ms) can be set with the "duration" attribute.
  * With the "product-price" attribute, the number follows the price of the selected variant.
  */
 class CountUp extends HTMLElement {
@@ -21,7 +22,7 @@ class CountUp extends HTMLElement {
       }, { signal: this.#abortController.signal });
     }
 
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || window.Shopify?.designMode) {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       return;
     }
 

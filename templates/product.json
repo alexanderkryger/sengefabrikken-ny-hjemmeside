@@ -275,6 +275,7 @@
             "text": "Sengen går gennem brand, forhandler og fysisk butik, før den når dig. Hvert led lægger sin avance oven i prisen.",
             "steps": "Producent, Brand, Forhandler, Fysisk butik",
             "you_label": "Dig",
+            "you_icon": "neutral",
             "you_background": "#e2ded6",
             "caption": "Flere led. Højere pris."
           }

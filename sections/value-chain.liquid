@@ -73,7 +73,7 @@
 
             <div class="value-chain__stat" {{ block.shopify_attributes }}>
               <p class="value-chain__stat-value {{ section.settings.stat_size }}">
-                <count-up value="{{ stat_number }}" decimals="{{ stat_decimals }}" {% if product_price %}product-price{% endif %}>{{ stat_text }}</count-up>
+                <count-up value="{{ stat_number }}" decimals="{{ stat_decimals }}" duration="{{ section.settings.animation_duration | times: 1000 }}" {% if product_price %}product-price{% endif %}>{{ stat_text }}</count-up>
 
                 {%- if block.settings.suffix != blank -%}
                   {{ ' ' }}<span>{{ block.settings.suffix }}</span>
@@ -119,7 +119,14 @@
               {%- endfor -%}
 
               <li class="value-chain__step value-chain__step--you subheading">
-                {%- render 'icon' with 'picto-happy', width: 16 -%}
+                {%- if block.settings.you_icon == 'neutral' -%}
+                  <svg aria-hidden="true" focusable="false" width="16" viewBox="0 0 24 24">
+                    <path vector-effect="non-scaling-stroke" d="M9 7V10M15 7V10M8 15.5H16" fill="none" stroke="currentColor" stroke-width="{{ settings.icon_stroke_width }}"/>
+                    <circle vector-effect="non-scaling-stroke" cx="12" cy="12" r="11" fill="none" stroke="currentColor" stroke-width="{{ settings.icon_stroke_width }}"/>
+                  </svg>
+                {%- else -%}
+                  {%- render 'icon' with 'picto-happy', width: 16 -%}
+                {%- endif -%}
                 <span>{{ block.settings.you_label }}</span>
               </li>
             </ol>
@@ -333,6 +340,17 @@
       "default": "h4"
     },
     {
+      "type": "range",
+      "id": "animation_duration",
+      "label": "Animationens varighed",
+      "info": "Hvor lang tid tallene er om at tælle op.",
+      "min": 0.5,
+      "max": 5,
+      "step": 0.5,
+      "unit": "s",
+      "default": 1.5
+    },
+    {
       "type": "header",
       "content": "Værdikæder"
     },
@@ -440,6 +458,22 @@
           "default": "Dig"
         },
         {
+          "type": "select",
+          "id": "you_icon",
+          "label": "Smiley",
+          "options": [
+            {
+              "value": "happy",
+              "label": "Glad"
+            },
+            {
+              "value": "neutral",
+              "label": "Neutral"
+            }
+          ],
+          "default": "happy"
+        },
+        {
           "type": "color",
           "id": "you_background",
           "label": "Baggrund på sidste led",
@@ -491,6 +525,7 @@
             "text": "Sengen går gennem brand, forhandler og fysisk butik, før den når dig. Hvert led lægger sin avance oven i prisen.",
             "steps": "Producent, Brand, Forhandler, Fysisk butik",
             "you_label": "Dig",
+            "you_icon": "neutral",
             "you_background": "#e2ded6",
             "caption": "Flere led. Højere pris."
           }
