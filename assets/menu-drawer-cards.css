@@ -7,8 +7,8 @@
 @media screen and (min-width: 1000px) {
   /* While a sub panel with cards is open, the drawer gets wider so that the cards can overlap its edge. The drawer itself
      becomes transparent and the panels keep the drawer background, so the page overlay stays visible next to it. */
-  .menu-drawer:has(.menu-drawer__panel.is-visible .menu-drawer-cards-group)::part(content) {
-    max-width: 780px;
+  #menu-drawer:has(.menu-drawer__panel.is-visible .menu-drawer-cards-group)::part(content) {
+    max-width: calc(var(--menu-drawer-width, 480px) + 300px);
     background: none;
     border-block-start: none;
     pointer-events: none;
@@ -17,7 +17,7 @@
   .menu-drawer:has(.menu-drawer__panel.is-visible .menu-drawer-cards-group) .menu-drawer__panel {
     background: rgb(var(--background));
     border-block-start: 1px solid rgb(var(--border-color));
-    max-width: 480px;
+    max-width: var(--menu-drawer-width, 480px);
     pointer-events: auto;
   }
 
@@ -27,7 +27,7 @@
 
   /* The links of the sub panel stay clear of the cards */
   .menu-drawer__panel:has(.menu-drawer-cards-group) .menu-drawer__panel-body {
-    padding-inline-end: calc(100% - 300px + 1.5rem);
+    padding-inline-end: calc(180px + 1.5rem);
   }
 
   .menu-drawer-cards {
@@ -41,7 +41,7 @@
     display: grid;
     position: absolute;
     inset-block: 2.2rem 0;
-    inset-inline-start: 300px;
+    inset-inline-start: calc(var(--menu-drawer-width, 480px) - 180px);
     overflow-y: auto;
     overscroll-behavior: contain;
     scrollbar-width: none;

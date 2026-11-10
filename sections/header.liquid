@@ -74,6 +74,17 @@
     }
   {%- endif -%}
 
+  {%- comment -%}Sengefabrikken: width of the menu drawer on desktop ("Menubredde"){%- endcomment -%}
+  @media screen and (min-width: 1000px) {
+    #menu-drawer {
+      --menu-drawer-width: {{ section.settings.menu_drawer_width }}px;
+    }
+
+    #menu-drawer::part(content) {
+      max-width: var(--menu-drawer-width);
+    }
+  }
+
   {%- comment -%}Sengefabrikken: the custom buttons use the heading font{%- endcomment -%}
   #shopify-section-{{ section.id }} .header__custom-button,
   #menu-drawer .header__custom-button {
@@ -659,6 +670,17 @@
     {
       "type": "header",
       "content": "Sengefabrikken knapper"
+    },
+    {
+      "type": "range",
+      "id": "menu_drawer_width",
+      "label": "Menubredde (desktop)",
+      "info": "Bredden på menuskuffen, når headeren bruger skuffe-layout. Temaets standard er 480 px.",
+      "min": 400,
+      "max": 720,
+      "step": 20,
+      "unit": "px",
+      "default": 560
     },
     {
       "type": "checkbox",
