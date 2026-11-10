@@ -72,6 +72,29 @@
         {%- endcomment -%}
         <div class="accordion-list">
           {%- for block in section.blocks -%}
+            {%- comment -%}
+              Sengefabrikken: "metaobject_specifications" renders one accordion per metaobject entry of a product metafield
+              (a list of metaobjects with the fields "title", "content" and "icon"), as the theme editor does not offer
+              repeating blocks in this section.
+            {%- endcomment -%}
+            {%- if block.type == 'metaobject_specifications' -%}
+              {%- assign metafield_parts = block.settings.metafield | split: '.' -%}
+
+              {%- for entry in product.metafields[metafield_parts[0]][metafield_parts[1]].value -%}
+                {%- render 'accordion',
+                  title: entry.title.value,
+                  icon: 'none',
+                  custom_icon: entry.icon.value,
+                  content: entry.content | metafield_tag,
+                  uppercase_title: section.settings.uppercase_attribute_title,
+                  large: true,
+                  block: block
+                -%}
+              {%- endfor -%}
+
+              {%- continue -%}
+            {%- endif -%}
+
             {%- liquid
               comment
                 Sengefabrikken: "accordion" blocks use the same setting ids as the current site's bed-specifications
@@ -106,6 +129,30 @@
         <table class="specification-table">
           <tbody class="divide-y">
             {%- for block in section.blocks -%}
+              {%- if block.type == 'metaobject_specifications' -%}
+                {%- assign metafield_parts = block.settings.metafield | split: '.' -%}
+
+                {%- for entry in product.metafields[metafield_parts[0]][metafield_parts[1]].value -%}
+                  <tr class="specification-table__row" {{ block.shopify_attributes }}>
+                    <th scope="row" class="specification-table__row-name {% if section.settings.uppercase_attribute_title %}uppercase{% endif %}">
+                      <div class="text-with-icon {% if section.settings.show_attribute_icon_on_top %}text-with-icon--stacked{% endif %}">
+                        {%- if entry.icon.value != blank -%}
+                          {%- render 'icon', image: entry.icon.value, width: 20, mobile_width: 16 -%}
+                        {%- endif -%}
+
+                        {{- entry.title.value -}}
+                      </div>
+                    </th>
+
+                    <td class="specification-table__row-value prose">
+                      {{- entry.content | metafield_tag -}}
+                    </td>
+                  </tr>
+                {%- endfor -%}
+
+                {%- continue -%}
+              {%- endif -%}
+
               {%- liquid
                 if block.type == 'accordion'
                   assign block_icon = 'none'
@@ -804,6 +851,24 @@
           "type": "image_picker",
           "id": "icon",
           "label": "t:global.icons.icon"
+        }
+      ]
+    },
+    {
+      "type": "metaobject_specifications",
+      "name": "Specifikationer fra metaobjekt",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "paragraph",
+          "content": "Viser én række pr. specifikation fra produktets metafelt (liste af metaobjekter med felterne title, content og icon). Kræver ikke, at blokken forbindes."
+        },
+        {
+          "type": "text",
+          "id": "metafield",
+          "label": "Metafelt",
+          "info": "Navnerum og nøgle, fx custom.sengens_specifikationer",
+          "default": "custom.sengens_specifikationer"
         }
       ]
     }
