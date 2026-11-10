@@ -238,23 +238,20 @@ mobile, and for desktop on "drawer" mode.
                 {%- endif -%}
               {%- endif -%}
 
-              {%- if mega_menu_block != blank -%}
-                {%- comment -%}Sengefabrikken: on desktop, the promo blocks are shown as cards next to the menu instead{%- endcomment -%}
-                {%- if section.settings.desktop_layout == 'drawer' -%}
-                  <div class="md:hidden">
-                    {%- render 'menu-promo', block: mega_menu_block, context: 'drawer' -%}
-                  </div>
-                {%- else -%}
-                  {%- render 'menu-promo', block: mega_menu_block, context: 'drawer' -%}
-                {%- endif -%}
+              {%- comment -%}
+                Sengefabrikken: with the "drawer" layout, the promo blocks are shown as cards instead of the theme's promo
+                carousel: below the links on mobile, and next to the menu on desktop (see the menu-drawer-cards snippet)
+              {%- endcomment -%}
+              {%- if mega_menu_block != blank and section.settings.desktop_layout != 'drawer' -%}
+                {%- render 'menu-promo', block: mega_menu_block, context: 'drawer' -%}
               {%- endif -%}
             </div>
           </div>
-        </div>
 
-        {%- if section.settings.desktop_layout == 'drawer' -%}
-          {%- render 'menu-drawer-cards-group', link: link, block: mega_menu_block, panel_index: panel_index, section: section -%}
-        {%- endif -%}
+          {%- if section.settings.desktop_layout == 'drawer' -%}
+            {%- render 'menu-drawer-cards-group', link: link, block: mega_menu_block, panel_index: panel_index, section: section -%}
+          {%- endif -%}
+        </div>
       </header-menu-drawer-panel>
     {%- endif -%}
   {%- endfor -%}

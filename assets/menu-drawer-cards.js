@@ -1,7 +1,8 @@
 /**
  * Sengefabrikken: <menu-drawer-cards-group>
  *
- * Holds the cards shown next to a sub panel of the menu drawer on desktop (see the menu-drawer-cards-group snippet).
+ * Holds the cards shown next to a sub panel of the menu drawer on desktop, and below its links on mobile (see the
+ * menu-drawer-cards-group snippet).
  * Hovering or focusing a sub link with its own cards (data-menu-cards attribute) shows them, and they stay visible while
  * the cards are browsed. Hovering a sub link without cards shows the cards of the menu item again, and so does opening
  * the sub panel again.
@@ -54,6 +55,11 @@ class MenuDrawerCardsGroup extends HTMLElement {
   }
 
   #onLinkActivated(target) {
+    // On mobile only the cards of the menu item are shown
+    if (!window.matchMedia('screen and (min-width: 1000px)').matches) {
+      return;
+    }
+
     const link = target.closest('.menu-drawer__panel-body li a, .menu-drawer__panel-body .v-stack > a.subheading');
 
     if (!link) {

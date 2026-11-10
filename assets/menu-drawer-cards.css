@@ -1,7 +1,24 @@
 /* Sengefabrikken: cards shown next to the menu drawer on desktop (see the menu-drawer-cards snippet) */
 
+/* On mobile, only the cards of the menu item are shown, below the links */
 .menu-drawer-cards {
+  gap: .75rem;
+  display: grid;
+}
+
+.menu-drawer-cards[hidden] {
   display: none;
+}
+
+@media screen and (max-width: 999px) {
+  .menu-drawer-cards-group {
+    margin-block-start: 2rem;
+    display: block;
+  }
+
+  .menu-drawer-cards:not([data-default]) {
+    display: none;
+  }
 }
 
 @media screen and (min-width: 1000px) {
