@@ -671,6 +671,71 @@
         "show_attribute_icon_on_top": false,
         "uppercase_attribute_title": false
       }
+    },
+    "hotspot_section_dDEdeC": {
+      "type": "hotspot-section",
+      "blocks": {
+        "heading_hByDEM": {
+          "type": "heading",
+          "settings": {
+            "text": "Sengens opbygning",
+            "heading_tag": "h3"
+          }
+        },
+        "richtext_VHwteR": {
+          "type": "richtext",
+          "settings": {
+            "content": "<p>Vores kontinentalsenge består af tre lag: en holdbar boxmadras, en fleksibel springmadras og en luksuriøs topmadras.<br/>Bliv klogere på sengens forskellige lag herunder.</p>"
+          }
+        },
+        "image_mgfBdt": {
+          "type": "image",
+          "settings": {
+            "image": "{{ product.metafields.custom.stregtegning_m_streger.value }}",
+            "width_mode": "custom",
+            "max_width": 600,
+            "mobile_max_width": 400,
+            "hotspot_1_title": "Topmadras",
+            "hotspot_1_url": "",
+            "hotspot_1_horizontal": 34,
+            "hotspot_1_vertical": 38,
+            "hotspot_2_title": "Springmadras",
+            "hotspot_2_url": "",
+            "hotspot_2_horizontal": 60,
+            "hotspot_2_vertical": 55,
+            "hotspot_3_title": "Boxmadras",
+            "hotspot_3_url": "",
+            "hotspot_3_horizontal": 47,
+            "hotspot_3_vertical": 70,
+            "dimensions_1_title": "B: {{ product.metafields.custom.specifikationer_billede.value.bredde.value }}",
+            "dimensions_1_horizontal": 62,
+            "dimensions_1_vertical": 96,
+            "dimensions_2_title": "H: {{ product.metafields.custom.specifikationer_billede.value.hojde.value }}",
+            "dimensions_2_horizontal": 100,
+            "dimensions_2_vertical": 50,
+            "dimensions_3_title": "D: {{ product.metafields.custom.specifikationer_billede.value.dybde.value }}",
+            "dimensions_3_horizontal": 8,
+            "dimensions_3_vertical": 89
+          }
+        }
+      },
+      "block_order": [
+        "heading_hByDEM",
+        "richtext_VHwteR",
+        "image_mgfBdt"
+      ],
+      "name": "Hotspot section",
+      "settings": {
+        "color_scheme": "scheme-1",
+        "text_position": "center",
+        "remove_vertical_spacing": false,
+        "remove_padding": false,
+        "background": "",
+        "text_color": "",
+        "show_dots": true,
+        "dot_color": "#a3968e",
+        "hotspot_color": "#650621"
+      }
     }
   },
   "order": [
@@ -681,6 +746,7 @@
     "multi_column_videos",
     "trustpilot_reviews_PkjAdp",
     "value_chain_VHg3BX",
-    "specifications_hTjaPb"
+    "specifications_hTjaPb",
+    "hotspot_section_dDEdeC"
   ]
 }
