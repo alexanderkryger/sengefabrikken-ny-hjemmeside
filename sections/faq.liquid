@@ -1,5 +1,6 @@
 {%- if section.blocks.size > 0 -%}
-  <div class="color-scheme color-scheme--{{ section.settings.color_scheme.id }}">
+  {%- comment -%}Sengefabrikken: the anchor lets other parts of the page link to the section (e.g. "#faq"){%- endcomment -%}
+  <div class="color-scheme color-scheme--{{ section.settings.color_scheme.id }}" {% if section.settings.custom_id != blank %}id="{{ section.settings.custom_id | handle }}"{% endif %}>
     {%- capture section_header -%}
       {%- if section.settings.subheading != blank or section.settings.title != blank or section.settings.content != blank or section.settings.button_text != blank -%}
         <div class="section-header">
@@ -123,6 +124,12 @@
       "label": "Brug Sengefabrikken sidebredde",
       "info": "Sektionen bliver lige så bred som den maks. sidebredde i Theme settings > Sengefabrikken layout.",
       "default": false
+    },
+    {
+      "type": "text",
+      "id": "custom_id",
+      "label": "Anker-ID",
+      "info": "Giv sektionen et unikt ID, så der kan linkes direkte til den (fx #faq)."
     },
     {
       "type": "select",

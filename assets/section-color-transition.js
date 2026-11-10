@@ -55,7 +55,8 @@ class SectionColorTransition extends HTMLElement {
     for (const section of main.querySelectorAll(':scope > .shopify-section')) {
       const surface = section.querySelector(':scope > .color-scheme');
 
-      if (surface) {
+      // Sticky sections (e.g. the product navigation) are always visible, so they must not give their color to the page
+      if (surface && !['sticky', 'fixed'].includes(getComputedStyle(section).position)) {
         this.#colors.set(section, getComputedStyle(surface).backgroundColor);
       }
     }
