@@ -124,6 +124,8 @@
 
 .sengefabrikken-card--compact .sengefabrikken-card__splash {
   width: 6rem;
+  inset-block-start: -.25rem;
+  inset-inline-start: -.25rem;
 }
 
 .sengefabrikken-card--compact .sengefabrikken-card__splash-text {
