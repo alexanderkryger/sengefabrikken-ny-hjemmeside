@@ -349,11 +349,212 @@
         "show_attribute_icon_on_top": false,
         "uppercase_attribute_title": false
       }
+    },
+    "multi_column_videos": {
+      "type": "multi-column",
+      "blocks": {
+        "video_column_1": {
+          "type": "_multi-column-column",
+          "settings": {
+            "color_scheme": "scheme-1",
+            "text_alignment": "left"
+          },
+          "blocks": {
+            "video_1": {
+              "type": "video",
+              "settings": {
+                "autoplay": false,
+                "video": "shopify://files/videos/9X16_1A-2_low.mp4"
+              },
+              "blocks": {}
+            },
+            "heading_1": {
+              "type": "heading",
+              "settings": {
+                "text": "Bliv klogere på levering",
+                "heading_size": "h6",
+                "html_tag": "p",
+                "indent": "none",
+                "highlight_effect": "none"
+              },
+              "blocks": {}
+            },
+            "rich_text_1": {
+              "type": "rich-text",
+              "settings": {
+                "text": "<p>0:25m</p>",
+                "content_width": "full"
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "video_1",
+            "heading_1",
+            "rich_text_1"
+          ]
+        },
+        "video_column_2": {
+          "type": "_multi-column-column",
+          "settings": {
+            "color_scheme": "scheme-1",
+            "text_alignment": "left"
+          },
+          "blocks": {
+            "video_2": {
+              "type": "video",
+              "settings": {
+                "autoplay": false,
+                "video": "shopify://files/videos/9X16_1C.mp4"
+              },
+              "blocks": {}
+            },
+            "heading_2": {
+              "type": "heading",
+              "settings": {
+                "text": "Bliv klogere på vores danske kvalitet",
+                "heading_size": "h6",
+                "html_tag": "p",
+                "indent": "none",
+                "highlight_effect": "none"
+              },
+              "blocks": {}
+            },
+            "rich_text_2": {
+              "type": "rich-text",
+              "settings": {
+                "text": "<p>0:23m</p>",
+                "content_width": "full"
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "video_2",
+            "heading_2",
+            "rich_text_2"
+          ]
+        },
+        "video_column_3": {
+          "type": "_multi-column-column",
+          "settings": {
+            "color_scheme": "scheme-1",
+            "text_alignment": "left"
+          },
+          "blocks": {
+            "video_3": {
+              "type": "video",
+              "settings": {
+                "autoplay": false
+              },
+              "blocks": {}
+            },
+            "heading_3": {
+              "type": "heading",
+              "settings": {
+                "text": "Bliv klogere på Trykaflastende Topmadras",
+                "heading_size": "h6",
+                "html_tag": "p",
+                "indent": "none",
+                "highlight_effect": "none"
+              },
+              "blocks": {}
+            },
+            "rich_text_3": {
+              "type": "rich-text",
+              "settings": {
+                "text": "<p>0:41m</p>",
+                "content_width": "full"
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "video_3",
+            "heading_3",
+            "rich_text_3"
+          ]
+        },
+        "video_column_4": {
+          "type": "_multi-column-column",
+          "settings": {
+            "color_scheme": "scheme-1",
+            "text_alignment": "left"
+          },
+          "blocks": {
+            "video_4": {
+              "type": "video",
+              "settings": {
+                "autoplay": false,
+                "video": "shopify://files/videos/9X16_1E.mp4"
+              },
+              "blocks": {}
+            },
+            "heading_4": {
+              "type": "heading",
+              "settings": {
+                "text": "Bliv klogere på sengens certifikater",
+                "heading_size": "h6",
+                "html_tag": "p",
+                "indent": "none",
+                "highlight_effect": "none"
+              },
+              "blocks": {}
+            },
+            "rich_text_4": {
+              "type": "rich-text",
+              "settings": {
+                "text": "<p>0:34m</p>",
+                "content_width": "full"
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "video_4",
+            "heading_4",
+            "rich_text_4"
+          ]
+        },
+        "section-header": {
+          "type": "_section-header",
+          "static": true,
+          "settings": {
+            "subheading": "",
+            "title": "Hør mere om vores {{ product.metafields.custom.product_title.value.product_title.value }}",
+            "content": "",
+            "text_alignment": "left",
+            "heading_size": "h4",
+            "title_icon": "none",
+            "show_scrolling_title": false
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "video_column_1",
+        "video_column_2",
+        "video_column_3",
+        "video_column_4"
+      ],
+      "settings": {
+        "color_scheme": "scheme-1",
+        "show_internal_borders": false,
+        "add_horizontal_spacing": true,
+        "add_top_spacing": true,
+        "add_bottom_spacing": true,
+        "items_per_row": 4,
+        "stack_on_mobile": false,
+        "stack_on_desktop": true,
+        "rounded_media": true,
+        "column_spacing": "sm"
+      }
     }
   },
   "order": [
     "main",
     "multiple_media_with_text_LbJBFz",
+    "multi_column_videos",
     "value_chain_VHg3BX",
     "specifications_hTjaPb"
   ]
