@@ -613,7 +613,6 @@
       "name": "Hotspot section",
       "settings": {
         "color_scheme": "scheme-1",
-        "color_transition": false,
         "text_position": "center",
         "remove_vertical_spacing": false,
         "remove_padding": false,

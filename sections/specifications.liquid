@@ -51,7 +51,7 @@
   </style>
 
   {%- comment -%}The color scheme is the section background, the manual colors are the box (or the whole section when not boxed){%- endcomment -%}
-  <div {% if section.settings.color_transition %}data-color-transition{% endif %} {% if section.settings.anchor != blank %}id="{{ section.settings.anchor | handle }}"{% endif %} class="color-scheme color-scheme--{{ section.settings.color_scheme.id }}">
+  <div {% if section.settings.anchor != blank %}id="{{ section.settings.anchor | handle }}"{% endif %} class="color-scheme color-scheme--{{ section.settings.color_scheme.id }}">
   <div {% if section.settings.use_page_width %}class="container section-spacing"{% endif %}>
   <div class="{% if section.settings.use_page_width %}specifications--boxed{% endif %} {% if section.settings.show_dots %}specifications--dotted{% endif %}" {% if has_manual_colors %}style="{% render 'surface', background: section.settings.background, text_color: section.settings.text_color, border_color: section.settings.border_color %}"{% endif %}>
     {%- liquid
@@ -285,13 +285,6 @@
       "id": "color_scheme",
       "label": "t:global.colors.scheme",
       "default": "scheme-1"
-    },
-    {
-      "type": "checkbox",
-      "id": "color_transition",
-      "label": "Glidende farveskift",
-      "info": "Siden toner over i sektionens farve, når den scrolles ind. Kræver at Glidende farveskift er slået til i Theme settings > Sengefabrikken layout.",
-      "default": false
     },
     {
       "type": "checkbox",
