@@ -81,11 +81,13 @@
               {%- assign metafield_parts = block.settings.metafield | split: '.' -%}
 
               {%- for entry in product.metafields[metafield_parts[0]][metafield_parts[1]].value -%}
+                {%- assign entry_content = entry.content | metafield_tag -%}
+
                 {%- render 'accordion',
                   title: entry.title.value,
                   icon: 'none',
                   custom_icon: entry.icon.value,
-                  content: entry.content | metafield_tag,
+                  content: entry_content,
                   uppercase_title: section.settings.uppercase_attribute_title,
                   large: true,
                   block: block
