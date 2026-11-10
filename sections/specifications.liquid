@@ -21,6 +21,10 @@
       overflow: hidden;
     }
 
+    #shopify-section-{{ section.id }} .specifications__header {
+      padding-block-start: var(--section-vertical-spacing);
+    }
+
     #shopify-section-{{ section.id }} .specifications--dotted {
       background-image: radial-gradient(circle at 15px 15px, rgb(var(--specifications-dot-color)) 1px, transparent 1.5px);
       background-size: 30px 30px;
@@ -48,9 +52,25 @@
 
   <div {% if section.settings.anchor != blank %}id="{{ section.settings.anchor | handle }}"{% endif %} {% if section.settings.use_page_width %}class="container section-spacing"{% endif %}>
   <div class="color-scheme color-scheme--{{ section.settings.color_scheme.id }} {% if section.settings.use_page_width %}specifications--boxed{% endif %} {% if section.settings.show_dots %}specifications--dotted{% endif %}" {% if has_manual_colors %}style="{% render 'surface', background: section.settings.background, text_color: section.settings.text_color, border_color: section.settings.border_color %}"{% endif %}>
+    {%- liquid
+      comment
+        Sengefabrikken: with an image, the header can be shown centered above the image and the attributes (as on the
+        current site's bed-specifications section)
+      endcomment
+      assign header_on_top = false
+      if section.settings.image != blank and section.settings.header_on_top
+        assign header_on_top = true
+      endif
+
+      assign center_header = header_on_top
+      if section.settings.layout == 'stacked' and section.settings.image == blank
+        assign center_header = true
+      endif
+    -%}
+
     {%- capture section_header -%}
       {%- if section.settings.subheading != blank or section.settings.title != blank or section.settings.content != blank -%}
-        <div class="prose {% if section.settings.layout == 'stacked' and section.settings.image == blank %}prose-justify-center{% endif %}">
+        <div class="prose {% if center_header %}prose-justify-center{% endif %}">
           {%- render 'subheading', content: section.settings.subheading -%}
           {%- render 'heading', content: section.settings.title, balance_text: true, style: section.settings.heading_size, html_tag: 'h2' -%}
 
@@ -78,7 +98,16 @@
               repeating blocks in this section.
             {%- endcomment -%}
             {%- if block.type == 'metaobject_specs' -%}
-              {%- assign metafield_parts = block.settings.metafield | split: '.' -%}
+              {%- liquid
+                comment
+                  Falls back to the default metafield when the setting does not hold a "namespace.key" value (e.g. if it was
+                  connected to a dynamic source)
+                endcomment
+                assign metafield_parts = block.settings.metafield | split: '.'
+                if metafield_parts.size != 2
+                  assign metafield_parts = 'custom.sengens_specifikationer' | split: '.'
+                endif
+              -%}
 
               {%- for entry in product.metafields[metafield_parts[0]][metafield_parts[1]].value -%}
                 {%- assign entry_content = entry.content | metafield_tag -%}
@@ -132,7 +161,12 @@
           <tbody class="divide-y">
             {%- for block in section.blocks -%}
               {%- if block.type == 'metaobject_specs' -%}
-                {%- assign metafield_parts = block.settings.metafield | split: '.' -%}
+                {%- liquid
+                  assign metafield_parts = block.settings.metafield | split: '.'
+                  if metafield_parts.size != 2
+                    assign metafield_parts = 'custom.sengens_specifikationer' | split: '.'
+                  endif
+                -%}
 
                 {%- for entry in product.metafields[metafield_parts[0]][metafield_parts[1]].value -%}
                   <tr class="specification-table__row" {{ block.shopify_attributes }}>
@@ -189,14 +223,23 @@
     {%- endcapture -%}
 
     {%- if section.settings.image != blank -%}
+      {%- if header_on_top and section_header != blank -%}
+        <div class="specifications__header container">
+          {{- section_header -}}
+        </div>
+      {%- endif -%}
+
       <div class="section-split {% if section.settings.image_position == 'end' %}section-split--reverse{% endif %}">
         <div class="section-split__column section-split__column--image {% unless section.settings.add_image_spacing %}section-split__column--flushed{% endunless %}">
           {{- section.settings.image | image_url: width: section.settings.image.width | image_tag: sizes: '(max-width: 699px) 100vw, 50vw', widths: '300,400,500,600,800,1000,1200,1400,1600,1800,2000', class: 'size-full' -}}
         </div>
 
-        <div class="section-split__column align-self-start">
+        <div class="section-split__column {% unless header_on_top %}align-self-start{% endunless %}">
           <div class="section-stack">
-            {{- section_header -}}
+            {%- unless header_on_top -%}
+              {{- section_header -}}
+            {%- endunless -%}
+
             {{- section_content -}}
           </div>
         </div>
@@ -305,6 +348,14 @@
       ],
       "default": "stacked",
       "visible_if": "{{ section.settings.image == blank }}"
+    },
+    {
+      "type": "checkbox",
+      "id": "header_on_top",
+      "label": "Vis overskrift over billede og tekst",
+      "info": "Overskriften centreres over billedet og specifikationerne.",
+      "default": true,
+      "visible_if": "{{ section.settings.image != blank }}"
     },
     {
       "type": "checkbox",
