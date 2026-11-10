@@ -1,1 +1,46 @@
-{"type":"custom.overlay","name":"Overlay group","sections":{"cart-drawer":{"type":"cart-drawer","settings":{}},"search-drawer":{"type":"search-drawer","settings":{}},"newsletter-popup":{"type":"newsletter-popup","settings":{}}},"order":["cart-drawer","search-drawer","newsletter-popup"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "type": "custom.overlay",
+  "name": "Overlay group",
+  "sections": {
+    "cart-drawer": {
+      "type": "cart-drawer",
+      "settings": {
+        "color_scheme": "",
+        "show_cart_note": true,
+        "show_shipping_estimator": true,
+        "show_shipping_text": true,
+        "allow_discount_application": false,
+        "show_terms_of_service_checkbox": false,
+        "show_view_cart_button": false,
+        "show_checkout_button": true,
+        "enable_cross_sell": true,
+        "cross_sell_title": "You may also like",
+        "show_upsale_panel": true,
+        "upsale_panel_title": "Spar op til 40% på tilbehør"
+      }
+    },
+    "search-drawer": {
+      "type": "search-drawer",
+      "settings": {
+        "color_scheme": "",
+        "popular_searches_title": "Popular searches",
+        "popular_searches_menu": "",
+        "featured_products_title": "Featured products",
+        "featured_products": []
+      }
+    }
+  },
+  "order": [
+    "cart-drawer",
+    "search-drawer"
+  ]
+}
