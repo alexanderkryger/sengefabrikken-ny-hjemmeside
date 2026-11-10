@@ -58,7 +58,7 @@
     "cart_icon": "tote_bag",
     "page_full_width": false,
     "page_width": 1400,
-    "section_color_transition": false,
+    "section_color_transition": true,
     "section_color_transition_duration": 200,
     "payment_icons_image": "shopify://shop_images/betalingskort_ny3-any_a8fffca9-dfab-472f-8974-8ae5c633d5f4.png",
     "ribbon_text_1": "Komfort",
@@ -223,6 +223,23 @@
           "background": "#dcb7b9",
           "background_gradient": "",
           "secondary_background": "#faf7f4",
+          "primary_button_background": "#650621",
+          "primary_button_text_color": "#ffffff",
+          "subheading_background": "",
+          "subheading_border_color": "",
+          "subheading_text_color": "#2f1300",
+          "heading_highlight_accent_color": "#650621",
+          "heading_highlight_text_color": "#ffffff",
+          "input_background": "#ffffff",
+          "input_text_color": "#2f1300"
+        }
+      },
+      "scheme-6c169912-c18f-4620-bcaa-b514f350ac84": {
+        "settings": {
+          "text_color": "#2f1300",
+          "background": "#F3F9F2",
+          "background_gradient": "",
+          "secondary_background": "#f1eeeb",
           "primary_button_background": "#650621",
           "primary_button_text_color": "#ffffff",
           "subheading_background": "",
