@@ -37,6 +37,13 @@
     #shopify-section-{{ section.id }} .multi-column__item:not(.color-scheme--{{ section.settings.color_scheme.id }}) {
       padding: var(--container-gutter);
     }
+
+    {%- comment -%}Sengefabrikken: optional rounded corners on the images and videos of the columns{%- endcomment -%}
+    {%- if section.settings.rounded_media -%}
+      #shopify-section-{{ section.id }} .multi-column__item :is(video-media, img:not(.icon)) {
+        border-radius: .5rem;
+      }
+    {%- endif -%}
   </style>
 
   <div class="color-scheme color-scheme--{{ section.settings.color_scheme.id }}">
@@ -116,6 +123,12 @@
       "id": "stack_on_desktop",
       "label": "t:sections.multi_column.stack_on_desktop",
       "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "rounded_media",
+      "label": "Afrundede hjørner på billeder og videoer",
+      "default": false
     },
     {
       "type": "select",
