@@ -44,7 +44,7 @@
           "type": "menu",
           "settings": {
             "menu": "FAQ",
-            "link": ""
+            "link": "#faq"
           }
         },
         "menu_Bbdaq8": {
@@ -69,6 +69,7 @@
         "bg": "",
         "lcl": "",
         "lclh": "",
+        "show_shadow": true,
         "iscart": true,
         "btnlbl": "{{ product.metafields.custom.product_title.value.product_title.value }}",
         "btn": "Køb"
@@ -1058,7 +1059,7 @@
       "settings": {
         "color_scheme": "",
         "use_page_width": false,
-        "custom_id": "",
+        "custom_id": "#faq",
         "layout": "stacked",
         "accordion_style": "border",
         "question_style": "text",
