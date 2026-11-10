@@ -3,10 +3,35 @@
     #shopify-section-{{ section.id }} {
       --trust-icons-item-count: {{ section.blocks.size }};
     }
+
+    {%- comment -%}Sengefabrikken: the borders can be hidden, and the items can use the page width{%- endcomment -%}
+    {%- unless section.settings.show_border -%}
+      #shopify-section-{{ section.id }} .trust-icons {
+        border-block-width: 0;
+      }
+
+      #shopify-section-{{ section.id }} + .shopify-section--footer .footer {
+        border-block-start-width: 1px;
+      }
+    {%- endunless -%}
+
+    @media screen and (min-width: 1000px) {
+      {%- unless section.settings.show_separators -%}
+        #shopify-section-{{ section.id }} .trust-icons__item {
+          box-shadow: none;
+        }
+      {%- endunless -%}
+
+      {%- if section.settings.use_page_width -%}
+        #shopify-section-{{ section.id }} .trust-icons__item:last-child {
+          box-shadow: none;
+        }
+      {%- endif -%}
+    }
   </style>
 
   <div class="color-scheme color-scheme--{{ section.settings.color_scheme.id }}">
-    <div class="trust-icons">
+    <div class="trust-icons {% if section.settings.use_page_width %}container{% endif %}">
       {%- assign carousel_id = 'carousel-' | append: section.id -%}
 
       <scroll-carousel id="{{ carousel_id }}" class="trust-icons__carousel snap-x scroll-area bleed md:unbleed">
@@ -59,6 +84,25 @@
       "id": "color_scheme",
       "label": "t:global.colors.scheme",
       "default": "scheme-1"
+    },
+    {
+      "type": "checkbox",
+      "id": "use_page_width",
+      "label": "Brug Sengefabrikken sidebredde",
+      "info": "Ikonerne og kanterne bliver højst så brede som den maks. sidebredde i Theme settings > Sengefabrikken layout.",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "show_border",
+      "label": "Vis kant over og under",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_separators",
+      "label": "Vis skillelinjer mellem ikoner",
+      "default": true
     },
     {
       "type": "select",
