@@ -15,6 +15,7 @@ It shows:
 @param {object} product - the product to render
 @param {boolean} [wide] - if set to true, the media is shown next to the info on desktop
 @param {number} [position] - the position of the card in the list, used to eagerly load the first images
+@param {boolean} [compact] - if set to true, only the ribbon, media, splash, title and price are shown (used in the menu)
 {%- enddoc -%}
 
 {%- liquid
@@ -57,13 +58,17 @@ It shows:
     assign card_subtitle = blank
   endif
 
-  if wide
+  if compact
+    assign card_sizes = '440px'
+  elsif wide
     assign card_sizes = '(max-width: 999px) 100vw, 50vw'
   else
     assign card_sizes = '(max-width: 699px) 100vw, 50vw'
   endif
 
-  if position <= 3
+  if compact
+    assign card_loading = 'lazy'
+  elsif position <= 3
     assign card_loading = 'eager'
   else
     assign card_loading = 'lazy'
@@ -92,7 +97,7 @@ It shows:
   <img class="sengefabrikken-card__quality-icon" src="{{ 'dansk-kvalitet.svg' | asset_url }}" alt="Danskproduceret kvalitetsseng" width="107" height="107" loading="lazy">
 {%- endcapture -%}
 
-<article class="sengefabrikken-card {% if wide %}sengefabrikken-card--wide{% endif %} {% if ribbon_index > 0 %}sengefabrikken-card--ribbon{% endif %} color-scheme color-scheme--{{ settings.product_card_color_scheme.id }}" {% if ribbon_index > 0 %}style="--sengefabrikken-card-ribbon-background: {{ settings[ribbon_color_setting] }}; --sengefabrikken-card-ribbon-text-color: {{ settings[ribbon_text_color_setting] }}"{% endif %}>
+<article class="sengefabrikken-card {% if compact %}sengefabrikken-card--compact{% endif %} {% if wide %}sengefabrikken-card--wide{% endif %} {% if ribbon_index > 0 %}sengefabrikken-card--ribbon{% endif %} color-scheme color-scheme--{{ settings.product_card_color_scheme.id }}" {% if ribbon_index > 0 %}style="--sengefabrikken-card-ribbon-background: {{ settings[ribbon_color_setting] }}; --sengefabrikken-card-ribbon-text-color: {{ settings[ribbon_text_color_setting] }}"{% endif %}>
   {%- if ribbon_index > 0 -%}
     <p class="sengefabrikken-card__ribbon">{{ ribbon_text }}</p>
   {%- endif -%}
@@ -131,7 +136,7 @@ It shows:
       </span>
     {%- endif -%}
 
-    {%- if product.metafields.custom.leveringstid != blank -%}
+    {%- if product.metafields.custom.leveringstid != blank and compact != true -%}
       <span class="sengefabrikken-card__delivery">Levering ({{ product.metafields.custom.leveringstid }})</span>
     {%- endif -%}
   </a>
@@ -159,7 +164,7 @@ It shows:
   {%- endcapture -%}
 
   {%- capture card_bullets -%}
-    {%- if bullets != blank -%}
+    {%- if bullets != blank and compact != true -%}
       {%- assign bullet_list = bullets.content.value | strip_html | split: '**' -%}
 
       <div class="sengefabrikken-card__bullets">
@@ -184,7 +189,9 @@ It shows:
   {%- endcapture -%}
 
   {%- capture card_rating -%}
-    {%- if product.metafields.reviews.rating.value != blank -%}
+    {%- if compact -%}
+      {%- comment -%}The compact card has no rating{%- endcomment -%}
+    {%- elsif product.metafields.reviews.rating.value != blank -%}
       {%- liquid
         assign rating_value = product.metafields.reviews.rating.value.rating
         assign rating_max = product.metafields.reviews.rating.value.scale_max | default: 5

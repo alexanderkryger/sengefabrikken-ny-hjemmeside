@@ -1,0 +1,133 @@
+/* Sengefabrikken: panel opened next to the menu drawer on desktop (see the menu-drawer-flyout snippet) */
+
+.menu-drawer__flyouts {
+  display: none;
+}
+
+@media screen and (min-width: 1000px) {
+  /* The drawer grows to the right to make room for the open panel */
+  .menu-drawer:has(.menu-drawer__flyouts)::part(content) {
+    --menu-drawer-flyout-width: 460px;
+    grid-template-columns: minmax(0, 480px) minmax(0, 1fr);
+    transition: max-width .35s cubic-bezier(.2, .4, .2, 1);
+  }
+
+  .menu-drawer:has(.menu-drawer__flyouts[open])::part(content) {
+    max-width: calc(480px + var(--menu-drawer-flyout-width));
+  }
+
+  .menu-drawer:has(.menu-drawer__flyouts) .menu-drawer__panel {
+    grid-area: 1 / 1;
+  }
+
+  .menu-drawer__flyouts {
+    background: rgb(var(--text-color) / .04);
+    border-inline-start: 1px solid rgb(var(--border-color));
+    grid-area: 1 / 2;
+    min-width: 0;
+    height: 100%;
+    display: block;
+    overflow: hidden;
+  }
+
+  /* While a panel is open, the other menu items are faded like on hover */
+  .menu-drawer:has(.menu-drawer__flyouts[open]) .faded-linklist li:not(:hover) > :where(a, button):not([aria-expanded="true"]) {
+    color: rgb(var(--text-color) / .6);
+  }
+}
+
+.menu-drawer-flyout {
+  width: var(--menu-drawer-flyout-width);
+  height: 100%;
+  display: none;
+  overflow-y: auto;
+}
+
+.menu-drawer-flyout.is-open {
+  display: block;
+}
+
+.menu-drawer-flyout__body {
+  gap: 2rem;
+  padding: 2.2rem 1.5rem;
+  display: grid;
+}
+
+.menu-drawer-flyout__all-link {
+  justify-self: end;
+}
+
+.menu-drawer-flyout__links {
+  gap: .625rem;
+  display: grid;
+}
+
+.menu-drawer-flyout__link {
+  align-items: center;
+  gap: .625rem;
+  display: inline-flex;
+}
+
+.menu-drawer-flyout__cards {
+  gap: 1rem;
+  display: grid;
+}
+
+.menu-drawer-flyout__products {
+  gap: 1rem;
+  display: grid;
+}
+
+/* Image card with the heading on top of the image */
+.menu-drawer-flyout__image-card {
+  aspect-ratio: 4 / 3;
+  border-radius: .75rem;
+  display: block;
+  position: relative;
+  overflow: hidden;
+}
+
+.menu-drawer-flyout__image-card img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0;
+}
+
+.menu-drawer-flyout__image-card-heading {
+  color: #fff;
+  background: linear-gradient(to bottom, rgb(0 0 0 / .35), rgb(0 0 0 / 0));
+  padding: 1rem 1rem 2rem;
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline: 0;
+}
+
+/* Compact product card: title and price next to each other below the media */
+.sengefabrikken-card--compact .sengefabrikken-card__media {
+  aspect-ratio: 16 / 9;
+}
+
+.sengefabrikken-card--compact .sengefabrikken-card__info {
+  grid-template-rows: none;
+  padding: .75rem 1rem;
+}
+
+.sengefabrikken-card--compact .sengefabrikken-card__details {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0;
+  padding-block: 0;
+}
+
+.sengefabrikken-card--compact .sengefabrikken-card__details > .v-stack {
+  gap: .5rem;
+}
+
+.sengefabrikken-card--compact .sengefabrikken-card__price {
+  font-size: 1.25rem;
+}
+
+.sengefabrikken-card--compact .sengefabrikken-card__splash {
+  width: 3.75rem;
+}

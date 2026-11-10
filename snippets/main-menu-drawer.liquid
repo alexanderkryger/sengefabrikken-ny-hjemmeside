@@ -75,7 +75,8 @@ mobile, and for desktop on "drawer" mode.
               {%- if link.levels == 0 and mega_menu_block == '' -%}
                 <a href="{{ link.url }}" class="h4 w-full">{{ link.title }}</a>
               {%- else -%}
-                <button type="button" class="h4 text-start w-full" data-panel-toggle aria-controls="menu-drawer-panel-{{ forloop.index }}">
+                {%- comment -%}Sengefabrikken: on desktop, a menu item with a mega menu block opens its panel next to the drawer{%- endcomment -%}
+                <button type="button" class="h4 text-start w-full" data-panel-toggle aria-controls="menu-drawer-panel-{{ forloop.index }}" {% if mega_menu_block != '' and section.settings.desktop_layout == 'drawer' %}data-menu-flyout="menu-drawer-flyout-{{ forloop.index }}" aria-expanded="false"{% endif %}>
                   <div class="h-stack gap-3 sm:gap-5">
                     {{- link.title -}}
 
@@ -163,6 +164,45 @@ mobile, and for desktop on "drawer" mode.
       </div>
     {%- endif -%}
   </header-menu-drawer-panel>
+
+  {%- comment -%}
+  Sengefabrikken: the panels opened next to the drawer on desktop (see the menu-drawer-flyout snippet)
+  {%- endcomment -%}
+
+  {%- if section.settings.desktop_layout == 'drawer' -%}
+    {%- capture flyouts -%}
+      {%- for link in primary_menu.links -%}
+        {%- liquid
+          assign link_title_downcase = link.title | strip | downcase
+          assign mega_menu_block = ''
+
+          for block in section.blocks
+            assign menu_item_downcase = block.settings.menu_item | strip | downcase
+
+            if menu_item_downcase == link_title_downcase
+              assign mega_menu_block = block
+              break
+            endif
+          endfor
+
+          if mega_menu_block != ''
+            assign flyout_id = 'menu-drawer-flyout-' | append: forloop.index
+            render 'menu-drawer-flyout', link: link, block: mega_menu_block, id: flyout_id
+          endif
+        -%}
+      {%- endfor -%}
+    {%- endcapture -%}
+
+    {%- if flyouts != blank -%}
+      {{- 'sengefabrikken-product-card.css' | asset_url | stylesheet_tag -}}
+      {{- 'menu-drawer-flyout.css' | asset_url | stylesheet_tag -}}
+      <script type="module" src="{{ 'menu-drawer-flyout.js' | asset_url }}"></script>
+
+      <menu-drawer-flyouts class="menu-drawer__flyouts">
+        {{- flyouts -}}
+      </menu-drawer-flyouts>
+    {%- endif -%}
+  {%- endif -%}
 
   {%- comment -%}
   Those are the secondary panels
