@@ -58,14 +58,21 @@ shows the promo blocks as cards in a panel next to the menu (on mobile the theme
 
 {%- if image_cards != blank or product_cards != blank -%}
   <div {% if id != blank %}id="{{ id }}"{% endif %} class="menu-drawer-cards" {% if default %}data-default{% else %}hidden{% endif %}>
-    {{- image_cards -}}
-
-    {%- if product_cards != blank -%}
-      {%- if block.settings.flyout_products_heading != blank -%}
-        <p class="menu-drawer-cards__heading h6">{{ block.settings.flyout_products_heading }}</p>
-      {%- endif -%}
-
-      {{- product_cards -}}
+    {%- comment -%}On mobile the cards slide horizontally, so the heading of the products is shown above them{%- endcomment -%}
+    {%- if product_cards != blank and block.settings.flyout_products_heading != blank -%}
+      <p class="menu-drawer-cards__heading h6 md:hidden">{{ block.settings.flyout_products_heading }}</p>
     {%- endif -%}
+
+    <div class="menu-drawer-cards__list">
+      {{- image_cards -}}
+
+      {%- if product_cards != blank -%}
+        {%- if block.settings.flyout_products_heading != blank -%}
+          <p class="menu-drawer-cards__heading h6 md-max:hidden">{{ block.settings.flyout_products_heading }}</p>
+        {%- endif -%}
+
+        {{- product_cards -}}
+      {%- endif -%}
+    </div>
   </div>
 {%- endif -%}

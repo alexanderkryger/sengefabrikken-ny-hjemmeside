@@ -1,7 +1,6 @@
 /* Sengefabrikken: cards shown next to the menu drawer on desktop (see the menu-drawer-cards snippet) */
 
-/* On mobile, only the cards of the menu item are shown, below the links */
-.menu-drawer-cards {
+.menu-drawer-cards, .menu-drawer-cards__list {
   gap: .75rem;
   display: grid;
 }
@@ -10,6 +9,7 @@
   display: none;
 }
 
+/* On mobile, only the cards of the menu item are shown, below the links, sliding horizontally */
 @media screen and (max-width: 999px) {
   .menu-drawer-cards-group {
     margin-block-start: 2rem;
@@ -18,6 +18,27 @@
 
   .menu-drawer-cards:not([data-default]) {
     display: none;
+  }
+
+  .menu-drawer-cards__list {
+    grid-auto-columns: min(80%, 320px);
+    grid-auto-flow: column;
+    align-items: start;
+    margin-inline: calc(-1 * var(--menu-drawer-padding-inline));
+    padding-inline: var(--menu-drawer-padding-inline);
+    scroll-padding-inline: var(--menu-drawer-padding-inline);
+    scroll-snap-type: x mandatory;
+    overscroll-behavior-x: contain;
+    scrollbar-width: none;
+    overflow-x: auto;
+  }
+
+  .menu-drawer-cards__list::-webkit-scrollbar {
+    display: none;
+  }
+
+  .menu-drawer-cards__list > * {
+    scroll-snap-align: start;
   }
 }
 
@@ -80,7 +101,7 @@
   }
 }
 
-.menu-drawer-cards__heading {
+.menu-drawer-cards__list .menu-drawer-cards__heading {
   margin-block-start: .5rem;
 }
 
