@@ -44,7 +44,12 @@
     inset-inline-start: 300px;
     overflow-y: auto;
     overscroll-behavior: contain;
+    scrollbar-width: none;
     pointer-events: auto;
+  }
+
+  .menu-drawer-cards::-webkit-scrollbar {
+    display: none;
   }
 
   /* Only the cards of the hovered sub link (or of the menu item) are shown, see menu-drawer-cards.js */

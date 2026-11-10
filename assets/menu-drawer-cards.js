@@ -73,3 +73,46 @@ class MenuDrawerCardsGroup extends HTMLElement {
 if (!window.customElements.get('menu-drawer-cards-group')) {
   window.customElements.define('menu-drawer-cards-group', MenuDrawerCardsGroup);
 }
+
+/**
+ * On desktop, when the menu drawer shows cards, the drawer is wider than its panels, so the theme's slide from the right
+ * would cross the page. The panels then fade into each other instead. The first opening of the drawer, mobile and
+ * reduced motion keep the theme's animations.
+ */
+window.customElements.whenDefined('header-menu-drawer-panel').then(() => {
+  const Panel = window.customElements.get('header-menu-drawer-panel');
+
+  if (Panel.prototype.sengefabrikkenFade) {
+    return;
+  }
+
+  const { show, hide } = Panel.prototype;
+
+  const shouldFade = (panel) => {
+    return window.matchMedia('screen and (min-width: 1000px) and (prefers-reduced-motion: no-preference)').matches
+      && panel.closest('header-menu-drawer')?.querySelector('menu-drawer-cards-group');
+  };
+
+  Panel.prototype.sengefabrikkenFade = true;
+
+  Panel.prototype.show = function(options = {}) {
+    if (options.initial !== false || !shouldFade(this)) {
+      return show.call(this, options);
+    }
+
+    this.classList.add('is-visible');
+    return this.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 250, easing: 'ease-out' }).finished;
+  };
+
+  Panel.prototype.hide = function(options = {}) {
+    if (options.instant || !shouldFade(this)) {
+      return hide.call(this, options);
+    }
+
+    return this.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 150, easing: 'ease-in' }).finished.then(() => {
+      // Stays invisible until the theme removes the panel (it then resets the inline style)
+      this.style.opacity = '0';
+      return hide.call(this, { instant: true });
+    });
+  };
+});
