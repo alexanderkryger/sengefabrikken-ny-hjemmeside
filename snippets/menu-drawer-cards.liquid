@@ -5,7 +5,9 @@ shows the promo blocks as cards in a panel next to the menu (on mobile the theme
 - the promo blocks with a product are shown as compact product cards (sengefabrikken-product-card snippet), with an
   optional heading above them
 
-@param {object} block - the mega menu block of the menu item
+@param {object} block - the mega menu block of the menu item (or of a sub link)
+@param {string} [id] - the ID of the cards, referenced by the sub link showing them (data-menu-cards attribute)
+@param {boolean} [default] - if set to true, the cards are shown until a sub link with its own cards is hovered
 {%- enddoc -%}
 
 {%- capture image_cards -%}
@@ -55,7 +57,7 @@ shows the promo blocks as cards in a panel next to the menu (on mobile the theme
 {%- endcapture -%}
 
 {%- if image_cards != blank or product_cards != blank -%}
-  <div class="menu-drawer-cards">
+  <div {% if id != blank %}id="{{ id }}"{% endif %} class="menu-drawer-cards" {% if default %}data-default{% else %}hidden{% endif %}>
     {{- image_cards -}}
 
     {%- if product_cards != blank -%}

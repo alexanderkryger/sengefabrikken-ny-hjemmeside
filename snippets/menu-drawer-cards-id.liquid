@@ -1,0 +1,24 @@
+{%- doc -%}
+Sengefabrikken: outputs the ID of the cards of a sub link in the menu drawer (see the menu-drawer-cards snippet), when a
+mega menu block has the same name as the sub link (e.g. "Elevationssenge"). Outputs nothing otherwise, or when the
+header does not use the "drawer" layout on desktop.
+
+@param {string} title - the title of the sub link
+@param {number} panel_index - the position of the menu item whose sub panel contains the link
+@param {object} [section]
+{%- enddoc -%}
+
+{%- liquid
+  if section.settings.desktop_layout == 'drawer'
+    assign title_downcase = title | strip | downcase
+
+    for block in section.blocks
+      assign menu_item_downcase = block.settings.menu_item | strip | downcase
+
+      if menu_item_downcase == title_downcase
+        echo 'menu-drawer-cards-' | append: panel_index | append: '-' | append: block.id
+        break
+      endif
+    endfor
+  endif
+-%}

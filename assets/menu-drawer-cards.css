@@ -7,26 +7,26 @@
 @media screen and (min-width: 1000px) {
   /* While a sub panel with cards is open, the drawer gets wider so that the cards can overlap its edge. The drawer itself
      becomes transparent and the panels keep the drawer background, so the page overlay stays visible next to it. */
-  .menu-drawer:has(.menu-drawer__panel.is-visible .menu-drawer-cards)::part(content) {
+  .menu-drawer:has(.menu-drawer__panel.is-visible .menu-drawer-cards-group)::part(content) {
     max-width: 780px;
     background: none;
     border-block-start: none;
     pointer-events: none;
   }
 
-  .menu-drawer:has(.menu-drawer__panel.is-visible .menu-drawer-cards) .menu-drawer__panel {
+  .menu-drawer:has(.menu-drawer__panel.is-visible .menu-drawer-cards-group) .menu-drawer__panel {
     background: rgb(var(--background));
     border-block-start: 1px solid rgb(var(--border-color));
     max-width: 480px;
     pointer-events: auto;
   }
 
-  .menu-drawer__panel:has(.menu-drawer-cards) {
+  .menu-drawer__panel:has(.menu-drawer-cards-group) {
     position: relative;
   }
 
   /* The links of the sub panel stay clear of the cards */
-  .menu-drawer__panel:has(.menu-drawer-cards) .menu-drawer__panel-body {
+  .menu-drawer__panel:has(.menu-drawer-cards-group) .menu-drawer__panel-body {
     padding-inline-end: calc(100% - 300px + 1.5rem);
   }
 
@@ -45,6 +45,16 @@
     overflow-y: auto;
     overscroll-behavior: contain;
     pointer-events: auto;
+  }
+
+  /* Only the cards of the hovered sub link (or of the menu item) are shown, see menu-drawer-cards.js */
+  .menu-drawer-cards[hidden] {
+    display: none;
+  }
+
+  .menu-drawer__panel-body a.is-active {
+    text-decoration: underline;
+    text-underline-offset: .25em;
   }
 }
 

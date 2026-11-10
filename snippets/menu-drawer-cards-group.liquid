@@ -1,0 +1,48 @@
+{%- doc -%}
+Sengefabrikken: all the cards of a sub panel of the menu drawer, shown next to the menu on desktop. The cards of the menu
+item are shown by default, and hovering (or focusing) a sub link with its own mega menu block (named after the sub link,
+e.g. "Elevationssenge") shows its cards instead (see menu-drawer-cards.js).
+
+@param {object} link - the menu item of the sub panel
+@param {object} [block] - the mega menu block of the menu item
+@param {number} panel_index - the position of the menu item
+@param {object} [section]
+{%- enddoc -%}
+
+{%- capture cards -%}
+  {%- if block != blank -%}
+    {%- render 'menu-drawer-cards', block: block, default: true -%}
+  {%- endif -%}
+
+  {%- comment -%}The sub links (and their own sub links) named like a mega menu block, in the order of the menu{%- endcomment -%}
+  {%- capture sub_link_titles -%}
+    {%- for sub_link in link.links -%}
+      {{- sub_link.title | strip | downcase | append: '|' -}}
+      {%- for sub_sub_link in sub_link.links -%}
+        {{- sub_sub_link.title | strip | downcase | append: '|' -}}
+      {%- endfor -%}
+    {%- endfor -%}
+  {%- endcapture -%}
+
+  {%- assign sub_link_titles = sub_link_titles | split: '|' -%}
+
+  {%- for sub_link_title in sub_link_titles -%}
+    {%- for cards_block in section.blocks -%}
+      {%- assign menu_item_downcase = cards_block.settings.menu_item | strip | downcase -%}
+
+      {%- if menu_item_downcase == sub_link_title -%}
+        {%- assign cards_id = 'menu-drawer-cards-' | append: panel_index | append: '-' | append: cards_block.id -%}
+        {%- render 'menu-drawer-cards', block: cards_block, id: cards_id -%}
+        {%- break -%}
+      {%- endif -%}
+    {%- endfor -%}
+  {%- endfor -%}
+{%- endcapture -%}
+
+{%- if cards != blank -%}
+  <script type="module" src="{{ 'menu-drawer-cards.js' | asset_url }}"></script>
+
+  <menu-drawer-cards-group class="menu-drawer-cards-group">
+    {{- cards -}}
+  </menu-drawer-cards-group>
+{%- endif -%}

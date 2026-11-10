@@ -176,6 +176,7 @@ mobile, and for desktop on "drawer" mode.
 
   {%- for link in primary_menu.links -%}
     {%- liquid
+      assign panel_index = forloop.index
       assign link_title_downcase = link.title | strip | downcase
       assign mega_menu_block = ''
 
@@ -206,8 +207,10 @@ mobile, and for desktop on "drawer" mode.
                 {%- if link.levels == 1 -%}
                   <ul class="v-stack gap-2.5 unstyled-list">
                     {%- for sub_link in link.links -%}
+                      {%- capture sub_link_cards -%}{%- render 'menu-drawer-cards-id', title: sub_link.title, panel_index: panel_index, section: section -%}{%- endcapture -%}
+
                       <li>
-                        <a href="{{ sub_link.url }}" class="link-reversed">{{ sub_link.title }}</a>
+                        <a href="{{ sub_link.url }}" class="link-reversed" {% if sub_link_cards != blank %}data-menu-cards="{{ sub_link_cards }}"{% endif %}>{{ sub_link.title }}</a>
                       </li>
                     {%- endfor -%}
                   </ul>
@@ -215,13 +218,16 @@ mobile, and for desktop on "drawer" mode.
                   <div class="v-stack gap-8">
                     {%- for sub_link in link.links -%}
                       <div class="v-stack justify-items-start gap-4">
-                        <a href="{{ sub_link.url }}" class="subheading text-subdued link-reversed">{{ sub_link.title }}</a>
+                        {%- capture sub_link_cards -%}{%- render 'menu-drawer-cards-id', title: sub_link.title, panel_index: panel_index, section: section -%}{%- endcapture -%}
+                        <a href="{{ sub_link.url }}" class="subheading text-subdued link-reversed" {% if sub_link_cards != blank %}data-menu-cards="{{ sub_link_cards }}"{% endif %}>{{ sub_link.title }}</a>
 
                         {%- if sub_link.links.size > 0 -%}
                           <ul class="v-stack gap-2.5 unstyled-list">
                             {%- for sub_sub_link in sub_link.links -%}
+                              {%- capture sub_link_cards -%}{%- render 'menu-drawer-cards-id', title: sub_sub_link.title, panel_index: panel_index, section: section -%}{%- endcapture -%}
+
                               <li>
-                                <a href="{{ sub_sub_link.url }}" class="link-reversed">{{ sub_sub_link.title }}</a>
+                                <a href="{{ sub_sub_link.url }}" class="link-reversed" {% if sub_link_cards != blank %}data-menu-cards="{{ sub_link_cards }}"{% endif %}>{{ sub_sub_link.title }}</a>
                               </li>
                             {%- endfor -%}
                           </ul>
@@ -246,8 +252,8 @@ mobile, and for desktop on "drawer" mode.
           </div>
         </div>
 
-        {%- if mega_menu_block != blank and section.settings.desktop_layout == 'drawer' -%}
-          {%- render 'menu-drawer-cards', block: mega_menu_block -%}
+        {%- if section.settings.desktop_layout == 'drawer' -%}
+          {%- render 'menu-drawer-cards-group', link: link, block: mega_menu_block, panel_index: panel_index, section: section -%}
         {%- endif -%}
       </header-menu-drawer-panel>
     {%- endif -%}
