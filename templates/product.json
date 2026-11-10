@@ -547,7 +547,8 @@
         "stack_on_mobile": false,
         "stack_on_desktop": true,
         "rounded_media": true,
-        "column_spacing": "sm"
+        "column_spacing": "sm",
+        "tap_to_pause_videos": true
       }
     }
   },

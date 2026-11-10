@@ -43,12 +43,32 @@
       #shopify-section-{{ section.id }} .multi-column__item :is(video-media, img:not(.icon)) {
         border-radius: .5rem;
       }
+
+      {%- comment -%}A playing video is drawn on its own layer, which ignores border-radius but not clip-path{%- endcomment -%}
+      #shopify-section-{{ section.id }} .multi-column__item video-media {
+        clip-path: inset(0 round .5rem);
+      }
+    {%- endif -%}
+
+    {%- comment -%}Sengefabrikken: the play button is shown again on a paused video (see section-video-controls.js){%- endcomment -%}
+    {%- if section.settings.tap_to_pause_videos -%}
+      #shopify-section-{{ section.id }} video-media[loaded]:not([playing])::part(play-button) {
+        opacity: 1;
+      }
     {%- endif -%}
   </style>
+
+  {%- if section.settings.tap_to_pause_videos -%}
+    <script type="module" src="{{ 'section-video-controls.js' | asset_url }}"></script>
+  {%- endif -%}
 
   <div class="color-scheme color-scheme--{{ section.settings.color_scheme.id }}">
     <div class="{% if section.settings.add_horizontal_spacing %}container{% endif %} section-spacing">
       <div class="section-stack">
+        {%- if section.settings.tap_to_pause_videos -%}
+          <section-video-controls hidden></section-video-controls>
+        {%- endif -%}
+
         {%- content_for "block", type: "_section-header", id: "section-header" -%}
 
         {%- assign carousel_id = section.id | append: '-carousel' -%}
@@ -128,6 +148,13 @@
       "type": "checkbox",
       "id": "rounded_media",
       "label": "Afrundede hjørner på billeder og videoer",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "tap_to_pause_videos",
+      "label": "Tryk på video for at pause",
+      "info": "Videoen pauses og startes ved tryk på selve videoen i stedet for små kontroller. Kun én video afspiller ad gangen, og videoen stopper, når man scroller videre.",
       "default": false
     },
     {
