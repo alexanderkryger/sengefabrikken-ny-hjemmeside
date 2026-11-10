@@ -287,6 +287,7 @@
             "text": "Vi køber direkte hos producenten og sælger direkte til dig. Ingen forhandlere, ingen fysiske butikker, ingen avance til mellemled.",
             "steps": "Producent, Sengefabrikken",
             "you_label": "Dig",
+            "you_icon": "happy",
             "you_background": "#efe0bd",
             "caption": "Kun dig og os. Mere seng for pengene."
           }
@@ -306,15 +307,54 @@
         "heading_size": "h3",
         "content": "<p>Det er kun dig og os. Vi har ingen forhandlere eller fysiske butikker, og materialerne er nøje udvalgt. Det giver dig den bedste kombination af kvalitet, design og service, til priser der ellers ville være umulige.</p>",
         "stat_size": "h4",
+        "animation_duration": 1.5,
         "chain_heading_size": "h5",
         "step_background": "#ffffff",
         "step_text_color": "#2f1300"
+      }
+    },
+    "specifications_hTjaPb": {
+      "type": "specifications",
+      "blocks": {
+        "metaobject_specs_jL9xkc": {
+          "type": "metaobject_specs",
+          "settings": {
+            "metafield": "custom.sengens_specifikationer"
+          }
+        }
+      },
+      "block_order": [
+        "metaobject_specs_jL9xkc"
+      ],
+      "name": "t:sections.specifications.name",
+      "settings": {
+        "color_scheme": "",
+        "use_page_width": true,
+        "background": "",
+        "text_color": "",
+        "border_color": "",
+        "show_dots": true,
+        "dot_color": "#a3968e",
+        "anchor": "specification",
+        "image": "{{ product.metafields.custom.stregtegning.value }}",
+        "layout": "split",
+        "header_on_top": true,
+        "add_image_spacing": true,
+        "image_position": "start",
+        "subheading": "",
+        "title": "Sengens specifikationer",
+        "heading_size": "h3",
+        "content": "<p>Tag et deep-dive ned i sengens specifikationer. Vi står inde for kvaliteten og spiller med helt åbne kort, så du ved, hvad du får.&nbsp;</p>",
+        "collapse_attributes": true,
+        "show_attribute_icon_on_top": false,
+        "uppercase_attribute_title": false
       }
     }
   },
   "order": [
     "main",
     "multiple_media_with_text_LbJBFz",
-    "value_chain_VHg3BX"
+    "value_chain_VHg3BX",
+    "specifications_hTjaPb"
   ]
 }
