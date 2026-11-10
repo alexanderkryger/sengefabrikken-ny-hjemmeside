@@ -59,7 +59,7 @@
     "page_full_width": false,
     "page_width": 1400,
     "section_color_transition": true,
-    "section_color_transition_duration": 200,
+    "section_color_transition_duration": 600,
     "payment_icons_image": "shopify://shop_images/betalingskort_ny3-any_a8fffca9-dfab-472f-8974-8ae5c633d5f4.png",
     "ribbon_text_1": "Komfort",
     "ribbon_color_1": "#650621",
@@ -237,7 +237,7 @@
       "scheme-6c169912-c18f-4620-bcaa-b514f350ac84": {
         "settings": {
           "text_color": "#2f1300",
-          "background": "#F3F9F2",
+          "background": "#f3f9f2",
           "background_gradient": "",
           "secondary_background": "#f1eeeb",
           "primary_button_background": "#650621",
