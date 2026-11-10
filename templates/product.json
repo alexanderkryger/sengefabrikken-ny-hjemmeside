@@ -1185,7 +1185,7 @@
       "settings": {
         "color_scheme": "scheme-1",
         "use_page_width": true,
-        "background": "",
+        "background": "#F3F9F2",
         "text_color": "",
         "border_color": "",
         "show_dots": true,
