@@ -1,0 +1,69 @@
+{%- doc -%}
+Sengefabrikken: on desktop, when the header uses the "drawer" layout, the sub panel of a menu item with a mega menu block
+shows the promo blocks as cards in a panel next to the menu (on mobile the theme's promo carousel is shown instead):
+- the promo blocks with an image are shown as image cards, with the heading and text at the bottom
+- the promo blocks with a product are shown as compact product cards (sengefabrikken-product-card snippet), with an
+  optional heading above them
+
+@param {object} block - the mega menu block of the menu item
+{%- enddoc -%}
+
+{%- capture image_cards -%}
+  {%- for i in (1..6) -%}
+    {%- liquid
+      assign promo_product_setting = 'promo_' | append: i | append: '_product'
+      assign promo_image_setting = 'promo_' | append: i | append: '_image'
+      assign promo_heading_setting = 'promo_' | append: i | append: '_heading'
+      assign promo_text_setting = 'promo_' | append: i | append: '_text'
+      assign promo_link_setting = 'promo_' | append: i | append: '_link'
+
+      assign promo_image = block.settings[promo_image_setting]
+      assign promo_heading = block.settings[promo_heading_setting]
+      assign promo_text = block.settings[promo_text_setting]
+      assign promo_link = block.settings[promo_link_setting]
+    -%}
+
+    {%- if block.settings[promo_product_setting] == blank and promo_image != blank -%}
+      <a {% if promo_link != blank %}href="{{ promo_link }}"{% endif %} class="menu-drawer-cards__image-card group">
+        {{- promo_image | image_url: width: promo_image.width | image_tag: loading: 'lazy', sizes: '400px', widths: '400,800,1200', class: 'zoom-image group-hover:zoom' -}}
+
+        {%- if promo_heading != blank or promo_text != blank -%}
+          <span class="menu-drawer-cards__image-card-text">
+            {%- if promo_heading != blank -%}
+              <span class="h5">{{ promo_heading }}</span>
+            {%- endif -%}
+
+            {%- if promo_text != blank -%}
+              <span class="text-sm">{{ promo_text }}</span>
+            {%- endif -%}
+          </span>
+        {%- endif -%}
+      </a>
+    {%- endif -%}
+  {%- endfor -%}
+{%- endcapture -%}
+
+{%- capture product_cards -%}
+  {%- for i in (1..6) -%}
+    {%- assign promo_product_setting = 'promo_' | append: i | append: '_product' -%}
+    {%- assign promo_product = block.settings[promo_product_setting] -%}
+
+    {%- if promo_product != blank -%}
+      {%- render 'sengefabrikken-product-card', product: promo_product, compact: true -%}
+    {%- endif -%}
+  {%- endfor -%}
+{%- endcapture -%}
+
+{%- if image_cards != blank or product_cards != blank -%}
+  <div class="menu-drawer-cards">
+    {{- image_cards -}}
+
+    {%- if product_cards != blank -%}
+      {%- if block.settings.flyout_products_heading != blank -%}
+        <p class="menu-drawer-cards__heading h6">{{ block.settings.flyout_products_heading }}</p>
+      {%- endif -%}
+
+      {{- product_cards -}}
+    {%- endif -%}
+  </div>
+{%- endif -%}

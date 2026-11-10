@@ -47,7 +47,6 @@
           "type": "mega_menu",
           "settings": {
             "menu_item": "senge",
-            "flyout_link_text": "",
             "flyout_products_heading": "",
             "mega_menu_justify_content": "justify-between",
             "stretch_promo_blocks": false,

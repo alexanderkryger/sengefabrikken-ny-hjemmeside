@@ -13,6 +13,12 @@ mobile, and for desktop on "drawer" mode.
 @param {object} [section]
 {%- enddoc -%}
 
+{%- comment -%}Sengefabrikken: cards next to the sub panels on desktop (see the menu-drawer-cards snippet){%- endcomment -%}
+{%- if section.settings.desktop_layout == 'drawer' -%}
+  {{- 'sengefabrikken-product-card.css' | asset_url | stylesheet_tag -}}
+  {{- 'menu-drawer-cards.css' | asset_url | stylesheet_tag -}}
+{%- endif -%}
+
 <header-menu-drawer id="menu-drawer" class="menu-drawer color-scheme color-scheme--{{ color_scheme.id }}">
   <template>
     <div part="overlay"></div>
@@ -75,8 +81,7 @@ mobile, and for desktop on "drawer" mode.
               {%- if link.levels == 0 and mega_menu_block == '' -%}
                 <a href="{{ link.url }}" class="h4 w-full">{{ link.title }}</a>
               {%- else -%}
-                {%- comment -%}Sengefabrikken: on desktop, a menu item with a mega menu block opens its panel next to the drawer{%- endcomment -%}
-                <button type="button" class="h4 text-start w-full" data-panel-toggle aria-controls="menu-drawer-panel-{{ forloop.index }}" {% if mega_menu_block != '' and section.settings.desktop_layout == 'drawer' %}data-menu-flyout="menu-drawer-flyout-{{ forloop.index }}" aria-expanded="false"{% endif %}>
+                <button type="button" class="h4 text-start w-full" data-panel-toggle aria-controls="menu-drawer-panel-{{ forloop.index }}">
                   <div class="h-stack gap-3 sm:gap-5">
                     {{- link.title -}}
 
@@ -166,45 +171,6 @@ mobile, and for desktop on "drawer" mode.
   </header-menu-drawer-panel>
 
   {%- comment -%}
-  Sengefabrikken: the panels opened next to the drawer on desktop (see the menu-drawer-flyout snippet)
-  {%- endcomment -%}
-
-  {%- if section.settings.desktop_layout == 'drawer' -%}
-    {%- capture flyouts -%}
-      {%- for link in primary_menu.links -%}
-        {%- liquid
-          assign link_title_downcase = link.title | strip | downcase
-          assign mega_menu_block = ''
-
-          for block in section.blocks
-            assign menu_item_downcase = block.settings.menu_item | strip | downcase
-
-            if menu_item_downcase == link_title_downcase
-              assign mega_menu_block = block
-              break
-            endif
-          endfor
-
-          if mega_menu_block != ''
-            assign flyout_id = 'menu-drawer-flyout-' | append: forloop.index
-            render 'menu-drawer-flyout', link: link, block: mega_menu_block, id: flyout_id
-          endif
-        -%}
-      {%- endfor -%}
-    {%- endcapture -%}
-
-    {%- if flyouts != blank -%}
-      {{- 'sengefabrikken-product-card.css' | asset_url | stylesheet_tag -}}
-      {{- 'menu-drawer-flyout.css' | asset_url | stylesheet_tag -}}
-      <script type="module" src="{{ 'menu-drawer-flyout.js' | asset_url }}"></script>
-
-      <menu-drawer-flyouts class="menu-drawer__flyouts">
-        {{- flyouts -}}
-      </menu-drawer-flyouts>
-    {%- endif -%}
-  {%- endif -%}
-
-  {%- comment -%}
   Those are the secondary panels
   {%- endcomment -%}
 
@@ -231,6 +197,9 @@ mobile, and for desktop on "drawer" mode.
               {%- render 'icon' with 'back-arrow', direction_aware: true -%}
               <span class="subheading">{{- 'header.general.navigation_back' | t -}}</span>
             </button>
+
+            {%- comment -%}Sengefabrikken: the title of the menu item, linking to it{%- endcomment -%}
+            <a href="{{ link.url }}" class="menu-drawer__panel-title h3 link-reversed">{{ link.title }}</a>
 
             <div class="v-stack gap-8">
               {%- if link.levels > 0 -%}
@@ -264,11 +233,22 @@ mobile, and for desktop on "drawer" mode.
               {%- endif -%}
 
               {%- if mega_menu_block != blank -%}
-                {%- render 'menu-promo', block: mega_menu_block, context: 'drawer' -%}
+                {%- comment -%}Sengefabrikken: on desktop, the promo blocks are shown as cards next to the menu instead{%- endcomment -%}
+                {%- if section.settings.desktop_layout == 'drawer' -%}
+                  <div class="md:hidden">
+                    {%- render 'menu-promo', block: mega_menu_block, context: 'drawer' -%}
+                  </div>
+                {%- else -%}
+                  {%- render 'menu-promo', block: mega_menu_block, context: 'drawer' -%}
+                {%- endif -%}
               {%- endif -%}
             </div>
           </div>
         </div>
+
+        {%- if mega_menu_block != blank and section.settings.desktop_layout == 'drawer' -%}
+          {%- render 'menu-drawer-cards', block: mega_menu_block -%}
+        {%- endif -%}
       </header-menu-drawer-panel>
     {%- endif -%}
   {%- endfor -%}

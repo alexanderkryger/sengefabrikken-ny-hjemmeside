@@ -1,0 +1,116 @@
+/* Sengefabrikken: cards shown next to the menu drawer on desktop (see the menu-drawer-cards snippet) */
+
+.menu-drawer-cards {
+  display: none;
+}
+
+@media screen and (min-width: 1000px) {
+  /* While a sub panel with cards is open, the drawer gets wider so that the cards can overlap its edge. The drawer itself
+     becomes transparent and the panels keep the drawer background, so the page overlay stays visible next to it. */
+  .menu-drawer:has(.menu-drawer__panel.is-visible .menu-drawer-cards)::part(content) {
+    max-width: 780px;
+    background: none;
+    border-block-start: none;
+    pointer-events: none;
+  }
+
+  .menu-drawer:has(.menu-drawer__panel.is-visible .menu-drawer-cards) .menu-drawer__panel {
+    background: rgb(var(--background));
+    border-block-start: 1px solid rgb(var(--border-color));
+    max-width: 480px;
+    pointer-events: auto;
+  }
+
+  .menu-drawer__panel:has(.menu-drawer-cards) {
+    position: relative;
+  }
+
+  /* The links of the sub panel stay clear of the cards */
+  .menu-drawer__panel:has(.menu-drawer-cards) .menu-drawer__panel-body {
+    padding-inline-end: calc(100% - 300px + 1.5rem);
+  }
+
+  .menu-drawer-cards {
+    background: rgb(var(--text-color) / .08);
+    background: color-mix(in srgb, rgb(var(--background)) 90%, rgb(var(--text-color)));
+    border-radius: 1rem 1rem 0 0;
+    align-content: start;
+    gap: .75rem;
+    width: 420px;
+    padding: 1.25rem;
+    display: grid;
+    position: absolute;
+    inset-block: 2.2rem 0;
+    inset-inline-start: 300px;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    pointer-events: auto;
+  }
+}
+
+.menu-drawer-cards__heading {
+  margin-block-start: .5rem;
+}
+
+/* Image card with the heading and text at the bottom */
+.menu-drawer-cards__image-card {
+  aspect-ratio: 1;
+  color: #fff;
+  display: block;
+  position: relative;
+  overflow: hidden;
+}
+
+.menu-drawer-cards__image-card img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0;
+}
+
+.menu-drawer-cards__image-card-text {
+  background: linear-gradient(to top, rgb(0 0 0 / .45), rgb(0 0 0 / 0));
+  gap: .25rem;
+  padding: 3rem 1.5rem 1.5rem;
+  display: grid;
+  position: absolute;
+  inset-block-end: 0;
+  inset-inline: 0;
+}
+
+.menu-drawer-cards__image-card-text .h5 {
+  color: inherit;
+}
+
+/* Compact product card: title and price below the media */
+.sengefabrikken-card--compact .sengefabrikken-card__media {
+  aspect-ratio: 16 / 9;
+}
+
+.sengefabrikken-card--compact .sengefabrikken-card__info {
+  grid-template-rows: none;
+  padding: .75rem 1rem;
+}
+
+.sengefabrikken-card--compact .sengefabrikken-card__details {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0;
+  padding-block: 0;
+}
+
+.sengefabrikken-card--compact .sengefabrikken-card__details > .v-stack {
+  gap: .5rem;
+}
+
+.sengefabrikken-card--compact .sengefabrikken-card__price {
+  font-size: 1.25rem;
+}
+
+.sengefabrikken-card--compact .sengefabrikken-card__splash {
+  width: 3.75rem;
+}
+
+.sengefabrikken-card--compact .sengefabrikken-card__quality-icon {
+  width: 3rem;
+}
