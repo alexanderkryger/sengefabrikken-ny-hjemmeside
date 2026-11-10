@@ -1,0 +1,190 @@
+{%- comment -%}
+  Sengefabrikken: a sticky bar below the header with links to the parts of the product page (e.g. "#topmadras") and an
+  optional button scrolling to the purchase options ("#cart-form", the product group). It follows the header when it
+  hides on scroll, and the links scroll horizontally on small screens. Ported from the old theme, with the same setting
+  ids so that the old templates can be copied over.
+{%- endcomment -%}
+
+<style>
+  #shopify-section-{{ section.id }} {
+    {%- if section.settings.lcl != blank and section.settings.lcl != 'rgba(0,0,0,0)' -%}
+      --product-navigation-link-color: {{ section.settings.lcl.rgb }};
+    {%- endif -%}
+    {%- if section.settings.lclh != blank and section.settings.lclh != 'rgba(0,0,0,0)' -%}
+      --product-navigation-link-hover-color: {{ section.settings.lclh.rgb }};
+    {%- endif -%}
+    inset-block-start: var(--sticky-area-height, 0px);
+    z-index: 5;
+    transition: transform .2s ease-in-out;
+    position: sticky;
+  }
+
+  {%- comment -%}Follows the header when it hides on scroll, and is hidden behind open drawers{%- endcomment -%}
+  :root:has(.header.is-hidden) #shopify-section-{{ section.id }} {
+    transform: translateY(calc(-1 * var(--header-is-sticky, 0) * var(--header-height, 0px)));
+  }
+
+  {%- comment -%}The links scroll to the sections without hiding their top behind the bar (about 3rem high){%- endcomment -%}
+  :root {
+    scroll-padding-top: calc(var(--sticky-area-height, 0px) + 3rem + 20px);
+  }
+
+  .lock #shopify-section-{{ section.id }} {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  #shopify-section-{{ section.id }} .product-navigation {
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+  }
+
+  #shopify-section-{{ section.id }} .product-navigation__links {
+    align-items: center;
+    display: flex;
+  }
+
+  #shopify-section-{{ section.id }} .product-navigation__link {
+    color: rgb(var(--product-navigation-link-color, var(--text-color)));
+    white-space: nowrap;
+    padding: .75rem .9375rem;
+    transition: color .2s ease-in-out;
+  }
+
+  #shopify-section-{{ section.id }} .product-navigation__link:hover {
+    color: rgb(var(--product-navigation-link-hover-color, var(--text-color)));
+  }
+
+  #shopify-section-{{ section.id }} .product-navigation__buy {
+    background: rgb(var(--background));
+    white-space: nowrap;
+    align-items: center;
+    gap: .5rem;
+    padding-inline-start: .9375rem;
+    display: flex;
+    position: sticky;
+    inset-inline-end: 0;
+  }
+
+  @media screen and (min-width: 1000px) {
+    #shopify-section-{{ section.id }} .product-navigation__buy {
+      position: static;
+    }
+  }
+</style>
+
+<div class="color-scheme color-scheme--{{ section.settings.color_scheme.id }}" {% if section.settings.bg != blank and section.settings.bg != 'rgba(0,0,0,0)' %}style="{% render 'surface', background: section.settings.bg %}"{% endif %}>
+  <div class="container">
+    <nav class="product-navigation scroll-area" aria-label="{{ product.title | escape }}">
+      <div class="product-navigation__links">
+        {%- for block in section.blocks -%}
+          {%- if block.settings.menu != blank -%}
+            <a href="{{ block.settings.link }}" class="product-navigation__link" {{ block.shopify_attributes }}>{{ block.settings.menu }}</a>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+
+      {%- if section.settings.iscart and section.settings.btn != blank -%}
+        <div class="product-navigation__buy">
+          {%- if section.settings.btnlbl != blank -%}
+            <span class="md-max:hidden">{{ section.settings.btnlbl }}</span>
+          {%- endif -%}
+
+          {%- render 'button', content: section.settings.btn, href: '#cart-form', size: 'sm' -%}
+        </div>
+      {%- endif -%}
+    </nav>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Produktnavigation",
+  "class": "shopify-section--product-navigation",
+  "tag": "section",
+  "disabled_on": {
+    "groups": ["header", "footer", "custom.overlay"]
+  },
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:global.colors.scheme",
+      "default": "scheme-5"
+    },
+    {
+      "type": "color",
+      "id": "bg",
+      "label": "Baggrund",
+      "info": "Går forud for farveskemaet. Lad den stå tom for at bruge farveskemaet."
+    },
+    {
+      "type": "color",
+      "id": "lcl",
+      "label": "Linkfarve",
+      "info": "Lad den stå tom for at bruge tekstfarven."
+    },
+    {
+      "type": "color",
+      "id": "lclh",
+      "label": "Linkfarve ved hover"
+    },
+    {
+      "type": "header",
+      "content": "Køb-knap"
+    },
+    {
+      "type": "checkbox",
+      "id": "iscart",
+      "label": "Vis køb-knap",
+      "info": "Knappen scroller ned til købsmulighederne (produktgruppen).",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "btnlbl",
+      "label": "Tekst ved knappen",
+      "info": "Vises kun på desktop. Kan forbindes til produktets titel."
+    },
+    {
+      "type": "text",
+      "id": "btn",
+      "label": "Knaptekst",
+      "default": "Køb"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "menu",
+      "name": "Link",
+      "settings": [
+        {
+          "type": "text",
+          "id": "menu",
+          "label": "Tekst"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link",
+          "info": "Fx #specification for at linke til en sektion med det Anker-ID."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Produktnavigation",
+      "blocks": [
+        {
+          "type": "menu",
+          "settings": {
+            "menu": "Specifikationer"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

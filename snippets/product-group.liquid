@@ -55,7 +55,8 @@ Two other metafields are rendered as well:
     assign rendered_keys = ''
   -%}
 
-  <product-group class="product-group" form-id="{{ product_form_id }}" main-title="{{ product.title | escape }}" main-price="{{ main_variant.price }}" main-compare-at-price="{{ main_variant.compare_at_price | default: main_variant.price }}">
+  {%- comment -%}The "cart-form" ID lets the product navigation link to the purchase options{%- endcomment -%}
+  <product-group id="cart-form" class="product-group" form-id="{{ product_form_id }}" main-title="{{ product.title | escape }}" main-price="{{ main_variant.price }}" main-compare-at-price="{{ main_variant.compare_at_price | default: main_variant.price }}">
     {%- comment -%}SIZES (on_product.size){%- endcomment -%}
 
     {%- if size_products != blank -%}
