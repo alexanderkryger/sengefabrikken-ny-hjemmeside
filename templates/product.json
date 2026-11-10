@@ -541,6 +541,22 @@
         "row_spacing": "md"
       }
     },
+    "trustpilot_reviews_PkjAdp": {
+      "type": "trustpilot-reviews",
+      "name": "Trustpilot anmeldelser",
+      "settings": {
+        "color_scheme": "scheme-5",
+        "heading_size": "h4",
+        "score_suffix": "på Trustpilot",
+        "count_prefix": "Baseret på",
+        "count_suffix": "anmeldelser",
+        "disclosure": "Viser vores 4- og 5-stjernede anmeldelser",
+        "autoscroll": true,
+        "seconds_per_card": 20,
+        "card_background": "#f6f1ec",
+        "card_border_color": "#e0dcd9"
+      }
+    },
     "value_chain_VHg3BX": {
       "type": "value-chain",
       "blocks": {
@@ -663,6 +679,7 @@
     "rich_text_gUdUJV",
     "multiple_media_with_text_LbJBFz",
     "multi_column_videos",
+    "trustpilot_reviews_PkjAdp",
     "value_chain_VHg3BX",
     "specifications_hTjaPb"
   ]
