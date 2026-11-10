@@ -613,10 +613,11 @@
       "name": "Hotspot section",
       "settings": {
         "color_scheme": "scheme-1",
+        "color_transition": false,
         "text_position": "center",
         "remove_vertical_spacing": false,
         "remove_padding": false,
-        "background": "",
+        "background": "#F3F9F2",
         "text_color": "",
         "show_dots": true,
         "dot_color": "#a3968e",
@@ -701,43 +702,6 @@
         "step_text_color": "#2f1300"
       }
     },
-    "specifications_hTjaPb": {
-      "type": "specifications",
-      "blocks": {
-        "metaobject_specs_jL9xkc": {
-          "type": "metaobject_specs",
-          "settings": {
-            "metafield": "custom.sengens_specifikationer"
-          }
-        }
-      },
-      "block_order": [
-        "metaobject_specs_jL9xkc"
-      ],
-      "name": "t:sections.specifications.name",
-      "settings": {
-        "color_scheme": "scheme-1",
-        "use_page_width": true,
-        "background": "",
-        "text_color": "",
-        "border_color": "",
-        "show_dots": true,
-        "dot_color": "#a3968e",
-        "anchor": "specification",
-        "image": "{{ product.metafields.custom.stregtegning.value }}",
-        "layout": "split",
-        "header_on_top": true,
-        "add_image_spacing": true,
-        "image_position": "start",
-        "subheading": "",
-        "title": "Sengens specifikationer",
-        "heading_size": "h3",
-        "content": "<p>Tag et deep-dive ned i sengens specifikationer. Vi står inde for kvaliteten og spiller med helt åbne kort, så du ved, hvad du får.&nbsp;</p>",
-        "collapse_attributes": true,
-        "show_attribute_icon_on_top": false,
-        "uppercase_attribute_title": false
-      }
-    },
     "rich_text_NLbNkg": {
       "type": "rich-text",
       "blocks": {
@@ -805,10 +769,10 @@
         "show_icon": false,
         "show_color_swatch": false,
         "color_swatch_label": "Farver",
-        "content": "{{ product.metafields.custom.product_description_topmadras.value.oversigt | metafield_tag }}",
+        "content": "<p>{{ product.metafields.custom.product_description_topmadras.value.oversigt | metafield_tag }}</p>",
         "content_border_top": false,
         "content_border_bottom": true,
-        "content_below": "{{ product.metafields.custom.product_description_topmadras.value.bullets | metafield_tag }}",
+        "content_below": "<p>{{ product.metafields.custom.product_description_topmadras.value.bullets | metafield_tag }}</p>",
         "content_below_border_top": false,
         "content_below_border_bottom": false,
         "border_color": "#e0dcd9",
@@ -930,6 +894,43 @@
         "button_2_text": "",
         "button_2_link": "",
         "button_2_style": "outline"
+      }
+    },
+    "specifications_hTjaPb": {
+      "type": "specifications",
+      "blocks": {
+        "metaobject_specs_jL9xkc": {
+          "type": "metaobject_specs",
+          "settings": {
+            "metafield": "custom.sengens_specifikationer"
+          }
+        }
+      },
+      "block_order": [
+        "metaobject_specs_jL9xkc"
+      ],
+      "name": "t:sections.specifications.name",
+      "settings": {
+        "color_scheme": "scheme-1",
+        "use_page_width": true,
+        "background": "",
+        "text_color": "",
+        "border_color": "",
+        "show_dots": true,
+        "dot_color": "#a3968e",
+        "anchor": "specification",
+        "image": "{{ product.metafields.custom.stregtegning.value }}",
+        "layout": "split",
+        "header_on_top": true,
+        "add_image_spacing": true,
+        "image_position": "start",
+        "subheading": "",
+        "title": "Sengens specifikationer",
+        "heading_size": "h3",
+        "content": "<p>Tag et deep-dive ned i sengens specifikationer. Vi står inde for kvaliteten og spiller med helt åbne kort, så du ved, hvad du får.&nbsp;</p>",
+        "collapse_attributes": true,
+        "show_attribute_icon_on_top": false,
+        "uppercase_attribute_title": false
       }
     }
   },
