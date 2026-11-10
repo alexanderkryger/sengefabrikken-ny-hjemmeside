@@ -70,7 +70,7 @@
         "lcl": "",
         "lclh": "",
         "iscart": true,
-        "btnlbl": "",
+        "btnlbl": "{{ product.metafields.custom.product_title.value.product_title.value }}",
         "btn": "Køb"
       }
     },
@@ -1058,6 +1058,7 @@
       "settings": {
         "color_scheme": "",
         "use_page_width": false,
+        "custom_id": "",
         "layout": "stacked",
         "accordion_style": "border",
         "question_style": "text",
