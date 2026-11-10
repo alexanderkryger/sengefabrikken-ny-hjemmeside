@@ -235,6 +235,9 @@
       "name": "t:sections.trust_icons.name",
       "settings": {
         "color_scheme": "",
+        "use_page_width": true,
+        "show_border": true,
+        "show_separators": false,
         "item_heading_style": "h7"
       }
     },
