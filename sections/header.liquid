@@ -73,6 +73,57 @@
       }
     }
   {%- endif -%}
+
+  {%- comment -%}Sengefabrikken: the search, news and cart links are shown in boxes ("Store knapper"){%- endcomment -%}
+  {%- if section.settings.large_icon_buttons -%}
+    #shopify-section-{{ section.id }} {
+      --header-nav-icon-gap: .625rem;
+      --header-icon-button-size: 2.5rem;
+      --header-cart-count-background: {{ section.settings.cart_count_background.rgb | default: '101 6 33' }};
+    }
+
+    @media screen and (min-width: 700px) {
+      #shopify-section-{{ section.id }} {
+        --header-icon-button-size: 3rem;
+      }
+    }
+
+    #shopify-section-{{ section.id }} .header__icon-button {
+      width: var(--header-icon-button-size);
+      height: var(--header-icon-button-size);
+      border: 1px solid rgb(var(--text-color) / .12);
+      background: rgb(var(--text-color) / .03);
+      border-radius: .25rem;
+      place-items: center;
+      transition: background .2s ease-in-out;
+      display: grid;
+    }
+
+    #shopify-section-{{ section.id }} .header__icon-button:hover {
+      background: rgb(var(--text-color) / .08);
+    }
+
+    #shopify-section-{{ section.id }} .header__cart-count {
+      background: rgb(var(--header-cart-count-background));
+      color: rgb(255 255 255);
+      border-radius: 100%;
+      place-items: center;
+      width: .875rem;
+      height: .875rem;
+      font-size: .5625rem;
+      line-height: 1;
+      display: grid;
+      inset-block-start: .5rem;
+      inset-inline-end: .5rem;
+    }
+
+    @media screen and (max-width: 699px) {
+      #shopify-section-{{ section.id }} .header__cart-count {
+        inset-block-start: .25rem;
+        inset-inline-end: .25rem;
+      }
+    }
+  {%- endif -%}
 </style>
 
 <height-observer variable="header">
@@ -284,6 +335,19 @@
           {%- endif -%}
         {%- endfor -%}
 
+        {%- comment -%}Sengefabrikken: up to two custom buttons (e.g. "BLACK MONTH"), shown from tablet{%- endcomment -%}
+        {%- if section.settings.custom_button_text != blank and section.settings.custom_button_url != blank -%}
+          <li class="sm-max:hidden">
+            {%- render 'button', content: section.settings.custom_button_text, href: section.settings.custom_button_url, background: section.settings.custom_button_bg, text_color: section.settings.custom_button_color, class: 'header__custom-button' -%}
+          </li>
+        {%- endif -%}
+
+        {%- if section.settings.custom_button_text_2 != blank and section.settings.custom_button_url_2 != blank -%}
+          <li class="sm-max:hidden">
+            {%- render 'button', content: section.settings.custom_button_text_2, href: section.settings.custom_button_url_2, background: section.settings.custom_button_bg_2, text_color: section.settings.custom_button_color_2, class: 'header__custom-button' -%}
+          </li>
+        {%- endif -%}
+
         {%- if shop.customer_accounts_enabled -%}
           <li class="header__account-link md-max:hidden">
             <shopify-account menu="{{ section.settings.customer_account_menu }}">
@@ -297,7 +361,7 @@
 
         <li class="header__news-link" hidden>
           <news-modal-button class="contents">
-            <button class="tap-area" aria-controls="news-modal" aria-expanded="false">
+            <button class="tap-area {% if section.settings.large_icon_buttons %}header__icon-button{% endif %}" aria-controls="news-modal" aria-expanded="false">
               <span class="sr-only">{{ 'header.general.news_modal' | t }}</span>
               {%- render 'icon' with 'bell', mobile_width: 16, width: section.settings.desktop_icon_size -%}
             </button>
@@ -305,21 +369,28 @@
         </li>
 
         <li class="header__search-link {% if section.settings.mobile_layout == 'logo_center_navigation_split' %}md-max:hidden{% endif %}">
-          <a href="{{ routes.search_url }}" class="block tap-area" aria-controls="search-drawer">
+          <a href="{{ routes.search_url }}" class="block tap-area {% if section.settings.large_icon_buttons %}header__icon-button{% endif %}" aria-controls="search-drawer">
             <span class="sr-only">{{ 'header.general.search' | t }}</span>
             {%- render 'icon' with 'search', mobile_width: 16, width: section.settings.desktop_icon_size -%}
           </a>
         </li>
 
         <li class="header__cart-link relative">
-          <a href="{{ routes.cart_url }}" class="block tap-area" {% if settings.cart_type != 'page' and request.page_type != 'cart' %}aria-controls="cart-drawer"{% endif %} data-no-instant>
+          <a href="{{ routes.cart_url }}" class="block tap-area {% if section.settings.large_icon_buttons %}header__icon-button{% endif %}" {% if settings.cart_type != 'page' and request.page_type != 'cart' %}aria-controls="cart-drawer"{% endif %} data-no-instant>
             <span class="sr-only">{{ 'header.general.cart' | t }}</span>
             {%- render 'icon' with 'cart', mobile_width: 16, width: section.settings.desktop_icon_size -%}
           </a>
 
-          <cart-count class="header__active-dot" {%- if cart.empty? -%}hidden{% endif %}>
-            <span class="sr-only">{{ 'cart.general.item_count' | t: count: cart.item_count }}</span>
-          </cart-count>
+          {%- if section.settings.large_icon_buttons -%}
+            {%- comment -%}Sengefabrikken: the number of items is shown in the dot (updated by the cart-count element){%- endcomment -%}
+            <cart-count class="header__active-dot header__cart-count" {%- if cart.empty? -%}hidden{% endif %}>
+              <span>{{ cart.item_count }}</span>
+            </cart-count>
+          {%- else -%}
+            <cart-count class="header__active-dot" {%- if cart.empty? -%}hidden{% endif %}>
+              <span class="sr-only">{{ 'cart.general.item_count' | t: count: cart.item_count }}</span>
+            </cart-count>
+          {%- endif -%}
         </li>
 
         {%- if section.settings.mobile_layout == 'logo_left_navigation_right' -%}
@@ -539,6 +610,69 @@
         }
       ],
       "default": "hover"
+    },
+    {
+      "type": "header",
+      "content": "Sengefabrikken knapper"
+    },
+    {
+      "type": "checkbox",
+      "id": "large_icon_buttons",
+      "label": "Store knapper",
+      "info": "Viser søg og kurv i bokse, med antal varer i kurven.",
+      "default": false
+    },
+    {
+      "type": "color",
+      "id": "cart_count_background",
+      "label": "Baggrund for antal i kurv",
+      "default": "#650621"
+    },
+    {
+      "type": "text",
+      "id": "custom_button_text",
+      "label": "Knap 1 tekst",
+      "info": "Fx BLACK MONTH eller Fabriksudsalg. Vises fra tablet og op."
+    },
+    {
+      "type": "url",
+      "id": "custom_button_url",
+      "label": "Knap 1 link"
+    },
+    {
+      "type": "color",
+      "id": "custom_button_color",
+      "label": "Knap 1 tekstfarve",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "custom_button_bg",
+      "label": "Knap 1 baggrund",
+      "default": "#650621"
+    },
+    {
+      "type": "text",
+      "id": "custom_button_text_2",
+      "label": "Knap 2 tekst",
+      "info": "Fx Lagerudsalg."
+    },
+    {
+      "type": "url",
+      "id": "custom_button_url_2",
+      "label": "Knap 2 link"
+    },
+    {
+      "type": "color",
+      "id": "custom_button_color_2",
+      "label": "Knap 2 tekstfarve",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "custom_button_bg_2",
+      "label": "Knap 2 baggrund",
+      "default": "#650621"
     },
     {
       "type": "range",
