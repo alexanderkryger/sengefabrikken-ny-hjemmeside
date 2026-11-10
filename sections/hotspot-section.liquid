@@ -1,0 +1,644 @@
+{%- comment -%}
+  Sengefabrikken: a heading and a text above an image of the bed with up to three hotspots (a pulsing dot with a label,
+  linking to a part of the page such as "#topmadras") and up to three dimension labels (width, height, depth), followed
+  by the quality icons of the product (Danskproduceret kvalitetsseng, FSC, Oeko-Tex and the "badges" metaobject).
+  Ported from the old theme, with the same setting ids so that the old templates can be copied over.
+{%- endcomment -%}
+
+{%- if section.blocks.size > 0 -%}
+  {%- liquid
+    assign has_manual_colors = false
+    if section.settings.background != blank or section.settings.text_color != blank
+      assign has_manual_colors = true
+    endif
+  -%}
+
+  <style>
+    #shopify-section-{{ section.id }} {
+      --hotspot-section-dot-color: {{ section.settings.hotspot_color.rgb | default: '101 6 33' }};
+      --hotspot-section-pattern-color: {{ section.settings.dot_color.rgb | default: '163 150 142' }} / .5;
+    }
+
+    #shopify-section-{{ section.id }} .hotspot-section {
+      border-radius: .75rem;
+      padding-block: 2.5rem;
+    }
+
+    #shopify-section-{{ section.id }} .hotspot-section--dotted {
+      background-image: radial-gradient(circle at 15px 15px, rgb(var(--hotspot-section-pattern-color)) 1px, transparent 1.5px);
+      background-size: 30px 30px;
+    }
+
+    #shopify-section-{{ section.id }} .hotspot-section__media {
+      width: fit-content;
+      max-width: 85%;
+      margin-block-start: 3rem;
+      position: relative;
+    }
+
+    #shopify-section-{{ section.id }} .hotspot-section__media img {
+      margin-block: 0;
+    }
+
+    #shopify-section-{{ section.id }} :is(.hotspot-section__hotspot, .hotspot-section__dimension) {
+      left: var(--hotspot-section-left);
+      top: var(--hotspot-section-top);
+      align-items: center;
+      gap: 1.125rem;
+      margin: 0;
+      font-size: .625rem;
+      font-weight: 500;
+      display: inline-flex;
+      position: absolute;
+    }
+
+    #shopify-section-{{ section.id }} .hotspot-section__dimension--vertical {
+      writing-mode: vertical-lr;
+      transform: rotate(180deg);
+    }
+
+    #shopify-section-{{ section.id }} .hotspot-section__dot {
+      --hotspot-section-dot-size: .625rem;
+      --hotspot-section-dot-shadow-size: 1.75rem;
+      width: var(--hotspot-section-dot-size);
+      height: var(--hotspot-section-dot-size);
+      background: rgb(var(--hotspot-section-dot-color));
+      border-radius: var(--rounded-full);
+      flex-shrink: 0;
+      place-items: center;
+      display: grid;
+      position: relative;
+    }
+
+    #shopify-section-{{ section.id }} .hotspot-section__dot::after {
+      content: "";
+      width: var(--hotspot-section-dot-shadow-size);
+      height: var(--hotspot-section-dot-shadow-size);
+      background: radial-gradient(50% 50% at 50% 50%, rgb(var(--hotspot-section-dot-color) / 0), rgb(var(--hotspot-section-dot-color) / .2));
+      border-radius: inherit;
+      animation: 2s ease-in-out infinite alternate hotSpotDotAnimation;
+      position: absolute;
+    }
+
+    #shopify-section-{{ section.id }} .hotspot-section__icons {
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+      margin-block-start: 2.5rem;
+      display: flex;
+    }
+
+    #shopify-section-{{ section.id }} .hotspot-section__icons img {
+      width: 3.125rem;
+      height: 3.125rem;
+      object-fit: contain;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      #shopify-section-{{ section.id }} .hotspot-section__dot::after {
+        animation: none;
+      }
+    }
+
+    @media screen and (min-width: 700px) {
+      #shopify-section-{{ section.id }} .hotspot-section__media {
+        max-width: 100%;
+      }
+
+      #shopify-section-{{ section.id }} :is(.hotspot-section__hotspot, .hotspot-section__dimension) {
+        font-size: inherit;
+      }
+
+      #shopify-section-{{ section.id }} .hotspot-section__dot {
+        --hotspot-section-dot-size: 1rem;
+        --hotspot-section-dot-shadow-size: 2.5rem;
+      }
+
+      #shopify-section-{{ section.id }} .hotspot-section__icons img {
+        width: 4.0625rem;
+        height: 4.0625rem;
+      }
+    }
+
+    @media screen and (min-width: 1000px) {
+      #shopify-section-{{ section.id }} .hotspot-section {
+        padding-block: 5rem;
+      }
+
+      #shopify-section-{{ section.id }} .hotspot-section__media {
+        margin-block-start: 5rem;
+      }
+    }
+
+    {%- if section.settings.remove_padding -%}
+      #shopify-section-{{ section.id }} .section-spacing {
+        padding-block-end: 0;
+      }
+    {%- endif -%}
+  </style>
+
+  <div class="color-scheme color-scheme--{{ section.settings.color_scheme.id }}">
+    <div class="{% unless section.settings.remove_vertical_spacing %}section-spacing{% endunless %}">
+      <div class="container">
+        <div class="hotspot-section {% if section.settings.show_dots %}hotspot-section--dotted{% endif %}" {% if has_manual_colors %}style="{% render 'surface', background: section.settings.background, text_color: section.settings.text_color %}"{% endif %}>
+          <div class="prose prose-justify-{{ section.settings.text_position }}">
+            {%- for block in section.blocks -%}
+              {%- case block.type -%}
+                {%- when 'heading' -%}
+                  {%- if block.settings.text != blank -%}
+                    <p class="{{ block.settings.heading_tag }}" {{ block.shopify_attributes }}>{{ block.settings.text }}</p>
+                  {%- endif -%}
+
+                {%- when 'richtext' -%}
+                  {%- if block.settings.content != blank -%}
+                    <div class="max-w-sm" {{ block.shopify_attributes }}>
+                      {{- block.settings.content -}}
+                    </div>
+                  {%- endif -%}
+
+                {%- when 'image' -%}
+                  {%- if block.settings.image != blank -%}
+                    <div class="hotspot-section__media" {{ block.shopify_attributes }}>
+                      {%- if block.settings.width_mode == 'custom' -%}
+                        {%- capture image_style_attribute -%}--image-max-width: {{ block.settings.max_width }}px; --image-mobile-max-width: {{ block.settings.mobile_max_width }}px{%- endcapture -%}
+                        {%- capture image_sizes_attribute -%}(max-width: 699px) min({{ block.settings.mobile_max_width }}px, 85vw), min({{ block.settings.max_width }}px, 100vw){%- endcapture -%}
+                        {%- capture image_widths -%}{{ block.settings.mobile_max_width }},{{ block.settings.mobile_max_width | times: 2 }},{{ block.settings.max_width }},{{ block.settings.max_width | times: 2 }}{%- endcapture -%}
+                      {%- else -%}
+                        {%- assign image_style_attribute = '' -%}
+                        {%- assign image_sizes_attribute = 'min(100vw, var(--container-max-width))' -%}
+                        {%- assign image_widths = '200,300,400,500,600,800,1000,1200,1400,1600' -%}
+                      {%- endif -%}
+
+                      {{- block.settings.image | image_url: width: block.settings.image.width | image_tag: loading: 'lazy', sizes: image_sizes_attribute, widths: image_widths, class: 'constrained-image', style: image_style_attribute -}}
+
+                      {%- for i in (1..3) -%}
+                        {%- liquid
+                          assign title_key = 'hotspot_' | append: i | append: '_title'
+                          assign url_key = 'hotspot_' | append: i | append: '_url'
+                          assign horizontal_key = 'hotspot_' | append: i | append: '_horizontal'
+                          assign vertical_key = 'hotspot_' | append: i | append: '_vertical'
+                        -%}
+
+                        {%- if block.settings[title_key] != blank -%}
+                          <a href="{{ block.settings[url_key] }}" class="hotspot-section__hotspot" style="--hotspot-section-left: {{ block.settings[horizontal_key] }}%; --hotspot-section-top: {{ block.settings[vertical_key] }}%">
+                            <span class="hotspot-section__dot"></span>
+                            <span>{{ block.settings[title_key] }}</span>
+                          </a>
+                        {%- endif -%}
+                      {%- endfor -%}
+
+                      {%- for i in (1..3) -%}
+                        {%- liquid
+                          assign title_key = 'dimensions_' | append: i | append: '_title'
+                          assign horizontal_key = 'dimensions_' | append: i | append: '_horizontal'
+                          assign vertical_key = 'dimensions_' | append: i | append: '_vertical'
+                        -%}
+
+                        {%- if block.settings[title_key] != blank -%}
+                          {%- comment -%}The second dimension is the height, so it is written vertically{%- endcomment -%}
+                          <p class="hotspot-section__dimension {% if i == 2 %}hotspot-section__dimension--vertical{% endif %}" style="--hotspot-section-left: {{ block.settings[horizontal_key] }}%; --hotspot-section-top: {{ block.settings[vertical_key] }}%">
+                            {{- block.settings[title_key] -}}
+                          </p>
+                        {%- endif -%}
+                      {%- endfor -%}
+                    </div>
+                  {%- endif -%}
+              {%- endcase -%}
+            {%- endfor -%}
+          </div>
+
+          {%- liquid
+            assign show_quality_icons = false
+            if product.metafields.custom.dansk_produceret_kvalitetsseng_ikon != blank
+              assign show_quality_icons = true
+            endif
+
+            assign badge_icon = product.metafields.custom.badges.value.ikon.value
+          -%}
+
+          {%- if show_quality_icons or badge_icon != blank -%}
+            <div class="hotspot-section__icons">
+              {%- if show_quality_icons -%}
+                <img src="{{ 'dansk-kvalitet.svg' | asset_url }}" alt="Danskproduceret kvalitetsseng" width="107" height="107" loading="lazy">
+              {%- endif -%}
+
+              {%- if badge_icon != blank -%}
+                {{- badge_icon | image_url: width: 260 | image_tag: loading: 'lazy', sizes: '65px', widths: '65,130,195,260' -}}
+              {%- endif -%}
+
+              {%- if show_quality_icons -%}
+                <img src="{{ 'fsc.svg' | asset_url }}" alt="FSC-certificeret" width="65" height="65" loading="lazy">
+                <img src="{{ 'oeko.svg' | asset_url }}" alt="OEKO-TEX" width="65" height="65" loading="lazy">
+              {%- endif -%}
+            </div>
+          {%- endif -%}
+        </div>
+      </div>
+    </div>
+  </div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Hotspot section",
+  "class": "shopify-section--hotspot-section",
+  "tag": "section",
+  "disabled_on": {
+    "groups": ["header", "custom.overlay"]
+  },
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:global.colors.scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "select",
+      "id": "text_position",
+      "label": "Placering af indhold",
+      "options": [
+        {
+          "value": "start",
+          "label": "Venstre"
+        },
+        {
+          "value": "center",
+          "label": "Midten"
+        },
+        {
+          "value": "end",
+          "label": "Højre"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "checkbox",
+      "id": "remove_vertical_spacing",
+      "label": "Fjern luft over og under",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "remove_padding",
+      "label": "Fjern luft under",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Boks"
+    },
+    {
+      "type": "color",
+      "id": "background",
+      "label": "Baggrund",
+      "info": "Farverne på boksen. Lad felterne stå tomme for at bruge farveskemaet."
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Tekst"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_dots",
+      "label": "Vis prikket baggrund",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "dot_color",
+      "label": "Prikfarve",
+      "default": "#a3968e",
+      "visible_if": "{{ section.settings.show_dots }}"
+    },
+    {
+      "type": "color",
+      "id": "hotspot_color",
+      "label": "Hotspot-farve",
+      "default": "#650621"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "heading",
+      "name": "Overskrift",
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "text",
+          "label": "Tekst",
+          "default": "Sengens opbygning"
+        },
+        {
+          "type": "select",
+          "id": "heading_tag",
+          "label": "Størrelse",
+          "options": [
+            {
+              "value": "h1",
+              "label": "H1"
+            },
+            {
+              "value": "h2",
+              "label": "H2"
+            },
+            {
+              "value": "h3",
+              "label": "H3"
+            },
+            {
+              "value": "h4",
+              "label": "H4"
+            },
+            {
+              "value": "h5",
+              "label": "H5"
+            },
+            {
+              "value": "h6",
+              "label": "H6"
+            }
+          ],
+          "default": "h1"
+        }
+      ]
+    },
+    {
+      "type": "richtext",
+      "name": "Tekst",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "Tekst",
+          "default": "<p>Bliv klogere på sengens forskellige lag herunder.</p>"
+        }
+      ]
+    },
+    {
+      "type": "image",
+      "name": "Billede med hotspots",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Billede"
+        },
+        {
+          "type": "radio",
+          "id": "width_mode",
+          "label": "Bredde",
+          "options": [
+            {
+              "value": "full_width",
+              "label": "Fuld bredde"
+            },
+            {
+              "value": "custom",
+              "label": "Tilpasset"
+            }
+          ],
+          "default": "custom"
+        },
+        {
+          "type": "range",
+          "id": "max_width",
+          "label": "Maks. bredde",
+          "min": 100,
+          "max": 1000,
+          "step": 10,
+          "unit": "px",
+          "default": 600,
+          "visible_if": "{{ block.settings.width_mode == 'custom' }}"
+        },
+        {
+          "type": "range",
+          "id": "mobile_max_width",
+          "label": "Maks. bredde på mobil",
+          "min": 100,
+          "max": 600,
+          "step": 10,
+          "unit": "px",
+          "default": 400,
+          "visible_if": "{{ block.settings.width_mode == 'custom' }}"
+        },
+        {
+          "type": "header",
+          "content": "Hotspot 1"
+        },
+        {
+          "type": "text",
+          "id": "hotspot_1_title",
+          "label": "Titel",
+          "default": "Topmadras"
+        },
+        {
+          "type": "url",
+          "id": "hotspot_1_url",
+          "label": "Link",
+          "info": "Fx #topmadras for at linke til en sektion på siden."
+        },
+        {
+          "type": "range",
+          "id": "hotspot_1_horizontal",
+          "label": "Vandret placering",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "%",
+          "default": 51
+        },
+        {
+          "type": "range",
+          "id": "hotspot_1_vertical",
+          "label": "Lodret placering",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "%",
+          "default": 29
+        },
+        {
+          "type": "header",
+          "content": "Hotspot 2"
+        },
+        {
+          "type": "text",
+          "id": "hotspot_2_title",
+          "label": "Titel",
+          "default": "Springmadras"
+        },
+        {
+          "type": "url",
+          "id": "hotspot_2_url",
+          "label": "Link"
+        },
+        {
+          "type": "range",
+          "id": "hotspot_2_horizontal",
+          "label": "Vandret placering",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "%",
+          "default": 64
+        },
+        {
+          "type": "range",
+          "id": "hotspot_2_vertical",
+          "label": "Lodret placering",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "%",
+          "default": 47
+        },
+        {
+          "type": "header",
+          "content": "Hotspot 3"
+        },
+        {
+          "type": "text",
+          "id": "hotspot_3_title",
+          "label": "Titel",
+          "default": "Boxmadras"
+        },
+        {
+          "type": "url",
+          "id": "hotspot_3_url",
+          "label": "Link"
+        },
+        {
+          "type": "range",
+          "id": "hotspot_3_horizontal",
+          "label": "Vandret placering",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "%",
+          "default": 36
+        },
+        {
+          "type": "range",
+          "id": "hotspot_3_vertical",
+          "label": "Lodret placering",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "%",
+          "default": 69
+        },
+        {
+          "type": "header",
+          "content": "Mål 1 (bredde)"
+        },
+        {
+          "type": "text",
+          "id": "dimensions_1_title",
+          "label": "Tekst",
+          "default": "B: 180 cm"
+        },
+        {
+          "type": "range",
+          "id": "dimensions_1_horizontal",
+          "label": "Vandret placering",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "%",
+          "default": 62
+        },
+        {
+          "type": "range",
+          "id": "dimensions_1_vertical",
+          "label": "Lodret placering",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "%",
+          "default": 96
+        },
+        {
+          "type": "header",
+          "content": "Mål 2 (højde)"
+        },
+        {
+          "type": "text",
+          "id": "dimensions_2_title",
+          "label": "Tekst",
+          "info": "Skrives lodret.",
+          "default": "H: 60 cm"
+        },
+        {
+          "type": "range",
+          "id": "dimensions_2_horizontal",
+          "label": "Vandret placering",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "%",
+          "default": 97
+        },
+        {
+          "type": "range",
+          "id": "dimensions_2_vertical",
+          "label": "Lodret placering",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "%",
+          "default": 44
+        },
+        {
+          "type": "header",
+          "content": "Mål 3 (dybde)"
+        },
+        {
+          "type": "text",
+          "id": "dimensions_3_title",
+          "label": "Tekst",
+          "default": "D: 200 cm"
+        },
+        {
+          "type": "range",
+          "id": "dimensions_3_horizontal",
+          "label": "Vandret placering",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "%",
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "dimensions_3_vertical",
+          "label": "Lodret placering",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "%",
+          "default": 87
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hotspot section",
+      "blocks": [
+        {
+          "type": "heading"
+        },
+        {
+          "type": "richtext"
+        },
+        {
+          "type": "image"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
