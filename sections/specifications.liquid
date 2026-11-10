@@ -25,6 +25,25 @@
       background-image: radial-gradient(circle at 15px 15px, rgb(var(--specifications-dot-color)) 1px, transparent 1.5px);
       background-size: 30px 30px;
     }
+
+    {%- comment -%}With image spacing, the image is shown uncropped in a 60/40 split with 5rem around it (as on the current site){%- endcomment -%}
+    {%- if section.settings.image != blank and section.settings.add_image_spacing -%}
+      #shopify-section-{{ section.id }} .section-split__column--image img {
+        object-fit: contain;
+      }
+
+      @media screen and (min-width: 1000px) {
+        #shopify-section-{{ section.id }} .section-split {
+          {%- if section.settings.image_position == 'end' -%}
+            --section-split-grid-template-columns: minmax(0, .4fr) minmax(0, .6fr);
+          {%- else -%}
+            --section-split-grid-template-columns: minmax(0, .6fr) minmax(0, .4fr);
+          {%- endif -%}
+          padding-inline: calc(5rem - var(--container-gutter));
+          column-gap: calc(5rem - var(--container-gutter));
+        }
+      }
+    {%- endif -%}
   </style>
 
   <div {% if section.settings.anchor != blank %}id="{{ section.settings.anchor | handle }}"{% endif %} {% if section.settings.use_page_width %}class="container section-spacing"{% endif %}>
@@ -53,10 +72,24 @@
         {%- endcomment -%}
         <div class="accordion-list">
           {%- for block in section.blocks -%}
-            {%- render 'accordion', 
-              title: block.settings.title, 
-              icon: block.settings.icon,
-              custom_icon: block.settings.custom_icon,
+            {%- liquid
+              comment
+                Sengefabrikken: "accordion" blocks use the same setting ids as the current site's bed-specifications
+                section (so the same metaobject can be connected), where "icon" is an image instead of a built-in icon.
+              endcomment
+              if block.type == 'accordion'
+                assign block_icon = 'none'
+                assign block_custom_icon = block.settings.icon
+              else
+                assign block_icon = block.settings.icon
+                assign block_custom_icon = block.settings.custom_icon
+              endif
+            -%}
+
+            {%- render 'accordion',
+              title: block.settings.title,
+              icon: block_icon,
+              custom_icon: block_custom_icon,
               content: block.settings.content,
               uppercase_title: section.settings.uppercase_attribute_title, 
               large: true,
@@ -73,13 +106,23 @@
         <table class="specification-table">
           <tbody class="divide-y">
             {%- for block in section.blocks -%}
+              {%- liquid
+                if block.type == 'accordion'
+                  assign block_icon = 'none'
+                  assign block_custom_icon = block.settings.icon
+                else
+                  assign block_icon = block.settings.icon
+                  assign block_custom_icon = block.settings.custom_icon
+                endif
+              -%}
+
               <tr class="specification-table__row" {{ block.shopify_attributes }}>
                 <th scope="row" class="specification-table__row-name {% if section.settings.uppercase_attribute_title %}uppercase{% endif %}">
                   <div class="text-with-icon {% if section.settings.show_attribute_icon_on_top %}text-with-icon--stacked{% endif %}">
-                    {%- if block.settings.custom_icon != blank -%}
-                      {%- render 'icon', image: block.settings.custom_icon, width: 20, mobile_width: 16 -%}
-                    {%- elsif block.settings.icon != 'none' -%}
-                      {%- render 'icon' with block.settings.icon, width: 20, mobile_width: 16 -%}
+                    {%- if block_custom_icon != blank -%}
+                      {%- render 'icon', image: block_custom_icon, width: 20, mobile_width: 16 -%}
+                    {%- elsif block_icon != 'none' -%}
+                      {%- render 'icon' with block_icon, width: 20, mobile_width: 16 -%}
                     {%- endif -%}
 
                     {{- block.settings.title -}}
@@ -218,7 +261,8 @@
       "type": "checkbox",
       "id": "add_image_spacing",
       "label": "t:sections.specifications.add_image_spacing",
-      "default": false,
+      "info": "Viser hele billedet med luft omkring, fordelt 60/40 med teksten på desktop.",
+      "default": true,
       "visible_if": "{{ section.settings.image != blank }}"
     },
     {
@@ -737,6 +781,33 @@
           "id": "content",
           "label": "t:global.text.content",
           "default": "<p>Write some content.</p>"
+        }
+      ]
+    },
+    {
+      "type": "accordion",
+      "name": "Accordion",
+      "settings": [
+        {
+          "type": "paragraph",
+          "content": "Samme felter som Bed specifications på den nuværende side, så blokken kan forbindes til metaobjektet Sengens specifikationer."
+        },
+        {
+          "type": "inline_richtext",
+          "id": "title",
+          "label": "t:global.text.title",
+          "default": "Titel"
+        },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "t:global.text.content",
+          "default": "<p>Skriv indholdet her.</p>"
+        },
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "t:global.icons.icon"
         }
       ]
     }
