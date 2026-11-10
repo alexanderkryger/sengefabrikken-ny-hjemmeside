@@ -12,7 +12,7 @@ section-color-transition {
   transition: background-color var(--section-color-transition-duration, .6s) ease;
 }
 
-#main.has-section-color-transition > .shopify-section > .color-scheme {
+#main.has-section-color-transition > .shopify-section > .color-scheme[data-color-transition] {
   background-color: transparent;
 }
 

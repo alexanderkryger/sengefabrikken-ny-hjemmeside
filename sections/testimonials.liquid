@@ -109,7 +109,7 @@
   {%- endfor -%}
 {%- endcapture -%}
 
-<div class="color-scheme color-scheme--{{ section.settings.color_scheme.id }}">
+<div {% if section.settings.color_transition %}data-color-transition{% endif %} class="color-scheme color-scheme--{{ section.settings.color_scheme.id }}">
   <div class="testimonials">
     {%- if has_block_with_info -%}
       <div class="section-split {% if section.settings.image_position == 'start' %}section-split--reverse{% endif %}">
@@ -169,6 +169,13 @@
       "id": "color_scheme",
       "label": "t:global.colors.scheme",
       "default": "scheme-1"
+    },
+    {
+      "type": "checkbox",
+      "id": "color_transition",
+      "label": "Glidende farveskift",
+      "info": "Siden toner over i sektionens farve, når den scrolles ind. Kræver at Glidende farveskift er slået til i Theme settings > Sengefabrikken layout.",
+      "default": false
     },
     {
       "type": "text_alignment",

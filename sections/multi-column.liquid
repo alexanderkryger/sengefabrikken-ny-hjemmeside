@@ -62,7 +62,7 @@
     <script type="module" src="{{ 'section-video-controls.js' | asset_url }}"></script>
   {%- endif -%}
 
-  <div class="color-scheme color-scheme--{{ section.settings.color_scheme.id }}">
+  <div {% if section.settings.color_transition %}data-color-transition{% endif %} class="color-scheme color-scheme--{{ section.settings.color_scheme.id }}">
     <div class="{% if section.settings.add_horizontal_spacing %}container{% endif %} section-spacing">
       <div class="section-stack">
         {%- if section.settings.tap_to_pause_videos -%}
@@ -95,6 +95,13 @@
       "id": "color_scheme",
       "label": "t:global.colors.scheme",
       "default": "scheme-1"
+    },
+    {
+      "type": "checkbox",
+      "id": "color_transition",
+      "label": "Glidende farveskift",
+      "info": "Siden toner over i sektionens farve, når den scrolles ind. Kræver at Glidende farveskift er slået til i Theme settings > Sengefabrikken layout.",
+      "default": false
     },
     {
       "type": "checkbox",

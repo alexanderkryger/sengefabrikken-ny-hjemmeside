@@ -1430,7 +1430,7 @@
         "type": "checkbox",
         "id": "section_color_transition",
         "label": "Glidende farveskift",
-        "info": "Hele siden toner over i baggrundsfarven på den sektion, der er midt på skærmen, i stedet for en hård kant mellem sektioner med forskellige farver. Sektioner vist som boks beholder deres egen farve.",
+        "info": "Slår farveskiftet til på hele siden. Vælg derefter i de enkelte sektioner, hvilke der skal tone (\"Glidende farveskift\" under farveskemaet). Sektioner vist som boks beholder deres egen farve.",
         "default": false
       },
       {

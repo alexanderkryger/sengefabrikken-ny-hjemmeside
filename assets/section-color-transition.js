@@ -3,9 +3,11 @@
  *
  * Instead of a hard edge between two sections with different background colors, the whole page fades into the
  * background color of a section once enough of it is visible (theme settings > Sengefabrikken layout).
- * The colors are read from the color scheme of each section in #main, then those sections become transparent and
- * #main takes the color of the active section. Sections without a color scheme directly inside them keep their own
- * colors and do not change the page color, and elements with manual colors (e.g. the specifications box) keep theirs.
+ * The colors are read from the color scheme of each section in #main, and #main takes the color of the active section.
+ * Only the sections that enable it ("Glidende farveskift" setting, data-color-transition attribute) become transparent
+ * and fade; the other sections keep their own color and hard edge, but still give their color to the neighboring
+ * sections that fade. Sections without a color scheme directly inside them do not change the page color, and elements
+ * with manual colors (e.g. the specifications box) keep theirs.
  * Without JavaScript the page is shown as usual, and the fade is skipped when the visitor prefers reduced motion.
  * The fade duration (in ms) can be set with the "duration" attribute, and how much of a section must be visible (in %)
  * with the "threshold" attribute (80 by default).
@@ -58,7 +60,8 @@ class SectionColorTransition extends HTMLElement {
       }
     }
 
-    if (this.#colors.size === 0) {
+    // Nothing fades unless at least one section has enabled the transition
+    if (!main.querySelector(':scope > .shopify-section > .color-scheme[data-color-transition]')) {
       return;
     }
 
