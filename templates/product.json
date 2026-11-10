@@ -182,6 +182,62 @@
         "max_image_zoom_level": 3
       }
     },
+    "trust_icons_Pi7QHg": {
+      "type": "trust-icons",
+      "blocks": {
+        "item_BfUd84": {
+          "type": "item",
+          "settings": {
+            "icon": "none",
+            "icon_width": 24,
+            "mobile_icon_width": 20,
+            "title": "Danskproducerede senge",
+            "content": ""
+          }
+        },
+        "item_izhe8f": {
+          "type": "item",
+          "settings": {
+            "icon": "none",
+            "icon_width": 24,
+            "mobile_icon_width": 20,
+            "title": "25 års garanti",
+            "content": ""
+          }
+        },
+        "item_Egpgg4": {
+          "type": "item",
+          "settings": {
+            "icon": "none",
+            "icon_width": 24,
+            "mobile_icon_width": 20,
+            "title": "[trustscore] på Trustpilot",
+            "content": ""
+          }
+        },
+        "item_nzaYbD": {
+          "type": "item",
+          "settings": {
+            "icon": "none",
+            "icon_width": 24,
+            "mobile_icon_width": 20,
+            "title": "100 dages prøve",
+            "content": ""
+          }
+        }
+      },
+      "block_order": [
+        "item_BfUd84",
+        "item_izhe8f",
+        "item_Egpgg4",
+        "item_nzaYbD"
+      ],
+      "name": "t:sections.trust_icons.name",
+      "settings": {
+        "color_scheme": "",
+        "item_heading_style": "subheading"
+      }
+    },
     "rich_text_gUdUJV": {
       "type": "rich-text",
       "blocks": {
@@ -600,6 +656,7 @@
   },
   "order": [
     "main",
+    "trust_icons_Pi7QHg",
     "rich_text_gUdUJV",
     "multiple_media_with_text_LbJBFz",
     "multi_column_videos",
