@@ -737,6 +737,39 @@
         "show_attribute_icon_on_top": false,
         "uppercase_attribute_title": false
       }
+    },
+    "rich_text_NLbNkg": {
+      "type": "rich-text",
+      "blocks": {
+        "subheading_ieFNBc": {
+          "type": "subheading",
+          "settings": {
+            "text": "Dyk ned i"
+          }
+        },
+        "heading_p9N7VP": {
+          "type": "heading",
+          "settings": {
+            "text": "Topmadrassen",
+            "heading_tag": "h2",
+            "html_tag": "p",
+            "indent": "none",
+            "highlight_effect": "default",
+            "highlight_accent_color": "",
+            "highlight_text_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "subheading_ieFNBc",
+        "heading_p9N7VP"
+      ],
+      "name": "t:sections.rich_text.name",
+      "settings": {
+        "color_scheme": "",
+        "content_width": "md",
+        "text_alignment": "center"
+      }
     }
   },
   "order": [
@@ -748,6 +781,7 @@
     "trustpilot_reviews_PkjAdp",
     "hotspot_section_dDEdeC",
     "value_chain_VHg3BX",
-    "specifications_hTjaPb"
+    "specifications_hTjaPb",
+    "rich_text_NLbNkg"
   ]
 }
