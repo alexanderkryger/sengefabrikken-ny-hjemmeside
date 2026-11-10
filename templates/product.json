@@ -18,14 +18,54 @@
             "menu": "Topmadras",
             "link": "#topmadras"
           }
+        },
+        "menu_jFgRAk": {
+          "type": "menu",
+          "settings": {
+            "menu": "Springmadras",
+            "link": ""
+          }
+        },
+        "menu_VLbYx4": {
+          "type": "menu",
+          "settings": {
+            "menu": "Boxmadras",
+            "link": ""
+          }
+        },
+        "menu_6ayErN": {
+          "type": "menu",
+          "settings": {
+            "menu": "Specifikationer",
+            "link": "#specifikationer"
+          }
+        },
+        "menu_cMgehy": {
+          "type": "menu",
+          "settings": {
+            "menu": "FAQ",
+            "link": ""
+          }
+        },
+        "menu_Bbdaq8": {
+          "type": "menu",
+          "settings": {
+            "menu": "Anmeldelser",
+            "link": ""
+          }
         }
       },
       "block_order": [
-        "menu_N3g6ij"
+        "menu_N3g6ij",
+        "menu_jFgRAk",
+        "menu_VLbYx4",
+        "menu_6ayErN",
+        "menu_cMgehy",
+        "menu_Bbdaq8"
       ],
       "name": "Produktnavigation",
       "settings": {
-        "color_scheme": "",
+        "color_scheme": "scheme-5",
         "bg": "",
         "lcl": "",
         "lclh": "",
@@ -950,7 +990,7 @@
         "border_color": "",
         "show_dots": true,
         "dot_color": "#a3968e",
-        "anchor": "specification",
+        "anchor": "#specifikationer",
         "image": "{{ product.metafields.custom.stregtegning.value }}",
         "layout": "split",
         "header_on_top": true,
@@ -963,6 +1003,71 @@
         "collapse_attributes": true,
         "show_attribute_icon_on_top": false,
         "uppercase_attribute_title": false
+      }
+    },
+    "faq_xWkqpM": {
+      "type": "faq",
+      "blocks": {
+        "category_QbX4Lc": {
+          "type": "category",
+          "settings": {
+            "title": "Order",
+            "icon": "none",
+            "icon_width": 24,
+            "mobile_icon_width": 20
+          }
+        },
+        "question_c48mhW": {
+          "type": "question",
+          "settings": {
+            "question": "Do you ship overseas?",
+            "answer": "<p>Yes, we ship all over the world. Shipping costs will apply, and will be added at checkout. We run discounts and promotions all year, so stay tuned for exclusive deals.</p>",
+            "icon": "none",
+            "icon_width": 24,
+            "mobile_icon_width": 20
+          }
+        },
+        "question_wBjrQw": {
+          "type": "question",
+          "settings": {
+            "question": "How long will it take to get my orders?",
+            "answer": "<p>It depends on where you are. Orders processed here will take 5-7 business days to arrive. Overseas deliveries can take anywhere from 7-16 days. Delivery details will be provided in your confirmation email.</p>",
+            "icon": "none",
+            "icon_width": 24,
+            "mobile_icon_width": 20
+          }
+        },
+        "question_XkfdJG": {
+          "type": "question",
+          "settings": {
+            "question": "Any question?",
+            "answer": "<p>You can contact us through our contact page! We will be happy to assist you.</p>",
+            "icon": "none",
+            "icon_width": 24,
+            "mobile_icon_width": 20
+          }
+        }
+      },
+      "block_order": [
+        "category_QbX4Lc",
+        "question_c48mhW",
+        "question_wBjrQw",
+        "question_XkfdJG"
+      ],
+      "name": "t:sections.faq.name",
+      "settings": {
+        "color_scheme": "",
+        "use_page_width": false,
+        "layout": "stacked",
+        "accordion_style": "border",
+        "question_style": "text",
+        "subheading": "We're here to help",
+        "title": "Frequently asked questions",
+        "title_tag": "h3",
+        "content": "<p>Use the FAQ section to answer your customers' most frequent questions.</p>",
+        "button_text": "",
+        "button_url": "",
+        "button_style": "solid"
       }
     }
   },
@@ -980,6 +1085,7 @@
     "multiple_media_with_text_bhqy4A",
     "multiple_media_with_text_GxXMpy",
     "value_chain_VHg3BX",
-    "specifications_hTjaPb"
+    "specifications_hTjaPb",
+    "faq_xWkqpM"
   ]
 }
