@@ -685,7 +685,8 @@
         "richtext_VHwteR": {
           "type": "richtext",
           "settings": {
-            "content": "<p>Vores kontinentalsenge består af tre lag: en holdbar boxmadras, en fleksibel springmadras og en luksuriøs topmadras.<br/>Bliv klogere på sengens forskellige lag herunder.</p>"
+            "content": "<p>Vores kontinentalsenge består af tre lag: en holdbar boxmadras, en fleksibel springmadras og en luksuriøs topmadras.<br/>Bliv klogere på sengens forskellige lag herunder.</p>",
+            "content_width": "md"
           }
         },
         "image_mgfBdt": {
