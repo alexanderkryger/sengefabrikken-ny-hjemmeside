@@ -4,8 +4,8 @@
  * Instead of a hard edge between two sections with different background colors, the whole page fades into the
  * background color of the section that reaches the middle of the screen (theme settings > Sengefabrikken layout).
  * The colors are read from the color scheme of each section in #main, then those sections become transparent and
- * #main takes the color of the active section. Sections without a color scheme directly inside them (e.g. a boxed
- * section) keep their own colors and do not change the page color.
+ * #main takes the color of the active section. Sections without a color scheme directly inside them keep their own
+ * colors and do not change the page color, and elements with manual colors (e.g. the specifications box) keep theirs.
  * Without JavaScript the page is shown as usual, and the fade is skipped when the visitor prefers reduced motion.
  * The fade duration (in ms) can be set with the "duration" attribute.
  */

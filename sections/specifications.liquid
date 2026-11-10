@@ -50,8 +50,10 @@
     {%- endif -%}
   </style>
 
-  <div {% if section.settings.anchor != blank %}id="{{ section.settings.anchor | handle }}"{% endif %} {% if section.settings.use_page_width %}class="container section-spacing"{% endif %}>
-  <div class="color-scheme color-scheme--{{ section.settings.color_scheme.id }} {% if section.settings.use_page_width %}specifications--boxed{% endif %} {% if section.settings.show_dots %}specifications--dotted{% endif %}" {% if has_manual_colors %}style="{% render 'surface', background: section.settings.background, text_color: section.settings.text_color, border_color: section.settings.border_color %}"{% endif %}>
+  {%- comment -%}The color scheme is the section background, the manual colors are the box (or the whole section when not boxed){%- endcomment -%}
+  <div {% if section.settings.anchor != blank %}id="{{ section.settings.anchor | handle }}"{% endif %} class="color-scheme color-scheme--{{ section.settings.color_scheme.id }}">
+  <div {% if section.settings.use_page_width %}class="container section-spacing"{% endif %}>
+  <div class="{% if section.settings.use_page_width %}specifications--boxed{% endif %} {% if section.settings.show_dots %}specifications--dotted{% endif %}" {% if has_manual_colors %}style="{% render 'surface', background: section.settings.background, text_color: section.settings.text_color, border_color: section.settings.border_color %}"{% endif %}>
     {%- liquid
       comment
         Sengefabrikken: with an image, the header can be shown centered above the image and the attributes (as on the
@@ -266,6 +268,7 @@
     {%- endif -%}
   </div>
   </div>
+  </div>
 {%- endif -%}
 
 {% schema %}
@@ -294,7 +297,7 @@
       "type": "color",
       "id": "background",
       "label": "Baggrund",
-      "info": "Lad felterne stå tomme for at bruge farveskemaet."
+      "info": "Farverne på boksen. Farveskemaet bruges som sektionens baggrund rundt om boksen. Lad felterne stå tomme for at bruge farveskemaet."
     },
     {
       "type": "color",
