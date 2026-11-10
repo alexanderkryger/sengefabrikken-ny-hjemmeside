@@ -273,8 +273,9 @@
   }
 }
 
-/* The arrow of the accordions in the product info sits right after the title instead of at the far end of the row,
-   where it was covered by the product splash */
+/* The arrow of the accordions in the product info (and of the price comparison tab) sits right after the title instead
+   of at the far end of the row, where it was covered by the product splash */
+.price-chain-accordion .accordion__summary,
 .product-info__block-item:is([data-block-type="accordion"], [data-block-type="description"]) .accordion__summary {
   justify-content: flex-start;
 }
