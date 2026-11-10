@@ -52,6 +52,11 @@
       position: absolute;
     }
 
+    {%- comment -%}Removes the underline that the prose adds on links{%- endcomment -%}
+    #shopify-section-{{ section.id }} .hotspot-section__hotspot {
+      background: none;
+    }
+
     #shopify-section-{{ section.id }} .hotspot-section__dimension--vertical {
       writing-mode: vertical-lr;
       transform: rotate(180deg);
@@ -151,7 +156,7 @@
 
                 {%- when 'richtext' -%}
                   {%- if block.settings.content != blank -%}
-                    <div class="max-w-sm" {{ block.shopify_attributes }}>
+                    <div class="{% if block.settings.content_width != 'full' %}max-w-{{ block.settings.content_width | default: 'sm' }}{% endif %}" {{ block.shopify_attributes }}>
                       {{- block.settings.content -}}
                     </div>
                   {%- endif -%}
@@ -374,6 +379,38 @@
           "id": "content",
           "label": "Tekst",
           "default": "<p>Bliv klogere på sengens forskellige lag herunder.</p>"
+        },
+        {
+          "type": "select",
+          "id": "content_width",
+          "label": "Indholdsbredde",
+          "options": [
+            {
+              "value": "xs",
+              "label": "Ekstra smal"
+            },
+            {
+              "value": "sm",
+              "label": "Smal"
+            },
+            {
+              "value": "md",
+              "label": "Mellem"
+            },
+            {
+              "value": "lg",
+              "label": "Bred"
+            },
+            {
+              "value": "xl",
+              "label": "Ekstra bred"
+            },
+            {
+              "value": "full",
+              "label": "Fuld bredde"
+            }
+          ],
+          "default": "sm"
         }
       ]
     },
