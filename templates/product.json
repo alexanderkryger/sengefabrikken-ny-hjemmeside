@@ -770,6 +770,113 @@
         "content_width": "md",
         "text_alignment": "center"
       }
+    },
+    "multiple_media_with_text_CGDEwy": {
+      "type": "multiple-media-with-text",
+      "blocks": {
+        "image_7GgYxA": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/01.-Trykaflastende_Topmadras_Badge_1.jpg",
+            "rotation": 0,
+            "hide_on_mobile": false
+          }
+        }
+      },
+      "block_order": [
+        "image_7GgYxA"
+      ],
+      "name": "Medier med tekst",
+      "settings": {
+        "color_scheme": "",
+        "custom_id": "",
+        "media_position_desktop": "before_text",
+        "media_position_mobile": "before_text",
+        "media_layout": "overlap",
+        "media_alignment": "center",
+        "media_alignment_offset": 0,
+        "media_mobile_alignment_offset": 0,
+        "hide_media_on_mobile": true,
+        "content_percentage_width": 45,
+        "text_alignment": "center",
+        "subheading": "",
+        "title": "Oversigt",
+        "heading_size": "h5",
+        "show_icon": false,
+        "show_color_swatch": false,
+        "color_swatch_label": "Farver",
+        "content": "{{ product.metafields.custom.product_description_topmadras.value.oversigt | metafield_tag }}",
+        "content_border_top": false,
+        "content_border_bottom": true,
+        "content_below": "{{ product.metafields.custom.product_description_topmadras.value.bullets | metafield_tag }}",
+        "content_below_border_top": false,
+        "content_below_border_bottom": false,
+        "border_color": "#e0dcd9",
+        "phone": "",
+        "phone_hours": "",
+        "email": "",
+        "chat": "",
+        "button_1_text": "",
+        "button_1_link": "",
+        "button_1_style": "solid",
+        "button_2_text": "",
+        "button_2_link": "",
+        "button_2_style": "outline"
+      }
+    },
+    "multiple_media_with_text_bhqy4A": {
+      "type": "multiple-media-with-text",
+      "blocks": {
+        "image_aNedNX": {
+          "type": "image",
+          "settings": {
+            "image": "{{ product.metafields.custom.product_description_topmadras.value.image_1.value }}",
+            "rotation": 0,
+            "hide_on_mobile": false
+          }
+        }
+      },
+      "block_order": [
+        "image_aNedNX"
+      ],
+      "name": "Medier med tekst",
+      "settings": {
+        "color_scheme": "",
+        "custom_id": "",
+        "media_position_desktop": "before_text",
+        "media_position_mobile": "before_text",
+        "media_layout": "overlap",
+        "media_alignment": "center",
+        "media_alignment_offset": 0,
+        "media_mobile_alignment_offset": 0,
+        "video": "{{ product.metafields.custom.product_description_topmadras.value.video_1.value }}",
+        "hide_media_on_mobile": true,
+        "content_percentage_width": 45,
+        "text_alignment": "center",
+        "subheading": "",
+        "title": "{{ product.metafields.custom.product_description_topmadras.value.heading_1.value }}",
+        "heading_size": "h5",
+        "show_icon": false,
+        "show_color_swatch": false,
+        "color_swatch_label": "Farver",
+        "content": "{{ product.metafields.custom.product_description_topmadras.value.text_1 | metafield_tag }}",
+        "content_border_top": false,
+        "content_border_bottom": false,
+        "content_below": "",
+        "content_below_border_top": false,
+        "content_below_border_bottom": false,
+        "border_color": "#e0dcd9",
+        "phone": "",
+        "phone_hours": "",
+        "email": "",
+        "chat": "",
+        "button_1_text": "",
+        "button_1_link": "",
+        "button_1_style": "solid",
+        "button_2_text": "",
+        "button_2_link": "",
+        "button_2_style": "outline"
+      }
     }
   },
   "order": [
@@ -782,6 +889,8 @@
     "hotspot_section_dDEdeC",
     "value_chain_VHg3BX",
     "specifications_hTjaPb",
-    "rich_text_NLbNkg"
+    "rich_text_NLbNkg",
+    "multiple_media_with_text_CGDEwy",
+    "multiple_media_with_text_bhqy4A"
   ]
 }
