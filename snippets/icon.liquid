@@ -392,6 +392,29 @@ To render an icon made of an image, you need to explicitly pass the image, and t
         <path fill="none" stroke="currentColor" stroke-width="1.5" d="M2.625 7.313 12 12.938l9.375-5.626"/>
       </svg>
 
+    {%- comment -%} PICTO (Sengefabrikken, made by USE Agency) - ported from the old theme {%- endcomment -%}
+
+    {%- when 'picto-dansk-flag' -%}
+      <svg aria-hidden="true" focusable="false" width="{{ mobile_width | default: 24 }}" class="{{ class | strip }}" {% if style != blank %}style="{{ style }}"{% endif %} viewBox="0 0 48 48">
+        <path vector-effect="non-scaling-stroke" d="M19.0005 11.0005H6.00055V22.0005M19.0005 11.0005V22.0005H6.00055M19.0005 11.0005H23.0005M6.00055 22.0005L6.0025 26.0005M19.0005 37.0005H6.00055V26.0005H6.0025M19.0005 37.0005V26.0005H6.0025M19.0005 37.0005H23.0005M23.0005 11.0005H42.0005V22.0005M23.0005 11.0005V22.0005H42.0005M42.0005 22.0005V26.0005M42.0005 26.0005H23.0005V37.0005M42.0005 26.0005V37.0005H23.0005" fill="none" stroke="currentColor" stroke-width="{{ stroke_width | default: settings.icon_stroke_width }}" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+
+    {%- when 'picto-garanti' -%}
+      <svg aria-hidden="true" focusable="false" width="{{ mobile_width | default: 24 }}" class="{{ class | strip }}" {% if style != blank %}style="{{ style }}"{% endif %} viewBox="0 0 49 48">
+        <path vector-effect="non-scaling-stroke" d="M22.1687 4.38121C23.6865 3.025 25.9807 3.02501 27.4985 4.38122L30.4406 7.01005C31.1161 7.61365 31.9765 7.97005 32.881 8.0209L36.8202 8.24237C38.8524 8.35663 40.4747 9.97891 40.5889 12.0111L40.8104 15.9503C40.8613 16.8548 41.2177 17.7152 41.8213 18.3908L44.4501 21.3328C45.8063 22.8506 45.8063 25.1448 44.4501 26.6626L41.8213 29.6047C41.2177 30.2802 40.8613 31.1406 40.8104 32.0451L40.5889 35.9843C40.4747 38.0165 38.8524 39.6388 36.8202 39.7531L32.881 39.9745C31.9765 40.0254 31.1161 40.3818 30.4406 40.9854L27.4985 43.6142C25.9807 44.9704 23.6865 44.9704 22.1687 43.6142L19.2266 40.9854C18.5511 40.3818 17.6907 40.0254 16.7862 39.9745L12.847 39.7531C10.8148 39.6388 9.19251 38.0165 9.07825 35.9843L8.85678 32.0451C8.80593 31.1406 8.44953 30.2802 7.84593 29.6047L5.21709 26.6626C3.86088 25.1448 3.86088 22.8506 5.21709 21.3328L7.84593 18.3908C8.44953 17.7152 8.80593 16.8548 8.85678 15.9503L9.07825 12.0111C9.19251 9.97891 10.8148 8.35663 12.847 8.24237L16.7862 8.0209C17.6907 7.97005 18.5511 7.61365 19.2266 7.01005L22.1687 4.38121Z" fill="none" stroke="currentColor" stroke-width="{{ stroke_width | default: settings.icon_stroke_width }}" stroke-linejoin="round"/>
+        <path vector-effect="non-scaling-stroke" d="M15.8347 23.1429L22.0979 30L32.8347 18" fill="none" stroke="currentColor" stroke-width="{{ stroke_width | default: settings.icon_stroke_width }}" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+
+    {%- when 'picto-trustpilot' -%}
+      <svg aria-hidden="true" focusable="false" width="{{ mobile_width | default: 24 }}" class="{{ class | strip }}" {% if style != blank %}style="{{ style }}"{% endif %} viewBox="0 0 49 48">
+        <path vector-effect="non-scaling-stroke" d="M24.668 5.99902L30.5452 17.9076L43.6871 19.8172L34.1775 29.0868L36.4225 42.1756L24.668 35.9959L12.9135 42.1756L15.1584 29.0868L5.64878 19.8172L18.7907 17.9076L24.668 5.99902Z" fill="none" stroke="currentColor" stroke-width="{{ stroke_width | default: settings.icon_stroke_width }}" stroke-linejoin="round"/>
+      </svg>
+
+    {%- when 'picto-use-truck' -%}
+      <svg aria-hidden="true" focusable="false" width="{{ mobile_width | default: 24 }}" class="{{ class | strip }}" {% if style != blank %}style="{{ style }}"{% endif %} viewBox="0 0 48 48">
+        <path vector-effect="non-scaling-stroke" d="M17.0025 33C17.0025 35.2091 15.2116 37 13.0025 37C10.7933 37 9.00249 35.2091 9.00249 33M17.0025 33C17.0025 30.7909 15.2116 29 13.0025 29C10.7933 29 9.00249 30.7909 9.00249 33M17.0025 33H29.0025M9.00249 33H5.00241V10H29.0025V16.5M39.5025 33C39.5025 35.2091 37.7116 37 35.5025 37C33.2933 37 31.5025 35.2091 31.5025 33M39.5025 33C39.5025 30.7909 37.7116 29 35.5025 29C33.2933 29 31.5025 30.7909 31.5025 33M39.5025 33H43.0025V24M31.5025 33H29.0025M29.0025 33V24M29.0025 16.5H35.5025L43.0025 24M29.0025 16.5V24M43.0025 24H29.0025" fill="none" stroke="currentColor" stroke-width="{{ stroke_width | default: settings.icon_stroke_width }}" stroke-linejoin="round"/>
+      </svg>
+
     {%- comment -%} PICTO (coming from library Streamline) - all those picto are normalized as 24x24 box {%- endcomment -%}
 
     {%- when 'picto-heart' -%}
