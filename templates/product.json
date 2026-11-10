@@ -47,11 +47,10 @@
             "link": "#faq"
           }
         },
-        "menu_Bbdaq8": {
-          "type": "menu",
+        "reviews_XAcEgm": {
+          "type": "reviews",
           "settings": {
-            "menu": "Anmeldelser",
-            "link": ""
+            "menu": "Anmeldelser"
           }
         }
       },
@@ -61,7 +60,7 @@
         "menu_VLbYx4",
         "menu_6ayErN",
         "menu_cMgehy",
-        "menu_Bbdaq8"
+        "reviews_XAcEgm"
       ],
       "name": "Produktnavigation",
       "settings": {
@@ -1185,7 +1184,7 @@
       "settings": {
         "color_scheme": "scheme-1",
         "use_page_width": true,
-        "background": "#F3F9F2",
+        "background": "#f3f9f2",
         "text_color": "",
         "border_color": "",
         "show_dots": true,
