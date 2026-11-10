@@ -270,6 +270,8 @@
       "name": "t:sections.rich_text.name",
       "settings": {
         "color_scheme": "",
+        "color_transition": false,
+        "custom_id": "",
         "content_width": "md",
         "text_alignment": "center"
       }
@@ -292,6 +294,7 @@
       "name": "Medier med tekst",
       "settings": {
         "color_scheme": "",
+        "color_transition": false,
         "custom_id": "",
         "media_position_desktop": "before_text",
         "media_position_mobile": "before_text",
@@ -616,7 +619,7 @@
         "text_position": "center",
         "remove_vertical_spacing": false,
         "remove_padding": false,
-        "background": "#F3F9F2",
+        "background": "#f3f9f2",
         "text_color": "",
         "show_dots": true,
         "dot_color": "#a3968e",
@@ -730,6 +733,8 @@
       "name": "t:sections.rich_text.name",
       "settings": {
         "color_scheme": "scheme-6c169912-c18f-4620-bcaa-b514f350ac84",
+        "color_transition": true,
+        "custom_id": "",
         "content_width": "md",
         "text_alignment": "center"
       }
@@ -752,6 +757,7 @@
       "name": "Medier med tekst",
       "settings": {
         "color_scheme": "scheme-6c169912-c18f-4620-bcaa-b514f350ac84",
+        "color_transition": true,
         "custom_id": "",
         "media_position_desktop": "before_text",
         "media_position_mobile": "before_text",
@@ -768,10 +774,10 @@
         "show_icon": false,
         "show_color_swatch": false,
         "color_swatch_label": "Farver",
-        "content": "<p>{{ product.metafields.custom.product_description_topmadras.value.oversigt | metafield_tag }}</p>",
+        "content": "{{ product.metafields.custom.product_description_topmadras.value.oversigt | metafield_tag }}",
         "content_border_top": false,
         "content_border_bottom": true,
-        "content_below": "<p>{{ product.metafields.custom.product_description_topmadras.value.bullets | metafield_tag }}</p>",
+        "content_below": "{{ product.metafields.custom.product_description_topmadras.value.bullets | metafield_tag }}",
         "content_below_border_top": false,
         "content_below_border_bottom": false,
         "border_color": "#e0dcd9",
@@ -805,6 +811,7 @@
       "name": "Medier med tekst",
       "settings": {
         "color_scheme": "scheme-6c169912-c18f-4620-bcaa-b514f350ac84",
+        "color_transition": true,
         "custom_id": "",
         "media_position_desktop": "before_text",
         "media_position_mobile": "before_text",
@@ -859,6 +866,7 @@
       "name": "Medier med tekst",
       "settings": {
         "color_scheme": "scheme-6c169912-c18f-4620-bcaa-b514f350ac84",
+        "color_transition": true,
         "custom_id": "",
         "media_position_desktop": "after_text",
         "media_position_mobile": "before_text",
@@ -941,11 +949,11 @@
     "multi_column_videos",
     "trustpilot_reviews_PkjAdp",
     "hotspot_section_dDEdeC",
-    "value_chain_VHg3BX",
     "rich_text_NLbNkg",
     "multiple_media_with_text_CGDEwy",
     "multiple_media_with_text_bhqy4A",
     "multiple_media_with_text_GxXMpy",
+    "value_chain_VHg3BX",
     "specifications_hTjaPb"
   ]
 }
