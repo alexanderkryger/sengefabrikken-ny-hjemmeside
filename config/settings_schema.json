@@ -1445,6 +1445,18 @@
         "visible_if": "{{ settings.section_color_transition }}"
       },
       {
+        "type": "range",
+        "id": "section_color_transition_threshold",
+        "label": "Skift når sektionen er synlig",
+        "info": "Hvor meget af den nye sektion der skal være synlig, før farven skifter. Er sektionen højere end skærmen, gælder det hvor meget af skærmen den fylder.",
+        "min": 20,
+        "max": 100,
+        "step": 5,
+        "unit": "%",
+        "default": 80,
+        "visible_if": "{{ settings.section_color_transition }}"
+      },
+      {
         "type": "header",
         "content": "Betalingsikoner"
       },

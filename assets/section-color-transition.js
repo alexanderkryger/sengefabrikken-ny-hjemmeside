@@ -2,12 +2,13 @@
  * Sengefabrikken: <section-color-transition>
  *
  * Instead of a hard edge between two sections with different background colors, the whole page fades into the
- * background color of the section that reaches the middle of the screen (theme settings > Sengefabrikken layout).
+ * background color of a section once enough of it is visible (theme settings > Sengefabrikken layout).
  * The colors are read from the color scheme of each section in #main, then those sections become transparent and
  * #main takes the color of the active section. Sections without a color scheme directly inside them keep their own
  * colors and do not change the page color, and elements with manual colors (e.g. the specifications box) keep theirs.
  * Without JavaScript the page is shown as usual, and the fade is skipped when the visitor prefers reduced motion.
- * The fade duration (in ms) can be set with the "duration" attribute.
+ * The fade duration (in ms) can be set with the "duration" attribute, and how much of a section must be visible (in %)
+ * with the "threshold" attribute (80 by default).
  */
 class SectionColorTransition extends HTMLElement {
   #abortController;
@@ -69,14 +70,30 @@ class SectionColorTransition extends HTMLElement {
 
     main.classList.add('has-section-color-transition');
 
-    // The active section is the one crossing the horizontal line in the middle of the screen
-    this.#observer = new IntersectionObserver((entries) => {
-      const entry = entries.find((entry) => entry.isIntersecting);
+    // A section becomes active once enough of it is visible. A section taller than the screen can never be fully
+    // visible, so the visible part is compared to the screen height instead of the section height.
+    const threshold = (parseInt(this.getAttribute('threshold')) || 80) / 100;
+    const visibility = new Map();
 
-      if (entry) {
-        main.style.setProperty('--section-color-transition-background', this.#colors.get(entry.target));
+    this.#observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        const viewportHeight = entry.rootBounds?.height || window.innerHeight;
+        const visibleHeight = entry.isIntersecting ? entry.intersectionRect.height : 0;
+        visibility.set(entry.target, visibleHeight / Math.min(entry.boundingClientRect.height, viewportHeight));
+      });
+
+      let activeSection = null;
+
+      visibility.forEach((ratio, section) => {
+        if (ratio >= threshold && (!activeSection || ratio > visibility.get(activeSection))) {
+          activeSection = section;
+        }
+      });
+
+      if (activeSection) {
+        main.style.setProperty('--section-color-transition-background', this.#colors.get(activeSection));
       }
-    }, { rootMargin: '-50% 0px -50% 0px' });
+    }, { threshold: Array.from({ length: 101 }, (_, index) => index / 100) });
 
     this.#colors.forEach((color, section) => this.#observer.observe(section));
   }

@@ -108,7 +108,7 @@
     {%- endif -%}
 
     {%- if settings.section_color_transition -%}
-      <section-color-transition duration="{{ settings.section_color_transition_duration }}"></section-color-transition>
+      <section-color-transition duration="{{ settings.section_color_transition_duration }}" threshold="{{ settings.section_color_transition_threshold }}"></section-color-transition>
     {%- endif -%}
 
     <main id="main" class="anchor {% if request.page_type == 'policy' or request.page_type == 'captcha' %}color-scheme color-scheme--{{ settings.default_color_scheme.id }}{% endif %}">
