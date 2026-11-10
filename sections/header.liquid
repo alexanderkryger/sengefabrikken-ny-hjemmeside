@@ -74,6 +74,14 @@
     }
   {%- endif -%}
 
+  {%- comment -%}Sengefabrikken: the custom buttons use the heading font{%- endcomment -%}
+  #shopify-section-{{ section.id }} .header__custom-button {
+    font-family: var(--heading-font-family);
+    font-weight: var(--heading-font-weight);
+    font-style: var(--heading-font-style);
+    letter-spacing: var(--heading-letter-spacing);
+  }
+
   {%- comment -%}Sengefabrikken: the search, news and cart links are shown in boxes ("Store knapper"){%- endcomment -%}
   {%- if section.settings.large_icon_buttons -%}
     #shopify-section-{{ section.id }} {
@@ -348,7 +356,8 @@
           </li>
         {%- endif -%}
 
-        {%- if shop.customer_accounts_enabled -%}
+        {%- comment -%}Sengefabrikken: the account link can be hidden ("Vis kundelogin"){%- endcomment -%}
+        {%- if shop.customer_accounts_enabled and section.settings.show_account_link -%}
           <li class="header__account-link md-max:hidden">
             <shopify-account menu="{{ section.settings.customer_account_menu }}">
               <div slot="signed-out-avatar" class="tap-area">
@@ -614,6 +623,13 @@
     {
       "type": "header",
       "content": "Sengefabrikken knapper"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_account_link",
+      "label": "Vis kundelogin",
+      "info": "Viser login-ikonet i headeren og i menuen på mobil (kræver at kundekonti er slået til).",
+      "default": true
     },
     {
       "type": "checkbox",

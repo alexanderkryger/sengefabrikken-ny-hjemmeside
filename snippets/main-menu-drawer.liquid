@@ -90,7 +90,15 @@ mobile, and for desktop on "drawer" mode.
         </div>
       {%- endif -%}
 
-      {%- if show_country_selector or show_locale_selector or shop.customer_accounts_enabled -%}
+      {%- comment -%}Sengefabrikken: the account link can be hidden in the header settings ("Vis kundelogin"){%- endcomment -%}
+      {%- liquid
+        assign show_account_link = false
+        if shop.customer_accounts_enabled and section.settings.show_account_link
+          assign show_account_link = true
+        endif
+      -%}
+
+      {%- if show_country_selector or show_locale_selector or show_account_link -%}
         {%- comment -%}On desktop we show language, country and account link in the header directly, so we remove it from the drawer{%- endcomment -%}
         <div class="menu-drawer__footer-item lg:hidden">
           <div class="h-stack justify-between">
@@ -108,7 +116,7 @@ mobile, and for desktop on "drawer" mode.
               </div>
             {%- endif -%}
 
-            {%- if shop.customer_accounts_enabled -%}
+            {%- if show_account_link -%}
               <shopify-account menu="{{ section.settings.customer_account_menu }}">
                 <div slot="signed-out-avatar">
                   <div class="h-stack gap-2 5">
