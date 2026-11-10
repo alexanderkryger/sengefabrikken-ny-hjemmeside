@@ -110,6 +110,9 @@
 {%- render 'product-sticky-add-to-cart', product: product, product_form_id: product_form_id -%}
 {%- render 'product-quick-buy', product: product -%}
 
+{%- comment -%}Sengefabrikken: the Yotpo reviews drawer, opened by the rating and the product navigation{%- endcomment -%}
+{%- render 'yotpo-reviews-drawer', product: product -%}
+
 <script>
   // We save the product ID in local storage to be eventually used for recently viewed section
   try {

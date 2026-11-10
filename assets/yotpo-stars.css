@@ -29,3 +29,20 @@
 .rating-badge .yotpo-stars {
   --yotpo-star-size: 1rem;
 }
+
+/* The rating of the product info opens the Yotpo reviews drawer (see the yotpo-reviews-drawer snippet) */
+.product-info__rating-button {
+  text-align: inherit;
+  width: 100%;
+  display: block;
+}
+
+.product-info__rating-button .subheading {
+  text-underline-offset: .2em;
+}
+
+@media screen and (pointer: fine) {
+  .product-info__rating-button:hover .subheading {
+    text-decoration: underline;
+  }
+}

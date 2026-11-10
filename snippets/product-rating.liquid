@@ -5,7 +5,7 @@ This component generates a review badge from the product metafields information.
 @param {boolean} [show_empty] - if set to true, the theme shows a 0.0 if there are no rating yet
 @param {boolean} [show_placeholder] - if set to true, show random value (useful for the product card placeholder)
 @param {boolean} [show_single_star] - if set to true, only one star is shown (otherwise, the number of scale)
-@param {string} [display_mode] - either "rating" (e.g.: 3.5) or "count" (e.g.: 4 reviews). Default to "rating" if none is passed
+@param {string} [display_mode] - either "rating" (e.g.: 3.5), "count" (e.g.: (4)) or "reviews" (Sengefabrikken, e.g.: 4 anmeldelser). Default to "rating" if none is passed
 @param {string} [alignment] - can be "start", "center" or "end" (default to start)
 {%- enddoc -%}
 
@@ -55,7 +55,9 @@ This component generates a review badge from the product metafields information.
       {%- endif -%}
     </div>
 
-    {%- if display_mode == 'count' -%}
+    {%- if display_mode == 'reviews' -%}
+      <span class="subheading">{{- rating_count }} {% if rating_count == 1 %}anmeldelse{% else %}anmeldelser{% endif -%}</span>
+    {%- elsif display_mode == 'count' -%}
       <span class="subheading">({{- rating_count -}})</span>
     {%- else -%}
       <span class="subheading">({{- rating_value -}})</span>
@@ -74,7 +76,9 @@ This component generates a review badge from the product metafields information.
         {%- endif -%}
       </div>
 
-      {%- if display_mode == 'count' -%}
+      {%- if display_mode == 'reviews' -%}
+        <span class="subheading"><span data-yotpo-count></span> <span data-yotpo-count-label data-singular="anmeldelse">anmeldelser</span></span>
+      {%- elsif display_mode == 'count' -%}
         <span class="subheading">(<span data-yotpo-count></span>)</span>
       {%- else -%}
         <span class="subheading">(<span data-yotpo-score></span>)</span>

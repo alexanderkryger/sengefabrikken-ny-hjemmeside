@@ -232,7 +232,14 @@ no need to manually pass the section as it is globally available)
 
           {%- when 'rating' -%}
             {%- if product != blank -%}
-              {%- render 'product-rating', product: product, alignment: alignment, show_empty: block.settings.show_empty, show_placeholder: false -%}
+              {%- comment -%}Sengefabrikken: shows the number of reviews, and opens the Yotpo reviews drawer (see main-product){%- endcomment -%}
+              {%- if settings.yotpo_app_key != blank and context == 'main_product' -%}
+                <button type="button" class="product-info__rating-button" aria-controls="yotpo-reviews-{{ product.id }}">
+                  {%- render 'product-rating', product: product, alignment: alignment, show_empty: block.settings.show_empty, show_placeholder: false, display_mode: 'reviews' -%}
+                </button>
+              {%- else -%}
+                {%- render 'product-rating', product: product, alignment: alignment, show_empty: block.settings.show_empty, show_placeholder: false, display_mode: 'reviews' -%}
+              {%- endif -%}
             {%- else -%}
               {%- render 'product-rating', alignment: alignment, show_placeholder: true -%}
             {%- endif -%}

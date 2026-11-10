@@ -52,6 +52,11 @@ class YotpoRating extends HTMLElement {
     });
 
     content.querySelectorAll('[data-yotpo-count]').forEach((element) => element.textContent = count);
+    content.querySelectorAll('[data-yotpo-count-label]').forEach((element) => {
+      if (count === 1) {
+        element.textContent = element.dataset.singular;
+      }
+    });
     content.querySelectorAll('[data-yotpo-score]').forEach((element) => element.textContent = roundedScore.toFixed(1));
 
     this.append(content);

@@ -1,0 +1,27 @@
+{%- doc -%}
+Sengefabrikken: a drawer with the Yotpo reviews widget of the product. It is rendered once by the main product section,
+and opened by any element with aria-controls="yotpo-reviews-{{ product.id }}" (the rating in the product info and the
+"Anmeldelser" link of the product navigation). The Yotpo script is only loaded when the drawer is opened the first time
+(see yotpo-reviews.js).
+
+@param {object} product - the product whose reviews are shown
+{%- enddoc -%}
+
+{%- if product != blank and settings.yotpo_app_key != blank -%}
+  <script type="module" src="{{ 'yotpo-reviews.js' | asset_url }}"></script>
+
+  <x-drawer id="yotpo-reviews-{{ product.id }}" append-to-body class="drawer color-scheme color-scheme--{{ settings.default_color_scheme.id }}">
+    <span class="h5" slot="header">Anmeldelser</span>
+
+    <yotpo-reviews app-key="{{ settings.yotpo_app_key | escape }}">
+      <div
+        class="yotpo yotpo-main-widget"
+        data-product-id="{{ product.id }}"
+        data-name="{{ product.title | escape }}"
+        data-url="{{ shop.url }}{{ product.url }}"
+        data-image-url="{{ product.featured_image | image_url: width: 1000 | replace: '?', '%3F' | replace: '&', '%26' }}"
+        data-description="{{ product.description | strip_html | truncate: 500 | escape }}"
+      ></div>
+    </yotpo-reviews>
+  </x-drawer>
+{%- endif -%}

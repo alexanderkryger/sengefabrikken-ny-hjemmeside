@@ -85,9 +85,18 @@
     <nav class="product-navigation scroll-area" aria-label="{{ product.title | escape }}">
       <div class="product-navigation__links">
         {%- for block in section.blocks -%}
-          {%- if block.settings.menu != blank -%}
-            <a href="{{ block.settings.link }}" class="product-navigation__link" {{ block.shopify_attributes }}>{{ block.settings.menu }}</a>
-          {%- endif -%}
+          {%- case block.type -%}
+            {%- when 'menu' -%}
+              {%- if block.settings.menu != blank -%}
+                <a href="{{ block.settings.link }}" class="product-navigation__link" {{ block.shopify_attributes }}>{{ block.settings.menu }}</a>
+              {%- endif -%}
+
+            {%- when 'reviews' -%}
+              {%- comment -%}Opens the Yotpo reviews drawer rendered by the main product section{%- endcomment -%}
+              {%- if block.settings.menu != blank and product != blank and settings.yotpo_app_key != blank -%}
+                <button type="button" class="product-navigation__link" aria-controls="yotpo-reviews-{{ product.id }}" {{ block.shopify_attributes }}>{{ block.settings.menu }}</button>
+              {%- endif -%}
+          {%- endcase -%}
         {%- endfor -%}
       </div>
 
@@ -182,6 +191,23 @@
           "id": "link",
           "label": "Link",
           "info": "Fx #specification for at linke til en sektion med det Anker-ID."
+        }
+      ]
+    },
+    {
+      "type": "reviews",
+      "name": "Anmeldelser",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "paragraph",
+          "content": "Åbner en skuffe med produktets Yotpo-anmeldelser. Kræver Yotpo app key under Temaindstillinger > Sengefabrikken anmeldelser."
+        },
+        {
+          "type": "text",
+          "id": "menu",
+          "label": "Tekst",
+          "default": "Anmeldelser"
         }
       ]
     }
