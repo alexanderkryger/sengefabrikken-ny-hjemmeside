@@ -123,7 +123,11 @@
 }
 
 .sengefabrikken-card--compact .sengefabrikken-card__splash {
-  width: 3.75rem;
+  width: 5rem;
+}
+
+.sengefabrikken-card--compact .sengefabrikken-card__splash-text {
+  font-size: .8125rem;
 }
 
 .sengefabrikken-card--compact .sengefabrikken-card__quality-icon {
