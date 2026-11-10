@@ -328,7 +328,7 @@
       ],
       "name": "t:sections.specifications.name",
       "settings": {
-        "color_scheme": "",
+        "color_scheme": "scheme-1",
         "use_page_width": true,
         "background": "",
         "text_color": "",
