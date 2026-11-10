@@ -1424,6 +1424,28 @@
       },
       {
         "type": "header",
+        "content": "Farveskift mellem sektioner"
+      },
+      {
+        "type": "checkbox",
+        "id": "section_color_transition",
+        "label": "Glidende farveskift",
+        "info": "Hele siden toner over i baggrundsfarven på den sektion, der er midt på skærmen, i stedet for en hård kant mellem sektioner med forskellige farver. Sektioner vist som boks beholder deres egen farve.",
+        "default": false
+      },
+      {
+        "type": "range",
+        "id": "section_color_transition_duration",
+        "label": "Varighed",
+        "min": 200,
+        "max": 1500,
+        "step": 100,
+        "unit": "ms",
+        "default": 600,
+        "visible_if": "{{ settings.section_color_transition }}"
+      },
+      {
+        "type": "header",
         "content": "Betalingsikoner"
       },
       {

@@ -59,6 +59,12 @@
     {%- comment -%}Sengefabrikken: Yotpo style review stars{%- endcomment -%}
     {{- 'yotpo-stars.css' | asset_url | stylesheet_tag -}}
     <script type="module" src="{{ 'yotpo-rating.js' | asset_url }}"></script>
+
+    {%- if settings.section_color_transition -%}
+      {%- comment -%}Sengefabrikken: the page background fades between the section colors{%- endcomment -%}
+      {{- 'section-color-transition.css' | asset_url | stylesheet_tag -}}
+      <script type="module" src="{{ 'section-color-transition.js' | asset_url }}"></script>
+    {%- endif -%}
   </head>
 
   {% liquid
@@ -99,6 +105,10 @@
     {%- if request.page_type != 'password' -%}
       {%- sections 'header-group' -%}
       {%- sections 'overlay-group' -%}
+    {%- endif -%}
+
+    {%- if settings.section_color_transition -%}
+      <section-color-transition duration="{{ settings.section_color_transition_duration }}"></section-color-transition>
     {%- endif -%}
 
     <main id="main" class="anchor {% if request.page_type == 'policy' or request.page_type == 'captcha' %}color-scheme color-scheme--{{ settings.default_color_scheme.id }}{% endif %}">

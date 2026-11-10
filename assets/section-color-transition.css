@@ -1,0 +1,23 @@
+/*
+ * Sengefabrikken: the page background fades into the color of the section in the middle of the screen (see
+ * section-color-transition.js, enabled in theme settings > Sengefabrikken layout).
+ */
+
+section-color-transition {
+  display: none;
+}
+
+#main.has-section-color-transition {
+  background-color: var(--section-color-transition-background);
+  transition: background-color var(--section-color-transition-duration, .6s) ease;
+}
+
+#main.has-section-color-transition > .shopify-section > .color-scheme {
+  background-color: transparent;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #main.has-section-color-transition {
+    transition: none;
+  }
+}
