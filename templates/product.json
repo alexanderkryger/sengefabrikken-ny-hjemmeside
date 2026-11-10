@@ -188,9 +188,9 @@
         "item_BfUd84": {
           "type": "item",
           "settings": {
-            "icon": "none",
-            "icon_width": 24,
-            "mobile_icon_width": 20,
+            "icon": "picto-dansk-flag",
+            "icon_width": 52,
+            "mobile_icon_width": 52,
             "title": "Danskproducerede senge",
             "content": ""
           }
@@ -198,7 +198,7 @@
         "item_izhe8f": {
           "type": "item",
           "settings": {
-            "icon": "none",
+            "icon": "picto-garanti",
             "icon_width": 24,
             "mobile_icon_width": 20,
             "title": "25 års garanti",
@@ -208,7 +208,7 @@
         "item_Egpgg4": {
           "type": "item",
           "settings": {
-            "icon": "none",
+            "icon": "picto-trustpilot",
             "icon_width": 24,
             "mobile_icon_width": 20,
             "title": "[trustscore] på Trustpilot",
@@ -218,7 +218,7 @@
         "item_nzaYbD": {
           "type": "item",
           "settings": {
-            "icon": "none",
+            "icon": "picto-use-truck",
             "icon_width": 24,
             "mobile_icon_width": 20,
             "title": "100 dages prøve",
@@ -235,7 +235,7 @@
       "name": "t:sections.trust_icons.name",
       "settings": {
         "color_scheme": "",
-        "item_heading_style": "subheading"
+        "item_heading_style": "h7"
       }
     },
     "rich_text_gUdUJV": {
