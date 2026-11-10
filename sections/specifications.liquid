@@ -1,6 +1,34 @@
 {%- if section.blocks.size > 0 -%}
-  {%- comment -%}Sengefabrikken: the anchor lets product templates link to the section (e.g. "#specification"){%- endcomment -%}
-  <div {% if section.settings.anchor != blank %}id="{{ section.settings.anchor | handle }}"{% endif %} class="color-scheme color-scheme--{{ section.settings.color_scheme.id }}">
+  {%- comment -%}
+    Sengefabrikken: the section can be shown as a rounded box in the page width, with optional manual colors (overriding
+    the color scheme) and a dotted "blueprint" background. The anchor lets product templates link to the section (e.g.
+    "#specification").
+  {%- endcomment -%}
+  {%- liquid
+    assign has_manual_colors = false
+    if section.settings.background != blank or section.settings.text_color != blank or section.settings.border_color != blank
+      assign has_manual_colors = true
+    endif
+  -%}
+
+  <style>
+    #shopify-section-{{ section.id }} {
+      --specifications-dot-color: {{ section.settings.dot_color.rgb | default: '163 150 142' }} / .5;
+    }
+
+    #shopify-section-{{ section.id }} .specifications--boxed {
+      border-radius: .75rem;
+      overflow: hidden;
+    }
+
+    #shopify-section-{{ section.id }} .specifications--dotted {
+      background-image: radial-gradient(circle at 15px 15px, rgb(var(--specifications-dot-color)) 1px, transparent 1.5px);
+      background-size: 30px 30px;
+    }
+  </style>
+
+  <div {% if section.settings.anchor != blank %}id="{{ section.settings.anchor | handle }}"{% endif %} {% if section.settings.use_page_width %}class="container section-spacing"{% endif %}>
+  <div class="color-scheme color-scheme--{{ section.settings.color_scheme.id }} {% if section.settings.use_page_width %}specifications--boxed{% endif %} {% if section.settings.show_dots %}specifications--dotted{% endif %}" {% if has_manual_colors %}style="{% render 'surface', background: section.settings.background, text_color: section.settings.text_color, border_color: section.settings.border_color %}"{% endif %}>
     {%- capture section_header -%}
       {%- if section.settings.subheading != blank or section.settings.title != blank or section.settings.content != blank -%}
         <div class="prose {% if section.settings.layout == 'stacked' and section.settings.image == blank %}prose-justify-center{% endif %}">
@@ -68,9 +96,8 @@
       {%- endif -%}
     {%- endcapture -%}
 
-    {%- comment -%}Sengefabrikken: the section can use the page width (theme settings > Sengefabrikken layout){%- endcomment -%}
     {%- if section.settings.image != blank -%}
-      <div class="section-split {% if section.settings.image_position == 'end' %}section-split--reverse{% endif %}" {% if section.settings.use_page_width %}style="max-width: var(--container-max-width); margin-inline: auto"{% endif %}>
+      <div class="section-split {% if section.settings.image_position == 'end' %}section-split--reverse{% endif %}">
         <div class="section-split__column section-split__column--image {% unless section.settings.add_image_spacing %}section-split__column--flushed{% endunless %}">
           {{- section.settings.image | image_url: width: section.settings.image.width | image_tag: sizes: '(max-width: 699px) 100vw, 50vw', widths: '300,400,500,600,800,1000,1200,1400,1600,1800,2000', class: 'size-full' -}}
         </div>
@@ -84,7 +111,7 @@
       </div>
     {%- else -%}
       {%- if section.settings.layout == 'split' -%}
-        <div class="section-split" {% if section.settings.use_page_width %}style="max-width: var(--container-max-width); margin-inline: auto"{% endif %}>
+        <div class="section-split">
           <div class="section-split__column">
             {{- section_header -}}
           </div>
@@ -102,6 +129,7 @@
         </div>
       {%- endif -%}
     {%- endif -%}
+  </div>
   </div>
 {%- endif -%}
 
@@ -124,8 +152,37 @@
       "type": "checkbox",
       "id": "use_page_width",
       "label": "Brug Sengefabrikken sidebredde",
-      "info": "Sektionen bliver lige så bred som den maks. sidebredde i Theme settings > Sengefabrikken layout.",
+      "info": "Sektionen vises som en afrundet boks, der er lige så bred som den maks. sidebredde i Theme settings > Sengefabrikken layout.",
       "default": true
+    },
+    {
+      "type": "color",
+      "id": "background",
+      "label": "Baggrund",
+      "info": "Lad felterne stå tomme for at bruge farveskemaet."
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Tekst"
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Kant"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_dots",
+      "label": "Vis prikket baggrund",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "dot_color",
+      "label": "Prikfarve",
+      "default": "#a3968e",
+      "visible_if": "{{ section.settings.show_dots }}"
     },
     {
       "type": "text",
