@@ -121,6 +121,23 @@
       display: grid;
     }
 
+    {%- comment -%}The menu button shows three lines, which turn into a cross when the menu is open{%- endcomment -%}
+    #shopify-section-{{ section.id }} .header__icon-button .header__hamburger > * {
+      transition: transform .2s, opacity .2s;
+    }
+
+    #shopify-section-{{ section.id }} .header__icon-button[aria-expanded="true"] .header__hamburger > :first-child {
+      transform: translateY(calc(var(--icon-stroke-width, 1px) + 3px)) rotate(45deg);
+    }
+
+    #shopify-section-{{ section.id }} .header__icon-button[aria-expanded="true"] .header__hamburger > :nth-child(2):not(:last-child) {
+      opacity: 0;
+    }
+
+    #shopify-section-{{ section.id }} .header__icon-button[aria-expanded="true"] .header__hamburger > :last-child {
+      transform: translateY(calc(-1 * (var(--icon-stroke-width, 1px) + 3px))) rotate(-45deg);
+    }
+
     #shopify-section-{{ section.id }} .header__icon-button:hover {
       background: rgb(var(--text-color) / .08);
     }
@@ -217,10 +234,14 @@
           <div class="h-stack gap-3" aria-hidden="true">
             <div class="header__hamburger">
               <span></span>
+              {%- if section.settings.large_icon_buttons -%}<span></span>{%- endif -%}
               <span></span>
             </div>
 
-            <span class="subheading md-max:hidden">{{ 'header.general.menu' | t }}</span>
+            {%- comment -%}Sengefabrikken: only the three lines are shown in the box ("Store knapper"){%- endcomment -%}
+            {%- unless section.settings.large_icon_buttons -%}
+              <span class="subheading md-max:hidden">{{ 'header.general.menu' | t }}</span>
+            {%- endunless -%}
           </div>
         </button>
 
@@ -424,6 +445,7 @@
               <div class="h-stack gap-3" aria-hidden="true">
                 <div class="header__hamburger">
                   <span></span>
+                  {%- if section.settings.large_icon_buttons -%}<span></span>{%- endif -%}
                   <span></span>
                 </div>
               </div>
