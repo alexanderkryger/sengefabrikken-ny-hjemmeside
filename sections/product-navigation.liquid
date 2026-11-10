@@ -29,6 +29,12 @@
     scroll-padding-top: calc(var(--sticky-area-height, 0px) + 3rem + 20px);
   }
 
+  {%- if section.settings.show_shadow -%}
+    #shopify-section-{{ section.id }} > .color-scheme {
+      box-shadow: 0 .25rem .75rem rgb(0 0 0 / .08);
+    }
+  {%- endif -%}
+
   .lock #shopify-section-{{ section.id }} {
     opacity: 0;
     pointer-events: none;
@@ -129,6 +135,13 @@
       "type": "color",
       "id": "lclh",
       "label": "Linkfarve ved hover"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_shadow",
+      "label": "Vis skygge",
+      "info": "En lille skygge under baren, så den skiller sig ud fra sektionerne nedenunder.",
+      "default": true
     },
     {
       "type": "header",
