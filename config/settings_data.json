@@ -57,7 +57,7 @@
     "cart_icon": "tote_bag",
     "page_full_width": false,
     "page_width": 1400,
-    "section_color_transition": true,
+    "section_color_transition": false,
     "section_color_transition_duration": 200,
     "payment_icons_image": "shopify://shop_images/betalingskort_ny3-any_a8fffca9-dfab-472f-8974-8ae5c633d5f4.png",
     "ribbon_text_1": "Komfort",
