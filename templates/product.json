@@ -841,7 +841,7 @@
       ],
       "name": "Medier med tekst",
       "settings": {
-        "color_scheme": "",
+        "color_scheme": "scheme-1",
         "custom_id": "",
         "media_position_desktop": "before_text",
         "media_position_mobile": "before_text",
@@ -877,6 +877,60 @@
         "button_2_link": "",
         "button_2_style": "outline"
       }
+    },
+    "multiple_media_with_text_GxXMpy": {
+      "type": "multiple-media-with-text",
+      "blocks": {
+        "image_bFrcGF": {
+          "type": "image",
+          "settings": {
+            "image": "{{ product.metafields.custom.product_description_topmadras.value.image_kerne.value }}",
+            "rotation": 0,
+            "hide_on_mobile": false
+          }
+        }
+      },
+      "block_order": [
+        "image_bFrcGF"
+      ],
+      "name": "Medier med tekst",
+      "settings": {
+        "color_scheme": "scheme-1",
+        "custom_id": "",
+        "media_position_desktop": "after_text",
+        "media_position_mobile": "before_text",
+        "media_layout": "overlap",
+        "media_alignment": "center",
+        "media_alignment_offset": 0,
+        "media_mobile_alignment_offset": 0,
+        "video": "{{ product.metafields.custom.product_description_topmadras.value.video_2.value }}",
+        "hide_media_on_mobile": true,
+        "content_percentage_width": 45,
+        "text_alignment": "center",
+        "subheading": "",
+        "title": "{{ product.metafields.custom.product_description_topmadras.value.heading_2.value }}",
+        "heading_size": "h5",
+        "show_icon": false,
+        "show_color_swatch": false,
+        "color_swatch_label": "Farver",
+        "content": "{{ product.metafields.custom.product_description_topmadras.value.text_2 | metafield_tag }}",
+        "content_border_top": false,
+        "content_border_bottom": false,
+        "content_below": "",
+        "content_below_border_top": false,
+        "content_below_border_bottom": false,
+        "border_color": "#e0dcd9",
+        "phone": "",
+        "phone_hours": "",
+        "email": "",
+        "chat": "",
+        "button_1_text": "",
+        "button_1_link": "",
+        "button_1_style": "solid",
+        "button_2_text": "",
+        "button_2_link": "",
+        "button_2_style": "outline"
+      }
     }
   },
   "order": [
@@ -891,6 +945,7 @@
     "specifications_hTjaPb",
     "rich_text_NLbNkg",
     "multiple_media_with_text_CGDEwy",
-    "multiple_media_with_text_bhqy4A"
+    "multiple_media_with_text_bhqy4A",
+    "multiple_media_with_text_GxXMpy"
   ]
 }
