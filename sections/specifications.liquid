@@ -1,5 +1,6 @@
 {%- if section.blocks.size > 0 -%}
-  <div class="color-scheme color-scheme--{{ section.settings.color_scheme.id }}">
+  {%- comment -%}Sengefabrikken: the anchor lets product templates link to the section (e.g. "#specification"){%- endcomment -%}
+  <div {% if section.settings.anchor != blank %}id="{{ section.settings.anchor | handle }}"{% endif %} class="color-scheme color-scheme--{{ section.settings.color_scheme.id }}">
     {%- capture section_header -%}
       {%- if section.settings.subheading != blank or section.settings.title != blank or section.settings.content != blank -%}
         <div class="prose {% if section.settings.layout == 'stacked' and section.settings.image == blank %}prose-justify-center{% endif %}">
@@ -67,8 +68,9 @@
       {%- endif -%}
     {%- endcapture -%}
 
+    {%- comment -%}Sengefabrikken: the section can use the page width (theme settings > Sengefabrikken layout){%- endcomment -%}
     {%- if section.settings.image != blank -%}
-      <div class="section-split {% if section.settings.image_position == 'end' %}section-split--reverse{% endif %}">
+      <div class="section-split {% if section.settings.image_position == 'end' %}section-split--reverse{% endif %}" {% if section.settings.use_page_width %}style="max-width: var(--container-max-width); margin-inline: auto"{% endif %}>
         <div class="section-split__column section-split__column--image {% unless section.settings.add_image_spacing %}section-split__column--flushed{% endunless %}">
           {{- section.settings.image | image_url: width: section.settings.image.width | image_tag: sizes: '(max-width: 699px) 100vw, 50vw', widths: '300,400,500,600,800,1000,1200,1400,1600,1800,2000', class: 'size-full' -}}
         </div>
@@ -82,7 +84,7 @@
       </div>
     {%- else -%}
       {%- if section.settings.layout == 'split' -%}
-        <div class="section-split">
+        <div class="section-split" {% if section.settings.use_page_width %}style="max-width: var(--container-max-width); margin-inline: auto"{% endif %}>
           <div class="section-split__column">
             {{- section_header -}}
           </div>
@@ -93,7 +95,7 @@
         </div>
       {%- else -%}
         <div class="container section-spacing">
-          <div class="section-stack max-w-md mx-auto">
+          <div class="section-stack {% unless section.settings.use_page_width %}max-w-md{% endunless %} mx-auto">
             {{- section_header -}}
             {{- section_content -}}
           </div>
@@ -117,6 +119,20 @@
       "id": "color_scheme",
       "label": "t:global.colors.scheme",
       "default": "scheme-1"
+    },
+    {
+      "type": "checkbox",
+      "id": "use_page_width",
+      "label": "Brug Sengefabrikken sidebredde",
+      "info": "Sektionen bliver lige så bred som den maks. sidebredde i Theme settings > Sengefabrikken layout.",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "anchor",
+      "label": "Anker-ID",
+      "info": "Bruges til at linke direkte til sektionen, fx med linket \"#specification\".",
+      "default": "specification"
     },
     {
       "type": "image_picker",
