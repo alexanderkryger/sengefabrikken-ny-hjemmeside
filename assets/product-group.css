@@ -272,3 +272,9 @@
     font-size: .875rem;
   }
 }
+
+/* The arrow of the accordions in the product info sits right after the title instead of at the far end of the row,
+   where it was covered by the product splash */
+.product-info__block-item:is([data-block-type="accordion"], [data-block-type="description"]) .accordion__summary {
+  justify-content: flex-start;
+}
