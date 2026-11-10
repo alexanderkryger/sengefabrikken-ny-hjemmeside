@@ -73,11 +73,11 @@
         <div class="accordion-list">
           {%- for block in section.blocks -%}
             {%- comment -%}
-              Sengefabrikken: "metaobject_specifications" renders one accordion per metaobject entry of a product metafield
+              Sengefabrikken: "metaobject_specs" renders one accordion per metaobject entry of a product metafield
               (a list of metaobjects with the fields "title", "content" and "icon"), as the theme editor does not offer
               repeating blocks in this section.
             {%- endcomment -%}
-            {%- if block.type == 'metaobject_specifications' -%}
+            {%- if block.type == 'metaobject_specs' -%}
               {%- assign metafield_parts = block.settings.metafield | split: '.' -%}
 
               {%- for entry in product.metafields[metafield_parts[0]][metafield_parts[1]].value -%}
@@ -131,7 +131,7 @@
         <table class="specification-table">
           <tbody class="divide-y">
             {%- for block in section.blocks -%}
-              {%- if block.type == 'metaobject_specifications' -%}
+              {%- if block.type == 'metaobject_specs' -%}
                 {%- assign metafield_parts = block.settings.metafield | split: '.' -%}
 
                 {%- for entry in product.metafields[metafield_parts[0]][metafield_parts[1]].value -%}
@@ -857,7 +857,7 @@
       ]
     },
     {
-      "type": "metaobject_specifications",
+      "type": "metaobject_specs",
       "name": "Specs fra metaobjekt",
       "limit": 1,
       "settings": [
