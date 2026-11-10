@@ -45,11 +45,11 @@
               {%- endif -%}
 
               {%- if block.settings.title != blank -%}
-                <p class="{{ section.settings.item_heading_style }}">{{ block.settings.title }}</p>
+                <p class="{{ section.settings.item_heading_style }}">{%- render 'trustpilot-tokens', text: block.settings.title -%}</p>
               {%- endif -%}
 
               {%- if block.settings.content != blank -%}
-                <p class="text-subdued">{{- block.settings.content -}}</p>
+                <p class="text-subdued">{%- render 'trustpilot-tokens', text: block.settings.content -%}</p>
               {%- endif -%}
             </div>
           </div>

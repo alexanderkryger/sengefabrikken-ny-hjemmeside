@@ -1,0 +1,46 @@
+{%- comment -%}
+  Erstatter Trustpilot-tokens i merchant-indtastet tekst med live data fra
+  shop-metafeltet custom.trustpilot_widget_data (synkroniseres af n8n).
+
+  Understøttede tokens:
+    [trustscore]         → 4,4
+    [trustpilot_stars]   → 4,5
+    [trustpilot_label]   → Fremragende
+    [trustpilot_reviews] → 3.137
+
+  Accepterede parametre:
+    - text (påkrævet): strengen der skal behandles. Kan indeholde HTML (richtext).
+
+  Findes metafeltet ikke, returneres teksten uændret, så tokens aldrig
+  efterlader et tomt hul på storefronten.
+{%- endcomment -%}
+
+{%- liquid
+  assign tp = shop.metafields.custom.trustpilot_widget_data.value
+  assign output = text
+
+  if tp != blank
+    assign score = tp.trust_score | append: '' | replace: '.', ','
+    assign stars = tp.stars | append: '' | replace: '.', ','
+
+    assign total = tp.total_reviews | append: ''
+    assign total_length = total.size
+    if total_length > 3
+      assign head_length = total_length | minus: 3
+      capture total_formatted
+        echo total | slice: 0, head_length
+        echo '.'
+        echo total | slice: head_length, 3
+      endcapture
+    else
+      assign total_formatted = total
+    endif
+
+    assign output = output | replace: '[trustscore]', score
+    assign output = output | replace: '[trustpilot_stars]', stars
+    assign output = output | replace: '[trustpilot_label]', tp.label
+    assign output = output | replace: '[trustpilot_reviews]', total_formatted
+  endif
+
+  echo output
+-%}

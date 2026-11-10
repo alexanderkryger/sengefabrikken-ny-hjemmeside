@@ -101,12 +101,14 @@
                 {%- endif -%}
 
                 {%- if block.settings.title != blank -%}
-                  {%- render 'heading', content: block.settings.title, style: block.settings.heading_tag -%}
+                  {%- comment -%}Sengefabrikken: Trustpilot tokens such as [trustscore] are replaced by the live data{%- endcomment -%}
+                  {%- capture block_title -%}{%- render 'trustpilot-tokens', text: block.settings.title -%}{%- endcapture -%}
+                  {%- render 'heading', content: block_title, style: block.settings.heading_tag -%}
                 {%- endif -%}
 
                 {%- if block.settings.content != blank -%}
                   <div class="text-subdued">
-                    {{- block.settings.content -}}
+                    {%- render 'trustpilot-tokens', text: block.settings.content -%}
                   </div>
                 {%- endif -%}
               </div>
