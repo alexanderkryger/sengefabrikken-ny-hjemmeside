@@ -28,6 +28,32 @@ mobile, and for desktop on "drawer" mode.
 
   <header-menu-drawer-panel id="menu-drawer-panel-main" data-main-panel class="menu-drawer__panel">
     <div class="menu-drawer__panel-body">
+      {%- comment -%}Sengefabrikken: the custom buttons of the header (e.g. "BLACK MONTH") are shown first on mobile{%- endcomment -%}
+      {%- liquid
+        assign show_custom_button = false
+        assign show_custom_button_2 = false
+
+        if section.settings.custom_button_text != blank and section.settings.custom_button_url != blank
+          assign show_custom_button = true
+        endif
+
+        if section.settings.custom_button_text_2 != blank and section.settings.custom_button_url_2 != blank
+          assign show_custom_button_2 = true
+        endif
+      -%}
+
+      {%- if show_custom_button or show_custom_button_2 -%}
+        <div class="menu-drawer__custom-buttons v-stack gap-2 sm:hidden">
+          {%- if show_custom_button -%}
+            {%- render 'button', content: section.settings.custom_button_text, href: section.settings.custom_button_url, background: section.settings.custom_button_bg, text_color: section.settings.custom_button_color, stretch: true, class: 'header__custom-button' -%}
+          {%- endif -%}
+
+          {%- if show_custom_button_2 -%}
+            {%- render 'button', content: section.settings.custom_button_text_2, href: section.settings.custom_button_url_2, background: section.settings.custom_button_bg_2, text_color: section.settings.custom_button_color_2, stretch: true, class: 'header__custom-button' -%}
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+
       {%- if primary_menu.links.size > 0 -%}
         <ul class="v-stack gap-3 faded-linklist unstyled-list">
           {%- for link in primary_menu.links -%}

@@ -75,17 +75,31 @@
   {%- endif -%}
 
   {%- comment -%}Sengefabrikken: the custom buttons use the heading font{%- endcomment -%}
-  #shopify-section-{{ section.id }} .header__custom-button {
+  #shopify-section-{{ section.id }} .header__custom-button,
+  #menu-drawer .header__custom-button {
     font-family: var(--heading-font-family);
     font-weight: var(--heading-font-weight);
     font-style: var(--heading-font-style);
     letter-spacing: var(--heading-letter-spacing);
   }
 
+  #menu-drawer .menu-drawer__custom-buttons {
+    margin-block-end: 2rem;
+  }
+
   {%- comment -%}Sengefabrikken: the search, news and cart links are shown in boxes ("Store knapper"){%- endcomment -%}
   {%- if section.settings.large_icon_buttons -%}
+    #shopify-section-{{ section.id }} .header {
+      --header-nav-icon-gap: .375rem;
+    }
+
+    @media screen and (min-width: 700px) {
+      #shopify-section-{{ section.id }} .header {
+        --header-nav-icon-gap: .625rem;
+      }
+    }
+
     #shopify-section-{{ section.id }} {
-      --header-nav-icon-gap: .625rem;
       --header-icon-button-size: 2.5rem;
       --header-cart-count-background: {{ section.settings.cart_count_background.rgb | default: '101 6 33' }};
     }
@@ -197,7 +211,7 @@
       -%}
 
       <nav class="header__primary-nav {{ primary_nav_extra_classes }}" aria-label="{{ 'header.general.primary_navigation' | t | escape }}">
-        <button type="button" aria-controls="menu-drawer" class="tap-area {% unless section.settings.desktop_layout == 'drawer' %}md:hidden{% endunless %}">
+        <button type="button" aria-controls="menu-drawer" class="tap-area {% if section.settings.large_icon_buttons %}header__icon-button{% endif %} {% unless section.settings.desktop_layout == 'drawer' %}md:hidden{% endunless %}">
           <span class="sr-only">{{ 'header.general.menu' | t }}</span>
 
           <div class="h-stack gap-3" aria-hidden="true">
@@ -404,7 +418,7 @@
 
         {%- if section.settings.mobile_layout == 'logo_left_navigation_right' -%}
           <li class="header__menu-link md:hidden">
-            <button class="block tap-area" type="button" aria-controls="menu-drawer">
+            <button class="block tap-area {% if section.settings.large_icon_buttons %}header__icon-button{% endif %}" type="button" aria-controls="menu-drawer">
               <span class="sr-only">{{ 'header.general.menu' | t }}</span>
 
               <div class="h-stack gap-3" aria-hidden="true">
