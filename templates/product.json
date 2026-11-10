@@ -199,8 +199,8 @@
           "type": "item",
           "settings": {
             "icon": "picto-garanti",
-            "icon_width": 24,
-            "mobile_icon_width": 20,
+            "icon_width": 52,
+            "mobile_icon_width": 52,
             "title": "25 års garanti",
             "content": ""
           }
@@ -209,8 +209,8 @@
           "type": "item",
           "settings": {
             "icon": "picto-trustpilot",
-            "icon_width": 24,
-            "mobile_icon_width": 20,
+            "icon_width": 52,
+            "mobile_icon_width": 52,
             "title": "[trustscore] på Trustpilot",
             "content": ""
           }
@@ -219,8 +219,8 @@
           "type": "item",
           "settings": {
             "icon": "picto-use-truck",
-            "icon_width": 24,
-            "mobile_icon_width": 20,
+            "icon_width": 52,
+            "mobile_icon_width": 52,
             "title": "100 dages prøve",
             "content": ""
           }
