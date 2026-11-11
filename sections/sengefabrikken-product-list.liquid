@@ -28,7 +28,7 @@
   endif
 -%}
 
-<div class="color-scheme color-scheme--{{ section.settings.color_scheme.id }}">
+<div class="color-scheme color-scheme--{{ section.settings.color_scheme.id }}" {% if section.settings.custom_id != blank %}id="{{ section.settings.custom_id | handle }}"{% endif %}>
   <div class="container section-spacing">
     <div class="section-stack">
       {%- content_for "block", type: "_section-header", id: "section-header" -%}
@@ -79,6 +79,12 @@
       "id": "color_scheme",
       "label": "t:global.colors.scheme",
       "default": "scheme-1"
+    },
+    {
+      "type": "text",
+      "id": "custom_id",
+      "label": "Anker-ID",
+      "info": "Giv sektionen et unikt ID, så der kan linkes direkte til den (fx #favoritter)."
     },
     {
       "type": "header",
