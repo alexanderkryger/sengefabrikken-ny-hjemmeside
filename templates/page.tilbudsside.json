@@ -223,6 +223,101 @@
         "use_page_width": true,
         "preload_first": false
       }
+    },
+    "sengefabrikken_product_list_V9UgEy": {
+      "type": "sengefabrikken-product-list",
+      "blocks": {
+        "section-header": {
+          "type": "_section-header",
+          "static": true,
+          "settings": {
+            "subheading": "",
+            "title": "Vores Elevationssenge",
+            "content": "<p>Elevationssenge kombinerer unik komfort med funktionalitet. Her kan du nemt hæve og sænke såvel hoved- som fodende efter behov. Særligt praktisk, hvis du fx læser i sengen eller af helbredsmæssige årsager har brug for at ændre din soveposition.</p>",
+            "button_text": "",
+            "button_link": "",
+            "button_style": "outline",
+            "text_alignment": "center",
+            "heading_size": "h3",
+            "title_icon": "none",
+            "show_scrolling_title": false
+          },
+          "blocks": {}
+        }
+      },
+      "name": "Sengefabrikken produkter",
+      "settings": {
+        "color_scheme": "scheme-1",
+        "product_list": [
+          "fabrikkens-trykaflastende-elevation-sand-180x200-cm",
+          "fabrikkens-kolende-elevation-sand-180x200-cm",
+          "fabrikkens-luksus-elevation-sand-180x200-cm",
+          "fabrikkens-platin-elevation-sand-180x200-cm"
+        ],
+        "collection": "",
+        "products_count": 6,
+        "products_per_row_desktop": "1",
+        "mobile_carousel": false,
+        "box_background": "#fff4e2",
+        "box_from": 1,
+        "box_to": 2
+      }
+    },
+    "trustpilot_reviews_hVAHxE": {
+      "type": "trustpilot-reviews",
+      "name": "Trustpilot anmeldelser",
+      "settings": {
+        "color_scheme": "scheme-5",
+        "heading_size": "h4",
+        "score_suffix": "på Trustpilot",
+        "count_prefix": "Baseret på",
+        "count_suffix": "anmeldelser",
+        "disclosure": "Viser vores 4- og 5-stjernede anmeldelser",
+        "autoscroll": true,
+        "seconds_per_card": 20,
+        "card_background": "#f6f1ec",
+        "card_border_color": "#e0dcd9"
+      }
+    },
+    "sengefabrikken_product_list_A68nwb": {
+      "type": "sengefabrikken-product-list",
+      "blocks": {
+        "section-header": {
+          "type": "_section-header",
+          "static": true,
+          "settings": {
+            "subheading": "",
+            "title": "Vores Boxmadrasser",
+            "content": "<p>Boxmadrasser er simple all-in-one løsninger, hvor du ikke går på kompromis med hverken komfort eller støtte. Du får vores velkendte komfort og støtte fra to individuelle fjedrelag samlet i en massiv trækonstruktion betrukket med Oeko Tex certificerede møbeltekstiler.&nbsp;</p>",
+            "button_text": "",
+            "button_link": "",
+            "button_style": "outline",
+            "text_alignment": "center",
+            "heading_size": "h3",
+            "title_icon": "none",
+            "show_scrolling_title": false
+          },
+          "blocks": {}
+        }
+      },
+      "name": "Sengefabrikken produkter",
+      "settings": {
+        "color_scheme": "scheme-1",
+        "product_list": [
+          "fabrikkens-komfort-box-sand-140x200-cm",
+          "fabrikkens-trykaflastende-box-sand-140x200-cm",
+          "fabrikkens-kolende-box-sand-140x200-cm",
+          "fabrikkens-luksus-box-sand-140x200-cm",
+          "fabrikkens-magasinboks-sand-140x200-cm"
+        ],
+        "collection": "",
+        "products_count": 6,
+        "products_per_row_desktop": "1",
+        "mobile_carousel": false,
+        "box_background": "#fff4e2",
+        "box_from": 2,
+        "box_to": 3
+      }
     }
   },
   "order": [
@@ -231,6 +326,9 @@
     "sengefabrikken_product_list_zyFMMY",
     "sengefabrikken_banner_HFRXNN",
     "sengefabrikken_product_list_3NzdxG",
-    "sengefabrikken_banner_8jVPMP"
+    "sengefabrikken_banner_8jVPMP",
+    "sengefabrikken_product_list_V9UgEy",
+    "trustpilot_reviews_hVAHxE",
+    "sengefabrikken_product_list_A68nwb"
   ]
 }
