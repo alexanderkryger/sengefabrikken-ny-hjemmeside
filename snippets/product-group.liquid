@@ -232,6 +232,7 @@ Two other metafields are rendered as well:
               {%- endif -%}
 
               {{- drawer_sections -}}
+              {%- render 'product-group-video', group_product: group_product -%}
             </div>
 
             <dialog-close-button slot="footer" style="display: contents">
@@ -267,6 +268,7 @@ Two other metafields are rendered as well:
               {%- endif -%}
 
               {%- render 'product-group-variant-list', group_product: group_product, input_name: input_name -%}
+              {%- render 'product-group-video', group_product: group_product -%}
             </div>
           </x-drawer>
         </div>

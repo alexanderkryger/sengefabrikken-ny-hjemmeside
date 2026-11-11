@@ -1,0 +1,36 @@
+{%- doc -%}
+Sengefabrikken: a guide video shown in the drawer of a group product (eg. "Bliv klogere på Komfort Topmadras"), with the
+title and text next to it. The video comes from the "custom.drawer_video" metafield of the group product, referencing a
+"VideoInfo" metaobject (fields: "video_url", "title" and "description", plus an optional "video" file that takes
+precedence over the URL), so the same video can be reused by several products. The video is only loaded when played.
+
+@param {object} group_product - the product shown in the drawer
+{%- enddoc -%}
+
+{%- liquid
+  assign video_info = group_product.metafields.custom.drawer_video.value
+  assign video_file = video_info.video.value
+  assign video_url = video_info.video_url.value | default: video_info.video_url
+-%}
+
+{%- if video_file != blank or video_url != blank -%}
+  <div class="product-group-video">
+    {%- if video_file != blank -%}
+      {%- render 'media', media: video_file, autoplay: false, controls: true, preload: false, sizes: '(max-width: 699px) 50vw, 240px', class: 'product-group-video__media' -%}
+    {%- else -%}
+      <video class="product-group-video__media" src="{{ video_url | escape }}#t=0.1" controls playsinline preload="metadata"></video>
+    {%- endif -%}
+
+    {%- if video_info.title != blank or video_info.description != blank -%}
+      <div class="v-stack gap-1">
+        {%- if video_info.title != blank -%}
+          <p class="h6">{{ video_info.title }}</p>
+        {%- endif -%}
+
+        {%- if video_info.description != blank -%}
+          <p class="text-sm text-subdued">{{ video_info.description }}</p>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+  </div>
+{%- endif -%}

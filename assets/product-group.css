@@ -279,3 +279,24 @@
 .product-info__block-item:is([data-block-type="accordion"], [data-block-type="description"]) .accordion__summary {
   justify-content: flex-start;
 }
+
+/* Guide video of a group product (see the product-group-video snippet) */
+.product-group-video {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: 1.25rem;
+  display: grid;
+}
+
+.product-group-video__media {
+  border-radius: .25rem;
+  overflow: clip;
+}
+
+video.product-group-video__media {
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  background: rgb(var(--text-color) / .06);
+  width: 100%;
+  display: block;
+}
