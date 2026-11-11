@@ -16,6 +16,7 @@ product-group snippet).
       assign variant_title = variant.title | split: ' - '
       assign variant_image = variant.featured_media | default: group_product.featured_media
       assign is_upgrade = false
+      assign variant_video = variant.metafields.custom.drawer_video.value
 
       if variant.metafields.custom.upgrade != blank
         assign is_upgrade = true
@@ -24,7 +25,7 @@ product-group snippet).
 
     <input class="sr-only" type="radio" id="{{ input_name }}-{{ variant.id }}" name="{{ input_name }}" value="{{ variant.id }}" data-label="{{ variant_title.first | escape }}" data-price="{{ variant.price }}" data-compare-at-price="{{ variant.compare_at_price | default: variant.price }}">
 
-    <label class="product-group-option {% if is_upgrade %}product-group-option--highlighted{% endif %}" for="{{ input_name }}-{{ variant.id }}">
+    <label class="product-group-option {% if is_upgrade %}product-group-option--highlighted{% endif %}" for="{{ input_name }}-{{ variant.id }}" {% if variant_video != blank %}data-video="{{ variant_video.system.handle | escape }}"{% endif %}>
       {%- if variant_image != blank -%}
         {{- variant_image | image_url: width: variant_image.width | image_tag: loading: 'lazy', sizes: '64px', widths: '64,128,192', class: 'product-group-option__image' -}}
       {%- endif -%}
@@ -42,6 +43,12 @@ product-group snippet).
 
         {%- if variant.metafields.custom.ekstra_levering != blank -%}
           <span class="subheading text-subdued">Leveringstid: {{ variant.metafields.custom.ekstra_levering }}</span>
+        {%- endif -%}
+
+        {%- if variant_video != blank -%}
+          <button type="button" class="product-group-option__video link-faded text-sm" data-show-video="{{ variant_video.system.handle | escape }}">
+            {%- render 'icon' with 'play-triangle', width: 8 -%} Se video
+          </button>
         {%- endif -%}
       </span>
 

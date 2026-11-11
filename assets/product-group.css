@@ -280,16 +280,27 @@
   justify-content: flex-start;
 }
 
-/* Guide video of a group product (see the product-group-video snippet) */
+/* Guide videos of a product group drawer (see the product-group-video snippet and <product-group-videos>). On mobile,
+   the panel is shown above the options; on desktop, it floats next to the drawer, like the cards of the menu drawer. */
+.product-group-videos {
+  order: -1;
+  margin-block-end: 1.5rem;
+  display: block;
+}
+
 .product-group-video {
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   align-items: center;
-  gap: 1.25rem;
+  gap: 1rem;
   display: grid;
 }
 
+.product-group-video[hidden] {
+  display: none;
+}
+
 .product-group-video__media {
-  border-radius: .25rem;
+  border-radius: .5rem;
   overflow: clip;
 }
 
@@ -299,4 +310,40 @@ video.product-group-video__media {
   background: rgb(var(--text-color) / .06);
   width: 100%;
   display: block;
+}
+
+.product-group-option__video {
+  justify-self: start;
+  align-items: center;
+  gap: .375rem;
+  display: inline-flex;
+}
+
+.product-group-option__video svg path {
+  fill: currentColor;
+}
+
+@media screen and (min-width: 1000px) {
+  .product-group-videos {
+    background: rgb(var(--background));
+    border-radius: 1rem;
+    width: min(26.25rem, 100vw - var(--drawer-max-width) - 3rem);
+    padding: 1.25rem;
+    position: absolute;
+    inset-block-start: 4.5rem;
+    inset-inline-end: calc(100% + 1rem);
+    margin-block-end: 0;
+    box-shadow: 0 1.5rem 3rem rgb(0 0 0 / .15);
+  }
+
+  .product-group-video {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  /* On desktop, the video is shown when hovering the option, so the button is only needed on touch devices */
+  @media (pointer: fine) {
+    .product-group-option__video {
+      display: none;
+    }
+  }
 }

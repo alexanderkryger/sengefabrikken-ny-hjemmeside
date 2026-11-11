@@ -214,6 +214,127 @@ class ProductGroup extends HTMLElement {
   }
 }
 
+/**
+ * Sengefabrikken: <product-group-videos>
+ *
+ * The guide videos of a product group drawer (see the product-group-video snippet). On desktop, the panel floats next to
+ * the drawer; on mobile, it is shown above the options. A single video is shown at a time:
+ * - by default, the video of the product (or the first video)
+ * - when an option with its own video is hovered (desktop) or selected, its video
+ * - when the "Se video" button of an option is clicked, its video (scrolled into view on mobile)
+ *
+ * While a video plays, hovering the options does not switch the video. Videos from a URL are only loaded when shown.
+ */
+class ProductGroupVideos extends HTMLElement {
+  #abortController;
+  #selectedVideo;
+
+  connectedCallback() {
+    this.#abortController = new AbortController();
+    const { signal } = this.#abortController;
+    const drawer = this.closest('x-drawer');
+
+    // The same video can be rendered by several products of a merged row
+    const seen = new Set();
+
+    this.items.forEach((item) => {
+      const handle = item.getAttribute('data-video-item');
+      seen.has(handle) ? item.remove() : seen.add(handle);
+    });
+
+    this.#show(this.#defaultVideo);
+
+    drawer?.addEventListener('pointerover', this.#onPointerOver.bind(this), { signal });
+    drawer?.addEventListener('pointerleave', () => this.#show(this.#selectedVideo || this.#defaultVideo, { hover: true }), { signal });
+    drawer?.addEventListener('change', this.#onChange.bind(this), { signal });
+    drawer?.addEventListener('click', this.#onClick.bind(this), { signal });
+    drawer?.addEventListener('dialog:after-hide', () => this.#pauseAll(), { signal });
+  }
+
+  disconnectedCallback() {
+    this.#abortController.abort();
+  }
+
+  get items() {
+    return Array.from(this.querySelectorAll('[data-video-item]'));
+  }
+
+  get #defaultVideo() {
+    return (this.querySelector('[data-default]') || this.items[0])?.getAttribute('data-video-item');
+  }
+
+  #onPointerOver(event) {
+    if (event.pointerType !== 'mouse') {
+      return;
+    }
+
+    const option = event.target.closest('.product-group-option');
+
+    if (option) {
+      this.#show(option.getAttribute('data-video') || this.#selectedVideo || this.#defaultVideo, { hover: true });
+    }
+  }
+
+  #onChange(event) {
+    const option = event.target.id ? this.closest('x-drawer').querySelector(`label[for="${CSS.escape(event.target.id)}"]`) : null;
+
+    if (option?.hasAttribute('data-video')) {
+      this.#selectedVideo = option.getAttribute('data-video');
+      this.#show(this.#selectedVideo);
+    }
+  }
+
+  #onClick(event) {
+    const button = event.target.closest('[data-show-video]');
+
+    if (!button) {
+      return;
+    }
+
+    event.preventDefault();
+    this.#show(button.getAttribute('data-show-video'));
+
+    if (!window.matchMedia('(min-width: 1000px)').matches) {
+      this.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+
+  #show(handle, { hover = false } = {}) {
+    const target = this.items.find((item) => item.getAttribute('data-video-item') === handle);
+
+    if (!target || !target.hidden) {
+      return;
+    }
+
+    // Hovering the options does not interrupt a playing video
+    if (hover && this.items.some((item) => !item.hidden && Array.from(item.querySelectorAll('video')).some((video) => !video.paused))) {
+      return;
+    }
+
+    this.items.forEach((item) => {
+      item.hidden = item !== target;
+
+      if (item.hidden) {
+        item.querySelectorAll('video').forEach((video) => video.pause());
+      }
+    });
+
+    target.querySelectorAll('video[data-src]').forEach((video) => {
+      video.src = video.getAttribute('data-src');
+      video.removeAttribute('data-src');
+      video.preload = 'metadata';
+    });
+  }
+
+  #pauseAll() {
+    this.querySelectorAll('video').forEach((video) => video.pause());
+  }
+}
+
+if (!window.customElements.get('product-group-videos')) {
+  window.customElements.define('product-group-videos', ProductGroupVideos);
+}
+
 // Like the "money_without_trailing_zeros" filter, the decimals are removed when they are zero
 function formatMoney(cents) {
   return formatMoneyWithDecimals(cents).replace(/[.,]00(?!\d)/, '');

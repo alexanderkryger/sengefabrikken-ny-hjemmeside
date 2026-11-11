@@ -232,8 +232,21 @@ Two other metafields are rendered as well:
               {%- endif -%}
 
               {{- drawer_sections -}}
-              {%- render 'product-group-video', group_product: group_product -%}
             </div>
+
+            {%- capture drawer_videos -%}
+              {%- for member in group_products -%}
+                {%- capture member_base_title -%}{%- render 'product-group-base-title', title: member.title -%}{%- endcapture -%}
+
+                {%- if member_base_title == base_title and member.available -%}
+                  {%- render 'product-group-video', group_product: member -%}
+                {%- endif -%}
+              {%- endfor -%}
+            {%- endcapture -%}
+
+            {%- if drawer_videos != blank -%}
+              <product-group-videos class="product-group-videos">{{- drawer_videos -}}</product-group-videos>
+            {%- endif -%}
 
             <dialog-close-button slot="footer" style="display: contents">
               <button type="button" class="button w-full">Bekræft</button>
@@ -268,8 +281,13 @@ Two other metafields are rendered as well:
               {%- endif -%}
 
               {%- render 'product-group-variant-list', group_product: group_product, input_name: input_name -%}
-              {%- render 'product-group-video', group_product: group_product -%}
             </div>
+
+            {%- capture drawer_videos -%}{%- render 'product-group-video', group_product: group_product -%}{%- endcapture -%}
+
+            {%- if drawer_videos != blank -%}
+              <product-group-videos class="product-group-videos">{{- drawer_videos -}}</product-group-videos>
+            {%- endif -%}
           </x-drawer>
         </div>
       {%- endif -%}

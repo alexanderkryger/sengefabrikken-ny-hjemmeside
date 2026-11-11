@@ -1,24 +1,57 @@
 {%- doc -%}
-Sengefabrikken: a guide video shown in the drawer of a group product (eg. "Bliv klogere på Komfort Topmadras"), with the
-title and text next to it. The video comes from the "custom.drawer_video" metafield of the group product, referencing a
-"VideoInfo" metaobject (fields: "video_url", "title" and "description", plus an optional "video" file that takes
-precedence over the URL), so the same video can be reused by several products. The video is only loaded when played.
+Sengefabrikken: renders the guide videos of a product from the product group, shown in the video panel of its drawer
+(see the product-group snippet and the <product-group-videos> element). The videos come from the "custom.drawer_video"
+metafield, referencing a "VideoInfo" metaobject (fields: "video_url", "title" and "description", plus an optional "video"
+file that takes precedence over the URL):
+- on the product: the video shown by default (eg. "Bliv klogere på valg af fasthed")
+- on a variant: the video shown when the variant is hovered, or when its "Se video" button is clicked (eg. one video per
+  topmadras)
+
+The same video used by several variants is only rendered once (duplicates across the products of a merged row are
+removed by the <product-group-videos> element). Videos are only loaded when shown.
 
 @param {object} group_product - the product shown in the drawer
 {%- enddoc -%}
 
 {%- liquid
-  assign video_info = group_product.metafields.custom.drawer_video.value
-  assign video_file = video_info.video.value
-  assign video_url = video_info.video_url.value | default: video_info.video_url
+  assign rendered_handles = ''
+  assign product_video = group_product.metafields.custom.drawer_video.value
 -%}
 
-{%- if video_file != blank or video_url != blank -%}
-  <div class="product-group-video">
+{%- for i in (0..group_product.variants.size) -%}
+  {%- liquid
+    if i == 0
+      assign video_info = product_video
+    else
+      assign variant_index = i | minus: 1
+      assign video_info = group_product.variants[variant_index].metafields.custom.drawer_video.value
+    endif
+
+    if video_info == blank
+      continue
+    endif
+
+    assign video_handle = video_info.system.handle
+    assign handle_key = '|' | append: video_handle | append: '|'
+
+    if rendered_handles contains handle_key
+      continue
+    endif
+
+    assign rendered_handles = rendered_handles | append: handle_key
+    assign video_file = video_info.video.value
+    assign video_url = video_info.video_url.value | default: video_info.video_url
+
+    if video_file == blank and video_url == blank
+      continue
+    endif
+  -%}
+
+  <div class="product-group-video" data-video-item="{{ video_handle | escape }}" {% if i == 0 %}data-default{% endif %} hidden>
     {%- if video_file != blank -%}
-      {%- render 'media', media: video_file, autoplay: false, controls: true, preload: false, sizes: '(max-width: 699px) 50vw, 240px', class: 'product-group-video__media' -%}
+      {%- render 'media', media: video_file, autoplay: false, controls: true, preload: false, sizes: '(max-width: 999px) 50vw, 400px', class: 'product-group-video__media' -%}
     {%- else -%}
-      <video class="product-group-video__media" src="{{ video_url | escape }}#t=0.1" controls playsinline preload="metadata"></video>
+      <video class="product-group-video__media" data-src="{{ video_url | escape }}#t=0.1" controls playsinline preload="none"></video>
     {%- endif -%}
 
     {%- if video_info.title != blank or video_info.description != blank -%}
@@ -33,4 +66,4 @@ precedence over the URL), so the same video can be reused by several products. T
       </div>
     {%- endif -%}
   </div>
-{%- endif -%}
+{%- endfor -%}
