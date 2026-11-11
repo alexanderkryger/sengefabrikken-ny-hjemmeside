@@ -362,10 +362,16 @@
   display: grid;
 }
 
-.sengefabrikken-product-list--boxed {
+/* The box spans the whole row and lays out its cards like the list */
+.sengefabrikken-product-list__box {
   background: var(--sengefabrikken-product-list-background);
+  grid-template-columns: inherit;
   border-radius: .75rem;
+  grid-column: 1 / -1;
+  align-items: start;
+  gap: 1.5rem;
   padding: 1rem;
+  display: grid;
 }
 
 @media screen and (max-width: 699px) {
@@ -387,20 +393,20 @@
     scroll-snap-align: start;
   }
 
-  /* Without a box, the cards slide from edge to edge of the screen */
-  .sengefabrikken-product-list--carousel:not(.sengefabrikken-product-list--boxed) {
+  /* The cards slide from edge to edge of the screen, and the box is not shown while sliding */
+  .sengefabrikken-product-list--carousel {
     margin-inline: calc(-1 * var(--container-gutter));
     padding-inline: var(--container-gutter);
     scroll-padding-inline: var(--container-gutter);
   }
 
-  .sengefabrikken-product-list--carousel.sengefabrikken-product-list--boxed {
-    scroll-padding-inline: 1rem;
+  .sengefabrikken-product-list--carousel .sengefabrikken-product-list__box {
+    display: contents;
   }
 }
 
 @media screen and (min-width: 700px) {
-  .sengefabrikken-product-list--boxed {
+  .sengefabrikken-product-list__box {
     padding: 1.5rem;
   }
 

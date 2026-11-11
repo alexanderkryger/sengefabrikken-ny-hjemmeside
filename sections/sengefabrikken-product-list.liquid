@@ -2,7 +2,8 @@
   Sengefabrikken: a list of products shown with the Sengefabrikken product card (the same card as on the collection
   page), with a section header above. The products are picked by hand, or taken from a collection. On desktop, one to
   three cards are shown per row (one card per row shows the wide card), and on mobile the cards are stacked or slide
-  horizontally. The cards can be wrapped in a box with its own background, like the row of cards on the collection page.
+  horizontally. Some of the cards (e.g. the second and third) can be wrapped in a box with its own background, like the
+  row of cards on the collection page.
 {%- endcomment -%}
 
 {{- 'sengefabrikken-product-card.css' | asset_url | stylesheet_tag -}}
@@ -33,13 +34,28 @@
       {%- content_for "block", type: "_section-header", id: "section-header" -%}
 
       {%- capture product_cards -%}
+        {%- assign box_last = section.settings.box_to | at_least: section.settings.box_from -%}
+
         {%- for product in products limit: section.settings.products_count -%}
-          {%- render 'sengefabrikken-product-card', product: product, wide: show_wide_cards, position: forloop.index -%}
+          {%- liquid
+            # The cards from "box_from" to "box_to" are wrapped in the box (the box is closed after the last card)
+            if is_boxed and forloop.index == section.settings.box_from
+              echo '<div class="sengefabrikken-product-list__box">'
+            endif
+
+            render 'sengefabrikken-product-card', product: product, wide: show_wide_cards, position: forloop.index
+
+            if is_boxed and forloop.index >= section.settings.box_from
+              if forloop.index == box_last or forloop.last
+                echo '</div>'
+              endif
+            endif
+          -%}
         {%- endfor -%}
       {%- endcapture -%}
 
       {%- if product_cards != blank -%}
-        <div class="sengefabrikken-product-list sengefabrikken-product-list--columns-{{ columns }} {% if section.settings.mobile_carousel %}sengefabrikken-product-list--carousel{% endif %} {% if is_boxed %}sengefabrikken-product-list--boxed{% endif %}" {% if is_boxed %}style="--sengefabrikken-product-list-background: {{ section.settings.box_background }}"{% endif %}>
+        <div class="sengefabrikken-product-list sengefabrikken-product-list--columns-{{ columns }} {% if section.settings.mobile_carousel %}sengefabrikken-product-list--carousel{% endif %}" {% if is_boxed %}style="--sengefabrikken-product-list-background: {{ section.settings.box_background }}"{% endif %}>
           {{- product_cards -}}
         </div>
       {%- elsif request.design_mode -%}
@@ -126,6 +142,25 @@
       "id": "box_background",
       "label": "Baggrund bag kortene",
       "info": "Lægger kortene i en afrundet boks med denne farve. Lad den stå tom for ingen boks."
+    },
+    {
+      "type": "range",
+      "id": "box_from",
+      "label": "Baggrund fra kort nr.",
+      "min": 1,
+      "max": 12,
+      "step": 1,
+      "default": 1
+    },
+    {
+      "type": "range",
+      "id": "box_to",
+      "label": "Baggrund til kort nr.",
+      "info": "Fx fra 2 til 3 for at lægge andet og tredje kort i boksen.",
+      "min": 1,
+      "max": 12,
+      "step": 1,
+      "default": 12
     }
   ],
   "presets": [
