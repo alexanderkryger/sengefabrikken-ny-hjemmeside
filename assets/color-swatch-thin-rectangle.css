@@ -1,0 +1,33 @@
+/* Sengefabrikken: "Thin rectangle" color swatch shape (theme settings > Color swatch). It is a wide, flat rectangle with
+   rounded corners, outlined with the accent color when selected (instead of the underline of the rectangle shape). */
+
+.color-swatch--thin-rectangle {
+  --swatch-width: 3.5rem;
+  --swatch-height: 1rem;
+  --swatch-disabled-icon-size: .5rem;
+  box-shadow: 0 0 0 1px rgb(var(--text-color) / .12) inset;
+  border-radius: .25rem;
+  background-clip: border-box;
+}
+
+.color-swatch--thin-rectangle.color-swatch--sm {
+  --swatch-width: 1.75rem;
+  --swatch-height: .625rem;
+  border-radius: .125rem;
+}
+
+.color-swatch--thin-rectangle .color-swatch__indicator {
+  display: none;
+}
+
+@media (pointer: fine) {
+  label.color-swatch--thin-rectangle:hover {
+    box-shadow: 0 0 0 1px rgb(var(--text-color) / .4) inset;
+  }
+}
+
+:checked + .color-swatch--thin-rectangle, .color-swatch--thin-rectangle.is-selected {
+  outline: 1px solid rgb(var(--accent));
+  outline-offset: 0;
+  box-shadow: 0 0 0 1px rgb(var(--accent)) inset;
+}

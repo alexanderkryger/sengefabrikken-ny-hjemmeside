@@ -815,6 +815,10 @@
           {
             "value": "rectangle",
             "label": "t:theme_settings.color_swatch.shape_options.rectangle"
+          },
+          {
+            "value": "thin_rectangle",
+            "label": "Thin rectangle"
           }
         ],
         "default": "circle"

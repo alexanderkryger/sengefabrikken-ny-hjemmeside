@@ -58,6 +58,11 @@
     {{- 'product-card-ribbon.css' | asset_url | stylesheet_tag -}}
     {%- comment -%}Sengefabrikken: Yotpo style review stars{%- endcomment -%}
     {{- 'yotpo-stars.css' | asset_url | stylesheet_tag -}}
+
+    {%- if settings.color_swatch_shape == 'thin_rectangle' -%}
+      {%- comment -%}Sengefabrikken: "Thin rectangle" color swatch shape{%- endcomment -%}
+      {{- 'color-swatch-thin-rectangle.css' | asset_url | stylesheet_tag -}}
+    {%- endif -%}
     <script type="module" src="{{ 'yotpo-rating.js' | asset_url }}"></script>
 
     {%- if settings.section_color_transition -%}

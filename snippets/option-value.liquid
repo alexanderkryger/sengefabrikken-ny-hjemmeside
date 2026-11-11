@@ -66,7 +66,7 @@ the "image_filter" type is only used for filters.
 {%- capture id -%}option-value-{{ id_prefix }}-{{ section.id }}-{{ param_name }}-{{ value | handle }}{%- endcapture -%}
 
 {%- liquid
-  if type == 'swatch' or type == 'swatch_label' or type == 'block' and show_swatch
+  if type == 'swatch' or type == 'block' and show_swatch
     assign swatch = swatch | default: color_metaobject
     
     if swatch.image != blank
@@ -174,6 +174,11 @@ the "image_filter" type is only used for filters.
       if show_tight
         assign color_swatch_shape = 'circle'
       endif
+
+      # Sengefabrikken: the thin rectangle is a rectangle (same sizes in cards and filters), styled in color-swatch-thin-rectangle.css
+      if color_swatch_shape == 'thin_rectangle'
+        assign color_swatch_shape = 'rectangle color-swatch--thin-rectangle'
+      endif
     -%}
 
     <{{ option_value_tag }} {{ attributes }} class="color-swatch color-swatch--{{ color_swatch_shape }} {% if show_tight %}color-swatch--tight{% endif %} {% if size == 'sm' %}color-swatch--sm{% endif %} {% if white_label == downcase_label %}color-swatch--white{% endif %} {% if disabled %}is-disabled{% endif %} {% if selected and option_value_tag == 'a' %}is-selected{% endif %}" {% if show_tooltip %}data-tooltip="{{ label | default: value | escape }}" data-tooltip-style="color"{% endif %} style="{{ swatch_style }}">
@@ -182,15 +187,6 @@ the "image_filter" type is only used for filters.
       {%- if color_swatch_shape != 'circle' -%}
         <span class="color-swatch__indicator"></span>
       {%- endif -%}
-    </{{ option_value_tag }}>
-
-  {%- when 'swatch_label' -%}
-    {%- comment -%}Sengefabrikken: a rectangle color swatch with the color name below{%- endcomment -%}
-    {%- assign white_label = 'general.label.white' | t | downcase -%}
-
-    <{{ option_value_tag }} {{ attributes }} class="color-swatch-label {% if disabled %}is-disabled{% endif %} {% if selected and option_value_tag == 'a' %}is-selected{% endif %}">
-      <span class="color-swatch-label__color {% if white_label == downcase_label %}color-swatch--white{% endif %}" style="{{ swatch_style }}"></span>
-      <span class="color-swatch-label__name">{{ label | default: value }}</span>
     </{{ option_value_tag }}>
 
   {%- when 'image_filter' -%}
