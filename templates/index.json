@@ -70,6 +70,8 @@
         "slideshow_video_slide_8GghKm"
       ],
       "settings": {
+        "use_page_width": false,
+        "color_scheme": "",
         "allow_transparent_header": true,
         "image_size": "fill",
         "transition_type": "fade",
@@ -79,44 +81,135 @@
         "background": "#000000"
       }
     },
-    "featured-collections": {
-      "type": "featured-collections",
+    "sengefabrikken_product_list_EiFpJJ": {
+      "type": "sengefabrikken-product-list",
       "blocks": {
-        "collection-1": {
-          "type": "collection",
+        "section-header": {
+          "type": "_section-header",
+          "static": true,
           "settings": {
-            "collection": "",
-            "products_count": 6,
-            "title": "best sellers",
-            "content": "<p>{{ block.settings.collection.description }}</p>",
-            "link": "{{ block.settings.collection.url }}"
+            "subheading": "",
+            "title": "Kundernes favoritter",
+            "content": "<p>Udforsk vores to mest populære kontinentalsenge: Trykaflastende og Kølende. Designet for ultimativ komfort, hvor hver model tilbyder unikke fordele.</p>",
+            "button_text": "",
+            "button_link": "",
+            "button_style": "outline",
+            "text_alignment": "center",
+            "heading_size": "h3",
+            "title_icon": "none",
+            "show_scrolling_title": false
+          },
+          "blocks": {}
+        }
+      },
+      "name": "Sengefabrikken produkter",
+      "settings": {
+        "color_scheme": "scheme-2b5ea552-ee45-4763-a402-00199b79bef1",
+        "custom_id": "",
+        "product_list": [
+          "fabrikkens-trykaflastende-kontinental-sand-180x200-cm",
+          "fabrikkens-kolende-kontinental-sand-180x200-cm"
+        ],
+        "collection": "",
+        "products_count": 2,
+        "products_per_row_desktop": "2",
+        "mobile_carousel": false,
+        "box_background": "",
+        "box_from": 1,
+        "box_to": 12
+      }
+    },
+    "trust_icons_LD7wBg": {
+      "type": "trust-icons",
+      "blocks": {
+        "item_PW3GqK": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-dansk-flag",
+            "icon_width": 52,
+            "mobile_icon_width": 52,
+            "title": "Danskproducerede senge",
+            "content": ""
           }
         },
-        "collection-2": {
-          "type": "collection",
+        "item_LjWBNm": {
+          "type": "item",
           "settings": {
-            "collection": "",
-            "products_count": 6,
-            "title": "trending now",
-            "content": "<p>{{ block.settings.collection.description }}</p>",
-            "link": "{{ block.settings.collection.url }}"
+            "icon": "picto-garanti",
+            "icon_width": 52,
+            "mobile_icon_width": 52,
+            "title": "25 års garanti",
+            "content": ""
+          }
+        },
+        "item_bDhRnE": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-trustpilot",
+            "icon_width": 52,
+            "mobile_icon_width": 52,
+            "title": "[trustscore] på Trustpilot",
+            "content": ""
+          }
+        },
+        "item_V7aKbd": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-use-truck",
+            "icon_width": 52,
+            "mobile_icon_width": 52,
+            "title": "100 dages prøve",
+            "content": ""
           }
         }
       },
       "block_order": [
-        "collection-1",
-        "collection-2"
+        "item_PW3GqK",
+        "item_LjWBNm",
+        "item_bDhRnE",
+        "item_V7aKbd"
       ],
+      "name": "t:sections.trust_icons.name",
       "settings": {
         "color_scheme": "",
-        "stack_products_mobile": false,
-        "stack_products_desktop": false,
-        "products_per_row_mobile": "2",
-        "products_per_row_desktop": 4,
-        "tabs_alignment": "start",
-        "tabs_icon": "circle",
-        "show_view_all_button": false,
-        "show_scrolling_bar": true
+        "use_page_width": true,
+        "show_border": false,
+        "show_separators": false,
+        "item_heading_style": "h7"
+      }
+    },
+    "sengefabrikken_banner_6TBRN8": {
+      "type": "sengefabrikken-banner",
+      "blocks": {
+        "sengefabrikken_split_r3kyRV": {
+          "type": "sengefabrikken_split",
+          "settings": {
+            "color_scheme": "scheme-8",
+            "media_position": "right",
+            "image": "shopify://shop_images/haniwood.jpg",
+            "autoplay": false,
+            "subheading": "",
+            "heading": "“En dansk seng der holder i mange år”",
+            "heading_size": "h3",
+            "content": "",
+            "author_image": "shopify://shop_images/malthe_sengesnedker.png",
+            "author_name": "Michael Jensen",
+            "author_role": "Sengesnedker",
+            "button_text": "",
+            "url": "",
+            "open_in_new_tab": false,
+            "style": "solid"
+          }
+        }
+      },
+      "block_order": [
+        "sengefabrikken_split_r3kyRV"
+      ],
+      "name": "Sengefabrikken banner",
+      "settings": {
+        "color_scheme": "",
+        "use_page_width": true,
+        "preload_first": false
       }
     },
     "media-blocks": {
@@ -128,24 +221,25 @@
             "change_color_scheme_on_hover": false,
             "color_scheme": "scheme-3",
             "color_scheme_hover": "",
+            "image": "shopify://shop_images/sengefabrikken_kategori_kontinentalsenge_9909e14f-0ee1-4f07-a93e-9967847872d7.jpg",
             "icon": "none",
             "icon_width": 32,
             "mobile_icon_width": 24,
             "icon_position": "middle_center",
             "subheading": "Image block",
-            "subheading_position": "top_left",
-            "title": "face",
-            "heading_tag": "h2",
-            "heading_position": "top_left",
+            "subheading_position": "top_center",
+            "title": "Kontinentalsenge",
+            "heading_tag": "h4",
+            "heading_position": "top_center",
             "scrolling_title": false,
             "scrolling_title_separator": "none",
-            "show_text_vertically": true,
-            "text": "<p>Share some content about your store.</p>",
+            "show_text_vertically": false,
+            "text": "",
             "text_position": "middle_left",
-            "button_style": "solid",
+            "button_style": "link",
             "link_url": "",
-            "link_text": "Shop face",
-            "link_position": "bottom_left"
+            "link_text": "Se vores kontinentalsenge",
+            "link_position": "bottom_center"
           }
         },
         "image_with_text-2": {
@@ -154,24 +248,25 @@
             "change_color_scheme_on_hover": false,
             "color_scheme": "scheme-3",
             "color_scheme_hover": "",
+            "image": "shopify://shop_images/sengefabrikken_kategori_elevationssenge.webp",
             "icon": "none",
             "icon_width": 32,
             "mobile_icon_width": 24,
             "icon_position": "middle_center",
             "subheading": "Image block",
-            "subheading_position": "top_left",
-            "title": "tools",
-            "heading_tag": "h2",
-            "heading_position": "top_left",
+            "subheading_position": "top_center",
+            "title": "Elevationssenge",
+            "heading_tag": "h4",
+            "heading_position": "top_center",
             "scrolling_title": false,
             "scrolling_title_separator": "none",
-            "show_text_vertically": true,
-            "text": "<p>Share some content about your store.</p>",
-            "text_position": "middle_left",
-            "button_style": "solid",
+            "show_text_vertically": false,
+            "text": "",
+            "text_position": "middle_center",
+            "button_style": "link",
             "link_url": "",
-            "link_text": "Shop tools",
-            "link_position": "bottom_left"
+            "link_text": "Se vores elevationssenge",
+            "link_position": "bottom_center"
           }
         },
         "image_with_text-3": {
@@ -180,24 +275,25 @@
             "change_color_scheme_on_hover": false,
             "color_scheme": "scheme-3",
             "color_scheme_hover": "",
+            "image": "shopify://shop_images/sengefabrikken_kategori_boxmadrasser.webp",
             "icon": "none",
             "icon_width": 32,
             "mobile_icon_width": 24,
             "icon_position": "middle_center",
             "subheading": "Image block",
-            "subheading_position": "middle_center",
-            "title": "body",
-            "heading_tag": "h2",
-            "heading_position": "top_left",
+            "subheading_position": "top_center",
+            "title": "Boxmadrasser",
+            "heading_tag": "h4",
+            "heading_position": "top_center",
             "scrolling_title": false,
             "scrolling_title_separator": "none",
-            "show_text_vertically": true,
-            "text": "<p>Share some content about your store.</p>",
-            "text_position": "middle_left",
-            "button_style": "solid",
+            "show_text_vertically": false,
+            "text": "",
+            "text_position": "middle_center",
+            "button_style": "link",
             "link_url": "",
-            "link_text": "Shop body",
-            "link_position": "bottom_left"
+            "link_text": "Se vores boxmadrasser",
+            "link_position": "bottom_center"
           }
         }
       },
@@ -210,18 +306,18 @@
         "color_scheme": "",
         "allow_transparent_header": true,
         "subheading": "",
-        "title": "Media blocks",
-        "content": "<p>Use this section to create rich content by using images, videos, scrolling text or horizontal text. If textual content is more important than imagery, consider using the multi column section instead.</p>",
+        "title": "",
+        "content": "",
         "heading_tag": "h3",
         "text_alignment": "left",
         "scrolling_title": false,
         "scrolling_title_separator": "none",
         "stack_on_mobile": false,
-        "add_horizontal_spacing": false,
-        "add_border": false,
+        "add_horizontal_spacing": true,
+        "add_border": true,
         "column_spacing": "none",
         "items_per_row": 3,
-        "block_size": "auto"
+        "block_size": "md"
       }
     },
     "dynamic-grid": {
@@ -1121,7 +1217,9 @@
   },
   "order": [
     "slideshow",
-    "featured-collections",
+    "sengefabrikken_product_list_EiFpJJ",
+    "trust_icons_LD7wBg",
+    "sengefabrikken_banner_6TBRN8",
     "media-blocks",
     "dynamic-grid",
     "text-with-media",
