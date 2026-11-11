@@ -61,8 +61,16 @@ class ProductGroup extends HTMLElement {
       return;
     }
 
-    this.#updateRow(item.closest('[data-group-row]'));
+    const row = item.closest('[data-group-row]');
+    const isRowComplete = this.#updateRow(row);
     this.#updatePrice();
+
+    // A variant is chosen with a single click: the drawer closes once the row is completed (with two sides, once both are
+    // chosen). Accessories can be combined, so their drawer stays open until confirmed.
+    if (event.target.type === 'radio' && isRowComplete) {
+      const drawer = event.target.closest('x-drawer');
+      setTimeout(() => drawer?.hide(), 250);
+    }
   }
 
   /**
@@ -82,6 +90,8 @@ class ProductGroup extends HTMLElement {
     if (isComplete) {
       row.querySelector('[data-group-row-error]').hidden = true;
     }
+
+    return isComplete;
   }
 
   #onVariantChange(event) {
