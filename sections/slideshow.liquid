@@ -19,7 +19,8 @@
       }
     </style>
 
-    <div class="container section-spacing">
+    <div class="color-scheme color-scheme--{{ section.settings.color_scheme.id }}">
+      <div class="container section-spacing">
   {%- endif -%}
 
   <slideshow-carousel id="slideshow-{{ section.id }}" allow-swipe cell-selector=".slideshow__slide" {% if section.settings.allow_transparent_header and section.settings.use_page_width == false %}allow-transparent-header{% endif %} class="slideshow" transition="{{ section.settings.transition_type }}" {% if section.settings.autoplay %}autoplay="{{ section.settings.cycle_speed }}" {% if section.settings.pause_auto_rotate_on_hover %}pause-on-hover{% endif %}{% endif %} role="region">
@@ -31,6 +32,7 @@
   </slideshow-carousel>
 
   {%- if section.settings.use_page_width -%}
+      </div>
     </div>
   {%- endif -%}
 {%- endif -%}
@@ -51,6 +53,14 @@
       "label": "Brug Sengefabrikken sidebredde",
       "info": "Slideshowet vises som en afrundet boks, der er lige så bred som den maks. sidebredde i Theme settings > Sengefabrikken layout. Headeren kan så ikke være gennemsigtig.",
       "default": false
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:global.colors.scheme",
+      "info": "Baggrunden rundt om boksen, når Sengefabrikken sidebredde er slået til.",
+      "default": "scheme-1",
+      "visible_if": "{{ section.settings.use_page_width }}"
     },
     {
       "type": "checkbox",
