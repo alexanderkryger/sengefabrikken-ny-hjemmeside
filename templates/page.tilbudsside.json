@@ -67,6 +67,7 @@
       "name": "t:sections.slideshow.name",
       "settings": {
         "use_page_width": true,
+        "color_scheme": "scheme-2b5ea552-ee45-4763-a402-00199b79bef1",
         "allow_transparent_header": true,
         "image_size": "md",
         "transition_type": "curtain",
@@ -99,7 +100,7 @@
       },
       "name": "Sengefabrikken produkter",
       "settings": {
-        "color_scheme": "",
+        "color_scheme": "scheme-2b5ea552-ee45-4763-a402-00199b79bef1",
         "product_list": [
           "fabrikkens-trykaflastende-kontinental-sand-180x200-cm",
           "fabrikkens-kolende-kontinental-sand-180x200-cm"
