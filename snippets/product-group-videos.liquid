@@ -1,0 +1,23 @@
+{%- doc -%}
+Sengefabrikken: the video panel of a product group drawer (see the product-group-video snippet and <product-group-videos>).
+On desktop, the panel overlaps the edge of the drawer. On mobile, a button at the top of the drawer opens the panel as a
+popup over the drawer.
+
+@param {string} videos - the videos rendered by the product-group-video snippet
+{%- enddoc -%}
+
+<product-group-videos class="product-group-videos">
+  <button type="button" class="product-group-videos__launcher" data-open-video>
+    <span class="product-group-videos__launcher-icon">{%- render 'icon' with 'play-triangle', width: 10 -%}</span>
+    <span class="text-start" data-launcher-title>Se video</span>
+  </button>
+
+  <div class="product-group-videos__panel" data-video-panel>
+    <button type="button" class="product-group-videos__close" data-close-video>
+      <span class="sr-only">Luk</span>
+      {%- render 'icon' with 'close', width: 10 -%}
+    </button>
+
+    {{- videos -}}
+  </div>
+</product-group-videos>

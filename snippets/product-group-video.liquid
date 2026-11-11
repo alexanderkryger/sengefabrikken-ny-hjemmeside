@@ -8,7 +8,8 @@ file that takes precedence over the URL):
   topmadras)
 
 The same video used by several variants is only rendered once (duplicates across the products of a merged row are
-removed by the <product-group-videos> element). Videos are only loaded when shown.
+removed by the <product-group-videos> element). The videos use the theme's <video-media> with its play button, and the
+videos from a URL are only loaded when shown.
 
 @param {object} group_product - the product shown in the drawer
 {%- enddoc -%}
@@ -49,15 +50,17 @@ removed by the <product-group-videos> element). Videos are only loaded when show
 
   <div class="product-group-video" data-video-item="{{ video_handle | escape }}" {% if i == 0 %}data-default{% endif %} hidden>
     {%- if video_file != blank -%}
-      {%- render 'media', media: video_file, autoplay: false, controls: true, preload: false, sizes: '(max-width: 999px) 50vw, 400px', class: 'product-group-video__media' -%}
+      {%- render 'media', media: video_file, autoplay: false, controls: false, playsinline: true, sizes: '(max-width: 999px) 80vw, 320px', class: 'product-group-video__media' -%}
     {%- else -%}
-      <video class="product-group-video__media" data-src="{{ video_url | escape }}#t=0.1" controls playsinline preload="none"></video>
+      <video-media type="video" show-play-button class="product-group-video__media">
+        <video data-src="{{ video_url | escape }}#t=0.1" playsinline preload="none"></video>
+      </video-media>
     {%- endif -%}
 
     {%- if video_info.title != blank or video_info.description != blank -%}
       <div class="v-stack gap-1">
         {%- if video_info.title != blank -%}
-          <p class="h6">{{ video_info.title }}</p>
+          <p class="h6" data-video-title>{{ video_info.title }}</p>
         {%- endif -%}
 
         {%- if video_info.description != blank -%}

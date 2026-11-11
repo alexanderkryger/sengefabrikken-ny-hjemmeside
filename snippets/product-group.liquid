@@ -245,7 +245,7 @@ Two other metafields are rendered as well:
             {%- endcapture -%}
 
             {%- if drawer_videos != blank -%}
-              <product-group-videos class="product-group-videos">{{- drawer_videos -}}</product-group-videos>
+              {%- render 'product-group-videos', videos: drawer_videos -%}
             {%- endif -%}
 
             <dialog-close-button slot="footer" style="display: contents">
@@ -286,7 +286,7 @@ Two other metafields are rendered as well:
             {%- capture drawer_videos -%}{%- render 'product-group-video', group_product: group_product -%}{%- endcapture -%}
 
             {%- if drawer_videos != blank -%}
-              <product-group-videos class="product-group-videos">{{- drawer_videos -}}</product-group-videos>
+              {%- render 'product-group-videos', videos: drawer_videos -%}
             {%- endif -%}
           </x-drawer>
         </div>

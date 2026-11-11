@@ -217,13 +217,16 @@ class ProductGroup extends HTMLElement {
 /**
  * Sengefabrikken: <product-group-videos>
  *
- * The guide videos of a product group drawer (see the product-group-video snippet). On desktop, the panel floats next to
- * the drawer; on mobile, it is shown above the options. A single video is shown at a time:
+ * The guide videos of a product group drawer (see the product-group-video and product-group-videos snippets). A single
+ * video is shown at a time:
  * - by default, the video of the product (or the first video)
  * - when an option with its own video is hovered (desktop) or selected, its video
- * - when the "Se video" button of an option is clicked, its video (scrolled into view on mobile)
+ * - when the "Se video" button of an option is clicked, its video
  *
- * While a video plays, hovering the options does not switch the video. Videos from a URL are only loaded when shown.
+ * On desktop, the panel overlaps the edge of the drawer. On mobile, the panel is a popup opened by the button at the top
+ * of the drawer or by the "Se video" buttons. While a video plays, hovering the options does not switch the video, and a
+ * click on a playing video pauses it (the theme's play button is shown again). Videos from a URL are only loaded when
+ * shown.
  */
 class ProductGroupVideos extends HTMLElement {
   #abortController;
@@ -242,13 +245,29 @@ class ProductGroupVideos extends HTMLElement {
       seen.has(handle) ? item.remove() : seen.add(handle);
     });
 
+    const launcherTitle = this.#findItem(this.#defaultVideo)?.querySelector('[data-video-title]')?.textContent;
+
+    if (launcherTitle) {
+      this.querySelector('[data-launcher-title]').textContent = launcherTitle;
+    }
+
     this.#show(this.#defaultVideo);
 
     drawer?.addEventListener('pointerover', this.#onPointerOver.bind(this), { signal });
     drawer?.addEventListener('pointerleave', () => this.#show(this.#selectedVideo || this.#defaultVideo, { hover: true }), { signal });
     drawer?.addEventListener('change', this.#onChange.bind(this), { signal });
     drawer?.addEventListener('click', this.#onClick.bind(this), { signal });
-    drawer?.addEventListener('dialog:after-hide', () => this.#pauseAll(), { signal });
+    drawer?.addEventListener('dialog:after-hide', () => this.#close(), { signal });
+
+    // A click on a playing video pauses it, and a click on a paused video plays it again (the first click is handled by
+    // <video-media> itself, which loads and starts the video)
+    this.addEventListener('click', (event) => {
+      const media = event.target.closest('video-media');
+
+      if (media?.hasAttribute('loaded')) {
+        media.hasAttribute('playing') ? media.pause() : media.play();
+      }
+    }, { capture: true, signal });
   }
 
   disconnectedCallback() {
@@ -261,6 +280,14 @@ class ProductGroupVideos extends HTMLElement {
 
   get #defaultVideo() {
     return (this.querySelector('[data-default]') || this.items[0])?.getAttribute('data-video-item');
+  }
+
+  get #isDesktop() {
+    return window.matchMedia('(min-width: 1000px)').matches;
+  }
+
+  #findItem(handle) {
+    return this.items.find((item) => item.getAttribute('data-video-item') === handle);
   }
 
   #onPointerOver(event) {
@@ -285,29 +312,40 @@ class ProductGroupVideos extends HTMLElement {
   }
 
   #onClick(event) {
-    const button = event.target.closest('[data-show-video]');
+    // On mobile, the panel is the backdrop of the popup
+    if (event.target.closest('[data-close-video]') || (!this.#isDesktop && event.target.matches('[data-video-panel]'))) {
+      this.#close();
+      return;
+    }
 
-    if (!button) {
+    const opener = event.target.closest('[data-show-video], [data-open-video]');
+
+    if (!opener) {
       return;
     }
 
     event.preventDefault();
-    this.#show(button.getAttribute('data-show-video'));
+    this.#show(opener.getAttribute('data-show-video') || this.#defaultVideo);
 
-    if (!window.matchMedia('(min-width: 1000px)').matches) {
-      this.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    if (!this.#isDesktop) {
+      this.setAttribute('open', '');
     }
   }
 
+  #close() {
+    this.removeAttribute('open');
+    this.querySelectorAll('video-media').forEach((media) => media.pause());
+  }
+
   #show(handle, { hover = false } = {}) {
-    const target = this.items.find((item) => item.getAttribute('data-video-item') === handle);
+    const target = this.#findItem(handle);
 
     if (!target || !target.hidden) {
       return;
     }
 
     // Hovering the options does not interrupt a playing video
-    if (hover && this.items.some((item) => !item.hidden && Array.from(item.querySelectorAll('video')).some((video) => !video.paused))) {
+    if (hover && this.querySelector('video-media[playing]')) {
       return;
     }
 
@@ -315,7 +353,7 @@ class ProductGroupVideos extends HTMLElement {
       item.hidden = item !== target;
 
       if (item.hidden) {
-        item.querySelectorAll('video').forEach((video) => video.pause());
+        item.querySelectorAll('video-media').forEach((media) => media.pause());
       }
     });
 
@@ -324,10 +362,6 @@ class ProductGroupVideos extends HTMLElement {
       video.removeAttribute('data-src');
       video.preload = 'metadata';
     });
-  }
-
-  #pauseAll() {
-    this.querySelectorAll('video').forEach((video) => video.pause());
   }
 }
 

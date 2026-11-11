@@ -280,19 +280,85 @@
   justify-content: flex-start;
 }
 
-/* Guide videos of a product group drawer (see the product-group-video snippet and <product-group-videos>). On mobile,
-   the panel is shown above the options; on desktop, it overlaps the edge of the drawer down to the bottom, like the cards
-   of the menu drawer. Videos are vertical (9:16). */
+/* Guide videos of a product group drawer (see the product-group-video(s) snippets and <product-group-videos>). On mobile,
+   a button at the top of the drawer opens the videos in a popup over the drawer; on desktop, the panel overlaps the edge
+   of the drawer down to the bottom, like the cards of the menu drawer. Videos are vertical (9:16). */
 .product-group-videos {
   order: -1;
   margin-block-end: 1.5rem;
   display: block;
 }
 
-.product-group-video {
-  grid-template-columns: 7rem minmax(0, 1fr);
+.product-group-videos__launcher {
+  border: 1px solid rgb(var(--border-color));
+  border-radius: var(--input-border-radius);
   align-items: center;
+  gap: .75rem;
+  width: 100%;
+  padding: .625rem .75rem;
+  display: flex;
+}
+
+.product-group-videos__launcher-icon {
+  background: rgb(var(--text-color));
+  color: rgb(var(--background));
+  border-radius: 100%;
+  flex-shrink: 0;
+  place-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  padding-inline-start: 2px;
+  display: grid;
+}
+
+.product-group-videos__launcher-icon svg path, .product-group-option__video svg path {
+  fill: currentColor;
+}
+
+.product-group-videos__close {
+  background: rgb(var(--background));
+  color: rgb(var(--text-color));
+  border-radius: 100%;
+  place-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  display: grid;
+}
+
+/* The parts of the drawer are flex items with a z-index, which would trap the panel below the footer */
+.drawer:has(> product-group-videos)::part(header), .drawer:has(> product-group-videos)::part(body), .drawer:has(> product-group-videos)::part(footer) {
+  z-index: auto;
+}
+
+/* Mobile popup */
+.product-group-videos__panel {
+  -webkit-backdrop-filter: blur(var(--dialog-backdrop-blur, 0px));
+  backdrop-filter: blur(var(--dialog-backdrop-blur, 0px));
+  z-index: 10;
+  background: rgb(0 0 0 / .6);
+  align-content: center;
+  justify-items: center;
   gap: 1rem;
+  padding: 1.5rem;
+  display: none;
+  position: absolute;
+  inset: 0;
+}
+
+.product-group-videos[open] .product-group-videos__panel {
+  display: grid;
+}
+
+.product-group-videos__panel .product-group-videos__close {
+  position: absolute;
+  inset-block-start: 1rem;
+  inset-inline-end: 1rem;
+}
+
+.product-group-video {
+  color: #fff;
+  justify-items: center;
+  gap: .75rem;
   display: grid;
 }
 
@@ -300,21 +366,32 @@
   display: none;
 }
 
+.product-group-video .text-subdued {
+  color: rgb(255 255 255 / .7);
+}
+
 .product-group-video__media {
   aspect-ratio: 9 / 16;
-  border-radius: .5rem;
+  clip-path: inset(0 round .75rem);
+  border-radius: .75rem;
+  width: min(100%, (100dvh - 12rem) * 9 / 16);
   overflow: clip;
 }
 
-.product-group-video__media video, video.product-group-video__media {
+.product-group-video__media video {
   object-fit: cover;
   width: 100%;
   height: 100%;
 }
 
-video.product-group-video__media {
-  background: rgb(var(--text-color) / .06);
-  display: block;
+/* A video from a URL has no poster image, so its first frame is shown until it is played */
+.product-group-video__media:not([loaded]) > video {
+  opacity: 1;
+}
+
+/* The play button is shown again on a paused video */
+.product-group-video__media[loaded]:not([playing])::part(play-button) {
+  opacity: 1;
 }
 
 .product-group-option__video {
@@ -322,10 +399,6 @@ video.product-group-video__media {
   align-items: center;
   gap: .375rem;
   display: inline-flex;
-}
-
-.product-group-option__video svg path {
-  fill: currentColor;
 }
 
 @media screen and (min-width: 1000px) {
@@ -362,34 +435,45 @@ video.product-group-video__media {
     padding-inline-start: calc(var(--product-group-videos-overlap) + var(--drawer-footer-padding-inline));
   }
 
-  .product-group-videos {
+  .product-group-videos__launcher, .product-group-videos__close {
+    display: none;
+  }
+
+  .product-group-videos__panel {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
     background: rgb(var(--text-color) / .08);
     background: color-mix(in srgb, rgb(var(--background)) 90%, rgb(var(--text-color)));
     border-radius: 1rem 1rem 0 0;
+    align-content: start;
     width: var(--product-group-videos-width);
-    margin-block-end: 0;
     padding: 1.25rem;
-    position: absolute;
-    inset-block: 2.2rem 0;
-    inset-inline-start: 0;
+    display: grid;
+    inset-block: 6rem 0;
+    inset-inline: 0 auto;
     overflow-y: auto;
     overscroll-behavior: contain;
     scrollbar-width: none;
     pointer-events: auto;
+    z-index: 1;
   }
 
-  .product-group-videos::-webkit-scrollbar {
+  .product-group-videos__panel::-webkit-scrollbar {
     display: none;
   }
 
   .product-group-video {
-    grid-template-columns: minmax(0, 1fr);
-    align-content: start;
+    color: inherit;
+    justify-items: stretch;
+  }
+
+  .product-group-video .text-subdued {
+    color: rgb(var(--text-color) / .65);
   }
 
   /* The video is as large as possible while keeping the title visible */
   .product-group-video__media {
-    width: min(100%, (100dvh - 2.2rem - 2.5rem - 4.5rem) * 9 / 16);
+    width: min(100%, (100dvh - 6rem - 2.5rem - 4.5rem) * 9 / 16);
     justify-self: center;
   }
 
