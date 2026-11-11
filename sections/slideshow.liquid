@@ -7,13 +7,32 @@
     </style>
   {%- endif -%}
 
-  <slideshow-carousel id="slideshow-{{ section.id }}" allow-swipe cell-selector=".slideshow__slide" {% if section.settings.allow_transparent_header %}allow-transparent-header{% endif %} class="slideshow" transition="{{ section.settings.transition_type }}" {% if section.settings.autoplay %}autoplay="{{ section.settings.cycle_speed }}" {% if section.settings.pause_auto_rotate_on_hover %}pause-on-hover{% endif %}{% endif %} role="region">
+  {%- comment -%}
+    Sengefabrikken: the slideshow can be shown as a rounded box as wide as the page width ("Brug Sengefabrikken
+    sidebredde"), like the countdown of the old theme. The header can then not be transparent above it.
+  {%- endcomment -%}
+  {%- if section.settings.use_page_width -%}
+    <style>
+      #shopify-section-{{ section.id }} .slideshow {
+        border-radius: .75rem;
+        overflow: clip;
+      }
+    </style>
+
+    <div class="container section-spacing">
+  {%- endif -%}
+
+  <slideshow-carousel id="slideshow-{{ section.id }}" allow-swipe cell-selector=".slideshow__slide" {% if section.settings.allow_transparent_header and section.settings.use_page_width == false %}allow-transparent-header{% endif %} class="slideshow" transition="{{ section.settings.transition_type }}" {% if section.settings.autoplay %}autoplay="{{ section.settings.cycle_speed }}" {% if section.settings.pause_auto_rotate_on_hover %}pause-on-hover{% endif %}{% endif %} role="region">
     {%- content_for 'blocks' -%}
 
     {%- if section.blocks.size > 1 -%}
       {%- content_for 'block', type: '_slideshow-controls', id: 'slideshow-controls' -%}
     {%- endif -%}
   </slideshow-carousel>
+
+  {%- if section.settings.use_page_width -%}
+    </div>
+  {%- endif -%}
 {%- endif -%}
 
 {% schema %}
@@ -26,6 +45,13 @@
     "groups": ["header", "custom.overlay"]
   },
   "settings": [
+    {
+      "type": "checkbox",
+      "id": "use_page_width",
+      "label": "Brug Sengefabrikken sidebredde",
+      "info": "Slideshowet vises som en afrundet boks, der er lige så bred som den maks. sidebredde i Theme settings > Sengefabrikken layout. Headeren kan så ikke være gennemsigtig.",
+      "default": false
+    },
     {
       "type": "checkbox",
       "id": "allow_transparent_header",
