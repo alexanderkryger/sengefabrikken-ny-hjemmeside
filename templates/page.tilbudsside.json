@@ -109,7 +109,9 @@
         "products_count": 2,
         "products_per_row_desktop": "2",
         "mobile_carousel": false,
-        "box_background": ""
+        "box_background": "",
+        "box_from": 1,
+        "box_to": 12
       }
     },
     "sengefabrikken_product_list_3NzdxG": {
@@ -148,7 +150,9 @@
         "products_count": 6,
         "products_per_row_desktop": "1",
         "mobile_carousel": false,
-        "box_background": ""
+        "box_background": "#FFF4E2",
+        "box_from": 2,
+        "box_to": 3
       }
     }
   },
