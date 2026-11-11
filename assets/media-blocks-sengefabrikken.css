@@ -20,8 +20,20 @@
   color: var(--media-blocks-badge-text-color, #fff);
   border-radius: .125rem;
   width: max-content;
-  padding: .375rem .75rem;
+  margin-block: .5rem;
+  padding: .5rem .875rem;
   font-size: .8125rem;
   line-height: 1.4;
   display: inline-block;
+}
+
+/* The whole block is a link when it has a link (and no link in its texts): the image zooms on hover */
+.media-blocks__item .content-box__background-media img {
+  transition: transform .6s cubic-bezier(.22, 1, .36, 1);
+}
+
+@media screen and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  a.media-blocks__item:hover .content-box__background-media img {
+    transform: scale(1.05);
+  }
 }
