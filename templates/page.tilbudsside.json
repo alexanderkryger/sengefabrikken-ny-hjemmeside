@@ -460,6 +460,220 @@
         "box_to": 2
       }
     },
+    "multi_column_dCFfPt": {
+      "type": "multi-column",
+      "blocks": {
+        "multi_column_column_wcnqWB": {
+          "type": "_multi-column-column",
+          "settings": {
+            "color_scheme": "scheme-5",
+            "text_alignment": "left"
+          },
+          "blocks": {
+            "heading_L8nHza": {
+              "type": "heading",
+              "settings": {
+                "text": "Senge Tilbud",
+                "heading_size": "h4",
+                "html_tag": "p",
+                "indent": "none",
+                "highlight_effect": "default",
+                "highlight_accent_color": "",
+                "highlight_text_color": ""
+              },
+              "blocks": {}
+            },
+            "rich_text_NL6pyT": {
+              "type": "rich-text",
+              "settings": {
+                "text": "<p>Skynd dig at opdage vores eksklusive Senge Tilbud, hvor tidsbegrænsede rabatter på danske kvalitetssenge venter på dig! Disse tilbud er din gyldne mulighed for at opnå betydelige besparelser på alt fra luksuriøse kontinentalsenge til praktiske boxmadrasser og justerbare elevationssenge. Vores populære og mest eftertragtede produkter er nu tilgængelige til priser, der sjældent ses. Med disse tilbud er det nu, du skal handle, for at sikre dig den bedste pris på din næste seng.</p><p>Opgrader din søvnoplevelse og forbedr dit velvære ved at udnytte vores enestående Senge Tilbud. En kvalitetsseng er ikke bare en investering i bedre søvn, men i en bedre livskvalitet. Vær hurtig - disse tilbud varer ikke evigt!</p>",
+                "content_width": "sm"
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "heading_L8nHza",
+            "rich_text_NL6pyT"
+          ]
+        },
+        "multi_column_column_pTawnx": {
+          "type": "_multi-column-column",
+          "settings": {
+            "color_scheme": "scheme-5",
+            "text_alignment": "left"
+          },
+          "blocks": {
+            "heading_BJ34aP": {
+              "type": "heading",
+              "settings": {
+                "text": "Brug for hjælp?",
+                "heading_size": "h4",
+                "html_tag": "p",
+                "indent": "none",
+                "highlight_effect": "default",
+                "highlight_accent_color": "",
+                "highlight_text_color": ""
+              },
+              "blocks": {}
+            },
+            "rich_text_Kzbz9F": {
+              "type": "rich-text",
+              "settings": {
+                "text": "<p>Under vores Senge Tilbud står vores team af erfarne sengeeksperter klar til at hjælpe dig med at træffe det perfekte valg. Uanset om du har spørgsmål til specifikke produkter, leveringsmuligheder, eller hvis du har brug for vejledning til at vælge den bedste seng for dig, er vi her for at assistere. Tøv ikke med at kontakte os – vi er tilgængelige for at sikre, at du får den bedst mulige oplevelse, når du skal investere i din nye seng. Husk, tiden er afgørende, når det gælder vores tidsbegrænsede Senge Tilbud, så lad os hjælpe dig med at gøre den bedste investering i din søvn og velvære i dag!</p>",
+                "content_width": "sm"
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "heading_BJ34aP",
+            "rich_text_Kzbz9F"
+          ]
+        },
+        "multi_column_column_3fmy6c": {
+          "type": "_multi-column-column",
+          "settings": {
+            "color_scheme": "scheme-5",
+            "text_alignment": "left"
+          },
+          "blocks": {
+            "heading_nVdgbA": {
+              "type": "heading",
+              "settings": {
+                "text": "Kontinentalsenge Tilbud",
+                "heading_size": "h5",
+                "html_tag": "p",
+                "indent": "none",
+                "highlight_effect": "default",
+                "highlight_accent_color": "",
+                "highlight_text_color": ""
+              },
+              "blocks": {}
+            },
+            "rich_text_eV8hpN": {
+              "type": "rich-text",
+              "settings": {
+                "text": "<p>Grib chancen for at eje en luksuriøs kontinentalseng til en brøkdel af normalprisen. Vores Senge Tilbud inkluderer ekstraordinære rabatter på kontinentalsenge, der er synonyme med elegance og komfort. Disse senge er den ultimative opgradering til ethvert soveværelse, og med vores tidsbegrænsede tilbud er det nu, du skal handle for at sikre dig den ultimative søvnoplevelse.</p>",
+                "content_width": "sm"
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "heading_nVdgbA",
+            "rich_text_eV8hpN"
+          ]
+        },
+        "multi_column_column_bbX3Jt": {
+          "type": "_multi-column-column",
+          "settings": {
+            "color_scheme": "scheme-5",
+            "text_alignment": "left"
+          },
+          "blocks": {
+            "heading_X74mcy": {
+              "type": "heading",
+              "settings": {
+                "text": "Elevationssenge Tilbud",
+                "heading_size": "h5",
+                "html_tag": "p",
+                "indent": "none",
+                "highlight_effect": "default",
+                "highlight_accent_color": "",
+                "highlight_text_color": ""
+              },
+              "blocks": {}
+            },
+            "rich_text_ydtnBC": {
+              "type": "rich-text",
+              "settings": {
+                "text": "<p>Vores Senge Tilbud giver dig chancen for at erhverve en elevationsseng, som giver dig mulighed for at tilpasse din hvilestilling efter behov. Med justerbar komfort, der møder dine individuelle præferencer, er dette tilbud ideelt for alle, der ønsker en bedre nats søvn. Disse tilbud er kun tilgængelige i en begrænset periode, så vent ikke for længe med at udnytte de fantastiske besparelser.</p>",
+                "content_width": "sm"
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "heading_X74mcy",
+            "rich_text_ydtnBC"
+          ]
+        },
+        "multi_column_column_MtUEC8": {
+          "type": "_multi-column-column",
+          "settings": {
+            "color_scheme": "scheme-5",
+            "text_alignment": "left"
+          },
+          "blocks": {
+            "heading_EEq3gp": {
+              "type": "heading",
+              "settings": {
+                "text": "Boxmadrasser Tilbud",
+                "heading_size": "h5",
+                "html_tag": "p",
+                "indent": "none",
+                "highlight_effect": "default",
+                "highlight_accent_color": "",
+                "highlight_text_color": ""
+              },
+              "blocks": {}
+            },
+            "rich_text_XXJh6r": {
+              "type": "rich-text",
+              "settings": {
+                "text": "<p>Opdag utrolige besparelser på boxmadrasser under vores Senge Tilbud. En boxmadras er en fremragende løsning for enhver, der søger komfort og støtte uden kompromis. Med vores tidsbegrænsede tilbud kan du nemt forbedre din søvnkvalitet uden at sprænge budgettet. Nu er det tid til at handle, hvis du vil sikre dig en af vores kvalitets boxmadrasser til en usædvanlig god pris.</p>",
+                "content_width": "sm"
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "heading_EEq3gp",
+            "rich_text_XXJh6r"
+          ]
+        },
+        "section-header": {
+          "type": "_section-header",
+          "static": true,
+          "settings": {
+            "subheading": "",
+            "title": "",
+            "content": "",
+            "button_text": "",
+            "button_link": "",
+            "button_style": "outline",
+            "text_alignment": "left",
+            "heading_size": "h3",
+            "title_icon": "none",
+            "show_scrolling_title": false
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "multi_column_column_wcnqWB",
+        "multi_column_column_pTawnx",
+        "multi_column_column_3fmy6c",
+        "multi_column_column_bbX3Jt",
+        "multi_column_column_MtUEC8"
+      ],
+      "name": "t:sections.multi_column.name",
+      "settings": {
+        "color_scheme": "scheme-5",
+        "show_internal_borders": false,
+        "add_horizontal_spacing": true,
+        "add_top_spacing": true,
+        "add_bottom_spacing": true,
+        "items_per_row": 2,
+        "stack_on_mobile": false,
+        "stack_on_desktop": true,
+        "rounded_media": false,
+        "tap_to_pause_videos": false,
+        "column_spacing": "md",
+        "row_spacing": "md"
+      }
+    },
     "faq_UyDReT": {
       "type": "faq",
       "blocks": {
@@ -563,6 +777,7 @@
     "sengefabrikken_product_list_A68nwb",
     "sengefabrikken_product_list_Ui7FMM",
     "sengefabrikken_product_list_iTNJHW",
+    "multi_column_dCFfPt",
     "faq_UyDReT"
   ]
 }
