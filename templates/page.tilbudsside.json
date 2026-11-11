@@ -18,6 +18,64 @@
         "content_width": "md"
       }
     },
+    "product_navigation_hYpaR6": {
+      "type": "product-navigation",
+      "blocks": {
+        "menu_8Fi7jx": {
+          "type": "menu",
+          "settings": {
+            "menu": "Kontinentalsenge",
+            "link": "#kontinentalseng"
+          }
+        },
+        "menu_9RJiVL": {
+          "type": "menu",
+          "settings": {
+            "menu": "Elevationssenge",
+            "link": "#elevationsseng"
+          }
+        },
+        "menu_B4m38x": {
+          "type": "menu",
+          "settings": {
+            "menu": "Boxmadrasser",
+            "link": "#boxmadras"
+          }
+        },
+        "menu_gbxCV8": {
+          "type": "menu",
+          "settings": {
+            "menu": "Topmadrasser",
+            "link": "#topmadras"
+          }
+        },
+        "menu_bmYar8": {
+          "type": "menu",
+          "settings": {
+            "menu": "Tilbehør",
+            "link": "#tilbehoer"
+          }
+        }
+      },
+      "block_order": [
+        "menu_8Fi7jx",
+        "menu_9RJiVL",
+        "menu_B4m38x",
+        "menu_gbxCV8",
+        "menu_bmYar8"
+      ],
+      "name": "Produktnavigation",
+      "settings": {
+        "color_scheme": "",
+        "bg": "",
+        "lcl": "",
+        "lclh": "",
+        "show_shadow": true,
+        "iscart": true,
+        "btnlbl": "",
+        "btn": "Køb"
+      }
+    },
     "slideshow_PxFxnk": {
       "type": "slideshow",
       "blocks": {
@@ -101,6 +159,7 @@
       "name": "Sengefabrikken produkter",
       "settings": {
         "color_scheme": "scheme-2b5ea552-ee45-4763-a402-00199b79bef1",
+        "custom_id": "",
         "product_list": [
           "fabrikkens-trykaflastende-kontinental-sand-180x200-cm",
           "fabrikkens-kolende-kontinental-sand-180x200-cm"
@@ -173,6 +232,7 @@
       "name": "Sengefabrikken produkter",
       "settings": {
         "color_scheme": "scheme-1",
+        "custom_id": "kontinentalseng",
         "product_list": [
           "fabrikkens-komfort-kontinental-sand-180x200-cm",
           "fabrikkens-trykaflastende-kontinental-sand-180x200-cm",
@@ -248,6 +308,7 @@
       "name": "Sengefabrikken produkter",
       "settings": {
         "color_scheme": "scheme-1",
+        "custom_id": "elevationsseng",
         "product_list": [
           "fabrikkens-trykaflastende-elevation-sand-180x200-cm",
           "fabrikkens-kolende-elevation-sand-180x200-cm",
@@ -303,6 +364,7 @@
       "name": "Sengefabrikken produkter",
       "settings": {
         "color_scheme": "scheme-1",
+        "custom_id": "boxmadras",
         "product_list": [
           "fabrikkens-komfort-box-sand-140x200-cm",
           "fabrikkens-trykaflastende-box-sand-140x200-cm",
@@ -343,6 +405,7 @@
       "name": "Sengefabrikken produkter",
       "settings": {
         "color_scheme": "scheme-1",
+        "custom_id": "topmadras",
         "product_list": [
           "komfort-topmadras-90x200-cm",
           "trykaflastende-topmadras-90x200-cm",
@@ -382,6 +445,7 @@
       "name": "Sengefabrikken produkter",
       "settings": {
         "color_scheme": "scheme-1",
+        "custom_id": "tilbehoer",
         "product_list": [
           "dundynen-140x200-cm",
           "dunpuden",
@@ -488,6 +552,7 @@
   },
   "order": [
     "main",
+    "product_navigation_hYpaR6",
     "slideshow_PxFxnk",
     "sengefabrikken_product_list_zyFMMY",
     "sengefabrikken_banner_HFRXNN",
