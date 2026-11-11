@@ -1,0 +1,27 @@
+/* Sengefabrikken: additions to the media blocks section (rounded corners, image overlay and badge) */
+
+.media-blocks__item {
+  border-radius: var(--media-blocks-radius, 0px);
+  overflow: clip;
+}
+
+.media-blocks__item > .content-box {
+  border-radius: inherit;
+}
+
+/* When the block keeps the original image ratio, the media is not absolutely positioned, so the overlay needs a
+   positioned parent */
+.media-blocks .content-box__background-media.with-overlay {
+  position: relative;
+}
+
+.media-blocks__badge {
+  background: var(--media-blocks-badge-background, #c87d0a);
+  color: var(--media-blocks-badge-text-color, #fff);
+  border-radius: .125rem;
+  width: max-content;
+  padding: .375rem .75rem;
+  font-size: .8125rem;
+  line-height: 1.4;
+  display: inline-block;
+}

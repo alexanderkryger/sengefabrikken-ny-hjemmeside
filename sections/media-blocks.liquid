@@ -1,6 +1,11 @@
 {%- if section.blocks.size > 0 -%}
+  {{- 'media-blocks-sengefabrikken.css' | asset_url | stylesheet_tag -}}
+
   <style>
     #shopify-section-{{ section.id }} {
+      --media-blocks-radius: {{ section.settings.border_radius }}px;
+      --media-blocks-badge-background: {{ section.settings.badge_background }};
+      --media-blocks-badge-text-color: {{ section.settings.badge_text_color }};
       --media-blocks-grid: {% if section.settings.stack_on_mobile %}auto-flow / minmax(0, 1fr){% else %}auto / auto-flow 78vw{% endif %};
       --media-blocks-gap: {% if section.settings.column_spacing == 'none' %}{% if section.settings.add_border %}1px{% else %}0px{% endif %}{% elsif section.settings.column_spacing == 'sm' %}calc(var(--container-gutter) / 2){% elsif section.settings.column_spacing == 'md' %}var(--container-gutter){% elsif section.settings.column_spacing == 'lg' %}calc(var(--container-gutter) * 1.5){% endif %};
     }
@@ -156,7 +161,7 @@
                     {%- capture sizes_attribute -%}(max-width: 699px) 100vw, (max-width: 999px) 50vw, {{ 100.0 | divided_by: section.settings.items_per_row | round }}vw{%- endcapture -%}
 
                     {%- if block.settings.image != blank or block.settings.video != blank -%}
-                      <div class="content-box__background-media">
+                      <div class="content-box__background-media {% if block.settings.overlay_opacity > 0 %}with-overlay{% endif %}" {% if block.settings.overlay_opacity > 0 %}style="--overlay: {{ block.settings.overlay_color.rgb }} / {{ block.settings.overlay_opacity | divided_by: 100.0 }}"{% endif %}>
                         {%- liquid
                           assign loading_attribute = nil
 
@@ -189,7 +194,7 @@
                       assign bottom_right_content = ''
                     -%}
 
-                    {%- assign content_array = 'icon,subheading,heading,text,link' | split: ',' -%}
+                    {%- assign content_array = 'icon,subheading,heading,badge,text,link' | split: ',' -%}
 
                     {%- for content_type in content_array -%}
                       {%- capture content -%}
@@ -225,6 +230,11 @@
                               {%- else -%}
                                 {%- render 'heading', content: block.settings.title, style: block.settings.heading_tag, show_vertically: block.settings.show_text_vertically -%}
                               {%- endif -%}
+                            {%- endif -%}
+
+                          {%- when 'badge' -%}
+                            {%- if block.settings.badge_text != blank -%}
+                              <span class="media-blocks__badge">{{ block.settings.badge_text }}</span>
                             {%- endif -%}
 
                           {%- when 'text' -%}
@@ -586,6 +596,32 @@
       ],
       "info": "t:global.image.ratio_avoid_cropping_info",
       "default": "auto"
+    },
+    {
+      "type": "header",
+      "content": "Sengefabrikken"
+    },
+    {
+      "type": "range",
+      "id": "border_radius",
+      "label": "Hjørneradius",
+      "min": 0,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "color",
+      "id": "badge_background",
+      "label": "Badge baggrund",
+      "default": "#c87d0a"
+    },
+    {
+      "type": "color",
+      "id": "badge_text_color",
+      "label": "Badge tekst",
+      "default": "#ffffff"
     }
   ],
   "blocks": [
@@ -617,6 +653,76 @@
           "id": "image",
           "label": "t:global.image.image",
           "info": "t:sections.media_blocks.blocks.image_with_text.image_size_recommendation"
+        },
+        {
+          "type": "color",
+          "id": "overlay_color",
+          "label": "t:global.colors.image_overlay_color",
+          "default": "#000000"
+        },
+        {
+          "type": "range",
+          "id": "overlay_opacity",
+          "label": "t:global.colors.image_overlay_opacity",
+          "min": 0,
+          "max": 100,
+          "step": 5,
+          "unit": "%",
+          "default": 0
+        },
+        {
+          "type": "header",
+          "content": "Badge"
+        },
+        {
+          "type": "text",
+          "id": "badge_text",
+          "label": "Tekst",
+          "info": "Fx Faste lav pris. Farverne vælges i sektionens indstillinger."
+        },
+        {
+          "type": "select",
+          "id": "badge_position",
+          "label": "t:global.position.alignment",
+          "options": [
+  {
+    "value": "top_left",
+    "label": "t:global.position.top_left"
+  },
+  {
+    "value": "top_center",
+    "label": "t:global.position.top_center"
+  },
+  {
+    "value": "top_right",
+    "label": "t:global.position.top_right"
+  },
+  {
+    "value": "middle_left",
+    "label": "t:global.position.middle_left"
+  },
+  {
+    "value": "middle_center",
+    "label": "t:global.position.middle_center"
+  },
+  {
+    "value": "middle_right",
+    "label": "t:global.position.middle_right"
+  },
+  {
+    "value": "bottom_left",
+    "label": "t:global.position.bottom_left"
+  },
+  {
+    "value": "bottom_center",
+    "label": "t:global.position.bottom_center"
+  },
+  {
+    "value": "bottom_right",
+    "label": "t:global.position.bottom_right"
+  }
+],
+          "default": "top_center"
         },
         {
           "type": "header",
@@ -1418,6 +1524,76 @@
           "type": "video",
           "id": "video",
           "label": "t:global.video.video"
+        },
+        {
+          "type": "color",
+          "id": "overlay_color",
+          "label": "t:global.colors.image_overlay_color",
+          "default": "#000000"
+        },
+        {
+          "type": "range",
+          "id": "overlay_opacity",
+          "label": "t:global.colors.image_overlay_opacity",
+          "min": 0,
+          "max": 100,
+          "step": 5,
+          "unit": "%",
+          "default": 0
+        },
+        {
+          "type": "header",
+          "content": "Badge"
+        },
+        {
+          "type": "text",
+          "id": "badge_text",
+          "label": "Tekst",
+          "info": "Fx Faste lav pris. Farverne vælges i sektionens indstillinger."
+        },
+        {
+          "type": "select",
+          "id": "badge_position",
+          "label": "t:global.position.alignment",
+          "options": [
+  {
+    "value": "top_left",
+    "label": "t:global.position.top_left"
+  },
+  {
+    "value": "top_center",
+    "label": "t:global.position.top_center"
+  },
+  {
+    "value": "top_right",
+    "label": "t:global.position.top_right"
+  },
+  {
+    "value": "middle_left",
+    "label": "t:global.position.middle_left"
+  },
+  {
+    "value": "middle_center",
+    "label": "t:global.position.middle_center"
+  },
+  {
+    "value": "middle_right",
+    "label": "t:global.position.middle_right"
+  },
+  {
+    "value": "bottom_left",
+    "label": "t:global.position.bottom_left"
+  },
+  {
+    "value": "bottom_center",
+    "label": "t:global.position.bottom_center"
+  },
+  {
+    "value": "bottom_right",
+    "label": "t:global.position.bottom_right"
+  }
+],
+          "default": "top_center"
         },
         {
           "type": "header",
