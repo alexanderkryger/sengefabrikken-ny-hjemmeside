@@ -111,11 +111,51 @@
         "mobile_carousel": false,
         "box_background": ""
       }
+    },
+    "sengefabrikken_product_list_3NzdxG": {
+      "type": "sengefabrikken-product-list",
+      "blocks": {
+        "section-header": {
+          "type": "_section-header",
+          "static": true,
+          "settings": {
+            "subheading": "",
+            "title": "Kundernes favoritter",
+            "content": "<p>Udforsk vores to mest populære kontinentalsenge: Trykaflastende og Kølende. Designet for ultimativ komfort, hvor hver model tilbyder unikke fordele.</p>",
+            "button_text": "",
+            "button_link": "",
+            "button_style": "outline",
+            "text_alignment": "center",
+            "heading_size": "h3",
+            "title_icon": "none",
+            "show_scrolling_title": false
+          },
+          "blocks": {}
+        }
+      },
+      "name": "Sengefabrikken produkter",
+      "settings": {
+        "color_scheme": "scheme-1",
+        "product_list": [
+          "fabrikkens-komfort-kontinental-sand-180x200-cm",
+          "fabrikkens-trykaflastende-kontinental-sand-180x200-cm",
+          "fabrikkens-kolende-kontinental-sand-180x200-cm",
+          "fabrikkens-luksus-kontinental-sand-180x200-cm",
+          "fabrikkens-platin-kontinental-sand-180x200-cm",
+          "fabrikkens-magasinboks-sand-180x200-cm"
+        ],
+        "collection": "",
+        "products_count": 6,
+        "products_per_row_desktop": "1",
+        "mobile_carousel": false,
+        "box_background": ""
+      }
     }
   },
   "order": [
     "main",
     "slideshow_PxFxnk",
-    "sengefabrikken_product_list_zyFMMY"
+    "sengefabrikken_product_list_zyFMMY",
+    "sengefabrikken_product_list_3NzdxG"
   ]
 }
