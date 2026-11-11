@@ -352,3 +352,70 @@
     padding-block-start: 0;
   }
 }
+
+/* Sengefabrikken: the "Sengefabrikken produktliste" section (one to three cards per row, see the section) */
+
+.sengefabrikken-product-list {
+  grid-template-columns: minmax(0, 1fr);
+  align-items: start;
+  gap: 1.5rem;
+  display: grid;
+}
+
+.sengefabrikken-product-list--boxed {
+  background: var(--sengefabrikken-product-list-background);
+  border-radius: .75rem;
+  padding: 1rem;
+}
+
+@media screen and (max-width: 699px) {
+  .sengefabrikken-product-list--carousel {
+    grid-auto-columns: 85%;
+    grid-auto-flow: column;
+    gap: 1rem;
+    scroll-snap-type: x mandatory;
+    overscroll-behavior-x: contain;
+    scrollbar-width: none;
+    overflow-x: auto;
+  }
+
+  .sengefabrikken-product-list--carousel::-webkit-scrollbar {
+    display: none;
+  }
+
+  .sengefabrikken-product-list--carousel > * {
+    scroll-snap-align: start;
+  }
+
+  /* Without a box, the cards slide from edge to edge of the screen */
+  .sengefabrikken-product-list--carousel:not(.sengefabrikken-product-list--boxed) {
+    margin-inline: calc(-1 * var(--container-gutter));
+    padding-inline: var(--container-gutter);
+    scroll-padding-inline: var(--container-gutter);
+  }
+
+  .sengefabrikken-product-list--carousel.sengefabrikken-product-list--boxed {
+    scroll-padding-inline: 1rem;
+  }
+}
+
+@media screen and (min-width: 700px) {
+  .sengefabrikken-product-list--boxed {
+    padding: 1.5rem;
+  }
+
+  .sengefabrikken-product-list--columns-2, .sengefabrikken-product-list--columns-3 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .sengefabrikken-product-list--columns-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  /* With three cards per row, the bullets are shown below the title and price */
+  .sengefabrikken-product-list--columns-3 .sengefabrikken-card__details {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

@@ -1,0 +1,149 @@
+{%- comment -%}
+  Sengefabrikken: a list of products shown with the Sengefabrikken product card (the same card as on the collection
+  page), with a section header above. The products are picked by hand, or taken from a collection. On desktop, one to
+  three cards are shown per row (one card per row shows the wide card), and on mobile the cards are stacked or slide
+  horizontally. The cards can be wrapped in a box with its own background, like the row of cards on the collection page.
+{%- endcomment -%}
+
+{{- 'sengefabrikken-product-card.css' | asset_url | stylesheet_tag -}}
+
+{%- liquid
+  if section.settings.product_list.count > 0
+    assign products = section.settings.product_list
+  else
+    assign products = section.settings.collection.products
+  endif
+
+  assign columns = section.settings.products_per_row_desktop | plus: 0
+  assign show_wide_cards = false
+
+  if columns == 1
+    assign show_wide_cards = true
+  endif
+  assign is_boxed = false
+
+  if section.settings.box_background != blank and section.settings.box_background != 'rgba(0,0,0,0)'
+    assign is_boxed = true
+  endif
+-%}
+
+<div class="color-scheme color-scheme--{{ section.settings.color_scheme.id }}">
+  <div class="container section-spacing">
+    <div class="section-stack">
+      {%- content_for "block", type: "_section-header", id: "section-header" -%}
+
+      {%- capture product_cards -%}
+        {%- for product in products limit: section.settings.products_count -%}
+          {%- render 'sengefabrikken-product-card', product: product, wide: show_wide_cards, position: forloop.index -%}
+        {%- endfor -%}
+      {%- endcapture -%}
+
+      {%- if product_cards != blank -%}
+        <div class="sengefabrikken-product-list sengefabrikken-product-list--columns-{{ columns }} {% if section.settings.mobile_carousel %}sengefabrikken-product-list--carousel{% endif %} {% if is_boxed %}sengefabrikken-product-list--boxed{% endif %}" {% if is_boxed %}style="--sengefabrikken-product-list-background: {{ section.settings.box_background }}"{% endif %}>
+          {{- product_cards -}}
+        </div>
+      {%- elsif request.design_mode -%}
+        <p class="text-subdued text-center">Vælg produkter eller en kollektion i sektionens indstillinger.</p>
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Sengefabrikken produktliste",
+  "class": "shopify-section--sengefabrikken-product-list",
+  "tag": "section",
+  "disabled_on": {
+    "groups": ["header", "footer", "custom.overlay"]
+  },
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:global.colors.scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "Produkter"
+    },
+    {
+      "type": "product_list",
+      "id": "product_list",
+      "label": "Produkter",
+      "info": "Går forud for kollektionen.",
+      "limit": 12
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Kollektion"
+    },
+    {
+      "type": "range",
+      "id": "products_count",
+      "label": "Antal produkter",
+      "min": 1,
+      "max": 12,
+      "step": 1,
+      "default": 2
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "products_per_row_desktop",
+      "label": "Produkter pr. række (desktop)",
+      "info": "Med ét produkt pr. række vises det brede kort med billedet ved siden af teksten.",
+      "options": [
+        {
+          "value": "1",
+          "label": "1"
+        },
+        {
+          "value": "2",
+          "label": "2"
+        },
+        {
+          "value": "3",
+          "label": "3"
+        }
+      ],
+      "default": "2"
+    },
+    {
+      "type": "checkbox",
+      "id": "mobile_carousel",
+      "label": "Vandret slide på mobil",
+      "info": "Ellers vises kortene under hinanden.",
+      "default": false
+    },
+    {
+      "type": "color",
+      "id": "box_background",
+      "label": "Baggrund bag kortene",
+      "info": "Lægger kortene i en afrundet boks med denne farve. Lad den stå tom for ingen boks."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Sengefabrikken produktliste",
+      "category": "t:global.categories.products",
+      "blocks": [
+        {
+          "type": "_section-header",
+          "static": true,
+          "id": "section-header",
+          "settings": {
+            "title": "Kundernes favoritter",
+            "text_alignment": "center"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
