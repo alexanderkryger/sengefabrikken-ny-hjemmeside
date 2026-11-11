@@ -41,6 +41,7 @@
     "currency_code_enabled": false,
     "button_animation": "up",
     "image_hover_animation": "zoom",
+    "color_swatch_shape": "thin_rectangle",
     "product_card_color_scheme": "scheme-1",
     "product_card_show_vendor": false,
     "product_card_info_position": "inside",
@@ -254,7 +255,7 @@
       "scheme-2b5ea552-ee45-4763-a402-00199b79bef1": {
         "settings": {
           "text_color": "#2f1300",
-          "background": "#FFF4E2",
+          "background": "#fff4e2",
           "background_gradient": "",
           "secondary_background": "#f1eeeb",
           "primary_button_background": "#650621",
