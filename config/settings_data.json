@@ -250,6 +250,23 @@
           "input_background": "#ffffff",
           "input_text_color": "#2f1300"
         }
+      },
+      "scheme-14998bb9-9375-47d4-bd9d-a18823f82f40": {
+        "settings": {
+          "text_color": "#2f1300",
+          "background": "#FFF4E2",
+          "background_gradient": "",
+          "secondary_background": "#f1eeeb",
+          "primary_button_background": "#650621",
+          "primary_button_text_color": "#ffffff",
+          "subheading_background": "",
+          "subheading_border_color": "",
+          "subheading_text_color": "#2f1300",
+          "heading_highlight_accent_color": "#650621",
+          "heading_highlight_text_color": "#ffffff",
+          "input_background": "#ffffff",
+          "input_text_color": "#2f1300"
+        }
       }
     }
   },
