@@ -216,10 +216,16 @@ Render the variant picker option selectors.
                 endcase
               when 'variant_image'
                 assign list_classes = 'h-stack gap-1 wrap'
+              when 'swatch_label'
+                assign list_classes = 'h-stack gap-3 wrap align-start'
               else
                 assign list_classes = 'h-stack gap-3 wrap'
             endcase
           -%}
+
+          {%- if resolved_option_selector_style == 'swatch_label' -%}
+            {{- 'color-swatch-label.css' | asset_url | stylesheet_tag -}}
+          {%- endif -%}
 
           <div class="variant-picker__option-values {{ list_classes }}">
             {% liquid
@@ -235,6 +241,8 @@ Render the variant picker option selectors.
                     render 'option-value', type: 'block', form: form_id, option_value: option_value, param_name: name, option_position: option.position, style: block_selector_style, hide_if_disabled: hide_sold_out_variants, reload_page_for_combined_products: is_main_product, id_prefix: forloop.index
                   when 'block_swatch'
                     render 'option-value', type: 'block', form: form_id, option_value: option_value, param_name: name, option_position: option.position, style: block_selector_style, show_swatch: true, hide_if_disabled: hide_sold_out_variants, reload_page_for_combined_products: is_main_product, id_prefix: forloop.index
+                  when 'swatch_label'
+                    render 'option-value', type: 'swatch_label', form: form_id, option_value: option_value, param_name: name, option_position: option.position, hide_if_disabled: hide_sold_out_variants, reload_page_for_combined_products: is_main_product, id_prefix: forloop.index
                 endcase
               endfor
             %}
