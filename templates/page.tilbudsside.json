@@ -114,6 +114,41 @@
         "box_to": 12
       }
     },
+    "sengefabrikken_banner_HFRXNN": {
+      "type": "sengefabrikken-banner",
+      "blocks": {
+        "image_GUCfGV": {
+          "type": "image",
+          "settings": {
+            "height": "md",
+            "color_scheme": "",
+            "image": "shopify://shop_images/SF_Banner_100dage_Desk_2000x625_2.jpg",
+            "mobile_image": "shopify://shop_images/SF_Banner_100dage_mobile.jpg",
+            "overlay_color": "#000000",
+            "overlay_opacity": 20,
+            "content_position": "place-self-end-start",
+            "content_width": "lg",
+            "subheading": "&nbsp;Direkte fra fabrikken&nbsp;",
+            "heading": "&nbsp;Kvalitet uden fordyrende mellemled&nbsp;",
+            "heading_size": "h3",
+            "content": "",
+            "button_text": "",
+            "url": "",
+            "open_in_new_tab": false,
+            "style": "solid"
+          }
+        }
+      },
+      "block_order": [
+        "image_GUCfGV"
+      ],
+      "name": "Sengefabrikken banner",
+      "settings": {
+        "color_scheme": "",
+        "use_page_width": true,
+        "preload_first": false
+      }
+    },
     "sengefabrikken_product_list_3NzdxG": {
       "type": "sengefabrikken-product-list",
       "blocks": {
@@ -150,9 +185,43 @@
         "products_count": 6,
         "products_per_row_desktop": "1",
         "mobile_carousel": false,
-        "box_background": "#FFF4E2",
+        "box_background": "#fff4e2",
         "box_from": 2,
         "box_to": 3
+      }
+    },
+    "sengefabrikken_banner_8jVPMP": {
+      "type": "sengefabrikken-banner",
+      "blocks": {
+        "sengefabrikken_split_KEwTJ9": {
+          "type": "sengefabrikken_split",
+          "settings": {
+            "color_scheme": "scheme-2b5ea552-ee45-4763-a402-00199b79bef1",
+            "media_position": "right",
+            "image": "shopify://shop_images/haniwood.jpg",
+            "autoplay": false,
+            "subheading": "",
+            "heading": "“En dansk seng der holder i mange år”",
+            "heading_size": "h3",
+            "content": "",
+            "author_image": "shopify://shop_images/malthe_sengesnedker.png",
+            "author_name": "Michael Jensen",
+            "author_role": "Sengesnedker",
+            "button_text": "",
+            "url": "",
+            "open_in_new_tab": false,
+            "style": "solid"
+          }
+        }
+      },
+      "block_order": [
+        "sengefabrikken_split_KEwTJ9"
+      ],
+      "name": "Sengefabrikken banner",
+      "settings": {
+        "color_scheme": "",
+        "use_page_width": true,
+        "preload_first": false
       }
     }
   },
@@ -160,6 +229,8 @@
     "main",
     "slideshow_PxFxnk",
     "sengefabrikken_product_list_zyFMMY",
-    "sengefabrikken_product_list_3NzdxG"
+    "sengefabrikken_banner_HFRXNN",
+    "sengefabrikken_product_list_3NzdxG",
+    "sengefabrikken_banner_8jVPMP"
   ]
 }
