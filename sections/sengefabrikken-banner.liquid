@@ -1,0 +1,821 @@
+{%- comment -%}
+  Sengefabrikken: the banners of the collection page as a section, so that they can be used on any page:
+  - "Billede" and "Video": a media with an overlay and a text on top (same as the image and video blocks of the
+    collection page)
+  - "To kolonner": a text (e.g. a quote with its author) next to an image or a video (sengefabrikken-split-promo snippet)
+  The blocks use the same settings as on the collection page. With the Sengefabrikken page width, the banners are rounded
+  boxes as wide as the page width, otherwise they go from edge to edge.
+{%- endcomment -%}
+
+<style>
+  #shopify-section-{{ section.id }} .sengefabrikken-banners {
+    gap: 1.5rem;
+    display: grid;
+  }
+
+  {%- if section.settings.use_page_width -%}
+    #shopify-section-{{ section.id }} .sengefabrikken-banner {
+      border-radius: .75rem;
+      overflow: clip;
+    }
+  {%- else -%}
+    #shopify-section-{{ section.id }} .sengefabrikken-split-promo {
+      border-radius: 0;
+    }
+  {%- endif -%}
+</style>
+
+<div class="color-scheme color-scheme--{{ section.settings.color_scheme.id }}">
+  <div class="{% if section.settings.use_page_width %}container{% endif %} section-spacing">
+    <div class="sengefabrikken-banners">
+      {%- for block in section.blocks -%}
+        {%- liquid
+          assign preload_media = false
+
+          if forloop.first and section.settings.preload_first
+            assign preload_media = true
+          endif
+        -%}
+
+        {%- case block.type -%}
+          {%- when 'sengefabrikken_split' -%}
+            {%- render 'sengefabrikken-split-promo', block: block -%}
+
+          {%- else -%}
+            <div class="sengefabrikken-banner color-scheme color-scheme--{{ block.settings.color_scheme.id }}" {{ block.shopify_attributes }}>
+              <div class="content-box min-h-{{ block.settings.height }}">
+                <div class="content-box__background-media with-overlay" style="--overlay: {{ block.settings.overlay_color.rgb }} / {{ block.settings.overlay_opacity | divided_by: 100.0 }}">
+                  {%- liquid
+                    if block.type == 'image'
+                      if block.settings.image != blank
+                        render 'media', media: block.settings.image, mobile_media: block.settings.mobile_image, preload: preload_media, sizes: '(max-width: 1400px) 100vw, 1400px'
+                      else
+                        echo 'lifestyle-1' | placeholder_svg_tag: 'placeholder'
+                      endif
+
+                    elsif block.settings.video != blank
+                      render 'media', media: block.settings.video, mobile_media: block.settings.mobile_video, autoplay: true, loop: true, muted: true, controls: false, preload: preload_media, show_play_button: false
+                    endif
+                  -%}
+                </div>
+
+                {%- if block.settings.heading != blank or block.settings.content != blank or block.settings.subheading != blank or block.settings.button_text != blank -%}
+                  <div class="{{ block.settings.content_position }} {% if block.settings.content_width != blank and block.settings.content_width != 'auto' %}max-w-{{ block.settings.content_width }}{% endif %}">
+                    <div class="prose prose-justify-{{ block.settings.content_position | split: '-' | last }}">
+                      {%- if block.settings.subheading != blank -%}
+                        {%- render 'subheading', content: block.settings.subheading -%}
+                      {%- endif -%}
+
+                      {%- if block.settings.heading != blank -%}
+                        {%- render 'heading', content: block.settings.heading, style: block.settings.heading_size -%}
+                      {%- endif -%}
+
+                      {%- if block.settings.content != blank -%}
+                        <div {% if block.settings.content_width == blank or block.settings.content_width == 'auto' %}class="max-w-xs"{% endif %}>
+                          {{- block.settings.content -}}
+                        </div>
+                      {%- endif -%}
+
+                      {%- if block.settings.button_text != blank -%}
+                        {%- render 'button', content: block.settings.button_text, href: block.settings.url, style: block.settings.style, external: block.settings.open_in_new_tab -%}
+                      {%- endif -%}
+                    </div>
+                  </div>
+                {%- endif -%}
+              </div>
+            </div>
+        {%- endcase -%}
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Sengefabrikken banner",
+  "class": "shopify-section--sengefabrikken-banner",
+  "tag": "section",
+  "disabled_on": {
+    "groups": [
+      "header",
+      "footer",
+      "custom.overlay"
+    ]
+  },
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:global.colors.scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "checkbox",
+      "id": "use_page_width",
+      "label": "Brug Sengefabrikken sidebredde",
+      "info": "Bannerne vises som afrundede bokse, der er lige så brede som den maks. sidebredde i Theme settings > Sengefabrikken layout. Ellers går de fra kant til kant.",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "preload_first",
+      "label": "Indlæs første banner med det samme",
+      "info": "Slå til, når sektionen ligger øverst på siden (hurtigere visning af billedet).",
+      "default": false
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Billede",
+      "settings": [
+        {
+          "type": "paragraph",
+          "content": "t:sections.main_collection.blocks.image.info"
+        },
+        {
+          "type": "select",
+          "id": "height",
+          "label": "Højde",
+          "options": [
+            {
+              "value": "xs",
+              "label": "Ekstra lille"
+            },
+            {
+              "value": "sm",
+              "label": "Lille"
+            },
+            {
+              "value": "md",
+              "label": "Mellem"
+            },
+            {
+              "value": "lg",
+              "label": "Stor"
+            }
+          ],
+          "default": "sm"
+        },
+        {
+          "type": "color_scheme",
+          "id": "color_scheme",
+          "label": "t:global.colors.scheme",
+          "default": "scheme-3"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "t:global.image.image",
+          "info": "t:sections.main_collection.blocks.image.image_size_recommendation"
+        },
+        {
+          "type": "image_picker",
+          "id": "mobile_image",
+          "label": "t:global.image.mobile_image",
+          "info": "t:sections.main_collection.blocks.image.mobile_image_size_recommendation"
+        },
+        {
+          "type": "color",
+          "id": "overlay_color",
+          "label": "t:global.colors.image_overlay_color",
+          "default": "#000000"
+        },
+        {
+          "type": "range",
+          "id": "overlay_opacity",
+          "label": "t:global.colors.image_overlay_opacity",
+          "min": 0,
+          "max": 100,
+          "step": 5,
+          "unit": "%",
+          "default": 20
+        },
+        {
+          "type": "header",
+          "content": "t:global.text.content"
+        },
+        {
+          "type": "select",
+          "id": "content_position",
+          "label": "t:global.position.content_position",
+          "options": [
+            {
+              "value": "place-self-start",
+              "label": "t:global.position.top_left"
+            },
+            {
+              "value": "place-self-start-center",
+              "label": "t:global.position.top_center"
+            },
+            {
+              "value": "place-self-start-end",
+              "label": "t:global.position.top_right"
+            },
+            {
+              "value": "place-self-center-start",
+              "label": "t:global.position.middle_left"
+            },
+            {
+              "value": "place-self-center",
+              "label": "t:global.position.middle_center"
+            },
+            {
+              "value": "place-self-center-end",
+              "label": "t:global.position.middle_right"
+            },
+            {
+              "value": "place-self-end-start",
+              "label": "t:global.position.bottom_left"
+            },
+            {
+              "value": "place-self-end-center",
+              "label": "t:global.position.bottom_center"
+            },
+            {
+              "value": "place-self-end",
+              "label": "t:global.position.bottom_right"
+            }
+          ],
+          "default": "place-self-end-start"
+        },
+        {
+          "type": "select",
+          "id": "content_width",
+          "label": "Indholdets bredde (Sengefabrikken)",
+          "options": [
+            {
+              "value": "auto",
+              "label": "Standard"
+            },
+            {
+              "value": "xs",
+              "label": "X-Small"
+            },
+            {
+              "value": "sm",
+              "label": "Small"
+            },
+            {
+              "value": "md",
+              "label": "Medium"
+            },
+            {
+              "value": "lg",
+              "label": "Large"
+            },
+            {
+              "value": "xl",
+              "label": "X-Large"
+            }
+          ],
+          "default": "auto"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "subheading",
+          "label": "t:global.text.subheading",
+          "default": "Subtitle"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "heading",
+          "label": "t:global.text.heading",
+          "default": "Title"
+        },
+        {
+          "type": "select",
+          "id": "heading_size",
+          "label": "t:global.text.heading_size",
+          "options": [
+            {
+              "value": "display-xl",
+              "label": "Display XL"
+            },
+            {
+              "value": "display-l",
+              "label": "Display L"
+            },
+            {
+              "value": "display-m",
+              "label": "Display M"
+            },
+            {
+              "value": "h1",
+              "label": "XX-Large"
+            },
+            {
+              "value": "h2",
+              "label": "X-Large"
+            },
+            {
+              "value": "h3",
+              "label": "Large"
+            },
+            {
+              "value": "h4",
+              "label": "Medium"
+            },
+            {
+              "value": "h5",
+              "label": "Small"
+            },
+            {
+              "value": "h6",
+              "label": "X-Small"
+            },
+            {
+              "value": "h7",
+              "label": "XX-Small"
+            }
+          ],
+          "default": "h2"
+        },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "t:global.text.content",
+          "default": "<p>Write some content to promote a product or a temporary offer in your collections.</p>"
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "t:global.text.button_text",
+          "default": "Button"
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "t:global.text.link"
+        },
+        {
+          "type": "checkbox",
+          "id": "open_in_new_tab",
+          "label": "t:global.text.open_in_new_tab",
+          "default": false
+        },
+        {
+          "type": "select",
+          "id": "style",
+          "label": "t:global.text.style",
+          "options": [
+            {
+              "value": "outline",
+              "label": "t:global.text.button_style_options.outline"
+            },
+            {
+              "value": "solid",
+              "label": "t:global.text.button_style_options.solid"
+            },
+            {
+              "value": "link",
+              "label": "t:global.text.button_style_options.link"
+            }
+          ],
+          "default": "solid"
+        }
+      ]
+    },
+    {
+      "type": "video",
+      "name": "Video",
+      "settings": [
+        {
+          "type": "paragraph",
+          "content": "t:sections.main_collection.blocks.video.info"
+        },
+        {
+          "type": "select",
+          "id": "height",
+          "label": "Højde",
+          "options": [
+            {
+              "value": "xs",
+              "label": "Ekstra lille"
+            },
+            {
+              "value": "sm",
+              "label": "Lille"
+            },
+            {
+              "value": "md",
+              "label": "Mellem"
+            },
+            {
+              "value": "lg",
+              "label": "Stor"
+            }
+          ],
+          "default": "sm"
+        },
+        {
+          "type": "color_scheme",
+          "id": "color_scheme",
+          "label": "t:global.colors.scheme",
+          "default": "scheme-3"
+        },
+        {
+          "type": "video",
+          "id": "video",
+          "label": "t:global.video.video",
+          "info": "t:global.video.video_info"
+        },
+        {
+          "type": "video",
+          "id": "mobile_video",
+          "label": "t:global.video.mobile_video"
+        },
+        {
+          "type": "color",
+          "id": "overlay_color",
+          "label": "t:global.colors.image_overlay_color",
+          "default": "#000000"
+        },
+        {
+          "type": "range",
+          "id": "overlay_opacity",
+          "label": "t:global.colors.image_overlay_opacity",
+          "min": 0,
+          "max": 100,
+          "step": 5,
+          "unit": "%",
+          "default": 20
+        },
+        {
+          "type": "header",
+          "content": "t:global.text.content"
+        },
+        {
+          "type": "select",
+          "id": "content_position",
+          "label": "t:global.position.content_position",
+          "options": [
+            {
+              "value": "place-self-start",
+              "label": "t:global.position.top_left"
+            },
+            {
+              "value": "place-self-start-center",
+              "label": "t:global.position.top_center"
+            },
+            {
+              "value": "place-self-start-end",
+              "label": "t:global.position.top_right"
+            },
+            {
+              "value": "place-self-center-start",
+              "label": "t:global.position.middle_left"
+            },
+            {
+              "value": "place-self-center",
+              "label": "t:global.position.middle_center"
+            },
+            {
+              "value": "place-self-center-end",
+              "label": "t:global.position.middle_right"
+            },
+            {
+              "value": "place-self-end-start",
+              "label": "t:global.position.bottom_left"
+            },
+            {
+              "value": "place-self-end-center",
+              "label": "t:global.position.bottom_center"
+            },
+            {
+              "value": "place-self-end",
+              "label": "t:global.position.bottom_right"
+            }
+          ],
+          "default": "place-self-end-start"
+        },
+        {
+          "type": "select",
+          "id": "content_width",
+          "label": "Indholdets bredde (Sengefabrikken)",
+          "options": [
+            {
+              "value": "auto",
+              "label": "Standard"
+            },
+            {
+              "value": "xs",
+              "label": "X-Small"
+            },
+            {
+              "value": "sm",
+              "label": "Small"
+            },
+            {
+              "value": "md",
+              "label": "Medium"
+            },
+            {
+              "value": "lg",
+              "label": "Large"
+            },
+            {
+              "value": "xl",
+              "label": "X-Large"
+            }
+          ],
+          "default": "auto"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "subheading",
+          "label": "t:global.text.subheading",
+          "default": "Subtitle"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "heading",
+          "label": "t:global.text.heading",
+          "default": "Title"
+        },
+        {
+          "type": "select",
+          "id": "heading_size",
+          "label": "t:global.text.heading_size",
+          "options": [
+            {
+              "value": "display-xl",
+              "label": "Display XL"
+            },
+            {
+              "value": "display-l",
+              "label": "Display L"
+            },
+            {
+              "value": "display-m",
+              "label": "Display M"
+            },
+            {
+              "value": "h1",
+              "label": "XX-Large"
+            },
+            {
+              "value": "h2",
+              "label": "X-Large"
+            },
+            {
+              "value": "h3",
+              "label": "Large"
+            },
+            {
+              "value": "h4",
+              "label": "Medium"
+            },
+            {
+              "value": "h5",
+              "label": "Small"
+            },
+            {
+              "value": "h6",
+              "label": "X-Small"
+            },
+            {
+              "value": "h7",
+              "label": "XX-Small"
+            }
+          ],
+          "default": "h2"
+        },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "t:global.text.content",
+          "default": "<p>Write some content to promote a product or a temporary offer in your collections.</p>"
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "t:global.text.button_text",
+          "default": "Button"
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "t:global.text.link"
+        },
+        {
+          "type": "checkbox",
+          "id": "open_in_new_tab",
+          "label": "t:global.text.open_in_new_tab",
+          "default": false
+        },
+        {
+          "type": "select",
+          "id": "style",
+          "label": "t:global.text.style",
+          "options": [
+            {
+              "value": "outline",
+              "label": "t:global.text.button_style_options.outline"
+            },
+            {
+              "value": "solid",
+              "label": "t:global.text.button_style_options.solid"
+            },
+            {
+              "value": "link",
+              "label": "t:global.text.button_style_options.link"
+            }
+          ],
+          "default": "solid"
+        }
+      ]
+    },
+    {
+      "type": "sengefabrikken_split",
+      "name": "To kolonner",
+      "settings": [
+        {
+          "type": "color_scheme",
+          "id": "color_scheme",
+          "label": "t:global.colors.scheme",
+          "default": "scheme-1"
+        },
+        {
+          "type": "header",
+          "content": "Medie"
+        },
+        {
+          "type": "select",
+          "id": "media_position",
+          "label": "Placering af medie",
+          "options": [
+            {
+              "value": "right",
+              "label": "Højre"
+            },
+            {
+              "value": "left",
+              "label": "Venstre"
+            }
+          ],
+          "default": "right"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "t:global.image.image",
+          "info": "Bruges som forsidebillede, hvis der er valgt en video."
+        },
+        {
+          "type": "video",
+          "id": "video",
+          "label": "t:global.video.video"
+        },
+        {
+          "type": "checkbox",
+          "id": "autoplay",
+          "label": "Afspil video automatisk",
+          "info": "Videoen afspilles uden lyd og i loop. Ellers vises en afspilningsknap.",
+          "default": false
+        },
+        {
+          "type": "header",
+          "content": "t:global.text.content"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "subheading",
+          "label": "t:global.text.subheading"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "heading",
+          "label": "t:global.text.heading",
+          "default": "“En dansk seng der holder i mange år”"
+        },
+        {
+          "type": "select",
+          "id": "heading_size",
+          "label": "t:global.text.heading_size",
+          "options": [
+            {
+              "value": "display-xl",
+              "label": "Display XL"
+            },
+            {
+              "value": "display-l",
+              "label": "Display L"
+            },
+            {
+              "value": "display-m",
+              "label": "Display M"
+            },
+            {
+              "value": "h1",
+              "label": "XX-Large"
+            },
+            {
+              "value": "h2",
+              "label": "X-Large"
+            },
+            {
+              "value": "h3",
+              "label": "Large"
+            },
+            {
+              "value": "h4",
+              "label": "Medium"
+            },
+            {
+              "value": "h5",
+              "label": "Small"
+            },
+            {
+              "value": "h6",
+              "label": "X-Small"
+            },
+            {
+              "value": "h7",
+              "label": "XX-Small"
+            }
+          ],
+          "default": "h3"
+        },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "t:global.text.content"
+        },
+        {
+          "type": "header",
+          "content": "Afsender"
+        },
+        {
+          "type": "image_picker",
+          "id": "author_image",
+          "label": "Billede"
+        },
+        {
+          "type": "text",
+          "id": "author_name",
+          "label": "Navn",
+          "default": "Michael Jensen"
+        },
+        {
+          "type": "text",
+          "id": "author_role",
+          "label": "Titel",
+          "default": "Sengesnedker"
+        },
+        {
+          "type": "header",
+          "content": "Knap"
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "t:global.text.button_text"
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "t:global.text.link"
+        },
+        {
+          "type": "checkbox",
+          "id": "open_in_new_tab",
+          "label": "t:global.text.open_in_new_tab",
+          "default": false
+        },
+        {
+          "type": "select",
+          "id": "style",
+          "label": "t:global.text.style",
+          "options": [
+            {
+              "value": "outline",
+              "label": "t:global.text.button_style_options.outline"
+            },
+            {
+              "value": "solid",
+              "label": "t:global.text.button_style_options.solid"
+            },
+            {
+              "value": "link",
+              "label": "t:global.text.button_style_options.link"
+            }
+          ],
+          "default": "solid"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Sengefabrikken banner",
+      "category": "t:global.categories.storytelling",
+      "blocks": [
+        {
+          "type": "image"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
