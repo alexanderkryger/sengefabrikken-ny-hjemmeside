@@ -379,7 +379,7 @@
         "mega_menu_d3ftbw": {
           "type": "mega_menu",
           "settings": {
-            "menu_item": "Puder",
+            "menu_item": "Hovedpuder",
             "flyout_products_heading": "Mest populære puder",
             "mega_menu_justify_content": "justify-between",
             "stretch_promo_blocks": false,
