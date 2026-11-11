@@ -18,6 +18,64 @@
         "content_width": "md"
       }
     },
+    "slideshow_PxFxnk": {
+      "type": "slideshow",
+      "blocks": {
+        "slideshow_video_slide_n9GmNh": {
+          "type": "_slideshow-video-slide",
+          "name": "t:sections.slideshow.blocks.video.name",
+          "settings": {
+            "color_scheme": "",
+            "video": "shopify://files/videos/9X7_BANNER_FABRIK.mp4",
+            "mobile_video": "shopify://files/videos/1X1_BANNER_FABRIK.mp4",
+            "slide_link": "",
+            "content_max_width": 1000,
+            "mobile_content_position": "place-self-center",
+            "desktop_content_position": "sm:place-self-center",
+            "overlay_color": "#000000",
+            "overlay_opacity": 20
+          },
+          "blocks": {
+            "logo_GWxdmr": {
+              "type": "logo",
+              "name": "Logo",
+              "settings": {
+                "logo": "shopify://shop_images/SF-staerke_priser.svg",
+                "logo_width": 400,
+                "mobile_logo_width": 250
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "logo_GWxdmr"
+          ]
+        },
+        "slideshow-controls": {
+          "type": "_slideshow-controls",
+          "static": true,
+          "settings": {
+            "controls_style": "line",
+            "controls_color": "#ffffff"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "slideshow_video_slide_n9GmNh"
+      ],
+      "name": "t:sections.slideshow.name",
+      "settings": {
+        "use_page_width": true,
+        "allow_transparent_header": true,
+        "image_size": "md",
+        "transition_type": "curtain",
+        "autoplay": true,
+        "pause_auto_rotate_on_hover": false,
+        "cycle_speed": 6,
+        "background": "#000000"
+      }
+    },
     "sengefabrikken_product_list_zyFMMY": {
       "type": "sengefabrikken-product-list",
       "blocks": {
@@ -56,6 +114,7 @@
   },
   "order": [
     "main",
+    "slideshow_PxFxnk",
     "sengefabrikken_product_list_zyFMMY"
   ]
 }
