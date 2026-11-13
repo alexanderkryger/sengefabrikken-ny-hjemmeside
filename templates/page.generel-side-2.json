@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
@@ -17,13 +26,32 @@
           "settings": {
             "color_scheme": "",
             "image": "shopify://shop_images/Top_banner_1.jpg",
+            "slide_link": "",
             "content_max_width": 780,
             "mobile_content_position": "place-self-center",
             "desktop_content_position": "sm:place-self-center",
             "overlay_color": "#000000",
             "overlay_opacity": 0
           },
-          "blocks": {}
+          "blocks": {
+            "heading_kTewY4": {
+              "type": "heading",
+              "name": "t:blocks.heading.name",
+              "settings": {
+                "text": "{{ closest.page.title }}",
+                "heading_size": "h4",
+                "html_tag": "p",
+                "indent": "none",
+                "highlight_effect": "default",
+                "highlight_accent_color": "",
+                "highlight_text_color": ""
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "heading_kTewY4"
+          ]
         },
         "slideshow-controls": {
           "type": "_slideshow-controls",
@@ -67,7 +95,7 @@
         "color_scheme": "",
         "color_transition": false,
         "custom_id": "",
-        "content_width": "lg",
+        "content_width": "full",
         "text_alignment": "left"
       }
     },
@@ -141,6 +169,23 @@
             "heading_2",
             "rich_text_2"
           ]
+        },
+        "section-header": {
+          "type": "_section-header",
+          "static": true,
+          "settings": {
+            "subheading": "",
+            "title": "",
+            "content": "",
+            "button_text": "",
+            "button_link": "",
+            "button_style": "outline",
+            "text_alignment": "left",
+            "heading_size": "h3",
+            "title_icon": "none",
+            "show_scrolling_title": false
+          },
+          "blocks": {}
         }
       },
       "block_order": [
@@ -196,38 +241,98 @@
         "preload_first": false
       }
     },
-    "rich_text_online": {
-      "type": "rich-text",
+    "multi_column_rLqrya": {
+      "type": "multi-column",
       "blocks": {
-        "heading_1": {
-          "type": "heading",
+        "multi_column_column_H8ihKH": {
+          "type": "_multi-column-column",
           "settings": {
-            "text": "Køb online med 100 dages risikofri prøve, gratis ombytning og meget mere",
-            "heading_tag": "h3",
-            "html_tag": "h2",
-            "indent": "none",
-            "highlight_effect": "default",
-            "highlight_accent_color": "",
-            "highlight_text_color": ""
-          }
+            "color_scheme": "",
+            "text_alignment": "left"
+          },
+          "blocks": {
+            "heading_TGP9cN": {
+              "type": "heading",
+              "settings": {
+                "text": "Køb online med 100 dages risikofri prøve, gratis ombytning og meget mere",
+                "heading_size": "h3",
+                "html_tag": "h2",
+                "indent": "none",
+                "highlight_effect": "default",
+                "highlight_accent_color": "",
+                "highlight_text_color": ""
+              },
+              "blocks": {}
+            },
+            "rich_text_BxReiA": {
+              "type": "rich-text",
+              "settings": {
+                "text": "<p>Vi har valgt at spare de fysiske butikker væk, uden dog at gå på kompromis med personlig betjening og vejledning. Vi har derfor åbent i vores kundeservice alle ugens dage fra klokken 08.00 til 23.00, hvor vi sidder klar til at besvare dine spørgsmål, hvad enten de drejer sig om hjælp til valg af seng, spørgsmål til levering eller en eventuel reklamation/returnering.</p><p>At vi har sparet de fysiske butikker væk afspejler sig naturligvis i priserne på vores produkter, hvor vores væsentligt lavere faste omkostninger kommer dig til gode i form af skarpe priser og stærke tilbud. Udover vores laver priser, så tilbyder vi dig<a href=\"https://www.sengefabrikken.dk/pages/fri-retur\"> </a><a href=\"https://www.sengefabrikken.dk/pages/100-dages-prove\" title=\"https://www.sengefabrikken.dk/pages/100-dages-prove\">100 dages risikofri prøve</a> med afhentning på din adresse, <a href=\"https://www.sengefabrikken.dk/pages/ombytning\" title=\"https://www.sengefabrikken.dk/pages/ombytning\">100 dages fasthedsgaranti</a> med ombytning af fasthed og meget (meget) mere.</p>",
+                "content_width": "md"
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "heading_TGP9cN",
+            "rich_text_BxReiA"
+          ]
         },
-        "richtext_1": {
-          "type": "richtext",
+        "multi_column_column_BtzVBK": {
+          "type": "_multi-column-column",
           "settings": {
-            "text": "<p>Vi har valgt at spare de fysiske butikker væk, uden dog at gå på kompromis med personlig betjening og vejledning. Vi har derfor åbent i vores kundeservice alle ugens dage fra klokken 08.00 til 23.00, hvor vi sidder klar til at besvare dine spørgsmål, hvad enten de drejer sig om hjælp til valg af seng, spørgsmål til levering eller en eventuel reklamation/returnering.</p><p>At vi har sparet de fysiske butikker væk afspejler sig naturligvis i priserne på vores produkter, hvor vores væsentligt lavere faste omkostninger kommer dig til gode i form af skarpe priser og stærke tilbud. Udover vores laver priser, så tilbyder vi dig<a href=\"https://www.sengefabrikken.dk/pages/fri-retur\"> </a><a href=\"https://www.sengefabrikken.dk/pages/100-dages-prove\" title=\"https://www.sengefabrikken.dk/pages/100-dages-prove\">100 dages risikofri prøve</a> med afhentning på din adresse, <a href=\"https://www.sengefabrikken.dk/pages/ombytning\" title=\"https://www.sengefabrikken.dk/pages/ombytning\">100 dages fasthedsgaranti</a> med ombytning af fasthed og meget (meget) mere.</p><p>Men kan man overhovedet købe seng online, uden at have prøvet den først? Ja, selvfølgelig kan man det! Der er enorm forskel på at prøveligge en seng med alt dit tøj på i 4-5 minutter kontra at sove i sengen kontinuerligt 6-9 timer hver eneste nat. Faktisk tager det ofte kroppen helt op til 3-4 uger at vænne sig til en ny seng, hvor alt lige fra fjedre til polstring er fabriksnyt. En seng i en fysisk butik er typisk blevet lagt til af mange personer, så fastheden vil derfor heller ikke nødvendigvis altid være 100 % retvisende. Derfor mener vi at vores strategi er en bedre, hurtigere og nemmere vej til den gode nattesøvn – hvis du ikke er tilfreds med sengen, fastheden eller topmadrassen, så kan du ombytte til en anden fasthed eller model eller returnere hele sengen kvit og frit indenfor 100 dage efter levering.</p><p>At vores fremgangsmåde fungerer understreges af, at vi efterhånden har ekspederet mere end 55.000 ordrer henover de sidste 5 år med en samlet score på 4,7 ud af 5 stjerner på TrustPilot. Vi har herudover flere tusinde produktanmeldelser her på siden, hvor du kan danne dig et indtryk af kvaliteten af netop dét produkt, du sidder og kigger på. Vi forsøger at gøre din senge-handel så overskuelig og gennemsigtig som overhovedet muligt – derfor er alle vores priser inklusiv bl.a. ben, topmadras og levering, så du ikke løber ind i uforudsete ekstra omkostninger undervejs.</p>"
-          }
+            "color_scheme": "",
+            "text_alignment": "left"
+          },
+          "blocks": {
+            "rich_text_c9eTFz": {
+              "type": "rich-text",
+              "settings": {
+                "text": "<p>Men kan man overhovedet købe seng online, uden at have prøvet den først? Ja, selvfølgelig kan man det! Der er enorm forskel på at prøveligge en seng med alt dit tøj på i 4-5 minutter kontra at sove i sengen kontinuerligt 6-9 timer hver eneste nat. Faktisk tager det ofte kroppen helt op til 3-4 uger at vænne sig til en ny seng, hvor alt lige fra fjedre til polstring er fabriksnyt. En seng i en fysisk butik er typisk blevet lagt til af mange personer, så fastheden vil derfor heller ikke nødvendigvis altid være 100 % retvisende. Derfor mener vi at vores strategi er en bedre, hurtigere og nemmere vej til den gode nattesøvn – hvis du ikke er tilfreds med sengen, fastheden eller topmadrassen, så kan du ombytte til en anden fasthed eller model eller returnere hele sengen kvit og frit indenfor 100 dage efter levering.</p><p>At vores fremgangsmåde fungerer understreges af, at vi efterhånden har ekspederet mere end 55.000 ordrer henover de sidste 5 år med en samlet score på 4,7 ud af 5 stjerner på TrustPilot. Vi har herudover flere tusinde produktanmeldelser her på siden, hvor du kan danne dig et indtryk af kvaliteten af netop dét produkt, du sidder og kigger på. Vi forsøger at gøre din senge-handel så overskuelig og gennemsigtig som overhovedet muligt – derfor er alle vores priser inklusiv bl.a. ben, topmadras og levering, så du ikke løber ind i uforudsete ekstra omkostninger undervejs.</p>",
+                "content_width": "md"
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "rich_text_c9eTFz"
+          ]
+        },
+        "section-header": {
+          "type": "_section-header",
+          "static": true,
+          "settings": {
+            "subheading": "",
+            "title": "",
+            "content": "",
+            "button_text": "",
+            "button_link": "",
+            "button_style": "outline",
+            "text_alignment": "left",
+            "heading_size": "h3",
+            "title_icon": "none",
+            "show_scrolling_title": false
+          },
+          "blocks": {}
         }
       },
       "block_order": [
-        "heading_1",
-        "richtext_1"
+        "multi_column_column_H8ihKH",
+        "multi_column_column_BtzVBK"
       ],
       "settings": {
         "color_scheme": "",
-        "color_transition": false,
-        "custom_id": "",
-        "content_width": "lg",
-        "text_alignment": "left"
+        "show_internal_borders": false,
+        "add_horizontal_spacing": true,
+        "add_top_spacing": true,
+        "add_bottom_spacing": true,
+        "items_per_row": 2,
+        "stack_on_mobile": true,
+        "stack_on_desktop": true,
+        "rounded_media": false,
+        "tap_to_pause_videos": false,
+        "column_spacing": "md",
+        "row_spacing": "md"
       }
     },
     "video": {
@@ -235,7 +340,12 @@
       "blocks": {
         "play_button": {
           "type": "play_button",
-          "settings": {}
+          "settings": {
+            "position": "middle_center",
+            "inherit_alignment_on_mobile": true,
+            "mobile_position": "middle_center",
+            "show_play_cursor": false
+          }
         }
       },
       "block_order": [
@@ -243,6 +353,8 @@
       ],
       "settings": {
         "color_scheme": "",
+        "use_page_width": true,
+        "page_width_color_scheme": "",
         "allow_transparent_header": false,
         "autoplay": false,
         "show_controls": true,
@@ -260,7 +372,7 @@
     "rich_text_intro",
     "multi_column",
     "banner_100_dage",
-    "rich_text_online",
+    "multi_column_rLqrya",
     "video"
   ]
 }
