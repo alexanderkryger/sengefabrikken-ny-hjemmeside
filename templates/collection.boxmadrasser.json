@@ -1,0 +1,352 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "banner": {
+      "type": "collection-banner",
+      "settings": {
+        "color_scheme": "",
+        "allow_transparent_header": true,
+        "layout": "background",
+        "show_description": true,
+        "collection_title_size": "h2",
+        "content_position": "place-self-center",
+        "background_color_scheme": "",
+        "image": "shopify://shop_images/collectionbanner_kontinental.png",
+        "image_size": "lg",
+        "overlay_color": "#000000",
+        "overlay_opacity": 20,
+        "quick_navigation_menu": ""
+      }
+    },
+    "main": {
+      "type": "main-collection",
+      "blocks": {
+        "sengefabrikken_split_HeTfkb": {
+          "type": "sengefabrikken_split",
+          "settings": {
+            "color_scheme": "scheme-5",
+            "position": 4,
+            "media_position": "right",
+            "image": "shopify://shop_images/trae.png",
+            "autoplay": false,
+            "subheading": "",
+            "heading": "“En dansk seng der holder i mange år”",
+            "heading_size": "h3",
+            "content": "",
+            "author_image": "shopify://shop_images/malthe_sengesnedker.png",
+            "author_name": "Malthe Elefsen",
+            "author_role": "Sengesnedker",
+            "button_text": "",
+            "url": "",
+            "open_in_new_tab": false,
+            "style": "solid"
+          }
+        },
+        "image_t7Xw9K": {
+          "type": "image",
+          "settings": {
+            "color_scheme": "scheme-3",
+            "position": 4,
+            "size": "1_1",
+            "image": "shopify://shop_images/SF_Banner_100dage_Desk_2000x625_2.jpg",
+            "mobile_image": "shopify://shop_images/SF_Banner_100dage_mobile.jpg",
+            "overlay_color": "#000000",
+            "overlay_opacity": 20,
+            "content_position": "place-self-end-start",
+            "content_width": "md",
+            "subheading": "&nbsp;Direkte fra fabrikken&nbsp;",
+            "heading": "&nbsp;Kvalitet uden fordyrende mellemled&nbsp;",
+            "heading_size": "h4",
+            "content": "",
+            "button_text": "",
+            "url": "",
+            "open_in_new_tab": false,
+            "style": "solid"
+          }
+        }
+      },
+      "block_order": [
+        "sengefabrikken_split_HeTfkb",
+        "image_t7Xw9K"
+      ],
+      "settings": {
+        "color_scheme": "",
+        "products_per_page": 36,
+        "products_per_row_mobile": 2,
+        "products_per_row_desktop": 4,
+        "show_product_card_size_selector": true,
+        "quick_links_menu": "",
+        "filter_layout": "drawer",
+        "show_sort_by": true,
+        "show_filters": true,
+        "show_filter_group_name": false,
+        "show_filter_values_count": true,
+        "open_filters_by_default": false,
+        "product_card_style": "sengefabrikken",
+        "product_card_two_columns": false,
+        "product_card_row_background": "#fff4e2",
+        "show_toolbar": false,
+        "show_active_facets": false,
+        "only_metafield_filters": true,
+        "sticky_filter_button": true,
+        "sticky_filter_text": "Vælg størrelse og farve",
+        "picker_filter_labels": "Størrelse, Farve",
+        "default_filter_values": "180x200, Sand",
+        "swatch_selector_size": "lg"
+      }
+    },
+    "trustpilot_reviews_MGtkrf": {
+      "type": "trustpilot-reviews",
+      "name": "Trustpilot anmeldelser",
+      "settings": {
+        "color_scheme": "scheme-5",
+        "heading_size": "h4",
+        "score_suffix": "på Trustpilot",
+        "count_prefix": "Baseret på",
+        "count_suffix": "anmeldelser",
+        "disclosure": "Viser vores 4- og 5-stjernede anmeldelser",
+        "autoscroll": true,
+        "seconds_per_card": 20,
+        "card_background": "#f6f1ec",
+        "card_border_color": "#e0dcd9"
+      }
+    },
+    "seo_text": {
+      "type": "seo-text",
+      "blocks": {
+        "text_80x200": {
+          "type": "text",
+          "settings": {
+            "filter_value": "80x200",
+            "heading_1": "",
+            "text_1": "<p>En enkeltseng 80x200 cm. kan være den helt rette investering, hvis pladsen er trang eller du skal bruge en ny seng til børne- eller gæsteværelset. I denne kategori finder du mange forskellige boxmadrasser, der kan dække ethvert behov, uanset om sengen er beregnet til en person på 50 kg. eller en person på 120 kg.</p><p>Der er mange gode grunde til at vælge en boxmadras 80x200 cm., hvis du skal investere i en ny seng. En boxmadras er således et simpelt - men stadig komfortabelt og fornuftigt - valg, da du til trods for de lave priser ikke går på kompromis med din nattesøvn. Fælles for alle vores boxmadrasser er den høje kvalitet, der kendetegner alle vores produkter. Selvom der ikke står et bestemt brand-navn på vores senge, så får du nemlig en rigtig god og solid boxmadras, der med sikkerhed vil sikre dig en skøn nattesøvn samt holde til mange års brug.</p>",
+            "heading_2": "",
+            "text_2": "<p>At en boxmadras er et simpelt valg skyldes at du blot skal montere ben under bunden på sengen, hvorefter den er klar til at blive taget i brug. Herudover får du fjedre, polstring m.m. samlet i én og samme madras i modsætning til andre sengetyper, hvor det kan være fordelt ud på flere madrasser. Her er en boxmadras noget mere simpelt opbygget, da det hele som sagt er samlet i den samme madras.</p><p>Alle vores boxmadrasser 80x200 cm. er danskproducerede; trærammerne er fremstillet i massivt svensk fyrretræ, imens komponenterne er sammensat i Danmark. Dette er naturligvis med til at højne kvaliteten af vores produkter, da alting bliver nøje gransket og undersøgt, inden det sendes videre til levering. Topmadrassen, der altid følger med til din nye seng, er desuden produceret i enten Belgien eller Danmark. Hvad angår topmadras så har du hos Sengefabrikken altid mulighed for at vælge imellem minimum to forskellige modeller; dette skyldes at valget af topmadras er meget præferencebetonet, hvorfor vi vil sikre os, at du kan vælge lige netop den type topmadras, der passer til dig.</p>"
+          }
+        },
+        "text_90x200": {
+          "type": "text",
+          "settings": {
+            "filter_value": "90x200",
+            "heading_1": "",
+            "text_1": "<p>Hvis du leder efter en ny enkeltseng 90x200 cm., så er du havnet det rette sted. Vi forhandler således et stort udvalg af boxmadrasser 90x200 cm., hvor der med sikkerhed findes noget for enhver smag og pengepung. Uanset om brugeren af sengen vejer 50 kg. eller 120 kg., så har vi en eller flere boxmadrasser, der både fasthedsmæssigt og holdbarhedsmæssigt passer til behovet. I vores sortiment finder du nemlig både boxmadrasser med den moderne pocket fjeder, der passer til langt de fleste, imens vi også forhandler senge med multipocket fjedre, hvor du qua det dobbelte antal støttepunkter får en fastere madras.</p><p>Om du skal vælge den ene eller den anden type fjeder afhænger som sagt af din vægt samt dine præferencer. Vejer du under 95/100 kg., så anbefaler vi Pocket, hvorimod vi anbefaler Multipocket, hvis du vejer +100 kg. Følger du vores fasthedsanvisninger, som i øvrigt står listet i produktbeskrivelsen under hver eneste af vores boxmadrasser, så vil du få en ny enkeltseng, der passer til dig og din vægt. Hvis du har brug for hjælp til valget af fasthed eller fjederopbygning, så kan du med fordel læse vores BOXMADRAS GUIDE, hvor vi guider dig igennem de forskellige modeller samt kommer med vores anbefalinger på, hvad du med fordel kan vælge. Er du forsat i tvivl, kan du desuden altid henvende dig til os. Vi sidder klar til at hjælpe dig næsten hele døgnet rundt. Du kan benytte vores live-chat, hvor vi er online i mere end 100 timer hver uge, ligesom du kan ringe til os det meste af døgnet. Du kan også sende os en mail og få svar uden for almindelige åbningstider.</p>",
+            "heading_2": "",
+            "text_2": "<p>Alle vores boxmadrasser 90x200 er desuden danskproducerede og dobbeltfjedrede, hvilket sætter en tyk streg under den høje kvalitet. Trærammerne er udarbejdet i massivt svensk fyrretræ, imens alle komponenterne er sammensat i Danmark. Herudover har du altid som minimum valget imellem to forskellige topmadrasser; memory skum og latex. Vores topmadras med memory skum er det blødeste alternativ. Her får du en topmadras, der giver efter når du ligger på den, hvilket vil sige, at den former sig efter din krop. Materialet bruger din kropsvarme til at forme sig, og derfor er memory skum også en relativ varm topmadras. Latex yder derimod progressiv komfort og skubber igen frem for at give efter. Ved at vælge en topmadras med latex får du således en jævn overflade, når du ligger i sengen. Hvis du har det varmt om natten, kan en latex topmadras desuden være det rette valg for dig, idet materialet er ventilerende og åndbart.</p><p>Ved at give dig muligheden for at vælge mellem forskellige fastheder og topmadrasser kan du opnå den rette komfort og finish på din nye enkeltseng, der passer bedst til dig og dine præferencer. Udover topmadrassen er alle vores priser inklusiv både ben og fragt til din adresse. Du får således en komplet løsning uden ubehagelige overraskelser senere hen. Hos Sengefabrikken prioriterer vi gennemsigtighed, idet vi gerne vil gøre det trygt for dig at købe seng online. Denne gennemsigtighed er i kombination med produkternes høje kvalitet din garanti for en god handel hos os.</p>"
+          }
+        },
+        "text_90x210": {
+          "type": "text",
+          "settings": {
+            "filter_value": "90x210",
+            "heading_1": "",
+            "text_1": "<p>Find din nye boxmadras med ekstra længde i vores udvalg af boxmadrasser 90x210 cm. Boxmadrasser i denne størrelse er oplagte, hvis du måler over 1,90 cm., da det i så fald er nødvendigt med ekstra længde, således dine fødder ikke stikker udover sengekanten.</p><p>I vores udvalg af boxmadras 90x210 cm. finder du mange forskellige modeller med blandt andet pocket fjedre og multipocket fjedre. Vi forhandler kort sagt noget for enhver smag og vægtklasse. Fælles for alle vores modeller er, at de er danskproducerede samt dobbeltfjedrede, hvilket betyder, at du uagtet valg af boxmadras får to individuelle fjedrelag placeret ovenpå hinanden. Dette er med til at sikre dig en god støtte, ligesom det også har en positiv indvirkning på sengens levetid, da den selvsagt holder længere, når du slider på to lag fjedre fremfor et.</p>",
+            "heading_2": "",
+            "text_2": "<p>Det nederste lag fjedre består som regel af den klassiske bonell fjeder, der er med til at skabe en stærk platform for resten af sengen, imens det øverste fjederlag er kendt som komfortlaget; her forhandler vi som sagt boxmadrasser 90x210 med både pocket fjedre og multipocket fjedre. Begge typer af fjedre er kendetegnet ved at hver enkelt fjeder er svejset ind i en tynd filtpose, hvorfor madrassen reagerer individuelt på tryk. Dette sikrer dig en differentieret og unik støtte, hvor kroppens mest udsatte områder, herunder bl.a. lænden og skuldrene, får den mest markante støtte. Forskellen på pocket og multipocket er størrelsen på den enkelte fjeder; multipocket fjedre er mindre, hvorfor der er flere af disse pr. m2 – ergo er en madras med multipocket fjedre fastere, da din vægt fordeler sig ud på flere støttepunkter. Du kan læse meget mere omkring dette i vores <a href=\"https://www.sengefabrikken.dk/pages/boxmadras-guide\" style=\"color:blue;\">BOXMADRAS GUIDE</a>.</p><p>Alle vores boxmadrasser er som sagt danskproducerede; trærammerne er fremstillet i massivt svensk fyrretræ, imens alle komponenterne er sammensat i Danmark. Herudover har du ved hver eneste model mulighed for at vælge imellem minimum to forskellige topmadrasser, nemlig en med latex og en med memory skum. På denne måde kan du tilføje den finish til sengen, som du føler mest velegnet til dig og din krop.</p>"
+          }
+        },
+        "text_105x210": {
+          "type": "text",
+          "settings": {
+            "filter_value": "105x210",
+            "heading_1": "",
+            "text_1": "<p>Lad vores store udvalg her på siden inspirere dig til din næste boxmadras med ekstra længde. Hvis du har en højde på over 1,90 cm., anbefaler vi senge med en længde på 210 cm., så du er sikret en behagelig nattesøvn i en seng, du kan være i.</p><p>Fælles for alle vores boxmadrasser er den høje kvalitet. De er nemlig alle sammen produceret i Danmark med trærammer af massivt svensk fyrretræ. De er desuden alle dobbeltfjedrede, hvilket bidrager til stabilitet og suveræn komfort, mens det også har en positiv indflydelse på holdbarheden.</p><p>Når du køber en boxmadras hos os kan du vælge mellem forskellige fastheder. Hos Sengefabrikken anbefaler vi fasthed ud fra brugernes vægt.</p><p>Valg af fasthed – vi anbefaler:</p>",
+            "heading_2": "",
+            "text_2": "<ul><li>Medium – til personer med en vægt under 70 kg.</li><li>Fast - til personer med en vægt mellem 70 og 95/100 kg.</li><li>Xtra Fast - til personer med en vægt over 95/100 kg.</li></ul><p>Hertil spiller din præferencer naturligvis ind. Hvis du er i tvivl om, hvilken fasthed du bør vælge, kan du altid få gode råd og vejledning ved at ringe til os, sende os en mail eller ved at benytte vores live-chat her på siden. Når du køber en boxmadras hos os indgår den desuden i en komplet pakke med sengeben, fri fragt og topmadras. Du kan ovenikøbet vælge mellem to forskellige topmadrasser; latex og memory skum. På den måde kan du sikre dig, at den sidste finish på din nye seng passer til dine præferencer.</p>"
+          }
+        },
+        "text_120x200": {
+          "type": "text",
+          "settings": {
+            "filter_value": "120x200",
+            "heading_1": "",
+            "text_1": "<p>Står du og mangler en ny seng? Så er vores udvalg af boxmadrasser 120x200 cm. et godt sted at starte din søgning. Hos Sengefabrikken finder du således et stort udvalg af boxmadrasser i størrelse 120x200 cm., der passer perfekt, hvis pladsen er trang eller du kort sagt ikke har behov for en større seng. En 120x200 cm. boxmadras er for mange at foretrække fremfor en almindelig enkeltseng på 90x200 cm., da de 30 cm. giver en del ekstra plads at boltre sig på. Derfor anbefaler vi boxmadras 120x200 cm. til både børn, singler og par.</p><p>Vi forhandler udelukkende vores produkter online; dette giver os en række fordele sammenlignet med andre forhandlere, hvilket bl.a. har en positiv indvirkning på vores priser. At priserne er lave er dog ikke ensbetydende med at du går på kompromis med kvaliteten, tværtimod. Alle vores boxmadrasser er således danskproducerede, dobbeltfjedrede samt med valgfri topmadras i enten latex eller memory skum. De fleste af vores modeller er desuden med den moderne pocket fjeder, der følger din krops trykpunkter og sikrer dig en differentieret og unik støtte.</p><p>Når du får leveret en af vores boxmadrasser, så skal du blot montere benene, hvorefter sengen er komplet og klar til brug. En boxmadras er altså på mange måder et simpelt valg af ny seng, da du hurtigt kan tage sengen i brug. Konstruktionsmæssigt er alle vores boxmadrasser som sagt dobbeltfjedrede, hvilket vil sige at du får to individuelle fjedrelag i alle vores senge 120x200 cm. Det nederste lag vil typisk bestå af et solidt fjederlag med den klassiske timeglas-formede fjeder (også kendt som Bonell), imens det øverste lag vil sørge for den primære komfort og støtte. Her bruger vi moderne fjedre som pocket fjedre og multipocket fjedre, der arbejder individuelt og støtter kroppen bedst muligt.</p><p>Alle vores boxmadrasser 120x200 cm. er danskproducerede; trærammerne er udarbejdet i massivt svensk fyrretræ, imens alle komponenterne er sammensat i Danmark. På denne måde har vi kontrol med kvaliteten af de varer, vi sender ud, hvilket i sidste ende er din sikkerhed for et kvalitetsprodukt, der lever op til dine krav og forventninger.</p>",
+            "heading_2": "",
+            "text_2": "<h3>Har du brug for hjælp?</h3><p>Har du behov for vejledning i forbindelse med køb af ny seng? Eller vil du bare gerne finde det bedste boxmadras 120x200 tilbud? Uanset hvad er du altid velkommen til at kontakte os, og så vil vi gøre vores bedste for at hjælpe dig videre.</p><p>Hos Sengefabrikken prioriterer vi at være tilgængelige for vores kunder, og derfor kan du ringe til os næsten døgnet rundt, ligesom vi er online på vores live-chat mere end 100 timer hver uge. Du kan også altid sende os en mail – dem svarer vi nemlig også på uden for normal åbningstid.</p><p>Gode råd og vejledning er altså ikke langt væk, når du handler hos os. Vi vil nemlig gerne give dig en god oplevelse, så du kan købe boxmadras 120x200 online med ro i maven. Hvis vores anbefalinger mod forventning alligevel ikke harmonerer med dine ønsker, kan du altid bestille en ombytning på vores hjemmeside. Hos os kan du nemlig ombytte fastheden af din madras for et mindre beløb i helt op til 30 dage efter levering.</p>"
+          }
+        },
+        "text_140x200": {
+          "type": "text",
+          "settings": {
+            "filter_value": "140x200",
+            "heading_1": "",
+            "text_1": "<p>Hos Sengefabrikken finder du et stort udvalg af boxmadrasser 140x200 cm., også kendt som halvandenmandssenge og trekvartsenge, der med sikkerhed vil leve op til dine krav for komfort, støtte og holdbarhed. Alle vores boxmadrasser er således produceret med udgangspunkt i ovenstående; selvom vores priser er lave, så går vi ikke på kompromis med kvaliteten af din nye seng, tværtimod. Vores boxmadrasser 140x200 er nemlig producerede i Danmark, ligesom de er dobbeltfjedrede, hvilket bidrager til både stabilitet og behagelig komfort.</p><p>Når du investerer i en boxmadras 140x200 hos os, medfølger der en valgfri topmadras i enten latex eller memory skum. Valget af topmadras kommer meget an på dine præferencer, altså hvorvidt du ønsker en blød eller fast topmadras. Memory skum er trykaflastende og dermed blød, mens latex bevarer en jævn overflade og tilmed er ventilerende og åndbar. Hos os køber du således en komplet løsning i høj kvalitet, der oven i købet leveres til din adresse kvit og frit.</p><p>Der er mange gode grunde til at købe en seng 140x200 cm., da størrelsen er ideel i mange henseender. Det kan bl.a. være at du ikke har plads til en dobbeltseng, men samtidig gerne vil have en lidt større seng end en almindelig enkeltseng – her vil 140x200 cm. være et oplagt valg. Størrelsen gør i øvrigt denne type seng oplagt til både børn, singler og par, da man sagtens kan sove to personer i en boxmadras 140x200.</p>",
+            "heading_2": "",
+            "text_2": "<h3>Bag om boxmadras 140x200</h3><p>I vores udvalg finder du kun dobbeltfjedrede modeller, hvilket vil sige at alle boxmadrasser 140x200 er med to individuelle fjedrelag, der hver især tjener deres formål. Nederst finder du et lag af bonell fjedre, der sørger for en solid platform for resten af sengen i selskab med den 8 cm. høje træramme i massiv svensk fyrretræ. Ovenpå bonell fjedrene finder du det primære komfort- og støttelag; her har vi flere forskellige konstruktioner bl.a. med moderne pocket fjedre og multipocket fjedre, der følger din krops liggeposition og sikrer individuel støtte af din krops mest udsatte områder. Om du skal vælge Pocket eller Multipocket afhænger af din vægt samt dine præferencer; vi anbefaler Medium eller Fast, hvis du vejer under 100 kg. og Xtra Fast hvis du vejer over 100 kg.</p><p>Når du handler seng hos Sengefabrikken, så køber du kort sagt en komplet løsning, hvor ben, topmadras og levering er inkluderet i prisen. Valget af topmadras er meget individuelt og afgøres i høj grad af ens individuelle præferencer; derfor har du som minimum altid valget imellem to forskellige modeller, når du køber boxmadras hos os. Dermed kan du vælge den finish på sengen, der harmonerer bedst med dine behov.</p><h3>Har du brug for hjælp?</h3><p>Er du på udkig efter en ny trekvartseng, men stadig i tvivl om, hvilken model du skal vælge? Så kontakt os endelig på tlf. 89 87 82 59 eller kontakt@sengefabrikken.dk. Du kan også benytte vores live-chat, hvor vi er online i over 100 timer hver eneste uge. På den måde kan vi altid hjælpe dig frem til det rette valg af trekvartseng, og vi kan besvare de spørgsmål du måtte have om specifikke modeller - både i forhold til vores boxmadrasser 140x200, men også hvis du er interesseret i at høre mere om andre modeller i vores brede sortiment.</p><p>Vi vil gerne gøre det trygt for dig at købe seng online, og derfor prioriterer vi gennemsigtighed og høj service. På den måde ved altid ved, hvad der er inkluderet i prisen, og du får ingen ubehagelige overraskelser – ligesom du altid får kompetent vejledning, som hjælper dig frem mod den rette investering for dig.</p>"
+          }
+        },
+        "text_160x200": {
+          "type": "text",
+          "settings": {
+            "filter_value": "160x200",
+            "heading_1": "",
+            "text_1": "<p>Hos Sengefabrikken fører vi et stort udvalg af kvalitets boxmadrasser 160x200 cm. i mange forskellige prisklasser. I vores udvalg finder du derfor noget for enhver smag og pengepung, uanset om brugeren vejer 50 kg. eller 110 kg. Vi har noget for enhver smag – fælles for alle vores boxmadrasser er dog den høje kvalitet og sansen for de små detaljer, der i sidste ende er med til at forbedre din nattesøvn betragteligt.</p><p>En boxmadras 160x200 cm. kategoriseres som en dobbeltseng – dog er den 20 cm. smallere end den helt klassiske størrelse 180x200 cm. At sengen er en lille smule mindre, er for mange et stort plus, da man stadig får fornemmelsen af at have en stor og dejlig seng, uden at den nødvendigvis optager al pladsen i soveværelset. Herudover er en boxmadras 160x200 cm. også lettere at håndtere, da den som sagt er mindre og derfor nemmere at flytte rundt på.</p><p>Som sagt spænder vores udvalg af senge 160x200 meget bredt; vi har bl.a. vores luksusmodeller med moderne pocket og multipocket fjedre, der i øvrigt fås både med og uden komfortzoner, ligesom vi har vores standardmodeller med den helt klassiske bonell fjeder, der er et oplagt valg til fx gæsteværelset eller sommerhuset. Uanset om du søger den ene eller den anden type seng, så kan du være sikker på at få en dobbeltfjedret samt danskproduceret seng, der lever op til vores høje standarder, hvad angår forhold som komfort, støtte og kvalitet. At vi vægter disse tre parametre højt, understreges af vores 5 stjerner på TrustPilot samt vores mere end 1.500 produktanmeldelser her på siden.</p>",
+            "heading_2": "",
+            "text_2": "<h3>Køb af boxmadras 160x200 online</h3><p>I vores sortiment finder du kort sagt noget for enhver smag og pengepung. Alle vores boxmadrasser leveres i øvrigt som komplette løsninger, hvor ben, topmadras og levering er inkluderet i prisen. På den måde er vi altid gennemsigtige, så du altid ved, hvad der er inkluderet i prisen. Dermed undgår du ubehagelige overraskelser i form af ekstra omkostninger senere i forløbet.</p><p>Hos Sengefabrikken vil du desuden altid kunne få den kompetente vejledning, du har brug for, når du skal investere i en ny seng. Vores søvnspecialister sidder klar ved tasterne på vores live-chat i mere end 100 timer hver eneste uge, ligesom du kan ringe til os helt frem til kl. 21 hver eneste aften. Hvis du har spørgsmål, er du således altid velkommen til at kontakte os, så vil vi gøre vores bedste for at finde frem til den bedste løsning til dig.</p><p>Den høje kvalitet og det danske håndværk i vores boxmadras 160x200 og i alle vores andre produkter, kombineret med vores prisgennemsigtighed og tilgængeligheden på telefon, chat og mail er til, så du kan føle dig tryg, når du køber ny seng online.</p>"
+          }
+        },
+        "text_180x200": {
+          "type": "text",
+          "settings": {
+            "filter_value": "180x200",
+            "heading_1": "",
+            "text_1": "<p>Er du på udkig efter en ny dobbeltseng 180x200 cm.? Så er du havnet det helt rigtige sted! Hos Sengefabrikken forhandler vi et stort udvalg af boxmadrasser 180x200 cm., der med sikkerhed kan tage din nattesøvn til nye højder. Selvom priserne på vores produkter er lav, så går du nemlig ikke på kompromis med komfort og støtte. Vi arbejder ud fra en filosofi om, at en kvalitets seng ikke nødvendigvis behøves at koste 15.000 eller 20.000 kroner. Derfor har vi skåret alle fordyrende mellemled væk, hvilket i sidste ende kommer dig som forbruger til gode. At du trygt kan købe din nye seng hos os, understreges af vores mere end 3.000 produktanmeldelser her på siden samt vores 5-stjernede score på TrustPilot.</p><p>I vores sortiment af dobbeltsenge finder du danskproducerede senge med unikke dobbeltfjedrekonstruktioner, der er designet til at give din krop den optimale støtte samt forlænge levetiden på sengen. Alle vores boxmadrasser er med trærammer i massiv svensk fyrretræ, der skaber en solid platform for resten af sengen. Det nederste fjederlag vil som regel være med den klassiske bonell fjeder, der ligeledes er med til at skabe en stærk bund. Det øverste fjederlag er også kendt som komfortlaget; det er således herfra du får den primære komfort og støtte. Her arbejder vi med fleksible pocket fjedre inddelt i 7 komfortzoner. Fleksibiliteten ved pocket fjedre skyldes at hver fjeder er svejset ind i en tynd filtpose, der arbejder individuelt og dermed giver en differentieret støtte til kroppen – der hvor du placerer det største tryk, vil sengen give den bedste og mest markante støtte.</p>",
+            "heading_2": "",
+            "text_2": "<p>Når du handler seng hos os, så køber du en komplet løsning. Det betyder, at alle priserne på vores boxmadrasser 180x200 cm. leveres med ben, valgfri topmadras og levering – der kommer med andre ord ingen fordyrende omkostninger på senere i forløbet. Topmadrassen er som sagt valgfri, og du får altid valget imellem minimum to forskellige modeller, nemlig en i latex og en i memory skum. Topmadrassen med latex passer til dig, der foretrækker en fast liggeflade. Latex yder således progressiv komfort, hvor materialet skubber igen, så overfladen forbliver jævn, når du ligger i sengen. Memory skum er derimod trykaflastende, og former sig således efter kroppen, når du lægger dig på madrassen. Dette gør også topmadrassen med memory skum til en blødere og varmere liggeflade. På denne måde kan du vælge den finish på sengen, der passer bedst til dig og dine præferencer.</p><p>Har du brug for hjælp til valget af boxmadras, topmadras eller noget helt tredje? Så tag endelig kontakt til os på telefon 89 87 82 59. Du kan også benytte vores live-chat her på siden eller sende os en mail på kontakt@sengefabrikken.dk – så vil vi gøre vores bedste for at give dig den vejledning, du har brug for.</p>"
+          }
+        },
+        "text_180x210": {
+          "type": "text",
+          "settings": {
+            "filter_value": "180x210",
+            "heading_1": "",
+            "text_1": "<p>En boxmadras 180x210 cm. er en stor dobbeltseng, hvor der er tilføjet 10 cm. ekstra længde i bunden af sengen, således dine fødder med sikkerhed holder sig inde på madrassen. De fleste personer med en højde på 1,90 – 1,95 cm. eller derover har formentlig prøvet at sove i en seng, der ikke er lang nok, og fødderne derfor stikker udover sengekanten – dette er selvsagt ikke særlig komfortabelt, men det kan heldigvis løses med en boxmadras med ekstra længde.</p><p>Hos Sengefabrikken finder du flere forskellige modeller i størrelse 180x210 cm. Dette betyder kort sagt, at der findes noget for enhver smag og vægtklasse i vores sortiment af dobbeltsenge 180x210 cm. Fælles for alle sengene er den høje kvalitet, der kendetegner vores produkter. Herudover leveres alle vores senge komplette, forstået på den måde at ben, valgfri topmadras og levering altid er inkluderet i prisen. Ydermere er alle sengene danskproducerede, hvilket også sætter en tyk streg under kvaliteten.</p>",
+            "heading_2": "",
+            "text_2": "<p>I sortimentet finder du blandt andet vores Box Deluxe med moderne pocket fjedre og 7 komfortzoner, ligesom vores Box Solid med multipocket fjedre også er et yderst populært valg. Hvilken boxmadras 180x210 cm. du skal vælge afhænger af mange ting, herunder i særdeleshed din vægt samt dine præferencer. Hvis du har brug for vejledning, hvad dette angår, så kan du med fordel læse vores <a href=\"https://www.sengefabrikken.dk/pages/boxmadras-guide\" style=\"color:blue;\">BOXMADRAS GUIDE</a>, hvor vi kigger nærmere på de forskellige konstruktioner.</p><p>Med en seng 180x210 fra Sengefabrikken vil du med sikkerhed tage din nattesøvn til nye højder. Alle vores senge er gennemtestet og lever op til vores høje krav – dette er din sikkerhed for et kvalitetsprodukt, hvor der er kælet for detaljerne samt lagt stor vægt på at god komfort og støtte ikke nødvendigvis behøves at koste en mindre formue.</p>"
+          }
+        },
+        "text_210x210": {
+          "type": "text",
+          "settings": {
+            "filter_value": "210x210",
+            "heading_1": "",
+            "text_1": "<p>Er du på udkig efter en ny KING SIZE seng? Så er vores boxmadras 210x210 måske noget for dig. Hos os finder du et stort udvalg af boxmadrasser 210 i høj kvalitet. Vi har lidt for enhver smag – både hvad angår prisklasse og smag.</p><p>Med en king size seng får du en ny seng med masser af plads til hele familien eller til dem, der bare fylder om natten. Fælles for alle boxmadrasser hos Sengefabrikken er den høje kvalitet. Alle vores senge er produceret i Danmark, og lever op til vores høje standarder, når det kommer til komfort, støtte og kvalitet.</p>",
+            "heading_2": "",
+            "text_2": "<p>Alle vores boxmadrasser 210x210 er desuden dobbeltfjedret. Hvilke fjedrer der er at finde i den enkelte seng, afhænger af modellen. Nogle af vores boxmadrasser indeholder den klassiske bonell fjeder i kombination med enten pocket fjedrer eller multi pocket fjedrer, mens andre er dobbeltfjedrede udelukkende med posefjedrer. Når du investerer i en boxmadras 210x210 er både sengeben, topmadras og fragt inkluderet i prisen. På den måde får du en komplet løsning, hvor du undgår ekstra omkostninger senere i forløbet. Du kan desuden altid få gode råd og kyndig vejledning om boxmadras 210 af vores søvnspecialister, der sidder klar ved tasterne på vores live-chat mere end 100 timer hver uge.</p>"
+          }
+        },
+        "text_standard": {
+          "type": "text",
+          "settings": {
+            "filter_value": "",
+            "heading_1": "",
+            "text_1": "<ul><li>Populær og stilren sengetype.</li><li>Produceret i Danmark af danske håndværkere.</li><li>Op til 25 års fabriksgaranti imod ramme- og fjedrebrud.</li><li>Komplet løsning inkl. sengeben og valgfri topmadras</li><li>Altid gratis levering til din adresse.</li></ul><p>Uagtet om du er på jagt efter en enkeltseng til børneværelset, en trekvartseng til lejligheden eller en dobbeltseng til soveværelset så har vi hos Sengefabrikken med sikkerhed løsningen klar til dig. En boxmadras er på mange måder det simple og oplagte valg, hvis du søger en ny billig seng. Du skal således blot montere ben på madrassen og placere topmadrassen ovenpå, hvorefter den er klar til brug – herudover er den enormt fleksibel, forstået på den måde, at den er yderst nem at flytte rundt på samt at gøre ren. Disse mange fordele gør boxmadrasser til det med afstand mest populære valg, når danskerne skal købe ny seng.</p><p>I vores store udvalg af danskproducerede boxmadrasser finder du noget for enhver – store som små. Alle vores boxmadrasser er danskproducerede samt dobbeltfjedrede, hvilket er din sikkerhed for en langtidsholdbar seng, der er rustet til at stå imod hverdagens mange strabadser. At vi kan stå inde for kvaliteten af vores senge understreges desuden af, at vi giver dig 25 års garanti på samtlige modeller. Herudover er ben, valgfri topmadras og levering altid inkluderet i vores fantastiske priser.</p><p>En ordentlig nattesøvn er essentiel for dit velvære; derfor er det vigtigt, at du vælger den rigtige boxmadras, der passer til dig og din krop. Her spiller forhold som din kropsvægt blandt andet ind på valget af boxmadras, da antallet af fjedre (og dermed fasthed) skal passe hertil – der findes med andre ord ikke et sort/hvidt svar på, hvilken boxmadras der er den bedste, eftersom det i høj grad afhænger af din kropsvægt samt dine præferencer for en fast versus en blød seng. Dette har vi skrevet meget mere om i vores store <a href=\"https://www.sengefabrikken.dk/pages/boxmadras-guide\">boxmadras guide</a>, hvor vi ud fra forskellige vægtklasser anbefaler den ideelle boxmadras og fjederkonstruktion. Hvis du følger vores anbefalinger er det ikke noget problem at købe ny og billig seng online, hvilket vores mange positive anmeldelser såvel her på hjemmesiden som på TrustPilot sætter en tyk streg under.</p>",
+            "heading_2": "",
+            "text_2": "<h3>Generelt om boxmadrasser</h3><ul><li>Altid dobbeltfjedret i selve boxmadrassen.</li><li>Individuel støtte der tilpasser sig kroppen.</li><li>Optimal aflastning af kroppens primære trykpunkter gennem 7 komfortzoner.</li><li>Tilpas komforten; vælg mellem flere fastheder</li></ul><p>Når du kigger igennem vores sortiment af boxmadrasser online, kan det måske være lidt svært at finde frem til den helt rette. Der er som nævnt oven for mange ting der spiller ind, og det handler derfor om, at du finder den boxmadras, der passer til dine behov og præferencer. Hos Sengefabrikken vil vi altid gerne vejlede dig og give gode råd, så vi sikrer os, at du får en boxmadras, du bliver glad for – også på lang sigt.</p><p>Hos Sengefabrikken finder du ingen boxmadrasser udelukkende med bonell fjedre, da disse typisk kun giver brugeren af sengen en medium komfort og støtte. Bonell fjedre er kun at finde i vores boxmadrasser, når de er kombineret med pocket eller multipocket fjedre. Bonell fjedre er nemlig alle sammenhængende, og derfor vil en seng udelukkende med bonell fjedre først og fremmest give sig over hele overfladen, når du ligger i den, ligesom bonell fjedre ikke er i stand til at yde den ekstraordinære komfort og sunde støtte, som er afgørende for nattesøvnen.</p><p>Pocket fjedrene i en boxmadras er hver især omgivet af tynde filtposer. På den måde holdes fjedrene adskilt fra hinanden og yder differentieret og individuel støtte. Du vil således ikke opleve, at hele madrassens overflade synker ned, når du ligger i sengen, men derimod kun de områder, hvor dine primære trykpunkter belaster madrassen. På den måde får din krop en langt bedre støtte og sengen slides ikke i samme grad – hvilket selvsagt bidrager positivt til sengens lange levetid.</p><p>Vores boxmadrasser i fastheden <i>xtra fast</i> er opbygget med multipocket fjedre i stedet for pocket fjedre. Disse fjedre er, ligesom pocket fjedrene, også indhyllet i en tynd filtpose, der gør dem i stand til at yde en differentieret og individuel støtte. Forskellen er at multipocket fjedrene er mindre i diameteren, og der er dermed næsten dobbelt så mange individuelle støttepunkter pr. m2. De 504 individuelle multipocket fjedre pr. m2 resulterer i en fastere komfort, og derfor anbefaler vi senge med multipocket fjedre til personer med en vægt over 95/100 kg.</p><h3>Billige boxmadrasser i stærk kvalitet</h3><ul><li>Prøv din seng derhjemme og find ud af hvad der passer til dig på lang sigt.</li><li>100% gennemsigtighed uden dyre overraskelser.</li><li>100 dages ombytning af fasthed og/eller topmadras.</li></ul><p>Vi har fra start valgt en hel klar filosofi; vi ønsker ikke at drive en række fysiske butikker, men i stedet én fleksibel online webshop, hvor du kan få <b>rådgivning stort set døgnet rundt, altid lave priser og ikke mindst et højt serviceniveau fra vores kompetente søvneksperter – alt dette uden at der er blevet gået på kompromis med kvaliteten af vores produkter.</b></p><p>Der er stor forskel på at teste en seng eller madras i få minutter i en fysisk butik med alt dit tøj på til at sove i sengen 6-8 timer hver eneste nat. Derfor mener vi ikke, at det er nødvendigt at teste din nye seng i en fysisk butik, da du alligevel ikke får et retvisende billede af, om den er for blød eller hård til dig og din vægt. Igen er vores <a href=\"https://www.sengefabrikken.dk/pages/boxmadras-guide\">boxmadras guide</a> et super godt værktøj i jagten på en ny seng, da du her får anbefalinger ud fra din vægt og dine præferencer – her vælger du ud fra, hvad der rent faktisk passer til dig på både kort og lang sigt, fremfor hvad der føles rart i et par minutter i en butik. Og så er du som altid velkommen til at kontakte vores søvneksperter og på den måde modtage kompetent og personlig rådgivning, så du kan få opgraderet din nattesøvn. Vi sidder klar fra 8-22 hver dag - på både telefon, mail og vores direkte live-chat så du hurtigt kan få vejledning og svar på de spørgsmål, du måtte have.</p><p>Hos Sengefabrikken er vores priser 100% gennemsigtige; ben, topmadras og levering er altid inkluderet i prisen, så du ikke behøver at bekymre dig om ekstra omkostninger henadvejen.</p><p>Endeligt har du hos os altid muligheden for at ombytte både fastheden af din madras og/eller din topmadras i op til 100 dage efter levering. På den måde får du tiden til at vænne dig til din nye seng i rolige omgivelser, og hvis det mod forventning ikke er den rette fasthed for dig, kan du bestille en gratis ombytning her på siden.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_80x200",
+        "text_90x200",
+        "text_90x210",
+        "text_105x210",
+        "text_120x200",
+        "text_140x200",
+        "text_160x200",
+        "text_180x200",
+        "text_180x210",
+        "text_210x210",
+        "text_standard"
+      ],
+      "settings": {
+        "color_scheme": "scheme-1",
+        "heading_size": "h5",
+        "title": "Danskproducerede boxmadrasser i alle mål",
+        "title_heading_size": "h3"
+      }
+    },
+    "faq_iWRBk6": {
+      "type": "faq",
+      "blocks": {
+        "question_t8Ft4Y": {
+          "type": "question",
+          "settings": {
+            "question": "Er det sikkert at købe seng online?",
+            "answer": "<p>Ja, det er det i hvert fald. Vi mener faktisk at vores gunstige betingelser giver dig bedre forudsætninger for at vælge den helt rigtige seng - selvom du ikke kan prøve den inden køb. Der er således en enorm forskel på at prøve en seng i en fysisk butik med alt tøj på i 2-3 minutter kontra at sove i den hjemme i dit soveværelse 7-9 timer hver eneste nat.&nbsp;</p><p>Hvis du, imod forventning, får valgt et produkt der ikke passer til dig, så tilbyder vi 30 dages gratis returret samt 100 dages gratis ombytning af fasthed på alle vores senge.</p>",
+            "icon": "none",
+            "icon_width": 24,
+            "mobile_icon_width": 20
+          }
+        },
+        "question_eC46R9": {
+          "type": "question",
+          "settings": {
+            "question": "Har I en butik eller et showroom?",
+            "answer": "<p>Nej, vi er 100% online - og har ingen butikker eller showrooms. Dette er et helt bevidst valg, da vi ved at holde vores faste omkostninger på et absolut minimum, har mulighed for at optimere både fleksibilitet og priser.&nbsp;</p><p>Hvis du, imod forventning, får valgt et produkt der ikke passer til dig, så tilbyder vi 100 dages gratis retur samt 100 dages gratis ombytning af fasthed på alle vores senge.</p>",
+            "icon": "none",
+            "icon_width": 24,
+            "mobile_icon_width": 20
+          }
+        },
+        "question_iwn6LJ": {
+          "type": "question",
+          "settings": {
+            "question": "Hvad koster levering?",
+            "answer": "<p>Leveringsprisen afhænger af den valgte leveringsform samt leveringsadressen, og den endelige pris vises altid tydeligt på bestillingssiden, inden du gennemfører dit køb.</p><p>Mindre varer, herunder sengetøj, dyner og puder, leveres til din adresse med GLS, mens større varer som senge og madrasser leveres med DSV.</p><p>Standardlevering sker til kantsten. Ønsker du en mere bekvem levering, har du mulighed for at tilkøbe ekstra serviceydelser, så leveringen tilpasses dine behov. Vi tilbyder blandt andet opbæring/indbæring, montering samt bortskaffelse af din nuværende seng. Alle tilkøb kan vælges direkte på bestillingssiden.</p>",
+            "icon": "none",
+            "icon_width": 24,
+            "mobile_icon_width": 20
+          }
+        },
+        "question_xTn6RH": {
+          "type": "question",
+          "settings": {
+            "question": "Hvor lang er jeres leveringstid?",
+            "answer": "<p>Leveringstiden på vores produkter spænder vidt og bredt. Leveringstiden på et produkt vil altid fremgå af produktsiden samt på din ordrebekræftelse.&nbsp;</p><p>Som udgangspunkt vil små varer, som dyner, puder og sengetøj, altid kunne leveres indenfor 1-3 hverdage. Senge, vi har færdigproduceret og stående klar på lager, vil typisk have en leveringstid på op til 15 hverdage, imens senge i ukurante størrelser samt specialmål har en leveringstid på 3-7 uger.</p>",
+            "icon": "none",
+            "icon_width": 24,
+            "mobile_icon_width": 20
+          }
+        },
+        "question_EpMpw6": {
+          "type": "question",
+          "settings": {
+            "question": "Kan jeg ønske levering en bestemt dag?",
+            "answer": "<p>Ja, det kan du. Hvis du ønsker levering en bestemt dag, så skal du blot notere det som ordrekommentar. Herefter vil vi videreformidle den ønskede dag til både vores pakkeri samt det eksterne leveringsfirma, der står for den endelige levering.&nbsp;</p><p>Vi kan ikke garantere levering den ønskede dag, men vi vil altid forsøge at imødekomme det bedst muligt - og det lykkes heldigvis også i 95% af alle tilfælde. Skulle vi mod forventning ikke være i stand til at levere den ønskede dag, så vil leveringen som regel finde sted dagen efter i stedet.</p><p>Uanset hvad, så vil din ordre aldrig blive leveret, uden at du har godkendt leveringsdag og tidsinterval over SMS.</p>",
+            "icon": "none",
+            "icon_width": 24,
+            "mobile_icon_width": 20
+          }
+        },
+        "question_4wexcF": {
+          "type": "question",
+          "settings": {
+            "question": "Kan jeg afdrage beløbet over en periode?",
+            "answer": "<p>At investere i en ny seng er en stor udgift i de flestes privatøkonomi. Derfor tilbyder vi finansiering gennem Anyday, hvor du kan splitte din betaling op i 4 lige store rater – helt uden renter og gebyrer.</p><p>Du ser altid de præcise omkostninger, inden du gennemfører købet, og der tilføjes ingen skjulte gebyrer.</p>",
+            "icon": "none",
+            "icon_width": 24,
+            "mobile_icon_width": 20
+          }
+        }
+      },
+      "block_order": [
+        "question_t8Ft4Y",
+        "question_eC46R9",
+        "question_iwn6LJ",
+        "question_xTn6RH",
+        "question_EpMpw6",
+        "question_4wexcF"
+      ],
+      "name": "t:sections.faq.name",
+      "settings": {
+        "color_scheme": "",
+        "use_page_width": true,
+        "layout": "split",
+        "accordion_style": "border",
+        "question_style": "text",
+        "subheading": "",
+        "title": "Ofte stillede spørgsmål",
+        "title_tag": "h3",
+        "content": "<p>Har du brug for hjælp til valget af ny seng, topmadras eller noget helt tredje? Vores kompetente team af sengevejledere, søvnspecialister og syvsovere sidder klar til at hjælpe dig alle ugens dage fra 09.00 - 18.00. Vi er online, når du har tid.</p>",
+        "button_text": "",
+        "button_url": "",
+        "button_style": "solid"
+      }
+    }
+  },
+  "order": [
+    "banner",
+    "main",
+    "trustpilot_reviews_MGtkrf",
+    "seo_text",
+    "faq_iWRBk6"
+  ]
+}
