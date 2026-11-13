@@ -79,6 +79,31 @@
     font-size: {{ section.settings.menu_sub_link_size_mobile }}px;
   }
 
+  {%- comment -%}Sengefabrikken: image before the links of the sub panels ("Vis billeder i menuen"){%- endcomment -%}
+  {%- if section.settings.show_menu_images -%}
+    #menu-drawer .menu-drawer__sub-link--with-image {
+      align-items: center;
+      gap: .75rem;
+      display: inline-flex;
+    }
+
+    #menu-drawer .menu-drawer__sub-link-image {
+      aspect-ratio: 1;
+      object-fit: cover;
+      border-radius: .375rem;
+      flex-shrink: 0;
+      width: {{ section.settings.menu_image_size }}px;
+      height: {{ section.settings.menu_image_size }}px;
+    }
+
+    @media screen and (pointer: fine) {
+      #menu-drawer .menu-drawer__sub-link--with-image:hover > .link-reversed {
+        background-size: 100% 1px;
+        background-position-x: var(--transform-origin-start);
+      }
+    }
+  {%- endif -%}
+
   {%- comment -%}Sengefabrikken: width of the menu drawer on desktop ("Menubredde"){%- endcomment -%}
   @media screen and (min-width: 1000px) {
     #menu-drawer {
@@ -701,6 +726,24 @@
       "step": 1,
       "unit": "px",
       "default": 16
+    },
+    {
+      "type": "checkbox",
+      "id": "show_menu_images",
+      "label": "Vis billeder i menuen",
+      "info": "Viser billedet fra metafeltet custom.menu_image på det linkede produkt, kollektion eller side før linket i undermenuen. Billedet vises i 1:1.",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "menu_image_size",
+      "label": "Billedstørrelse i menuen",
+      "min": 24,
+      "max": 80,
+      "step": 2,
+      "unit": "px",
+      "default": 40,
+      "visible_if": "{{ section.settings.show_menu_images }}"
     },
     {
       "type": "range",

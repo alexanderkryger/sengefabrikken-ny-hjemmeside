@@ -210,7 +210,7 @@ mobile, and for desktop on "drawer" mode.
                       {%- capture sub_link_cards -%}{%- render 'menu-drawer-cards-id', title: sub_link.title, panel_index: panel_index, section: section -%}{%- endcapture -%}
 
                       <li>
-                        <a href="{{ sub_link.url }}" class="menu-drawer__sub-link link-reversed" {% if sub_link_cards != blank %}data-menu-cards="{{ sub_link_cards }}"{% endif %}>{{ sub_link.title }}</a>
+                        {%- render 'menu-drawer-sub-link', link: sub_link, cards_id: sub_link_cards, section: section -%}
                       </li>
                     {%- endfor -%}
                   </ul>
@@ -227,7 +227,7 @@ mobile, and for desktop on "drawer" mode.
                               {%- capture sub_link_cards -%}{%- render 'menu-drawer-cards-id', title: sub_sub_link.title, panel_index: panel_index, section: section -%}{%- endcapture -%}
 
                               <li>
-                                <a href="{{ sub_sub_link.url }}" class="menu-drawer__sub-link link-reversed" {% if sub_link_cards != blank %}data-menu-cards="{{ sub_link_cards }}"{% endif %}>{{ sub_sub_link.title }}</a>
+                                {%- render 'menu-drawer-sub-link', link: sub_sub_link, cards_id: sub_link_cards, section: section -%}
                               </li>
                             {%- endfor -%}
                           </ul>

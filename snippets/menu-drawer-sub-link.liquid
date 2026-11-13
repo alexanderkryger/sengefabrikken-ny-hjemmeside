@@ -1,0 +1,26 @@
+{%- doc -%}
+Sengefabrikken: a link of a sub panel of the menu drawer. When the "Vis billeder i menuen" setting of the header is
+enabled, the image from the "custom.menu_image" metafield of the linked product, collection or page is shown before the
+title (1:1). The underline on hover is then only drawn below the title.
+
+@param {object} link - the menu link
+@param {string} [cards_id] - the ID of the cards shown when the link is hovered (see menu-drawer-cards-id)
+@param {object} section - the header section
+{%- enddoc -%}
+
+{%- liquid
+  assign menu_image = blank
+
+  if section.settings.show_menu_images
+    assign menu_image = link.object.metafields.custom.menu_image.value
+  endif
+-%}
+
+{%- if menu_image != blank -%}
+  <a href="{{ link.url }}" class="menu-drawer__sub-link menu-drawer__sub-link--with-image" {% if cards_id != blank %}data-menu-cards="{{ cards_id }}"{% endif %}>
+    {{- menu_image | image_url: width: 160, height: 160, crop: 'center' | image_tag: loading: 'lazy', width: 80, height: 80, alt: link.title, class: 'menu-drawer__sub-link-image' -}}
+    <span class="link-reversed">{{ link.title }}</span>
+  </a>
+{%- else -%}
+  <a href="{{ link.url }}" class="menu-drawer__sub-link link-reversed" {% if cards_id != blank %}data-menu-cards="{{ cards_id }}"{% endif %}>{{ link.title }}</a>
+{%- endif -%}
