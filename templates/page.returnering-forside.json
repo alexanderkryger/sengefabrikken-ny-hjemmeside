@@ -1,0 +1,197 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "color_scheme": "",
+        "show_title": true,
+        "content_width": "md"
+      }
+    },
+    "intro": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_1": {
+          "type": "heading",
+          "settings": {
+            "text": "Returnering",
+            "heading_tag": "h2",
+            "html_tag": "h1",
+            "indent": "none",
+            "highlight_effect": "default",
+            "highlight_accent_color": "",
+            "highlight_text_color": ""
+          }
+        },
+        "richtext_2": {
+          "type": "richtext",
+          "settings": {
+            "text": "<p>Hos Sengefabrikken giver vi muligheden for at returnere alle købte produkter i op til 100 dage efter købet.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_1",
+        "richtext_2"
+      ],
+      "settings": {
+        "color_scheme": "",
+        "color_transition": false,
+        "custom_id": "",
+        "content_width": "sm",
+        "text_alignment": "center"
+      }
+    },
+    "info": {
+      "type": "multiple-media-with-text",
+      "blocks": {
+        "image_1": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/100-dages-proeve-1.jpg",
+            "rotation": 0,
+            "hide_on_mobile": false
+          }
+        }
+      },
+      "block_order": [
+        "image_1"
+      ],
+      "settings": {
+        "color_scheme": "scheme-2b5ea552-ee45-4763-a402-00199b79bef1",
+        "color_transition": false,
+        "custom_id": "",
+        "media_position_desktop": "before_text",
+        "media_position_mobile": "before_text",
+        "media_layout": "overlap",
+        "media_alignment": "center",
+        "media_alignment_offset": 0,
+        "media_mobile_alignment_offset": 0,
+        "hide_media_on_mobile": true,
+        "content_percentage_width": 40,
+        "text_alignment": "center",
+        "subheading": "100 dages prøveperiode",
+        "title": "100 dages tænkepause med fuldt retur",
+        "heading_size": "h3",
+        "show_icon": false,
+        "show_color_swatch": false,
+        "content": "<p>Inden du beslutter dig for at returnere, vil vi gøre opmærksom på, at du har 100 dage til at afprøve din nye seng eller nye produkt. Er du ikke tilfreds med farve, design eller komfort, eller har du simpelthen fortrudt dit køb, kan du returnere hele sengen eller andet produkt inden for denne periode på 100 dage. Hav in mente, at det kan tage kroppen op til en måned at vænne sig til nye soveforhold — så hvad med at sove en ekstra dag?</p>",
+        "content_border_top": false,
+        "content_border_bottom": false,
+        "content_below": "",
+        "content_below_border_top": false,
+        "content_below_border_bottom": false,
+        "border_color": "#e0dcd9",
+        "phone": "",
+        "phone_hours": "",
+        "email": "",
+        "chat": "",
+        "button_1_text": "",
+        "button_1_link": "",
+        "button_1_style": "solid",
+        "button_2_text": "",
+        "button_2_link": "",
+        "button_2_style": "outline"
+      }
+    },
+    "steps": {
+      "type": "text-with-icons",
+      "blocks": {
+        "item_1": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-return",
+            "title": "1. Bestil returneringen herunder",
+            "heading_tag": "h6",
+            "content": "<p>Benyt formularen nedenfor for at bestille en returnering af dit produkt. Udfyld alle nødvendige felter for at sikre en hurtig og effektiv behandling af din forespørgsel.</p>"
+          }
+        },
+        "item_2": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-package",
+            "title": "2. Pak produktet forsvarligt ind",
+            "heading_tag": "h6",
+            "content": "<p>Sørg for at pakke dit produkt, hvad enten det er en seng, en topmadras eller andet tilbehør, sikkert og forsvarligt ind. Brug passende emballagematerialer for at beskytte varen under transporten.</p>"
+          }
+        },
+        "item_3": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-truck",
+            "title": "3. Stil ud til afhentning",
+            "heading_tag": "h6",
+            "content": "<p>Placer dit indpakkede produkt på et lettilgængeligt sted, hvor fragtmanden nemt kan afhente det. Sørg for, at det står klar på det aftalte tidspunkt og sted, du har angivet ved bestillingen.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "item_1",
+        "item_2",
+        "item_3"
+      ],
+      "settings": {
+        "color_scheme": "",
+        "subheading": "",
+        "title": "Sådan foregår en returnering",
+        "content": "",
+        "heading_tag": "h3",
+        "text_alignment": "center",
+        "items_per_row_desktop": 3,
+        "stack_on_mobile": true,
+        "separator_style": "none",
+        "icon_position": "stacked",
+        "icon_width": 40,
+        "mobile_icon_width": 36,
+        "item_text_alignment": "center"
+      }
+    },
+    "cta": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_1": {
+          "type": "heading",
+          "settings": {
+            "text": "Opret returnering",
+            "heading_tag": "h3",
+            "html_tag": "h2",
+            "indent": "none",
+            "highlight_effect": "default",
+            "highlight_accent_color": "",
+            "highlight_text_color": ""
+          }
+        },
+        "button_2": {
+          "type": "button",
+          "settings": {
+            "text": "Opret returnering",
+            "url": "/pages/returnering-seng",
+            "open_in_new_tab": false,
+            "style": "solid",
+            "background": "",
+            "text_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "heading_1",
+        "button_2"
+      ],
+      "settings": {
+        "color_scheme": "scheme-2b5ea552-ee45-4763-a402-00199b79bef1",
+        "color_transition": false,
+        "custom_id": "",
+        "content_width": "sm",
+        "text_alignment": "center"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "intro",
+    "info",
+    "steps",
+    "cta"
+  ]
+}

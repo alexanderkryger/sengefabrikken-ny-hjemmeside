@@ -1,0 +1,223 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "color_scheme": "",
+        "show_title": true,
+        "content_width": "md"
+      }
+    },
+    "intro": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_1": {
+          "type": "heading",
+          "settings": {
+            "text": "100 dages prøveperiode",
+            "heading_tag": "h2",
+            "html_tag": "h1",
+            "indent": "none",
+            "highlight_effect": "default",
+            "highlight_accent_color": "",
+            "highlight_text_color": ""
+          }
+        },
+        "richtext_2": {
+          "type": "richtext",
+          "settings": {
+            "text": "<p>Hos Sengefabrikken har du mulighed for at ombytte din sengs fasthed i op til 100 dage efter dit køb.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_1",
+        "richtext_2"
+      ],
+      "settings": {
+        "color_scheme": "",
+        "color_transition": false,
+        "custom_id": "",
+        "content_width": "sm",
+        "text_alignment": "center"
+      }
+    },
+    "ombytning": {
+      "type": "multiple-media-with-text",
+      "blocks": {
+        "image_1": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/100-dages-proeve-2.jpg",
+            "rotation": 0,
+            "hide_on_mobile": false
+          }
+        }
+      },
+      "block_order": [
+        "image_1"
+      ],
+      "settings": {
+        "color_scheme": "scheme-2b5ea552-ee45-4763-a402-00199b79bef1",
+        "color_transition": false,
+        "custom_id": "",
+        "media_position_desktop": "before_text",
+        "media_position_mobile": "before_text",
+        "media_layout": "overlap",
+        "media_alignment": "center",
+        "media_alignment_offset": 0,
+        "media_mobile_alignment_offset": 0,
+        "hide_media_on_mobile": true,
+        "content_percentage_width": 40,
+        "text_alignment": "center",
+        "subheading": "100 dages ombytning",
+        "title": "Sov i 100 dage, inden du beslutter dig",
+        "heading_size": "h3",
+        "show_icon": false,
+        "show_color_swatch": false,
+        "content": "<p>Inden du beslutter dig for at returnere din seng, vil vi gøre dig opmærksom på, at du har 100 dage til at afprøve din nye seng. Hvis sengen føles for hård eller for blød, kan du ombytte fastheden inden for de første 100 dage — ganske gratis. Din krop kan nemlig bruge helt op til en måned på at vænne sig til sine nye soveforhold, så giv den lige en ekstra dag eller to, inden du tager din endelige beslutning.</p>",
+        "content_border_top": false,
+        "content_border_bottom": false,
+        "content_below": "",
+        "content_below_border_top": false,
+        "content_below_border_bottom": false,
+        "border_color": "#e0dcd9",
+        "phone": "",
+        "phone_hours": "",
+        "email": "",
+        "chat": "",
+        "button_1_text": "",
+        "button_1_link": "",
+        "button_1_style": "solid",
+        "button_2_text": "",
+        "button_2_link": "",
+        "button_2_style": "outline"
+      }
+    },
+    "returnering": {
+      "type": "multiple-media-with-text",
+      "blocks": {
+        "image_1": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/100-dages-proeve-1.jpg",
+            "rotation": 0,
+            "hide_on_mobile": false
+          }
+        }
+      },
+      "block_order": [
+        "image_1"
+      ],
+      "settings": {
+        "color_scheme": "scheme-2b5ea552-ee45-4763-a402-00199b79bef1",
+        "color_transition": false,
+        "custom_id": "",
+        "media_position_desktop": "after_text",
+        "media_position_mobile": "before_text",
+        "media_layout": "overlap",
+        "media_alignment": "center",
+        "media_alignment_offset": 0,
+        "media_mobile_alignment_offset": 0,
+        "hide_media_on_mobile": true,
+        "content_percentage_width": 40,
+        "text_alignment": "center",
+        "subheading": "100 dages prøveperiode",
+        "title": "100 dages tænkepause med fuldt retur",
+        "heading_size": "h3",
+        "show_icon": false,
+        "show_color_swatch": false,
+        "content": "<p>Fra den dag, du modtager din nye seng, har du 100 dage til at afprøve din nye seng.  Er du ikke tilfreds med farven, designet og komforten, eller har du simpelthen bare fortrudt dit køb, kan du returnere hele sengen inden for denne periode.</p>",
+        "content_border_top": false,
+        "content_border_bottom": false,
+        "content_below": "",
+        "content_below_border_top": false,
+        "content_below_border_bottom": false,
+        "border_color": "#e0dcd9",
+        "phone": "",
+        "phone_hours": "",
+        "email": "",
+        "chat": "",
+        "button_1_text": "",
+        "button_1_link": "",
+        "button_1_style": "solid",
+        "button_2_text": "",
+        "button_2_link": "",
+        "button_2_style": "outline"
+      }
+    },
+    "cta": {
+      "type": "rich-text",
+      "blocks": {
+        "subheading_1": {
+          "type": "subheading",
+          "settings": {
+            "text": "Ombytning | Returnering"
+          }
+        },
+        "heading_2": {
+          "type": "heading",
+          "settings": {
+            "text": "Ombytning/returnering inden for 100 dage",
+            "heading_tag": "h3",
+            "html_tag": "h2",
+            "indent": "none",
+            "highlight_effect": "default",
+            "highlight_accent_color": "",
+            "highlight_text_color": ""
+          }
+        },
+        "richtext_3": {
+          "type": "richtext",
+          "settings": {
+            "text": "<p>Hvis du ikke er tilfreds med produktet, har du 100 dage til at ombytte eller returnere det uden omkostninger.</p>"
+          }
+        },
+        "button_4": {
+          "type": "button",
+          "settings": {
+            "text": "Ombyt",
+            "url": "/pages/ombytning",
+            "open_in_new_tab": false,
+            "style": "solid",
+            "background": "",
+            "text_color": ""
+          }
+        },
+        "button_5": {
+          "type": "button",
+          "settings": {
+            "text": "Returner",
+            "url": "/pages/returnering",
+            "open_in_new_tab": false,
+            "style": "outline",
+            "background": "",
+            "text_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "subheading_1",
+        "heading_2",
+        "richtext_3",
+        "button_4",
+        "button_5"
+      ],
+      "settings": {
+        "color_scheme": "",
+        "color_transition": false,
+        "custom_id": "",
+        "content_width": "sm",
+        "text_alignment": "center"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "intro",
+    "ombytning",
+    "returnering",
+    "cta"
+  ]
+}
