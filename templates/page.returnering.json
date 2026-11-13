@@ -43,6 +43,7 @@
             },
             "rich-text_2": {
               "type": "rich-text",
+              "disabled": true,
               "settings": {
                 "text": "<p>Husk at du kan sove i din nye seng i 100 dage, inden du endelig bestemmer dig for at returnere. Er du ikke tilfreds med farven eller noget andet udseendesmæssigt, der angår sengen, kan du i stedet for vælge at ombytte til en anden model, ligesom du også har mulighed for at foretage en ombytning af fastheden eller topmadrassen, såfremt det er komforten, der skal justeres.</p>",
                 "content_width": "full"
@@ -65,7 +66,7 @@
             "rich-text_1": {
               "type": "rich-text",
               "settings": {
-                "text": "<p>Hvis du helt har fortrudt dit køb, kan du selvfølgelig også returnere købet ved at udfylde formularen herunder.</p>",
+                "text": "<p>Husk at du kan sove i din nye seng i 100 dage, inden du endelig bestemmer dig for at returnere. Er du ikke tilfreds med farven eller noget andet udseendesmæssigt, der angår sengen, kan du i stedet for vælge at ombytte til en anden model, ligesom du også har mulighed for at foretage en ombytning af fastheden eller topmadrassen, såfremt det er komforten, der skal justeres.</p><p>Hvis du helt har fortrudt dit køb, kan du selvfølgelig også returnere købet ved at udfylde formularen herunder.</p>",
                 "content_width": "full"
               },
               "blocks": {}
