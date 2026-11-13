@@ -9,7 +9,7 @@
       "type": "contact",
       "settings": {
         "color_scheme": "",
-        "layout": "split",
+        "layout": "stacked",
         "add_image_spacing": false,
         "subheading": "Kontakt os",
         "title": "Skriv til os",
@@ -19,53 +19,50 @@
       }
     },
     "contact-help": {
-      "type": "contact-help",
-      "settings": {
-        "color_scheme": "scheme-8",
-        "image": "shopify://shop_images/mathias_kundeservice_dd98efd7-0fa0-4f21-baab-4ca67ac6a88e.jpg",
-        "image_position": "left",
-        "heading": "Har du brug for hjælp?",
-        "heading_size": "h3",
-        "content": "<p>Selvom vi ikke har fysiske butikker, går vi ikke på kompromis med personlig vejledning og betjening. Har du spørgsmål eller brug for hjælp, så tøv endelig ikke med at kontakte os.</p>",
-        "hide_on_contact_page": false
-      },
+      "type": "multiple-media-with-text",
       "blocks": {
-        "chat": {
-          "type": "contact",
+        "image_1": {
+          "type": "image",
           "settings": {
-            "icon": "picto-chat",
-            "text": "Live-chat",
-            "link": "",
-            "description": "Alle ugens dage kl. 09.00–18.00. Her kan du altid få hjælp, vejledning og gode råd.",
-            "open_chat": true
-          }
-        },
-        "phone": {
-          "type": "contact",
-          "settings": {
-            "icon": "picto-phone",
-            "text": "Telefon: 89 87 82 59",
-            "link": "tel:89878259",
-            "description": "Mandag–søndag kl. 09.00–18.00.",
-            "open_chat": false
-          }
-        },
-        "email": {
-          "type": "contact",
-          "settings": {
-            "icon": "envelope",
-            "text": "E-mail: kontakt@sengefabrikken.dk",
-            "link": "mailto:kontakt@sengefabrikken.dk",
-            "description": "Vi besvarer også e-mails uden for normal åbningstid.",
-            "open_chat": false
+            "image": "shopify://shop_images/mathias_kundeservice_dd98efd7-0fa0-4f21-baab-4ca67ac6a88e.jpg",
+            "rotation": 0,
+            "hide_on_mobile": false
           }
         }
       },
       "block_order": [
-        "chat",
-        "phone",
-        "email"
-      ]
+        "image_1"
+      ],
+      "settings": {
+        "color_scheme": "scheme-8",
+        "color_transition": false,
+        "custom_id": "",
+        "media_position_desktop": "before_text",
+        "media_position_mobile": "before_text",
+        "media_layout": "separated",
+        "media_alignment": "center",
+        "media_alignment_offset": 0,
+        "media_mobile_alignment_offset": 0,
+        "hide_media_on_mobile": false,
+        "content_percentage_width": 45,
+        "text_alignment": "start",
+        "subheading": "",
+        "title": "Har du brug for hjælp?",
+        "heading_size": "h3",
+        "show_icon": false,
+        "show_color_swatch": false,
+        "content": "<p>Selvom vi ikke har fysiske butikker, går vi ikke på kompromis med personlig vejledning og betjening. Har du spørgsmål eller brug for hjælp, så tøv endelig ikke med at kontakte os.</p>",
+        "content_border_top": false,
+        "content_border_bottom": false,
+        "content_below": "<p><strong>Live-chat</strong><br>Alle ugens dage kl. 09.00–18.00. Her kan du altid få hjælp, vejledning og gode råd.</p><p><strong>Telefon</strong><br>Mandag–søndag kl. 09.00–18.00.</p><p><strong>E-mail</strong><br>Vi besvarer også e-mails uden for normal åbningstid.</p>",
+        "content_below_border_top": true,
+        "content_below_border_bottom": true,
+        "border_color": "#e0dcd9",
+        "phone": "89 87 82 59",
+        "phone_hours": "",
+        "email": "kontakt@sengefabrikken.dk",
+        "chat": "Start live-chat"
+      }
     }
   },
   "order": [

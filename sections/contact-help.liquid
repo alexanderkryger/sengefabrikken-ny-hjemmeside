@@ -1,18 +1,8 @@
 {%- comment -%}
   Sengefabrikken: "need help?" section with an image next to a text and a list of contact options (phone, email, chat).
-  A contact option can open the Intercom chat instead of following a link, and can have a description below it (eg. the
-  opening hours). As the section is also in the footer, it can be hidden on the contact page, which has its own.
+  A contact option can open the Intercom chat instead of following a link.
 {%- endcomment -%}
 
-{%- liquid
-  assign is_contact_page = false
-
-  if template.name == 'page' and template.suffix == 'contact'
-    assign is_contact_page = true
-  endif
--%}
-
-{%- unless section.settings.hide_on_contact_page and is_contact_page -%}
 <div class="color-scheme color-scheme--{{ section.settings.color_scheme.id }}">
   <div class="container section-spacing">
     <div class="contact-help {% if section.settings.image_position == 'right' %}contact-help--reverse{% endif %}">
@@ -41,15 +31,7 @@
               <li {{ block.shopify_attributes }}>
                 {%- capture contact_content -%}
                   {%- render 'icon' with block.settings.icon, width: 20 -%}
-
-                  {%- if block.settings.description != blank -%}
-                    <span class="v-stack gap-1">
-                      <span class="contact-help__item-title">{{ block.settings.text }}</span>
-                      <span class="contact-help__item-description">{{ block.settings.description }}</span>
-                    </span>
-                  {%- else -%}
-                    <span>{{ block.settings.text }}</span>
-                  {%- endif -%}
+                  <span>{{ block.settings.text }}</span>
                 {%- endcapture -%}
 
                 {%- if block.settings.open_chat -%}
@@ -67,7 +49,6 @@
     </div>
   </div>
 </div>
-{%- endunless -%}
 
 {% stylesheet %}
   .contact-help {
@@ -111,20 +92,6 @@
 
   .contact-help__item svg {
     flex-shrink: 0;
-  }
-
-  .contact-help__item:has(.contact-help__item-description) {
-    align-items: start;
-  }
-
-  .contact-help__item-title {
-    font-size: 1rem;
-    font-weight: 500;
-  }
-
-  .contact-help__item-description {
-    color: rgb(var(--text-color) / .65);
-    line-height: 1.6;
   }
 
   @media screen and (min-width: 1000px) {
@@ -219,13 +186,6 @@
       "id": "content",
       "label": "t:global.text.content",
       "default": "<p>Hvis du stadig er i tvivl omkring valg af seng, må du endelig ikke tøve med at kontakte vores kompetente sengevejledere alle ugens dage fra kl. 08.00-23.00.</p>"
-    },
-    {
-      "type": "checkbox",
-      "id": "hide_on_contact_page",
-      "label": "Skjul på kontaktsiden",
-      "info": "Bruges når sektionen ligger i footeren, så den ikke vises to gange på kontaktsiden.",
-      "default": false
     }
   ],
   "blocks": [
@@ -264,12 +224,6 @@
           "id": "link",
           "label": "t:global.text.link",
           "info": "Fx tel:89878259 eller mailto:kontakt@sengefabrikken.dk"
-        },
-        {
-          "type": "text",
-          "id": "description",
-          "label": "Beskrivelse",
-          "info": "Vises under teksten, fx åbningstider."
         },
         {
           "type": "checkbox",

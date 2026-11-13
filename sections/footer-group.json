@@ -54,8 +54,7 @@
         "image_position": "left",
         "heading": "Har du brug for hjælp?",
         "heading_size": "h4",
-        "content": "<p>Hvis du stadig er i tvivl omkring valg af seng, må du endelig ikke tøve med at kontakte vores kompetente sengevejledere alle ugens dage fra kl. 09.00-18.00.</p>",
-        "hide_on_contact_page": true
+        "content": "<p>Hvis du stadig er i tvivl omkring valg af seng, må du endelig ikke tøve med at kontakte vores kompetente sengevejledere alle ugens dage fra kl. 09.00-18.00.</p>"
       }
     },
     "footer": {
