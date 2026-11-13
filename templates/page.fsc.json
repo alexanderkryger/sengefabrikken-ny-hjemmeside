@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "hero": {
@@ -68,6 +77,7 @@
         "media_alignment": "center",
         "media_alignment_offset": 0,
         "media_mobile_alignment_offset": 0,
+        "video": "shopify://files/videos/01.-Trykaflastende_Boxmadras (1).mp4",
         "hide_media_on_mobile": false,
         "content_percentage_width": 40,
         "text_alignment": "center",
@@ -76,6 +86,7 @@
         "heading_size": "h4",
         "show_icon": false,
         "show_color_swatch": false,
+        "color_swatch_label": "Farver",
         "content": "<p>Hos Sengefabrikken lægger vi stor vægt på at tage ansvar for den verden, vi lever i. Vi mener, at det er vigtigt at beskytte naturen, som er så central for vores hverdag. Derfor er det en stor lettelse for os at vide, at størstedelen af det træ, vi bruger i vores produkter, er FSC®-certificeret. Denne certificering betyder, at træet kommer fra skove, hvor der tages omfattende hensyn til både naturen, menneskerne og dyrene, der lever der.</p><p>Der findes mange certificeringsordninger, men vi har med omhu valgt FSC®-mærket til vores produkter. FSC® har en særlig troværdighed, da det er støttet af anerkendte organisationer som WWF Verdensnaturfonden og Verdens Skove.</p>",
         "content_border_top": false,
         "content_border_bottom": false,
@@ -92,8 +103,7 @@
         "button_1_style": "solid",
         "button_2_text": "",
         "button_2_link": "",
-        "button_2_style": "outline",
-        "video": "shopify://files/videos/01.-Trykaflastende_Boxmadras (1).mp4"
+        "button_2_style": "outline"
       }
     },
     "fsc_forests": {
@@ -121,6 +131,7 @@
         "media_alignment": "center",
         "media_alignment_offset": 0,
         "media_mobile_alignment_offset": 0,
+        "image": "shopify://shop_images/FSC_logo.jpg",
         "hide_media_on_mobile": true,
         "content_percentage_width": 40,
         "text_alignment": "center",
@@ -129,6 +140,7 @@
         "heading_size": "h4",
         "show_icon": false,
         "show_color_swatch": false,
+        "color_swatch_label": "Farver",
         "content": "<p>Når du køber et FSC®-certificeret soveprodukt fra Sengefabrikken, hjælper du med at sikre ansvarlige arbejdsforhold og bevaring af biodiversitet i skovene globalt. Dette indebærer, at skovarbejdere får ordentlig løn og det nødvendige sikkerhedsudstyr, mens skovejere bidrager til lokale samfundsprojekter. Samtidig sikres det, at oprindelige folks rettigheder bliver respekteret.</p><p>Ved at vælge et af vores FSC®-certificerede soveprodukter, bidrager du aktivt til at beskytte verdens skove, og for det vil vi gerne sige mange tak. Hvis du vil vide mere om FSC®-mærket, kan du finde flere oplysninger på www.fsc.dk.</p>",
         "content_border_top": false,
         "content_border_bottom": false,
@@ -145,8 +157,7 @@
         "button_1_style": "solid",
         "button_2_text": "",
         "button_2_link": "",
-        "button_2_style": "outline",
-        "image": "shopify://shop_images/FSC_logo.jpg"
+        "button_2_style": "outline"
       }
     },
     "fsc_collections": {
@@ -298,7 +309,7 @@
         "add_border": true,
         "column_spacing": "sm",
         "items_per_row": 4,
-        "block_size": "md",
+        "block_size": "sm",
         "border_radius": 15,
         "badge_background": "#c87d0a",
         "badge_text_color": "#ffffff"
