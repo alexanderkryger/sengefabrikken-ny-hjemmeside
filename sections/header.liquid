@@ -74,10 +74,19 @@
     }
   {%- endif -%}
 
+  {%- comment -%}Sengefabrikken: font size of the links in the sub panels of the menu drawer{%- endcomment -%}
+  #menu-drawer .menu-drawer__sub-link {
+    font-size: {{ section.settings.menu_sub_link_size_mobile }}px;
+  }
+
   {%- comment -%}Sengefabrikken: width of the menu drawer on desktop ("Menubredde"){%- endcomment -%}
   @media screen and (min-width: 1000px) {
     #menu-drawer {
       --menu-drawer-width: {{ section.settings.menu_drawer_width }}px;
+    }
+
+    #menu-drawer .menu-drawer__sub-link {
+      font-size: {{ section.settings.menu_sub_link_size_desktop }}px;
     }
 
     #menu-drawer::part(content) {
@@ -681,6 +690,27 @@
       "step": 20,
       "unit": "px",
       "default": 560
+    },
+    {
+      "type": "range",
+      "id": "menu_sub_link_size_desktop",
+      "label": "Undermenu skriftstørrelse (desktop)",
+      "info": "Links i undermenuen, fx Dyner og Hovedpuder.",
+      "min": 12,
+      "max": 28,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "menu_sub_link_size_mobile",
+      "label": "Undermenu skriftstørrelse (mobil)",
+      "min": 12,
+      "max": 28,
+      "step": 1,
+      "unit": "px",
+      "default": 16
     },
     {
       "type": "checkbox",
