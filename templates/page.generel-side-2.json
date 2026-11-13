@@ -69,7 +69,7 @@
       "settings": {
         "use_page_width": false,
         "color_scheme": "",
-        "allow_transparent_header": false,
+        "allow_transparent_header": true,
         "image_size": "auto",
         "transition_type": "fade",
         "autoplay": true,
