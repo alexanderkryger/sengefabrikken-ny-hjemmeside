@@ -28,8 +28,8 @@
             "image": "shopify://shop_images/Top_banner_1.jpg",
             "slide_link": "",
             "content_max_width": 780,
-            "mobile_content_position": "place-self-end-start",
-            "desktop_content_position": "sm:place-self-end-start",
+            "mobile_content_position": "place-self-center",
+            "desktop_content_position": "sm:place-self-center",
             "overlay_color": "#000000",
             "overlay_opacity": 0
           },
