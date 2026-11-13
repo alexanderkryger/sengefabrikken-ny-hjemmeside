@@ -1,0 +1,438 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "color_scheme": "",
+        "show_title": true,
+        "content_width": "md"
+      }
+    },
+    "slideshow": {
+      "type": "slideshow",
+      "blocks": {
+        "slide_1": {
+          "type": "_slideshow-image-slide",
+          "settings": {
+            "color_scheme": "",
+            "image": "shopify://shop_images/Top_banner_1.jpg",
+            "slide_link": "",
+            "content_max_width": 600,
+            "mobile_content_position": "place-self-end-start",
+            "desktop_content_position": "sm:place-self-end-start",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          },
+          "blocks": {
+            "subheading_1": {
+              "type": "subheading",
+              "settings": {
+                "text": "Bevarer de danske traditioner"
+              },
+              "blocks": {}
+            },
+            "heading_1": {
+              "type": "heading",
+              "settings": {
+                "text": "Et univers fyldt med danskproducerede kvalitetssenge",
+                "heading_size": "h2",
+                "html_tag": "h1",
+                "indent": "none",
+                "highlight_effect": "default",
+                "highlight_accent_color": "",
+                "highlight_text_color": ""
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "subheading_1",
+            "heading_1"
+          ]
+        },
+        "slideshow-controls": {
+          "type": "_slideshow-controls",
+          "static": true,
+          "settings": {
+            "controls_style": "line",
+            "controls_color": "#ffffff"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "slide_1"
+      ],
+      "settings": {
+        "use_page_width": false,
+        "color_scheme": "",
+        "allow_transparent_header": true,
+        "image_size": "auto",
+        "transition_type": "fade",
+        "autoplay": true,
+        "pause_auto_rotate_on_hover": false,
+        "cycle_speed": 5,
+        "background": "#000000"
+      }
+    },
+    "trust_icons": {
+      "type": "trust-icons",
+      "blocks": {
+        "item_PW3GqK": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-dansk-flag",
+            "icon_width": 52,
+            "mobile_icon_width": 52,
+            "title": "Danskproducerede senge",
+            "content": ""
+          }
+        },
+        "item_LjWBNm": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-garanti",
+            "icon_width": 52,
+            "mobile_icon_width": 52,
+            "title": "25 års garanti",
+            "content": ""
+          }
+        },
+        "item_bDhRnE": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-trustpilot",
+            "icon_width": 52,
+            "mobile_icon_width": 52,
+            "title": "[trustscore] på Trustpilot",
+            "content": ""
+          }
+        },
+        "item_V7aKbd": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-use-truck",
+            "icon_width": 52,
+            "mobile_icon_width": 52,
+            "title": "100 dages prøve",
+            "content": ""
+          }
+        }
+      },
+      "block_order": [
+        "item_PW3GqK",
+        "item_LjWBNm",
+        "item_bDhRnE",
+        "item_V7aKbd"
+      ],
+      "name": "t:sections.trust_icons.name",
+      "settings": {
+        "color_scheme": "",
+        "use_page_width": true,
+        "show_border": false,
+        "show_separators": false,
+        "item_heading_style": "h7"
+      }
+    },
+    "media_blocks": {
+      "type": "media-blocks",
+      "blocks": {
+        "image_with_text-1": {
+          "type": "image_with_text",
+          "settings": {
+            "change_color_scheme_on_hover": false,
+            "color_scheme": "scheme-3",
+            "color_scheme_hover": "",
+            "image": "shopify://shop_images/sengefabrikken_kategori_kontinentalsenge_9909e14f-0ee1-4f07-a93e-9967847872d7.jpg",
+            "overlay_color": "#000000",
+            "overlay_opacity": 40,
+            "badge_text": "Faste lave priser",
+            "badge_position": "top_center",
+            "icon": "none",
+            "icon_width": 32,
+            "mobile_icon_width": 24,
+            "icon_position": "middle_center",
+            "subheading": "",
+            "subheading_position": "top_center",
+            "title": "Kontinentalsenge",
+            "heading_tag": "h5",
+            "heading_position": "top_center",
+            "scrolling_title": false,
+            "scrolling_title_separator": "none",
+            "show_text_vertically": false,
+            "text": "",
+            "text_position": "middle_left",
+            "button_style": "link",
+            "link_url": "shopify://collections/kontinental-senge",
+            "link_text": "Se vores kontinentalsenge",
+            "link_position": "bottom_center"
+          }
+        },
+        "image_with_text-2": {
+          "type": "image_with_text",
+          "settings": {
+            "change_color_scheme_on_hover": false,
+            "color_scheme": "scheme-3",
+            "color_scheme_hover": "",
+            "image": "shopify://shop_images/sengefabrikken_kategori_elevationssenge.webp",
+            "overlay_color": "#000000",
+            "overlay_opacity": 40,
+            "badge_text": "Faste lave priser",
+            "badge_position": "top_center",
+            "icon": "none",
+            "icon_width": 32,
+            "mobile_icon_width": 24,
+            "icon_position": "middle_center",
+            "subheading": "",
+            "subheading_position": "top_center",
+            "title": "Elevationssenge",
+            "heading_tag": "h5",
+            "heading_position": "top_center",
+            "scrolling_title": false,
+            "scrolling_title_separator": "none",
+            "show_text_vertically": false,
+            "text": "",
+            "text_position": "middle_center",
+            "button_style": "link",
+            "link_url": "shopify://collections/elevationssenge",
+            "link_text": "Se vores elevationssenge",
+            "link_position": "bottom_center"
+          }
+        },
+        "image_with_text-3": {
+          "type": "image_with_text",
+          "settings": {
+            "change_color_scheme_on_hover": false,
+            "color_scheme": "scheme-3",
+            "color_scheme_hover": "",
+            "image": "shopify://shop_images/sengefabrikken_kategori_boxmadrasser.webp",
+            "overlay_color": "#000000",
+            "overlay_opacity": 40,
+            "badge_text": "Faste lave priser",
+            "badge_position": "top_center",
+            "icon": "none",
+            "icon_width": 32,
+            "mobile_icon_width": 24,
+            "icon_position": "middle_center",
+            "subheading": "",
+            "subheading_position": "top_center",
+            "title": "Boxmadrasser",
+            "heading_tag": "h5",
+            "heading_position": "top_center",
+            "scrolling_title": false,
+            "scrolling_title_separator": "none",
+            "show_text_vertically": false,
+            "text": "",
+            "text_position": "middle_center",
+            "button_style": "link",
+            "link_url": "shopify://collections/boxmadrasser",
+            "link_text": "Se vores boxmadrasser",
+            "link_position": "bottom_center"
+          }
+        }
+      },
+      "block_order": [
+        "image_with_text-1",
+        "image_with_text-2",
+        "image_with_text-3"
+      ],
+      "settings": {
+        "color_scheme": "",
+        "allow_transparent_header": true,
+        "subheading": "",
+        "title": "",
+        "content": "",
+        "heading_tag": "h3",
+        "text_alignment": "left",
+        "scrolling_title": false,
+        "scrolling_title_separator": "none",
+        "stack_on_mobile": false,
+        "add_horizontal_spacing": true,
+        "add_border": true,
+        "column_spacing": "sm",
+        "items_per_row": 3,
+        "block_size": "md",
+        "border_radius": 15,
+        "badge_background": "#c87d0a",
+        "badge_text_color": "#ffffff"
+      }
+    },
+    "banner": {
+      "type": "sengefabrikken-banner",
+      "blocks": {
+        "image_1": {
+          "type": "image",
+          "settings": {
+            "height": "md",
+            "color_scheme": "",
+            "image": "shopify://shop_images/SF_Banner_100dage_Desk_2000x625_2.jpg",
+            "mobile_image": "shopify://shop_images/SF_Banner_100dage_mobile.jpg",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0,
+            "content_position": "place-self-end-start",
+            "content_width": "lg",
+            "subheading": "",
+            "heading": "Danskproducerede kvalitetssenge",
+            "heading_size": "h3",
+            "content": "",
+            "button_text": "",
+            "url": "",
+            "open_in_new_tab": false,
+            "style": "solid"
+          }
+        }
+      },
+      "block_order": [
+        "image_1"
+      ],
+      "settings": {
+        "color_scheme": "",
+        "use_page_width": true,
+        "preload_first": false
+      }
+    },
+    "trustpilot_reviews": {
+      "type": "trustpilot-reviews",
+      "name": "Trustpilot anmeldelser",
+      "settings": {
+        "color_scheme": "scheme-5",
+        "heading_size": "h4",
+        "score_suffix": "på Trustpilot",
+        "count_prefix": "Baseret på",
+        "count_suffix": "anmeldelser",
+        "disclosure": "Viser vores 4- og 5-stjernede anmeldelser",
+        "autoscroll": true,
+        "seconds_per_card": 20,
+        "card_background": "#f6f1ec",
+        "card_border_color": "#e0dcd9"
+      }
+    },
+    "multi_column": {
+      "type": "multi-column",
+      "blocks": {
+        "column_1": {
+          "type": "_multi-column-column",
+          "settings": {
+            "color_scheme": "",
+            "text_alignment": "left"
+          },
+          "blocks": {
+            "heading_1": {
+              "type": "heading",
+              "settings": {
+                "text": "Senge du ikke bare sover godt i",
+                "heading_size": "h3",
+                "html_tag": "h2",
+                "indent": "none",
+                "highlight_effect": "default",
+                "highlight_accent_color": "",
+                "highlight_text_color": ""
+              },
+              "blocks": {}
+            },
+            "rich_text_1": {
+              "type": "rich-text",
+              "settings": {
+                "text": "<p>Velkommen til vores sengeunivers fyldt med danskproducerede kvalitetssenge. I vores store udvalg finder du både enkeltsenge, king-size senge og alt det midt i mellem. Vi har lidt for enhver smag - både når det kommer til udseende og udtryk, men også i komfort og opbygning. Den sidste finish er op til dig - du kan nemlig altid vælge mellem flere fastheder i spring- eller boxmadrassen, og så medfølger der altid en valgfri topmadras, så du kan justere komforten og få den til at passe perfekt til din krop og til din nattesøvn.</p><p>Fælles for hver og én af sengene i vores univers er den høje kvalitet. Vores håndværkere er kendt for deres stolte håndværksmæssige traditioner, der krydres med nøje udvalgte kvalitetsmaterialer. Materialerne er massive, komfortable og sunde for både dig og os.</p><p>Alle rammer i vores kontinentalsenge, elevationssenge og boxmadrasser er udarbejdet i massivt fyrretræ fra Sverige. Et holdbart og stærkt kvalitetsmateriale som tilmed er FSC certificeret - en vigtig certificering for os. I FSC certificerede skove fældes der nemlig aldrig mere træ, end skoven på egen hånd kan producere igen - og så drives skovene under ordnede forhold med respekt for dyre- og planteliv, og med gode arbejdsforhold for de mennesker der arbejder i skoven.</p><p>Alle de flotte og slidstærke tekstiler i vores senge er sunde for dig. De er nemlig Oeko-Tex 100 Certificeret, så du kan være sikker på, at de opfylder det omfattende Oeko-Tex kriteriekatalog, og er produceret uden brug af kemiske stoffer, der kan være skadelige for dit helbred.</p><p>I senge fra Sengefabrikken sover du ikke bare godt. Du sover også sundt, og du kan sove der i mange år. Foruden den nøje udvalgte opbygning med velovervejede kvalitetsmaterialer og vigtige certificeringer, har vi nemlig også altid minimum 15 års fabriksgaranti mod brud på den massive træramme - og det samme gælder brud på de komfortable fjedre i madrasserne.</p>",
+                "content_width": "md"
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "heading_1",
+            "rich_text_1"
+          ]
+        },
+        "column_2": {
+          "type": "_multi-column-column",
+          "settings": {
+            "color_scheme": "",
+            "text_alignment": "left"
+          },
+          "blocks": {
+            "heading_2": {
+              "type": "heading",
+              "settings": {
+                "text": "Vælg en sengetype der passer til dig - og til din søvn",
+                "heading_size": "h3",
+                "html_tag": "h2",
+                "indent": "none",
+                "highlight_effect": "default",
+                "highlight_accent_color": "",
+                "highlight_text_color": ""
+              },
+              "blocks": {}
+            },
+            "rich_text_2": {
+              "type": "rich-text",
+              "settings": {
+                "text": "<p>Mulighederne er mange, når det kommer til at investere i sin søvn, men hvordan ved man egentlig, hvilken sengetype, der er den rette? Ofte er man faktisk slet ikke i tvivl, når man først hører, hvilke egenskaber det perfekte sengematch har.</p><p>Kontinentalsenge er opbygget i tre madraslag; en kontinentalbund, en springmadras og en topmadras. De tre lag supplerer hinanden på bedste vis, og gør med hver sine kvalitetsmaterialer og gennemtestede opbygning god søvn til en leg. Bare sådan en lidt trættende en af slagsen. Vi hører ofte, at det største problem med en kontinentalseng er, at man sover så godt, at det kan være svært at komme op, når vækkeuret ringer - og det er jo sådan et problem, vi godt kan leve med. Så, hvis du har en god snooze knap og foretrækker en æstetisk og stilren sengeløsning med god stabilitet, individuelt tilpasset støtte samt en komfortabel berøringsflade - så er det måske lige præcis en kontinentalseng, du skal vælge.</p><p>Er du til alt det ovenstående, men mangler lige den sidste luksus? Så skal du måske i stedet tage et kig på vores elevationssenge. En stilren, komfortabel og stabil sengeløsning med en kraftfuld og støjsvag motor påmonteret i bunden, så du ved hjælp af en trådløs fjernbetjening kan justere din position ved både hovedgærde og fodende. Det perfekte valg for dig, der nyder at have benene oppe efter en lang dag eller ligger bedre med en lidt hævet overkrop.</p><p>Er du til en lidt mere enkel seng? Så skal du kaste blikket mod vores udvalg af boxmadrasser; en simpel, komfortabel og billig sengeløsning - som har det, der skal til. Optimal aflastning og sund støtte der udspringer fra en dobbeltfjedret boxmadras, og som fuldendes af en komfortabel topmadras. Ikke mere eller mindre - bare en god, simpel sengeløsning til en rigtig god pris.</p><p>Vil du gerne læse mere om vores sengetyper og måske finde dit perfekte match? Find vores sengeguide nedenunder, hvor vi gør dig klogere på alle vores sengetyper, så du er godt klædt på og ved alt om, hvad du bør være opmærksom på, inden du bestiller.</p>",
+                "content_width": "md"
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "heading_2",
+            "rich_text_2"
+          ]
+        },
+        "section-header": {
+          "type": "_section-header",
+          "static": true,
+          "settings": {
+            "subheading": "",
+            "title": "",
+            "content": "",
+            "button_text": "",
+            "button_link": "",
+            "button_style": "outline",
+            "text_alignment": "left",
+            "heading_size": "h3",
+            "title_icon": "none",
+            "show_scrolling_title": false
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "column_1",
+        "column_2"
+      ],
+      "settings": {
+        "color_scheme": "",
+        "show_internal_borders": false,
+        "add_horizontal_spacing": true,
+        "add_top_spacing": true,
+        "add_bottom_spacing": true,
+        "items_per_row": 2,
+        "stack_on_mobile": true,
+        "stack_on_desktop": true,
+        "rounded_media": false,
+        "tap_to_pause_videos": false,
+        "column_spacing": "md",
+        "row_spacing": "md"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "slideshow",
+    "trust_icons",
+    "media_blocks",
+    "banner",
+    "trustpilot_reviews",
+    "multi_column"
+  ]
+}
