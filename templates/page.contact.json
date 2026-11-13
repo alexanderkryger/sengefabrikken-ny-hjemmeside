@@ -1,1 +1,76 @@
-{"sections":{"main":{"type":"main-page","disabled":true,"settings":{}},"contact-form":{"type":"contact","settings":{}}},"order":["main","contact-form"]}
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "contact-form": {
+      "type": "contact",
+      "settings": {
+        "color_scheme": "",
+        "layout": "split",
+        "add_image_spacing": false,
+        "subheading": "Kontakt os",
+        "title": "Skriv til os",
+        "heading_size": "h2",
+        "content": "<p>Udfyld formularen, så vender vi tilbage hurtigst muligt. Husk at dobbelttjekke din e-mailadresse, så du modtager vores svar.</p><p><strong>Vi svarer inden for 24 timer.</strong></p>",
+        "show_social_media": false
+      }
+    },
+    "contact-help": {
+      "type": "contact-help",
+      "settings": {
+        "color_scheme": "scheme-8",
+        "image": "shopify://shop_images/mathias_kundeservice_dd98efd7-0fa0-4f21-baab-4ca67ac6a88e.jpg",
+        "image_position": "left",
+        "heading": "Har du brug for hjælp?",
+        "heading_size": "h3",
+        "content": "<p>Selvom vi ikke har fysiske butikker, går vi ikke på kompromis med personlig vejledning og betjening. Har du spørgsmål eller brug for hjælp, så tøv endelig ikke med at kontakte os.</p>",
+        "hide_on_contact_page": false
+      },
+      "blocks": {
+        "chat": {
+          "type": "contact",
+          "settings": {
+            "icon": "picto-chat",
+            "text": "Live-chat",
+            "link": "",
+            "description": "Alle ugens dage kl. 09.00–18.00. Her kan du altid få hjælp, vejledning og gode råd.",
+            "open_chat": true
+          }
+        },
+        "phone": {
+          "type": "contact",
+          "settings": {
+            "icon": "picto-phone",
+            "text": "Telefon: 89 87 82 59",
+            "link": "tel:89878259",
+            "description": "Mandag–søndag kl. 09.00–18.00.",
+            "open_chat": false
+          }
+        },
+        "email": {
+          "type": "contact",
+          "settings": {
+            "icon": "envelope",
+            "text": "E-mail: kontakt@sengefabrikken.dk",
+            "link": "mailto:kontakt@sengefabrikken.dk",
+            "description": "Vi besvarer også e-mails uden for normal åbningstid.",
+            "open_chat": false
+          }
+        }
+      },
+      "block_order": [
+        "chat",
+        "phone",
+        "email"
+      ]
+    }
+  },
+  "order": [
+    "main",
+    "contact-form",
+    "contact-help"
+  ]
+}
