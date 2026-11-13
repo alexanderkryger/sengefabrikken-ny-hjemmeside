@@ -1,5 +1,26 @@
 {%- if section.settings.video != blank or section.settings.external_video_url != blank -%}
-<div {% if section.settings.allow_transparent_header %}allow-transparent-header{% endif %} class="color-scheme color-scheme--{{ section.settings.color_scheme.id }}">
+{%- comment -%}
+  Sengefabrikken: the video can be shown as a rounded box as wide as the Sengefabrikken page width ("Brug Sengefabrikken
+  sidebredde"), like the slideshow. The header can then not be transparent above it.
+{%- endcomment -%}
+{%- if section.settings.use_page_width -%}
+  <style>
+    #shopify-section-{{ section.id }} .content-box {
+      border-radius: .75rem;
+      overflow: clip;
+    }
+
+    {%- comment -%}A playing video is drawn on its own layer, which ignores border-radius but not clip-path{%- endcomment -%}
+    #shopify-section-{{ section.id }} .content-box__background-media {
+      clip-path: inset(0 round .75rem);
+    }
+  </style>
+
+  <div class="color-scheme color-scheme--{{ section.settings.page_width_color_scheme.id }}">
+    <div class="container section-spacing">
+{%- endif -%}
+
+<div {% if section.settings.allow_transparent_header and section.settings.use_page_width == false %}allow-transparent-header{% endif %} class="color-scheme color-scheme--{{ section.settings.color_scheme.id }}">
   <div class="content-box group min-h-{{ section.settings.mobile_video_size }} sm:min-h-{{ section.settings.video_size }}">
     <div class="content-box__background-media">
       {%- assign video_id = 'video-' | append: section.id -%}
@@ -270,6 +291,11 @@
     {%- endif -%}
   </div>
 </div>
+
+{%- if section.settings.use_page_width -%}
+    </div>
+  </div>
+{%- endif -%}
 {%- endif -%}
 
 {% schema %}
@@ -290,6 +316,21 @@
     "id": "color_scheme",
     "label": "t:global.colors.scheme",
     "default": "scheme-3"
+  },
+  {
+    "type": "checkbox",
+    "id": "use_page_width",
+    "label": "Brug Sengefabrikken sidebredde",
+    "info": "Videoen vises som en afrundet boks, der er lige så bred som den maks. sidebredde i Theme settings > Sengefabrikken layout. Headeren kan så ikke være gennemsigtig.",
+    "default": false
+  },
+  {
+    "type": "color_scheme",
+    "id": "page_width_color_scheme",
+    "label": "Farveskema rundt om boksen",
+    "info": "Baggrunden rundt om boksen, når Sengefabrikken sidebredde er slået til.",
+    "default": "scheme-1",
+    "visible_if": "{{ section.settings.use_page_width }}"
   },
   {
     "type": "checkbox",
