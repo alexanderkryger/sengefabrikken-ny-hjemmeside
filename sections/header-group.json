@@ -670,6 +670,8 @@
         "desktop_dropdown_menu_style": "below",
         "menu_open_trigger": "hover",
         "menu_drawer_width": 560,
+        "menu_sub_link_size_desktop": 24,
+        "menu_sub_link_size_mobile": 18,
         "show_account_link": false,
         "large_icon_buttons": true,
         "cart_count_background": "#650621",
