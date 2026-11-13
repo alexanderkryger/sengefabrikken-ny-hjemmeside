@@ -27,7 +27,7 @@
             "color_scheme": "",
             "image": "shopify://shop_images/Top_banner_1.jpg",
             "slide_link": "",
-            "content_max_width": 600,
+            "content_max_width": 780,
             "mobile_content_position": "place-self-end-start",
             "desktop_content_position": "sm:place-self-end-start",
             "overlay_color": "#000000",
@@ -45,7 +45,7 @@
               "type": "heading",
               "settings": {
                 "text": "Et univers fyldt med danskproducerede kvalitetssenge",
-                "heading_size": "h2",
+                "heading_size": "h4",
                 "html_tag": "h1",
                 "indent": "none",
                 "highlight_effect": "default",
