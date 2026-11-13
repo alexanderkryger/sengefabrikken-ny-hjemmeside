@@ -155,7 +155,7 @@
         "column_1": {
           "type": "_multi-column-column",
           "settings": {
-            "color_scheme": "",
+            "color_scheme": "scheme-2b5ea552-ee45-4763-a402-00199b79bef1",
             "text_alignment": "left"
           },
           "blocks": {
@@ -189,7 +189,7 @@
         "column_2": {
           "type": "_multi-column-column",
           "settings": {
-            "color_scheme": "",
+            "color_scheme": "scheme-2b5ea552-ee45-4763-a402-00199b79bef1",
             "text_alignment": "left"
           },
           "blocks": {
