@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
@@ -111,6 +120,24 @@
           "settings": {
             "shortcode": "<div class=\"globo-formbuilder\" data-id=\"MTI1MjUz\"></div>"
           }
+        },
+        "section-header": {
+          "type": "_section-header",
+          "disabled": true,
+          "static": true,
+          "settings": {
+            "subheading": "",
+            "title": "Header",
+            "content": "<p>Use this content to share information about your store and products.</p>",
+            "button_text": "",
+            "button_link": "",
+            "button_style": "outline",
+            "text_alignment": "left",
+            "heading_size": "h3",
+            "title_icon": "none",
+            "show_scrolling_title": false
+          },
+          "blocks": {}
         }
       },
       "block_order": [
@@ -128,7 +155,7 @@
         "column_1": {
           "type": "_multi-column-column",
           "settings": {
-            "color_scheme": "",
+            "color_scheme": "scheme-2b5ea552-ee45-4763-a402-00199b79bef1",
             "text_alignment": "left"
           },
           "blocks": {
@@ -162,7 +189,7 @@
         "column_2": {
           "type": "_multi-column-column",
           "settings": {
-            "color_scheme": "",
+            "color_scheme": "scheme-2b5ea552-ee45-4763-a402-00199b79bef1",
             "text_alignment": "left"
           },
           "blocks": {
