@@ -1,0 +1,115 @@
+{%- doc -%}
+Sengefabrikken: outputs the content of the <title> tag. On a collection page filtered by size (eg. "Kontinentalseng
+180x200 | Gode Tilbud på 180x200 Kontinentalsenge") or by mattress type, the title is built from the collection type
+and the size, like the "page_titles" snippet of the previous theme. The size and the mattress type come from the active
+filters ("custom.size_name" and "custom.madrastype" metafields), or from the tags of the URL for the old tag URLs (eg.
+/collections/kontinental-senge/180x200). In all other cases, the title is the page title set in the admin.
+{%- enddoc -%}
+
+{%- liquid
+  assign seo_title = ''
+
+  if template.name == 'collection' and collection != blank
+    case collection.handle
+      when 'boxmadrasser', 'elevationssenge', 'kontinental-senge', 'sengerammer', 'madrasser', 'dyner', 'rullemadrasser', 'kuvertlagner', 'faconlagner', 'alle-lagner'
+        assign title_type = collection.handle
+      else
+        assign title_type = ''
+    endcase
+
+    assign title_size = ''
+    assign mattress_type = ''
+
+    # Active filters
+    for filter in collection.filters
+      for active_value in filter.active_values
+        if filter.param_name == 'filter.p.m.custom.size_name' and title_size == blank
+          assign size_candidate = active_value.value | remove: 'cm' | remove: '.' | strip
+          assign size_width = size_candidate | split: 'x' | first | plus: 0
+
+          if size_candidate contains 'x' and size_width > 0
+            assign title_size = size_candidate
+          endif
+        elsif filter.param_name == 'filter.p.m.custom.madrastype' and mattress_type == blank
+          assign mattress_type = active_value.value | downcase
+        endif
+      endfor
+    endfor
+
+    # Tags of the old tag URLs
+    for tag in current_tags
+      assign tag_downcase = tag | downcase
+      assign size_width = tag_downcase | split: 'x' | first | plus: 0
+
+      if title_size == blank and tag_downcase contains 'x' and size_width > 0
+        assign title_size = tag_downcase | remove: 'cm' | strip
+      elsif mattress_type == blank and tag_downcase contains 'madras'
+        assign mattress_type = tag_downcase
+      endif
+    endfor
+
+    if mattress_type contains 'skum'
+      assign title_type = 'skummadrasser'
+    elsif mattress_type contains 'spring'
+      assign title_type = 'springmadrasser'
+    elsif mattress_type contains 'latex'
+      assign title_type = 'latexmadrasser'
+    endif
+
+    if title_type != blank and title_size != blank
+      case title_type
+        when 'skummadrasser'
+          assign seo_title = 'Skummadras ' | append: title_size | append: ' | Køb Kvalitets ' | append: title_size | append: ' Skummadrasser Her'
+        when 'springmadrasser'
+          assign seo_title = 'Springmadras ' | append: title_size | append: ' | Køb hos Sengefabrikken her | Fri Fragt!'
+        when 'latexmadrasser'
+          assign seo_title = 'Latex Madras ' | append: title_size | append: ' | Køb Online Her | Gode Priser & Fri Fragt'
+        when 'boxmadrasser'
+          assign seo_title = 'Boxmadras ' | append: title_size | append: ' | Gode Tilbud på ' | append: title_size | append: ' Boxmadrasser 🛏️'
+        when 'elevationssenge'
+          assign seo_title = 'Elevationsseng ' | append: title_size | append: ' | Gode Tilbud på ' | append: title_size | append: ' Elevationssenge'
+        when 'kontinental-senge'
+          assign seo_title = 'Kontinentalseng ' | append: title_size | append: ' | Gode Tilbud på ' | append: title_size | append: ' Kontinentalsenge'
+        when 'sengerammer'
+          assign seo_title = 'Sengeramme ' | append: title_size | append: ' | Se vores Flotte Sengestel i ' | append: title_size | append: ' Mål Her'
+        when 'madrasser'
+          assign seo_title = 'Madras ' | append: title_size | append: ' | Kvalitets Madrasser i ' | append: title_size | append: ' cm | Fri Fragt!'
+        when 'dyner'
+          assign seo_title = title_size | append: ' dyner | Stort udvalg af bløde dyner'
+        when 'rullemadrasser'
+          assign seo_title = title_size | append: ' rullemadrasser | Se vores udvalg af kvalitets rullemadrasser'
+        when 'kuvertlagner'
+          assign seo_title = title_size | append: ' kuvertlagner | Køb dine lagner her'
+        when 'faconlagner'
+          assign seo_title = title_size | append: ' faconlagner | Find dine nye faconlagner her på Sengefabrikken.dk'
+        when 'alle-lagner'
+          assign seo_title = title_size | append: ' lagner | Se alle vores lækre og bløde lagner lige her'
+      endcase
+    elsif title_size == blank
+      # A mattress type without size (eg. the "Skummadras" filter on the mattresses collection)
+      case title_type
+        when 'skummadrasser'
+          assign seo_title = 'Skummadras | Find en Billig Skummadras i Høj Kvalitet Online Her'
+        when 'springmadrasser'
+          assign seo_title = 'Springmadrasser | Køb en Kvalitets Springmadras Online Her'
+        when 'latexmadrasser'
+          assign seo_title = 'Latexmadrasser | Se Alle Vores Latexmadrasser Her | Fri Fragt!'
+      endcase
+
+      if collection.handle == title_type
+        assign seo_title = ''
+      endif
+    endif
+  endif
+
+  if seo_title == blank
+    assign seo_title = page_title | default: shop.name
+  endif
+
+  echo seo_title | escape
+
+  if current_page != 1
+    echo ' &ndash; '
+    echo 'general.page' | t: page: current_page
+  endif
+-%}

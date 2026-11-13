@@ -5,7 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, height=device-height, minimum-scale=1.0, maximum-scale=5.0">
 
-    <title>{% if page_title == blank %}{{ shop.name }}{% else %}{{ page_title }}{% if current_page != 1 %} &ndash; {{ 'general.page' | t: page: current_page }}{% endif %}{% endif %}</title>
+    {%- comment -%}Sengefabrikken: titles built from the size and mattress type filters on the collection pages{%- endcomment -%}
+    <title>{% render 'sengefabrikken-page-title' %}</title>
 
     {%- if page_description -%}
       <meta name="description" content="{{ page_description | escape }}">
