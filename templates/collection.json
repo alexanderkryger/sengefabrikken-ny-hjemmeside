@@ -193,7 +193,9 @@
       ],
       "settings": {
         "color_scheme": "scheme-1",
-        "heading_size": "h4"
+        "heading_size": "h5",
+        "title": "Den alsidige sove- og siddeløsning",
+        "title_heading_size": "h3"
       }
     },
     "faq_iWRBk6": {

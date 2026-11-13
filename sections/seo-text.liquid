@@ -1,7 +1,8 @@
 {%- comment -%}
   Sengefabrikken: SEO text shown below the product list. Each block holds the text for a filter value (eg. "180x200"),
   and the block matching the active filters is shown. A block without filter value is shown when no other block
-  matches. As the filters only re-render the main collection section, the <seo-text> element switches the visible
+  matches. A title "<collection> - <filter value> – <title>" is shown above the text of each block when the "Titel" setting
+  is set. As the filters only re-render the main collection section, the <seo-text> element switches the visible
   block when the filters change (see seo-text.js).
 {%- endcomment -%}
 
@@ -47,6 +48,12 @@
 -%}
 
 {%- if section.blocks.size > 0 -%}
+  <style>
+    #shopify-section-{{ section.id }} {
+      --seo-text-heading-font-size: var(--text-{{ section.settings.heading_size }});
+    }
+  </style>
+
   <script type="module" src="{{ 'seo-text.js' | asset_url }}"></script>
 
   <div class="color-scheme color-scheme--{{ section.settings.color_scheme.id }}">
@@ -68,6 +75,16 @@
           -%}
 
           <div class="seo-text__item" data-filter-value="{{ block_filter_value | escape }}" {% unless show_block %}hidden{% endunless %} {{ block.shopify_attributes }}>
+            {%- if section.settings.title != blank -%}
+              <h2 class="seo-text__title {{ section.settings.title_heading_size }}">
+                {%- if block.settings.filter_value != blank -%}
+                  {{- collection.title }} - {{ block.settings.filter_value | strip }} – {{ section.settings.title -}}
+                {%- else -%}
+                  {{- collection.title }} - {{ section.settings.title -}}
+                {%- endif -%}
+              </h2>
+            {%- endif -%}
+
             {%- for column in (1..2) -%}
               {%- liquid
                 assign heading_setting = 'heading_' | append: column
@@ -98,6 +115,16 @@
     display: grid;
   }
 
+  .seo-text__title {
+    grid-column: 1 / -1;
+  }
+
+  /* The headings of the columns and the headings written in the texts use the "Overskrifter i teksten" size */
+  .seo-text__item .prose :is(h1, h2, h3, h4, h5, h6) {
+    font-size: var(--seo-text-heading-font-size);
+    line-height: calc(var(--heading-line-height) + .1);
+  }
+
   @media screen and (min-width: 1000px) {
     .seo-text__item {
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -126,9 +153,15 @@
       "default": "scheme-1"
     },
     {
+      "type": "text",
+      "id": "title",
+      "label": "Titel",
+      "info": "Vises over teksten som: Kollektionens navn - filterværdi – titel. Fx Kontinentalsenge - 180x200 – Danskproducerede kvalitetssenge til spotpriser."
+    },
+    {
       "type": "select",
-      "id": "heading_size",
-      "label": "t:global.text.heading_size",
+      "id": "title_heading_size",
+      "label": "Størrelse på titel",
       "options": [
         {
           "value": "h2",
@@ -147,7 +180,35 @@
           "label": "Small"
         }
       ],
-      "default": "h4"
+      "default": "h3"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "label": "Overskrifter i teksten",
+      "options": [
+        {
+          "value": "h2",
+          "label": "X-Large"
+        },
+        {
+          "value": "h3",
+          "label": "Large"
+        },
+        {
+          "value": "h4",
+          "label": "Medium"
+        },
+        {
+          "value": "h5",
+          "label": "Small"
+        },
+        {
+          "value": "h6",
+          "label": "X-Small"
+        }
+      ],
+      "default": "h5"
     }
   ],
   "blocks": [

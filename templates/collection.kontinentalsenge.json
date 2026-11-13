@@ -215,7 +215,9 @@
       ],
       "settings": {
         "color_scheme": "scheme-1",
-        "heading_size": "h4"
+        "heading_size": "h5",
+        "title": "Danskproducerede kvalitetssenge til spotpriser",
+        "title_heading_size": "h3"
       }
     },
     "faq_iWRBk6": {
