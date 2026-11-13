@@ -77,6 +77,7 @@
   {%- comment -%}Sengefabrikken: font size of the links in the sub panels of the menu drawer{%- endcomment -%}
   #menu-drawer .menu-drawer__sub-link {
     font-size: {{ section.settings.menu_sub_link_size_mobile }}px;
+    text-decoration: none; /* No underline on hover, nor on the link whose cards are shown */
   }
 
   {%- comment -%}Sengefabrikken: image before the links of the sub panels ("Vis billeder i menuen"){%- endcomment -%}
@@ -94,13 +95,6 @@
       flex-shrink: 0;
       width: {{ section.settings.menu_image_size }}px;
       height: {{ section.settings.menu_image_size }}px;
-    }
-
-    @media screen and (pointer: fine) {
-      #menu-drawer .menu-drawer__sub-link--with-image:hover > .link-reversed {
-        background-size: 100% 1px;
-        background-position-x: var(--transform-origin-start);
-      }
     }
   {%- endif -%}
 
