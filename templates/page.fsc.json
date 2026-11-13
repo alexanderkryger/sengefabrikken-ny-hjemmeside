@@ -1,0 +1,253 @@
+{
+  "sections": {
+    "hero": {
+      "type": "sengefabrikken-banner",
+      "blocks": {
+        "image_1": {
+          "type": "image",
+          "settings": {
+            "height": "md",
+            "color_scheme": "",
+            "image": "shopify://shop_images/fsc_banner_2.jpg",
+            "mobile_image": "shopify://shop_images/fsc_banner_mobile.jpg",
+            "overlay_color": "#000000",
+            "overlay_opacity": 30,
+            "content_position": "place-self-center",
+            "content_width": "md",
+            "subheading": "FSC",
+            "heading": "Sov bedre med senge af FSC®-certificeret træ",
+            "heading_size": "h2",
+            "content": "",
+            "button_text": "",
+            "url": "",
+            "open_in_new_tab": false,
+            "style": "solid"
+          }
+        }
+      },
+      "block_order": [
+        "image_1"
+      ],
+      "settings": {
+        "color_scheme": "",
+        "use_page_width": true,
+        "preload_first": true
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "color_scheme": "",
+        "show_title": true,
+        "content_width": "md"
+      }
+    },
+    "fsc_intro": {
+      "type": "multiple-media-with-text",
+      "blocks": {
+        "image_1": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Box_woodframe_7a06605d-5ede-4791-9661-aae1ccf65af0.jpg",
+            "rotation": 0,
+            "hide_on_mobile": true
+          }
+        }
+      },
+      "block_order": [
+        "image_1"
+      ],
+      "settings": {
+        "color_scheme": "",
+        "color_transition": false,
+        "custom_id": "",
+        "media_position_desktop": "before_text",
+        "media_position_mobile": "before_text",
+        "media_layout": "overlap",
+        "media_alignment": "center",
+        "media_alignment_offset": 0,
+        "media_mobile_alignment_offset": 0,
+        "hide_media_on_mobile": false,
+        "content_percentage_width": 40,
+        "text_alignment": "center",
+        "subheading": "",
+        "title": "FSC®-certificeret træ til en bedre fremtid",
+        "heading_size": "h4",
+        "show_icon": false,
+        "show_color_swatch": false,
+        "content": "<p>Hos Sengefabrikken lægger vi stor vægt på at tage ansvar for den verden, vi lever i. Vi mener, at det er vigtigt at beskytte naturen, som er så central for vores hverdag. Derfor er det en stor lettelse for os at vide, at størstedelen af det træ, vi bruger i vores produkter, er FSC®-certificeret. Denne certificering betyder, at træet kommer fra skove, hvor der tages omfattende hensyn til både naturen, menneskerne og dyrene, der lever der.</p><p>Der findes mange certificeringsordninger, men vi har med omhu valgt FSC®-mærket til vores produkter. FSC® har en særlig troværdighed, da det er støttet af anerkendte organisationer som WWF Verdensnaturfonden og Verdens Skove.</p>",
+        "content_border_top": false,
+        "content_border_bottom": false,
+        "content_below": "",
+        "content_below_border_top": false,
+        "content_below_border_bottom": false,
+        "border_color": "#e0dcd9",
+        "phone": "",
+        "phone_hours": "",
+        "email": "",
+        "chat": "",
+        "button_1_text": "",
+        "button_1_link": "",
+        "button_1_style": "solid",
+        "button_2_text": "",
+        "button_2_link": "",
+        "button_2_style": "outline",
+        "video": "shopify://files/videos/01.-Trykaflastende_Boxmadras (1).mp4"
+      }
+    },
+    "fsc_forests": {
+      "type": "multiple-media-with-text",
+      "blocks": {
+        "image_1": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/fsc_billede_1.jpg",
+            "rotation": 0,
+            "hide_on_mobile": false
+          }
+        }
+      },
+      "block_order": [
+        "image_1"
+      ],
+      "settings": {
+        "color_scheme": "",
+        "color_transition": false,
+        "custom_id": "",
+        "media_position_desktop": "after_text",
+        "media_position_mobile": "before_text",
+        "media_layout": "overlap",
+        "media_alignment": "center",
+        "media_alignment_offset": 0,
+        "media_mobile_alignment_offset": 0,
+        "hide_media_on_mobile": true,
+        "content_percentage_width": 40,
+        "text_alignment": "center",
+        "subheading": "",
+        "title": "Sammen beskytter vi verdens skove",
+        "heading_size": "h4",
+        "show_icon": false,
+        "show_color_swatch": false,
+        "content": "<p>Når du køber et FSC®-certificeret soveprodukt fra Sengefabrikken, hjælper du med at sikre ansvarlige arbejdsforhold og bevaring af biodiversitet i skovene globalt. Dette indebærer, at skovarbejdere får ordentlig løn og det nødvendige sikkerhedsudstyr, mens skovejere bidrager til lokale samfundsprojekter. Samtidig sikres det, at oprindelige folks rettigheder bliver respekteret.</p><p>Ved at vælge et af vores FSC®-certificerede soveprodukter, bidrager du aktivt til at beskytte verdens skove, og for det vil vi gerne sige mange tak. Hvis du vil vide mere om FSC®-mærket, kan du finde flere oplysninger på www.fsc.dk.</p>",
+        "content_border_top": false,
+        "content_border_bottom": false,
+        "content_below": "",
+        "content_below_border_top": false,
+        "content_below_border_bottom": false,
+        "border_color": "#e0dcd9",
+        "phone": "",
+        "phone_hours": "",
+        "email": "",
+        "chat": "",
+        "button_1_text": "",
+        "button_1_link": "",
+        "button_1_style": "solid",
+        "button_2_text": "",
+        "button_2_link": "",
+        "button_2_style": "outline",
+        "image": "shopify://shop_images/FSC_logo.jpg"
+      }
+    },
+    "fsc_collections": {
+      "type": "collection-list",
+      "blocks": {
+        "collection_1": {
+          "type": "collection-card",
+          "settings": {
+            "color_scheme": "scheme-3",
+            "collection": "kontinental-senge",
+            "image": "shopify://shop_images/c1dc800b936256923ffe9a45cecc176d.jpg",
+            "title": "Kontinentalsenge",
+            "heading_tag": "h4",
+            "button_text": "",
+            "button_style": "outline",
+            "overlay_color": "#000000",
+            "overlay_opacity": 40
+          }
+        },
+        "collection_2": {
+          "type": "collection-card",
+          "settings": {
+            "color_scheme": "scheme-3",
+            "collection": "elevationssenge",
+            "image": "shopify://shop_images/eadc4b8c812881675ccf903a0abe2a12.jpg",
+            "title": "Elevationssenge",
+            "heading_tag": "h4",
+            "button_text": "",
+            "button_style": "outline",
+            "overlay_color": "#000000",
+            "overlay_opacity": 40
+          }
+        },
+        "collection_3": {
+          "type": "collection-card",
+          "settings": {
+            "color_scheme": "scheme-3",
+            "collection": "boxmadrasser",
+            "image": "shopify://shop_images/0a26f74cce08611d6124be8eb42d65f7.jpg",
+            "title": "Boxmadrasser",
+            "heading_tag": "h4",
+            "button_text": "",
+            "button_style": "outline",
+            "overlay_color": "#000000",
+            "overlay_opacity": 40
+          }
+        },
+        "collection_4": {
+          "type": "collection-card",
+          "settings": {
+            "color_scheme": "scheme-3",
+            "collection": "senge-m-opbevaring",
+            "image": "shopify://shop_images/c1dc800b936256923ffe9a45cecc176d.jpg",
+            "title": "Senge m. opbevaring",
+            "heading_tag": "h4",
+            "button_text": "",
+            "button_style": "outline",
+            "overlay_color": "#000000",
+            "overlay_opacity": 40
+          }
+        },
+        "section-header": {
+          "type": "_section-header",
+          "static": true,
+          "settings": {
+            "subheading": "FSC",
+            "title": "Vores FSC®-certificerede produkter",
+            "content": "",
+            "button_text": "",
+            "button_link": "",
+            "button_style": "outline",
+            "text_alignment": "center",
+            "heading_size": "h3",
+            "title_icon": "none",
+            "show_scrolling_title": false
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "collection_1",
+        "collection_2",
+        "collection_3",
+        "collection_4"
+      ],
+      "settings": {
+        "color_scheme": "",
+        "items_per_row": 4,
+        "stack_on_mobile": false,
+        "add_horizontal_spacing": true,
+        "content_position": "inside",
+        "column_spacing": "md",
+        "image_size": "auto"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "main",
+    "fsc_intro",
+    "fsc_forests",
+    "fsc_collections"
+  ]
+}
