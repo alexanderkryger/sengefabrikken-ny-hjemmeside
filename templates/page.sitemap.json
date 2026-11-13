@@ -1,0 +1,21 @@
+{
+  "sections": {
+    "main": {
+      "type": "sengefabrikken-sitemap",
+      "settings": {
+        "color_scheme": "",
+        "subheading": "",
+        "title": "Sitemap",
+        "heading_size": "h2",
+        "content": "<p>Her finder du et overblik over alle kategorier og sider på Sengefabrikken.dk.</p>",
+        "collections_title": "Kategorier",
+        "pages_title": "Sider",
+        "blog_title": "",
+        "exclude_words": "menu"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

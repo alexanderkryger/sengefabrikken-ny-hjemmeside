@@ -1,0 +1,319 @@
+{%- comment -%}
+  Sengefabrikken: sitemap page, listing the collections ("Kategorier"), the pages ("Sider") and optionally the articles of
+  a blog, each group in its own card with the number of links. Collections and pages whose title contains one of the
+  "Udelad" words (eg. "menu") are left out. The lists are paginated by 250 so that they are not cut at 50 items, which is
+  the limit of a Liquid loop.
+{%- endcomment -%}
+
+{%- liquid
+  assign exclude_words = section.settings.exclude_words | downcase | split: ','
+-%}
+
+{%- capture collection_links -%}
+  {%- paginate collections by 250 -%}
+    {%- for collection in collections -%}
+      {%- liquid
+        assign title_downcase = collection.title | downcase
+        assign is_excluded = false
+
+        for word in exclude_words
+          assign excluded_word = word | strip
+
+          if excluded_word != blank and title_downcase contains excluded_word
+            assign is_excluded = true
+            break
+          endif
+        endfor
+      -%}
+
+      {%- unless is_excluded -%}
+        <li><a href="{{ collection.url }}" class="sitemap__link">{{ collection.title }}</a></li>
+      {%- endunless -%}
+    {%- endfor -%}
+  {%- endpaginate -%}
+{%- endcapture -%}
+
+{%- capture page_links -%}
+  {%- paginate pages by 250 -%}
+    {%- for sitemap_page in pages -%}
+      {%- liquid
+        assign title_downcase = sitemap_page.title | downcase
+        assign is_excluded = false
+
+        if sitemap_page.handle == page.handle
+          assign is_excluded = true
+        endif
+
+        for word in exclude_words
+          assign excluded_word = word | strip
+
+          if excluded_word != blank and title_downcase contains excluded_word
+            assign is_excluded = true
+            break
+          endif
+        endfor
+      -%}
+
+      {%- unless is_excluded -%}
+        <li><a href="{{ sitemap_page.url }}" class="sitemap__link">{{ sitemap_page.title }}</a></li>
+      {%- endunless -%}
+    {%- endfor -%}
+  {%- endpaginate -%}
+{%- endcapture -%}
+
+{%- capture article_links -%}
+  {%- if section.settings.blog != blank -%}
+    {%- paginate section.settings.blog.articles by 250 -%}
+      {%- for article in section.settings.blog.articles -%}
+        <li><a href="{{ article.url }}" class="sitemap__link">{{ article.title }}</a></li>
+      {%- endfor -%}
+    {%- endpaginate -%}
+  {%- endif -%}
+{%- endcapture -%}
+
+{%- liquid
+  assign collection_count = collection_links | split: '<li>' | size | minus: 1
+  assign page_count = page_links | split: '<li>' | size | minus: 1
+  assign article_count = article_links | split: '<li>' | size | minus: 1
+-%}
+
+<div class="color-scheme color-scheme--{{ section.settings.color_scheme.id }}">
+  <div class="container section-spacing">
+    <div class="section-stack">
+      {%- if section.settings.title != blank or section.settings.content != blank -%}
+        <div class="prose text-center max-w-md mx-auto">
+          {%- if section.settings.subheading != blank -%}
+            {%- render 'subheading', content: section.settings.subheading -%}
+          {%- endif -%}
+
+          {%- if section.settings.title != blank -%}
+            <h1 class="{{ section.settings.heading_size }}">{{ section.settings.title }}</h1>
+          {%- endif -%}
+
+          {{- section.settings.content -}}
+        </div>
+      {%- endif -%}
+
+      <div class="sitemap">
+        {%- if collection_count > 0 -%}
+          <div class="sitemap__group sitemap__group--wide">
+            <div class="sitemap__group-header">
+              {%- render 'icon' with 'picto-furniture', width: 28 -%}
+              <h2 class="h5">{{ section.settings.collections_title }}</h2>
+              <span class="sitemap__count">{{ collection_count }}</span>
+            </div>
+
+            <ul class="sitemap__list unstyled-list" role="list">
+              {{- collection_links -}}
+            </ul>
+          </div>
+        {%- endif -%}
+
+        {%- if page_count > 0 -%}
+          <div class="sitemap__group">
+            <div class="sitemap__group-header">
+              {%- render 'icon' with 'picto-text', width: 28 -%}
+              <h2 class="h5">{{ section.settings.pages_title }}</h2>
+              <span class="sitemap__count">{{ page_count }}</span>
+            </div>
+
+            <ul class="sitemap__list unstyled-list" role="list">
+              {{- page_links -}}
+            </ul>
+          </div>
+        {%- endif -%}
+
+        {%- if article_count > 0 -%}
+          <div class="sitemap__group">
+            <div class="sitemap__group-header">
+              {%- render 'icon' with 'picto-news', width: 28 -%}
+              <h2 class="h5">{{ section.settings.blog_title | default: section.settings.blog.title }}</h2>
+              <span class="sitemap__count">{{ article_count }}</span>
+            </div>
+
+            <ul class="sitemap__list unstyled-list" role="list">
+              {{- article_links -}}
+            </ul>
+          </div>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% stylesheet %}
+  .sitemap {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1rem;
+    display: grid;
+  }
+
+  .sitemap__group {
+    background: rgb(var(--text-color) / .04);
+    background: color-mix(in srgb, rgb(var(--background)) 94%, rgb(var(--text-color)));
+    border-radius: .75rem;
+    align-content: start;
+    gap: 1.25rem;
+    padding: 1.5rem;
+    display: grid;
+  }
+
+  .sitemap__group-header {
+    border-block-end: 1px solid rgb(var(--border-color));
+    align-items: center;
+    gap: .75rem;
+    padding-block-end: 1rem;
+    display: flex;
+  }
+
+  .sitemap__count {
+    background: rgb(var(--text-color) / .08);
+    border-radius: 999px;
+    margin-inline-start: auto;
+    padding: .125rem .625rem;
+    font-size: .8125rem;
+  }
+
+  .sitemap__list {
+    column-gap: 2rem;
+    columns: 1;
+  }
+
+  .sitemap__list li {
+    break-inside: avoid;
+    padding-block: .3125rem;
+  }
+
+  .sitemap__link {
+    color: rgb(var(--text-color) / .75);
+    transition: color .2s;
+  }
+
+  .sitemap__link:hover {
+    color: rgb(var(--text-color));
+  }
+
+  @media screen and (min-width: 700px) {
+    .sitemap {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.5rem;
+    }
+
+    .sitemap__group {
+      padding: 2rem;
+    }
+
+    .sitemap__group--wide {
+      grid-column: 1 / -1;
+    }
+
+    .sitemap__group--wide .sitemap__list {
+      columns: 2;
+    }
+  }
+
+  @media screen and (min-width: 1000px) {
+    .sitemap__group--wide .sitemap__list {
+      columns: 4;
+    }
+
+    .sitemap__group:not(.sitemap__group--wide) .sitemap__list {
+      columns: 2;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Sengefabrikken sitemap",
+  "class": "shopify-section--sengefabrikken-sitemap",
+  "tag": "section",
+  "disabled_on": {
+    "groups": ["header", "footer", "custom.overlay"]
+  },
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:global.colors.scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Underoverskrift"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Overskrift",
+      "default": "Sitemap"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "label": "t:global.text.heading_size",
+      "options": [
+        {
+          "value": "h1",
+          "label": "XX-Large"
+        },
+        {
+          "value": "h2",
+          "label": "X-Large"
+        },
+        {
+          "value": "h3",
+          "label": "Large"
+        }
+      ],
+      "default": "h2"
+    },
+    {
+      "type": "richtext",
+      "id": "content",
+      "label": "Tekst"
+    },
+    {
+      "type": "header",
+      "content": "Indhold"
+    },
+    {
+      "type": "text",
+      "id": "collections_title",
+      "label": "Overskrift for kategorier",
+      "default": "Kategorier"
+    },
+    {
+      "type": "text",
+      "id": "pages_title",
+      "label": "Overskrift for sider",
+      "default": "Sider"
+    },
+    {
+      "type": "blog",
+      "id": "blog",
+      "label": "Blog",
+      "info": "Viser blogindlæggene i et eget kort. Lad den stå tom for ikke at vise blogindlæg."
+    },
+    {
+      "type": "text",
+      "id": "blog_title",
+      "label": "Overskrift for blog",
+      "info": "Lad den stå tom for at bruge bloggens navn."
+    },
+    {
+      "type": "text",
+      "id": "exclude_words",
+      "label": "Udelad titler der indeholder",
+      "info": "Kommasepareret, fx menu, test. Store og små bogstaver er ligegyldige.",
+      "default": "menu"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Sengefabrikken sitemap"
+    }
+  ]
+}
+{% endschema %}
