@@ -10,6 +10,14 @@
   </div>
 {%- endif -%}
 
+{% stylesheet %}
+  /* Sengefabrikken: keeps the margins of the app blocks inside the section (eg. the top margin of the Powerful Form
+     Builder form), so that they do not collapse through the section and leave a strip of the page background */
+  .shopify-section--apps > .color-scheme > div {
+    display: flow-root;
+  }
+{% endstylesheet %}
+
 {% schema %}
 {
   "name": "t:sections.apps.name",
