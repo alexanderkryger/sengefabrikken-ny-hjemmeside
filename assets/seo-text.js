@@ -5,6 +5,12 @@
  * collection section and update the URL, so the visible text is chosen again from the URL once the filters are loaded.
  * A text without filter value is shown when no other text matches.
  */
+/**
+ * Compares the values without "cm" and dots (eg. "180x200 cm." matches "180x200"). The values must be equal, so that
+ * "180x200" does not match the text for "80x200".
+ */
+const normalizeValue = (value) => value.toLowerCase().replace(/cm/g, '').replace(/\./g, '').trim();
+
 class SeoText extends HTMLElement {
   #abortController;
 
@@ -33,12 +39,12 @@ class SeoText extends HTMLElement {
 
     new URLSearchParams(window.location.search).forEach((value, key) => {
       if (key.startsWith('filter.')) {
-        activeValues.push(value.toLowerCase());
+        activeValues.push(normalizeValue(value));
       }
     });
 
     const items = Array.from(this.querySelectorAll('.seo-text__item')),
-      matchingItem = items.find((item) => item.dataset.filterValue !== '' && activeValues.some((value) => value.includes(item.dataset.filterValue))),
+      matchingItem = items.find((item) => item.dataset.filterValue !== '' && activeValues.includes(item.dataset.filterValue)),
       itemToShow = matchingItem || items.find((item) => item.dataset.filterValue === '');
 
     items.forEach((item) => item.hidden = item !== itemToShow);

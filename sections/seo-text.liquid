@@ -11,7 +11,7 @@
   assign default_block_id = ''
 
   for block in section.blocks
-    assign block_filter_value = block.settings.filter_value | strip | downcase
+    assign block_filter_value = block.settings.filter_value | downcase | remove: 'cm' | remove: '.' | strip
 
     if block_filter_value == blank
       if default_block_id == blank
@@ -23,10 +23,12 @@
 
     for filter in collection.filters
       for active_value in filter.active_values
-        assign active_value_label = active_value.label | downcase
-        assign active_value_value = active_value.value | downcase
+        # The values are compared without "cm" and dots (eg. "180x200 cm." matches "180x200"), and must be equal, so that
+        # "180x200" does not match the text for "80x200"
+        assign active_value_label = active_value.label | downcase | remove: 'cm' | remove: '.' | strip
+        assign active_value_value = active_value.value | downcase | remove: 'cm' | remove: '.' | strip
 
-        if active_value_label contains block_filter_value or active_value_value contains block_filter_value
+        if active_value_label == block_filter_value or active_value_value == block_filter_value
           assign active_block_id = block.id
           break
         endif
@@ -61,7 +63,7 @@
       <seo-text class="seo-text">
         {%- for block in section.blocks -%}
           {%- liquid
-            assign block_filter_value = block.settings.filter_value | strip | downcase
+            assign block_filter_value = block.settings.filter_value | downcase | remove: 'cm' | remove: '.' | strip
             assign show_block = false
 
             if block.id == active_block_id
