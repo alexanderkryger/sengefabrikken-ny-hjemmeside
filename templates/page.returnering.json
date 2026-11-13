@@ -29,17 +29,22 @@
           "settings": {
             "text": "<p>Husk at du kan sove i din nye seng i 100 dage, inden du endelig bestemmer dig for at returnere. Er du ikke tilfreds med farven eller noget andet udseendesmæssigt, der angår sengen, kan du i stedet for vælge at ombytte til en anden model, ligesom du også har mulighed for at foretage en ombytning af fastheden eller topmadrassen, såfremt det er komforten, der skal justeres.</p><p>Hvis du helt har fortrudt dit køb, kan du selvfølgelig også returnere købet ved at udfylde formularen herunder.</p>"
           }
+        },
+        "column_delimiter": {
+          "type": "column_delimiter",
+          "settings": {}
         }
       },
       "block_order": [
         "heading_1",
+        "column_delimiter",
         "richtext_2"
       ],
       "settings": {
         "color_scheme": "",
         "color_transition": false,
         "custom_id": "",
-        "content_width": "sm",
+        "content_width": "md",
         "text_alignment": "left"
       }
     },
@@ -82,17 +87,22 @@
           "settings": {
             "text": "<p>✔ Har du fortrudt dit køb, afhenter vi sengen på din adresse, og herefter får du købsbeløbet tilbagebetalt på din konto.</p><p>✔ Returordren skal pakkes i original emballage. Alternativt klarer vores fragtmand nedpakning og emballering for 800 kr, ligesom fragtmanden selv bærer sengen ud til fragtbilen.</p><p>✔ For fuld refusion må produktet være brugt som normalt og uden plastic, men det skal være beskyttet mod smuds og snavs - derfor forventer vi altid brug af lagen.</p><p>✔ Ønsker du at returnere et af vores mindre produkter, f.eks. en dyne eller et sengesæt, får du tilsendt et returlabel, så snart returneringsformularen er udfyldt.</p>"
           }
+        },
+        "column_delimiter": {
+          "type": "column_delimiter",
+          "settings": {}
         }
       },
       "block_order": [
         "heading_1",
+        "column_delimiter",
         "richtext_2"
       ],
       "settings": {
         "color_scheme": "scheme-2b5ea552-ee45-4763-a402-00199b79bef1",
         "color_transition": false,
         "custom_id": "",
-        "content_width": "sm",
+        "content_width": "md",
         "text_alignment": "left"
       }
     }
