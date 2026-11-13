@@ -1,0 +1,106 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "color_scheme": "",
+        "show_title": false,
+        "content_width": "md"
+      }
+    },
+    "intro": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_1": {
+          "type": "heading",
+          "settings": {
+            "text": "100 dages prøve med fuld retur",
+            "heading_tag": "h2",
+            "html_tag": "h1",
+            "indent": "none",
+            "highlight_effect": "default",
+            "highlight_accent_color": "",
+            "highlight_text_color": ""
+          }
+        },
+        "richtext_2": {
+          "type": "richtext",
+          "settings": {
+            "text": "<p>Husk at du kan sove i din nye seng i 100 dage, inden du endelig bestemmer dig for at returnere. Er du ikke tilfreds med farven eller noget andet udseendesmæssigt, der angår sengen, kan du i stedet for vælge at ombytte til en anden model, ligesom du også har mulighed for at foretage en ombytning af fastheden eller topmadrassen, såfremt det er komforten, der skal justeres.</p><p>Hvis du helt har fortrudt dit køb, kan du selvfølgelig også returnere købet ved at udfylde formularen herunder.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_1",
+        "richtext_2"
+      ],
+      "settings": {
+        "color_scheme": "",
+        "color_transition": false,
+        "custom_id": "",
+        "content_width": "sm",
+        "text_alignment": "left"
+      }
+    },
+    "form": {
+      "type": "apps",
+      "blocks": {
+        "powerful_form_builder_app_block_fAHE6M": {
+          "type": "shopify://apps/powerful-form-builder/blocks/app-block/e4bcb1eb-35b2-42e6-bc37-bfe0e1542c9d",
+          "settings": {
+            "shortcode": "<div class=\"globo-formbuilder\" data-id=\"MTI1MjU1\"></div>"
+          }
+        }
+      },
+      "block_order": [
+        "powerful_form_builder_app_block_fAHE6M"
+      ],
+      "settings": {
+        "color_scheme": "",
+        "add_vertical_spacing": true,
+        "add_horizontal_spacing": true
+      }
+    },
+    "rules": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_1": {
+          "type": "heading",
+          "settings": {
+            "text": "Regler og betingelser",
+            "heading_tag": "h4",
+            "html_tag": "h2",
+            "indent": "none",
+            "highlight_effect": "default",
+            "highlight_accent_color": "",
+            "highlight_text_color": ""
+          }
+        },
+        "richtext_2": {
+          "type": "richtext",
+          "settings": {
+            "text": "<p>✔ Har du fortrudt dit køb, afhenter vi sengen på din adresse, og herefter får du købsbeløbet tilbagebetalt på din konto.</p><p>✔ Returordren skal pakkes i original emballage. Alternativt klarer vores fragtmand nedpakning og emballering for 800 kr, ligesom fragtmanden selv bærer sengen ud til fragtbilen.</p><p>✔ For fuld refusion må produktet være brugt som normalt og uden plastic, men det skal være beskyttet mod smuds og snavs - derfor forventer vi altid brug af lagen.</p><p>✔ Ønsker du at returnere et af vores mindre produkter, f.eks. en dyne eller et sengesæt, får du tilsendt et returlabel, så snart returneringsformularen er udfyldt.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_1",
+        "richtext_2"
+      ],
+      "settings": {
+        "color_scheme": "scheme-2b5ea552-ee45-4763-a402-00199b79bef1",
+        "color_transition": false,
+        "custom_id": "",
+        "content_width": "sm",
+        "text_alignment": "left"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "intro",
+    "form",
+    "rules"
+  ]
+}
