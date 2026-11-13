@@ -10,49 +10,97 @@
       }
     },
     "intro": {
-      "type": "rich-text",
+      "type": "multi-column",
       "blocks": {
-        "heading_1": {
-          "type": "heading",
+        "column_1": {
+          "type": "_multi-column-column",
           "settings": {
-            "text": "Prøv din nye seng derhjemme i 100 dage",
-            "heading_tag": "h2",
-            "html_tag": "h1",
-            "indent": "none",
-            "highlight_effect": "default",
-            "highlight_accent_color": "",
-            "highlight_text_color": ""
-          }
+            "color_scheme": "",
+            "text_alignment": "left"
+          },
+          "blocks": {
+            "heading_1": {
+              "type": "heading",
+              "settings": {
+                "text": "Prøv din nye seng derhjemme i 100 dage",
+                "heading_size": "h2",
+                "html_tag": "h1",
+                "indent": "none",
+                "highlight_effect": "default",
+                "highlight_accent_color": "",
+                "highlight_text_color": ""
+              },
+              "blocks": {}
+            },
+            "rich-text_2": {
+              "type": "rich-text",
+              "settings": {
+                "text": "<p>Hos Sengefabrikken giver vi dig mulighed for at prøve din nye seng hjemme hos dig selv i dine egne rolige og trygge omgivelser. Du har derfor 100 dage til at sove i din nye seng hjemme hos dig selv, og kan du mærke, at du f.eks. har brug for en anden fasthed, kan du gratis ombytte sengens fasthed.</p><p>Vær opmærksom på, at det kan tage din krop helt op til 4 uger at vænne sig til en ny seng. Det er derfor vigtigt, at du lige giver din nye seng en ordentlig chance, i og med at den kan være meget anderledes, end den du kommer fra og har været vant til.</p>",
+                "content_width": "full"
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "heading_1",
+            "rich-text_2"
+          ]
         },
-        "richtext_2": {
-          "type": "richtext",
+        "column_2": {
+          "type": "_multi-column-column",
           "settings": {
-            "text": "<p>Hos Sengefabrikken giver vi dig mulighed for at prøve din nye seng hjemme hos dig selv i dine egne rolige og trygge omgivelser. Du har derfor 100 dage til at sove i din nye seng hjemme hos dig selv, og kan du mærke, at du f.eks. har brug for en anden fasthed, kan du gratis ombytte sengens fasthed.</p><p>Vær opmærksom på, at det kan tage din krop helt op til 4 uger at vænne sig til en ny seng. Det er derfor vigtigt, at du lige giver din nye seng en ordentlig chance, i og med at den kan være meget anderledes, end den du kommer fra og har været vant til.</p>"
-          }
+            "color_scheme": "",
+            "text_alignment": "left"
+          },
+          "blocks": {
+            "rich-text_1": {
+              "type": "rich-text",
+              "settings": {
+                "text": "<p>Med vores 100 dages ombytningspolitik har du således rigeligt med tid til i ro og mag at finde ud af, om du har valgt den helt rigtige seng til din krop og til dine præferencer.</p><p>Bliver du i tvivl om, hvorvidt du skal ombytte din nye seng, eller om du skal give dit førstevalg en ekstra chance, er vores sengevejledere altid klar til at rådgive dig på telefon, livechat og mail alle ugens dage fra 08.00 til 23.00.</p><p>Hvis du ønsker at ombytte din topmadras, kan der forekomme en ekstra pris (afhængigt af, hvad du skal ombytte fra og til). Hvis du vil ombytte topmadrassen, bedes du kontakte vores kundeservice for at få mere information.</p>",
+                "content_width": "full"
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "rich-text_1"
+          ]
         },
-        "column_delimiter": {
-          "type": "column_delimiter",
-          "settings": {}
-        },
-        "richtext_right": {
-          "type": "richtext",
+        "section-header": {
+          "type": "_section-header",
+          "static": true,
           "settings": {
-            "text": "<p>Med vores 100 dages ombytningspolitik har du således rigeligt med tid til i ro og mag at finde ud af, om du har valgt den helt rigtige seng til din krop og til dine præferencer.</p><p>Bliver du i tvivl om, hvorvidt du skal ombytte din nye seng, eller om du skal give dit førstevalg en ekstra chance, er vores sengevejledere altid klar til at rådgive dig på telefon, livechat og mail alle ugens dage fra 08.00 til 23.00.</p><p>Hvis du ønsker at ombytte din topmadras, kan der forekomme en ekstra pris (afhængigt af, hvad du skal ombytte fra og til). Hvis du vil ombytte topmadrassen, bedes du kontakte vores kundeservice for at få mere information.</p>"
-          }
+            "subheading": "",
+            "title": "",
+            "content": "",
+            "button_text": "",
+            "button_link": "",
+            "button_style": "outline",
+            "text_alignment": "left",
+            "heading_size": "h3",
+            "title_icon": "none",
+            "show_scrolling_title": false
+          },
+          "blocks": {}
         }
       },
       "block_order": [
-        "heading_1",
-        "richtext_2",
-        "column_delimiter",
-        "richtext_right"
+        "column_1",
+        "column_2"
       ],
       "settings": {
         "color_scheme": "",
-        "color_transition": false,
-        "custom_id": "",
-        "content_width": "md",
-        "text_alignment": "left"
+        "show_internal_borders": false,
+        "add_horizontal_spacing": true,
+        "add_top_spacing": true,
+        "add_bottom_spacing": true,
+        "items_per_row": 2,
+        "stack_on_mobile": true,
+        "stack_on_desktop": true,
+        "rounded_media": false,
+        "tap_to_pause_videos": false,
+        "column_spacing": "lg",
+        "row_spacing": "md"
       }
     },
     "form": {
@@ -75,49 +123,97 @@
       }
     },
     "rules": {
-      "type": "rich-text",
+      "type": "multi-column",
       "blocks": {
-        "heading_1": {
-          "type": "heading",
+        "column_1": {
+          "type": "_multi-column-column",
           "settings": {
-            "text": "Regler og betingelser",
-            "heading_tag": "h4",
-            "html_tag": "h2",
-            "indent": "none",
-            "highlight_effect": "default",
-            "highlight_accent_color": "",
-            "highlight_text_color": ""
-          }
+            "color_scheme": "",
+            "text_alignment": "left"
+          },
+          "blocks": {
+            "heading_1": {
+              "type": "heading",
+              "settings": {
+                "text": "Regler og betingelser",
+                "heading_size": "h4",
+                "html_tag": "h2",
+                "indent": "none",
+                "highlight_effect": "default",
+                "highlight_accent_color": "",
+                "highlight_text_color": ""
+              },
+              "blocks": {}
+            },
+            "rich-text_2": {
+              "type": "rich-text",
+              "settings": {
+                "text": "<p>✔ Vores gratis ombytningspolitik dækker levering, ny madras og returfragt af den gamle madras.</p><p>✔ Din brugte madras skal være forsvarligt emballeret ved afhentning, og ordrebekræftelsen skal tapes udenpå emballagen.</p><p>✔ Hvis du ønsker at ombytte fra en Xtra Fast til en Fast eller Medium-fasthed, refunderes differencen ikke.</p><p>✔ Ved ombytning af fasthed er det kun selve madraskernen, der ombyttes. Du skal altså lyne dit nuværende betræk af og genbruge dette omkring din nye madraskerne.<br/><br/>✔ Leveringstiden på den nye madras vil som udgangspunkt være den samme som på sengen i første omgang.</p>",
+                "content_width": "full"
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "heading_1",
+            "rich-text_2"
+          ]
         },
-        "richtext_2": {
-          "type": "richtext",
+        "column_2": {
+          "type": "_multi-column-column",
           "settings": {
-            "text": "<p>✔ Vores gratis ombytningspolitik dækker levering, ny madras og returfragt af den gamle madras.</p><p>✔ Din brugte madras skal være forsvarligt emballeret ved afhentning, og ordrebekræftelsen skal tapes udenpå emballagen.</p><p>✔ Hvis du ønsker at ombytte fra en Xtra Fast til en Fast eller Medium-fasthed, refunderes differencen ikke.</p><p>✔ Ved ombytning af fasthed er det kun selve madraskernen, der ombyttes. Du skal altså lyne dit nuværende betræk af og genbruge dette omkring din nye madraskerne.<br/><br/>✔ Leveringstiden på den nye madras vil som udgangspunkt være den samme som på sengen i første omgang.</p>"
-          }
+            "color_scheme": "",
+            "text_alignment": "left"
+          },
+          "blocks": {
+            "rich-text_1": {
+              "type": "rich-text",
+              "settings": {
+                "text": "<p>✔ Bemærk... Hvis du har købt en seng med recycled kerner vil ombytningen ligeledes være til en recycled kerne (sker automatisk). </p><p><em>* Ombytning af madraskerner og topmadrasser i specialmål er ikke inkluderet i vores 100 dages prøvepolitik. Hvis du ønsker at ombytte et produkt i specialmål,  kontakt da vores kundeservice, så vil vi være behjælpelige med at finde en pris til dig.</em></p>",
+                "content_width": "full"
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "rich-text_1"
+          ]
         },
-        "column_delimiter": {
-          "type": "column_delimiter",
-          "settings": {}
-        },
-        "richtext_right": {
-          "type": "richtext",
+        "section-header": {
+          "type": "_section-header",
+          "static": true,
           "settings": {
-            "text": "<p>✔ Bemærk... Hvis du har købt en seng med recycled kerner vil ombytningen ligeledes være til en recycled kerne (sker automatisk). </p><p><em>* Ombytning af madraskerner og topmadrasser i specialmål er ikke inkluderet i vores 100 dages prøvepolitik. Hvis du ønsker at ombytte et produkt i specialmål,  kontakt da vores kundeservice, så vil vi være behjælpelige med at finde en pris til dig.</em></p>"
-          }
+            "subheading": "",
+            "title": "",
+            "content": "",
+            "button_text": "",
+            "button_link": "",
+            "button_style": "outline",
+            "text_alignment": "left",
+            "heading_size": "h3",
+            "title_icon": "none",
+            "show_scrolling_title": false
+          },
+          "blocks": {}
         }
       },
       "block_order": [
-        "heading_1",
-        "richtext_2",
-        "column_delimiter",
-        "richtext_right"
+        "column_1",
+        "column_2"
       ],
       "settings": {
         "color_scheme": "scheme-2b5ea552-ee45-4763-a402-00199b79bef1",
-        "color_transition": false,
-        "custom_id": "",
-        "content_width": "md",
-        "text_alignment": "left"
+        "show_internal_borders": false,
+        "add_horizontal_spacing": true,
+        "add_top_spacing": true,
+        "add_bottom_spacing": true,
+        "items_per_row": 2,
+        "stack_on_mobile": true,
+        "stack_on_desktop": true,
+        "rounded_media": false,
+        "tap_to_pause_videos": false,
+        "column_spacing": "lg",
+        "row_spacing": "md"
       }
     }
   },
