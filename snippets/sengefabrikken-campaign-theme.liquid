@@ -44,6 +44,10 @@ header, the footer and the dark or colored sections (eg. banners) keep their own
 
         if background_brightness >= settings.campaign_light_scheme_threshold
           echo ', #main .color-scheme--' | append: color_scheme.id
+
+          if settings.campaign_keep_product_cards
+            echo ':not(product-card)'
+          endif
         endif
       endfor
     endif

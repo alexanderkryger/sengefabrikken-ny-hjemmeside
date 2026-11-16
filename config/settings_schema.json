@@ -1450,6 +1450,14 @@
         "default": true
       },
       {
+        "type": "checkbox",
+        "id": "campaign_keep_product_cards",
+        "label": "Behold produktkortenes farver",
+        "info": "Produktkortene beholder deres eget farveskema (Produktkort under Farver) i stedet for kampagnens.",
+        "default": true,
+        "visible_if": "{{ settings.campaign_replace_light_schemes }}"
+      },
+      {
         "type": "range",
         "id": "campaign_light_scheme_threshold",
         "label": "Lys baggrund fra lysstyrke",
