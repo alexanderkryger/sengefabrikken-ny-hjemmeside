@@ -269,7 +269,11 @@
           "input_text_color": "#2f1300"
         }
       }
-    }
+    },
+    "campaign_theme_enabled": true,
+    "campaign_color_scheme": "scheme-4",
+    "campaign_theme_scope": "collections",
+    "campaign_heading_style": "gold"
   },
   "installed_preset_name": "Stretch",
   "presets": {
