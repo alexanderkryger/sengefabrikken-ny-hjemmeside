@@ -19,7 +19,7 @@
         "collection_title_size": "h2",
         "content_position": "place-self-center",
         "background_color_scheme": "",
-        "image": "shopify://shop_images/collectionbanner_kontinental.png",
+        "image": "shopify://shop_images/sengefabrikken_collection_banner.png",
         "image_size": "lg",
         "overlay_color": "#000000",
         "overlay_opacity": 20,
@@ -248,9 +248,9 @@
       ],
       "settings": {
         "color_scheme": "scheme-1",
-        "heading_size": "h5",
         "title": "Danskproducerede boxmadrasser i alle mål",
-        "title_heading_size": "h3"
+        "title_heading_size": "h3",
+        "heading_size": "h5"
       }
     },
     "faq_iWRBk6": {
@@ -329,6 +329,7 @@
       "settings": {
         "color_scheme": "",
         "use_page_width": true,
+        "custom_id": "",
         "layout": "split",
         "accordion_style": "border",
         "question_style": "text",
