@@ -270,7 +270,7 @@
         }
       }
     },
-    "campaign_theme_enabled": true,
+    "campaign_theme_enabled": false,
     "campaign_color_scheme": "scheme-4",
     "campaign_theme_scope": "collections",
     "campaign_heading_style": "gold"
