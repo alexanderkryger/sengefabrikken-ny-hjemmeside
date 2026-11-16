@@ -1,0 +1,253 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "banner": {
+      "type": "collection-banner",
+      "settings": {
+        "color_scheme": "",
+        "allow_transparent_header": true,
+        "layout": "background",
+        "show_description": true,
+        "collection_title_size": "h2",
+        "content_position": "place-self-center",
+        "background_color_scheme": "",
+        "image": "shopify://shop_images/collectionbanner_kontinental.png",
+        "image_size": "lg",
+        "overlay_color": "#000000",
+        "overlay_opacity": 20,
+        "quick_navigation_menu": ""
+      }
+    },
+    "main": {
+      "type": "main-collection",
+      "blocks": {
+        "sengefabrikken_split_HeTfkb": {
+          "type": "sengefabrikken_split",
+          "settings": {
+            "color_scheme": "scheme-8",
+            "position": 4,
+            "media_position": "right",
+            "image": "shopify://shop_images/EHOB-Sengefabrikken-1.jpg",
+            "autoplay": false,
+            "subheading": "",
+            "heading": "“Sengetøj der holder i mange år”",
+            "heading_size": "h3",
+            "content": "",
+            "author_image": "shopify://shop_images/malthe_sengesnedker.png",
+            "author_name": "Malthe Elefsen",
+            "author_role": "Sengesnedker",
+            "button_text": "",
+            "url": "",
+            "open_in_new_tab": false,
+            "style": "solid"
+          }
+        }
+      },
+      "block_order": [
+        "sengefabrikken_split_HeTfkb"
+      ],
+      "settings": {
+        "color_scheme": "",
+        "products_per_page": 36,
+        "products_per_row_mobile": 2,
+        "products_per_row_desktop": 4,
+        "show_product_card_size_selector": true,
+        "quick_links_menu": "",
+        "filter_layout": "drawer",
+        "show_sort_by": true,
+        "show_filters": true,
+        "show_filter_group_name": false,
+        "show_filter_values_count": true,
+        "open_filters_by_default": false,
+        "product_card_style": "sengefabrikken",
+        "product_card_two_columns": false,
+        "product_card_row_background": "#fff4e2",
+        "show_toolbar": false,
+        "show_active_facets": false,
+        "only_metafield_filters": true,
+        "sticky_filter_button": true,
+        "sticky_filter_text": "Vælg størrelse og farve",
+        "picker_filter_labels": "Størrelse, Farve",
+        "default_filter_values": "140x200",
+        "swatch_selector_size": "lg"
+      }
+    },
+    "trustpilot_reviews_MGtkrf": {
+      "type": "trustpilot-reviews",
+      "name": "Trustpilot anmeldelser",
+      "settings": {
+        "color_scheme": "scheme-5",
+        "heading_size": "h4",
+        "score_suffix": "på Trustpilot",
+        "count_prefix": "Baseret på",
+        "count_suffix": "anmeldelser",
+        "disclosure": "Viser vores 4- og 5-stjernede anmeldelser",
+        "autoscroll": true,
+        "seconds_per_card": 20,
+        "card_background": "#f6f1ec",
+        "card_border_color": "#e0dcd9"
+      }
+    },
+    "seo_text": {
+      "type": "seo-text",
+      "blocks": {
+        "text_140x200": {
+          "type": "text",
+          "settings": {
+            "filter_value": "140x200",
+            "heading_1": "",
+            "text_1": "<p>Sengetøj i standardstørrelsen 140x200 cm er den ideelle måde at forvandle dit soveværelse til et hyggeligt og stilfuldt fristed. Hos Sengefabrikken.dk forstår vi vigtigheden af at vælge det rigtige sengetøj, der både tilbyder komfort og giver dit soveværelse et personligt præg. Vores omfattende udvalg af sengetøj i 140x200 cm giver dig mulighed for at skabe den perfekte atmosfære for en god nattesøvn.</p><h3>Materialer til dine præferencer</h3><p>Vi tror på, at sengetøj skal føles blødt og behageligt mod din hud. Derfor tilbyder vi sengetøj i standardstørrelsen 140x200 cm i forskellige materialer, så du kan finde det, der passer bedst til din præference. Vores sortiment er bygget op omkring bomuldssatin, en ekstra fintvævet bomuld med høj trådtæthed (TC500), der føles silkeblød mod din hud.</p><h3>Design og stil</h3><p>Dit soveværelse er en forlængelse af din personlige stil, og dit sengetøj bør afspejle det. Vores sengetøj i 140x200 cm er tilgængeligt i et væld af designs og farver. Uanset om du foretrækker et enkelt og elegant hvidt sengetøj eller en mere farverig variant, har vi noget, der passer til din æstetik. Vores sengetøj i 140x200 cm giver dig mulighed for at tilpasse dit soveværelse og udtrykke din personlige stil.</p>",
+            "heading_2": "",
+            "text_2": "<h3>Kvalitet og Holdbarhed</h3><p>Kvalitet er afgørende for os, og vi går ikke på kompromis. Vi bruger derfor kun de fineste materialer og det bedste håndværk for at sikre, at vores sengetøj i 140x200 cm er holdbart og kan modstå daglig brug og hyppig vask. Når du investerer i sengetøj fra Sengefabrikken, kan du være sikker på, at det vil holde de næste mange år, uden at blive hverken ubehagelig at ligge med eller kedeligt at kigge på.</p><h3>Skab dit drømmesoveværelse</h3><p>Dit soveværelse er dit fristed, og sengetøjet spiller en nøglerolle i at skabe den rette atmosfære. Uanset om du ønsker at opgradere dit nuværende sengetøj eller skabe et helt nyt look i dit soveværelse, kan du finde inspiration hos Sengefabrikken. Vores sengetøj i 140x200 cm er designet til at skabe komfort og stil i dit soveværelse og bidrage til en god nattesøvn.</p><h3>Find dit drømmesengetøj i 140x200 cm her</h3><p>Udforsk vores omfattende udvalg af sengetøj i standardstørrelsen 140x200 cm og find det, der passer til dine behov og præferencer. Vi er dedikerede til at hjælpe dig med at finde det perfekte sengetøj, der giver dig den komfort og stil, du fortjener. Gør dit soveværelse til et sted, hvor drømme bliver til virkelighed med vores kvalitetssengetøj.</p><h3>Sov Godt med Sengefabrikken.dk</h3><p>Vi er stolte af at tilbyde sengetøj af høj kvalitet, der er skabt med kærlighed til detaljerne og din komfort i tankerne. Invester i dit velvære ved at vælge det bedste sengetøj fra Sengefabrikken.dk og skab den perfekte atmosfære i dit soveværelse. Sov godt, og vågn opfrisket og klar til en ny dag med vores silkebløde sengetøj.</p>"
+          }
+        },
+        "text_140x220": {
+          "type": "text",
+          "settings": {
+            "filter_value": "140x220",
+            "heading_1": "",
+            "text_1": "<p>Sengetøj i størrelsen 140x220 cm er den perfekte måde at tilføje komfort og stil til dit soveværelse. Hos Sengefabrikken ved vi, hvor vigtigt det er at vælge det rigtige sengetøj, der giver dig den bedste nattesøvn og passer til din personlige stil. Vores brede udvalg af sengetøj i størrelsen 140x220 cm er skabt med fokus på kvalitet, design og din komfort.</p><h3>Luksuriøse materialer</h3><p>Når det kommer til sengetøj, er materialerne afgørende. Vores sengetøj i størrelsen 140x220 cm fås derfor i en luksuriøs bomuldssatin med imponerende høj trådtæthed (TC500). Sengetøjet er skabt med din komfort in-mente, hvorfor du vil opleve en silkeblød fornemmelse, hvor sengetøjet føles behageligt mod din krop. Bomuld er desuden et åndbart og enormt holdbart materiale, hvorfor du kan være sikker på, at din investering i vores sengetøj vil give glæde de næste mange år.</p>",
+            "heading_2": "",
+            "text_2": "<h3>Design og udtryk din stil</h3><p>Dit soveværelse er en forlængelse af din personlige stil, og dit sengetøj bør afspejle det. Vores sengetøj i størrelsen 140x220 cm fås i et væld af designs og farver, der passer til enhver smag. Uanset om du er til enkelt og klassisk hvidt sengetøj eller noget mere farverigt, har vi noget, der passer til din æstetik. Du kan nemt opgradere dit soveværelses udseende med vores elegante sengetøj.</p><h3>Kvalitet og Holdbarhed</h3><p>Vi går ikke på kompromis med kvaliteten af vores sengetøj. Vores produkter er fremstillet med omhu og holdbarhed for øje. Vi ønsker, at dit sengetøj i størrelsen 140x220 cm skal holde i mange år fremover og give dig den bedste nattesøvn nat efter nat. Vores sengetøj er nemt at vedligeholde og vil forblive blødt og komfortabelt, selv efter gentagne vaske. Farven vil samtidig bevares frisk og pæn at se på - for hvem gider sengetøj med falmede farver?</p><h3>Sov Bedre med sengetøj fra Sengefabrikken.dk</h3><p>Vi er dedikerede til at hjælpe dig med at finde det bedste sengetøj i størrelsen 140x220 cm, der passer til dine behov og præferencer. Invester i din nattesøvn og komfort med vores kvalitetssengetøj. Skab det perfekte soveværelse, hvor du kan slappe af, genoplade og vågne op opfrisket til en ny dag.</p>"
+          }
+        },
+        "text_200x220": {
+          "type": "text",
+          "settings": {
+            "filter_value": "200x220",
+            "heading_1": "",
+            "text_1": "<p>Sengetøj til dobbeltdyner i størrelsen 200x220 cm er en fantastisk måde at forvandle dit soveværelse til et sted med komfort og elegance. Hos Sengefabrikken.dk forstår vi vigtigheden af at vælge det rigtige sengetøj for at opnå den bedste nattesøvn og for at give dit soveværelse en sofistikeret stil. Vores brede udvalg af sengetøj til dobbeltdyner 200x220 cm er skabt med fokus på kvalitet, design og din ultimative komfort.</p><h3>Luksuriøse materialer for optimal komfort</h3><p>Kvaliteten af sengetøj begynder med materialerne, det er lavet af. Vores sengetøj til dobbeltdyner i størrelsen 200x220 cm er derfor koncentreret omkring en ultrablød og behagelig bomuldssatin med imponerende høj trådtæthed (TC500). Bomuldssatin er kendt for sin silkebløde fornemmelse, hvor materialet smyger sig omkring din krop. Bomuld er desuden kendt for at være enormt åndbart og holdbart, hvorfor du vil få glæde af din investering de næste mange år.</p><h3>Design og stil til dit soveværelse</h3><p>Dit soveværelse er et udtryk for din personlige stil, og sengetøj er en vigtig del af dette udtryk. Vores sengetøj til dobbeltdyner i størrelsen 200x220 cm fås i en bred vifte af designs og farver der passer til enhver smag. Vi har med sikkerhed noget, der passer til din æstetik - uanset om du kan lide det hvide og klassiske eller noget mere farverigt og moderne. Du kan nemt tilpasse dit soveværelses udseende og skabe den ønskede stemning med vores elegante sengetøj.</p>",
+            "heading_2": "",
+            "text_2": "<h3>Holdbarhed og Kvalitet</h3><p>Kvaliteten af vores sengetøj er afgørende for os. Vi stræber efter at tilbyde sengetøj, der ikke kun er smukt og komfortabelt, men også holdbart. Vores sengetøj til dobbeltdyner er nemt at vedligeholde og vil forblive blødt og komfortabelt, selv efter gentagne vaske. Vi ønsker, at dit sengetøj skal vare i mange år og give dig en god nattesøvn hver nat.</p><h3>Skab din drømmeoase</h3><p>Investér i din komfort og stil med vores sengetøj til dobbeltdyner i størrelsen 200x220 cm. Skab den perfekte oase, hvor du kan slappe af, genoplade og vågne op frisk og veludhvilet hver dag. Uanset om du opgraderer dit soveværelse eller skifter sæsonbestemt sengetøj, har vi det, du har brug for.</p><h3>Opdag vores udvalg i dag</h3><p>Udforsk vores omfattende udvalg af sengetøj til dobbeltdyner i størrelsen 200x220 cm og find det, der passer til din stil og komfortbehov. Hos Sengefabrikken.dk er vi stolte af at tilbyde sengetøj af højeste kvalitet, der sikrer, at du får den bedste søvnoplevelse. Skab det soveværelse, du altid har drømt om, med vores eksklusive sengetøj. Sov godt og vågn op opfrisket og klar til en ny dag.</p>"
+          }
+        },
+        "text_standard": {
+          "type": "text",
+          "settings": {
+            "filter_value": "",
+            "heading_1": "",
+            "text_1": "<p>Sengetøj spiller en afgørende rolle i vores søvnoplevelse og indretning af soveværelset. Hos Sengefabrikken forstår vi vigtigheden af at vælge det helt rigtige sengetøj, der både tilbyder komfort og afspejler din personlige stil. Vores brede udvalg af sengetøj giver dig mulighed for at skabe den perfekte atmosfære i dit soveværelse og nyde en behagelig nattesøvn.</p><h3>Materialer der matcher dine præferencer</h3><p>Vi tror på, at sengetøj skal være mere end blot en praktisk dækning til din seng. Det skal også føles blødt og behageligt mod din hud. Derfor tilbyder vi sengetøj i forskellige materialer, så du kan finde dét, der passer bedst til dine præferencer. Vores sortiment er bygget op omkring bomuldssatin, en ekstra fintvævet bomuld med imponerende høj trådtæthed (TC), der føles silkeblød mod din hud. Bomuldssatin er samtidig enormt åndbart og holdbart.</p><h3>Design og Stil</h3><p>Vi ved, at dit soveværelse er et udtryk for din personlige smag og stil. Derfor tilbyder vi sengetøj i et væld af designs, farver og mønstre. Uanset om du foretrækker et enkelt og elegant hvidt sengetøj eller en farvet variant, har vi noget, der passer til din æstetik. Vores sengetøj er også tilgængeligt i forskellige størrelser, så du kan finde det, der passer til din dyne.</p>",
+            "heading_2": "",
+            "text_2": "<h3>Kvalitet og Holdbarhed</h3><p>Vi går ikke på kompromis med kvaliteten af vores sengetøj. Vi bruger kun de fineste materialer og det bedste håndværk for at sikre, at vores sengetøj er holdbart og kan modstå daglig brug og hyppig vask. Når du investerer i sengetøj fra Sengefabrikken kan du være sikker på, at din investering vil holde de næste mange år - uden at sengetøjet bliver ubehageligt eller kedeligt at kigge på.</p><h3>Sengetøj til enhver dyne</h3><p>Uanset om du har en enkelt- eller dobbeltdyne, har vi det rette sengetøj til dig. Vi tilbyder sengetøj i forskellige størrelser og former, så du kan finde den perfekte pasform til din seng. Vores sengetøj er også nemt at vedligeholde, hvilket gør det til et praktisk valg for enhver livsstil. Vores sengetøj omfatter størrelserne 140x200 cm. (almindelig enkeltdyne), 140x220 cm. (enkeltdyne med ekstra længde) samt 200x220 cm. (almindelig dobbeltdyne).</p><h3>Skab dit drømmesoveværelse</h3><p>Dit soveværelse er din oase af ro og afslapning, og sengetøjet spiller en nøglerolle i at skabe den rette atmosfære. Uanset om du ønsker at opgradere dit nuværende sengetøj eller skabe et helt nyt look i dit soveværelse, kan du finde inspiration hos Sengefabrikken.dk. Vores sengetøj er designet til at skabe komfort og stil i dit soveværelse og bidrage til en god nattesøvn.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_140x200",
+        "text_140x220",
+        "text_200x220",
+        "text_standard"
+      ],
+      "settings": {
+        "color_scheme": "scheme-1",
+        "title": "Skab komfort og stil i dit soveværelse",
+        "title_heading_size": "h3",
+        "heading_size": "h5"
+      }
+    },
+    "faq_iWRBk6": {
+      "type": "faq",
+      "blocks": {
+        "question_t8Ft4Y": {
+          "type": "question",
+          "settings": {
+            "question": "Er det sikkert at købe seng online?",
+            "answer": "<p>Ja, det er det i hvert fald. Vi mener faktisk at vores gunstige betingelser giver dig bedre forudsætninger for at vælge den helt rigtige seng - selvom du ikke kan prøve den inden køb. Der er således en enorm forskel på at prøve en seng i en fysisk butik med alt tøj på i 2-3 minutter kontra at sove i den hjemme i dit soveværelse 7-9 timer hver eneste nat.&nbsp;</p><p>Hvis du, imod forventning, får valgt et produkt der ikke passer til dig, så tilbyder vi 30 dages gratis returret samt 100 dages gratis ombytning af fasthed på alle vores senge.</p>",
+            "icon": "none",
+            "icon_width": 24,
+            "mobile_icon_width": 20
+          }
+        },
+        "question_eC46R9": {
+          "type": "question",
+          "settings": {
+            "question": "Har I en butik eller et showroom?",
+            "answer": "<p>Nej, vi er 100% online - og har ingen butikker eller showrooms. Dette er et helt bevidst valg, da vi ved at holde vores faste omkostninger på et absolut minimum, har mulighed for at optimere både fleksibilitet og priser.&nbsp;</p><p>Hvis du, imod forventning, får valgt et produkt der ikke passer til dig, så tilbyder vi 100 dages gratis retur samt 100 dages gratis ombytning af fasthed på alle vores senge.</p>",
+            "icon": "none",
+            "icon_width": 24,
+            "mobile_icon_width": 20
+          }
+        },
+        "question_iwn6LJ": {
+          "type": "question",
+          "settings": {
+            "question": "Hvad koster levering?",
+            "answer": "<p>Leveringsprisen afhænger af den valgte leveringsform samt leveringsadressen, og den endelige pris vises altid tydeligt på bestillingssiden, inden du gennemfører dit køb.</p><p>Mindre varer, herunder sengetøj, dyner og puder, leveres til din adresse med GLS, mens større varer som senge og madrasser leveres med DSV.</p><p>Standardlevering sker til kantsten. Ønsker du en mere bekvem levering, har du mulighed for at tilkøbe ekstra serviceydelser, så leveringen tilpasses dine behov. Vi tilbyder blandt andet opbæring/indbæring, montering samt bortskaffelse af din nuværende seng. Alle tilkøb kan vælges direkte på bestillingssiden.</p>",
+            "icon": "none",
+            "icon_width": 24,
+            "mobile_icon_width": 20
+          }
+        },
+        "question_xTn6RH": {
+          "type": "question",
+          "settings": {
+            "question": "Hvor lang er jeres leveringstid?",
+            "answer": "<p>Leveringstiden på vores produkter spænder vidt og bredt. Leveringstiden på et produkt vil altid fremgå af produktsiden samt på din ordrebekræftelse.&nbsp;</p><p>Som udgangspunkt vil små varer, som dyner, puder og sengetøj, altid kunne leveres indenfor 1-3 hverdage. Senge, vi har færdigproduceret og stående klar på lager, vil typisk have en leveringstid på op til 15 hverdage, imens senge i ukurante størrelser samt specialmål har en leveringstid på 3-7 uger.</p>",
+            "icon": "none",
+            "icon_width": 24,
+            "mobile_icon_width": 20
+          }
+        },
+        "question_EpMpw6": {
+          "type": "question",
+          "settings": {
+            "question": "Kan jeg ønske levering en bestemt dag?",
+            "answer": "<p>Ja, det kan du. Hvis du ønsker levering en bestemt dag, så skal du blot notere det som ordrekommentar. Herefter vil vi videreformidle den ønskede dag til både vores pakkeri samt det eksterne leveringsfirma, der står for den endelige levering.&nbsp;</p><p>Vi kan ikke garantere levering den ønskede dag, men vi vil altid forsøge at imødekomme det bedst muligt - og det lykkes heldigvis også i 95% af alle tilfælde. Skulle vi mod forventning ikke være i stand til at levere den ønskede dag, så vil leveringen som regel finde sted dagen efter i stedet.</p><p>Uanset hvad, så vil din ordre aldrig blive leveret, uden at du har godkendt leveringsdag og tidsinterval over SMS.</p>",
+            "icon": "none",
+            "icon_width": 24,
+            "mobile_icon_width": 20
+          }
+        },
+        "question_4wexcF": {
+          "type": "question",
+          "settings": {
+            "question": "Kan jeg afdrage beløbet over en periode?",
+            "answer": "<p>At investere i en ny seng er en stor udgift i de flestes privatøkonomi. Derfor tilbyder vi finansiering gennem Anyday, hvor du kan splitte din betaling op i 4 lige store rater – helt uden renter og gebyrer.</p><p>Du ser altid de præcise omkostninger, inden du gennemfører købet, og der tilføjes ingen skjulte gebyrer.</p>",
+            "icon": "none",
+            "icon_width": 24,
+            "mobile_icon_width": 20
+          }
+        }
+      },
+      "block_order": [
+        "question_t8Ft4Y",
+        "question_eC46R9",
+        "question_iwn6LJ",
+        "question_xTn6RH",
+        "question_EpMpw6",
+        "question_4wexcF"
+      ],
+      "name": "t:sections.faq.name",
+      "settings": {
+        "color_scheme": "",
+        "use_page_width": true,
+        "custom_id": "",
+        "layout": "split",
+        "accordion_style": "border",
+        "question_style": "text",
+        "subheading": "",
+        "title": "Ofte stillede spørgsmål",
+        "title_tag": "h3",
+        "content": "<p>Har du brug for hjælp til valget af ny seng, topmadras eller noget helt tredje? Vores kompetente team af sengevejledere, søvnspecialister og syvsovere sidder klar til at hjælpe dig alle ugens dage fra 09.00 - 18.00. Vi er online, når du har tid.</p>",
+        "button_text": "",
+        "button_url": "",
+        "button_style": "solid"
+      }
+    }
+  },
+  "order": [
+    "banner",
+    "main",
+    "trustpilot_reviews_MGtkrf",
+    "seo_text",
+    "faq_iWRBk6"
+  ]
+}
