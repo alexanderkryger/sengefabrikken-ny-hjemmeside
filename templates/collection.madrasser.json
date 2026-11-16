@@ -1,0 +1,363 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "banner": {
+      "type": "collection-banner",
+      "settings": {
+        "color_scheme": "",
+        "allow_transparent_header": true,
+        "layout": "background",
+        "show_description": true,
+        "collection_title_size": "h2",
+        "content_position": "place-self-center",
+        "background_color_scheme": "",
+        "image": "shopify://shop_images/collectionbanner_kontinental.png",
+        "image_size": "lg",
+        "overlay_color": "#000000",
+        "overlay_opacity": 20,
+        "quick_navigation_menu": ""
+      }
+    },
+    "main": {
+      "type": "main-collection",
+      "blocks": {
+        "sengefabrikken_split_HeTfkb": {
+          "type": "sengefabrikken_split",
+          "settings": {
+            "color_scheme": "scheme-8",
+            "position": 4,
+            "media_position": "right",
+            "image": "shopify://shop_images/EHOB-Sengefabrikken-1.jpg",
+            "autoplay": false,
+            "subheading": "",
+            "heading": "“En madras der holder i mange år”",
+            "heading_size": "h3",
+            "content": "",
+            "author_image": "shopify://shop_images/malthe_sengesnedker.png",
+            "author_name": "Malthe Elefsen",
+            "author_role": "Sengesnedker",
+            "button_text": "",
+            "url": "",
+            "open_in_new_tab": false,
+            "style": "solid"
+          }
+        }
+      },
+      "block_order": [
+        "sengefabrikken_split_HeTfkb"
+      ],
+      "settings": {
+        "color_scheme": "",
+        "products_per_page": 36,
+        "products_per_row_mobile": 2,
+        "products_per_row_desktop": 4,
+        "show_product_card_size_selector": true,
+        "quick_links_menu": "",
+        "filter_layout": "drawer",
+        "show_sort_by": true,
+        "show_filters": true,
+        "show_filter_group_name": false,
+        "show_filter_values_count": true,
+        "open_filters_by_default": false,
+        "product_card_style": "sengefabrikken",
+        "product_card_two_columns": false,
+        "product_card_row_background": "#fff4e2",
+        "show_toolbar": false,
+        "show_active_facets": false,
+        "only_metafield_filters": true,
+        "sticky_filter_button": true,
+        "sticky_filter_text": "Vælg størrelse",
+        "picker_filter_labels": "Størrelse",
+        "default_filter_values": "180x200",
+        "swatch_selector_size": "lg"
+      }
+    },
+    "trustpilot_reviews_MGtkrf": {
+      "type": "trustpilot-reviews",
+      "name": "Trustpilot anmeldelser",
+      "settings": {
+        "color_scheme": "scheme-5",
+        "heading_size": "h4",
+        "score_suffix": "på Trustpilot",
+        "count_prefix": "Baseret på",
+        "count_suffix": "anmeldelser",
+        "disclosure": "Viser vores 4- og 5-stjernede anmeldelser",
+        "autoscroll": true,
+        "seconds_per_card": 20,
+        "card_background": "#f6f1ec",
+        "card_border_color": "#e0dcd9"
+      }
+    },
+    "seo_text": {
+      "type": "seo-text",
+      "blocks": {
+        "text_70x200": {
+          "type": "text",
+          "settings": {
+            "filter_value": "70x200",
+            "heading_1": "",
+            "text_1": "<p>Her på siden finder du et stort udvalg af madrasser til enkeltseng 70x200. Vi har således noget for enhver smag både hvad angår prisniveau, men i høj grad også hvad angår dine ønsker og behov.</p><p>Hos Sengefabrikken får du altid værdi for pengene. Vi arbejder med faste lave priser uden, at du skal gå på kompromis med den støtte og komfort, der giver dig den dybe og gode nattesøvn. Vi har de sidste år leveret tusindvis af senge og madrasser til glade kunder – det vidner vores mange 5-stjernede anmeldelser på TrustPilot i høj grad om.</p>",
+            "heading_2": "",
+            "text_2": "<p>Her på siden finder du madrasser 70x200. Når du kigger på vores sortiment vil du støde på latexmadrasser, skummadrasser og springmadrasser. Hvis du ønsker en kølende og fleksibel madras til din enkeltseng, der tilpasser sig din vægt og liggeposition, bør du tage et kig på vores latexmadrasser 70x200. Ønsker du derimod en madras med fjedrer, skal du vende blikket mod vores danskproducerede springmadrasser. Vores springmadrasser er med posefjedrer, og fås med enten multipocket fjedrer eller pocket fjedrer. Vi anbefaler altid multi pocket fjedrer til personer med en vægt over 100 kg. Disse er nemlig rustet til den øgede belastning, og sikrer dig dermed god og fast støtte natten igennem. Endeligt skal du tage et nærmere kig på vores skummadrasser, hvis du ønsker en prisvenlig madras, som giver god og ensartet støtte til kroppen.</p><p>Hvis du gerne vil have lidt hjælp til at finde den rigtige madras, kan du altid kontakte en af vores søvnspecialister. Vi sidder klar ved telefonerne og vores live-chat det meste af dagen – også i weekenderne. På den måde er hjælpen ikke langt væk, når du behøver den. Vi vil gerne hjælpe dig igennem hele processen, så det er trygt for dig at købe madrasser online.</p>"
+          }
+        },
+        "text_80x200": {
+          "type": "text",
+          "settings": {
+            "filter_value": "80x200",
+            "heading_1": "",
+            "text_1": "<p>Lad os hjælpe dig med at investere i din nattesøvn. Hvis dine madrasser er slidte efter mange års brug, kan det få stor betydning for din søvnkvalitet – og dermed også dit overskud i hverdagen. Hos Sengefabrikken mener vi ikke, at det behøver at koste en formue at udskifte sin gamle og slidte madras med en ny. Hos os finder du således et bredt udvalg af madrasser 80x200, der kan forbedre din nattesøvn uden at ruinere dig.</p><p>I vores store udvalg finder du latexmadrasser, skummadrasser og springmadrasser. På den måde er det muligt at finde den madras, der passer til dine ønsker og behov. Nogle ønsker en madras med fast støtte, som bevarer en jævn overflade, mens andre foretrækker en blød og trykaflastende overflade, der former sig efter kroppen. Uanset hvad dine præferencer for madrasser er, har vi med garanti den rette løsning for dig i vores brede sortiment.</p>",
+            "heading_2": "",
+            "text_2": "<p>Hvis du foretrækker en jævn liggeflade og dermed en fast komfort, bør du kigge nærmere på vores udvalg af latexmadrasser. Latex er et naturligt og allergivenligt materiale, der også er ventilerende og åndbart. Latexmadrasser passer således til dig, der ønsker fast komfort og en kølende madras, som aldrig bliver for varm at ligge på.</p><p>Foretrækker du en madras med fjedrer, hvor du kan tilpasse fastheden til din vægt, bør du give vores springmadrasser din opmærksomhed. Alle vores springmadrasser er produceret i Danmark og indeholder posefjedrer. Vi har modeller med pocket fjedrer og multipocket fjedrer. Vejer du over 100 kg., og ønsker du en fast komfort er vores springmadrasser 80x200 med multipocket fjedrer det helt rette valg for dig. Her får du flere fjedrer pr. m2, og dermed en fastere komfort, der er rustet til den øgede belastning – både på kort og lang sigt.</p><p>Den sidste type af vores madrasser 80x200 er vores skummadrasser. Her får du en prisvenlig madras, der yder god og ensartet støtte til kroppen. En stor del af skummadrasserne i vores sortiment er desuden med indbygget topmadras, så du ligger blødt og behageligt uden at skulle investere i en ny topmadras.</p>"
+          }
+        },
+        "text_85x200": {
+          "type": "text",
+          "settings": {
+            "filter_value": "85x200",
+            "heading_1": "",
+            "text_1": "<p>Er du på udkig efter en madras i størrelsen 85x200 cm? Hos Sengefabrikken har vi løsningen for dig. Vores udvalg af madrasser i denne unikke størrelse sikrer, at du ikke behøver at gå på kompromis med komforten, selv når du leder efter en madras til en smal seng eller et mindre soveværelse.</p><p>Vores 85x200 cm madrasser kommer i forskellige typer, herunder latexmadrasser, skummadrasser og springmadrasser, for at imødekomme dine individuelle præferencer og behov. Med disse madrasser kan du nyde godt af den samme høje kvalitet og støtte som med standardstørrelser, men i et format, der passer til dit specifikke rum og brug.</p>",
+            "heading_2": "",
+            "text_2": "<p>Latexmadrasser i denne størrelse er ideelle for dem, der søger en fast, men behagelig liggeflade, som samtidig er allergivenlig og åndbar. Skummadrasser i 85x200 cm er et prisvenligt valg, der tilbyder god støtte og komfort, mens vores springmadrasser giver en fremragende støtte og holdbarhed, og kan tilpasses i fasthed efter din vægt og sovestilling.</p><p>Hver madras vi tilbyder i denne størrelse er fremstillet med en dedikation til kvalitet og komfort. Uanset om det er til en ungdomsseng, et gæsteværelse, eller til en specialdesignet seng, sikrer vi, at din 85x200 cm madras vil være en investering i din søvnkvalitet.</p><p>Vi hos Sengefabrikken forstår vigtigheden af en god nats søvn, og vores team af søvneksperter står klar til at hjælpe dig med at finde den perfekte madras til dine behov. Kontakt os i dag for at udforske vores sortiment af 85x200 cm madrasser og tage det første skridt mod en bedre nattesøvn.</p>"
+          }
+        },
+        "text_90x200": {
+          "type": "text",
+          "settings": {
+            "filter_value": "90x200",
+            "heading_1": "",
+            "text_1": "<p>Lad Sengefabrikken hjælpe dig med at forny din nattesøvn. Udtjente madrasser, især efter mange års brug, kan have en stor indvirkning på din søvnkvalitet – og dermed også dit daglige velbefindende. Hos Sengefabrikken er det vores overbevisning, at det ikke behøver at være en dyr affære at skifte din gamle madras ud med en ny. I vores udvalg finder du derfor et bredt spektrum af 90x200 cm madrasser, der kan forbedre din søvn uden at tømme din pengepung.</p><p>I vores omfattende sortiment finder du latexmadrasser, skummadrasser og springmadrasser. Dette giver dig mulighed for at vælge den madras, der passer bedst til dine individuelle behov og præferencer. Uanset om du foretrækker en madras med fast støtte, som bevarer en jævn overflade, eller en blød, trykaflastende overflade, der former sig efter kroppen, har vi et udvalg, der passer til dine ønsker.</p><p>Er du tilhænger af en jævn liggeflade med fast komfort, kan vores udvalg af latexmadrasser i 90x200 cm være det perfekte valg for dig. Latex er et naturligt, allergivenligt materiale, som er kendt for sin åndbarhed og ventilationskapacitet. En latexmadras tilbyder fast komfort og en kølig overflade, som aldrig bliver for varm.</p>",
+            "heading_2": "",
+            "text_2": "<p>Foretrækker du en madras med fjedre, der tillader tilpasning af fastheden til din kropsvægt, vil vores springmadrasser fange din interesse. Alle vores springmadrasser er produceret i Danmark og indeholder posefjedre. Vi tilbyder modeller med både pocket fjedre og multipocket fjedre. Hvis du vejer over 100 kg og søger fast komfort, er vores 90x200 cm springmadrasser med multipocket fjedre det ideelle valg. Disse modeller tilbyder flere fjedre pr. kvadratmeter og en fastere komfort, som er designet til at håndtere øget belastning over både kort og lang sigt.</p><p>Den sidste kategori i vores 90x200 cm madrasser er skummadrasser. Disse tilbyder en prisvenlig løsning med god og ensartet støtte til hele kroppen. Mange af vores skummadrasser kommer desuden med en indbygget topmadras, hvilket sikrer en blød og behagelig overflade uden behov for at investere i en ekstra topmadras.</p>"
+          }
+        },
+        "text_90x210": {
+          "type": "text",
+          "settings": {
+            "filter_value": "90x210",
+            "heading_1": "",
+            "text_1": "<p>Trænger du til at få udskiftet din gamle madras? Hvis din madras er for slidt, kan det have stor betydning for din søvn, da din krop ikke ligger behageligt og ej heller får den støtte, den har brug for i løbet af natten. Hos Sengefabrikken mener vi ikke, at en ny madras behøver at ruinere dig. Hos os får du værdi for pengene, da vi altid har faste lave priser og høje kravstandarder, når det kommer til kvaliteten af vores produkter.</p>",
+            "heading_2": "",
+            "text_2": "<p>I vores sortiment af madrasser 90x210 finder du et stort udvalg af latexmadrasser, skummadrasser og springmadrasser. På den måde er det muligt for dig at finde den madras, der passer til dine ønsker og behov. Nogle ønsker en madras med fast komfort, mens andre ønsker en blød madras, der former sig efter kroppen. Uanset hvad dine ønsker måtte være, vil vi meget gerne hjælpe dig, så du igen kan få en god og behagelig nattesøvn.</p><p>Hos Sengefabrikken prioriterer vi et højt serviceniveau, hvilket vores tusindvis af positive kundeanmeldelser på TrustPilot også vidner om. Hos os kan du således altid få personlig og kompetent vejledning. Vi er nemlig tilgængelige det meste af dagen både på telefonen og på vores live-chat, hvor du kan chatte direkte med en af vores søvnspecialister.</p>"
+          }
+        },
+        "text_105x210": {
+          "type": "text",
+          "settings": {
+            "filter_value": "105x210",
+            "heading_1": "",
+            "text_1": "<p>Mangler du en madras til din elevationsseng, sengeramme eller daybed? Så er du havnet det helt rette sted. Hos Sengefabrikken har vi et stort udvalg af madrasser 105x210, og der er derfor lidt for enhver smag og til ethvert formål.</p><p>Hos os finder du således springmadrasser, latexmadrasser og skummadrasser der kan bruges i forskellige sengekonstellationer – til alt lige fra sengerammer til elevationssenge. Kort sagt er vores springmadrasser med fjedrer, skummadrasser med skum, mens latexmadrasser består af det ventilerende og kølende latex-materiale.</p>",
+            "heading_2": "",
+            "text_2": "<p>Vores søvnspecialister sidder desuden klar til at give råd og kyndig vejledning, så vi sikrer os, at du finder den madras, der passer til dit behov og til dine præferencer. Du kan ringe til os det meste af dagen, sende os en mail eller benytte vores live-chat her på siden. Uanset hvilken form du vælger, er hjælpen altså ikke langt væk, hvis du søger madrasser 105x210, eller hvis du har spørgsmål til et at vores mange andre produkter.</p>"
+          }
+        },
+        "text_120x200": {
+          "type": "text",
+          "settings": {
+            "filter_value": "120x200",
+            "heading_1": "",
+            "text_1": "<p>Mangler du en madras til trekvartseng eller til din elevationsseng? Så er du havnet det helt rette sted. Hos os finder du nemlig et stort udvalg af madrasser 120x200, der dækker over både springmadrasser, skummadrasser og latexmadrasser.</p><p>Herunder kan du blive lidt klogere på fordelene ved de forskellige typer af madrasser, hvilket måske kan hjælpe med at spore dig ind på, hvilken madras der passer til dine behov og præferencer.</p><h3>Latexmadrasser 120x200</h3><p>Mange af vores kunder vælger en latexmadras som madras til trekvartseng 120x200. Materialet latex er nemlig meget populært i både topmadrasser og madrasser, hvilket der er flere gode grunde til. Først og fremmest er man sikret en behagelig støtte og god komfort, hvilket selvfølgelig vægter højt, når man skal investere i en ny madras online. Det er dog ikke kun den behagelige komfort, der gør latexmadrasserne populære. Latex er nemlig også et både allergivenligt og ventilerende materiale, der leder din kropsvarme væk fra madrassen i stedet for at optage den. På den måde får latexmadrasser en kølende effekt, der passer perfekt til dig, der har det varmt om natten.</p><p>En af de andre styrker ved vores latexmadrasser er fleksibiliteten. Her får du således en meget fleksibel madras, der egner sig til mange forskellige typer af sengekonstellationer, ligesom den tilpasser sig brugerens vægt og liggeposition. Hvis du leder efter fast komfort og en jævn overflade på madrassen hele natten igennem, kan en af vores latexmadrasser meget vel være det rette valg for dig. Latex er nemlig også et materiale, der yder progressiv komfort, og materialet vil derfor skubbe igen fremfor at give efter.</p>",
+            "heading_2": "",
+            "text_2": "<h3>Springmadrasser 120x200</h3><p>Springmadrasser er både behagelige, fleksible og særligt langtidsholdbare. Springmadrasser kan meget vel være det rette valg af madras til trekvartseng. De kan således benyttes i både elevationssenge, sengerammer og i kontinentalsenge.</p><p>Alle springmadrasser hos Sengefabrikken indeholder posefjedrer. De arbejder individuelt og giver således differentieret støtte, så din krops mest udsatte trykpunkter får den bedste og mest optimale støtte. Denne komfort og støtte bidrager selvsagt positivt til din nattesøvn, da det giver dig en dybere og sundere søvn, så du vågner op frisk og veludhvilet.</p><p>Hos Sengefabrikken er alle springmadrasser produceret i Danmark, og du får altid minimum 10 års fabriksgaranti. Vi vil gerne gøre det trygt for dig at købe madras 120x200 online, og vi prioriterer derfor en meget høj kvalitetsstandard på vores produkter.</p><h3>Skummadrasser 120x200</h3><p>Hvis du leder efter en god og billig madras til trekvartseng, skal du tage et kig på vores store udvalg af skummadrasser 120x200. Her har du muligheden for at tilpasse madrassens komfort til brugerens vægt. Du finder således skummadrasser i vores sortiment, der egner sig til forskellige vægtklasser.</p><p>Med en skummadras fra Sengefabrikken vil du som regel ikke have behov for en topmadras. Disse er nemlig indbygget i madrassen. På den måde er du sikret en blød og behagelig top på madrassen, uden at skulle investere i en topmadras.</p><p>Hvis du er i tvivl om hvilken skummadras, der passer til dig og dine behov eller hvorvidt det er latexmadrasser, skummadrasser eller springmadrasser, der passer bedst til din trekvartseng, kan du altid få hjælp af vores søvnspecialister. Vi sidder klar til at hjælpe dig det meste af døgnet både på telefon, live-chat og mail.</p>"
+          }
+        },
+        "text_140x200": {
+          "type": "text",
+          "settings": {
+            "filter_value": "140x200",
+            "heading_1": "",
+            "text_1": "<p>Hos Sengefabrikken finder du et bredt sortiment af madrasser 140x200. Vi har lidt for enhver smag hvad angår pris, indhold og komfort, så det skulle være muligt for dig at finde den rette madras. Hos Sengefabrikken synes vi ikke, at det behøver at koste en formue at skifte sine gamle madrasser ud med nogle nye. Vi synes derimod, at alle fortjener en god nattesøvn, hvilket afspejler sig både i vores billige priser og i vores produkters høje kvalitet. Med andre ord er du hos Sengefabrikken altid garanteret værdi for pengene – en bedre nattesøvn til rimelige penge.</p><p>Det kan være svært at finde rundt i hvilken madras, der passer bedst til behov, præferencer og formål. Hos os kan du det meste af døgnet få kompetent vejledning over telefon eller ved at benytte vores live-chat her på siden. Vi har hjulpet tusindvis af kunder godt i mål med at købe både ny seng og madras online, så mon ikke vi kan hjælpe dig med det samme.</p><p>Vores sortiment af madrasser 140x200 består af både latexmadrasser, skummadrasser og springmadrasser. Herunder kan du blive lidt klogere på vores sortiment, og er du stadig i tvivl, er du mere end velkommen til at kontakte os.</p><h3>Skummadrasser 140x200</h3><p>Hvis du leder efter en prisvenlig madras, uden at du vil gå på kompromis med komforten, bør du tage et nærmere kig på vores store udvalg af skummadrasser 140x200. Skummadrasser er de mest prisvenlige madrasser i vores sortiment, men det gør dem ikke nødvendigvis dårligere, så du skal gå på kompromis med din nattesøvn.</p><p>Med den rette skummadras kan du nemlig få en rigtig god ensartet støtte til hele kroppen. En stor del af vores modeller har desuden indbygget topmadras. På den måde får du en blød og komfortabel top på din nye madras uden at skulle investere i en ny topmadras.</p>",
+            "heading_2": "",
+            "text_2": "<h3>Latexmadrasser 140x200</h3><p>Hvis du vælger en skummadras, vil du typisk opleve, at materialet giver efter, så du synker ned i madrassen. Hvis du er en af dem, der absolut ikke vil synke ned i din madras, så er det måske en af vores latexmadrasser 140x200, der er det rette valg for dig. Latex yder nemlig progressiv komfort, hvilket vil sige, at materialet skubber igen i stedet for at give efter. Det giver dig en konstant jævn overflade – også når du ligger på madrassen.</p><p>En anden fordel ved latex er, at du her får et ventilerende og åndbart materiale. Latex optager ikke din kropsvarme, og du vil derfor aldrig opleve, at din madras bliver for varm. Hvis du sveder og har det varmt om natten, er vores latexmadrasser 140 et rigtig godt valg for dig.</p><h3>Springmadrasser 140x200</h3><p>Den helt store forskel mellem madrasser med latex og skum og springmadrasser er, at springmadrassen indeholder fjedre. Hos Sengefabrikken finder du springmadrasser udelukkende med posefjedrer i form af enten pocket fjedrer eller multipocket fjedrer. Normalvis anbefaler vi pocket fjedrer til personer med en vægt under 100 kg., mens vi anbefaler multipocket fjedrer, hvis du vejer over 100 kg. Multipocket fjedrer er mindre i diameteren end pocket fjedrer, og du får således mange flere fjedrer pr. m2. Det medfører mindre belastning på hver enkel fjeder – og dermed en fastere madras.</p><p>Alle springmadrasser hos Sengefabrikken er desuden danskproducerede, ligesom de er udstyret med fem komfortzoner og betrukket med slidstærkt møbelstof. Springmadrasser 140x200 kan benyttes i alt lige fra elevationssenge til sengerammer – og som det midterste madraslag i en kontinentalseng.</p>"
+          }
+        },
+        "text_160x200": {
+          "type": "text",
+          "settings": {
+            "filter_value": "160x200",
+            "heading_1": "",
+            "text_1": "<p>Er dine gamle madrasser blevet så slidt, at det har konsekvenser for din nattesøvn? Hos Sengefabrikken mener vi ikke, at det behøver at koste en formue at udskifte gamle madrasser til nye, så du igen kan få en ny og forbedret nattesøvn.</p><p>Her på siden finder du et stort udvalg af madrasser 160x200, der passer til ethvert formål og behov. Nogle foretrækker en blød og trykaflastende madras, mens andre foretrækker madras med fjedrer eller en madras med mere fast støtte. Uanset hvilken type madras du går efter, vil du med høj sandsynlighed kunne finde noget, der passer til dig.</p><p>Hos Sengefabrikken tilbyder vi også personlig vejledning det meste af døgnet. Du kan således ringe til vores søvnspecialister eller chatte med os direkte gennem vores live-chat her på siden. Gode råd og kyndig vejledning er altså ikke langt væk, så du kan købe seng eller madras online med ro i maven.</p><h3>Latexmadrasser 160x200</h3><p>I vores sortiment af madrasser 160x200 vil du blandt andet støde på vores latexmadrasser. Latex er naturligt udvundet fra gummitræer, hvilket gør materialet særligt åndbart og ventilerende. Du vil således aldrig opleve, at vores latexmadrasser bliver for varme, da madrassen ikke optager din kropsvarme, men i stedet leder den væk fra madrassen.</p><p>Komfortmæssigt vil du med en latexmadras opnå en fast støtte. Latex er et materiale, der yder progressiv komfort, hvilket vil sige, at det skubber igen. På den måde forbliver overfladen jævn – også når du ligger i sengen. Udover at være naturligt, allergivenligt og ventilerende er latex også enormt fleksibelt. Det betyder, at du kan bruge latexmadrasser i mange forskellige typer af sengekonstellationer, ligesom du får en madras, der tilpasser sig din vægt og liggeposition.</p>",
+            "heading_2": "",
+            "text_2": "<h3>Springmadrasser 160x200</h3><p>Alle springmadrasser i vores sortiment er produceret i Danmark, og er udstyret med 5 komfortzoner. I disse komfortzoner findes posefjedrer – som kan bestå af enten pocket fjedrer eller multipocket fjedrer. Fjedrene i vores springmadrasser er således omgivet af tynde filtposer, der holder fjedrene adskilt. Det bidrager positivt til komforten i vores springmadrasser, da støtten er fokuseret på dine primære trykpunkter.</p><p>Hos Sengefabrikken bruger vi faktuelle forhold som din vægt til at anbefale, hvilken fasthed du bør vælge. Springmadrasser med multipocket fjedrer er fastere end springmadrasser med pocket fjedrer, og vi anbefaler derfor multipocket fjedrer til personer med en vægt over 100 kg. Multipocket fjedrer er mindre end pocket fjedrer, og du får dermed næsten dobbelt så mange fjedrer pr. m2. Det giver springmadrassen en fastere komfort, da der bliver lagt så stor belastning på hver enkelt fjeder.</p><h3>Skummadrasser 160x200</h3><p>Er du på udkig efter en prisvenlig madras i 160x200 cm., så kan en skummadras meget vel være det, du leder efter. Selvom skummadrasser ofte er billigere end andre madrasvarianter, så betyder det ikke nødvendigvis, at du skal gå på kompromis med din nattesøvn. Med den rette skummadras kan du nemlig sagtens få en behagelig komfort, der giver kroppen den helt rette støtte natten igennem.</p><p>En anden fordel ved skummadrasser 160x200 er, at der i langt de fleste af vores modeller er en indbygget topmadras. På den måde får du en blød og behagelig liggeflade, uden du behøver at skulle investere i en ny topmadras.</p>"
+          }
+        },
+        "text_180x200": {
+          "type": "text",
+          "settings": {
+            "filter_value": "180x200",
+            "heading_1": "",
+            "text_1": "<ul><li>Stort udvalg af madrasser 180x200 cm.</li><li>Til alle sengekonstellationer; elevationssenge, sengerammer, kontinentalsenge mm.</li><li><b>Brug for hjælp?</b> Vores kundeservice er online alle ugens dage fra 08-22.</li></ul><p>Forkæl dig selv og din nattesøvn med en madras fra vores brede sortiment. Det behøver ikke koste en formue at udskifte madrasser til dobbeltsengen, og derfor finder du altid faste lave priser hos os – uden at der bliver gået på kompromis med hverken kvalitet eller service.</p><p>Vores sortiment består af både <a href=\"https://www.sengefabrikken.dk/collections/madrasser/skummadrasser\">skummadrasser</a>, <a href=\"https://www.sengefabrikken.dk/collections/madrasser\">latexmadrasser</a> og <a href=\"https://www.sengefabrikken.dk/collections/madrasser/springmadrasser\">springmadrasser</a>. Der er således lidt for enhver smag – hvad angår pris, komfort og indhold. Når du skal vælge en ny madras til din seng, afhænger det meget af både dine behov og dine præferencer. Nogle foretrækker således en hård madras, mens andre foretrækker en blødere madras. Uanset hvilken komfort der fungerer bedst for dig og til hvilket formål, madrassen skal bruges, tør vi godt garantere, at du kan finde noget hos os.</p><p>Her på siden kan du blive klogere på vores forskellige typer af madrasser 180x200. Du kan også altid få personlig vejledning hos os og blive klogere på hvilken madrastype, der er den helt rette til dit formål. Vores kundeservice sidder online alle ugens dage fra 08-22 - helt klar til at hjælpe dig videre. Du kan ringe til os, sende os en mail eller chatte direkte med en af vores eksperter via vores live-chat i højre hjørne.</p><h3>Springmadrasser 180x200</h3><ul><li>Individuelle pocket fjedre for optimal støtte og aflastning.</li><li>Inddelt i 5 komfortzoner baseret på kroppens primære trykpunkter.</li><li>25 mm. polstring omkring fjedrene for mere komfort.</li><li>Cover i Oeko-Tex certificeret møbeltekstil med indbygget antiskrid.</li></ul><p>De fleste kender til springmadrasser, og det er også den madrastype, der bruges i mange forskellige sengekonstellationer. Vores <a href=\"https://www.sengefabrikken.dk/collections/madrasser/springmadrasser+180x200\">springmadrasser 180x200</a> benyttes således både til <a href=\"https://www.sengefabrikken.dk/collections/elevationssenge\">elevationssenge</a>, <a href=\"https://www.sengefabrikken.dk/collections/sengerammer\">sengerammer</a> og som det midterste lag i vores traditionelle <a href=\"https://www.sengefabrikken.dk/collections/kontinental-senge\">kontinentalsenge</a>.</p><p>Springmadrasser er komfortable og yder en sund støtte og optimal aflastning til kroppen. Alle vores springmadrasser er opbygget med individuelle pocket fjedre og findes i forskellige fastheder; Medium, Fast og Xtra Fast. På den måde kan du altid justere komforten, så den passer perfekt til din kropsvægt og til dine præferencer.</p><p><i>Valg af fasthed - Sengefabrikken anbefaler:</i></p><ul><li>Medium - hvis du vejer under 70 kg.</li><li>Fast - hvis du vejer mellem 70 kg. og 95/100 kg.</li><li>Xtra Fast - hvis du vejer over 95/100 kg.</li></ul><p>Springmadrasserne i Xtra Fast er opbygget med multipocket fjedre i stedet for pocket fjedre. Multipocket fjedre er mindre i diameteren, og der er således endnu flere fjedre pr. m2. Det resulterer i endnu flere individuelle støttepunkter pr. m2, som belastningen kan fordele sig på - og dermed også en ekstra fast komfort, som er designet, udviklet og produceret særligt til personer med en vægt på over 100 kg.</p><p>Vores <a href=\"https://www.sengefabrikken.dk/collections/madrasser/springmadrasser+180x200\">springmadrasser 180x200</a> er opbygget med to madraskerner i 90x200, som er omgivet af et stort cover. På den måde kan to personer vælge to forskellige fastheder i tilfælde af, at de ikke vejer det samme. Derudover forhindrer den to-delte konstruktion, at der over tid danner sig en “hængekøje” midt på sengen.</p><p>Både pocket fjedre og multipocket fjedre er også kendt som posefjedre. Hver enkelt fjeder er nemlig omgivet af en tynd filtpose, som gør fjedrene lydløse og adskiller dem fra hinanden. På den måde bliver fjedrene over hele madrassen i stand til at yde en individuel og differentieret støtte. Det skaber en fleksibel madras, hvor hver enkelt fjeder forvandler sig til et individuelt støttepunkt, der sørger for en sund støtte og aflastning af kroppen - hele natten igennem. Madrassens komfort tilpasser sig med andre ord til dit kropstryk og til dine bevægelser - uanset hvor meget du bevæger dig i løbet af din nattesøvn.</p><p>Nogle af kroppens områder har brug for endnu mere støtte og aflastning - det kalder vi for dine primære trykpunkter. Det er nemlig helt naturligt, at du ikke placerer det samme tryk overalt på hele madrassen - og at dine primære trykpunkter har brug for en mere markant støtte. Af den årsag har vi inddelt pocket fjedrene i 5 komfortzoner og justeret fjedrene, så de harmonerer med kroppens udsatte områder som for eksempel skuldre, lænd og hofte.</p><p>Når det handler om din søvn, er selv de mindste komponenter vigtige. Dem har vi nøje udvalgt og sammensat, så de supplerer hinanden på bedste vis - og det har en betydning for din nattesøvn. Udover de individuelle og zoneinddelte pocket fjedre består alle springmadrasserne i vores sortiment også af 25 mm. polstring omkring fjedrene; Nordkap springmadrasser 180x200 er polstret med skum, mens Tromsø springmadrasser 180x200 er polstret med latex - og det er her forskellen er på de to madrasserier. Nordkaps skumpolstring sørger for ekstra komfort, og pakker fjedrene ind, så du ligger behageligt og stadig får den gode, sunde støtte og aflastning. Tromsø springmadrasserne er i stedet polstret med latex, som udover at tilføre madrassen det sidste lag af komfort, også sørger for ekstra åndbarhed og fleksibilitet. Latex er et naturligt materiale med effektive varmeafledende egenskaber - og du får således en mere ventilerende madras i vores Tromsø, hvor din kropsvarme ikke på samme måde ophober sig i madrassen.</p><p>Omkring selve springmadraskernen med zoneinddelte fjedre har vi placeret et cover. Ved både <a href=\"https://www.sengefabrikken.dk/collections/madrasser/products/tromso-springmadras-pocket-180x200-cm\">Tromsø springmadras 180x200</a> og <a href=\"https://www.sengefabrikken.dk/collections/madrasser/products/nordkap-springmadras-pocket-5-komfortzoner-180x200-cm\">Nordkap springmadras 180x200</a> har du selv mulighed for at vælge hvilken farve, du ønsker tekstilet skal komme i. På den måde kan du justere designet af din nye madras og være sikker på, at den passer ind hjemme hos dig. Tekstilet i coveret er slidstærkt og Oeko-Tex certificeret, så du kan være helt sikker på, at det er testet for kemiske stoffer og at det dermed på ingen måde er skadeligt for dit helbred. Som en ekstra luksus er coveret omkring udviklet med indbygget antiskrid på overfladen, som sørger for at holde topmadrassen øverst låst og rolig, så du undgår unødvendige opvågninger som følge af, at madrasserne skrider i løbet af natten.</p><p>Vi anbefaler altid, at du supplerer springmadrasser med en topmadras øverst. <a href=\"https://www.sengefabrikken.dk/collections/topmadrasser\">Topmadrasser</a> sørger for den sidste finish, og fuldender komfortoplevelsen, så du ligger behageligt og altid får den helt rette støtte og sunde aflastning.</p><p>Alle springmadrasserne i vores sortiment er produceret i Danmark, ligesom vi yder minimum 15 års garanti. Det mener vi, er med til at sætte en tyk streg under kvaliteten af vores produkter – også selvom priserne altid er lave.</p>",
+            "heading_2": "",
+            "text_2": "<h3>Latexmadrasser 180x200</h3><ul><li>Åndbart, allergivenligt og ventilerende materiale med effektiv varmeafledning.</li><li>Relativ fast komfort hvor overfladen forbliver jævn, så også rygsøjlen forbliver i vandret position.</li><li>Kan benyttes uden topmadras.</li></ul><p>Blandt vores madrasser 180x200 vil du også kunne finde et udvalg af <a href=\"https://www.sengefabrikken.dk/collections/madrasser/latexmadrasser\">latexmadrasser</a>. Latex er et naturligt materiale, som bruges i mange soveprodukter - både i topmadrasser, madrasser og som polstring omkring fjedre. Det åndbare og ventilerende materiale bidrager til et sundt sovemiljø, og så sørger det komfortmæssigt for en progressiv og sund støtte til kroppen, hvor overfladen forbliver jævn, så også rygsøjlen forbliver i vandret position.</p><p>Fordelene ved at vælge en af vores <a href=\"https://www.sengefabrikken.dk/collections/madrasser/latexmadrasser+180x200\">latexmadrasser 180x200</a> er blandt andet, at man her vælger et naturligt kvalitetsmateriale, og dermed får en madras, der holder - og som du kan sove godt på mange år ud i fremtiden.</p><p>Latex er naturligt udvundet fra gummitræer, og det er netop denne fremstilling af materialet, der gør det særdeles åndbart sammenlignet med for eksempel <a href=\"https://www.sengefabrikken.dk/collections/madrasser/skummadrasser\">skummadrasser</a>. Åndbarheden og den effektive varmeafledning er således den klare fordel ved vores latexmadrasser 180x200, som aldrig bliver for varme, men i stedet leder varmen væk fra madrassen. Det gør en af vores latexmadrasser 180x200 til det perfekte valg for dig, der har det varmt om natten.</p><p>Det er dog ikke kun den effektive varmeafledning, der er en fordel ved at vælge en af vores latexmadrasser 180x200. Materialet er nemlig også enormt fleksibelt og elastisk, hvilket gør latexmadrasser velegnet til alt lige fra elevationssenge til sengerammer. Derudover er komforten enormt behagelig, da fleksibiliteten sørger for, at madrassen tilpasser sig den enkelte persons vægt og liggeposition, så du altid får den mest optimale støtte til din krop.</p><p>Latex er et populært materiale, der bruges både i topmadrasser og latexmadrasser. Populariteten skyldes til dels den gode komfort og støtte, man får med en latexmadras, men i høj grad også latexmaterialets allergivenlighed, naturlighed og åndbare egenskaber. Med vores latexmadrasser 180x200 er du sikret en fast støtte, da latexmaterialet yder en progressiv komfort. Det vil sige, at du ikke vil opleve at synke ned i en latexmadras, der i stedet skubber igen, og sikrer dig en jævn liggeoverflade hele natten igennem.</p><p>Hos Sengefabrikken finder du ligeledes et stort udvalg af <a href=\"https://www.sengefabrikken.dk/collections/topmadrasser/latex\">latex topmadrasser</a>, som sørger for den progressive støtte og faste komfort samt effektiv varmeafledning og åndbarhed i det øverste madraslag i din seng. De naturlige og åndbare egenskaber i vores latexmadrasser gør også madrasserne allergivenlige. Vi anbefaler derfor også latexmadrasser til børn - både grundet åndbarheden og naturligheden, men også grundet fleksibiliteten som sikrer den samme gode støtte og komfort selvom barnet vokser.</p><p>Alle vores latexmadrasser 180x200 er med en 100% perforeret latexkerne. Alle tekstiler er Oeko-Tex 100 certificeret, og så er de alle opbygget med 7 komfortzoner, som tager højde for kroppens mest primære trykpunkter, der får den mest optimale støtte og aflastning hele natten igennem. Forskellen på vores latexmadrasser 180x200 ligger blandt andet i kernehøjden samt i betrækket, der omgiver den perforerede latexkerne. <a href=\"https://www.sengefabrikken.dk/collections/madrasser/products/latex-relax-180x200-cm\">Latex Relax 180x200</a> og <a href=\"https://www.sengefabrikken.dk/collections/madrasser/products/lux-latex-tencel-180x200-cm\">Lux Latex 180x200</a> er med en 16 cm. latexkerne, mens <a href=\"https://www.sengefabrikken.dk/collections/madrasser/products/megal-latex-180x200-cm\">Megal Latex 180x200</a> er med en 18 cm. latexkerne. En højere latexkerne giver en bedre komfort, og derfor er Megal komfortmæssigt luksusmodel. Megal er ligeledes omgivet af vores naturlige og åndbare Tencel betræk, der med sin bløde og glatte struktur sørger for en behagelig og ikke mindst åndbar finish.</p><h3>Skummadrasser 180x200</h3><ul><li>Prisvenlig madrastype der kan bruges til mange formål.</li><li>God komfort og ensartet støtte til kroppen.</li><li>Flere med indbygget topmadras for en behagelig og blød liggeflade.</li></ul><p>Blandt vores madrasser 180x200 vil du også kunne finde et stort udvalg af skummadrasser - et nøje udvalgt sortiment, som dækker bredt når det kommer til både komfort, støtte og pris - så der altid er en af vores <a href=\"https://www.sengefabrikken.dk/collections/madrasser/skummadrasser+180x200\">skummadrasser 180x200</a>, der passer til dig.</p><p>En af de største fordele ved vores skummadrasser er den billige pris. Her får du således en prisvenlig madrastype, der sørger for en god komfort og en ensartet støtte - og så er du fri for også at skulle investere i en topmadras, da mange af vores skummadrasser 180x200 er udviklet med en indbygget topmadras, så du får den helt rette bløde og behagelige overflade på din seng.</p><p>Den gode pris på skummadrasser betyder således ikke nødvendigvis, at du skal gå på kompromis med komforten. Vores skummadrasser kan bruges både til børn og voksne hver nat - men også som “ekstra” madras til alt lige fra sommerhuse og campingvogne til daybeds, alkover og gæstesenge. Vi laver desuden mange af vores <a href=\"https://www.sengefabrikken.dk/collections/skummadrasser-efter-mal\">skummadrasser i specialmål</a>, så du kan få en madras i de mål, der passer til dit formål.</p><p>Skummadrasser er elastiske, og kan bruges til mange forskellige sengekonstellationer. Du kan derfor roligt investere i en god skummadras uanset om den skal bruges i en sengeramme eller i en elevationsseng.</p><p>Fælles for vores udvalg af skummadrasser 180x200 er, at de er produceret ud i et stykke - modsat for eksempel <a href=\"https://www.sengefabrikken.dk/collections/madrasser/springmadrasser+180x200\">springmadrasser 180x200</a>, der består af to madraskerner, som er samlet i et stort cover. Foretrækker du en stor liggeflade i en prisvenlig madras, kan det således meget vel være en ny skummadras, der er det rigtige for dig og din nattesøvn.</p><p>Der er selvfølgelig forskel på de forskellige skummadrasser 180x200 i vores sortiment. Forskellen ligger primært i selve skumkernen, hvor kernehøjden varierer fra 12 cm. i vores <a href=\"https://www.sengefabrikken.dk/collections/madrasser/products/foam-lux-180x200-cm\">Foam Lux 180x200</a> til 22 cm. i vores <a href=\"https://www.sengefabrikken.dk/collections/madrasser/products/cloud-gold-24-cm-180x200-cm\">Cloud Gold 180x200</a>. Jo højere kernehøjden er, jo bedre komfort vil du opleve - og derfor anbefaler vi heller ikke Foam Lux uden topmadras til voksne hver nat. Foam Lux er i stedet en rigtig god og billig standardmadras til børn - og den perfekte madras til en gæsteseng, en campingvogn eller lignende. Der er ligeledes forskel på fastheden i vores skummadrasser 180x200. Cloud Silver er vores mest faste skummadras 180x200, som vi anbefaler til personer, der foretrækker en hård madras eller vejer over 95/100 kg., mens Cloud Gold er medium i fastheden og anbefales til personer, der vejer under 95 kg. Fælles for Cloud Silver og Cloud Gold er den indbyggede topmadras med memory skum øverst i madrassen, som sørger for en trykaflastende og behagelig overflade.</p><p>Vores kundeservice sidder klar til at hjælpe og vejlede, hvis du har spørgsmål til vores madrasser 180x200. Du kan ringe til os, sende os en mail eller benytte dig af vores live-nederst til højre. Vi er online alle dage fra 08-22 - klar til at hjælpe dig i jagten på den gode, dybe og sunde nattesøvn.</p>"
+          }
+        },
+        "text_180x210": {
+          "type": "text",
+          "settings": {
+            "filter_value": "180x210",
+            "heading_1": "",
+            "text_1": "<p>Hvis du er på udkig efter nye madrasser til din dobbeltseng med ekstra længde, er du havnet det helt rette sted. Hos Sengefabrikken har vi et bredt sortiment af madrasser, så der er lidt for enhver smag hvad angår prisniveau, behov og præferencer.</p><p>Hos Sengefabrikken mener vi ikke, at det behøver at koste en formue at få udskiftet sine gamle madrasser. Vores stores udvalg af senge og madrasser er således altid til faste lave priser. Prisniveauet hos os afspejler dog ikke kvaliteten af vores produkter – hos os får du nemlig værdi for pengene. Vi har leveret senge, madrasser og tilbehør til tusindvis af glade kunder, hvilket vores mange anmeldelser på TrustPilot også bærer præg af.</p>",
+            "heading_2": "",
+            "text_2": "<p>Her på siden finder du således et bredt udvalg af latexmadrasser 180x210, skummadrasser 180x210 og springmadrasser 180x210. Hvis du er i tvivl om, hvilken type madras der passer til dig og dine behov, er du altid mere end velkommen til at få personlig vejledning af en af vores søvnspecialister. Du kan ringe til os det meste af dagen, eller benytte vores live-chat nede i højre hjørne. Vi hjælper dig igennem hele processen, så du kan købe seng og madrasser online med ro i maven.</p>"
+          }
+        },
+        "text_210x210": {
+          "type": "text",
+          "settings": {
+            "filter_value": "210x210",
+            "heading_1": "",
+            "text_1": "<p>Er du på jagt efter nye madrasser til din dobbeltseng med ekstra bredde og længde? Så er Sengefabrikken det perfekte sted for dig. Vi tilbyder et varieret udvalg af madrasser, der dækker et bredt spektrum af priser, behov og præferencer, herunder vores imponerende udvalg af 210x210 cm madrasser.</p><p>Vi hos Sengefabrikken tror på, at kvalitet ikke behøver at være dyr. Derfor tilbyder vi vores omfattende kollektion af senge og madrasser til overkommelige priser uden at gå på kompromis med kvaliteten. Vores mange tilfredse kunder og de positive anmeldelser på TrustPilot er et vidnesbyrd om vores forpligtelse til værdi og service.</p>",
+            "heading_2": "",
+            "text_2": "<p>Opdag vores udvalg af madrasser i størrelsen 210x210, som inkluderer latexmadrasser, skummadrasser og springmadrasser. Hvis du er usikker på, hvilken type madras der vil opfylde dine behov bedst, er vores team af søvnspecialister klar til at vejlede dig. Du kan kontakte os via telefon eller bruge vores live-chat i nederste højre hjørne af skærmen. Vi er her for at sikre, at din online shoppingoplevelse er problemfri og behagelig.</p>"
+          }
+        },
+        "text_Specialmål": {
+          "type": "text",
+          "settings": {
+            "filter_value": "Specialmål",
+            "heading_1": "",
+            "text_1": "<p>Hos Sengefabrikken forstår vi, at standardmål ikke altid passer til alles behov. Derfor tilbyder vi specialmåls-løsninger for dem, der søger en perfekt tilpasset madras. Uanset om du har brug for en unik størrelse til en antik seng, en specialbygget sengeramme, eller simpelthen ønsker en madras, der matcher dine personlige præferencer, er vi her for at hjælpe.</p><p>Vores specialmål madrasser er skræddersyede for at sikre, at du får præcis det, du har brug for for en god nats søvn. Med muligheder, der spænder fra smalle, lange størrelser til specifikke formater for bådmadrasser, campingvogne eller specialdesignede børnesenge, har vi kapaciteten til at imødekomme ethvert behov.</p>",
+            "heading_2": "",
+            "text_2": "<p>Alle vores specialmål madrasser er fremstillet med samme høje kvalitetsstandard som vores regulære sortiment. Uanset om du vælger en skummadras, latexmadras eller springmadras, kan du være sikker på, at din madras er lavet af de bedste materialer og med den største omhu. Vores skræddersyede madrasser giver dig mulighed for at vælge fasthed, materiale og andre funktioner, så du får den mest komfortable og støttende søvnoplevelse.</p><p>Vores team af erfarne søvnspecialister er klar til at guide dig gennem processen med at vælge og tilpasse din specialmål madras. Fra den første henvendelse til det endelige produkt står vi klar til at sikre, at din madras ikke kun passer perfekt til din seng, men også til dine søvnpræferencer.</p><p>Hos Sengefabrikken er vores mål at sikre, at alle vores kunder får den bedst mulige søvn, uanset deres unikke krav. Kontakt os i dag for at diskutere dine specialmål behov, og lad os hjælpe dig med at opnå den perfekte nattesøvn.</p>"
+          }
+        },
+        "text_standard": {
+          "type": "text",
+          "settings": {
+            "filter_value": "",
+            "heading_1": "",
+            "text_1": "<p>Kan du ikke finde rundt i junglen af madrasser? Bare rolig; med vores madras guide bliver du således klædt på til at købe den helt rigtige madras, der med sikkerhed kan hjælpe dig frem til en bedre nattesøvn. Hos Sengefabrikken.dk har vi specialiseret os i at vejlede dig frem til den rigtige madras, således du roligt kan købe <a href=\"https://www.sengefabrikken.dk/pages/senge\">senge</a>, madrasser og topmadrasser på internettet.</p><p>Når alt kommer til alt, så er det faktisk ikke så svært at købe nye madrasser på internettet, så længe man husker at tage sig sine forhåndsregler før køb. Herunder vil vi forsøge at gøre dig klog på de forhold, du skal være opmærksom på, ligesom vi vil kigge nærmere på vores udvalg af madrasser - alt dette skulle gerne lede op til at du vælger den helt rigtige madras, der passer perfekt til dig. Og husk; uanset hvad, så er vi aldrig længere end et telefonopkald, en e-mail eller en chatbesked væk, hvis du har brug for råd og vejledning.</p><h3><strong>Typer af madrasser</strong></h3><p><strong></strong>Der findes flere forskellige typer af madrasser; vi har listet de mest gængse op herunder:</p><ul><li><span>Skummadrasser med komfortskum, koldskum og/eller memoryskum.</span></li><li><span>Latexmadrasser.</span></li><li><span>Springmadrasser</span> (madrasser med fjedre).</li></ul><p>Men hvordan finder du så ud af, hvilken madras du skal have? Det vil vi forsøge at guide dig frem til herunder.</p><h4><span>Fordele ved <a href=\"https://www.sengefabrikken.dk/collections/madrasser/skummadrasser\">skummadrasser</a>:</span></h4><ul><li><span color=\"#6aa84f\"><span>God ensartet støtte til kroppen.</span><br></span></li><li><span color=\"#6aa84f\"><span>Mulighed for mange forskellige kombinationer af fasthed m.m.</span></span></li><li><span color=\"#6aa84f\"><span>Som regel intet behov for topmadras, da denne er indbygget.</span></span></li><li><span color=\"#6aa84f\"><span>Den (typisk) lave pris. </span></span></li></ul><h4><span><span color=\"#6aa84f\">Fordele ved </span></span><span color=\"#6aa84f\"><a href=\"https://www.sengefabrikken.dk/collections/madrasser/latexmadrasser\">latexmadrasser</a></span><span><span color=\"#6aa84f\">: </span></span></h4><ul><li><span color=\"#6aa84f\"><span>Et kvalitets materiale = langtidsholdbar madras.</span><br></span></li><li><span color=\"#6aa84f\"><span>Tilpasser sig brugerens individuelle vægt og trykpunkter.</span></span></li><li><span color=\"#6aa84f\"><span>Fleksibelt og elastisk - derfor meget velegnet til elevation.</span></span></li><li><span color=\"#6aa84f\"><span>Ventilerer bedre end skum.</span></span></li></ul><h4><span><span color=\"#6aa84f\">Fordele ved </span></span><span color=\"#6aa84f\"><a href=\"https://www.sengefabrikken.dk/collections/madrasser/springmadrasser\">springmadrasser</a></span><span><span color=\"#6aa84f\">: </span></span></h4><ul><li><span color=\"#6aa84f\"><span>Mulighed for valg af fasthed ud fra din vægt og dine præferencer (Medium, Fast el. Xtra Fast).</span><br></span></li><li>Stærk kombination af behagelig komfort, sund støtte og holdbarhed.</li><li>Fleksibel og derfor meget velegnet til elevation.</li><li>Den \"klassiske\" madras som de fleste kender.</li></ul><p>Det er umuligt at sige helt sort på hvidt, hvilket materiale der er bedst, da det i høj grad afhænger af individuelle præferencer samt behov. Vi vil for eksempel anbefale én type madras, hvis du leder efter en madras til sengerammen i gæsteværelset, imens vi vil anbefale en anden type madras, hvis du leder efter en madras til elevationssengen i dit eget soveværelse. Derfor er det også en rigtig god idé at kontakte os inden køb, hvis du ikke er helt sikker i din sag.</p><h4>Hvilke madrasser til elevationssenge?</h4><p>I princippet er alle vores madrasser velegnede til elevationssenge. Der er dog naturligvis enkelte modeller, der vil passe bedre end andre. Dette skyldes at fleksibiliteten af madrasserne er varierende; når du skal vælge ny madras til en elevationsseng, så er det vigtigt at madrassen er fleksibel, således madrassen følger naturligt med, når du elevere både hoved- og fodende.</p><p>Vi anbefaler følgende madrasser til elevationssenge:</p><ul><li>Latexmadrasser</li><li>Springmadrasser</li></ul><p>Latex og fjedre er mere fleksible materialer end skum, hvorfor du vil få en bedre oplevelse ved at vælge én af disse typer madrasser, når du skal investere i ny madras til din elevationsseng. Vi har mange forskellige typer af springmadrasser, så du kan med sikkerhed finde en model i vores sortiment, der passer til dig og dine behov. Vi vil i særdelseshed anbefale springmadrasser til elevationssenge, da fjedrene er lette, men samtidig enormt fleksible.</p><h3>Skummadrasser hos Sengefabrikken.dk</h3><p><span>Vi forhandler følgende <a href=\"https://www.sengefabrikken.dk/collections/madrasser/skummadrasser\">skummadrasser</a>: </span></p><ul><li>Foam Lux (14 cm.)</li><li>Cloud Silver (22 cm.)</li><li>Cloud Gold (24 cm.)</li></ul><p>Foam Lux er vores standardmadras, som vi primært anbefaler til børne- og/eller gæsteværelset. De andre modeller er mere velegnede til voksne og \"hverdagsbrug\", da de er tykkere og dermed mere komfortable at ligge på.</p><p>Cloud Silver og Cloud Gold er begge opbygget med indbygget topmadras i memory skum. På denne måde får man en mere komfortabel liggeflade, da skummet i bunden er forholdsvist fast - for at forlænge madrassens levetid og give en sund støtte til kroppen - men stadig en lidt blødere overflade, således madrassen er behagelig at ligge på.</p><p>Cloud modellerne er helt simplificeret opbygget med en fast skumbase i bunden og den indbyggede topmadras ovenpå - her vil fastheden af madrassen ikke som sådan variere fra zone til zone. Cloud Silver er den mest faste udgave med 4 cm. memory skum i topmadrassen, imens Cloud Gold er mere ovre i en medium fasthed qua de 6 cm. memory skum.</p><p>Om du skal vælge den ene, den anden eller den tredje afhænger af din vægt samt dine præferencer.</p><p><strong><em>Vi anbefaler:</em></strong></p><ul><li><strong></strong>Cloud Gold - hvis du vejer under 100 kg.</li><li>Cloud Silver - hvis du vejer over 100 kg.</li></ul><p>Vores anbefalinger er baseret på din vægt; desto højere vægten er, desto fastere en madras har man brug for. Cloud Silver er som sagt vores fasteste skummadras, hvorfor vi anbefaler denne, hvis du vejer over 100 kg. Skummet i Cloud Silver er således bedre rustet til en høj belastning end tilfældet er ved Cloud Gold.</p>",
+            "heading_2": "",
+            "text_2": "<h3>Latexmadrasser hos Sengefabrikken.dk</h3><p><span>Vi forhandler følgende latexmadrasser:</span></p><ul><li>Lux Latex (Tencel) – Fast / Medium.</li></ul><p><span>Latexmadrasser er et rigtig godt alternativ til skummadrasser, hvis du gerne vil have noget kvalitetsmæssigt lidt bedre og mere naturligt at ligge på. Latex er generelt set et bedre materiale end skum, da kvaliteten af latex som materiale generelt er højere. Du får altså typisk en bedre liggekomfort og bedre støtte ved at vælge en latexmadras fremfor en skummadras. Der kan selvfølgelig være situationer, hvor en skummadras er bedre - fx hvis du gerne vil have en så fast madras som muligt. </span></p><p><span>Latex som materiale er mere elastisk og fleksibelt end skum. Latex yder en progressiv komfort, hvor materialet \"skubber igen\" i stedet for at give efter for din krop, hvilket resulterer i en sund og forholdsvis fast støtte til kroppen. Herudover vil latex qua materialets elasticitet tilpasse sig den enkelte brugers vægt og trykpunkter. Derfor kan latexmadrasser nemt bruges af folk i alle aldre og vægtklasser. Trods den progressive komfort vil en latexmadras ikke føles hård at ligge på, da materialet som sagt er enormt elastisk. Ved første indskydelse kan en latexmadras derfor godt virke til den bløde side, men når man først ligger på madrassen og ens vægt fordeler sig ud over hele liggefladen, så vil man opleve, hvordan materialet tilpasser støtten efter ens individuelle trykpunkter. </span></p><p><span>En helt anden fordel ved latex er materialets åndbarhed og evne til at lede varmen væk fra madrassen. Latex er et naturmateriale, hvorfor det ikke optager din kropsvarme på samme måde som skum. Dette bringer mange fordele med sig, da en latexmadras blandt andet aldrig vil føles for varm at ligge på, fordi varmen ikke ophober sig i madrassen. Hos Sengefabrikken har vi gjort et yderligere tiltag i kampen imod varmen ved at lave vores latex \"perforeret\". Perforeret latex er latex med huller hele vejen igennem materialet - dette forbedrer ventilationen yderligere, ligesom det også gør madrassen mere fleksibel. Du kan se det illustreret på billedet herunder: </span></p><p><span><img alt=\"\" src=\"//cdn.shopify.com/s/files/1/0710/4563/files/Latex_Relax3_medium.jpg?v=1538126998\"></span></p><p>Vores Lux Latex madras er udstyret med en 16 cm. tyk latexkerne. Latexen er udover at være perforeret også inddelt i 7 unikke komfortzoner, der har til formål at sørge for ekstra støtte til din krops primære trykpunkter. Dermed vil din rygsøjle forblive i vandret position, til trods for at du ganske naturligt placerer en større belastning omkring fx. skuldre og lænd.</p><p>Madrassen fås i to forskellige fastheder – om du skal vælge den ene eller den anden fasthed afhænger af din vægt samt dine præferencer.</p><p><strong>Vi anbefaler:</strong></p><ul><li>﻿Medium - hvis du vejer under 65/70 kg.</li><li>Fast - hvis du vejer over 65/70 kg.</li></ul><p>Madrassen i en Medium fasthed er i øvrigt særdeles velegnet til børn, da materialet som sagt tilpasser sig brugeren, hvorfor dit barn kan få glæde af madrassen på både kort og lang sigt.</p><h3>Springmadrasser hos Sengefabrikken.dk</h3><p>Vi forhandler følgende springmadrasser:</p><ul><li>Nordkap Spring</li><li>Stockholm Spring</li></ul><p>Springmadrasser er kort sagt madrasser med fjedre - denne type madras er velegnet til alle typer af sengekonstruktioner, herunder kontinentalsenge, sengerammer og elevationssenge. Springmadrasser er den mest benyttede type madras i kontinental- og elevationssenge; hvis du i forvejen har en funktionsdygtig seng, hvor madrassen blot trænger til udskiftning, så vil en springmadras typisk være det mest oplagte valg.</p><p>Alle vores springmadrasser er danskproducerede, hvorfor du kan være sikker på, at få et kvalitetsprodukt.</p><p>Stockholm er vores bedste serie af springmadrasser. Nordkap og Tromsø har samme fjedrekonstruktion, men hvor Nordkap er polstret med 25 mm. polyeterskum, så er Tromsø polstret med 25 mm. mintskum. Dette giver ekstra komfort, støtte og åndbarhed.</p><p>Begge serier er opbygget med 220 individuelle pocket fjedre pr. m2 inddelt i 7 unikke komfortzoner. De fås begge i tre forskellige fastheder - Medium, Fast og Xtra Fast. Valget af fasthed afhænger af din vægt og dine præferencer.</p><p><strong>Pocket Fjedre:</strong></p><p>En pocket fjeder er en almindelig posefjeder - den mest gængse type fjeder på det danske marked.</p><p><img src=\"//cdn.shopify.com/s/files/1/0710/4563/files/Pocket_Fjedre___3D_medium.jpg?v=1538128116\" alt=\"\"></p><p>Springmadrasser med pocket fjedre vil normalt have imellem 200 og 250 fjedre pr. m2. Vores <em>Nordkap</em> serie samt <em>Stockholm</em> serie er begge med 220 pocket fjedre pr. m2. Flere fjedre er ikke nødvendigvis udtryk for en bedre madras; hvis du sammenligner en af vores springmadrasser med en tilsvarende hos en konkurrent, hvor konkurrentens har 250 fjedre pr. m2, så er dette ikke et udtryk for, at du får en bedre madras. Vindingerne og spændingerne på hver enkelt fjeder er således mere essentielt ift. at madrassen yder den rette støtte. Som illustrationen herover viser, så er hver enkelt fjeder pakket ind i en tynd filtpose, der holder fjedrene adskilt fra hinanden. Dermed kan fjedrene reagere individuelt på tryk, hvilket vil sige at hver enkelt fjeder fungerer som et individuelt støttepunkt. Dette resulterer i en differentieret støtte, hvor din krops primære trykpunkter får den bedste og mest markante støtte.</p><h2>Er du stadig i tvivl om valget af ny madras?</h2><p>Hvis du stadig er i tvivl om valget af ny madras, så fortvivl ej. Vi har vejledt og hjulpet flere tusinde danskere frem til en forbedret nattesøvn - derfor kan vi med sikkerhed også hjælpe dig. Hvis du er i tvivl, så er vi aldrig længere end et opkald, en e-mail eller en chat-besked væk. Vi er tilgængelige stort set døgnet rundt, således du kan få svar på dine spørgsmål, når du har tid til at fordybe dig i emnet.</p><ul></ul><h3><em><strong><span></span></strong></em></h3>"
+          }
+        }
+      },
+      "block_order": [
+        "text_70x200",
+        "text_80x200",
+        "text_85x200",
+        "text_90x200",
+        "text_90x210",
+        "text_105x210",
+        "text_120x200",
+        "text_140x200",
+        "text_160x200",
+        "text_180x200",
+        "text_180x210",
+        "text_210x210",
+        "text_Specialmål",
+        "text_standard"
+      ],
+      "settings": {
+        "color_scheme": "scheme-1",
+        "title": "Stort udvalg af billige kvalitetsmadrasser",
+        "title_heading_size": "h3",
+        "heading_size": "h5"
+      }
+    },
+    "faq_iWRBk6": {
+      "type": "faq",
+      "blocks": {
+        "question_t8Ft4Y": {
+          "type": "question",
+          "settings": {
+            "question": "Er det sikkert at købe seng online?",
+            "answer": "<p>Ja, det er det i hvert fald. Vi mener faktisk at vores gunstige betingelser giver dig bedre forudsætninger for at vælge den helt rigtige seng - selvom du ikke kan prøve den inden køb. Der er således en enorm forskel på at prøve en seng i en fysisk butik med alt tøj på i 2-3 minutter kontra at sove i den hjemme i dit soveværelse 7-9 timer hver eneste nat.&nbsp;</p><p>Hvis du, imod forventning, får valgt et produkt der ikke passer til dig, så tilbyder vi 30 dages gratis returret samt 100 dages gratis ombytning af fasthed på alle vores senge.</p>",
+            "icon": "none",
+            "icon_width": 24,
+            "mobile_icon_width": 20
+          }
+        },
+        "question_eC46R9": {
+          "type": "question",
+          "settings": {
+            "question": "Har I en butik eller et showroom?",
+            "answer": "<p>Nej, vi er 100% online - og har ingen butikker eller showrooms. Dette er et helt bevidst valg, da vi ved at holde vores faste omkostninger på et absolut minimum, har mulighed for at optimere både fleksibilitet og priser.&nbsp;</p><p>Hvis du, imod forventning, får valgt et produkt der ikke passer til dig, så tilbyder vi 100 dages gratis retur samt 100 dages gratis ombytning af fasthed på alle vores senge.</p>",
+            "icon": "none",
+            "icon_width": 24,
+            "mobile_icon_width": 20
+          }
+        },
+        "question_iwn6LJ": {
+          "type": "question",
+          "settings": {
+            "question": "Hvad koster levering?",
+            "answer": "<p>Leveringsprisen afhænger af den valgte leveringsform samt leveringsadressen, og den endelige pris vises altid tydeligt på bestillingssiden, inden du gennemfører dit køb.</p><p>Mindre varer, herunder sengetøj, dyner og puder, leveres til din adresse med GLS, mens større varer som senge og madrasser leveres med DSV.</p><p>Standardlevering sker til kantsten. Ønsker du en mere bekvem levering, har du mulighed for at tilkøbe ekstra serviceydelser, så leveringen tilpasses dine behov. Vi tilbyder blandt andet opbæring/indbæring, montering samt bortskaffelse af din nuværende seng. Alle tilkøb kan vælges direkte på bestillingssiden.</p>",
+            "icon": "none",
+            "icon_width": 24,
+            "mobile_icon_width": 20
+          }
+        },
+        "question_xTn6RH": {
+          "type": "question",
+          "settings": {
+            "question": "Hvor lang er jeres leveringstid?",
+            "answer": "<p>Leveringstiden på vores produkter spænder vidt og bredt. Leveringstiden på et produkt vil altid fremgå af produktsiden samt på din ordrebekræftelse.&nbsp;</p><p>Som udgangspunkt vil små varer, som dyner, puder og sengetøj, altid kunne leveres indenfor 1-3 hverdage. Senge, vi har færdigproduceret og stående klar på lager, vil typisk have en leveringstid på op til 15 hverdage, imens senge i ukurante størrelser samt specialmål har en leveringstid på 3-7 uger.</p>",
+            "icon": "none",
+            "icon_width": 24,
+            "mobile_icon_width": 20
+          }
+        },
+        "question_EpMpw6": {
+          "type": "question",
+          "settings": {
+            "question": "Kan jeg ønske levering en bestemt dag?",
+            "answer": "<p>Ja, det kan du. Hvis du ønsker levering en bestemt dag, så skal du blot notere det som ordrekommentar. Herefter vil vi videreformidle den ønskede dag til både vores pakkeri samt det eksterne leveringsfirma, der står for den endelige levering.&nbsp;</p><p>Vi kan ikke garantere levering den ønskede dag, men vi vil altid forsøge at imødekomme det bedst muligt - og det lykkes heldigvis også i 95% af alle tilfælde. Skulle vi mod forventning ikke være i stand til at levere den ønskede dag, så vil leveringen som regel finde sted dagen efter i stedet.</p><p>Uanset hvad, så vil din ordre aldrig blive leveret, uden at du har godkendt leveringsdag og tidsinterval over SMS.</p>",
+            "icon": "none",
+            "icon_width": 24,
+            "mobile_icon_width": 20
+          }
+        },
+        "question_4wexcF": {
+          "type": "question",
+          "settings": {
+            "question": "Kan jeg afdrage beløbet over en periode?",
+            "answer": "<p>At investere i en ny seng er en stor udgift i de flestes privatøkonomi. Derfor tilbyder vi finansiering gennem Anyday, hvor du kan splitte din betaling op i 4 lige store rater – helt uden renter og gebyrer.</p><p>Du ser altid de præcise omkostninger, inden du gennemfører købet, og der tilføjes ingen skjulte gebyrer.</p>",
+            "icon": "none",
+            "icon_width": 24,
+            "mobile_icon_width": 20
+          }
+        }
+      },
+      "block_order": [
+        "question_t8Ft4Y",
+        "question_eC46R9",
+        "question_iwn6LJ",
+        "question_xTn6RH",
+        "question_EpMpw6",
+        "question_4wexcF"
+      ],
+      "name": "t:sections.faq.name",
+      "settings": {
+        "color_scheme": "",
+        "use_page_width": true,
+        "custom_id": "",
+        "layout": "split",
+        "accordion_style": "border",
+        "question_style": "text",
+        "subheading": "",
+        "title": "Ofte stillede spørgsmål",
+        "title_tag": "h3",
+        "content": "<p>Har du brug for hjælp til valget af ny seng, topmadras eller noget helt tredje? Vores kompetente team af sengevejledere, søvnspecialister og syvsovere sidder klar til at hjælpe dig alle ugens dage fra 09.00 - 18.00. Vi er online, når du har tid.</p>",
+        "button_text": "",
+        "button_url": "",
+        "button_style": "solid"
+      }
+    }
+  },
+  "order": [
+    "banner",
+    "main",
+    "trustpilot_reviews_MGtkrf",
+    "seo_text",
+    "faq_iWRBk6"
+  ]
+}
