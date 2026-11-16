@@ -60,6 +60,7 @@
     "campaign_theme_enabled": true,
     "campaign_color_scheme": "scheme-f9cf78c5-9231-4df6-8731-70f748998ede",
     "campaign_theme_scope": "collections",
+    "campaign_light_scheme_threshold": 250,
     "campaign_heading_style": "none",
     "page_full_width": false,
     "page_width": 1400,
@@ -275,11 +276,11 @@
       },
       "scheme-f9cf78c5-9231-4df6-8731-70f748998ede": {
         "settings": {
-          "text_color": "#F6F6F6",
+          "text_color": "#f6f6f6",
           "background": "#252525",
           "background_gradient": "",
           "secondary_background": "#f1eeeb",
-          "primary_button_background": "#F6F6F6",
+          "primary_button_background": "#f6f6f6",
           "primary_button_text_color": "#252525",
           "subheading_background": "",
           "subheading_border_color": "",
