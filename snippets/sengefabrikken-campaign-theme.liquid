@@ -58,6 +58,12 @@ header, the footer and the dark or colored sections (eg. banners) keep their own
       color: rgb(var(--text-color));
     }
 
+    /* The cards of the Trustpilot reviews have a fixed light background, which would not fit the campaign colors */
+    #main .trustpilot-reviews__card {
+      background: rgb(var(--text-color) / .06);
+      border-color: rgb(var(--text-color) / .12);
+    }
+
     {%- if settings.campaign_heading_style == 'color' %}
     #main :is(h1, h2, h3, .h0, .h1, .h2, .h3, .display-xl, .display-l, .display-m) {
       color: {{ settings.campaign_heading_color }};
