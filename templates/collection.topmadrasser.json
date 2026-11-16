@@ -32,13 +32,13 @@
         "sengefabrikken_split_HeTfkb": {
           "type": "sengefabrikken_split",
           "settings": {
-            "color_scheme": "scheme-5",
+            "color_scheme": "scheme-8",
             "position": 4,
             "media_position": "right",
-            "image": "shopify://shop_images/trae.png",
+            "image": "shopify://shop_images/EHOB-Sengefabrikken-1.jpg",
             "autoplay": false,
             "subheading": "",
-            "heading": "“En dansk seng der holder i mange år”",
+            "heading": "“En topmadras der holder i mange år”",
             "heading_size": "h3",
             "content": "",
             "author_image": "shopify://shop_images/malthe_sengesnedker.png",
@@ -49,33 +49,10 @@
             "open_in_new_tab": false,
             "style": "solid"
           }
-        },
-        "image_t7Xw9K": {
-          "type": "image",
-          "settings": {
-            "color_scheme": "scheme-3",
-            "position": 4,
-            "size": "1_1",
-            "image": "shopify://shop_images/SF_Banner_100dage_Desk_2000x625_2.jpg",
-            "mobile_image": "shopify://shop_images/SF_Banner_100dage_mobile.jpg",
-            "overlay_color": "#000000",
-            "overlay_opacity": 20,
-            "content_position": "place-self-end-start",
-            "content_width": "md",
-            "subheading": "&nbsp;Direkte fra fabrikken&nbsp;",
-            "heading": "&nbsp;Kvalitet uden fordyrende mellemled&nbsp;",
-            "heading_size": "h4",
-            "content": "",
-            "button_text": "",
-            "url": "",
-            "open_in_new_tab": false,
-            "style": "solid"
-          }
         }
       },
       "block_order": [
-        "sengefabrikken_split_HeTfkb",
-        "image_t7Xw9K"
+        "sengefabrikken_split_HeTfkb"
       ],
       "settings": {
         "color_scheme": "",
