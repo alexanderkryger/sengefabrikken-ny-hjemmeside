@@ -31,6 +31,7 @@
       "blocks": {
         "sengefabrikken_split_HeTfkb": {
           "type": "sengefabrikken_split",
+          "disabled": true,
           "settings": {
             "color_scheme": "scheme-8",
             "position": 4,
