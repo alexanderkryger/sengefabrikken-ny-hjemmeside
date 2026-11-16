@@ -219,7 +219,7 @@
             "text_2": "<p>Opdag vores udvalg af madrasser i størrelsen 210x210, som inkluderer latexmadrasser, skummadrasser og springmadrasser. Hvis du er usikker på, hvilken type madras der vil opfylde dine behov bedst, er vores team af søvnspecialister klar til at vejlede dig. Du kan kontakte os via telefon eller bruge vores live-chat i nederste højre hjørne af skærmen. Vi er her for at sikre, at din online shoppingoplevelse er problemfri og behagelig.</p>"
           }
         },
-        "text_Specialmål": {
+        "text_specialmal": {
           "type": "text",
           "settings": {
             "filter_value": "Specialmål",
@@ -253,7 +253,7 @@
         "text_180x200",
         "text_180x210",
         "text_210x210",
-        "text_Specialmål",
+        "text_specialmal",
         "text_standard"
       ],
       "settings": {
