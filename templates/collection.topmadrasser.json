@@ -97,9 +97,9 @@
         "show_active_facets": false,
         "only_metafield_filters": true,
         "sticky_filter_button": true,
-        "sticky_filter_text": "Vælg størrelse og farve",
-        "picker_filter_labels": "Størrelse, Farve",
-        "default_filter_values": "180x200, Sand",
+        "sticky_filter_text": "Vælg størrelse",
+        "picker_filter_labels": "Størrelse",
+        "default_filter_values": "180x200",
         "swatch_selector_size": "lg"
       }
     },
@@ -248,9 +248,9 @@
       ],
       "settings": {
         "color_scheme": "scheme-1",
-        "heading_size": "h5",
         "title": "Lad os hjælpe dig med at finde din nye topmadras",
-        "title_heading_size": "h3"
+        "title_heading_size": "h3",
+        "heading_size": "h5"
       }
     },
     "faq_iWRBk6": {
@@ -329,6 +329,7 @@
       "settings": {
         "color_scheme": "",
         "use_page_width": true,
+        "custom_id": "",
         "layout": "split",
         "accordion_style": "border",
         "question_style": "text",
