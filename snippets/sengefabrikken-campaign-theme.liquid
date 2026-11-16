@@ -47,7 +47,7 @@ when "Behold produktkortenes farver" is enabled.
           echo ', #main .color-scheme--' | append: color_scheme.id
 
           if settings.campaign_keep_product_cards
-            echo ':not(product-card)'
+            echo ':not(product-card, .sengefabrikken-card)'
           endif
         endif
       endfor
