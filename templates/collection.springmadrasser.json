@@ -1,0 +1,341 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "banner": {
+      "type": "collection-banner",
+      "settings": {
+        "color_scheme": "",
+        "allow_transparent_header": true,
+        "layout": "background",
+        "show_description": true,
+        "collection_title_size": "h2",
+        "content_position": "place-self-center",
+        "background_color_scheme": "",
+        "image": "shopify://shop_images/collectionbanner_kontinental.png",
+        "image_size": "lg",
+        "overlay_color": "#000000",
+        "overlay_opacity": 20,
+        "quick_navigation_menu": ""
+      }
+    },
+    "main": {
+      "type": "main-collection",
+      "blocks": {
+        "sengefabrikken_split_HeTfkb": {
+          "type": "sengefabrikken_split",
+          "settings": {
+            "color_scheme": "scheme-8",
+            "position": 4,
+            "media_position": "right",
+            "image": "shopify://shop_images/EHOB-Sengefabrikken-1.jpg",
+            "autoplay": false,
+            "subheading": "",
+            "heading": "“En springmadras der holder i mange år”",
+            "heading_size": "h3",
+            "content": "",
+            "author_image": "shopify://shop_images/malthe_sengesnedker.png",
+            "author_name": "Malthe Elefsen",
+            "author_role": "Sengesnedker",
+            "button_text": "",
+            "url": "",
+            "open_in_new_tab": false,
+            "style": "solid"
+          }
+        }
+      },
+      "block_order": [
+        "sengefabrikken_split_HeTfkb"
+      ],
+      "settings": {
+        "color_scheme": "",
+        "products_per_page": 36,
+        "products_per_row_mobile": 2,
+        "products_per_row_desktop": 4,
+        "show_product_card_size_selector": true,
+        "quick_links_menu": "",
+        "filter_layout": "drawer",
+        "show_sort_by": true,
+        "show_filters": true,
+        "show_filter_group_name": false,
+        "show_filter_values_count": true,
+        "open_filters_by_default": false,
+        "product_card_style": "sengefabrikken",
+        "product_card_two_columns": false,
+        "product_card_row_background": "#fff4e2",
+        "show_toolbar": false,
+        "show_active_facets": false,
+        "only_metafield_filters": true,
+        "sticky_filter_button": true,
+        "sticky_filter_text": "Vælg størrelse",
+        "picker_filter_labels": "Størrelse",
+        "default_filter_values": "180x200",
+        "swatch_selector_size": "lg"
+      }
+    },
+    "trustpilot_reviews_MGtkrf": {
+      "type": "trustpilot-reviews",
+      "name": "Trustpilot anmeldelser",
+      "settings": {
+        "color_scheme": "scheme-5",
+        "heading_size": "h4",
+        "score_suffix": "på Trustpilot",
+        "count_prefix": "Baseret på",
+        "count_suffix": "anmeldelser",
+        "disclosure": "Viser vores 4- og 5-stjernede anmeldelser",
+        "autoscroll": true,
+        "seconds_per_card": 20,
+        "card_background": "#f6f1ec",
+        "card_border_color": "#e0dcd9"
+      }
+    },
+    "seo_text": {
+      "type": "seo-text",
+      "blocks": {
+        "text_70x200": {
+          "type": "text",
+          "settings": {
+            "filter_value": "70x200",
+            "heading_1": "",
+            "text_1": "<p>Opdag de utallige fordele ved vores kvalitetsspringmadrasser. Disse madrasser kombinerer fremragende komfort, konsistent og sund støtte for kroppen og langvarig holdbarhed. Vores springmadrasser er desuden designet til at være både fleksible og robuste, hvilket gør dem ideelle til f.eks. elevationssenge. Uanset om du søger en ny springmadras til en enkeltseng eller en elevationsseng, har Sengefabrikken præcis, hvad du har brug for.</p><p>Springmadrasser fra Sengefabrikken skiller sig ud med deres tilpasningsdygtighed. Du kan personliggøre madrassens fasthed baseret på din kropsvægt og personlige præferencer. Dette sikrer, at du modtager den optimale støtte omkring dine vigtigste trykpunkter og undgår en madras, der føles for blød eller for hård.</p><p>Når det kommer til valg af fasthed, anbefaler vi:</p><ul><li>Medium – til personer med en vægt under 70 kg.</li><li>Fast – til personer med en vægt mellem 70 kg. og 95/100 kg.</li><li>Xtra Fast – til personer med en vægt over 95/100 kg.</li></ul>",
+            "heading_2": "",
+            "text_2": "<h3>Pocketfjedre i Springmadrasser</h3><p>I Sengefabrikken fremstiller vi alle vores springmadrasser med individuelle pocketfjedre. Dette design betyder, at hver fjeder er indkapslet i sin egen lille filtpose, så fjedrene fungerer uafhængigt af hinanden. Denne unikke konstruktion sikrer, at kun de fjedre, der bærer vægt, reagerer, når du ligger på vores springmadrasser 70x200, hvilket giver differentieret støtte over hele madrassen.</p><p>Vores springmadras 70x200 garanterer personlig tilpasset støtte, da hver fjeder fungerer som et individuelt støttepunkt. Dette forbedrer din søvnkvalitet og forlænger madrassens levetid.</p><p>Hos Sengefabrikken finder du kun springmadrasser produceret i Danmark, og vi tilbyder 10 års garanti på alle vores madrasser. Dette er din garanti for høj kvalitet og langvarig komfort med din nye springmadras fra Sengefabrikken.</p>"
+          }
+        },
+        "text_80x200": {
+          "type": "text",
+          "settings": {
+            "filter_value": "80x200",
+            "heading_1": "",
+            "text_1": "<p>Der er mange fordele ved springmadrasser. For det første indeholder de en stærk kombination af god komfort, sund og ensartet støtte til kroppen samt en lang holdbarhed. Samtidig er vores springmadrasser yderst fleksible og elastiske, hvilket gør dem meget velegnet til eksempelvis elevationssenge. Så er du på udkig efter en ny springmadras til enkeltseng eller elevationsseng, så er du havnet det helt rigtige sted!</p><p>Udover ovenstående fordele så skiller springmadrasser sig også ud i og med, at du har mulighed for at vælge madrassens fasthed ud fra din vægt og dine præferencer. På den måde er du sikret sund støtte omkring dine primære trykpunkter, og du vil ikke opleve, at madrassen bliver for blød eller for fast i forhold til dine behov og præferencer.</p><p>Valg af fasthed – vi anbefaler:</p><ul><li>Medium – til personer med en vægt under 70 kg.</li><li>Fast – til personer med en vægt mellem 70 kg. og 95/100 kg.</li><li>Xtra Fast – til personer med en vægt over 95/100 kg.</li></ul>",
+            "heading_2": "",
+            "text_2": "<h3>Springmadrasser med pocketfjedre</h3><p>Hos Sengefabrikken producerer vi alle vores springmadrasser med pocketfjedre. Det betyder, at hver enkel fjeder er i en tynd filtpose, og dermed holdes de adskilt fra hinanden. På den måde arbejder fjedrene individuelt i modsætning til eksempelvis bonell fjedrer. Når du lægger dig på vores springmadrasser 80x200, vil hele madrassen dermed ikke give efter, men derimod kun de fjedrer, der er udsat for belastning.</p><p>Med vores springmadras 80x200 får du altså differentieret støtte, idet alle fjedrene udgør individuelle støttepunkter, som giver din krops mest udsatte punkter den optimale støtte. Det smitter af på din søvnkvalitet og bidrager positivt til madrassens holdbarhed.</p><p>Hos Sengefabrikken finder du udelukkende springmadrasser, der er produceret i Danmark, ligesom vi yder 10 års garanti på samtlige madrasser. På den måde kan vi altid stå inde for madrassernes kvalitet, hvilket er din sikkerhed for en god og komfortabel springmadras de næste mange år.</p>"
+          }
+        },
+        "text_90x200": {
+          "type": "text",
+          "settings": {
+            "filter_value": "90x200",
+            "heading_1": "",
+            "text_1": "<p>Er du på udkig efter en ny madras til enkeltseng, elevationsseng eller til din sengeramme? Så er du havnet det helt rette sted! Vores springmadrasser 90x200 er både fleksible og elastiske, og er derfor yderst velegnet til disse formål. De kan desuden bruges som det midterste lag i en kontinentalseng uden problemer.</p><p>Der findes mange fordele ved springmadrasser, men de mest kendetegnende er, udover deres fleksible og elastiske format, at du gennem en springmadras får sund og ensartet støtte til hele kroppen. Samtidig er springmadrasser kendt for deres lange holdbarhed, ligesom du med en springmadras har muligheden for at tilpasse fastheden, så den harmonerer med din vægt og dine præferencer.</p><h3>Springmadrasser 90x200 med differentieret støtte</h3><p>Nogle tror fejlagtigt, at antallet af fjedrer, dikterer hvor god en springmadras er. Dette er ikke helt sandt, da man bør vælge springmadrasser ud fra vægt og præferencer. Antallet af fjedrer i madrassen er dermed blot med til at definere hvor fast eller blød madrassen er, og er dermed på ingen måde et udtryk for produktets kvalitet.</p><p>Hos Sengefabrikken anbefaler vi fastheden i springmadrasser ud fra din vægt:</p><ul><li>Medium til personer der vejer under 70 kg.</li><li>Fast til personer der vejer mellem 70 kg. og 95/100 kg.</li><li>Xtra Fast til personer der vejer over 95/100 kg.</li></ul><p>Derudover spiller præferencer også ind, og du bør således vælge Fast hvis du eksempelvis vejer 65 kg., men ønsker en fast madras.</p><p>Vores springmadrasser er alle med posefjedrer, hvilket giver dig differentieret støtte natten igennem. Alle fjedrene er inddelt i tynde filtposer, hvilket resulterer i, at fjedrene arbejder individuelt, og på den måde agerer individuelle støttepunkter. Med andre ord vil du ikke opleve, at hele madrassen giver efter, når du ligger på vores springmadrasser 90x200. I stedet vil støtten være fokuseret på dine primære trykpunkter og dermed give dig den støtte, du har brug for. Den individualiserede støtte bidrager samtidig positivt til springmadrassens holdbarhed.</p>",
+            "heading_2": "",
+            "text_2": "<h3>Køb springmadrasser 90x200 online</h3><p>Hos Sengefabrikken er alle vores springmadrasser produceret i Danmark, ligesom vi yder 10 års garanti på samtlige madrasser. Det betyder, at vi til enhver tid kan stå inde for kvaliteten af vores springmadrasser, som med sikkerhed vil kunne holde i mange år ud i fremtiden.</p><p>Vi forstår godt, at det kan føles som et sats at købe senge eller springmadrasser online, men vi har rigtig god erfaring med, at det sagtens kan lade sig gøre. Med vores anbefalinger og høje kvalitet falder valget af senge såvel som springmadrasser næsten altid i god jord hos vores kunder. Det vidner vores tusindvis af anmeldelser på TrustPilot også om.</p><p>Hvis du stadig er i tvivl om, hvorvidt vores springmadrasser 90x200 er den helt rette løsning for dig, kan du altid få hjælp og vejledning hos os. Vi er online i mere end 100 timer om ugen på vores live-chat her på siden, ligesom vi sidder klar ved telefonen det meste af døgnet. Hjælpen er altså ikke langt væk, hvis du behøver den. Hos Sengefabrikken mener vi, at alle fortjener en god nattesøvn, og vi vil meget gerne hjælpe dig med netop det.</p>"
+          }
+        },
+        "text_90x210": {
+          "type": "text",
+          "settings": {
+            "filter_value": "90x210",
+            "heading_1": "",
+            "text_1": "<p>Er du på udkig efter en langtidsholdbar og fleksibel madras med behagelig komfort? Så er vores springmadras 90x210 måske det rette valg for dig. Her får du en madras, der med høj fleksibilitet passer glimrende til elevationssenge eller sengerammer. Du kan desuden også benytte vores springmadras 90x210 som den midterste madras i en kontinentalseng.</p>",
+            "heading_2": "",
+            "text_2": "<p>Hos Sengefabrikken er alle springmadrasser produceret i Danmark, ligesom du altid kan være sikker på at få en springmadras med posefjedrer, når du handler hos os. Posefjedrer er indhyllet i tynde filtposer, og på den måde arbejder individuelt og yder differentieret støtte. Med vores springmadrasser 90x210 vil du opleve, at det ikke er hele madrassen, der giver efter, når du lægger dig på den, men derimod kun det område, der bliver trykket ned. Det er med til at forlænge madrassens holdbarhed, så du kan sove godt på den i mange år.</p>"
+          }
+        },
+        "text_105x210": {
+          "type": "text",
+          "settings": {
+            "filter_value": "105x210",
+            "heading_1": "",
+            "text_1": "<p>Manger du en ny madras til din elevationsseng, kontinentalseng eller måske til din eksisterende sengeramme? Vores springmadrasser 105x210 kan tjene alle disse formål, idet de er yderst fleksible og elastiske. Denne type madras er den foretrukne hos mange særligt på grund af den behagelige komfort og den lange holdbarhed.</p>",
+            "heading_2": "",
+            "text_2": "<p>Når du køber en springmadras 105x210 hos Sengefabrikken, har du desuden mulighed for at vælge forskellige fastheder. Vi bruger din vægt til at anbefale, hvilken fasthed du bør vælge:</p><ul><li>Medium hvis du vejer under 70 kg.</li><li>Fast hvis du vejer mellem 70 og 95/100 kg.</li><li>Xtra fast hvis du vejer over 95/100 kg.</li></ul><p>Hertil spiller dine præferencer naturligvis også ind, så hvis du for eksempel vejer 68 kg., men foretrækker en fastere madras, vil det give god mening for dig at vælge Fast. Vi sidder dog klar på telefon og live-chat over 100 timer hver eneste uge, og du kan dermed altid få hjælp til valg af springmadras og fasthed hos vores kompetente medarbejdere.</p>"
+          }
+        },
+        "text_120x200": {
+          "type": "text",
+          "settings": {
+            "filter_value": "120x200",
+            "heading_1": "",
+            "text_1": "<p>Vores springmadrasser 120x200 passer perfekt til dine trekvartsenge - uanset om det er en elevationsseng, kontinentalseng eller en sengeramme. Springmadrasser er nemlig kendetegnet ved at være enormt fleksible og elastiske, hvilket gør dem brugbare i mange forskellige typer af sengekonstellationer. Vores springmadrasser 120x200 yder desuden en behagelig komfort, og giver din krop den støtte, den har brug for hele natten igennem.</p><p>Alle springmadrasser 120 hos Sengefabrikken er danskproducerede, ligesom vi yder 10 års garanti på samtlige af vores modeller. På den måde kan vi altid stå inde for kvaliteten af vores springmadrasser, som grundet den høje kvalitet vil holde mange år ud i fremtiden.</p><h3>Fastheder i springmadras 120x200</h3><p>En af fordelene ved at vælge vores springmadras 120x200 er muligheden for at vælge den fasthed, der passer til dine behov. Hos Sengefabrikken anbefaler vi altid fastheden ud fra din vægt, men præferencer spiller naturligvis også en rolle i den sammenhæng.</p><p>Valg af fasthed - vi anbefaler:</p><ul><li>Medium - til personer der vejer under 70 kg.</li><li>Fast - til personer der vejer mellem 70 og 95/100 kg.</li><li>Xtra Fast - til personer der vejer over 95 kg.</li></ul>",
+            "heading_2": "",
+            "text_2": "<p>I og med at dine præferencer også spiller en central rolle, når du skal vælge fastheden i vores springmadrasser 120, så skal ovenstående anbefalinger blot ses som en rettesnor. Hvis du for eksempel vejer 65 kg., men foretrækker en fast madras, så bør du vælge Fast fremfor Medium. Valg af fastheder i vores springmadrasser kan du dog altid få gode råd og vejledning til. Vi mener, at alle fortjener en god nattesøvn, og derfor er vi online på vores live-chat mere end 100 timer hver uge, ligesom vi sidder klar ved telefonerne nærmest døgnet rundt. På den måde kan vi altid hjælpe dig frem mod den rigtige springmadras og fasthed, så vi sikrer os, at du får den springmadras, der passer bedst til dig.</p><p>Alle vores springmadrasser er desuden med posefjedrer. Det vil sige, at hver enkel fjeder er omgivet af en tynd filtpose, som sørger for, at fjedrene holdes adskilt og dermed arbejder individuelt. På den måde fungerer fjedrene som individuelle støttepunkter, der giver dig en differentieret støtte. Når du ligger på vores springmadrasser 120x200, vil du dermed ikke opleve, at hele madrassen giver efter, men blot de punkter, som du placerer belastningen på. Dette er forskelligt fra de traditionelle bonell fjedrer, der alle er sammenhængende. Det vil sige, at du med en springmadras med bonell fjedrer vil opleve, at hele madrassen giver efter, når du ligger på den. Posefjedrene bidrager desuden positivt til springmadrassens levetid, og du får dermed en madras, som du kan sove godt på mange år ud i fremtiden.</p>"
+          }
+        },
+        "text_140x200": {
+          "type": "text",
+          "settings": {
+            "filter_value": "140x200",
+            "heading_1": "",
+            "text_1": "<p>Springmadrasser er mange danskeres foretrukne madras, og det kan vi sagtens forstå. De er nemlig kendt for den suveræne komfort, lange levetid og for at være yderst fleksible og elastiske. Sidstnævnte gør vores springmadrasser 140x200 særligt egnet til elevationssenge. Samtidig kan de også benyttes til sengerammer eller som det midterste madraslag i en kontinentalseng. Hvis du er på udkig efter en ny madras til trekvartseng, kan vores springmadrasser 140x200 meget vel være noget for dig.</p><h3>Vælg den rette springmadras 140x200</h3><p>Det er en udbredt misforståelse, at antallet af fjedrer er afgørende for, hvor god eller hvor dårlig en springmadras er. Valget af springmadras afhænger nemlig primært af brugerens vægt. Det er springmadrassens fasthed, der afgøres ud fra antallet af fjedrer, og dermed ikke madrassens kvalitet. Når der er flere fjedrer pr. m2 i springmadrassen, vil hver enkel fjeder ikke blive belastet og trykket ned i samme grad, og madrassen vil derfor føles fastere.</p><p>Vi har vejledt tusindvis af mennesker frem til den rigtige springmadras og fasthed ved at benytte brugernes vægt som rettesnor. Vores anbefalinger af fastheder er således:</p><ul><li>Medium hvis du vejer under 70 kg.</li><li>Fast hvis du vejer mellem 70kg. og 95/100 kg.</li><li>Xtra Fast hvis du vejer over 95/100 kg.</li></ul><p>Til det er det desuden vigtigt at nævne, at præferencer spiller en rolle, når det kommer til at skulle vælge fastheden i vores springmadrasser 140. Vejer du eksempelvis en smule over 100 kg., men foretrækker en blød madras, så er Fast måske den rette for dig, ligesom det også kan være, hvis du vejer lidt under 70 kg., men foretrækker en fastere madras. Muligheden for at vælge den fasthed der passer til dig, er en af de helt store fordele ved vores springmadrasser 140x200. På den måde får du nemlig en suveræn komfort i din nye madras, der er skræddersyet til din vægt, dine præferencer og til dine behov.</p>",
+            "heading_2": "",
+            "text_2": "<h3>Danskproducerede springmadrasser</h3><p>Hos Sengefabrikken finder du udelukkende danskproducerede springmadrasser. Produktionen i Danmark og det faktum at vi yder 10 års garanti på samtlige modeller viser, hvordan vi altid kan stå 100% inde for kvaliteten af vores springmadrasser såvel som alle vores andre produkter.</p><p>Når du handler hos os, er hele processen altid fuldstændig transparent, og du vil således aldrig være i tvivl om, hvad der er inkluderet i prisen. Dermed får du ingen ubehagelige overraskelser i form af ekstra omkostninger senere hen. Vi har et ønske om at gøre det trygt for dig at købe senge og madrasser online, og derfor prioriterer vi også at være tilgængelige alle ugens syv dage. Du kan således kontakte os på telefon det meste af døgnet, ligesom vi er online på vores live-chat i mere end 100 timer hver uge. På den måde er gode råd og vejledning om produkter, levering eller andre spørgsmål du måtte have altid tæt på, så du kan købe senge og springmadrasser online med ro i maven.</p>"
+          }
+        },
+        "text_160x200": {
+          "type": "text",
+          "settings": {
+            "filter_value": "160x200",
+            "heading_1": "",
+            "text_1": "<p>Vores springmadrasser er velegnede i mange forskellige sengekonstellationer. Det betyder, at du kan bruge en springmadras, hvis du mangler en ny madras til din elevationsseng, sengeramme eller til din kontinentalseng. Springmadrasser forener fleksibilitet, behagelig komfort og lang levetid i en og samme madras.</p><h3>Vælg den rette springmadras 160x200</h3><p>Der findes mange fordele ved springmadrasser, hvorfor de er en af de mest populære madrastyper blandt danskerne. Med vores springmadrasser har du muligheden for at vælge mellem forskellige fastheder, og på den måde sikrer du dig at få den optimale støtte og fasthed i en skræddersyet løsning.</p><p>Mange tror fejlagtigt, at antallet af fjedrer i en springmadras, afgør hvorvidt madrassen er af god eller dårlig kvalitet. Sådan forholder det sig ikke, da antallet af fjedrer pr. m2 i springmadrasser blot indikerer madrassens fasthed. Hvorvidt man ønsker en blød eller en fast madras afhænger dels af brugerens vægt, og dels af hvilke præferencer man har, når det kommer til fasthed. Hos Sengefabrikken anbefaler vi således fastheder ud fra din vægt, omend dine præferencer naturligvis også spiller en rolle.</p>",
+            "heading_2": "",
+            "text_2": "<p>Valg af fasthed - vi anbefaler:</p><ul><li>Medium til dig der vejer under 70 kg.</li><li>Fast til dig der vejer mellem 70 kg. og 95/100 kg.</li><li>Xtra Fast til dig der vejer over 95/100 kg.</li></ul><p>Når vi skriver, at præferencer også spiller ind, så betyder det, at disse anbefalinger blot er indikationer på, hvilken fasthed du bør vælge. Hvis du for eksempel vejer 105 kg., men foretrækker en blød madras, bør du følge dine præferencer og vælge Fast fremfor Xtra Fast. Samtidig bør du vælge Fast fremfor Medium, hvis du vejer lige under 70 kg., men foretrækker en fast springmadras.</p><h3>Få gode råd og vejledning</h3><p>Hos Sengefabrikken er vi altid klar til at hjælpe dig med de spørgsmål, du måtte have i forbindelse med køb af springmadrasser og senge. Vi er online på vores live-chat, og sidder klar ved telefonerne det meste af døgnet, og hjælpen er dermed ikke langt væk, hvis du behøver den.</p>"
+          }
+        },
+        "text_180x200": {
+          "type": "text",
+          "settings": {
+            "filter_value": "180x200",
+            "heading_1": "",
+            "text_1": "<p>Mangler du en ny madras til din dobbeltseng? Vores springmadrasser 180x200 egner sig til både elevationssenge, sengerammer eller som det midterste madraslag i en kontinentalseng. Dermed er der stor chance for, at det også er en springmadras, du skal have, hvis du er på udkig efter en ny madras til din dobbeltseng.</p><p>Hos Sengefabrikken finder du kun springmadrasser, der er produceret i Danmark. Vores produktion inden for landets grænser kombineret med 10 års garanti på samtlige springmadrasser sætter en tyk streg under, at vi altid kan stå inde for kvaliteten af vores springmadrasser 180x200 såvel som ved alle vores andre madrasser og senge. Vi har et ønske om at gøre det enkelt for vores kunder at købe senge og madrasser online, og derfor er det altid tydeligt, hvad der er inkluderet i prisen, når du handler hos os. På den måde undgår du ubehagelige overraskelser og uforudsete udgifter senere i forløbet. Vi forstår godt, hvis det kan føles usikkert at købe springmadrasser online, men vi mener, at vores anbefalinger er det, du behøver for at være sikker på at få en madras, der passer til dine behov. Det vidner vores mange positive anmeldelser på TrustPilot også om - man kan nemlig sagtens købe springmadrasser online.</p>",
+            "heading_2": "",
+            "text_2": "<h3>Springmadrasser 180x200 med posefjedrer</h3><p>Alle springmadrasser hos Sengefabrikken er med posefjedrer. Det betyder, at hver enkel fjeder er indhyllet i en tynd filtpose, der skiller fjedrene fra hinanden. På den måde arbejder fjedrene som individuelle støttepunkter, der yder differentieret støtte til din krop. Med vores springmadrasser vil du altså ikke opleve, at hele sengen synker ned, når du ligger i den. I stedet vil kun de fjedrer, du ligger på blive trykket ned. Det har en positiv effekt på springmadrassens levetid, så du kan sove godt i den i mange år.</p><p>Mange tror, at antallet af fjedrer, er afgørende for springmadrassers kvalitet. Dette er dog ikke tilfældet. Antallet af fjedrer i springmadrassen er blot med til at definere, hvor blød eller fast madrassen er. En af fordelene ved vores springmadrasser 180x200 er, at du har muligheden for at tilpasse madrassens fasthed til dine behov. Vi benytter din vægt til at anbefale, hvilken fasthed du bør vælge.</p><p>Valg af fasthed - vi anbefaler:</p><ul><li>Medium til personer med en vægt under 70 kg.</li><li>Fast til personer med en vægt mellem 70 kg. og 95/100 kg.</li><li>Xtra Fast til personer med en vægt over 95/100 kg.</li></ul><p>Det er dog også vigtigt at nævne, at dine præferencer spiller en rolle, når du skal vælge fastheden i springmadrasser. Foretrækker du en blød madras, men vejer over 100 kg., så bør du gå med Fast fremfor Xtra Fast. På samme måde bør du vælge Fast, hvis du vejer under 70 kg., men foretrækker en fastere madras.</p><p>Det kan være svært at finde rundt i junglen af springmadrasser og fastheder. Derfor er vi tilgængelige stort set hele døgnet rundt, så du kan få den hjælp og vejledning, du har brug for, når du behøver den. Du kan ringe eller benytte vores live-chat her på siden til at få gode råd og vejledning af vores søvnspecialister. Hos Sengefabrikken mener vi nemlig, at alle fortjener en god nattesøvn.</p>"
+          }
+        },
+        "text_180x210": {
+          "type": "text",
+          "settings": {
+            "filter_value": "180x210",
+            "heading_1": "",
+            "text_1": "<p>Vores springmadrasser 180x210 er et rigtig godt valg til dig, der mangler en ny madras til din dobbeltseng - det uanset om du har en elevationsseng, kontinentalseng eller en sengeramme. Springmadrasser er nemlig elastiske og fleksible, og passer således i rigtig mange forskellige typer af sengekonstellationer. Med en ny springmadras 180 er du sikret god nattesøvn i de næste mange år. Her får du nemlig en madras med suveræn komfort og lang holdbarhed, og så har du ovenikøbet muligheden for at tilpasse madrassens fasthed, så den passer til din vægt og dine præferencer.</p>",
+            "heading_2": "",
+            "text_2": "<p>Fælles for alle vores springmadrasser 180x210 er, at de alle er produceret i Danmark samt at de alle indeholder posefjedrer. Disse to elementer sikrer en høj kvalitet, god komfort og lang holdbarhed. Posefjedrer betyder, at hver enkel fjeder er indhyllet i en tynd filtpose, og dermed er alle fjedrene adskilt. På den måde agerer de individuelle støttepunkter, hvilket giver dig den mest optimale støtte til dine primære trykpunkter såsom skuldrer og lænd.</p>"
+          }
+        },
+        "text_210x210": {
+          "type": "text",
+          "settings": {
+            "filter_value": "210x210",
+            "heading_1": "",
+            "text_1": "<p>Udforsk de mange fortrin ved vores premium springmadrasser, der nu også er tilgængelige i dimensionen 210x210 cm. Disse madrasser er en perfekt sammensætning af uovertruffen komfort, ensartet og sund kropsstøtte samt imponerende holdbarhed. Vores sortiment af springmadrasser er ekstraordinært tilpasningsdygtige og elastiske, hvilket gør dem ideelle til bl.a. elevationssenge. Søger du en springmadras i størrelsen 210x210 til din enkeltseng eller elevationsseng, finder du det bedste udvalg hos Sengefabrikken.</p><p>En unik egenskab ved Sengefabrikkens springmadrasser er muligheden for at tilpasse madrassens fasthed efter din kropsvægt og foretrukne komfortniveau. Denne tilpasning sikrer, at dine primære trykpunkter får den nødvendige støtte, så du hverken oplever en for blød eller for hård madras.</p><p>Ved valg af fasthed anbefaler vi følgende:</p><ul><li>Medium – optimal til personer under 70 kg.</li><li>Fast – velegnet til personer mellem 70 kg. og 95/100 kg.</li><li>Xtra Fast – ideel til personer over 95/100 kg.</li></ul>",
+            "heading_2": "",
+            "text_2": "<h3>Pocketfjedre i Vores Springmadrasser</h3><p>Alle Sengefabrikkens springmadrasser er udstyret med avancerede pocketfjedre. Dette design indebærer, at hver fjeder er omsluttet af en separat filtpose, hvilket muliggør uafhængig bevægelse. Så når du ligger på en springmadras i størrelsen 210x210 cm, reagerer kun de belastede fjedre, hvilket giver en differentieret og skræddersyet støtte over hele madrassen.</p><p>Med en 210x210 cm springmadras fra Sengefabrikken opnår du en personligt tilpasset støtte, hvor hver enkelt fjeder bidrager til at støtte kroppens mest udsatte punkter. Dette har en positiv indflydelse på din søvnkvalitet og forlænger madrassens levetid.</p><p>Alle vores springmadrasser er stolt produceret i Danmark, og vi tilbyder 10 års garanti på dem. Dette sikrer, at du kan stole på kvaliteten og komforten af din nye springmadras fra Sengefabrikken i mange år fremover.</p>"
+          }
+        },
+        "text_standard": {
+          "type": "text",
+          "settings": {
+            "filter_value": "",
+            "heading_1": "",
+            "text_1": "<p>Springmadrasser er kendetegnet ved at yde en behagelig komfort, være utroligt fleksible og ikke mindst langtidsholdbare – derfor er denne type madras mange danskeres foretrukne. I modsætning til <a href=\"https://www.sengefabrikken.dk/collections/boxmadrasser\">vores boxmadrasser</a> så er springmadrasser ikke placeret i en træramme, hvilket betyder, at du ikke kan montere ben direkte på madrassen. En springmadras er dog velegnet i rigtig mange andre sengekonstellationer, herunder blandt andet <a href=\"https://www.sengefabrikken.dk/collections/elevationssenge\">elevationssenge</a>, sengerammer eller som den midterste madras i opbygningen af en kontinental seng.</p><p>Hos Sengefabrikken forhandler vi udelukkende springmadrasser med posefjedrer; posefjedrer er fjedrer indhyllet i en tynd filtpose, der betyder, at fjedrene holdes adskilt fra hinanden, og derved arbejder individuelt i modsætning til en gammeldags timeglas-fjeder (også kendt som en bonell fjeder). At madrassen yder en differentieret støtte, hvor din krops mest udsatte områder får den mest markante og optimale støtte, udmønter sig i sidste ende i en dybere og sundere søvn. Herudover har det også en positiv indvirkning på holdbarheden af madrassen.</p><p>Et tryk på en madras med bonell fjedre vil medføre, at hele madrassen ”giver efter”, fordi fjedrene er forbundet med hinanden, hvorimod et tilsvarende tryk på en madras med posefjedre kun vil påvirke det ene område af madrassen, som du trykker ned.</p><p>Ydermere er alle vores springmadrasser danskproducerede, hvorfor vi naturligvis kan stå 110 % inde for kvaliteten. Dette understreges desuden af, at vi giver dig 10 års garanti på samtlige madrasser. Et køb af en springmadras fra Sengefabrikken vil altså ikke kun give dig en god nattesøvn på kort sigt, men også give dig ro og sikkerhed på lang sigt, da du med garanti har en madras, der holder de næste mange år.</p>",
+            "heading_2": "",
+            "text_2": "<h3>Hvilken springmadras skal jeg vælge?</h3><p>Mange tror fejlagtigt at desto flere fjedre, der er i en madras, desto bedre er den. Sådan forholder det sig dog ikke, da valget af springmadras primært handler om dig og din vægt. Antallet af fjedre er således med til at definere fastheden/hårdheden på en madras, og er altså ikke et udtryk for kvaliteten. Desto flere fjedre der er per kvadratmeter, desto mindre belastning bliver der lagt på den enkelte fjeder, hvilket kort sagt betyder, at den enkelte fjeder ikke bliver trykket så langt ned, og at madrassen derfor vil føles fastere.</p><p>Hos Sengefabrikken bruger vi din vægt til at anbefale, hvilken fasthed der er den rette for dig. Dine præferencer spiller naturligvis også ind, men som udgangspunkt anbefaler vi:</p><ul><li>Medium til personer med en vægt under 70 kg.</li><li>Fast til personer med en vægt mellem 70 kg. og 95/100 kg.</li><li>Xtra Fast til personer med en vægt over 95/100 kg.</li></ul><p>Hvis du eksempelvis vejer 105 kg., men foretrækker en lidt blød madras, så kan du med fordel vælge en fast springmadras med pocket fjedre. Omvendt hvis du vejer under 70 kg., og foretrækker en fastere madras, skal du vælge Fast fremfor medium. Hvis din vægt er omkring de 100 kg., så vil der ikke være den store forskel på, om du vælger en fast pocket fjeder eller en medium multipocket fjeder; derfor anbefaler vi en fast multipocket madras, hvis du vejer omkring 100 kg. og gerne vil have en forholdsvis fast madras.</p><p>Vores springmadrasser med multipocket fjedre er dem, der kaldes +100 kg. Her er pocket fjedrene helt udskiftet med multipocket fjedre, som er mindre i diameteren. Du får derfor langt flere fjedre i vores +100 kg. modeller, hvilket gør madrassen fastere og samtidig sørger for, at du får den helt rette støtte ved dine primære trykpunkter.</p><p>Der findes flere fordele ved at vælge en springmadras. Først og fremmest er det muligheden for at vælge fastheden ud fra din vægt og dine præferencer, da det resulterer i en suveræn komfortoplevelse, som er skræddersyet til dig. Med en springmadras forenes komfort, sund støtte og lang holdbarhed i en og samme madras – og du kan altså sove godt i mange år på en af vores springmadrasser.</p><h3>Få hjælp til at vælge springmadras</h3><p>Er du stadig i tvivl om, hvorvidt en springmadras er det rette valg for dig? Det kan være svært at finde rundt i alle de muligheder der er, når det kommer til madrasser, og derfor vil vi rigtig gerne hjælpe dig. Vi sidder klar ved telefonen det meste af døgnet – og faktisk er vi online på vores live-chat i op mod 100 timer hver eneste uge. Vores søvnspecialister er altså ikke mere end et opkald eller en chatbesked væk, hvis du mangler gode råd og vejledning.</p><p>Hos Sengefabrikken mener vi, at alle fortjener en god nattesøvn, og derfor vil vi hellere end gerne hjælpe vores kunder i den helt rigtig retning, når de gerne vil investere i deres nattesøvn. Vi kan godt forstå, at det kan føles vildt at købe ny seng eller ny springmadras online, men ikke desto mindre er langt størstedelen af vores kunder altid glade for deres køb – det vidner vores mange femstjernede anmeldelser på TrustPilot også om.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_70x200",
+        "text_80x200",
+        "text_90x200",
+        "text_90x210",
+        "text_105x210",
+        "text_120x200",
+        "text_140x200",
+        "text_160x200",
+        "text_180x200",
+        "text_180x210",
+        "text_210x210",
+        "text_standard"
+      ],
+      "settings": {
+        "color_scheme": "scheme-1",
+        "title": "Stort udvalg af billige kvalitetsmadrasser",
+        "title_heading_size": "h3",
+        "heading_size": "h5"
+      }
+    },
+    "faq_iWRBk6": {
+      "type": "faq",
+      "blocks": {
+        "question_t8Ft4Y": {
+          "type": "question",
+          "settings": {
+            "question": "Er det sikkert at købe seng online?",
+            "answer": "<p>Ja, det er det i hvert fald. Vi mener faktisk at vores gunstige betingelser giver dig bedre forudsætninger for at vælge den helt rigtige seng - selvom du ikke kan prøve den inden køb. Der er således en enorm forskel på at prøve en seng i en fysisk butik med alt tøj på i 2-3 minutter kontra at sove i den hjemme i dit soveværelse 7-9 timer hver eneste nat.&nbsp;</p><p>Hvis du, imod forventning, får valgt et produkt der ikke passer til dig, så tilbyder vi 30 dages gratis returret samt 100 dages gratis ombytning af fasthed på alle vores senge.</p>",
+            "icon": "none",
+            "icon_width": 24,
+            "mobile_icon_width": 20
+          }
+        },
+        "question_eC46R9": {
+          "type": "question",
+          "settings": {
+            "question": "Har I en butik eller et showroom?",
+            "answer": "<p>Nej, vi er 100% online - og har ingen butikker eller showrooms. Dette er et helt bevidst valg, da vi ved at holde vores faste omkostninger på et absolut minimum, har mulighed for at optimere både fleksibilitet og priser.&nbsp;</p><p>Hvis du, imod forventning, får valgt et produkt der ikke passer til dig, så tilbyder vi 100 dages gratis retur samt 100 dages gratis ombytning af fasthed på alle vores senge.</p>",
+            "icon": "none",
+            "icon_width": 24,
+            "mobile_icon_width": 20
+          }
+        },
+        "question_iwn6LJ": {
+          "type": "question",
+          "settings": {
+            "question": "Hvad koster levering?",
+            "answer": "<p>Leveringsprisen afhænger af den valgte leveringsform samt leveringsadressen, og den endelige pris vises altid tydeligt på bestillingssiden, inden du gennemfører dit køb.</p><p>Mindre varer, herunder sengetøj, dyner og puder, leveres til din adresse med GLS, mens større varer som senge og madrasser leveres med DSV.</p><p>Standardlevering sker til kantsten. Ønsker du en mere bekvem levering, har du mulighed for at tilkøbe ekstra serviceydelser, så leveringen tilpasses dine behov. Vi tilbyder blandt andet opbæring/indbæring, montering samt bortskaffelse af din nuværende seng. Alle tilkøb kan vælges direkte på bestillingssiden.</p>",
+            "icon": "none",
+            "icon_width": 24,
+            "mobile_icon_width": 20
+          }
+        },
+        "question_xTn6RH": {
+          "type": "question",
+          "settings": {
+            "question": "Hvor lang er jeres leveringstid?",
+            "answer": "<p>Leveringstiden på vores produkter spænder vidt og bredt. Leveringstiden på et produkt vil altid fremgå af produktsiden samt på din ordrebekræftelse.&nbsp;</p><p>Som udgangspunkt vil små varer, som dyner, puder og sengetøj, altid kunne leveres indenfor 1-3 hverdage. Senge, vi har færdigproduceret og stående klar på lager, vil typisk have en leveringstid på op til 15 hverdage, imens senge i ukurante størrelser samt specialmål har en leveringstid på 3-7 uger.</p>",
+            "icon": "none",
+            "icon_width": 24,
+            "mobile_icon_width": 20
+          }
+        },
+        "question_EpMpw6": {
+          "type": "question",
+          "settings": {
+            "question": "Kan jeg ønske levering en bestemt dag?",
+            "answer": "<p>Ja, det kan du. Hvis du ønsker levering en bestemt dag, så skal du blot notere det som ordrekommentar. Herefter vil vi videreformidle den ønskede dag til både vores pakkeri samt det eksterne leveringsfirma, der står for den endelige levering.&nbsp;</p><p>Vi kan ikke garantere levering den ønskede dag, men vi vil altid forsøge at imødekomme det bedst muligt - og det lykkes heldigvis også i 95% af alle tilfælde. Skulle vi mod forventning ikke være i stand til at levere den ønskede dag, så vil leveringen som regel finde sted dagen efter i stedet.</p><p>Uanset hvad, så vil din ordre aldrig blive leveret, uden at du har godkendt leveringsdag og tidsinterval over SMS.</p>",
+            "icon": "none",
+            "icon_width": 24,
+            "mobile_icon_width": 20
+          }
+        },
+        "question_4wexcF": {
+          "type": "question",
+          "settings": {
+            "question": "Kan jeg afdrage beløbet over en periode?",
+            "answer": "<p>At investere i en ny seng er en stor udgift i de flestes privatøkonomi. Derfor tilbyder vi finansiering gennem Anyday, hvor du kan splitte din betaling op i 4 lige store rater – helt uden renter og gebyrer.</p><p>Du ser altid de præcise omkostninger, inden du gennemfører købet, og der tilføjes ingen skjulte gebyrer.</p>",
+            "icon": "none",
+            "icon_width": 24,
+            "mobile_icon_width": 20
+          }
+        }
+      },
+      "block_order": [
+        "question_t8Ft4Y",
+        "question_eC46R9",
+        "question_iwn6LJ",
+        "question_xTn6RH",
+        "question_EpMpw6",
+        "question_4wexcF"
+      ],
+      "name": "t:sections.faq.name",
+      "settings": {
+        "color_scheme": "",
+        "use_page_width": true,
+        "custom_id": "",
+        "layout": "split",
+        "accordion_style": "border",
+        "question_style": "text",
+        "subheading": "",
+        "title": "Ofte stillede spørgsmål",
+        "title_tag": "h3",
+        "content": "<p>Har du brug for hjælp til valget af ny seng, topmadras eller noget helt tredje? Vores kompetente team af sengevejledere, søvnspecialister og syvsovere sidder klar til at hjælpe dig alle ugens dage fra 09.00 - 18.00. Vi er online, når du har tid.</p>",
+        "button_text": "",
+        "button_url": "",
+        "button_style": "solid"
+      }
+    }
+  },
+  "order": [
+    "banner",
+    "main",
+    "trustpilot_reviews_MGtkrf",
+    "seo_text",
+    "faq_iWRBk6"
+  ]
+}
