@@ -1,0 +1,352 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "banner": {
+      "type": "collection-banner",
+      "settings": {
+        "color_scheme": "",
+        "allow_transparent_header": true,
+        "layout": "background",
+        "show_description": true,
+        "collection_title_size": "h2",
+        "content_position": "place-self-center",
+        "background_color_scheme": "",
+        "image": "shopify://shop_images/collectionbanner_kontinental.png",
+        "image_size": "lg",
+        "overlay_color": "#000000",
+        "overlay_opacity": 20,
+        "quick_navigation_menu": ""
+      }
+    },
+    "main": {
+      "type": "main-collection",
+      "blocks": {
+        "sengefabrikken_split_HeTfkb": {
+          "type": "sengefabrikken_split",
+          "settings": {
+            "color_scheme": "scheme-5",
+            "position": 4,
+            "media_position": "right",
+            "image": "shopify://shop_images/trae.png",
+            "autoplay": false,
+            "subheading": "",
+            "heading": "“En dansk seng der holder i mange år”",
+            "heading_size": "h3",
+            "content": "",
+            "author_image": "shopify://shop_images/malthe_sengesnedker.png",
+            "author_name": "Malthe Elefsen",
+            "author_role": "Sengesnedker",
+            "button_text": "",
+            "url": "",
+            "open_in_new_tab": false,
+            "style": "solid"
+          }
+        },
+        "image_t7Xw9K": {
+          "type": "image",
+          "settings": {
+            "color_scheme": "scheme-3",
+            "position": 4,
+            "size": "1_1",
+            "image": "shopify://shop_images/SF_Banner_100dage_Desk_2000x625_2.jpg",
+            "mobile_image": "shopify://shop_images/SF_Banner_100dage_mobile.jpg",
+            "overlay_color": "#000000",
+            "overlay_opacity": 20,
+            "content_position": "place-self-end-start",
+            "content_width": "md",
+            "subheading": "&nbsp;Direkte fra fabrikken&nbsp;",
+            "heading": "&nbsp;Kvalitet uden fordyrende mellemled&nbsp;",
+            "heading_size": "h4",
+            "content": "",
+            "button_text": "",
+            "url": "",
+            "open_in_new_tab": false,
+            "style": "solid"
+          }
+        }
+      },
+      "block_order": [
+        "sengefabrikken_split_HeTfkb",
+        "image_t7Xw9K"
+      ],
+      "settings": {
+        "color_scheme": "",
+        "products_per_page": 36,
+        "products_per_row_mobile": 2,
+        "products_per_row_desktop": 4,
+        "show_product_card_size_selector": true,
+        "quick_links_menu": "",
+        "filter_layout": "drawer",
+        "show_sort_by": true,
+        "show_filters": true,
+        "show_filter_group_name": false,
+        "show_filter_values_count": true,
+        "open_filters_by_default": false,
+        "product_card_style": "sengefabrikken",
+        "product_card_two_columns": false,
+        "product_card_row_background": "#fff4e2",
+        "show_toolbar": false,
+        "show_active_facets": false,
+        "only_metafield_filters": true,
+        "sticky_filter_button": true,
+        "sticky_filter_text": "Vælg størrelse og farve",
+        "picker_filter_labels": "Størrelse, Farve",
+        "default_filter_values": "180x200, Sand",
+        "swatch_selector_size": "lg"
+      }
+    },
+    "trustpilot_reviews_MGtkrf": {
+      "type": "trustpilot-reviews",
+      "name": "Trustpilot anmeldelser",
+      "settings": {
+        "color_scheme": "scheme-5",
+        "heading_size": "h4",
+        "score_suffix": "på Trustpilot",
+        "count_prefix": "Baseret på",
+        "count_suffix": "anmeldelser",
+        "disclosure": "Viser vores 4- og 5-stjernede anmeldelser",
+        "autoscroll": true,
+        "seconds_per_card": 20,
+        "card_background": "#f6f1ec",
+        "card_border_color": "#e0dcd9"
+      }
+    },
+    "seo_text": {
+      "type": "seo-text",
+      "blocks": {
+        "text_80x200": {
+          "type": "text",
+          "settings": {
+            "filter_value": "80x200",
+            "heading_1": "",
+            "text_1": "<p>Når det handler om at forbedre din søvnkvalitet med en topmadras i størrelsen 80x200, spiller valget af den rette topmadras en væsentlig rolle. Hos Sengefabrikken forstår vi betydningen af at have en komfortabel og støttende topmadras i denne specifikke størrelse for at sikre en god nattesøvn. Vores udvalg af topmadrasser i størrelsen 80x200 er skræddersyet til forskellige præferencer og behov, og vi er her for at guide dig igennem de forskellige muligheder.</p><h3>Topmadrasser - en oversigt over de forskellige materialer</h3><p>Topmadrasser kommer i forskellige materialer, hver med sine unikke egenskaber og fordele. Lad os udforske de mest almindelige typer:</p><h4>Topmadras med skum</h4><p>Skumtopmadrasser i størrelsen 80x200 er kendt for deres blødhed og evne til at aflaste tryk, hvilket giver en behagelig overflade at sove på. Vores udvalg af skumtopmadrasser i denne størrelse er omhyggeligt udvalgt for at sikre optimal komfort og støtte.</p><h4>Memoryskumtopmadras</h4><p>Memoryskumtopmadrasser tilpasser sig din kropsform og giver en personlig søvnoplevelse. Dette gør dem ideelle for dem, der søger maksimal komfort og støtte i størrelsen 80x200.</p>",
+            "heading_2": "",
+            "text_2": "<h4>Kølende topmadras med skum</h4><p>Hvis du har tendens til at overophede om natten, kan en kølende topmadras med skum i størrelsen 80x200 være svaret. Disse topmadrasser hjælper med at regulere temperaturen og holde dig kølig, så du kan sove bedre.</p><h4>Topmadras med latex</h4><p>Latextopmadrasser er kendt for deres holdbarhed og naturlige elasticitet. De giver en fastere støtte og er allergivenlige, hvilket gør dem til et populært valg, også i størrelsen 80x200.</p><h3>Valg af topmadras afhænger af dine præferencer</h3><p>Når du vælger din næste topmadras i størrelsen 80x200, er det vigtigt at tage højde for dine personlige præferencer og behov. Uanset om du foretrækker blødhed, støtte, temperaturregulering eller holdbarhed, har Sengefabrikken den rette topmadras til dig. Lad vores ekspertise og udvalg hjælpe dig med at finde den ideelle topmadras, der vil forbedre din søvnkvalitet og give dig en god nattesøvn hver nat.</p><p>Kontakt os i dag for at få mere information om vores topmadrasser i størrelsen 80x200, og lad os hjælpe dig med at finde den perfekte topmadras til din seng. Din komfort er vores prioritet.</p>"
+          }
+        },
+        "text_90x200": {
+          "type": "text",
+          "settings": {
+            "filter_value": "90x200",
+            "heading_1": "",
+            "text_1": "<p>Når det kommer til at forbedre din søvnkvalitet i størrelsen 90x200, spiller valget af den rette topmadras en afgørende rolle. Hos Sengefabrikken forstår vi vigtigheden af at have en komfortabel og støttende topmadras i denne specifikke størrelse for at få den bedste nattesøvn. Vores udvalg af topmadrasser i størrelsen 90x200 er designet til at imødekomme forskellige præferencer og behov, og vi er her for at guide dig gennem de forskellige muligheder.</p><h3>Topmadrasser - generelt om de forskellige materialer</h3><p>Topmadrasser fås i forskellige materialer, og hvert materiale har sine unikke egenskaber og fordele, uanset om du foretrækker en 90x200 topmadras i skum, memoryskum, kølende skum eller latex. Her er en oversigt over de mest almindelige typer:</p><h4>Topmadras med skum</h4><p>Skumtopmadrasser er kendt for deres blødhed og trykaflastning, hvilket giver en behagelig overflade at sove på. Vores skumtopmadrasser i størrelsen 90x200 er nøje udvalgt for at sikre den bedste støtte til din krop.</p><h4>Trykaflastende topmadras med Memoryskum</h4><p>Memoryskumtopmadrasser tilpasser sig din kropsform og giver en skræddersyet søvnoplevelse. De er ideelle for dem, der ønsker maksimal komfort og støtte, specielt i størrelsen 90x200.</p><h4>Topmadras med kølende skum</h4><p>Hvis du har tendens til at overophede om natten, kan en topmadras med kølende skum i størrelsen 90x200 være løsningen. Disse topmadrasser hjælper med at regulere temperaturen og holde dig køligere, så du kan sove bedre.</p><h4>Topmadras med latex</h4><p>Latextopmadrasser er kendt for deres holdbarhed og naturlige elasticitet. De giver en fastere støtte og er allergivenlige, hvilket gør dem til et populært valg, også i størrelsen 90x200.</p>",
+            "heading_2": "",
+            "text_2": "<h3>Komfort topmadras</h3><p>Når du vælger en komfortabel topmadras i størrelsen 90x200, får du en blød og behagelig overflade, der former sig efter din krop for en skræddersyet komfortoplevelse. Vores udvalg af skumtopmadrasser i denne størrelse er omhyggeligt udvalgt for at sikre den bedste komfort til din søvn.</p><h3>Topmadras med memoryskum</h3><p>Memoryskumtopmadrasser tilbyder en unik trykaflastende støtte, der er ideel for dem, der ønsker en luksuriøs følelse i sengen, specielt i størrelsen 90x200. Vores udvalg af memoryskumtopmadrasser i denne størrelse er af høj kvalitet og er designet til at forbedre din nattesøvn.</p><h3>Kølende Topmadras</h3><p>Hvis du har svært ved at sove på grund af varme, kan en kølende topmadras med skum og et kølende omnisoft betræk i størrelsen 90x200 være det, du har brug for. Vores kølende topmadrasser hjælper med at regulere temperaturen og holde dig behageligt kølig hele natten.</p><h3>Topmadras med latex</h3><p>Latextopmadrasser er kendt for deres holdbarhed og faste støtte, også i størrelsen 90x200. Vores udvalg af latex topmadrasser i denne størrelse er designet til at give dig den nødvendige støtte og komfort for en god nattesøvn.</p><h3>Valg af topmadras afhænger i høj grad af dine præferencer</h3><p>Når du vælger din næste topmadras i størrelsen 90x200, er det vigtigt at tage højde for dine personlige præferencer og behov. Uanset om du foretrækker blødhed, støtte, temperaturregulering eller holdbarhed, har Sengefabrikken den rette topmadras til dig. Lad vores ekspertise og udvalg hjælpe dig med at finde den ideelle topmadras, der vil forbedre din søvnkvalitet og give dig en god nattesøvn hver nat.</p><p>Kontakt os i dag for at få mere information om vores topmadrasser i størrelsen 90x200, og lad os hjælpe dig med at finde den perfekte topmadras til din seng. Din komfort er vores prioritet.</p>"
+          }
+        },
+        "text_90x210": {
+          "type": "text",
+          "settings": {
+            "filter_value": "90x210",
+            "heading_1": "",
+            "text_1": "<p>Når det handler om at forbedre din søvnkvalitet med en topmadras i størrelsen 90x210, spiller valget af den rette topmadras en væsentlig rolle. Hos Sengefabrikken forstår vi betydningen af at have en komfortabel og støttende topmadras i denne specifikke størrelse for at sikre en god nattesøvn. Vores udvalg af topmadrasser i størrelsen 90x210 er skræddersyet til forskellige præferencer og behov, og vi er her for at guide dig igennem de forskellige muligheder.</p><h3>Topmadrasser - en oversigt over de forskellige materialer</h3><p>Topmadrasser kommer i forskellige materialer, hver med sine unikke egenskaber og fordele. Lad os udforske de mest almindelige typer:</p><h4>Topmadras med skum</h4><p>Skumtopmadrasser i størrelsen 90x210 er kendt for deres blødhed og evne til at aflaste tryk, hvilket giver en behagelig overflade at sove på. Vores udvalg af skumtopmadrasser i denne størrelse er omhyggeligt udvalgt for at sikre optimal komfort og støtte.</p><h4>Memoryskumtopmadras</h4><p>Memoryskumtopmadrasser tilpasser sig din kropsform og giver en personlig søvnoplevelse. Dette gør dem ideelle for dem, der søger maksimal komfort og støtte i størrelsen 90x210.</p>",
+            "heading_2": "",
+            "text_2": "<h4>Kølende topmadras med skum</h4><p>Hvis du har tendens til at overophede om natten, kan en kølende topmadras med skum i størrelsen 90x210 være svaret. Disse topmadrasser hjælper med at regulere temperaturen og holde dig kølig, så du kan sove bedre.</p><h4>Topmadras med latex</h4><p>Latextopmadrasser er kendt for deres holdbarhed og naturlige elasticitet. De giver en fastere støtte og er allergivenlige, hvilket gør dem til et populært valg, også i størrelsen 90x210.</p><h3>Valg af topmadras afhænger af dine præferencer</h3><p>Når du vælger din næste topmadras i størrelsen 90x210, er det vigtigt at tage højde for dine personlige præferencer og behov. Uanset om du foretrækker blødhed, støtte, temperaturregulering eller holdbarhed, har Sengefabrikken den rette topmadras til dig. Lad vores ekspertise og udvalg hjælpe dig med at finde den ideelle topmadras, der vil forbedre din søvnkvalitet og give dig en god nattesøvn hver nat.</p><p>Kontakt os i dag for at få mere information om vores topmadrasser i størrelsen 90x210, og lad os hjælpe dig med at finde den perfekte topmadras til din seng. Din komfort er vores prioritet.</p>"
+          }
+        },
+        "text_105x210": {
+          "type": "text",
+          "settings": {
+            "filter_value": "105x210",
+            "heading_1": "",
+            "text_1": "<p>Når det handler om at forbedre din søvnkvalitet med en topmadras i størrelsen 105x210, spiller valget af den rette topmadras en væsentlig rolle. Hos Sengefabrikken forstår vi betydningen af at have en komfortabel og støttende topmadras i denne specifikke størrelse for at sikre en god nattesøvn. Vores udvalg af topmadrasser i størrelsen 105x210 er skræddersyet til forskellige præferencer og behov, og vi er her for at guide dig igennem de forskellige muligheder.</p><h3>Topmadrasser - en oversigt over de forskellige materialer</h3><p>Topmadrasser kommer i forskellige materialer, hver med sine unikke egenskaber og fordele. Lad os udforske de mest almindelige typer:</p><h4>Topmadras med skum</h4><p>Skumtopmadrasser i størrelsen 105x210 er kendt for deres blødhed og evne til at aflaste tryk, hvilket giver en behagelig overflade at sove på. Vores udvalg af skumtopmadrasser i denne størrelse er omhyggeligt udvalgt for at sikre optimal komfort og støtte.</p><h4>Memoryskumtopmadras</h4><p>Memoryskumtopmadrasser tilpasser sig din kropsform og giver en personlig søvnoplevelse. Dette gør dem ideelle for dem, der søger maksimal komfort og støtte i størrelsen 105x210.</p>",
+            "heading_2": "",
+            "text_2": "<h4>Kølende topmadras med skum</h4><p>Hvis du har tendens til at overophede om natten, kan en kølende topmadras med skum i størrelsen 105x210 være svaret. Disse topmadrasser hjælper med at regulere temperaturen og holde dig kølig, så du kan sove bedre.</p><h4>Topmadras med latex</h4><p>Latextopmadrasser er kendt for deres holdbarhed og naturlige elasticitet. De giver en fastere støtte og er allergivenlige, hvilket gør dem til et populært valg, også i størrelsen 105x210.</p><h3>Valg af topmadras afhænger af dine præferencer</h3><p>Når du vælger din næste topmadras i størrelsen 105x210, er det vigtigt at tage højde for dine personlige præferencer og behov. Uanset om du foretrækker blødhed, støtte, temperaturregulering eller holdbarhed, har Sengefabrikken den rette topmadras til dig. Lad vores ekspertise og udvalg hjælpe dig med at finde den ideelle topmadras, der vil forbedre din søvnkvalitet og give dig en god nattesøvn hver nat.</p><p>Kontakt os i dag for at få mere information om vores topmadrasser i størrelsen 105x210, og lad os hjælpe dig med at finde den perfekte topmadras til din seng. Din komfort er vores prioritet.</p>"
+          }
+        },
+        "text_120x200": {
+          "type": "text",
+          "settings": {
+            "filter_value": "120x200",
+            "heading_1": "",
+            "text_1": "<p>Når det handler om at forbedre din søvnkvalitet med en topmadras i størrelsen 120x200, spiller valget af den rette topmadras en væsentlig rolle. Hos Sengefabrikken forstår vi betydningen af at have en komfortabel og støttende topmadras i denne specifikke størrelse for at sikre en god nattesøvn. Vores udvalg af topmadrasser i størrelsen 120x200 er skræddersyet til forskellige præferencer og behov, og vi er her for at guide dig igennem de forskellige muligheder.</p><h3>Topmadrasser - en oversigt over de forskellige materialer</h3><p>Topmadrasser kommer i forskellige materialer, hver med sine unikke egenskaber og fordele. Lad os udforske de mest almindelige typer:</p><h4>Topmadras med skum</h4><p>Skumtopmadrasser i størrelsen 120x200 er kendt for deres blødhed og evne til at aflaste tryk, hvilket giver en behagelig overflade at sove på. Vores udvalg af skumtopmadrasser i denne størrelse er omhyggeligt udvalgt for at sikre optimal komfort og støtte.</p><h4>Memoryskumtopmadras</h4><p>Memoryskumtopmadrasser tilpasser sig din kropsform og giver en personlig søvnoplevelse. Dette gør dem ideelle for dem, der søger maksimal komfort og støtte i størrelsen 120x200.</p>",
+            "heading_2": "",
+            "text_2": "<h4>Kølende topmadras med skum</h4><p>Hvis du har tendens til at overophede om natten, kan en kølende topmadras med skum i størrelsen 120x200 være svaret. Disse topmadrasser hjælper med at regulere temperaturen og holde dig kølig, så du kan sove bedre.</p><h4>Topmadras med latex</h4><p>Latextopmadrasser er kendt for deres holdbarhed og naturlige elasticitet. De giver en fastere støtte og er allergivenlige, hvilket gør dem til et populært valg, også i størrelsen 120x200.</p><h3>Valg af topmadras afhænger af dine præferencer</h3><p>Når du vælger din næste topmadras i størrelsen 120x200, er det vigtigt at tage højde for dine personlige præferencer og behov. Uanset om du foretrækker blødhed, støtte, temperaturregulering eller holdbarhed, har Sengefabrikken den rette topmadras til dig. Lad vores ekspertise og udvalg hjælpe dig med at finde den ideelle topmadras, der vil forbedre din søvnkvalitet og give dig en god nattesøvn hver nat.</p><p>Kontakt os i dag for at få mere information om vores topmadrasser i størrelsen 120x200, og lad os hjælpe dig med at finde den perfekte topmadras til din seng. Din komfort er vores prioritet.</p>"
+          }
+        },
+        "text_140x200": {
+          "type": "text",
+          "settings": {
+            "filter_value": "140x200",
+            "heading_1": "",
+            "text_1": "<p>Når det handler om at forbedre din søvnkvalitet med en topmadras i størrelsen 140x200, spiller valget af den rette topmadras en væsentlig rolle. Hos Sengefabrikken forstår vi betydningen af at have en komfortabel og støttende topmadras i denne specifikke størrelse for at sikre en god nattesøvn. Vores udvalg af topmadrasser i størrelsen 140x200 er skræddersyet til forskellige præferencer og behov, og vi er her for at guide dig igennem de forskellige muligheder.</p><h3>Topmadrasser - en oversigt over de forskellige materialer</h3><p>Topmadrasser kommer i forskellige materialer, hver med sine unikke egenskaber og fordele. Lad os udforske de mest almindelige typer:</p><h4>Topmadras med skum</h4><p>Skumtopmadrasser i størrelsen 140x200 er kendt for deres blødhed og evne til at aflaste tryk, hvilket giver en behagelig overflade at sove på. Vores udvalg af skumtopmadrasser i denne størrelse er omhyggeligt udvalgt for at sikre optimal komfort og støtte.</p><h4>Memoryskumtopmadras</h4><p>Memoryskumtopmadrasser tilpasser sig din kropsform og giver en personlig søvnoplevelse. Dette gør dem ideelle for dem, der søger maksimal komfort og støtte i størrelsen 140x200.</p>",
+            "heading_2": "",
+            "text_2": "<h4>Kølende topmadras med skum</h4><p>Hvis du har tendens til at overophede om natten, kan en kølende topmadras med skum i størrelsen 140x200 være svaret. Disse topmadrasser hjælper med at regulere temperaturen og holde dig kølig, så du kan sove bedre.</p><h4>Topmadras med latex</h4><p>Latextopmadrasser er kendt for deres holdbarhed og naturlige elasticitet. De giver en fastere støtte og er allergivenlige, hvilket gør dem til et populært valg, også i størrelsen 140x200.</p><h3>Valg af topmadras afhænger af dine præferencer</h3><p>Når du vælger din næste topmadras i størrelsen 140x200, er det vigtigt at tage højde for dine personlige præferencer og behov. Uanset om du foretrækker blødhed, støtte, temperaturregulering eller holdbarhed, har Sengefabrikken den rette topmadras til dig. Lad vores ekspertise og udvalg hjælpe dig med at finde den ideelle topmadras, der vil forbedre din søvnkvalitet og give dig en god nattesøvn hver nat.</p><p>Kontakt os i dag for at få mere information om vores topmadrasser i størrelsen 140x200, og lad os hjælpe dig med at finde den perfekte topmadras til din seng. Din komfort er vores prioritet.</p>"
+          }
+        },
+        "text_160x200": {
+          "type": "text",
+          "settings": {
+            "filter_value": "160x200",
+            "heading_1": "",
+            "text_1": "<p>Når det handler om at forbedre din søvnkvalitet med en topmadras i størrelsen 160x200, spiller valget af den rette topmadras en væsentlig rolle. Hos Sengefabrikken forstår vi betydningen af at have en komfortabel og støttende topmadras i denne specifikke størrelse for at sikre en god nattesøvn. Vores udvalg af topmadrasser i størrelsen 160x200 er skræddersyet til forskellige præferencer og behov, og vi er her for at guide dig igennem de forskellige muligheder.</p><h3>Topmadrasser - en oversigt over de forskellige materialer</h3><p>Topmadrasser kommer i forskellige materialer, hver med sine unikke egenskaber og fordele. Lad os udforske de mest almindelige typer:</p><h4>Topmadras med skum</h4><p>Skumtopmadrasser i størrelsen 160x200 er kendt for deres blødhed og evne til at aflaste tryk, hvilket giver en behagelig overflade at sove på. Vores udvalg af skumtopmadrasser i denne størrelse er omhyggeligt udvalgt for at sikre optimal komfort og støtte.</p><h4>Memoryskumtopmadras</h4><p>Memoryskumtopmadrasser tilpasser sig din kropsform og giver en personlig søvnoplevelse. Dette gør dem ideelle for dem, der søger maksimal komfort og støtte i størrelsen 160x200.</p>",
+            "heading_2": "",
+            "text_2": "<h4>Kølende topmadras med skum</h4><p>Hvis du har tendens til at overophede om natten, kan en kølende topmadras med skum i størrelsen 160x200 være svaret. Disse topmadrasser hjælper med at regulere temperaturen og holde dig kølig, så du kan sove bedre.</p><h4>Topmadras med latex</h4><p>Latextopmadrasser er kendt for deres holdbarhed og naturlige elasticitet. De giver en fastere støtte og er allergivenlige, hvilket gør dem til et populært valg, også i størrelsen 160x200.</p><h3>Valg af topmadras afhænger af dine præferencer</h3><p>Når du vælger din næste topmadras i størrelsen 160x200, er det vigtigt at tage højde for dine personlige præferencer og behov. Uanset om du foretrækker blødhed, støtte, temperaturregulering eller holdbarhed, har Sengefabrikken den rette topmadras til dig. Lad vores ekspertise og udvalg hjælpe dig med at finde den ideelle topmadras, der vil forbedre din søvnkvalitet og give dig en god nattesøvn hver nat.</p><p>Kontakt os i dag for at få mere information om vores topmadrasser i størrelsen 160x200, og lad os hjælpe dig med at finde den perfekte topmadras til din seng. Din komfort er vores prioritet.</p>"
+          }
+        },
+        "text_180x200": {
+          "type": "text",
+          "settings": {
+            "filter_value": "180x200",
+            "heading_1": "",
+            "text_1": "<p>Når det handler om at forbedre din søvnkvalitet med en topmadras i størrelsen 180x200, spiller valget af den rette topmadras en væsentlig rolle. Hos Sengefabrikken forstår vi betydningen af at have en komfortabel og støttende topmadras i denne specifikke størrelse for at sikre en god nattesøvn. Vores udvalg af topmadrasser i størrelsen 180x200 er skræddersyet til forskellige præferencer og behov, og vi er her for at guide dig igennem de forskellige muligheder.</p><h3>Topmadrasser - en oversigt over de forskellige materialer</h3><p>Topmadrasser kommer i forskellige materialer, hver med sine unikke egenskaber og fordele. Lad os udforske de mest almindelige typer:</p><h4>Topmadras med skum</h4><p>Skumtopmadrasser i størrelsen 180x200 er kendt for deres blødhed og evne til at aflaste tryk, hvilket giver en behagelig overflade at sove på. Vores udvalg af skumtopmadrasser i denne størrelse er omhyggeligt udvalgt for at sikre optimal komfort og støtte.</p><h4>Memoryskumtopmadras</h4><p>Memoryskumtopmadrasser tilpasser sig din kropsform og giver en personlig søvnoplevelse. Dette gør dem ideelle for dem, der søger maksimal komfort og støtte i størrelsen 180x200.</p>",
+            "heading_2": "",
+            "text_2": "<h4>Kølende topmadras med skum</h4><p>Hvis du har tendens til at overophede om natten, kan en kølende topmadras med skum i størrelsen 180x200 være svaret. Disse topmadrasser hjælper med at regulere temperaturen og holde dig kølig, så du kan sove bedre.</p><h4>Topmadras med latex</h4><p>Latextopmadrasser er kendt for deres holdbarhed og naturlige elasticitet. De giver en fastere støtte og er allergivenlige, hvilket gør dem til et populært valg, også i størrelsen 180x200.</p><h3>Valg af topmadras afhænger af dine præferencer</h3><p>Når du vælger din næste topmadras i størrelsen 180x200, er det vigtigt at tage højde for dine personlige præferencer og behov. Uanset om du foretrækker blødhed, støtte, temperaturregulering eller holdbarhed, har Sengefabrikken den rette topmadras til dig. Lad vores ekspertise og udvalg hjælpe dig med at finde den ideelle topmadras, der vil forbedre din søvnkvalitet og give dig en god nattesøvn hver nat.</p><p>Kontakt os i dag for at få mere information om vores topmadrasser i størrelsen 180x200, og lad os hjælpe dig med at finde den perfekte topmadras til din seng. Din komfort er vores prioritet.</p>"
+          }
+        },
+        "text_180x210": {
+          "type": "text",
+          "settings": {
+            "filter_value": "180x210",
+            "heading_1": "",
+            "text_1": "<p>Når det handler om at forbedre din søvnkvalitet med en topmadras i størrelsen 180x210, spiller valget af den rette topmadras en væsentlig rolle. Hos Sengefabrikken forstår vi betydningen af at have en komfortabel og støttende topmadras i denne specifikke størrelse for at sikre en god nattesøvn. Vores udvalg af topmadrasser i størrelsen 180x210 er skræddersyet til forskellige præferencer og behov, og vi er her for at guide dig igennem de forskellige muligheder.</p><h3>Topmadrasser - en oversigt over de forskellige materialer</h3><p>Topmadrasser kommer i forskellige materialer, hver med sine unikke egenskaber og fordele. Lad os udforske de mest almindelige typer:</p><h4>Topmadras med skum</h4><p>Skumtopmadrasser i størrelsen 180x210 er kendt for deres blødhed og evne til at aflaste tryk, hvilket giver en behagelig overflade at sove på. Vores udvalg af skumtopmadrasser i denne størrelse er omhyggeligt udvalgt for at sikre optimal komfort og støtte.</p><h4>Memoryskumtopmadras</h4><p>Memoryskumtopmadrasser tilpasser sig din kropsform og giver en personlig søvnoplevelse. Dette gør dem ideelle for dem, der søger maksimal komfort og støtte i størrelsen 180x210.</p>",
+            "heading_2": "",
+            "text_2": "<h4>Kølende topmadras med skum</h4><p>Hvis du har tendens til at overophede om natten, kan en kølende topmadras med skum i størrelsen 180x210 være svaret. Disse topmadrasser hjælper med at regulere temperaturen og holde dig kølig, så du kan sove bedre.</p><h4>Topmadras med latex</h4><p>Latextopmadrasser er kendt for deres holdbarhed og naturlige elasticitet. De giver en fastere støtte og er allergivenlige, hvilket gør dem til et populært valg, også i størrelsen 180x210.</p><h3>Valg af topmadras afhænger af dine præferencer</h3><p>Når du vælger din næste topmadras i størrelsen 180x210, er det vigtigt at tage højde for dine personlige præferencer og behov. Uanset om du foretrækker blødhed, støtte, temperaturregulering eller holdbarhed, har Sengefabrikken den rette topmadras til dig. Lad vores ekspertise og udvalg hjælpe dig med at finde den ideelle topmadras, der vil forbedre din søvnkvalitet og give dig en god nattesøvn hver nat.</p><p>Kontakt os i dag for at få mere information om vores topmadrasser i størrelsen 180x210, og lad os hjælpe dig med at finde den perfekte topmadras til din seng. Din komfort er vores prioritet.</p>"
+          }
+        },
+        "text_210x210": {
+          "type": "text",
+          "settings": {
+            "filter_value": "210x210",
+            "heading_1": "",
+            "text_1": "<p>Når det handler om at forbedre din søvnkvalitet med en topmadras i størrelsen 210x210, spiller valget af den rette topmadras en væsentlig rolle. Hos Sengefabrikken forstår vi betydningen af at have en komfortabel og støttende topmadras i denne specifikke størrelse for at sikre en god nattesøvn. Vores udvalg af topmadrasser i størrelsen 210x210 er skræddersyet til forskellige præferencer og behov, og vi er her for at guide dig igennem de forskellige muligheder.</p><h3>Topmadrasser - en oversigt over de forskellige materialer</h3><p>Topmadrasser kommer i forskellige materialer, hver med sine unikke egenskaber og fordele. Lad os udforske de mest almindelige typer:</p><h4>Topmadras med skum</h4><p>Skumtopmadrasser i størrelsen 210x210 er kendt for deres blødhed og evne til at aflaste tryk, hvilket giver en behagelig overflade at sove på. Vores udvalg af skumtopmadrasser i denne størrelse er omhyggeligt udvalgt for at sikre optimal komfort og støtte.</p><h4>Memoryskumtopmadras</h4><p>Memoryskumtopmadrasser tilpasser sig din kropsform og giver en personlig søvnoplevelse. Dette gør dem ideelle for dem, der søger maksimal komfort og støtte i størrelsen 210x210.</p>",
+            "heading_2": "",
+            "text_2": "<h4>Kølende topmadras med skum</h4><p>Hvis du har tendens til at overophede om natten, kan en kølende topmadras med skum i størrelsen 210x210 være svaret. Disse topmadrasser hjælper med at regulere temperaturen og holde dig kølig, så du kan sove bedre.</p><h4>Topmadras med latex</h4><p>Latextopmadrasser er kendt for deres holdbarhed og naturlige elasticitet. De giver en fastere støtte og er allergivenlige, hvilket gør dem til et populært valg, også i størrelsen 210x210.</p><h3>Valg af topmadras afhænger af dine præferencer</h3><p>Når du vælger din næste topmadras i størrelsen 210x210, er det vigtigt at tage højde for dine personlige præferencer og behov. Uanset om du foretrækker blødhed, støtte, temperaturregulering eller holdbarhed, har Sengefabrikken den rette topmadras til dig. Lad vores ekspertise og udvalg hjælpe dig med at finde den ideelle topmadras, der vil forbedre din søvnkvalitet og give dig en god nattesøvn hver nat.</p><p>Kontakt os i dag for at få mere information om vores topmadrasser i størrelsen 210x210, og lad os hjælpe dig med at finde den perfekte topmadras til din seng. Din komfort er vores prioritet.</p>"
+          }
+        },
+        "text_standard": {
+          "type": "text",
+          "settings": {
+            "filter_value": "",
+            "heading_1": "",
+            "text_1": "<p>Det behøves ikke være svært at købe ny topmadras - ej heller, hvis du køber den online. Så længe du læser grundigt op på de enkelte materialer, og herudover tager dine præferencer med ind i købsprocessen, så er du godt stillet. Ydermere kan du hos os få hjælp og vejledning til valget, hvilket også gør beslutningen markant nemmere. Hos Sengefabrikken.dk har vi fra start valgt udelukkende at forhandle vores produkter online - dette er en hel bevidst strategi, da det giver os en fleksibilitet, som mange andre firmaer ikke kan tilbyde dig. Dette kommer blandt andet til udtryk i form af vores lave priser, hurtige levering og store udvalg af <a href=\"https://www.sengefabrikken.dk/collections/topmadrasser-efter-mal\">topmadrasser i specialmål</a>.</p><p>Denne guide er ligeledes et godt redskab at have med i værktøjskassen, når du begiver dig ud i at købe en ny topmadras. Herunder vil vi således kigge nærmere på de forskellige materialer på markedet, ligesom vi vil se nærmere på vores udvalg af topmadrasser. På denne måde kan du hurtigt og nemt spore dig ind på, hvad du skal bruge - og hvis du har brug for hjælp, så er vi aldrig længere end et opkald, en e-mail eller en chat-besked væk.</p><p>At vi kan vores kram, og at vores produkter er i særklasse trods de lave priser, understreges af vores mere end 3.000 kundeanmeldelser her på siden samt vores 4,7 stjerner på TrustPilot. Du behøves ikke ofre 5.000 eller 10.000 kroner på en dyr topmadras fra et bestemt mærke, når du kan få en tilsvarende kvalitet markant billigere hos os - så hvis du ikke går op i mærket på topmadrassen, så kan du roligt gå på opdagelse i vores store sortiment af topmadrasser.</p><h3>Derfor er en topmadras en god investering</h3><p>Hos Sengefabrikken ser vi udelukkende fordele ved at udstyre din seng med en god topmadras. Vi har listet de mest markante herunder:</p><ul><li>En topmadras forbedrer sengens <u>komfort</u> - og dermed din nattesøvn.</li><li>En topmadras bidrager til en ordentlig og sund <u>støtte</u> af kroppen.</li><li>En topmadras forlænger <u>levetiden</u> på din seng betragteligt, da den vil fungere som din primære berøringsflade.</li><li>En topmadras forbedrer dit generelle <u>sengemiljø</u> og <u>hygiejnen</u>, da betrækket kan tages af og vaskes.</li></ul><p>Der er altså rigtig mange gode grunde til at investere i en topmadras og generelt bruge en topmadras ovenpå din seng.</p><h2>Topmadrasser - generelt om de forskellige materialer</h2><p>Der findes som udgangspunkt to forskellige materialer, når det kommer til topmadrasser.</p><ul><li>Memory skum</li><li>Latex</li></ul><p>Hvert materiale findes herudover i mange forskellige former, farver, kvaliteter og prisklasser. For at give dig det bedst tænkelige overblik, så vil vi kigge på de to varianter og deres kendetegn individuelt herunder.</p><h3>Topmadrasser med memory skum</h3><p>Memory skum er et meget populært madras-materiale herhjemme, da den rigtige kvalitet af denne type skum giver en unik komfort og støtte. Memory er et forholdsvist blødt materiale, der bruger kropsvarme og kropsvægt til at forme sig. Skummet former sig med andre ord efter din krop, og følger dine bevægelser natten igennem. Skummets trykaflastende natur giver en rigtig god støtte og komfort hele natten igennem, da det som sagt følger dig og din krops bevægelser. Dermed er du sikker på, at du hele tiden får den rette støtte, uagtet hvordan du ligger og hvor meget du vender og drejer dig.</p><p>Historien om memory foam strækker sig helt tilbage til 1966, hvor materialet blev udviklet af NASA, hvilket er grunden til, at skumtypen for mange er kendt som 'NASA skum'. Hensigten var at madrasserne skulle forbedre astronauternes sikkerhed i rummet. Siden da er meget vand løbet under broen, men man finder stadig forhandlere, der 'praler' med at have NASA madrasser i sortiment - navnet er dog ikke ensbetydende med, at du får en kvalitets madras, tværtimod. Faktisk bliver NASA madrasser, udelukkende på grund af navnet, ofte forhandlet til en meget høj pris, uden at man får nævneværdigt meget kvalitet for pengene. Netop dette er én af grundene til, at mange danskere har dårlige erfaringer med memory skum, eftersom de kort sagt har købt en topmadras, hvor kvaliteten af skummet har været så dårlig, at de ikke har fået den fulde effekt af skummets fantastiske egenskaber.</p><h3>Topmadrasser med latex</h3><p>Latex er et naturmateriale i modsætning til de to beskrevne skumtyper herover; dette betyder, at du får et mere åndbart og elastisk materiale, der rent komfortmæssigt vil føles fastere end memory skum grundet latexens naturlige cellestruktur, hvor man får en fornemmelse af at materialet 'skubber tilbage' i stedet for at 'give efter'.</p><p>Latex udvindes af gummitræer; det naturlige materiale har den helt overskyggende fordel, at det i kraft af sin naturlighed er meget åndbart. Man vil derfor ikke døje med varmen, hvis man ligger på en latex topmadras, eftersom materialet konstant trækker luft ind og derved ventilerer.</p><p>Selvom latex ikke 'giver efter' på samme måde som memory skum, så får du stadig en rigtig god støtte og komfort, der bare kommer til udtryk på anden vis. En latex topmadras vil holde den øverste del af din seng mere jævn og fast, selv når du ligger på den. Den store ulempe ved latex er prisen, da det er dyrere at udvinde og producere end fx koldskum og memory skum. Dette skyldes blandt andet at latex udvindes i store monoblokke, som herefter skal skæres til, så de passer i både højde og længde; der er altså en del mere manuelt arbejde forbundet med produktionen, hvilket selvfølgelig fordyrer processen.</p>",
+            "heading_2": "",
+            "text_2": "<h2>Valg af topmadras afhænger i høj grad af dine præferencer</h2><p>Som vi var inde på i starten, så findes der ikke den perfekte topmadras, der partout passer til alle mennesker. Det er således meget individuelt, hvilken type topmadras der passer til den enkelte. Faktisk ser vi ofte at et par vælger to forskellige topmadrasser til samme seng, fx en med latex til den ene part og en med memory skum til den anden part, da begge parter på denne måde får opfyldt deres individuelle behov for en behagelig komfort, god støtte og ventilering.</p><p>Som udgangspunkt bør du stille dig selv følgende spørgsmål, inden du bestemmer dig:</p><ul><li>Foretrækker du at ligge på en blød, medium eller fast topmadras?</li><li>Har du det varmt om natten?</li><li>Hvor meget er du villig til at betale for en topmadras?</li></ul><p>Hvis du foretrækker at ligge på en blød madras, så bør du vælge en model med memory skum - foretrækker du omvendt en mere fast topmadras, så bør du gå efter latex.</p><p>Memory skum giver din krop en unik støtte og trykaflastning, hvorfor dette materiale selvsagt er meget populært. Du får en rigtig god støtte af kroppen ved memory skum, hvilket vores mange anmeldelser af de forskellige modeller understreger. Topmadrasser med memory skum aflaster kroppen, hvilket betyder, at den mindsker smerter ved fx ryg, skuldre og lænd, hvilket naturligvis er et meget stort plus. Hvis du døjer med en øm lænd, så er memory skum ofte et rigtig godt valg, da skummet vil sørge for at du får ekstra aflastning omkring netop lænden. Trykaflastningen betyder, at du synker ned i madrassen, der hvor du placerer den største belastning – med andre ord omkring dine primære trykpunkter.</p><p>Hvis du omvendt foretrækker en fastere støtte og komfort, hvor topmadrassen ikke ”giver efter” for dit kropstryk på samme måde som memory skum, så er latex et rigtig godt valg. Vi ser en tendens til, at flere og flere vælger en topmadras med latex, hvilket skyldes en kombination af såvel komforten som materialets evne til at ventilere og aflede kropsvarmen fra sengen. Latex yder en progressiv komfort, hvor materialet ”skubber igen”, hvilket resulterer i, at du vil bevare en mere jævn overflade på sengen, selv når du ligger i den. Derudover optager latex ikke din kropsvarme, men leder den i stedet væk fra madrassen – dette er med til at sikre et sundt sovemiljø, hvor du ikke kommer til at få det for varmt i løbet af natten. Alle vores latex topmadrasser er desuden med perforeret latex, der forbedrer topmadrassernes evne til at lede varmen væk fra sengen.</p><p><b> Der findes kort sagt ikke et sort/hvidt svar på, om latex er bedre end memory skum eller omvendt. Det afhænger således i høj grad af personlige præferencer! </b></p><p>Selvom vi hos Sengefabrikken.dk kører med faste lave priser på alle vores topmadrasser (dog med besparelser på op til 55/60 % i forhold til markedspriserne), så er der selvfølgelig også prisforskelle, som der skal tages højde for, når du bestemmer dig. Som udgangspunkt bør du aldrig gå på kompromis med kvaliteten grundet en lav pris - du bruger trods alt 1/3 af dit liv i sengen - men ikke desto mindre kommer vi ikke udenom, at det økonomiske aspekt altid spiller en rolle. Vi mener ikke nødvendigvis, at pris og kvalitet skal gå hånd-i- hånd, ligesom du hos os ikke betaler overpris for et dyrt brand. Derfor kan du sagtens finde en rigtig god topmadras i vores sortiment, der rent kvalitetsmæssigt sagtens kan hamle op med topmadrasser til den dobbelte pris.</p><p>Generelt er du derfor godt stillet med en hvilken som helst af vores topmadrasser, da du altid kan være sikker på, at vi leverer en vare, der er gennemtestet og lever op til vores høje kvalitetskrav. Herudover understreger de mange anmeldelser af de forskellige modeller også, at kvaliteten af vores topmadrasser er helt i top!</p><h2>Har du spørgsmål til vores topmadrasser?</h2><p>Hvis du har læst med ovenfor er du formentlig blevet lidt klogere på vores udvalg af topmadrasser og på de materialer, som primært bruges til topmadrasser. <b>Er du stadig i tvivl?</b> Vi forstår godt, hvis det stadig kan være lidt svært at finde frem til, hvilken topmadras, der er den rigtige for dig - og vi vil rigtig gerne hjælpe! Vores kompetente søvneksperter er også eksperter i vores udvalg af topmadrasser. Du er som altid velkommen til at ringe til os, sende os en mail eller benytte dig af vores live-chat og derigennem blive guidet ud fra dine præferencer og behov.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_80x200",
+        "text_90x200",
+        "text_90x210",
+        "text_105x210",
+        "text_120x200",
+        "text_140x200",
+        "text_160x200",
+        "text_180x200",
+        "text_180x210",
+        "text_210x210",
+        "text_standard"
+      ],
+      "settings": {
+        "color_scheme": "scheme-1",
+        "heading_size": "h5",
+        "title": "Lad os hjælpe dig med at finde din nye topmadras",
+        "title_heading_size": "h3"
+      }
+    },
+    "faq_iWRBk6": {
+      "type": "faq",
+      "blocks": {
+        "question_t8Ft4Y": {
+          "type": "question",
+          "settings": {
+            "question": "Er det sikkert at købe seng online?",
+            "answer": "<p>Ja, det er det i hvert fald. Vi mener faktisk at vores gunstige betingelser giver dig bedre forudsætninger for at vælge den helt rigtige seng - selvom du ikke kan prøve den inden køb. Der er således en enorm forskel på at prøve en seng i en fysisk butik med alt tøj på i 2-3 minutter kontra at sove i den hjemme i dit soveværelse 7-9 timer hver eneste nat.&nbsp;</p><p>Hvis du, imod forventning, får valgt et produkt der ikke passer til dig, så tilbyder vi 30 dages gratis returret samt 100 dages gratis ombytning af fasthed på alle vores senge.</p>",
+            "icon": "none",
+            "icon_width": 24,
+            "mobile_icon_width": 20
+          }
+        },
+        "question_eC46R9": {
+          "type": "question",
+          "settings": {
+            "question": "Har I en butik eller et showroom?",
+            "answer": "<p>Nej, vi er 100% online - og har ingen butikker eller showrooms. Dette er et helt bevidst valg, da vi ved at holde vores faste omkostninger på et absolut minimum, har mulighed for at optimere både fleksibilitet og priser.&nbsp;</p><p>Hvis du, imod forventning, får valgt et produkt der ikke passer til dig, så tilbyder vi 100 dages gratis retur samt 100 dages gratis ombytning af fasthed på alle vores senge.</p>",
+            "icon": "none",
+            "icon_width": 24,
+            "mobile_icon_width": 20
+          }
+        },
+        "question_iwn6LJ": {
+          "type": "question",
+          "settings": {
+            "question": "Hvad koster levering?",
+            "answer": "<p>Leveringsprisen afhænger af den valgte leveringsform samt leveringsadressen, og den endelige pris vises altid tydeligt på bestillingssiden, inden du gennemfører dit køb.</p><p>Mindre varer, herunder sengetøj, dyner og puder, leveres til din adresse med GLS, mens større varer som senge og madrasser leveres med DSV.</p><p>Standardlevering sker til kantsten. Ønsker du en mere bekvem levering, har du mulighed for at tilkøbe ekstra serviceydelser, så leveringen tilpasses dine behov. Vi tilbyder blandt andet opbæring/indbæring, montering samt bortskaffelse af din nuværende seng. Alle tilkøb kan vælges direkte på bestillingssiden.</p>",
+            "icon": "none",
+            "icon_width": 24,
+            "mobile_icon_width": 20
+          }
+        },
+        "question_xTn6RH": {
+          "type": "question",
+          "settings": {
+            "question": "Hvor lang er jeres leveringstid?",
+            "answer": "<p>Leveringstiden på vores produkter spænder vidt og bredt. Leveringstiden på et produkt vil altid fremgå af produktsiden samt på din ordrebekræftelse.&nbsp;</p><p>Som udgangspunkt vil små varer, som dyner, puder og sengetøj, altid kunne leveres indenfor 1-3 hverdage. Senge, vi har færdigproduceret og stående klar på lager, vil typisk have en leveringstid på op til 15 hverdage, imens senge i ukurante størrelser samt specialmål har en leveringstid på 3-7 uger.</p>",
+            "icon": "none",
+            "icon_width": 24,
+            "mobile_icon_width": 20
+          }
+        },
+        "question_EpMpw6": {
+          "type": "question",
+          "settings": {
+            "question": "Kan jeg ønske levering en bestemt dag?",
+            "answer": "<p>Ja, det kan du. Hvis du ønsker levering en bestemt dag, så skal du blot notere det som ordrekommentar. Herefter vil vi videreformidle den ønskede dag til både vores pakkeri samt det eksterne leveringsfirma, der står for den endelige levering.&nbsp;</p><p>Vi kan ikke garantere levering den ønskede dag, men vi vil altid forsøge at imødekomme det bedst muligt - og det lykkes heldigvis også i 95% af alle tilfælde. Skulle vi mod forventning ikke være i stand til at levere den ønskede dag, så vil leveringen som regel finde sted dagen efter i stedet.</p><p>Uanset hvad, så vil din ordre aldrig blive leveret, uden at du har godkendt leveringsdag og tidsinterval over SMS.</p>",
+            "icon": "none",
+            "icon_width": 24,
+            "mobile_icon_width": 20
+          }
+        },
+        "question_4wexcF": {
+          "type": "question",
+          "settings": {
+            "question": "Kan jeg afdrage beløbet over en periode?",
+            "answer": "<p>At investere i en ny seng er en stor udgift i de flestes privatøkonomi. Derfor tilbyder vi finansiering gennem Anyday, hvor du kan splitte din betaling op i 4 lige store rater – helt uden renter og gebyrer.</p><p>Du ser altid de præcise omkostninger, inden du gennemfører købet, og der tilføjes ingen skjulte gebyrer.</p>",
+            "icon": "none",
+            "icon_width": 24,
+            "mobile_icon_width": 20
+          }
+        }
+      },
+      "block_order": [
+        "question_t8Ft4Y",
+        "question_eC46R9",
+        "question_iwn6LJ",
+        "question_xTn6RH",
+        "question_EpMpw6",
+        "question_4wexcF"
+      ],
+      "name": "t:sections.faq.name",
+      "settings": {
+        "color_scheme": "",
+        "use_page_width": true,
+        "layout": "split",
+        "accordion_style": "border",
+        "question_style": "text",
+        "subheading": "",
+        "title": "Ofte stillede spørgsmål",
+        "title_tag": "h3",
+        "content": "<p>Har du brug for hjælp til valget af ny seng, topmadras eller noget helt tredje? Vores kompetente team af sengevejledere, søvnspecialister og syvsovere sidder klar til at hjælpe dig alle ugens dage fra 09.00 - 18.00. Vi er online, når du har tid.</p>",
+        "button_text": "",
+        "button_url": "",
+        "button_style": "solid"
+      }
+    }
+  },
+  "order": [
+    "banner",
+    "main",
+    "trustpilot_reviews_MGtkrf",
+    "seo_text",
+    "faq_iWRBk6"
+  ]
+}
