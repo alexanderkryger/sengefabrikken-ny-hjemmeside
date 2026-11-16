@@ -33,7 +33,7 @@
           "type": "sengefabrikken_split",
           "settings": {
             "color_scheme": "scheme-8",
-            "position": 4,
+            "position": 1,
             "media_position": "right",
             "image": "shopify://shop_images/EHOB-Sengefabrikken-1.jpg",
             "autoplay": false,
