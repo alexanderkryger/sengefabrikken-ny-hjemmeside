@@ -71,6 +71,9 @@
       {{- 'section-color-transition.css' | asset_url | stylesheet_tag -}}
       <script type="module" src="{{ 'section-color-transition.js' | asset_url }}"></script>
     {%- endif -%}
+
+    {%- comment -%}Sengefabrikken: campaign theme (eg. Black Week){%- endcomment -%}
+    {%- render 'sengefabrikken-campaign-theme', mode: 'style' -%}
   </head>
 
   {% liquid

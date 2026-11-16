@@ -1,0 +1,20 @@
+/* Sengefabrikken: gold headings of the campaign theme (theme settings > Kampagnetema > Overskrifter: Guld), loaded only
+   on the pages of an active campaign (see the sengefabrikken-campaign-theme snippet). drop-shadow is used instead of
+   text-shadow, as text-shadow is drawn behind the transparent fill of the text and muddies the gradient. */
+
+#main {
+  --campaign-gold-gradient: linear-gradient(168deg, #7a4f14 0%, #b8862b 14%, #e8c25c 28%, #fbe9a6 38%, #fff6d4 43%, #f3d373 50%, #c9972f 62%, #93661c 74%, #d3a94a 88%, #86591a 100%);
+  --campaign-gold-shadow: drop-shadow(0 1px 0 rgb(0 0 0 / .45)) drop-shadow(0 0 6px rgb(255 214 120 / .18));
+}
+
+#main :is(h1, h2, h3, .h0, .h1, .h2, .h3, .display-xl, .display-l, .display-m) {
+  background: var(--campaign-gold-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: var(--campaign-gold-shadow);
+}
+
+#main .countdown__timer-flip::part(digit) {
+  background: var(--campaign-gold-gradient);
+}

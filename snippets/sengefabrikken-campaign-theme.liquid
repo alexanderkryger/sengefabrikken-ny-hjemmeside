@@ -1,0 +1,71 @@
+{%- doc -%}
+Sengefabrikken: campaign theme (theme settings > Kampagnetema), eg. for Black Week or the January sale. When enabled, the
+chosen color scheme is used as the background of the page content (#main) on the chosen pages, and replaces the light
+color schemes of its sections, so that the whole page takes the campaign colors without editing each template. The
+header, the footer and the dark or colored sections (eg. banners) keep their own colors.
+
+- mode "selectors": the extra selectors receiving the variables of the campaign color scheme, appended to the color
+  scheme rule in the css-variables snippet (eg. ", #main, #main .color-scheme--scheme-1")
+- mode "style": the page background and the heading style of the campaign (a color, or the gold gradient of
+  sengefabrikken-campaign-gold.css), rendered in the <head>
+
+@param {string} mode - "selectors" or "style"
+{%- enddoc -%}
+
+{%- liquid
+  assign campaign_scheme = settings.campaign_color_scheme
+  assign campaign_active = false
+
+  if settings.campaign_theme_enabled and campaign_scheme != blank
+    case settings.campaign_theme_scope
+      when 'all'
+        assign campaign_active = true
+      when 'collections_products'
+        if template.name == 'collection' or template.name == 'list-collections' or template.name == 'search' or template.name == 'product'
+          assign campaign_active = true
+        endif
+      else
+        if template.name == 'collection' or template.name == 'list-collections' or template.name == 'search'
+          assign campaign_active = true
+        endif
+    endcase
+  endif
+
+  if campaign_active and mode == 'selectors'
+    echo ', #main'
+
+    if settings.campaign_replace_light_schemes
+      for color_scheme in settings.color_schemes
+        if color_scheme.id == campaign_scheme.id or color_scheme.settings.background == 'rgba(0,0,0,0)'
+          continue
+        endif
+
+        assign background_brightness = color_scheme.settings.background | color_brightness
+
+        if background_brightness >= settings.campaign_light_scheme_threshold
+          echo ', #main .color-scheme--' | append: color_scheme.id
+        endif
+      endfor
+    endif
+  endif
+-%}
+
+{%- if campaign_active and mode == 'style' -%}
+  <style>
+    #main {
+      background-color: rgb(var(--background));
+      background-image: var(--background-gradient);
+      color: rgb(var(--text-color));
+    }
+
+    {%- if settings.campaign_heading_style == 'color' %}
+    #main :is(h1, h2, h3, .h0, .h1, .h2, .h3, .display-xl, .display-l, .display-m) {
+      color: {{ settings.campaign_heading_color }};
+    }
+    {%- endif %}
+  </style>
+
+  {%- if settings.campaign_heading_style == 'gold' -%}
+    {{- 'sengefabrikken-campaign-gold.css' | asset_url | stylesheet_tag -}}
+  {%- endif -%}
+{%- endif -%}

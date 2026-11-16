@@ -1404,6 +1404,92 @@
     ]
   },
   {
+    "name": "Kampagnetema",
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "Giver siderne kampagnens farver, fx under Black Week eller januarudsalget. Opret først et farveskema til kampagnen under Farver (baggrund, tekst og knapper), og vælg det her. Header, footer og mørke eller farvede sektioner (fx bannere) beholder deres egne farver."
+      },
+      {
+        "type": "checkbox",
+        "id": "campaign_theme_enabled",
+        "label": "Aktivér kampagnetema",
+        "default": false
+      },
+      {
+        "type": "color_scheme",
+        "id": "campaign_color_scheme",
+        "label": "Farveskema",
+        "default": "scheme-4"
+      },
+      {
+        "type": "select",
+        "id": "campaign_theme_scope",
+        "label": "Vis på",
+        "options": [
+          {
+            "value": "collections",
+            "label": "Kollektioner og søgning"
+          },
+          {
+            "value": "collections_products",
+            "label": "Kollektioner, søgning og produkter"
+          },
+          {
+            "value": "all",
+            "label": "Hele butikken"
+          }
+        ],
+        "default": "collections"
+      },
+      {
+        "type": "checkbox",
+        "id": "campaign_replace_light_schemes",
+        "label": "Erstat lyse sektionsfarver",
+        "info": "Sektioner med en lys baggrund (fx SEO-teksten) får også kampagnens farveskema. Slå fra, hvis kun sidebaggrunden skal skifte.",
+        "default": true
+      },
+      {
+        "type": "range",
+        "id": "campaign_light_scheme_threshold",
+        "label": "Lys baggrund fra lysstyrke",
+        "info": "Farveskemaer med en baggrund over denne lysstyrke (0-255) bliver erstattet. Hvid er 255.",
+        "min": 150,
+        "max": 255,
+        "step": 5,
+        "default": 190,
+        "visible_if": "{{ settings.campaign_replace_light_schemes }}"
+      },
+      {
+        "type": "select",
+        "id": "campaign_heading_style",
+        "label": "Overskrifter",
+        "options": [
+          {
+            "value": "none",
+            "label": "Som farveskemaet"
+          },
+          {
+            "value": "color",
+            "label": "Egen farve"
+          },
+          {
+            "value": "gold",
+            "label": "Guld"
+          }
+        ],
+        "default": "none"
+      },
+      {
+        "type": "color",
+        "id": "campaign_heading_color",
+        "label": "Farve på overskrifter",
+        "default": "#ffd83d",
+        "visible_if": "{{ settings.campaign_heading_style == 'color' }}"
+      }
+    ]
+  },
+  {
     "name": "Sengefabrikken layout",
     "settings": [
       {

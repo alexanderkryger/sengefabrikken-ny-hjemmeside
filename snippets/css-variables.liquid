@@ -276,8 +276,11 @@ note that this may have impact on different places.
     --default-color-scheme-text-color: {{ settings.default_color_scheme.settings.text_color.rgb }};
   }
 
+  {%- comment -%}Sengefabrikken: the campaign color scheme also applies to the page content (see sengefabrikken-campaign-theme){%- endcomment -%}
+  {%- capture campaign_selectors -%}{%- render 'sengefabrikken-campaign-theme', mode: 'selectors' -%}{%- endcapture -%}
+
   {%- for color_scheme in settings.color_schemes -%}
-    .color-scheme--{{ color_scheme.id }} {
+    .color-scheme--{{ color_scheme.id }}{% if color_scheme.id == settings.campaign_color_scheme.id %}{{ campaign_selectors }}{% endif %} {
       --accent: {{ color_scheme.settings.primary_button_background.rgb }};
       --background: {% if color_scheme.settings.background == 'rgba(0,0,0,0)' %}0 0 0 / 0{% else %}{{ color_scheme.settings.background.rgb }}{% endif %};
       --background-gradient: {{ color_scheme.settings.background_gradient }};
