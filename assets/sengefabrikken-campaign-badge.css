@@ -1,0 +1,24 @@
+/* Sengefabrikken: campaign badge (theme settings > Kampagnetema > Kampagnebadge), loaded only while the badge is enabled
+   (see the sengefabrikken-campaign-badge snippet). The size is set by the --campaign-badge-size variable. */
+
+.sengefabrikken-campaign-badge {
+  width: var(--campaign-badge-size, 72px);
+  height: auto;
+  pointer-events: none;
+}
+
+/* On the stock product card and the product gallery, the badge is placed on top of the media */
+.sengefabrikken-campaign-badge--overlay {
+  z-index: 1;
+  position: absolute;
+  inset-block-start: .75rem;
+  inset-inline-end: .75rem;
+}
+
+@media screen and (min-width: 1000px) {
+  .sengefabrikken-campaign-badge--gallery {
+    width: calc(var(--campaign-badge-size, 72px) * 1.5);
+    inset-block-start: 1.25rem;
+    inset-inline-end: 1.25rem;
+  }
+}

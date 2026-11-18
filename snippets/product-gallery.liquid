@@ -139,6 +139,9 @@ only way to do it on Shopify right now.
         {%- endif -%}
       </scroll-carousel>
 
+      {%- comment -%}Sengefabrikken: campaign badge (theme settings > Kampagnetema){%- endcomment -%}
+      {%- render 'sengefabrikken-campaign-badge', product: product, sizes: '(max-width: 699px) 96px, 144px', class: 'sengefabrikken-campaign-badge--overlay sengefabrikken-campaign-badge--gallery' -%}
+
       {%- if desktop_layout == 'carousel' and product.media.size > 1 -%}
         <custom-cursor class="product-gallery__cursor custom-cursor" {% if default_media.media_type != 'image' %}hidden{% endif %}>
           <div class="circle-button circle-button--xl">

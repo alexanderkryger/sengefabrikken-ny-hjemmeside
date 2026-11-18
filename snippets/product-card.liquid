@@ -151,6 +151,9 @@ based on your desired layout (and remove most of the settings associated), and t
   {%- endcomment -%}
 
   <div class="product-card__figure">
+    {%- comment -%}Sengefabrikken: campaign badge (theme settings > Kampagnetema){%- endcomment -%}
+    {%- render 'sengefabrikken-campaign-badge', product: product, sizes: '96px', class: 'sengefabrikken-campaign-badge--overlay' -%}
+
     {%- if show_badges and show_badges_along_info != true -%}
       {%- render 'product-badges', 
         product: product,

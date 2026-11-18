@@ -1494,6 +1494,42 @@
         "label": "Farve på overskrifter",
         "default": "#ffd83d",
         "visible_if": "{{ settings.campaign_heading_style == 'color' }}"
+      },
+      {
+        "type": "header",
+        "content": "Kampagnebadge"
+      },
+      {
+        "type": "checkbox",
+        "id": "campaign_badge_enabled",
+        "label": "Vis kampagnebadge",
+        "info": "Vises i hjørnet af produktbilledet på produktkortene og produktsiden, så længe kampagnetemaet er aktiveret.",
+        "default": false
+      },
+      {
+        "type": "image_picker",
+        "id": "campaign_badge_image",
+        "label": "Badge",
+        "info": "Brug fx en PNG eller SVG med gennemsigtig baggrund. Et produkt med sit eget badge (metafeltet Badge kampagne) viser det i stedet.",
+        "visible_if": "{{ settings.campaign_badge_enabled }}"
+      },
+      {
+        "type": "text",
+        "id": "campaign_badge_tag",
+        "label": "Kun produkter med tagget",
+        "info": "Lad feltet være tomt for at vise badget på alle produkter. Fx \"blackweek\".",
+        "visible_if": "{{ settings.campaign_badge_enabled }}"
+      },
+      {
+        "type": "range",
+        "id": "campaign_badge_size",
+        "label": "Størrelse på produktkort",
+        "min": 40,
+        "max": 120,
+        "step": 4,
+        "unit": "px",
+        "default": 72,
+        "visible_if": "{{ settings.campaign_badge_enabled }}"
       }
     ]
   },

@@ -1,0 +1,33 @@
+{%- doc -%}
+Sengefabrikken: campaign badge (theme settings > Kampagnetema > Kampagnebadge), shown on the media of the product cards
+and of the product page while the campaign theme is enabled. The badge of the product ("custom.badge_kampagne"
+metafield) is used first, otherwise the badge of the theme settings, for the products having the chosen tag (or all
+products when no tag is set). The badge is shown on every page, whatever the pages of the campaign colors.
+
+@param {object} product - the product to show the badge of
+@param {string} [class] - extra class applied on the image
+@param {string} [sizes] - the sizes attribute of the image (defaults to 150px)
+{%- enddoc -%}
+
+{%- liquid
+  assign badge_image = blank
+
+  if settings.campaign_theme_enabled and settings.campaign_badge_enabled and product != blank
+    assign badge_image = product.metafields.custom.badge_kampagne.value
+    assign badge_tag = settings.campaign_badge_tag | strip
+
+    if badge_image == blank
+      if badge_tag == blank or product.tags contains badge_tag
+        assign badge_image = settings.campaign_badge_image
+      endif
+    endif
+  endif
+
+  if badge_image != blank
+    assign badge_alt = badge_image.alt | default: 'Kampagne'
+    assign badge_sizes = sizes | default: '150px'
+    assign badge_class = 'sengefabrikken-campaign-badge ' | append: class | strip
+
+    echo badge_image | image_url: width: badge_image.width | image_tag: loading: 'lazy', sizes: badge_sizes, widths: '150,300,450', alt: badge_alt, class: badge_class
+  endif
+-%}

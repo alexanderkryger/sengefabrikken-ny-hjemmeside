@@ -74,6 +74,16 @@
 
     {%- comment -%}Sengefabrikken: campaign theme (eg. Black Week){%- endcomment -%}
     {%- render 'sengefabrikken-campaign-theme', mode: 'style' -%}
+
+    {%- if settings.campaign_theme_enabled and settings.campaign_badge_enabled -%}
+      {{- 'sengefabrikken-campaign-badge.css' | asset_url | stylesheet_tag -}}
+
+      <style>
+        :root {
+          --campaign-badge-size: {{ settings.campaign_badge_size }}px;
+        }
+      </style>
+    {%- endif -%}
   </head>
 
   {% liquid
