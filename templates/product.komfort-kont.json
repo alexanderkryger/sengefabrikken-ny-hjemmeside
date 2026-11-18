@@ -1362,7 +1362,7 @@
         "stat_Q38H4g": {
           "type": "stat",
           "settings": {
-            "value": "25",
+            "value": "15",
             "suffix": "år",
             "use_product_price": false,
             "label": "Garanti",
