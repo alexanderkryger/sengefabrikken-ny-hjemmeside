@@ -69,6 +69,7 @@
     "campaign_theme_enabled": true,
     "campaign_color_scheme": "scheme-f9cf78c5-9231-4df6-8731-70f748998ede",
     "campaign_theme_scope": "collections",
+    "campaign_pages": "kontakt, forside",
     "campaign_light_scheme_threshold": 250,
     "campaign_heading_style": "none",
     "page_full_width": false,
