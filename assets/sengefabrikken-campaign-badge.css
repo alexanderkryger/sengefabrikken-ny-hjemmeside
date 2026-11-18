@@ -22,3 +22,10 @@
     inset-inline-end: 1.25rem;
   }
 }
+
+/* On mobile, the campaign badge overlaps the bottom of the quality icon in the corner of the Sengefabrikken card */
+@media screen and (max-width: 699px) {
+  .sengefabrikken-card__corner-icon + .sengefabrikken-campaign-badge {
+    margin-block-start: -2.5rem;
+  }
+}

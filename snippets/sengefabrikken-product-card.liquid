@@ -82,10 +82,14 @@ It shows:
     assign show_quality_icon = true
   endif
 
-  # Campaign badge (theme settings > Kampagnetema)
-  capture campaign_badge
-    render 'sengefabrikken-campaign-badge', product: product, sizes: '96px'
-  endcapture
+  # Campaign badge (theme settings > Kampagnetema), not shown on the compact card of the menu
+  assign campaign_badge = blank
+
+  unless compact
+    capture campaign_badge
+      render 'sengefabrikken-campaign-badge', product: product, sizes: '96px'
+    endcapture
+  endunless
 
   # A tag such as "__label:Få tilbage" is shown as a label in the top corner of the media
   assign product_label = blank
@@ -131,8 +135,6 @@ It shows:
     {%- comment -%}On desktop, the wide card shows the quality icon next to the title instead (see the CSS){%- endcomment -%}
     {%- if product_label != blank or show_quality_icon or campaign_badge != blank -%}
       <span class="sengefabrikken-card__corner">
-        {{- campaign_badge -}}
-
         {%- if product_label != blank -%}
           <span class="sengefabrikken-card__label">{{ product_label }}</span>
         {%- endif -%}
@@ -140,6 +142,8 @@ It shows:
         {%- if show_quality_icon -%}
           <span class="sengefabrikken-card__corner-icon">{{- quality_icon -}}</span>
         {%- endif -%}
+
+        {{- campaign_badge -}}
       </span>
     {%- endif -%}
 
