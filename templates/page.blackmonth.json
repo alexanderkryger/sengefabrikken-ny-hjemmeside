@@ -175,10 +175,72 @@
         "text_font": "heading",
         "text_font_size_mobile": 3.5,
         "text_font_size_desktop": 2,
-        "section_vertical_spacing_mobile": 24,
+        "section_vertical_spacing_mobile": 10,
         "section_vertical_spacing_desktop": 10,
         "item_horizontal_spacing_mobile": 40,
         "item_horizontal_spacing_desktop": 50
+      }
+    },
+    "campaign_cards_YdxLf9": {
+      "type": "campaign-cards",
+      "blocks": {
+        "cover_Xkxb3F": {
+          "type": "cover",
+          "settings": {
+            "label": "Fordele",
+            "brand": "Sengefabrikken",
+            "title": "Black Month",
+            "ribbon": "GRATIS GAVER",
+            "confetti_position": "top"
+          }
+        },
+        "benefit_NNYVB9": {
+          "type": "benefit",
+          "settings": {
+            "text": "100 dages risikofri prøve",
+            "text_size": "h2",
+            "confetti_position": "right"
+          }
+        },
+        "benefit_67mcei": {
+          "type": "benefit",
+          "settings": {
+            "text": "Kundeservice alle dage fra 08 til 23",
+            "text_size": "h2",
+            "confetti_position": "left"
+          }
+        },
+        "benefit_KfMxzb": {
+          "type": "benefit",
+          "settings": {
+            "text": "Gratis levering",
+            "text_size": "h2",
+            "confetti_position": "bottom"
+          }
+        }
+      },
+      "block_order": [
+        "cover_Xkxb3F",
+        "benefit_NNYVB9",
+        "benefit_67mcei",
+        "benefit_KfMxzb"
+      ],
+      "custom_css": [
+        "p.campaign-card__brand.heading.text-xs {color: #252525;}"
+      ],
+      "name": "Kampagnekort",
+      "settings": {
+        "subheading": "",
+        "title": "",
+        "content": "",
+        "card_width_mobile": 72,
+        "border_radius": 12,
+        "inner_border_radius": 6,
+        "remove_vertical_spacing": false,
+        "card_background": "#0f0f0f",
+        "tab_background": "#0f0f0f",
+        "border_color": "#c69a3f",
+        "cover_text_color": "#0f0f0f"
       }
     },
     "sengefabrikken_product_list_zyFMMY": {
@@ -815,6 +877,7 @@
     "product_navigation_hYpaR6",
     "slideshow_PxFxnk",
     "scrolling_content_Q8tXNR",
+    "campaign_cards_YdxLf9",
     "sengefabrikken_product_list_zyFMMY",
     "sengefabrikken_banner_HFRXNN",
     "sengefabrikken_product_list_3NzdxG",
