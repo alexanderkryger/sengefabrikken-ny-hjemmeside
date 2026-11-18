@@ -1,6 +1,11 @@
 /* Sengefabrikken: gift banner (sections/gift-banner.liquid), copied from the previous theme */
 
+/* The heading sizes of the previous theme, as the headings of this theme are much larger */
 .gift-banner {
+  --sengefabrikken-text-h1: clamp(1.375rem, 1.1463rem + .9756vw, 2rem);
+  --sengefabrikken-text-h2: clamp(1.25rem, 1.0671rem + .7805vw, 1.75rem);
+  --sengefabrikken-text-h3: clamp(1.125rem, 1.0335rem + .3902vw, 1.375rem);
+  --sengefabrikken-text-h4: clamp(1rem, .9543rem + .1951vw, 1.125rem);
   border-radius: var(--gift-banner-border-radius, 12px);
   grid-template-columns: minmax(0, 1fr);
   display: grid;
@@ -37,19 +42,19 @@
 }
 
 .gift-banner__heading.h1 {
-  font-size: calc(var(--text-h1) * var(--gift-banner-heading-scale, 1));
+  font-size: calc(var(--sengefabrikken-text-h1) * var(--gift-banner-heading-scale, 1));
 }
 
 .gift-banner__heading.h2 {
-  font-size: calc(var(--text-h2) * var(--gift-banner-heading-scale, 1));
+  font-size: calc(var(--sengefabrikken-text-h2) * var(--gift-banner-heading-scale, 1));
 }
 
 .gift-banner__heading.h3 {
-  font-size: calc(var(--text-h3) * var(--gift-banner-heading-scale, 1));
+  font-size: calc(var(--sengefabrikken-text-h3) * var(--gift-banner-heading-scale, 1));
 }
 
 .gift-banner__heading.h4 {
-  font-size: calc(var(--text-h4) * var(--gift-banner-heading-scale, 1));
+  font-size: calc(var(--sengefabrikken-text-h4) * var(--gift-banner-heading-scale, 1));
 }
 
 .prose .gift-banner__subheading + .gift-banner__heading {

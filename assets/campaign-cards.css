@@ -1,6 +1,11 @@
 /* Sengefabrikken: campaign cards (sections/campaign-cards.liquid), copied from the previous theme */
 
+/* The heading sizes of the previous theme, as the headings of this theme are much larger */
 .campaign-cards {
+  --sengefabrikken-text-h1: clamp(1.375rem, 1.1463rem + .9756vw, 2rem);
+  --sengefabrikken-text-h2: clamp(1.25rem, 1.0671rem + .7805vw, 1.75rem);
+  --sengefabrikken-text-h3: clamp(1.125rem, 1.0335rem + .3902vw, 1.375rem);
+  --sengefabrikken-text-h4: clamp(1rem, .9543rem + .1951vw, 1.125rem);
   grid: var(--campaign-cards-grid);
   gap: var(--campaign-cards-gap);
   display: grid;
@@ -129,4 +134,16 @@
 .campaign-cards-header {
   max-width: 48rem;
   margin-inline: auto;
+}
+
+.campaign-card .h2 {
+  font-size: var(--sengefabrikken-text-h2);
+}
+
+.campaign-card .h3 {
+  font-size: var(--sengefabrikken-text-h3);
+}
+
+.campaign-card .h4 {
+  font-size: var(--sengefabrikken-text-h4);
 }
