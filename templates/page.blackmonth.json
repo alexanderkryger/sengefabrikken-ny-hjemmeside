@@ -226,7 +226,7 @@
         "benefit_KfMxzb"
       ],
       "custom_css": [
-        "p.campaign-card__brand.heading.text-xs {color: #252525;}"
+        "p.campaign-card__title.heading.h3 {color: #252525;}"
       ],
       "name": "Kampagnekort",
       "settings": {
