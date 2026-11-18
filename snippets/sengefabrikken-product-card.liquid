@@ -180,6 +180,9 @@ It shows:
 
     if compact != true and settings.gift_card_text != blank and product.metafields.custom.product_upsale_free_variants.value != blank
       assign show_gift = true
+
+      # The value shown in the popup is the highest compare at price of the gift variants
+      assign gift_value = product.metafields.custom.product_upsale_free_variants.value.variants | map: 'compare_at_price' | compact | sort | last
     endif
 
     assign show_bullets = show_gift
@@ -207,7 +210,7 @@ It shows:
                 🎁 {{ settings.gift_card_text | escape }}
 
                 {%- if settings.gift_card_link_text != blank and settings.gift_popup_heading != blank -%}
-                  <button type="button" class="sengefabrikken-card__gift-link link" aria-controls="gift-popup" aria-expanded="false">{{ settings.gift_card_link_text | escape }}</button>
+                  <button type="button" class="sengefabrikken-card__gift-link link" aria-controls="gift-popup" aria-expanded="false" {% if gift_value > 0 %}data-gift-value="{{ gift_value | money_without_trailing_zeros | escape }}"{% endif %}>{{ settings.gift_card_link_text | escape }}</button>
                 {%- endif -%}
               </span>
             </li>

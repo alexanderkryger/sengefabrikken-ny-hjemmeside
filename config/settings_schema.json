@@ -1462,7 +1462,8 @@
         "type": "text",
         "id": "gift_popup_value",
         "label": "Værdi",
-        "default": "Værdi op til 1.798 kr."
+        "info": "[værdi] erstattes med gavens værdi: den højeste førpris blandt varianterne af gaven (metafeltet custom.product_upsale_free_variants).",
+        "default": "Værdi op til [værdi]"
       },
       {
         "type": "color_scheme",

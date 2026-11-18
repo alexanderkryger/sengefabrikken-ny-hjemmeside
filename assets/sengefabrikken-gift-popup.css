@@ -52,6 +52,10 @@
   padding-block-start: 1rem;
 }
 
+gift-popup-value:not([hidden]) {
+  display: inline;
+}
+
 .gift-popup__value {
   color: rgb(var(--gift-popup-accent));
   font-weight: 700;

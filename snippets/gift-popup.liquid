@@ -2,6 +2,9 @@
 Sengefabrikken: the gift popup (theme settings > Gave), rendered once in the layout and opened by every element with
 aria-controls="gift-popup" (eg. the "Se gaver" link of the product cards whose product has a free gift in the
 "custom.product_upsale_free_variants" metafield). The popup is only rendered when its heading is set.
+
+"[værdi]" in the value text is replaced by the value of the gift of the clicked product card ("data-gift-value"
+attribute, see <gift-popup-value> in sengefabrikken-gift-popup.js). The value text is hidden when no value is known.
 {%- enddoc -%}
 
 {%- if settings.gift_popup_heading != blank -%}
@@ -37,7 +40,12 @@ aria-controls="gift-popup" (eg. the "Se gaver" link of the product cards whose p
           {%- endif -%}
 
           {%- if settings.gift_popup_value != blank -%}
-            <span class="text-sm gift-popup__value">{{ settings.gift_popup_value | escape }}</span>
+            {%- if settings.gift_popup_value contains '[værdi]' -%}
+              <gift-popup-value class="text-sm gift-popup__value" template="{{ settings.gift_popup_value | escape }}" hidden></gift-popup-value>
+              <script type="module" src="{{ 'sengefabrikken-gift-popup.js' | asset_url }}"></script>
+            {%- else -%}
+              <span class="text-sm gift-popup__value">{{ settings.gift_popup_value | escape }}</span>
+            {%- endif -%}
           {%- endif -%}
         </div>
       {%- endif -%}
