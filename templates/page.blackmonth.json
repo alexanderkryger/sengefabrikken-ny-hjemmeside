@@ -141,6 +141,7 @@
         "text_X99UaF": {
           "type": "text",
           "settings": {
+        "use_page_width": true,
             "text": "<em><strong>GRATIS GAVE</strong></em><strong> - </strong>VÆRDI OP TIL 1.798 KR.",
             "icon_position": "before_text",
             "highlight_effect": "tilted_marker",
