@@ -89,12 +89,13 @@
   box-shadow: 0 1px 0 rgb(var(--border-color));
 }
 
-/* ...and the line of the separator becomes the top line of that first row (no space between them) */
-.product-info:not(:has([data-block-type="product-variations"]:not(:empty))) .product-info__block-item[data-block-type="separator"]:has(+ [data-block-type="variant-picker"] .accordion) {
+/* ...and the line of the separator becomes the top line of that first row (no space between them; the empty blocks
+   between both are skipped) */
+.product-info:not(:has([data-block-type="product-variations"]:not(:empty))) [data-block-type="separator"]:has(~ [data-block-type="variant-picker"] .accordion):not(:has(~ :not(:empty):not([data-block-type="variant-picker"]) ~ [data-block-type="variant-picker"])) {
   margin-block-end: 0;
 }
 
-.product-info:not(:has([data-block-type="product-variations"]:not(:empty))) .product-info__block-item[data-block-type="separator"] + [data-block-type="variant-picker"]:has(.accordion) {
+.product-info:not(:has([data-block-type="product-variations"]:not(:empty))) [data-block-type="separator"] ~ [data-block-type="variant-picker"]:has(.accordion):not([data-block-type="separator"] ~ :not(:empty) ~ *) {
   margin-block-start: 0;
 }
 
