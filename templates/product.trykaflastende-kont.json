@@ -1567,6 +1567,130 @@
         "button_url": "",
         "button_style": "solid"
       }
+    },
+    "media_blocks_V9KBUg": {
+      "type": "media-blocks",
+      "blocks": {
+        "image_with_text_WLNYXw": {
+          "type": "image_with_text",
+          "settings": {
+            "change_color_scheme_on_hover": false,
+            "color_scheme": "",
+            "color_scheme_hover": "",
+            "image": "shopify://shop_images/sengefabrikken_bestil.png",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0,
+            "badge_text": "",
+            "badge_position": "top_center",
+            "icon": "none",
+            "icon_width": 32,
+            "mobile_icon_width": 24,
+            "icon_position": "middle_center",
+            "subheading": "",
+            "subheading_position": "bottom_left",
+            "title": "<strong>Bestilt</strong>",
+            "heading_tag": "h4",
+            "heading_position": "bottom_left",
+            "scrolling_title": false,
+            "scrolling_title_separator": "none",
+            "show_text_vertically": false,
+            "text": "<p>Når du har lavet en ordre via vores hjemmeside, går vi straks i gang med at forberede afsendelsen. Leveringstiden oplyses altid af hjemmesiden og din ordrebekræftelse.</p>",
+            "text_position": "bottom_left",
+            "button_style": "solid",
+            "link_url": "",
+            "link_text": "",
+            "link_position": "middle_center"
+          }
+        },
+        "image_with_text_86TWky": {
+          "type": "image_with_text",
+          "settings": {
+            "change_color_scheme_on_hover": false,
+            "color_scheme": "",
+            "color_scheme_hover": "",
+            "image": "shopify://shop_images/sengefabrikken_levering.png",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0,
+            "badge_text": "",
+            "badge_position": "top_center",
+            "icon": "none",
+            "icon_width": 32,
+            "mobile_icon_width": 24,
+            "icon_position": "middle_center",
+            "subheading": "",
+            "subheading_position": "bottom_left",
+            "title": "<strong>Afsendt</strong>",
+            "heading_tag": "h4",
+            "heading_position": "bottom_left",
+            "scrolling_title": false,
+            "scrolling_title_separator": "none",
+            "show_text_vertically": false,
+            "text": "<p>Når din ordre er produceret og pakket, sender vi den til fragtfirmaet, der tager direkte kontakt til dig med henblik på at aftale en leveringsdag og et tidsinterval (over SMS).</p>",
+            "text_position": "bottom_left",
+            "button_style": "solid",
+            "link_url": "",
+            "link_text": "",
+            "link_position": "middle_center"
+          }
+        },
+        "image_with_text_eXiLa8": {
+          "type": "image_with_text",
+          "settings": {
+            "change_color_scheme_on_hover": false,
+            "color_scheme": "scheme-3",
+            "color_scheme_hover": "scheme-3",
+            "image": "shopify://shop_images/sengefabrikken_leveret.png",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0,
+            "badge_text": "",
+            "badge_position": "top_center",
+            "icon": "none",
+            "icon_width": 32,
+            "mobile_icon_width": 24,
+            "icon_position": "middle_center",
+            "subheading": "",
+            "subheading_position": "bottom_left",
+            "title": "<strong>Leveret</strong>",
+            "heading_tag": "h4",
+            "heading_position": "bottom_left",
+            "scrolling_title": false,
+            "scrolling_title_separator": "none",
+            "show_text_vertically": false,
+            "text": "<p>På leveringsdagen vil fragtfirmaet sende dig en SMS ca. 30 minutter før ankomst. Intervallet vil typisk være 2-4 timer. Bemærk at mindre pakker sendes med GLS.</p>",
+            "text_position": "bottom_left",
+            "button_style": "solid",
+            "link_url": "",
+            "link_text": "",
+            "link_position": "middle_center"
+          }
+        }
+      },
+      "block_order": [
+        "image_with_text_WLNYXw",
+        "image_with_text_86TWky",
+        "image_with_text_eXiLa8"
+      ],
+      "name": "t:sections.media_blocks.name",
+      "settings": {
+        "color_scheme": "",
+        "allow_transparent_header": true,
+        "subheading": "",
+        "title": "",
+        "content": "",
+        "heading_tag": "h4",
+        "text_alignment": "left",
+        "scrolling_title": false,
+        "scrolling_title_separator": "circle",
+        "stack_on_mobile": false,
+        "add_horizontal_spacing": true,
+        "add_border": false,
+        "column_spacing": "sm",
+        "items_per_row": 3,
+        "block_size": "md",
+        "border_radius": 12,
+        "badge_background": "#c87d0a",
+        "badge_text_color": "#ffffff"
+      }
     }
   },
   "order": [
@@ -1592,6 +1716,7 @@
     "multiple_media_with_text_7hcwkx",
     "value_chain_VHg3BX",
     "specifications_hTjaPb",
-    "faq_xWkqpM"
+    "faq_xWkqpM",
+    "media_blocks_V9KBUg"
   ]
 }
