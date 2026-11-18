@@ -301,6 +301,57 @@
           "input_background": "#ffffff",
           "input_text_color": "#2f1300"
         }
+      },
+      "scheme-komfort": {
+        "settings": {
+          "text_color": "#2f1300",
+          "background": "#fff8f2",
+          "background_gradient": "",
+          "secondary_background": "#f1eeeb",
+          "primary_button_background": "#650621",
+          "primary_button_text_color": "#ffffff",
+          "subheading_background": "",
+          "subheading_border_color": "",
+          "subheading_text_color": "#2f1300",
+          "heading_highlight_accent_color": "#650621",
+          "heading_highlight_text_color": "#ffffff",
+          "input_background": "#ffffff",
+          "input_text_color": "#2f1300"
+        }
+      },
+      "scheme-luksus": {
+        "settings": {
+          "text_color": "#2f1300",
+          "background": "#f7f1eb",
+          "background_gradient": "",
+          "secondary_background": "#f1eeeb",
+          "primary_button_background": "#650621",
+          "primary_button_text_color": "#ffffff",
+          "subheading_background": "",
+          "subheading_border_color": "",
+          "subheading_text_color": "#2f1300",
+          "heading_highlight_accent_color": "#650621",
+          "heading_highlight_text_color": "#ffffff",
+          "input_background": "#ffffff",
+          "input_text_color": "#2f1300"
+        }
+      },
+      "scheme-koelende": {
+        "settings": {
+          "text_color": "#2f1300",
+          "background": "#f2f7fc",
+          "background_gradient": "",
+          "secondary_background": "#f1eeeb",
+          "primary_button_background": "#650621",
+          "primary_button_text_color": "#ffffff",
+          "subheading_background": "",
+          "subheading_border_color": "",
+          "subheading_text_color": "#2f1300",
+          "heading_highlight_accent_color": "#650621",
+          "heading_highlight_text_color": "#ffffff",
+          "input_background": "#ffffff",
+          "input_text_color": "#2f1300"
+        }
       }
     }
   },
