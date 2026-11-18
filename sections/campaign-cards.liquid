@@ -98,8 +98,13 @@ The cards scroll horizontally on mobile and tablet, and are shown side by side (
                     {%- endif -%}
 
                     {%- if block.settings.title != blank -%}
-                      <p class="campaign-card__title heading h3">
-                        <span class="campaign-card__gold-text">{{ block.settings.title }}</span>
+                      {%- capture title_style -%}
+                        {%- if block.settings.title_background != blank and block.settings.title_background != 'rgba(0,0,0,0)' -%}background-color: {{ block.settings.title_background }};{%- endif -%}
+                        {%- if block.settings.title_text_color != blank and block.settings.title_text_color != 'rgba(0,0,0,0)' -%}color: {{ block.settings.title_text_color }};{%- endif -%}
+                      {%- endcapture -%}
+
+                      <p class="campaign-card__title heading h3" {% if title_style != blank %}style="{{ title_style }}"{% endif %}>
+                        <span {% if block.settings.title_text_color == blank or block.settings.title_text_color == 'rgba(0,0,0,0)' %}class="campaign-card__gold-text"{% endif %}>{{ block.settings.title }}</span>
                       </p>
                     {%- endif -%}
 
@@ -265,6 +270,18 @@ The cards scroll horizontally on mobile and tablet, and are shown side by side (
           "id": "ribbon",
           "label": "Bånd",
           "default": "Spar op til 75%"
+        },
+        {
+          "type": "color",
+          "id": "title_background",
+          "label": "Titelbjælkens baggrund",
+          "info": "Lad feltet stå tomt for at bruge kortets baggrund."
+        },
+        {
+          "type": "color",
+          "id": "title_text_color",
+          "label": "Titlens tekstfarve",
+          "info": "Lad feltet stå tomt for guldtekst."
         },
         {
           "type": "select",
