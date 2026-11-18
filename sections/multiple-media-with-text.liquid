@@ -94,6 +94,18 @@
               {%- capture placeholder_class -%}{% cycle 'placeholder', 'placeholder placeholder--invert' %}{%- endcapture -%}
               {{- 'lifestyle-1' | placeholder_svg_tag: placeholder_class -}}
             {%- endif -%}
+
+            {%- if block.settings.label_text != blank -%}
+              {%- comment -%}A text pointing at a spot of the media (eg. a part of the bed), placed in % of the media{%- endcomment -%}
+              <p class="multiple-media-with-text__label multiple-media-with-text__label--{{ block.settings.label_shape | replace: '_', '-' }}" style="--label-x: {{ block.settings.label_x }}%; --label-y: {{ block.settings.label_y }}%; --label-line-length: {{ block.settings.label_line_length }}px; --label-background: {{ block.settings.label_background }}; --label-text-color: {{ block.settings.label_text_color }};">
+                <span class="multiple-media-with-text__label-stem" aria-hidden="true">
+                  <span class="multiple-media-with-text__label-dot"></span>
+                  <span class="multiple-media-with-text__label-line"></span>
+                </span>
+
+                <span class="multiple-media-with-text__label-text heading">{{ block.settings.label_text }}</span>
+              </p>
+            {%- endif -%}
           </div>
         {%- endfor -%}
       </div>
@@ -230,6 +242,122 @@
   .multiple-media-with-text__media {
     grid-row: 1 / -1;
     rotate: var(--media-rotate, 0deg);
+  }
+
+  /* Label: a dot on the media, a line and a text. The dot is placed at --label-x/--label-y, and the shape sets where
+     the text goes from the dot (right, left, above or below, with the line centered, at the start or at the end of
+     the text) */
+  .multiple-media-with-text__media {
+    position: relative;
+  }
+
+  .multiple-media-with-text__label {
+    --label-dot-size: .5rem;
+    --label-offset: calc(var(--label-dot-size) / 2);
+    --label-inset: 1rem;
+    z-index: 1;
+    pointer-events: none;
+    flex-direction: var(--label-direction, row);
+    align-items: var(--label-align, center);
+    margin: 0;
+    display: flex;
+    position: absolute;
+    inset-block-start: var(--label-y);
+    inset-inline-start: var(--label-x);
+    translate: var(--label-translate);
+  }
+
+  .multiple-media-with-text__label-stem {
+    flex-direction: inherit;
+    flex-shrink: 0;
+    align-items: center;
+    display: flex;
+  }
+
+  .multiple-media-with-text__label-dot {
+    background: var(--label-background);
+    border-radius: 50%;
+    flex-shrink: 0;
+    width: var(--label-dot-size);
+    height: var(--label-dot-size);
+  }
+
+  .multiple-media-with-text__label-line {
+    background: var(--label-background);
+    width: var(--label-line-length);
+    height: 2px;
+  }
+
+  .multiple-media-with-text__label-text {
+    color: var(--label-text-color);
+    background: var(--label-background);
+    white-space: nowrap;
+    border-radius: .375rem;
+    padding: .375rem .75rem;
+    font-size: .75rem;
+    line-height: 1.4;
+    box-shadow: 0 4px 12px rgb(0 0 0 / .12);
+  }
+
+  .multiple-media-with-text__label--right { --label-translate: calc(-1 * var(--label-offset)) -50%; }
+  .multiple-media-with-text__label--left { --label-direction: row-reverse; --label-translate: calc(-100% + var(--label-offset)) -50%; }
+
+  :is(.multiple-media-with-text__label--up, .multiple-media-with-text__label--up-start, .multiple-media-with-text__label--up-end) {
+    --label-direction: column-reverse;
+    --label-translate-y: calc(-100% + var(--label-offset));
+  }
+
+  :is(.multiple-media-with-text__label--down, .multiple-media-with-text__label--down-start, .multiple-media-with-text__label--down-end) {
+    --label-direction: column;
+    --label-translate-y: calc(-1 * var(--label-offset));
+  }
+
+  :is(.multiple-media-with-text__label--up, .multiple-media-with-text__label--down) {
+    --label-translate: -50% var(--label-translate-y);
+  }
+
+  :is(.multiple-media-with-text__label--up-start, .multiple-media-with-text__label--down-start) {
+    --label-align: flex-start;
+    --label-translate: calc(-1 * (var(--label-inset) + var(--label-offset))) var(--label-translate-y);
+  }
+
+  :is(.multiple-media-with-text__label--up-end, .multiple-media-with-text__label--down-end) {
+    --label-align: flex-end;
+    --label-translate: calc(-100% + var(--label-inset) + var(--label-offset)) var(--label-translate-y);
+  }
+
+  :is(.multiple-media-with-text__label--up-start, .multiple-media-with-text__label--down-start) .multiple-media-with-text__label-stem {
+    margin-inline-start: var(--label-inset);
+  }
+
+  :is(.multiple-media-with-text__label--up-end, .multiple-media-with-text__label--down-end) .multiple-media-with-text__label-stem {
+    margin-inline-end: var(--label-inset);
+  }
+
+  :is(.multiple-media-with-text__label--up, .multiple-media-with-text__label--up-start, .multiple-media-with-text__label--up-end, .multiple-media-with-text__label--down, .multiple-media-with-text__label--down-start, .multiple-media-with-text__label--down-end) .multiple-media-with-text__label-line {
+    width: 2px;
+    height: var(--label-line-length);
+  }
+
+  @media screen and (max-width: 699px) {
+    .multiple-media-with-text__label {
+      --label-inset: .75rem;
+    }
+
+    .multiple-media-with-text__label-line {
+      width: calc(var(--label-line-length) * .6);
+    }
+
+    :is(.multiple-media-with-text__label--up, .multiple-media-with-text__label--up-start, .multiple-media-with-text__label--up-end, .multiple-media-with-text__label--down, .multiple-media-with-text__label--down-start, .multiple-media-with-text__label--down-end) .multiple-media-with-text__label-line {
+      height: calc(var(--label-line-length) * .6);
+    }
+  }
+
+  @media screen and (min-width: 700px) {
+    .multiple-media-with-text__label-text {
+      padding: .5rem 1rem;
+      font-size: .9375rem;
+    }
   }
 
   .multiple-media-with-text__media :is(img, video, svg),
@@ -754,6 +882,77 @@
           "id": "hide_on_mobile",
           "label": "Skjul på mobil",
           "default": false
+        },
+        {
+          "type": "header",
+          "content": "Markering",
+          "info": "En tekst med streg, der peger på et punkt i billedet. Lad teksten stå tom for at skjule den."
+        },
+        {
+          "type": "text",
+          "id": "label_text",
+          "label": "Tekst"
+        },
+        {
+          "type": "select",
+          "id": "label_shape",
+          "label": "Form",
+          "options": [
+            { "value": "right", "label": "Vandret – tekst til højre" },
+            { "value": "left", "label": "Vandret – tekst til venstre" },
+            { "value": "up", "label": "Lodret – tekst over, streg i midten" },
+            { "value": "up_start", "label": "Lodret – tekst over, streg i venstre side" },
+            { "value": "up_end", "label": "Lodret – tekst over, streg i højre side" },
+            { "value": "down", "label": "Lodret – tekst under, streg i midten" },
+            { "value": "down_start", "label": "Lodret – tekst under, streg i venstre side" },
+            { "value": "down_end", "label": "Lodret – tekst under, streg i højre side" }
+          ],
+          "default": "right"
+        },
+        {
+          "type": "range",
+          "id": "label_x",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "%",
+          "label": "Punktets vandrette placering",
+          "info": "0 % er venstre kant, 100 % er højre kant",
+          "default": 50
+        },
+        {
+          "type": "range",
+          "id": "label_y",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "%",
+          "label": "Punktets lodrette placering",
+          "info": "0 % er toppen, 100 % er bunden",
+          "default": 50
+        },
+        {
+          "type": "range",
+          "id": "label_line_length",
+          "min": 0,
+          "max": 200,
+          "step": 5,
+          "unit": "px",
+          "label": "Stregens længde",
+          "info": "Stregen er 40 % kortere på mobil",
+          "default": 60
+        },
+        {
+          "type": "color",
+          "id": "label_background",
+          "label": "Baggrund og streg",
+          "default": "#6b1424"
+        },
+        {
+          "type": "color",
+          "id": "label_text_color",
+          "label": "Tekst",
+          "default": "#ffffff"
         }
       ]
     },
@@ -781,6 +980,77 @@
           "id": "hide_on_mobile",
           "label": "Skjul på mobil",
           "default": false
+        },
+        {
+          "type": "header",
+          "content": "Markering",
+          "info": "En tekst med streg, der peger på et punkt i billedet. Lad teksten stå tom for at skjule den."
+        },
+        {
+          "type": "text",
+          "id": "label_text",
+          "label": "Tekst"
+        },
+        {
+          "type": "select",
+          "id": "label_shape",
+          "label": "Form",
+          "options": [
+            { "value": "right", "label": "Vandret – tekst til højre" },
+            { "value": "left", "label": "Vandret – tekst til venstre" },
+            { "value": "up", "label": "Lodret – tekst over, streg i midten" },
+            { "value": "up_start", "label": "Lodret – tekst over, streg i venstre side" },
+            { "value": "up_end", "label": "Lodret – tekst over, streg i højre side" },
+            { "value": "down", "label": "Lodret – tekst under, streg i midten" },
+            { "value": "down_start", "label": "Lodret – tekst under, streg i venstre side" },
+            { "value": "down_end", "label": "Lodret – tekst under, streg i højre side" }
+          ],
+          "default": "right"
+        },
+        {
+          "type": "range",
+          "id": "label_x",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "%",
+          "label": "Punktets vandrette placering",
+          "info": "0 % er venstre kant, 100 % er højre kant",
+          "default": 50
+        },
+        {
+          "type": "range",
+          "id": "label_y",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "%",
+          "label": "Punktets lodrette placering",
+          "info": "0 % er toppen, 100 % er bunden",
+          "default": 50
+        },
+        {
+          "type": "range",
+          "id": "label_line_length",
+          "min": 0,
+          "max": 200,
+          "step": 5,
+          "unit": "px",
+          "label": "Stregens længde",
+          "info": "Stregen er 40 % kortere på mobil",
+          "default": 60
+        },
+        {
+          "type": "color",
+          "id": "label_background",
+          "label": "Baggrund og streg",
+          "default": "#6b1424"
+        },
+        {
+          "type": "color",
+          "id": "label_text_color",
+          "label": "Tekst",
+          "default": "#ffffff"
         }
       ]
     }
