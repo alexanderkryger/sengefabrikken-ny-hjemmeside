@@ -189,12 +189,16 @@
         "product_group": {
           "type": "product_group",
           "settings": {
+            "preselect_first_variant": true,
             "size_label": "Størrelse",
             "upsale_title": "Spar op til 40% på tilbehør",
             "upsale_image": "shopify://shop_images/imgi_48_1_Senges_t_Packshot_Cream_17.png",
             "upsale_border_color": "#eea63c",
             "upsale_heading": "Tilbud",
-            "upsale_text": "<p>Spar op til <strong>40%</strong> på tilbehør ved sengekøb</p>"
+            "upsale_text": "<p>Spar op til <strong>40%</strong> på tilbehør ved sengekøb</p>",
+            "gift_title": "Gratis gave ved sengekøb",
+            "gift_heading": "Gratis gave",
+            "gift_text": "<p>Du får [gave] med, når du køber en seng. Vælg dine ønsker herunder. Gælder så længe lager haves!</p>"
           }
         },
         "buy_buttons": {
@@ -208,7 +212,9 @@
             "atc_button_background": "",
             "atc_button_text_color": "",
             "payment_button_background": "",
-            "payment_button_text_color": ""
+            "payment_button_text_color": "",
+            "show_delivery_time": true,
+            "delivery_time_text": "Levering ([leveringstid])"
           }
         }
       },
