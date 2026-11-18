@@ -191,6 +191,8 @@
             "brand": "Sengefabrikken",
             "title": "Black Month",
             "ribbon": "GRATIS GAVER",
+            "title_background": "#252525",
+            "title_text_color": "",
             "confetti_position": "top"
           }
         },
