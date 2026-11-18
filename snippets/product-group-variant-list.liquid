@@ -4,7 +4,10 @@ product-group snippet).
 
 @param {object} group_product - the product from the group
 @param {string} input_name - the name shared by the radio inputs of the product
+@param {boolean} [preselect] - whether the first available variant is selected by default
 {%- enddoc -%}
+
+{%- assign preselected = false -%}
 
 <div class="product-group-option-list">
   {%- for variant in group_product.variants -%}
@@ -23,7 +26,8 @@ product-group snippet).
       endif
     -%}
 
-    <input class="sr-only" type="radio" id="{{ input_name }}-{{ variant.id }}" name="{{ input_name }}" value="{{ variant.id }}" data-label="{{ variant_title.first | escape }}" data-price="{{ variant.price }}" data-compare-at-price="{{ variant.compare_at_price | default: variant.price }}">
+    <input class="sr-only" type="radio" id="{{ input_name }}-{{ variant.id }}" name="{{ input_name }}" value="{{ variant.id }}" data-label="{{ variant_title.first | escape }}" data-price="{{ variant.price }}" data-compare-at-price="{{ variant.compare_at_price | default: variant.price }}" {% if preselect and preselected == false %}checked{% endif %}>
+    {%- assign preselected = true -%}
 
     <label class="product-group-option {% if is_upgrade %}product-group-option--highlighted{% endif %}" for="{{ input_name }}-{{ variant.id }}" {% if variant_video != blank %}data-video="{{ variant_video.system.handle | escape }}"{% endif %}>
       {%- if variant_image != blank -%}

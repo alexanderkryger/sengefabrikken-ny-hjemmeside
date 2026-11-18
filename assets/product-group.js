@@ -29,6 +29,8 @@ class ProductGroup extends HTMLElement {
     document.addEventListener('formdata', this.#onFormData.bind(this), { capture: true, signal });
     document.addEventListener('variant:change', this.#onVariantChange.bind(this), { signal });
 
+    // Rows can have variants selected from the start ("Vælg første variant som standard")
+    new Set(this.items.filter((item) => this.#getSelectedInput(item)).map((item) => item.closest('[data-group-row]'))).forEach((row) => this.#updateRow(row));
     this.#updatePrice();
   }
 

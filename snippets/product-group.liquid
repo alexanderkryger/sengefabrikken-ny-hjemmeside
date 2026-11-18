@@ -209,7 +209,7 @@ Two other metafields are rendered as well:
             {{- drawer_sections -}}
             <div class="v-stack gap-4">
               <p class="h6">{{ member_label }}</p>
-              {%- render 'product-group-variant-list', group_product: member, input_name: input_name -%}
+              {%- render 'product-group-variant-list', group_product: member, input_name: input_name, preselect: block.settings.preselect_first_variant -%}
             </div>
           {%- endcapture -%}
         {%- endfor -%}
@@ -288,7 +288,7 @@ Two other metafields are rendered as well:
                 </div>
               {%- endif -%}
 
-              {%- render 'product-group-variant-list', group_product: group_product, input_name: input_name -%}
+              {%- render 'product-group-variant-list', group_product: group_product, input_name: input_name, preselect: block.settings.preselect_first_variant -%}
             </div>
 
             {%- capture drawer_videos -%}{%- render 'product-group-video', group_product: group_product -%}{%- endcapture -%}
