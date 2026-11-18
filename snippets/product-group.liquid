@@ -220,7 +220,7 @@ Two other metafields are rendered as well:
           <button type="button" class="accordion__summary w-full" aria-controls="{{ drawer_id }}" aria-expanded="false">
             <span class="h-stack wrap align-center gap-2">
               <span>{{ base_title }}</span>
-              <span class="text-subdued" data-group-row-value></span>
+              <span class="text-subdued" data-group-row-value {% unless block.settings.show_selected_value %}hidden{% endunless %}></span>
               <span class="product-group-check" data-group-row-check hidden>{%- render 'icon' with 'success-checkmark', width: 9 -%}</span>
             </span>
 
@@ -269,7 +269,7 @@ Two other metafields are rendered as well:
           <button type="button" class="accordion__summary w-full" aria-controls="{{ drawer_id }}" aria-expanded="false">
             <span class="h-stack wrap align-center gap-2">
               <span>{{ group_product.title }}</span>
-              <span class="text-subdued" data-group-row-value></span>
+              <span class="text-subdued" data-group-row-value {% unless block.settings.show_selected_value %}hidden{% endunless %}></span>
               <span class="product-group-check" data-group-row-check hidden>{%- render 'icon' with 'success-checkmark', width: 9 -%}</span>
             </span>
 
@@ -405,7 +405,7 @@ Two other metafields are rendered as well:
 
           <span class="v-stack gap-1 text-start">
             <span>{{ upsale_title }}</span>
-            <span class="text-sm text-subdued" data-group-row-value></span>
+            <span class="text-sm text-subdued" data-group-row-value {% unless block.settings.show_selected_value %}hidden{% endunless %}></span>
           </span>
 
           <span class="product-group-check" data-group-row-check hidden>{%- render 'icon' with 'success-checkmark', width: 9 -%}</span>
