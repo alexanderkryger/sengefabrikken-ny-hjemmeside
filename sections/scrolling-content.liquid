@@ -1,7 +1,33 @@
 {%- if section.blocks.size > 0 -%}
+  {%- comment -%}
+    Sengefabrikken: the scrolling content can be shown as a rounded box as wide as the page width ("Brug Sengefabrikken
+    sidebredde"), like the slideshow. The section spacing settings then set the padding inside the box, the box keeps
+    the normal section spacing around it, and the rotation is not applied.
+  {%- endcomment -%}
   <style>
-    #shopify-section-{{ section.id }} {
+    {%- if section.settings.use_page_width %}
+    #shopify-section-{{ section.id }} > * {
+      transform: none;
+      width: auto;
+    }
+
+    #shopify-section-{{ section.id }} .sengefabrikken-scrolling-box {
       --section-vertical-spacing: {{ section.settings.section_vertical_spacing_mobile }}px;
+      border-radius: .75rem;
+      overflow: clip;
+    }
+
+    @media screen and (min-width: 1000px) {
+      #shopify-section-{{ section.id }} .sengefabrikken-scrolling-box {
+        --section-vertical-spacing: {{ section.settings.section_vertical_spacing_desktop }}px;
+      }
+    }
+    {%- endif %}
+
+    #shopify-section-{{ section.id }} {
+      {%- unless section.settings.use_page_width %}
+      --section-vertical-spacing: {{ section.settings.section_vertical_spacing_mobile }}px;
+      {%- endunless %}
       --scrolling-content-gap: {{ section.settings.item_horizontal_spacing_mobile }}px;
       --scrolling-content-rotation: {{ section.settings.section_rotation }}deg;
 
@@ -17,7 +43,9 @@
     
     @media screen and (min-width: 1000px) {
       #shopify-section-{{ section.id }} {
+        {%- unless section.settings.use_page_width %}
         --section-vertical-spacing: {{ section.settings.section_vertical_spacing_desktop }}px;
+        {%- endunless %}
         --scrolling-content-gap: {{ section.settings.item_horizontal_spacing_desktop }}px;
         
         font-size: {{ section.settings.text_font_size_desktop }}vw;
@@ -25,7 +53,12 @@
     }
   </style>
 
-  <div class="color-scheme color-scheme--{{ section.settings.color_scheme.id }}">
+  {%- if section.settings.use_page_width -%}
+    <div class="color-scheme color-scheme--{{ section.settings.page_width_color_scheme.id }}">
+      <div class="container section-spacing">
+  {%- endif -%}
+
+  <div class="color-scheme color-scheme--{{ section.settings.color_scheme.id }} {% if section.settings.use_page_width %}sengefabrikken-scrolling-box{% endif %}">
     <div class="section-spacing">
       <marquee-text speed="{{ section.settings.scrolling_speed }}" direction="{{ section.settings.scroll_direction }}" {% if section.settings.pause_on_hover %}pause-on-hover{% endif %} class="scrolling-content">
         <div class="scrolling-content__item">
@@ -70,6 +103,11 @@
       </marquee-text>
     </div>
   </div>
+
+  {%- if section.settings.use_page_width -%}
+      </div>
+    </div>
+  {%- endif -%}
 {%- endif -%}
 
 {% schema %}
@@ -82,6 +120,20 @@
     "groups": ["header", "custom.overlay"]
   },
   "settings": [
+    {
+      "type": "checkbox",
+      "id": "use_page_width",
+      "label": "Brug Sengefabrikken sidebredde",
+      "info": "Vises som en afrundet boks, der er lige så bred som den maks. sidebredde i Theme settings > Sengefabrikken layout. Afstanden ovenfor og nedenfor bliver afstanden inde i boksen, og rotationen bruges ikke.",
+      "default": false
+    },
+    {
+      "type": "color_scheme",
+      "id": "page_width_color_scheme",
+      "label": "Farveskema rundt om boksen",
+      "default": "scheme-1",
+      "visible_if": "{{ section.settings.use_page_width }}"
+    },
     {
       "type": "color_scheme",
       "id": "color_scheme",
