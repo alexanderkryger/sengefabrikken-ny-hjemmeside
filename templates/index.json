@@ -42,7 +42,7 @@
               "name": "t:blocks.button.name",
               "settings": {
                 "text": "Se alle favoritter her",
-                "url": "",
+                "url": "shopify://pages/black-month",
                 "open_in_new_tab": false,
                 "style": "solid",
                 "background": "#fddc7a",
