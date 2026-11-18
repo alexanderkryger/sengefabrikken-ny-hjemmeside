@@ -1,0 +1,46 @@
+{%- doc -%}
+Sengefabrikken: the delivery time of the cart, ie. the longest delivery time of its products, as in the previous theme.
+The delivery time of an item is the "custom.ekstra_levering" metafield of its variant when set (eg. a special size),
+otherwise the "custom.leveringstid" metafield of its product (eg. "2-8 hverdage" or "3-4 uger"). The delivery times
+are compared on their upper bound, counting a week as 5 working days, and the longest one is shown as it is written.
+
+@param {string} text - the text to show, where [leveringstid] is replaced by the longest delivery time
+@param {string} [class] - extra classes
+{%- enddoc -%}
+
+{%- liquid
+  assign longest_delivery_time = ''
+  assign longest_delivery_days = 0
+
+  for item in cart.items
+    assign delivery_time = item.variant.metafields.custom.ekstra_levering.value | default: item.variant.metafields.custom.ekstra_levering
+
+    if delivery_time == blank
+      assign delivery_time = item.product.metafields.custom.leveringstid.value | default: item.product.metafields.custom.leveringstid
+    endif
+
+    if delivery_time == blank
+      continue
+    endif
+
+    assign delivery_time = delivery_time | strip
+    assign normalized_delivery_time = delivery_time | downcase | replace: '–', '-'
+    assign delivery_days = normalized_delivery_time | split: '-' | last | strip | split: ' ' | first | plus: 0
+
+    if normalized_delivery_time contains 'uge'
+      assign delivery_days = delivery_days | times: 5
+    endif
+
+    if longest_delivery_time == '' or delivery_days > longest_delivery_days
+      assign longest_delivery_days = delivery_days
+      assign longest_delivery_time = delivery_time
+    endif
+  endfor
+-%}
+
+{%- if longest_delivery_time != '' and text != blank -%}
+  <p class="sengefabrikken-delivery-time text-sm h-stack gap-2 justify-center {{ class }}">
+    {%- render 'icon' with 'picto-truck', width: 20 -%}
+    <span>{{ text | replace: '[leveringstid]', longest_delivery_time | escape }}</span>
+  </p>
+{%- endif -%}

@@ -399,6 +399,11 @@
                   -%}
                 </div>
 
+                {%- comment -%}Sengefabrikken: the longest delivery time of the products of the cart{%- endcomment -%}
+                {%- if section.settings.show_delivery_time -%}
+                  {%- render 'sengefabrikken-cart-delivery-time', text: section.settings.delivery_time_text -%}
+                {%- endif -%}
+
                 {%- if section.settings.show_shipping_text -%}
                   {%- liquid
                     if cart.taxes_included and shop.shipping_policy.body != blank
@@ -488,6 +493,24 @@
       "id": "show_checkout_button",
       "label": "t:sections.cart_drawer.show_checkout_button",
       "default": true
+    },
+    {
+      "type": "header",
+      "content": "Leveringstid"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_delivery_time",
+      "label": "Vis leveringstid under knapperne",
+      "info": "Viser den længste leveringstid blandt produkterne i kurven: variantens metafelt custom.ekstra_levering, ellers produktets custom.leveringstid.",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "delivery_time_text",
+      "label": "Tekst",
+      "info": "[leveringstid] erstattes af den længste leveringstid, fx \"2-8 hverdage\".",
+      "default": "Levering ([leveringstid])"
     },
     {
       "type": "header",
