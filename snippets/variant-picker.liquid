@@ -7,6 +7,7 @@ Render the variant picker option selectors.
 @param {boolean} [hide_sold_out_variants] - if set to true, the sold out or unavailable variants are hidden
 @param {boolean} [separate_options] - if set to true, consecutive options are separated by a border
 @param {string} [selector_style] - the selector style to use for the main selectors (Sengefabrikken: "drawer" opens each option in a drawer)
+@param {boolean} [show_selected_value] - Sengefabrikken: with drawers, set to false to hide the selected value in the rows
 @param {string} [swatch_selector_style] - the selector style to use for the dedicated swatch selectors
 @param {string} [swatch_selector_size] - the size for the color selectors. Can be either "sm" or "lg"
 @param {string} [block_selector_style] - the selector style to use for the dedicated block selectors
@@ -98,7 +99,7 @@ Render the variant picker option selectors.
             <button type="button" class="accordion__summary w-full" aria-controls="{{ drawer_id }}" aria-expanded="false">
               <span class="h-stack wrap align-center gap-2">
                 <span>{{ option.name }}</span>
-                <span class="text-subdued">{{ option.selected_value }}</span>
+                <span class="text-subdued" {% if show_selected_value == false %}hidden{% endif %}>{{ option.selected_value }}</span>
                 <span class="product-group-check">{%- render 'icon' with 'success-checkmark', width: 9 -%}</span>
               </span>
 
@@ -114,7 +115,6 @@ Render the variant picker option selectors.
                 {%- if hide_sold_out_variants == false or option_value.available or option_value.selected -%}
                   {%- liquid
                     assign option_value_name = option_value.name | split: ' - '
-                    assign option_value_image = option_value.variant.featured_media
                     assign price_difference = 0
 
                     if option_value.variant != blank
@@ -125,9 +125,6 @@ Render the variant picker option selectors.
                   <input class="sr-only" type="radio" id="{{ param_name }}-{{ option_value.id }}" form="{{ form_id }}" name="{{ param_name }}" {% if option_value.product_url != blank %}data-product-url="{{ option_value.product_url | escape }}"{% endif %} data-option-position="{{ option.position }}" value="{{ option_value.id }}" {% if option_value.selected %}checked{% endif %} {% if option_value.available == false %}disabled{% endif %}>
 
                   <label class="product-group-option" for="{{ param_name }}-{{ option_value.id }}">
-                    {%- if option_value_image != blank -%}
-                      {{- option_value_image | image_url: width: option_value_image.width | image_tag: loading: 'lazy', sizes: '64px', widths: '64,128,192', class: 'product-group-option__image' -}}
-                    {%- endif -%}
 
                     <span class="v-stack gap-1">
                       <span>{{ option_value_name.first }}</span>
