@@ -144,7 +144,7 @@
             "text": "<em>GRATIS GAVE</em> - VÆRDI OP TIL 1.798 KR.",
             "icon_position": "before_text",
             "highlight_effect": "marker",
-            "highlight_accent_color": "#fddc7a",
+            "highlight_accent_color": "#F4A63A",
             "highlight_text_color": "#252525"
           }
         },
@@ -154,7 +154,7 @@
             "text": "<em>BEGRÆNSET TILBUD</em> - KUN MENS LAGER HAVES",
             "icon_position": "before_text",
             "highlight_effect": "marker",
-            "highlight_accent_color": "#fddc7a",
+            "highlight_accent_color": "#F4A63A",
             "highlight_text_color": "#252525"
           }
         }
@@ -279,41 +279,6 @@
         "text_color": "#ffffff",
         "accent_color": "#f4a63a",
         "accent_text_color": "#2f1300"
-      }
-    },
-    "sengefabrikken_banner_HFRXNN": {
-      "type": "sengefabrikken-banner",
-      "blocks": {
-        "image_GUCfGV": {
-          "type": "image",
-          "settings": {
-            "height": "md",
-            "color_scheme": "",
-            "image": "shopify://shop_images/SF_Banner_100dage_Desk_2000x625_2.jpg",
-            "mobile_image": "shopify://shop_images/SF_Banner_100dage_mobile.jpg",
-            "overlay_color": "#000000",
-            "overlay_opacity": 20,
-            "content_position": "place-self-end-start",
-            "content_width": "lg",
-            "subheading": "&nbsp;Direkte fra fabrikken&nbsp;",
-            "heading": "&nbsp;Kvalitet uden fordyrende mellemled&nbsp;",
-            "heading_size": "h3",
-            "content": "",
-            "button_text": "",
-            "url": "",
-            "open_in_new_tab": false,
-            "style": "solid"
-          }
-        }
-      },
-      "block_order": [
-        "image_GUCfGV"
-      ],
-      "name": "Sengefabrikken banner",
-      "settings": {
-        "color_scheme": "",
-        "use_page_width": true,
-        "preload_first": false
       }
     },
     "sengefabrikken_product_list_3NzdxG": {
@@ -869,6 +834,41 @@
         "button_text": "",
         "button_url": "",
         "button_style": "solid"
+      }
+    },
+    "sengefabrikken_banner_HFRXNN": {
+      "type": "sengefabrikken-banner",
+      "blocks": {
+        "image_GUCfGV": {
+          "type": "image",
+          "settings": {
+            "height": "md",
+            "color_scheme": "",
+            "image": "shopify://shop_images/SF_Banner_100dage_Desk_2000x625_2.jpg",
+            "mobile_image": "shopify://shop_images/SF_Banner_100dage_mobile.jpg",
+            "overlay_color": "#000000",
+            "overlay_opacity": 20,
+            "content_position": "place-self-end-start",
+            "content_width": "lg",
+            "subheading": "&nbsp;Direkte fra fabrikken&nbsp;",
+            "heading": "&nbsp;Kvalitet uden fordyrende mellemled&nbsp;",
+            "heading_size": "h3",
+            "content": "",
+            "button_text": "",
+            "url": "",
+            "open_in_new_tab": false,
+            "style": "solid"
+          }
+        }
+      },
+      "block_order": [
+        "image_GUCfGV"
+      ],
+      "name": "Sengefabrikken banner",
+      "settings": {
+        "color_scheme": "",
+        "use_page_width": true,
+        "preload_first": false
       }
     }
   },
