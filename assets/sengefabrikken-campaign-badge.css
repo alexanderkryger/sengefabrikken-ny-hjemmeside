@@ -5,7 +5,10 @@
   width: var(--campaign-badge-size, 72px);
   height: auto;
   pointer-events: none;
-  align-self: start; /* In a grid (eg. the corner of the card), the image is not stretched to the height of its row */
+  object-fit: contain;
+  /* In the corner of the card, the image would otherwise shrink to the height of its grid row */
+  align-self: start;
+  max-height: none;
 }
 
 /* On the stock product card and the product gallery, the badge is placed on top of the media */
