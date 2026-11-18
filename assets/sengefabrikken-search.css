@@ -2,6 +2,7 @@
    section). The modal of the theme is used for the opening, the focus and the scroll lock, and fills the screen. */
 
 .sengefabrikken-search {
+  --modal-content-width: 100%;
   --modal-body-padding-block: 0;
   --modal-body-padding-inline: 0;
   --sengefabrikken-search-surface: 255 255 255;
@@ -15,6 +16,12 @@
   max-height: none;
   margin: 0;
   place-self: stretch;
+}
+
+@media screen and (min-width: 1000px) {
+  .sengefabrikken-search::part(content) {
+    grid-template-columns: minmax(0, 1fr);
+  }
 }
 
 .sengefabrikken-search::part(body) {
