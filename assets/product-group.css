@@ -82,8 +82,9 @@
   box-shadow: 0 1px 0 rgb(var(--border-color));
 }
 
-/* Same without colors when the size row is shown by the variant picker (options shown as drawers) */
-.product-info:has([data-block-type="separator"]):not(:has([data-block-type="product-variations"]:not(:empty))) [data-block-type="variant-picker"] > .accordion:first-child {
+/* Same without colors when the variant picker shows its options as drawers: its first row (the size, or the first
+   option) only keeps its bottom line */
+.product-info:has([data-block-type="separator"]):not(:has([data-block-type="product-variations"]:not(:empty))) [data-block-type="variant-picker"] > :is(.accordion:first-child, variant-picker:first-child > .variant-picker__option:first-of-type > .accordion) {
   box-shadow: 0 1px 0 rgb(var(--border-color));
 }
 
