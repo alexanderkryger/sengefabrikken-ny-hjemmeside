@@ -1,0 +1,30 @@
+{
+  "sections": {
+    "cards": {
+      "type": "campaign-cards",
+      "blocks": {
+        "c1": {
+          "type": "cover",
+          "settings": {
+            "title_background": "#6b0f1a"
+          }
+        },
+        "c2": {
+          "type": "cover",
+          "settings": {
+            "title_background": "#ffffff",
+            "title_text_color": "#111111"
+          }
+        }
+      },
+      "block_order": [
+        "c1",
+        "c2"
+      ],
+      "settings": {}
+    }
+  },
+  "order": [
+    "cards"
+  ]
+}
