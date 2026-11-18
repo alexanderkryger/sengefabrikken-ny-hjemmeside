@@ -136,3 +136,4 @@ class SengefabrikkenSearch extends HTMLElement {
 if (!window.customElements.get('sengefabrikken-search')) {
   window.customElements.define('sengefabrikken-search', SengefabrikkenSearch);
 }
+
