@@ -291,6 +291,21 @@ no need to manually pass the section as it is globally available)
 
           {%- when 'variant_picker' -%}
             {%- if product != blank -%}
+              {%- comment -%}Sengefabrikken: with drawers, the size row (see the product-group-size snippet) comes before the options{%- endcomment -%}
+              {%- if block.settings.selector_style == 'drawer' and product.has_only_default_variant == false -%}
+                {%- liquid
+                  assign size_label = blank
+
+                  for section_block in section.blocks
+                    if section_block.type == 'product_group'
+                      assign size_label = section_block.settings.size_label
+                    endif
+                  endfor
+
+                  render 'product-group-size', product: product, label: size_label, section: section
+                -%}
+              {%- endif -%}
+
               {%- render 'variant-picker',
                   product: product,
                   form_id: product_form_id,

@@ -67,59 +67,22 @@ Two other metafields are rendered as well:
   <product-group id="cart-form" class="product-group" form-id="{{ product_form_id }}" main-title="{{ product.title | escape }}" main-price="{{ main_variant.price }}" main-compare-at-price="{{ main_variant.compare_at_price | default: main_variant.price }}">
     {%- comment -%}SIZES (on_product.size){%- endcomment -%}
 
-    {%- if size_products != blank -%}
-      {%- capture drawer_id -%}product-group-size-drawer-{{ section.id }}{%- endcapture -%}
+    {%- liquid
+      # When the variant picker shows its options as drawers, the size is shown above the options (see the variant_picker block)
+      assign size_in_variant_picker = false
 
-      <div class="accordion">
-        <button type="button" class="accordion__summary w-full" aria-controls="{{ drawer_id }}" aria-expanded="false">
-          <span class="h-stack wrap align-center gap-2">
-            <span>{{ block.settings.size_label | default: 'Størrelse' }}</span>
-            <span class="text-subdued">{{ product.metafields.custom.size_name.value | default: product.title }}</span>
-          </span>
+      unless product.has_only_default_variant
+        for section_block in section.blocks
+          if section_block.type == 'variant_picker' and section_block.settings.selector_style == 'drawer'
+            assign size_in_variant_picker = true
+          endif
+        endfor
+      endunless
 
-          {%- render 'icon' with 'chevron-right', direction_aware: true -%}
-        </button>
-
-        <x-drawer id="{{ drawer_id }}" class="drawer color-scheme color-scheme--{{ settings.default_color_scheme.id }}">
-          <span class="h5" slot="header">{{ block.settings.size_label | default: 'Størrelse' }}</span>
-
-          {%- liquid
-            assign size_list_contains_product = false
-
-            for size_product in size_products
-              if size_product == product
-                assign size_list_contains_product = true
-                break
-              endif
-            endfor
-          -%}
-
-          <div class="product-group-option-list">
-            {%- unless size_list_contains_product -%}
-              <span class="product-group-option is-selected" aria-current="page">
-                <span class="product-group-option__title">{{ product.metafields.custom.size_name.value | default: product.title }}</span>
-                <span class="product-group-option__price">{{ product.selected_or_first_available_variant.price | money }}</span>
-              </span>
-            {%- endunless -%}
-
-            {%- for size_product in size_products -%}
-              {%- if size_product == product -%}
-                <span class="product-group-option is-selected" aria-current="page">
-              {%- else -%}
-                <a href="{{ size_product.url }}" class="product-group-option">
-              {%- endif -%}
-                <span class="product-group-option__title">{{ size_product.metafields.custom.size_name.value | default: size_product.title }}</span>
-                <span class="product-group-option__price">{{ size_product.selected_or_first_available_variant.price | money }}</span>
-              {%- if size_product == product -%}
-                </span>
-              {%- else -%}
-                </a>
-              {%- endif -%}
-            {%- endfor -%}
-          </div>
-        </x-drawer>
-      </div>
-    {%- endif -%}
+      unless size_in_variant_picker
+        render 'product-group-size', product: product, label: block.settings.size_label, section: section
+      endunless
+    -%}
 
     {%- comment -%}GROUP (custom.group){%- endcomment -%}
 
