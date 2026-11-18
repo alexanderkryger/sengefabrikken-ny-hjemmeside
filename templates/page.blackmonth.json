@@ -165,7 +165,7 @@
         "text_font_size_mobile": 3.5,
         "text_font_size_desktop": 2,
         "section_vertical_spacing_mobile": 24,
-        "section_vertical_spacing_desktop": 60,
+        "section_vertical_spacing_desktop": 10,
         "item_horizontal_spacing_mobile": 40,
         "item_horizontal_spacing_desktop": 50
       }
@@ -200,7 +200,7 @@
         "text_font_size_mobile": 3.5,
         "text_font_size_desktop": 2,
         "section_vertical_spacing_mobile": 24,
-        "section_vertical_spacing_desktop": 60,
+        "section_vertical_spacing_desktop": 10,
         "item_horizontal_spacing_mobile": 40,
         "item_horizontal_spacing_desktop": 50
       }
