@@ -116,6 +116,16 @@
   display: none;
 }
 
+/* Free gift (custom.product_upsale_free_variants): the values not available with the previous choices are hidden */
+
+.product-group-option[hidden] {
+  display: none;
+}
+
+product-group-gift {
+  display: block;
+}
+
 /* Price chain block: stacked bars comparing Sengefabrikken with the rest of the industry */
 
 .price-chain {

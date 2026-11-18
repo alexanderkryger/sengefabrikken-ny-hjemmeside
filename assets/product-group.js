@@ -406,3 +406,126 @@ function formatMoneyWithDecimals(cents) {
 if (!window.customElements.get('product-group')) {
   window.customElements.define('product-group', ProductGroup);
 }
+
+/**
+ * Sengefabrikken: <product-group-gift>
+ *
+ * The free gift of the product group ("custom.product_upsale_free_variants" metafield, see the product-group snippet).
+ * The variant of the gift is chosen option by option (eg. size, then color): the values of an option that are not
+ * available with the previous choices are hidden, and the following options keep their value when still available, or
+ * take the first available one. The first available variant is preselected, so that a gift is always added to the cart.
+ * The variant is stored on the group item ("data-variant-id"), read by <product-group> when the form is submitted.
+ */
+class ProductGroupGift extends HTMLElement {
+  #abortController;
+  #drawer;
+  #variants;
+  #selected = [];
+
+  connectedCallback() {
+    this.#abortController = new AbortController();
+    this.#variants = JSON.parse(this.querySelector('[data-gift-variants]').textContent);
+
+    // The drawer is moved to the body while open, so a reference is kept to listen to its inputs
+    this.#drawer = this.querySelector('x-drawer');
+    this.#drawer?.addEventListener('change', this.#onChange.bind(this), { signal: this.#abortController.signal });
+
+    const defaultVariant = this.#variants.find((variant) => variant.available);
+    this.#apply(this.#complete(defaultVariant ? defaultVariant.options.slice(0, this.#steps.length) : []));
+  }
+
+  disconnectedCallback() {
+    this.#abortController.abort();
+  }
+
+  get #steps() {
+    return Array.from(this.#drawer?.querySelectorAll('[data-gift-step]') || []);
+  }
+
+  #inputs(step) {
+    return Array.from(step.querySelectorAll('input[type="radio"]'));
+  }
+
+  #isAvailable(values) {
+    return this.#variants.some((variant) => variant.available && values.every((value, index) => variant.options[index] === value));
+  }
+
+  #onChange(event) {
+    const step = event.target.closest('[data-gift-step]');
+
+    if (!step) {
+      return;
+    }
+
+    const steps = this.#steps;
+    const index = steps.indexOf(step);
+    const values = this.#selected.slice(0, index);
+
+    values[index] = event.target.value;
+    this.#apply(this.#complete(values));
+
+    // The drawer closes once the last option is chosen
+    if (index === steps.length - 1) {
+      setTimeout(() => this.#drawer.hide(), 250);
+    }
+  }
+
+  /**
+   * Fills the options following the given values, so that a variant is always selected: an option keeps its previous
+   * value when still available with the previous choices, otherwise it takes the first available value
+   */
+  #complete(values) {
+    const steps = this.#steps;
+
+    for (let index = values.length; index < steps.length; index++) {
+      const usable = this.#inputs(steps[index]).map((input) => input.value).filter((value) => this.#isAvailable([...values, value]));
+
+      if (usable.length === 0) {
+        break;
+      }
+
+      values[index] = usable.includes(this.#selected[index]) ? this.#selected[index] : usable[0];
+    }
+
+    return values;
+  }
+
+  #apply(values) {
+    this.#selected = values.slice();
+
+    this.#steps.forEach((step, index) => {
+      this.#inputs(step).forEach((input) => {
+        const available = this.#isAvailable([...values.slice(0, index), input.value]);
+
+        input.disabled = !available;
+        input.checked = values[index] === input.value;
+        input.labels.forEach((label) => label.hidden = !available);
+      });
+    });
+
+    const variant = this.#variants.find((candidate) => candidate.available && values.every((value, index) => candidate.options[index] === value));
+    const item = this.querySelector('[data-group-item]');
+
+    if (!variant) {
+      item.removeAttribute('data-variant-id');
+      return;
+    }
+
+    item.setAttribute('data-variant-id', variant.id);
+
+    const summary = this.querySelector('[data-gift-summary]');
+    summary.textContent = this.hasAttribute('single-variant') ? this.getAttribute('gift-title') : `${this.getAttribute('gift-title')}: ${variant.title}`;
+
+    const image = this.querySelector('[data-gift-image]');
+    const imageSrc = variant.featured_image?.src;
+
+    if (image && imageSrc) {
+      image.removeAttribute('srcset');
+      image.src = `${imageSrc}${imageSrc.includes('?') ? '&' : '?'}width=144`;
+    }
+  }
+}
+
+if (!window.customElements.get('product-group-gift')) {
+  window.customElements.define('product-group-gift', ProductGroupGift);
+}

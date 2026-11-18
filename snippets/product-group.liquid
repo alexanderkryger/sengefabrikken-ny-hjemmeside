@@ -13,6 +13,9 @@ Two other metafields are rendered as well:
   comes from the "custom.size_name" metafield)
 - "custom.product_upsale": discounted accessories, shown as a highlighted row opening a drawer where several products can
   be selected. Selected accessories are added to the cart with the group.
+- "custom.product_upsale_free_variants": a free gift, shown as a highlighted row opening a drawer where the variant of the
+  gift is chosen option by option (eg. size, then color). The first available variant is preselected, so the gift is
+  always added to the cart with the group (see <product-group-gift> in product-group.js).
 
 @param {object} product - the main product
 @param {string} product_form_id - the ID of the product form
@@ -24,9 +27,14 @@ Two other metafields are rendered as well:
   assign group_products = product.metafields.custom.group.value
   assign size_products = product.metafields.on_product.size.value
   assign upsale_products = product.metafields.custom.product_upsale.value
+  assign gift_product = product.metafields.custom.product_upsale_free_variants.value
+
+  if gift_product.available != true
+    assign gift_product = blank
+  endif
 -%}
 
-{%- if group_products != blank or size_products != blank or upsale_products != blank -%}
+{%- if group_products != blank or size_products != blank or upsale_products != blank or gift_product != blank -%}
   {%- liquid
     assign main_variant = product.selected_or_first_available_variant
 
@@ -292,6 +300,88 @@ Two other metafields are rendered as well:
         </div>
       {%- endif -%}
     {%- endfor -%}
+
+    {%- comment -%}FREE GIFT (custom.product_upsale_free_variants){%- endcomment -%}
+
+    {%- if gift_product != blank -%}
+      {%- liquid
+        assign drawer_id = 'product-group-gift-drawer-' | append: section.id
+        assign gift_variant = gift_product.selected_or_first_available_variant
+        assign gift_image = gift_variant.featured_media | default: gift_product.featured_media
+        assign gift_title = block.settings.gift_title | default: 'Gratis gave ved sengekøb'
+        assign gift_name = gift_product.title | downcase
+        assign gift_text = block.settings.gift_text | default: '<p>Du får [gave] med, når du køber en seng. Vælg dine ønsker herunder. Gælder så længe lager haves!</p>' | replace: '[gave]', gift_name
+      -%}
+
+      <product-group-gift class="product-group-upsale" data-group-row gift-title="{{ gift_product.title | escape }}" {% if gift_product.has_only_default_variant %}single-variant{% endif %}>
+        {%- comment -%}The gift is free: it is added to the cart with the group, but not to the total of the price block{%- endcomment -%}
+        <span hidden data-group-item data-variant-id="{{ gift_variant.id }}" data-price="0" data-compare-at-price="0"></span>
+        <script type="application/json" data-gift-variants>{{ gift_product.variants | json }}</script>
+
+        <button type="button" class="product-group-upsale__button" aria-controls="{{ drawer_id }}" aria-expanded="false">
+          {%- if gift_image != blank -%}
+            {{- gift_image | image_url: width: 144 | image_tag: loading: 'lazy', sizes: '48px', widths: '48,96,144', class: 'product-group-upsale__image', data-gift-image: '' -}}
+          {%- endif -%}
+
+          <span class="v-stack gap-1 text-start">
+            <span>{{ gift_title }}</span>
+            <span class="text-sm text-subdued" data-gift-summary>{{ gift_product.title }}{% unless gift_product.has_only_default_variant %}: {{ gift_variant.title }}{% endunless %}</span>
+          </span>
+
+          <span class="product-group-check">{%- render 'icon' with 'success-checkmark', width: 9 -%}</span>
+          {%- render 'icon' with 'chevron-right', direction_aware: true -%}
+        </button>
+
+        <x-drawer id="{{ drawer_id }}" class="drawer color-scheme color-scheme--{{ settings.default_color_scheme.id }}">
+          <span class="h5" slot="header">{{ block.settings.gift_heading | default: 'Gratis gave' }}</span>
+
+          <div class="v-stack gap-8">
+            {%- if gift_text != blank -%}
+              <div class="prose">
+                {{- gift_text -}}
+              </div>
+            {%- endif -%}
+
+            {%- unless gift_product.has_only_default_variant -%}
+              {%- for option in gift_product.options_with_values -%}
+                {%- assign option_key = 'option' | append: option.position -%}
+
+                <div class="v-stack gap-4" data-gift-step>
+                  <p class="h6">{{ forloop.index }}. Vælg {{ option.name | downcase }}</p>
+
+                  <div class="product-group-option-list">
+                    {%- for value in option.values -%}
+                      {%- liquid
+                        assign value_variant = gift_product.variants | where: option_key, value.name | first
+                        assign value_image = value_variant.featured_media | default: gift_product.featured_media
+                        capture input_id
+                          echo 'product-group-gift-' | append: section.id | append: '-' | append: option.position | append: '-' | append: forloop.index
+                        endcapture
+                      -%}
+
+                      <input class="sr-only" type="radio" id="{{ input_id }}" name="product-group-gift-{{ section.id }}-{{ option.position }}" value="{{ value.name | escape }}" {% if gift_variant[option_key] == value.name %}checked{% endif %}>
+
+                      <label class="product-group-option" for="{{ input_id }}">
+                        {%- if value_image != blank -%}
+                          {{- value_image | image_url: width: 192 | image_tag: loading: 'lazy', sizes: '64px', widths: '64,128,192', class: 'product-group-option__image' -}}
+                        {%- endif -%}
+
+                        <span>{{ value.name }}</span>
+                        <span class="product-group-option__price">Gratis</span>
+                      </label>
+                    {%- endfor -%}
+                  </div>
+                </div>
+              {%- endfor -%}
+            {%- endunless -%}
+          </div>
+
+          <dialog-close-button slot="footer" style="display: contents">
+            <button type="button" class="button w-full">Bekræft</button>
+          </dialog-close-button>
+        </x-drawer>
+      </product-group-gift>
+    {%- endif -%}
 
     {%- comment -%}ACCESSORIES (custom.product_upsale){%- endcomment -%}
 
