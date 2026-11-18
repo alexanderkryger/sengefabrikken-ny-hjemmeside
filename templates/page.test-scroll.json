@@ -1,0 +1,41 @@
+{
+  "sections": {
+    "scroll": {
+      "type": "scrolling-content",
+      "blocks": {
+        "text_X99UaF": {
+          "type": "text",
+          "settings": {
+            "text": "<em>GRATIS GAVE</em> - VÆRDI OP TIL 1.798 KR.",
+            "icon_position": "before_text",
+            "highlight_effect": "marker",
+            "highlight_accent_color": "#FDDC7A",
+            "highlight_text_color": "#252525"
+          }
+        }
+      },
+      "block_order": [
+        "text_X99UaF"
+      ],
+      "name": "t:sections.scrolling_content.name",
+      "settings": {
+        "color_scheme": "",
+        "scrolling_speed": 0.1,
+        "scroll_direction": "start-to-end",
+        "section_rotation": 0,
+        "pause_on_hover": false,
+        "text_font": "heading",
+        "text_font_size_mobile": 3.5,
+        "text_font_size_desktop": 2,
+        "section_vertical_spacing_mobile": 24,
+        "section_vertical_spacing_desktop": 60,
+        "item_horizontal_spacing_mobile": 40,
+        "item_horizontal_spacing_desktop": 50,
+        "use_page_width": true
+      }
+    }
+  },
+  "order": [
+    "scroll"
+  ]
+}
