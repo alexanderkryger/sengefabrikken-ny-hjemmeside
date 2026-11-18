@@ -500,3 +500,12 @@ product-group-gift {
     }
   }
 }
+
+/* Delivery time below the buy buttons (see the buy_buttons block in the product-info snippet) */
+.sengefabrikken-delivery-time {
+  margin-block-start: .75rem;
+}
+
+.sengefabrikken-delivery-time svg {
+  flex-shrink: 0;
+}

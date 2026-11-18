@@ -1186,6 +1186,24 @@
           "type": "color",
           "id": "payment_button_text_color",
           "label": "t:sections.main_product.blocks.buy_buttons.payment_button_text_color"
+        },
+        {
+          "type": "header",
+          "content": "Leveringstid (custom.leveringstid)"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_delivery_time",
+          "label": "Vis leveringstid under knappen",
+          "info": "Vises kun på produkter, hvor metafeltet custom.leveringstid er udfyldt.",
+          "default": true
+        },
+        {
+          "type": "text",
+          "id": "delivery_time_text",
+          "label": "Tekst",
+          "info": "[leveringstid] erstattes af metafeltets værdi, fx \"2-4 hverdage\".",
+          "default": "Levering ([leveringstid])"
         }
       ]
     },

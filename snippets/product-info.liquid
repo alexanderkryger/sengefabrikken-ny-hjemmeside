@@ -474,6 +474,16 @@ no need to manually pass the section as it is globally available)
                 payment_button_text_color: block.settings.payment_button_text_color
             -%}
 
+            {%- comment -%}Sengefabrikken: the delivery time of the product ("custom.leveringstid" metafield) below the buttons{%- endcomment -%}
+            {%- assign delivery_time = product.metafields.custom.leveringstid.value | default: product.metafields.custom.leveringstid -%}
+
+            {%- if block.settings.show_delivery_time and delivery_time != blank and block.settings.delivery_time_text != blank -%}
+              <p class="sengefabrikken-delivery-time text-sm h-stack gap-2 justify-center">
+                {%- render 'icon' with 'picto-truck', width: 20 -%}
+                <span>{{ block.settings.delivery_time_text | replace: '[leveringstid]', delivery_time | escape }}</span>
+              </p>
+            {%- endif -%}
+
           {%- when 'volume_pricing' -%}
             {%- render 'volume-pricing-table', variant: product.selected_or_first_available_variant -%}
 
