@@ -281,44 +281,6 @@
         "accent_text_color": "#2f1300"
       }
     },
-    "sengefabrikken_product_list_zyFMMY": {
-      "type": "sengefabrikken-product-list",
-      "blocks": {
-        "section-header": {
-          "type": "_section-header",
-          "static": true,
-          "settings": {
-            "subheading": "",
-            "title": "Kundernes favoritter",
-            "content": "<p>Udforsk vores to mest populære kontinentalsenge: Trykaflastende og Kølende. Designet for ultimativ komfort, hvor hver model tilbyder unikke fordele.</p>",
-            "button_text": "",
-            "button_link": "",
-            "button_style": "outline",
-            "text_alignment": "center",
-            "heading_size": "h3",
-            "title_icon": "none",
-            "show_scrolling_title": false
-          },
-          "blocks": {}
-        }
-      },
-      "name": "Sengefabrikken produkter",
-      "settings": {
-        "color_scheme": "scheme-f9cf78c5-9231-4df6-8731-70f748998ede",
-        "custom_id": "",
-        "product_list": [
-          "fabrikkens-trykaflastende-kontinental-sand-180x200-cm",
-          "fabrikkens-kolende-kontinental-sand-180x200-cm"
-        ],
-        "collection": "",
-        "products_count": 2,
-        "products_per_row_desktop": "2",
-        "mobile_carousel": false,
-        "box_background": "",
-        "box_from": 1,
-        "box_to": 12
-      }
-    },
     "sengefabrikken_banner_HFRXNN": {
       "type": "sengefabrikken-banner",
       "blocks": {
@@ -917,8 +879,6 @@
     "scrolling_content_Q8tXNR",
     "campaign_cards_YdxLf9",
     "gift_banner_gnPqdP",
-    "sengefabrikken_product_list_zyFMMY",
-    "sengefabrikken_banner_HFRXNN",
     "sengefabrikken_product_list_3NzdxG",
     "sengefabrikken_banner_8jVPMP",
     "sengefabrikken_product_list_V9UgEy",
@@ -927,6 +887,7 @@
     "sengefabrikken_product_list_Ui7FMM",
     "sengefabrikken_product_list_iTNJHW",
     "multi_column_dCFfPt",
-    "faq_UyDReT"
+    "faq_UyDReT",
+    "sengefabrikken_banner_HFRXNN"
   ]
 }
