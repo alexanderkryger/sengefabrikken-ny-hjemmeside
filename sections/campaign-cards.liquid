@@ -1,0 +1,404 @@
+{%- comment -%}
+Sengefabrikken: campaign cards, copied from the previous theme. A row of cards for a campaign (eg. Black Month): a gold
+cover card with tabs, a title and a ribbon, and benefit cards with a gold text. Each card can show confetti on one side.
+The cards scroll horizontally on mobile and tablet, and are shown side by side (at most 4 per row) on desktop.
+{%- endcomment -%}
+
+{%- if section.blocks.size > 0 -%}
+  {{- 'campaign-cards.css' | asset_url | stylesheet_tag -}}
+
+  {%- comment -%}
+  ------------------------------------------------------------------------------------------------------------------------
+  CSS
+  ------------------------------------------------------------------------------------------------------------------------
+  {%- endcomment -%}
+
+  <style>
+    #shopify-section-{{ section.id }} {
+      --campaign-cards-gap: 1rem;
+      --campaign-cards-column-width: {{ section.settings.card_width_mobile }}vw;
+      --campaign-cards-grid: auto / auto-flow var(--campaign-cards-column-width);
+      --campaign-cards-border-radius: {{ section.settings.border_radius }}px;
+      --campaign-cards-inner-border-radius: {{ section.settings.inner_border_radius }}px;
+      --campaign-cards-card-background: {{ section.settings.card_background.rgb }};
+      --campaign-cards-tab-background: {{ section.settings.tab_background.rgb }};
+      --campaign-cards-border-color: {{ section.settings.border_color.rgb }};
+      --campaign-cards-cover-text-color: {{ section.settings.cover_text_color.rgb }};
+      {%- if section.settings.confetti_image != blank %}
+      --campaign-cards-confetti: url({{ section.settings.confetti_image | image_url: width: 800 }});
+      {%- endif %}
+    }
+
+    @media screen and (min-width: 700px) {
+      #shopify-section-{{ section.id }} {
+        --campaign-cards-column-width: 38vw;
+      }
+    }
+
+    @media screen and (min-width: 1000px) {
+      #shopify-section-{{ section.id }} {
+        --campaign-cards-gap: 1.5rem;
+        --campaign-cards-grid: auto / repeat({{ section.blocks.size | at_most: 4 }}, minmax(0, 1fr));
+      }
+    }
+  </style>
+
+  {%- comment -%}
+  ------------------------------------------------------------------------------------------------------------------------
+  LIQUID
+  ------------------------------------------------------------------------------------------------------------------------
+  {%- endcomment -%}
+
+  <div class="{% unless section.settings.remove_vertical_spacing %}section-spacing{% endunless %}">
+    <div class="container">
+      <div class="section-stack">
+        {%- if section.settings.subheading != blank or section.settings.title != blank or section.settings.content != blank -%}
+          <div class="campaign-cards-header prose text-center">
+            {%- if section.settings.subheading != blank -%}
+              <p class="subheading">{{ section.settings.subheading }}</p>
+            {%- endif -%}
+
+            {%- if section.settings.title != blank -%}
+              <h2 class="h2">{{ section.settings.title }}</h2>
+            {%- endif -%}
+
+            {{- section.settings.content -}}
+          </div>
+        {%- endif -%}
+
+        <div class="campaign-cards scroll-area snap-x bleed md:unbleed">
+          {%- for block in section.blocks -%}
+            {%- liquid
+              assign card_classes = 'campaign-card snap-center'
+
+              if block.settings.confetti_position != 'none'
+                assign card_classes = card_classes | append: ' campaign-card--confetti-' | append: block.settings.confetti_position
+              endif
+
+              if block.settings.confetti_image != blank
+                assign confetti_url = block.settings.confetti_image | image_url: width: 800
+                assign card_style = '--campaign-cards-confetti: url(' | append: confetti_url | append: ');'
+              else
+                assign card_style = blank
+              endif
+            -%}
+
+            {%- case block.type -%}
+              {%- when 'cover' -%}
+                <div class="{{ card_classes }} campaign-card--cover" {% if card_style != blank %}style="{{ card_style }}"{% endif %} {{ block.shopify_attributes }}>
+                  {%- if block.settings.label != blank -%}
+                    <span class="campaign-card__tab campaign-card__tab--top heading">
+                      <span class="campaign-card__gold-text">{{ block.settings.label | escape }}</span>
+                    </span>
+                  {%- endif -%}
+
+                  <div class="campaign-card__body">
+                    {%- if block.settings.brand != blank -%}
+                      <p class="campaign-card__brand heading text-xs">{{ block.settings.brand | escape }}</p>
+                    {%- endif -%}
+
+                    {%- if block.settings.title != blank -%}
+                      <p class="campaign-card__title heading h3">
+                        <span class="campaign-card__gold-text">{{ block.settings.title }}</span>
+                      </p>
+                    {%- endif -%}
+
+                    {%- if block.settings.ribbon != blank -%}
+                      <span class="campaign-card__ribbon heading text-sm">{{ block.settings.ribbon | escape }}</span>
+                    {%- endif -%}
+                  </div>
+
+                  {%- if block.settings.label != blank -%}
+                    <span class="campaign-card__tab campaign-card__tab--bottom heading">
+                      <span class="campaign-card__gold-text">{{ block.settings.label | escape }}</span>
+                    </span>
+                  {%- endif -%}
+                </div>
+
+              {%- when 'benefit' -%}
+                <div class="{{ card_classes }}" {% if card_style != blank %}style="{{ card_style }}"{% endif %} {{ block.shopify_attributes }}>
+                  {%- if block.settings.text != blank -%}
+                    <p class="campaign-card__text heading {{ block.settings.text_size }} campaign-card__gold-text">{{ block.settings.text }}</p>
+                  {%- endif -%}
+                </div>
+            {%- endcase -%}
+          {%- endfor -%}
+        </div>
+      </div>
+    </div>
+  </div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Kampagnekort",
+  "class": "shopify-section--campaign-cards",
+  "tag": "section",
+  "max_blocks": 8,
+  "disabled_on": {
+    "groups": ["header", "custom.overlay"]
+  },
+  "settings": [
+    {
+      "type": "header",
+      "content": "Overskrift"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "subheading",
+      "label": "Underoverskrift"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "title",
+      "label": "Overskrift"
+    },
+    {
+      "type": "richtext",
+      "id": "content",
+      "label": "Tekst"
+    },
+    {
+      "type": "header",
+      "content": "Kort"
+    },
+    {
+      "type": "image_picker",
+      "id": "confetti_image",
+      "label": "Konfetti-billede",
+      "info": "PNG med transparent baggrund. Bruges på alle kort, hvor konfetti er slået til. Kan overskrives pr. kort."
+    },
+    {
+      "type": "range",
+      "id": "card_width_mobile",
+      "label": "Kortbredde på mobil",
+      "min": 50,
+      "max": 90,
+      "step": 2,
+      "unit": "vw",
+      "default": 72
+    },
+    {
+      "type": "range",
+      "id": "border_radius",
+      "label": "Hjørneradius",
+      "min": 0,
+      "max": 32,
+      "step": 2,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "inner_border_radius",
+      "label": "Hjørneradius på titelbjælke og bånd",
+      "min": 0,
+      "max": 16,
+      "step": 1,
+      "unit": "px",
+      "default": 6
+    },
+    {
+      "type": "checkbox",
+      "id": "remove_vertical_spacing",
+      "label": "Fjern lodret afstand",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Farver"
+    },
+    {
+      "type": "color",
+      "id": "card_background",
+      "label": "Kortets baggrund",
+      "info": "Bruges også til titelbjælke og tekst på båndet på guldkortet.",
+      "default": "#0f0f0f"
+    },
+    {
+      "type": "color",
+      "id": "tab_background",
+      "label": "Fanernes baggrund",
+      "default": "#0f0f0f"
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Kant og bånd",
+      "default": "#c69a3f"
+    },
+    {
+      "type": "color",
+      "id": "cover_text_color",
+      "label": "Tekst på guldkort",
+      "info": "Den lille tekst over titlen.",
+      "default": "#0f0f0f"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "cover",
+      "name": "Guldkort",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Fane",
+          "info": "Vises i top og bund af kortet.",
+          "default": "Fordele"
+        },
+        {
+          "type": "text",
+          "id": "brand",
+          "label": "Lille tekst",
+          "default": "Sengefabrikken"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "title",
+          "label": "Titel",
+          "default": "Black Month"
+        },
+        {
+          "type": "text",
+          "id": "ribbon",
+          "label": "Bånd",
+          "default": "Spar op til 75%"
+        },
+        {
+          "type": "select",
+          "id": "confetti_position",
+          "label": "Konfetti",
+          "options": [
+            {
+              "value": "none",
+              "label": "Ingen"
+            },
+            {
+              "value": "top",
+              "label": "Top"
+            },
+            {
+              "value": "bottom",
+              "label": "Bund"
+            },
+            {
+              "value": "left",
+              "label": "Venstre"
+            },
+            {
+              "value": "right",
+              "label": "Højre"
+            }
+          ],
+          "default": "top"
+        },
+        {
+          "type": "image_picker",
+          "id": "confetti_image",
+          "label": "Konfetti-billede (overskriv)",
+          "info": "Valgfrit. Bruges i stedet for sektionens konfetti-billede på dette kort."
+        }
+      ]
+    },
+    {
+      "type": "benefit",
+      "name": "Fordel",
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "text",
+          "label": "Tekst",
+          "default": "100 dages risikofri prøve"
+        },
+        {
+          "type": "select",
+          "id": "text_size",
+          "label": "Tekststørrelse",
+          "options": [
+            {
+              "value": "h2",
+              "label": "Stor"
+            },
+            {
+              "value": "h3",
+              "label": "Mellem"
+            },
+            {
+              "value": "h4",
+              "label": "Lille"
+            }
+          ],
+          "default": "h2"
+        },
+        {
+          "type": "select",
+          "id": "confetti_position",
+          "label": "Konfetti",
+          "options": [
+            {
+              "value": "none",
+              "label": "Ingen"
+            },
+            {
+              "value": "top",
+              "label": "Top"
+            },
+            {
+              "value": "bottom",
+              "label": "Bund"
+            },
+            {
+              "value": "left",
+              "label": "Venstre"
+            },
+            {
+              "value": "right",
+              "label": "Højre"
+            }
+          ],
+          "default": "none"
+        },
+        {
+          "type": "image_picker",
+          "id": "confetti_image",
+          "label": "Konfetti-billede (overskriv)",
+          "info": "Valgfrit. Bruges i stedet for sektionens konfetti-billede på dette kort."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Kampagnekort",
+      "blocks": [
+        {
+          "type": "cover"
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "text": "100 dages risikofri prøve",
+            "confetti_position": "right"
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "text": "Kundeservice alle dage fra 08 til 23",
+            "confetti_position": "left"
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "text": "Gratis levering",
+            "confetti_position": "bottom"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

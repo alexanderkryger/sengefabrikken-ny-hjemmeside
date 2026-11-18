@@ -1,0 +1,132 @@
+/* Sengefabrikken: campaign cards (sections/campaign-cards.liquid), copied from the previous theme */
+
+.campaign-cards {
+  grid: var(--campaign-cards-grid);
+  gap: var(--campaign-cards-gap);
+  display: grid;
+}
+
+.campaign-card {
+  --campaign-card-base: none;
+  --campaign-card-confetti: none;
+  aspect-ratio: 5 / 7;
+  border: 2px solid rgb(var(--campaign-cards-border-color));
+  border-radius: var(--campaign-cards-border-radius, 12px);
+  background-color: rgb(var(--campaign-cards-card-background));
+  background-image: var(--campaign-card-confetti), var(--campaign-card-base);
+  background-repeat: no-repeat;
+  background-size: 100% auto, 100% 100%;
+  background-position: top center, center;
+  padding: 1.5rem;
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+  display: grid;
+  place-items: center;
+}
+
+.campaign-card--cover {
+  --campaign-card-base: var(--campaign-cards-gold-gradient, linear-gradient(100deg, #8a6420 0%, #d4ad55 22%, #f6e3a1 50%, #d4ad55 78%, #8a6420 100%));
+  border-color: transparent;
+}
+
+/* Konfetti-placering: første lag er konfetti, andet lag er kortets base */
+.campaign-card--confetti-top,
+.campaign-card--confetti-bottom,
+.campaign-card--confetti-left,
+.campaign-card--confetti-right {
+  --campaign-card-confetti: var(--campaign-cards-confetti, none);
+}
+
+.campaign-card--confetti-bottom {
+  background-position: bottom center, center;
+}
+
+.campaign-card--confetti-left,
+.campaign-card--confetti-right {
+  background-size: auto 100%, 100% 100%;
+}
+
+.campaign-card--confetti-left {
+  background-position: left center, center;
+}
+
+.campaign-card--confetti-right {
+  background-position: right center, center;
+}
+
+.campaign-card__gold-text {
+  background: var(--gold-gradient, linear-gradient(168deg, #7a4f14 0%, #b8862b 14%, #e8c25c 28%, #fbe9a6 38%, #fff6d4 43%, #f3d373 50%, #c9972f 62%, #93661c 74%, #d3a94a 88%, #86591a 100%));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.campaign-card__tab {
+  inset-inline: 22%;
+  background-color: rgb(var(--campaign-cards-tab-background));
+  font-size: var(--text-xs);
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  padding: .625rem 1rem;
+  position: absolute;
+  z-index: 1;
+}
+
+.campaign-card__tab--top {
+  inset-block-start: 0;
+  border-radius: 0 0 var(--campaign-cards-border-radius, 12px) var(--campaign-cards-border-radius, 12px);
+}
+
+.campaign-card__tab--bottom {
+  inset-block-end: 0;
+  border-radius: var(--campaign-cards-border-radius, 12px) var(--campaign-cards-border-radius, 12px) 0 0;
+}
+
+.campaign-card__body {
+  width: 100%;
+  color: rgb(var(--campaign-cards-cover-text-color));
+  display: grid;
+  justify-items: center;
+}
+
+.campaign-card__brand {
+  margin-block-end: .5rem;
+}
+
+.campaign-card__title {
+  width: 100%;
+  background-color: rgb(var(--campaign-cards-card-background));
+  border-radius: var(--campaign-cards-inner-border-radius, 6px);
+  text-transform: uppercase;
+  padding: .5rem 1rem;
+}
+
+.campaign-card__ribbon {
+  background-color: rgb(var(--campaign-cards-border-color));
+  color: rgb(var(--campaign-cards-card-background));
+  border-radius: calc(var(--campaign-cards-inner-border-radius, 6px) * .66);
+  box-shadow: 0 2px 0 rgba(0, 0, 0, .35);
+  padding: .125rem 1rem;
+  margin-block-start: -.5rem;
+  margin-inline-start: 25%;
+  transform: skewX(-8deg);
+  position: relative;
+  z-index: 1;
+}
+
+.campaign-card__text {
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+
+@media screen and (min-width: 1000px) {
+  .campaign-card {
+    padding: 2rem;
+  }
+}
+
+.campaign-cards-header {
+  max-width: 48rem;
+  margin-inline: auto;
+}

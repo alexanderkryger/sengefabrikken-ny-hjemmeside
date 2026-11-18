@@ -1,0 +1,158 @@
+/* Sengefabrikken: gift banner (sections/gift-banner.liquid), copied from the previous theme */
+
+.gift-banner {
+  border-radius: var(--gift-banner-border-radius, 12px);
+  grid-template-columns: minmax(0, 1fr);
+  display: grid;
+  overflow: hidden;
+  position: relative;
+}
+
+.gift-banner__content {
+  padding: 2.5rem 2rem;
+}
+
+.gift-banner__subheading,
+.gift-banner__heading {
+  text-transform: var(--gift-banner-text-transform, none);
+}
+
+.gift-banner__subheading {
+  letter-spacing: .1em;
+  color: rgb(var(--gift-banner-accent));
+}
+
+.gift-banner__subheading::before {
+  content: "";
+  width: 2.5rem;
+  height: 2px;
+  background: rgb(var(--gift-banner-accent));
+  margin-block-end: 1rem;
+  display: block;
+}
+
+.gift-banner__heading {
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+.gift-banner__heading.h1 {
+  font-size: calc(var(--text-h1) * var(--gift-banner-heading-scale, 1));
+}
+
+.gift-banner__heading.h2 {
+  font-size: calc(var(--text-h2) * var(--gift-banner-heading-scale, 1));
+}
+
+.gift-banner__heading.h3 {
+  font-size: calc(var(--text-h3) * var(--gift-banner-heading-scale, 1));
+}
+
+.gift-banner__heading.h4 {
+  font-size: calc(var(--text-h4) * var(--gift-banner-heading-scale, 1));
+}
+
+.prose .gift-banner__subheading + .gift-banner__heading {
+  margin-block-start: .25rem;
+}
+
+.gift-banner__badge {
+  font-size: var(--text-sm);
+  letter-spacing: .05em;
+  background: rgb(var(--gift-banner-accent));
+  color: rgb(var(--gift-banner-accent-text));
+  border-radius: var(--button-border-radius);
+  padding: .5rem 2.5rem;
+}
+
+.gift-banner__item {
+  font-size: var(--text-lg);
+  font-weight: 700;
+}
+
+.prose .gift-banner__item {
+  margin-block-start: 0;
+}
+
+.gift-banner__item-quantity {
+  margin-inline-end: .25em;
+}
+
+.gift-banner__media img {
+  max-height: var(--gift-banner-image-max-height);
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  object-position: bottom;
+  display: block;
+}
+
+@media screen and (max-width: 699px) {
+  /* Tekst holdes til 60% bredde, billedet står i højre side og overlapper 60% af sin højde op i tekstområdet */
+  .gift-banner--has-media .gift-banner__content {
+    padding-block-end: calc(var(--gift-banner-image-max-height) * .4);
+  }
+
+  .gift-banner--has-media .gift-banner__list,
+  .gift-banner--has-media .gift-banner__text {
+    max-width: 60%;
+  }
+
+  .gift-banner__media {
+    inset-block-end: 0;
+    inset-inline-end: 0;
+    max-width: 48%;
+    position: absolute;
+  }
+
+  .gift-banner__media img {
+    height: var(--gift-banner-image-max-height);
+    object-position: bottom right;
+  }
+}
+
+@media screen and (min-width: 700px) {
+  .gift-banner {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: center;
+  }
+
+  .gift-banner__content {
+    padding: 3.5rem 2.5rem;
+  }
+
+  .gift-banner__media {
+    align-self: end;
+    justify-self: end;
+    padding-inline: 2.5rem var(--gift-banner-image-offset, 0px);
+  }
+
+  .gift-banner__media img {
+    margin-inline-start: auto;
+  }
+
+  .gift-banner--reverse > .gift-banner__media {
+    order: -1;
+    justify-self: start;
+    padding-inline: var(--gift-banner-image-offset, 0px) 2.5rem;
+  }
+
+  .gift-banner--reverse > .gift-banner__media img {
+    margin-inline-start: 0;
+    margin-inline-end: auto;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .gift-banner__content {
+    padding: 4rem 3.75rem;
+  }
+
+  .gift-banner__media {
+    padding-inline: 3.75rem var(--gift-banner-image-offset, 0px);
+  }
+
+  .gift-banner--reverse > .gift-banner__media {
+    padding-inline: var(--gift-banner-image-offset, 0px) 3.75rem;
+  }
+}

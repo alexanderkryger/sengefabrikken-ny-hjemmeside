@@ -1,0 +1,350 @@
+{%- comment -%}
+Sengefabrikken: gift banner, copied from the previous theme. A colored banner listing the gifts of a campaign (one block
+per gift) with a value badge, next to an image with a transparent background. On mobile, the image is placed in the
+bottom corner and overlaps the text.
+{%- endcomment -%}
+
+{%- if section.settings.heading != blank or section.settings.image != blank or section.blocks.size > 0 -%}
+  {{- 'gift-banner.css' | asset_url | stylesheet_tag -}}
+
+  {%- comment -%}
+  ------------------------------------------------------------------------------------------------------------------------
+  CSS
+  ------------------------------------------------------------------------------------------------------------------------
+  {%- endcomment -%}
+
+  <style>
+    #shopify-section-{{ section.id }} {
+      --gift-banner-accent: {{ section.settings.accent_color.rgb }};
+      --gift-banner-accent-text: {{ section.settings.accent_text_color.rgb }};
+      --gift-banner-border-radius: {{ section.settings.border_radius }}px;
+      --gift-banner-image-max-height: {{ section.settings.image_max_height_mobile }}px;
+      --gift-banner-text-transform: {% if section.settings.uppercase_text %}uppercase{% else %}none{% endif %};
+      --gift-banner-heading-scale: {{ section.settings.heading_scale | divided_by: 100.0 }};
+    }
+
+    @media screen and (min-width: 700px) {
+      #shopify-section-{{ section.id }} {
+        --gift-banner-image-max-height: {{ section.settings.image_max_height }}px;
+        --gift-banner-image-offset: {{ section.settings.image_offset | divided_by: 2 }}px;
+      }
+    }
+
+    @media screen and (min-width: 1000px) {
+      #shopify-section-{{ section.id }} {
+        --gift-banner-image-offset: {{ section.settings.image_offset }}px;
+      }
+    }
+  </style>
+
+  {%- comment -%}
+  ------------------------------------------------------------------------------------------------------------------------
+  LIQUID
+  ------------------------------------------------------------------------------------------------------------------------
+  {%- endcomment -%}
+
+  <div class="{% unless section.settings.remove_vertical_spacing %}section-spacing{% endunless %}">
+    <div class="container">
+      <div class="gift-banner {% if section.settings.image_position == 'start' %}gift-banner--reverse{% endif %} {% if section.settings.image != blank and section.settings.hide_image_on_mobile == false %}gift-banner--has-media{% endif %} {% if section.settings.content != blank %}gift-banner--has-content{% endif %}" style="{% render 'surface', background: section.settings.background, text_color: section.settings.text_color %}">
+        <div class="gift-banner__content prose text-start">
+          {%- if section.settings.subheading != blank -%}
+            <p class="h6 gift-banner__subheading">{{ section.settings.subheading }}</p>
+          {%- endif -%}
+
+          {%- if section.settings.heading != blank -%}
+            <h2 class="{{ section.settings.heading_tag }} gift-banner__heading">{{ section.settings.heading }}</h2>
+          {%- endif -%}
+
+          {%- if section.settings.value_text != blank -%}
+            <div class="badge gift-banner__badge">{{ section.settings.value_text | escape }}</div>
+          {%- endif -%}
+
+          {%- if section.blocks.size > 0 -%}
+            <ul class="gift-banner__list unstyled-list v-stack gap-1" role="list">
+              {%- for block in section.blocks -%}
+                {%- if block.settings.text != blank -%}
+                  <li class="gift-banner__item" {{ block.shopify_attributes }}>
+                    {%- if block.settings.quantity != blank -%}
+                      <span class="gift-banner__item-quantity">{{ block.settings.quantity | escape }} ×</span>
+                    {%- endif -%}
+                    <span class="gift-banner__item-text">{{ block.settings.text }}</span>
+                  </li>
+                {%- endif -%}
+              {%- endfor -%}
+            </ul>
+          {%- endif -%}
+
+          {%- if section.settings.content != blank -%}
+            <div class="text-sm gift-banner__text">
+              {{- section.settings.content -}}
+            </div>
+          {%- endif -%}
+        </div>
+
+        {%- if section.settings.image != blank -%}
+          <div class="gift-banner__media {% if section.settings.hide_image_on_mobile %}hidden sm:block{% endif %}">
+            <picture>
+              {%- assign sizes = '(max-width: 699px) 100vw, 50vw' -%}
+
+              {%- if section.settings.mobile_image != blank -%}
+                <source
+                    media="(max-width: 699px)"
+                    srcset="{{ section.settings.mobile_image | image_url: width: '400x' }} 400w, {{ section.settings.mobile_image | image_url: width: '600x' }} 600w, {{ section.settings.mobile_image | image_url: width: '800x' }} 800w, {{ section.settings.mobile_image | image_url: width: '1000x' }} 1000w"
+                    width="{{ section.settings.mobile_image.width }}"
+                    height="{{ section.settings.mobile_image.height }}"
+                >
+              {%- endif -%}
+
+              {{- section.settings.image | image_url: width: section.settings.image.width | image_tag: loading: 'lazy', sizes: sizes, widths: '200,300,400,500,600,700,800,900,1000,1200,1400,1600' -}}
+            </picture>
+          </div>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Gavebanner",
+  "class": "shopify-section--gift-banner",
+  "tag": "section",
+  "max_blocks": 6,
+  "disabled_on": {
+    "groups": ["header", "custom.overlay"]
+  },
+  "settings": [
+    {
+      "type": "header",
+      "content": "Indhold"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "subheading",
+      "label": "Overskrift (lille)",
+      "default": "Med hver seng får du"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Overskrift",
+      "default": "Gratis gaver"
+    },
+    {
+      "type": "select",
+      "id": "heading_tag",
+      "label": "Overskriftens størrelse",
+      "options": [
+        {
+          "value": "h1",
+          "label": "H1"
+        },
+        {
+          "value": "h2",
+          "label": "H2"
+        },
+        {
+          "value": "h3",
+          "label": "H3"
+        },
+        {
+          "value": "h4",
+          "label": "H4"
+        }
+      ],
+      "default": "h1"
+    },
+    {
+      "type": "range",
+      "id": "heading_scale",
+      "label": "Overskriftens skalering",
+      "info": "Skalerer overskriften i forhold til temaets normale størrelse.",
+      "min": 100,
+      "max": 180,
+      "step": 10,
+      "unit": "%",
+      "default": 130
+    },
+    {
+      "type": "text",
+      "id": "value_text",
+      "label": "Værdi-badge",
+      "info": "Vises som et badge under overskriften. Lad feltet stå tomt for at skjule det.",
+      "default": "Værdi 1.298 kr."
+    },
+    {
+      "type": "richtext",
+      "id": "content",
+      "label": "Tekst under gaverne",
+      "info": "Valgfri. Fx betingelser eller en kort note."
+    },
+    {
+      "type": "checkbox",
+      "id": "uppercase_text",
+      "label": "Vis overskrifter med store bogstaver",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Billede"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Billede",
+      "info": "Brug et billede med transparent baggrund (PNG) så det kan stå frit i banneret. Anbefalet højde: 1000px."
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_image",
+      "label": "Billede (mobil)",
+      "info": "Valgfrit. Bruges i stedet for billedet ovenfor på mobil."
+    },
+    {
+      "type": "select",
+      "id": "image_position",
+      "label": "Billedets placering",
+      "options": [
+        {
+          "value": "start",
+          "label": "Venstre"
+        },
+        {
+          "value": "end",
+          "label": "Højre"
+        }
+      ],
+      "default": "end"
+    },
+    {
+      "type": "range",
+      "id": "image_max_height",
+      "label": "Billedets maks. højde",
+      "min": 240,
+      "max": 640,
+      "step": 20,
+      "unit": "px",
+      "default": 420
+    },
+    {
+      "type": "range",
+      "id": "image_max_height_mobile",
+      "label": "Billedets højde (mobil)",
+      "info": "På mobil placeres billedet i bannerets nederste højre hjørne og må overlappe teksten.",
+      "min": 160,
+      "max": 480,
+      "step": 20,
+      "unit": "px",
+      "default": 320
+    },
+    {
+      "type": "range",
+      "id": "image_offset",
+      "label": "Billedets afstand til kanten (desktop)",
+      "info": "Afstand fra billedet til bannerets yderkant. Halveres på tablet.",
+      "min": 0,
+      "max": 240,
+      "step": 10,
+      "unit": "px",
+      "default": 120
+    },
+    {
+      "type": "checkbox",
+      "id": "hide_image_on_mobile",
+      "label": "Skjul billede på mobil",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "border_radius",
+      "label": "Hjørneradius",
+      "min": 0,
+      "max": 32,
+      "step": 2,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "checkbox",
+      "id": "remove_vertical_spacing",
+      "label": "Fjern lodret afstand",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Farver"
+    },
+    {
+      "type": "color",
+      "id": "background",
+      "label": "Baggrund",
+      "default": "#4a0e0e"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Tekst",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accentfarve",
+      "info": "Bruges til den lille overskrift, stregen og badgets baggrund.",
+      "default": "#f4a63a"
+    },
+    {
+      "type": "color",
+      "id": "accent_text_color",
+      "label": "Tekstfarve på badge",
+      "default": "#2f1300"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "gift",
+      "name": "Gave",
+      "settings": [
+        {
+          "type": "text",
+          "id": "quantity",
+          "label": "Antal",
+          "info": "Vises foran gavens navn, fx \"1 ×\". Lad feltet stå tomt for at skjule antallet.",
+          "default": "1"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "text",
+          "label": "Gave",
+          "default": "Gratis lagen"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Gavebanner",
+      "blocks": [
+        {
+          "type": "gift",
+          "settings": {
+            "quantity": "1",
+            "text": "Gratis lagen"
+          }
+        },
+        {
+          "type": "gift",
+          "settings": {
+            "quantity": "1",
+            "text": "Gratis rullemadras"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
