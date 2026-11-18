@@ -89,6 +89,15 @@
   box-shadow: 0 1px 0 rgb(var(--border-color));
 }
 
+/* ...and the line of the separator becomes the top line of that first row (no space between them) */
+.product-info:not(:has([data-block-type="product-variations"]:not(:empty))) .product-info__block-item[data-block-type="separator"]:has(+ [data-block-type="variant-picker"] .accordion) {
+  margin-block-end: 0;
+}
+
+.product-info:not(:has([data-block-type="product-variations"]:not(:empty))) .product-info__block-item[data-block-type="separator"] + [data-block-type="variant-picker"]:has(.accordion) {
+  margin-block-start: 0;
+}
+
 /* With drawers, the rows of the variant picker (the size and the options) and the rows of the product group form a single list:
    no space between both blocks, and a single line between the last option and the first group row */
 .product-info__block-item[data-block-type="variant-picker"]:has(.accordion):has(+ [data-block-type="product-group"]) {
