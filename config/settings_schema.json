@@ -1524,6 +1524,7 @@
         "type": "range",
         "id": "campaign_badge_size",
         "label": "Størrelse på produktkort",
+        "info": "Gælder de almindelige produktkort (fx relaterede produkter). På kollektionernes produktkort har badget samme størrelse som kvalitetsikonet.",
         "min": 40,
         "max": 120,
         "step": 4,
