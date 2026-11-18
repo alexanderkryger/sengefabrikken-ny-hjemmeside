@@ -989,6 +989,104 @@
       ]
     },
     {
+      "type": "custom_size",
+      "name": "Specialmål",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "paragraph",
+          "content": "Kunden indtaster bredde og længde. Prisen beregnes ud fra produktets metafelter (custom.size_*), og ved læg i kurv oprettes/findes varianten via n8n. Må ikke kombineres med en Variant picker-blok."
+        },
+        {
+          "type": "text",
+          "id": "endpoint_url",
+          "label": "n8n webhook URL",
+          "info": "POST-endpoint der returnerer { \"variant_id\": … }"
+        },
+        {
+          "type": "header",
+          "content": "Tekster"
+        },
+        {
+          "type": "text",
+          "id": "width_label",
+          "label": "Label for bredde",
+          "default": "Bredde (cm)"
+        },
+        {
+          "type": "text",
+          "id": "length_label",
+          "label": "Label for længde",
+          "default": "Længde (cm)"
+        },
+        {
+          "type": "text",
+          "id": "empty_text",
+          "label": "Tekst før mål er indtastet",
+          "default": "Indtast bredde og længde"
+        },
+        {
+          "type": "richtext",
+          "id": "help_text",
+          "label": "Hjælpetekst",
+          "default": "<p>Mål angives i hele 5 cm. Skal den være mindre end 40 cm eller større end 300 cm, så <a href=\"/pages/kontakt\">kontakt os</a>, så finder vi en løsning.</p>"
+        },
+        {
+          "type": "header",
+          "content": "Fejlbeskeder"
+        },
+        {
+          "type": "text",
+          "id": "required_text",
+          "label": "Mangler mål",
+          "default": "Indtast et mål i cm"
+        },
+        {
+          "type": "text",
+          "id": "range_text",
+          "label": "Uden for min/max",
+          "info": "@min@ og @max@ erstattes automatisk",
+          "default": "Målet skal være mellem @min@ og @max@ cm"
+        },
+        {
+          "type": "text",
+          "id": "step_text",
+          "label": "Forkert interval",
+          "info": "@step@ erstattes automatisk",
+          "default": "Målet skal være deleligt med @step@ cm"
+        },
+        {
+          "type": "text",
+          "id": "error_text",
+          "label": "Teknisk fejl",
+          "default": "Vi kunne ikke beregne dit mål lige nu. Prøv igen eller kontakt os."
+        },
+        {
+          "type": "header",
+          "content": "Standardværdier",
+          "info": "Bruges kun hvis produktet ikke har metafelterne custom.size_min_cm, size_max_cm og size_step_cm"
+        },
+        {
+          "type": "number",
+          "id": "default_min",
+          "label": "Minimum (cm)",
+          "default": 40
+        },
+        {
+          "type": "number",
+          "id": "default_max",
+          "label": "Maximum (cm)",
+          "default": 300
+        },
+        {
+          "type": "number",
+          "id": "default_step",
+          "label": "Interval (cm)",
+          "default": 5
+        }
+      ]
+    },
+    {
       "type": "line_item_property",
       "name": "t:sections.main_product.blocks.line_item_property.name",
       "settings": [

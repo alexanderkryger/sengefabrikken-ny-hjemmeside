@@ -1,0 +1,6 @@
+/* Sengefabrikken: the "Specialmål" product block (see the custom_size block of the product-info snippet) */
+
+.custom-size .form-row {
+  --fieldset-row-control-width: 7rem;
+  --fieldset-gap: 1rem;
+}

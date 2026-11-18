@@ -427,6 +427,75 @@ no need to manually pass the section as it is globally available)
               </div>
             {%- endif -%}
 
+          {%- when 'custom_size' -%}
+            {%- comment -%}Sengefabrikken: Specialmål, the customer types the size and the variant is resolved by n8n (see custom-size-form.js){%- endcomment -%}
+            {%- liquid
+              assign size_sku_prefix = product.metafields.custom.size_sku_prefix.value
+              assign size_price_per_m2 = product.metafields.custom.size_price_per_m2.value
+              assign size_price_base = product.metafields.custom.size_price_base.value | default: 0
+              assign size_price_min = product.metafields.custom.size_price_min.value | default: 0
+              assign size_min = product.metafields.custom.size_min_cm.value | default: block.settings.default_min
+              assign size_max = product.metafields.custom.size_max_cm.value | default: block.settings.default_max
+              assign size_step = product.metafields.custom.size_step_cm.value | default: block.settings.default_step
+            -%}
+
+            {%- if size_sku_prefix != blank and size_price_per_m2 != blank and block.settings.endpoint_url != blank -%}
+              {%- capture width_id -%}input-{{ section.id }}-{{ product_form_id }}-size-width{%- endcapture -%}
+              {%- capture length_id -%}input-{{ section.id }}-{{ product_form_id }}-size-length{%- endcapture -%}
+
+              {{- 'custom-size-form.css' | asset_url | stylesheet_tag -}}
+              <script type="module" src="{{ 'custom-size-form.js' | asset_url }}"></script>
+
+              <custom-size-form class="custom-size v-stack gap-4" form="{{ product_form_id }}">
+                <script type="application/json">
+                  {
+                    "endpoint": {{ block.settings.endpoint_url | json }},
+                    "productId": {{ product.id | json }},
+                    "min": {{ size_min | json }},
+                    "max": {{ size_max | json }},
+                    "step": {{ size_step | json }},
+                    "pricing": {
+                      "base": {{ size_price_base | json }},
+                      "perM2": {{ size_price_per_m2 | json }},
+                      "min": {{ size_price_min | json }}
+                    },
+                    "strings": {
+                      "empty": {{ block.settings.empty_text | json }},
+                      "required": {{ block.settings.required_text | json }},
+                      "range": {{ block.settings.range_text | json }},
+                      "step": {{ block.settings.step_text | json }},
+                      "error": {{ block.settings.error_text | json }}
+                    }
+                  }
+                </script>
+
+                <div class="form-row">
+                  <div class="form-control">
+                    <input id="{{ width_id }}" class="input" type="number" inputmode="numeric" form="{{ product_form_id }}" min="{{ size_min }}" max="{{ size_max }}" step="{{ size_step }}" placeholder=" " required data-size-width>
+                    <label for="{{ width_id }}" class="floating-label">{{ block.settings.width_label }}</label>
+                  </div>
+
+                  <div class="form-control">
+                    <input id="{{ length_id }}" class="input" type="number" inputmode="numeric" form="{{ product_form_id }}" min="{{ size_min }}" max="{{ size_max }}" step="{{ size_step }}" placeholder=" " required data-size-length>
+                    <label for="{{ length_id }}" class="floating-label">{{ block.settings.length_label }}</label>
+                  </div>
+                </div>
+
+                <div class="h-stack justify-between gap-4">
+                  <span class="text-subdued" data-size-summary>{{ block.settings.empty_text }}</span>
+                  <span class="h6" data-size-price></span>
+                </div>
+
+                {%- if block.settings.help_text != blank -%}
+                  <div class="prose text-sm text-subdued">
+                    {{- block.settings.help_text -}}
+                  </div>
+                {%- endif -%}
+              </custom-size-form>
+            {%- elsif request.design_mode -%}
+              <p class="text-sm text-subdued">Specialmål: udfyld metafelterne custom.size_sku_prefix og custom.size_price_per_m2 på produktet samt webhook-URL på blokken.</p>
+            {%- endif -%}
+
           {%- when 'line_item_property' -%}
             {%- if block.settings.label != blank -%}
               {%- capture name -%}properties[{{ block.settings.label | escape }}]{%- endcapture -%}
