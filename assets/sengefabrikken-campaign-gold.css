@@ -7,7 +7,8 @@
   --campaign-gold-shadow: drop-shadow(0 1px 0 rgb(0 0 0 / .45)) drop-shadow(0 0 6px rgb(255 214 120 / .18));
 }
 
-#main :is(h1, h2, h3, .h0, .h1, .h2, .h3, .display-xl, .display-l, .display-m) {
+/* The campaign cards have their own gold text, and the title bar of the cover card its own background */
+#main :is(h1, h2, h3, .h0, .h1, .h2, .h3, .display-xl, .display-l, .display-m):not(.campaign-card *) {
   background: var(--campaign-gold-gradient);
   -webkit-background-clip: text;
   background-clip: text;
