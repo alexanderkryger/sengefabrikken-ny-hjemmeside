@@ -325,7 +325,7 @@ Two other metafields are rendered as well:
 
           <span class="v-stack gap-1 text-start">
             <span>{{ gift_title }}</span>
-            <span class="text-sm text-subdued" data-gift-summary>{{ gift_product.title }}{% unless gift_product.has_only_default_variant %}: {{ gift_variant.title }}{% endunless %}</span>
+            <span class="text-sm text-subdued" data-gift-summary {% unless block.settings.show_selected_value %}hidden{% endunless %}>{{ gift_product.title }}{% unless gift_product.has_only_default_variant %}: {{ gift_variant.title }}{% endunless %}</span>
           </span>
 
           <span class="product-group-check">{%- render 'icon' with 'success-checkmark', width: 9 -%}</span>
