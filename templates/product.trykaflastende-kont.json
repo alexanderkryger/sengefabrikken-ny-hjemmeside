@@ -355,7 +355,14 @@
           "settings": {
             "video": "shopify://files/videos/tromso_kontinental_video_247bf640-9d6c-40af-8d58-e6f57fd59bd3.mp4",
             "rotation": 0,
-            "hide_on_mobile": false
+            "hide_on_mobile": false,
+            "label_text": "",
+            "label_shape": "right",
+            "label_x": 50,
+            "label_y": 50,
+            "label_line_length": 60,
+            "label_background": "#6b1424",
+            "label_text_color": "#ffffff"
           }
         }
       },
@@ -740,7 +747,14 @@
           "settings": {
             "image": "shopify://shop_images/01.-Trykaflastende_Topmadras_Badge_1.jpg",
             "rotation": 0,
-            "hide_on_mobile": false
+            "hide_on_mobile": false,
+            "label_text": "",
+            "label_shape": "right",
+            "label_x": 50,
+            "label_y": 50,
+            "label_line_length": 60,
+            "label_background": "#6b1424",
+            "label_text_color": "#ffffff"
           }
         }
       },
@@ -794,7 +808,14 @@
           "settings": {
             "image": "{{ product.metafields.custom.product_description_topmadras.value.image_1.value }}",
             "rotation": 0,
-            "hide_on_mobile": false
+            "hide_on_mobile": false,
+            "label_text": "",
+            "label_shape": "right",
+            "label_x": 50,
+            "label_y": 50,
+            "label_line_length": 60,
+            "label_background": "#6b1424",
+            "label_text_color": "#ffffff"
           }
         }
       },
@@ -849,7 +870,14 @@
           "settings": {
             "image": "{{ product.metafields.custom.product_description_topmadras.value.image_kerne.value }}",
             "rotation": 0,
-            "hide_on_mobile": false
+            "hide_on_mobile": false,
+            "label_text": "",
+            "label_shape": "right",
+            "label_x": 50,
+            "label_y": 50,
+            "label_line_length": 60,
+            "label_background": "#6b1424",
+            "label_text_color": "#ffffff"
           }
         }
       },
@@ -939,7 +967,14 @@
           "settings": {
             "image": "shopify://shop_images/Trykaflastende_Kont_Bund_Badge.jpg",
             "rotation": 0,
-            "hide_on_mobile": false
+            "hide_on_mobile": false,
+            "label_text": "",
+            "label_shape": "right",
+            "label_x": 50,
+            "label_y": 50,
+            "label_line_length": 60,
+            "label_background": "#6b1424",
+            "label_text_color": "#ffffff"
           }
         }
       },
@@ -993,7 +1028,14 @@
           "settings": {
             "image": "{{ product.metafields.custom.product_description_springmadras.value.video_polstring.value }}",
             "rotation": 0,
-            "hide_on_mobile": false
+            "hide_on_mobile": false,
+            "label_text": "",
+            "label_shape": "right",
+            "label_x": 50,
+            "label_y": 50,
+            "label_line_length": 60,
+            "label_background": "#6b1424",
+            "label_text_color": "#ffffff"
           }
         }
       },
@@ -1048,7 +1090,14 @@
           "settings": {
             "video": "{{ product.metafields.custom.product_description_springmadras.value.video_kerne.value }}",
             "rotation": 0,
-            "hide_on_mobile": false
+            "hide_on_mobile": false,
+            "label_text": "",
+            "label_shape": "right",
+            "label_x": 50,
+            "label_y": 50,
+            "label_line_length": 60,
+            "label_background": "#6b1424",
+            "label_text_color": "#ffffff"
           }
         }
       },
@@ -1136,9 +1185,16 @@
         "image_GQaRxT": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/Trykaflastende_Kont_Bund_Badge.jpg",
+            "image": "{{ product.featured_image }}",
             "rotation": 0,
-            "hide_on_mobile": false
+            "hide_on_mobile": false,
+            "label_text": "Kontinentalbund",
+            "label_shape": "right",
+            "label_x": 56,
+            "label_y": 80,
+            "label_line_length": 60,
+            "label_background": "#6b1424",
+            "label_text_color": "#ffffff"
           }
         }
       },
@@ -1192,7 +1248,14 @@
           "settings": {
             "image": "shopify://shop_images/traeramme.jpg",
             "rotation": 0,
-            "hide_on_mobile": false
+            "hide_on_mobile": false,
+            "label_text": "",
+            "label_shape": "right",
+            "label_x": 50,
+            "label_y": 50,
+            "label_line_length": 60,
+            "label_background": "#6b1424",
+            "label_text_color": "#ffffff"
           }
         }
       },
@@ -1247,7 +1310,14 @@
           "settings": {
             "image": "shopify://shop_images/Trykaflastende_Kont_Bund.jpg",
             "rotation": 0,
-            "hide_on_mobile": false
+            "hide_on_mobile": false,
+            "label_text": "",
+            "label_shape": "right",
+            "label_x": 50,
+            "label_y": 50,
+            "label_line_length": 60,
+            "label_background": "#6b1424",
+            "label_text_color": "#ffffff"
           }
         }
       },
