@@ -60,6 +60,7 @@
     "gift_popup_image": "shopify://shop_images/malthe-med-sengetoj-short.png",
     "gift_popup_color_scheme": "scheme-f9cf78c5-9231-4df6-8731-70f748998ede",
     "sengefabrikken_search_enabled": true,
+    "search_idle_heading": "Top produkter",
     "search_color_scheme": "scheme-2b5ea552-ee45-4763-a402-00199b79bef1",
     "search_logo": "shopify://shop_images/Sengefabrikken_logo.svg",
     "search_idle_menu": "search-kategori",
