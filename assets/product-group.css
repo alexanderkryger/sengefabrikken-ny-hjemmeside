@@ -88,6 +88,10 @@
   margin-block-end: 0;
 }
 
+.product-info__block-item[data-block-type="variant-picker"]:has(.accordion) + [data-block-type="product-group"] {
+  margin-block-start: 0;
+}
+
 .product-info__block-item[data-block-type="variant-picker"]:has(.accordion) + [data-block-type="product-group"] .product-group > .accordion:first-child {
   box-shadow: 0 1px 0 rgb(var(--border-color));
 }
