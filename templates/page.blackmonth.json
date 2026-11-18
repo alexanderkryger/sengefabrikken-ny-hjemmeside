@@ -167,7 +167,7 @@
       "settings": {
         "use_page_width": true,
         "page_width_color_scheme": "",
-        "remove_page_width_spacing": false,
+        "remove_page_width_spacing": true,
         "color_scheme": "",
         "scrolling_speed": 0.1,
         "scroll_direction": "start-to-end",
