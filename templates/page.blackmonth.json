@@ -141,10 +141,9 @@
         "text_X99UaF": {
           "type": "text",
           "settings": {
-        "use_page_width": true,
             "text": "<em><strong>GRATIS GAVE</strong></em><strong> - </strong>VÆRDI OP TIL 1.798 KR.",
             "icon_position": "before_text",
-            "highlight_effect": "tilted_marker",
+            "highlight_effect": "marker",
             "highlight_accent_color": "#FDDC7A",
             "highlight_text_color": "#252525"
           }
@@ -177,7 +176,7 @@
           "settings": {
             "text": "<em>BEGRÆNSET TILBUD</em> - KUN MENS LAGER HAVES",
             "icon_position": "before_text",
-            "highlight_effect": "tilted_marker",
+            "highlight_effect": "marker",
             "highlight_accent_color": "#FDDC7A",
             "highlight_text_color": "#252525"
           }
@@ -850,4 +849,3 @@
     "faq_UyDReT"
   ]
 }
-
