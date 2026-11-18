@@ -76,9 +76,9 @@
   display: none;
 }
 
-/* Without a variant picker (eg. products without colors), the separator block above already draws the line above the
-   first row, so the row only keeps its bottom line */
-.product-info:has([data-block-type="separator"]):has([data-block-type="variant-picker"]:empty) .product-group > .accordion:first-child {
+/* Without colors (empty product variations and variant picker blocks), the separator block above already draws the
+   line above the first row, so the row only keeps its bottom line */
+.product-info:has([data-block-type="separator"]):has([data-block-type="variant-picker"]:empty):not(:has([data-block-type="product-variations"]:not(:empty))) .product-group > .accordion:first-child {
   box-shadow: 0 1px 0 rgb(var(--border-color));
 }
 
