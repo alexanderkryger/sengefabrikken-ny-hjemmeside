@@ -30,7 +30,7 @@
           "type": "menu",
           "settings": {
             "menu": "Boxmadras",
-            "link": ""
+            "link": "#boxmadras"
           }
         },
         "menu_6ayErN": {
@@ -1095,6 +1095,205 @@
         "button_2_style": "outline"
       }
     },
+    "rich_text_ApMFky": {
+      "type": "rich-text",
+      "blocks": {
+        "subheading_YXjJrC": {
+          "type": "subheading",
+          "settings": {
+            "text": "Dyk ned i"
+          }
+        },
+        "heading_nqw9qB": {
+          "type": "heading",
+          "settings": {
+            "text": "Boxmadrassen",
+            "heading_tag": "h2",
+            "html_tag": "p",
+            "indent": "none",
+            "highlight_effect": "default",
+            "highlight_accent_color": "",
+            "highlight_text_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "subheading_YXjJrC",
+        "heading_nqw9qB"
+      ],
+      "name": "t:sections.rich_text.name",
+      "settings": {
+        "color_scheme": "scheme-6c169912-c18f-4620-bcaa-b514f350ac84",
+        "color_transition": true,
+        "custom_id": "#boxmadras",
+        "content_width": "md",
+        "text_alignment": "center"
+      }
+    },
+    "multiple_media_with_text_GU6QrV": {
+      "type": "multiple-media-with-text",
+      "blocks": {
+        "image_GQaRxT": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Trykaflastende_Kont_Bund_Badge.jpg",
+            "rotation": 0,
+            "hide_on_mobile": false
+          }
+        }
+      },
+      "block_order": [
+        "image_GQaRxT"
+      ],
+      "name": "Medier med tekst",
+      "settings": {
+        "color_scheme": "scheme-6c169912-c18f-4620-bcaa-b514f350ac84",
+        "color_transition": true,
+        "custom_id": "",
+        "media_position_desktop": "before_text",
+        "media_position_mobile": "before_text",
+        "media_layout": "overlap",
+        "media_alignment": "center",
+        "media_alignment_offset": 0,
+        "media_mobile_alignment_offset": 0,
+        "hide_media_on_mobile": true,
+        "content_percentage_width": 45,
+        "text_alignment": "center",
+        "subheading": "",
+        "title": "Oversigt",
+        "heading_size": "h5",
+        "show_icon": false,
+        "show_color_swatch": false,
+        "color_swatch_label": "Farver",
+        "content": "<p>Boksmadrassen er sengens base, hvorpå sengens øvrige madrasser ligger. Denne boksmadras er skabt af en 12 cm høj og 4 cm tyk ramme i FSC-certificeret fyrretræ fra Sverige og er fuldendt af et8 cm tykt lag komfortskum.</p>",
+        "content_border_top": false,
+        "content_border_bottom": true,
+        "content_below": "<p><strong>5 facts om Kontinentalbunden</strong></p><ul><li>12 cm høj træramme i massiv FSC-certificeret fyrretræ.</li><li>Komfortlag bestående af 8 cm højelastisk komfortskum.</li><li>Fungerer som fundament for sengens andre madrasser.</li><li>Flot, slidstærkt og OEKO-TEX®-certificeret møbeltekstil.</li><li>25 års garanti på rammebrud.</li></ul>",
+        "content_below_border_top": false,
+        "content_below_border_bottom": false,
+        "border_color": "#e0dcd9",
+        "phone": "",
+        "phone_hours": "",
+        "email": "",
+        "chat": "",
+        "button_1_text": "",
+        "button_1_link": "",
+        "button_1_style": "solid",
+        "button_2_text": "",
+        "button_2_link": "",
+        "button_2_style": "outline"
+      }
+    },
+    "multiple_media_with_text_Tg4WXt": {
+      "type": "multiple-media-with-text",
+      "blocks": {
+        "image_YNyBeN": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/traeramme.jpg",
+            "rotation": 0,
+            "hide_on_mobile": false
+          }
+        }
+      },
+      "block_order": [
+        "image_YNyBeN"
+      ],
+      "name": "Medier med tekst",
+      "settings": {
+        "color_scheme": "scheme-6c169912-c18f-4620-bcaa-b514f350ac84",
+        "color_transition": true,
+        "custom_id": "",
+        "media_position_desktop": "before_text",
+        "media_position_mobile": "before_text",
+        "media_layout": "overlap",
+        "media_alignment": "center",
+        "media_alignment_offset": 0,
+        "media_mobile_alignment_offset": 0,
+        "video": "shopify://files/videos/01.-Trykaflastende_Boxmadras (1).mp4",
+        "hide_media_on_mobile": true,
+        "content_percentage_width": 45,
+        "text_alignment": "center",
+        "subheading": "",
+        "title": "FSC-certificeret kvalitetstræ",
+        "heading_size": "h5",
+        "show_icon": false,
+        "show_color_swatch": false,
+        "color_swatch_label": "Farver",
+        "content": "<p>Boksmadrassen er skabt i FSC-certificeret fyrretræ, fordi vi hos Sengefabrikken sætter en dyd i kun at forhandle senge af den bedste kvalitet. Vi går aldrig på kompromis med brugen af gennemtestede materialer, og akkurat derfor er FSC-certificeringen også din og vores garanti for, at rammens træ er opdyrket i ansvarligt forvaltede skove. Hele herligheden er betrukket med et OEKO-TEX®-certificeret møbeltekstil.</p>",
+        "content_border_top": false,
+        "content_border_bottom": false,
+        "content_below": "",
+        "content_below_border_top": false,
+        "content_below_border_bottom": false,
+        "border_color": "#e0dcd9",
+        "phone": "",
+        "phone_hours": "",
+        "email": "",
+        "chat": "",
+        "button_1_text": "",
+        "button_1_link": "",
+        "button_1_style": "solid",
+        "button_2_text": "",
+        "button_2_link": "",
+        "button_2_style": "outline"
+      }
+    },
+    "multiple_media_with_text_7hcwkx": {
+      "type": "multiple-media-with-text",
+      "blocks": {
+        "image_eDNrz4": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Trykaflastende_Kont_Bund.jpg",
+            "rotation": 0,
+            "hide_on_mobile": false
+          }
+        }
+      },
+      "block_order": [
+        "image_eDNrz4"
+      ],
+      "name": "Medier med tekst",
+      "settings": {
+        "color_scheme": "scheme-6c169912-c18f-4620-bcaa-b514f350ac84",
+        "color_transition": true,
+        "custom_id": "",
+        "media_position_desktop": "after_text",
+        "media_position_mobile": "before_text",
+        "media_layout": "overlap",
+        "media_alignment": "center",
+        "media_alignment_offset": 0,
+        "media_mobile_alignment_offset": 0,
+        "image": "shopify://shop_images/Box_woodframe_7a06605d-5ede-4791-9661-aae1ccf65af0.jpg",
+        "hide_media_on_mobile": true,
+        "content_percentage_width": 45,
+        "text_alignment": "center",
+        "subheading": "",
+        "title": "Komfortabelt komfortskum",
+        "heading_size": "h5",
+        "show_icon": false,
+        "show_color_swatch": false,
+        "color_swatch_label": "Farver",
+        "content": "<p>Oven på fyrretræsrammen ligger et 8 cm tykt lag komfortskum, der er ventilerende, fleksibelt og meget, meget holdbart. Skummet tilføjer et ekstra lag komfort til sengen, og dette bidrager naturligvis til en god nattesøvn, da sengens støtte dermed ikke ‘kun’ er udgjort af top- og springmadrassen. Komfortskummens store åndbarhed munder også ud i bevarelsen af et sundt sovemiljø, da fugt og allergener ikke ophober sig i skummet.</p>",
+        "content_border_top": false,
+        "content_border_bottom": false,
+        "content_below": "",
+        "content_below_border_top": false,
+        "content_below_border_bottom": false,
+        "border_color": "#e0dcd9",
+        "phone": "",
+        "phone_hours": "",
+        "email": "",
+        "chat": "",
+        "button_1_text": "",
+        "button_1_link": "",
+        "button_1_style": "solid",
+        "button_2_text": "",
+        "button_2_link": "",
+        "button_2_style": "outline"
+      }
+    },
     "value_chain_VHg3BX": {
       "type": "value-chain",
       "blocks": {
@@ -1317,6 +1516,10 @@
     "multiple_media_with_text_6zpExn",
     "multiple_media_with_text_RUFQYc",
     "multiple_media_with_text_DfP74M",
+    "rich_text_ApMFky",
+    "multiple_media_with_text_GU6QrV",
+    "multiple_media_with_text_Tg4WXt",
+    "multiple_media_with_text_7hcwkx",
     "value_chain_VHg3BX",
     "specifications_hTjaPb",
     "faq_xWkqpM"
