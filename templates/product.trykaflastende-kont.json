@@ -190,6 +190,7 @@
           "type": "product_group",
           "settings": {
             "preselect_first_variant": true,
+            "show_selected_value": false,
             "size_label": "Størrelse",
             "upsale_title": "Spar op til 40% på tilbehør",
             "upsale_image": "shopify://shop_images/imgi_48_1_Senges_t_Packshot_Cream_17.png",
