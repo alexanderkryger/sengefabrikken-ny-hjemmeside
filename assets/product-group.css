@@ -82,7 +82,7 @@
   box-shadow: 0 1px 0 rgb(var(--border-color));
 }
 
-/* With drawers, the rows of the variant picker (size and options) and the rows of the product group form a single list:
+/* With drawers, the rows of the variant picker (the size and the options) and the rows of the product group form a single list:
    no space between both blocks, and a single line between the last option and the first group row */
 .product-info__block-item[data-block-type="variant-picker"]:has(.accordion):has(+ [data-block-type="product-group"]) {
   margin-block-end: 0;
