@@ -1404,6 +1404,110 @@
     ]
   },
   {
+    "name": "Sengefabrikken søgning",
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "En søgning i fuld skærm med kategorier, filtre fra Search & Discovery og produktkort. Når den er slået til, åbner søgeikonet i headeren den i stedet for standardsøgningen."
+      },
+      {
+        "type": "checkbox",
+        "id": "sengefabrikken_search_enabled",
+        "label": "Brug Sengefabrikken søgning",
+        "default": false
+      },
+      {
+        "type": "color_scheme",
+        "id": "search_color_scheme",
+        "label": "Farveskema",
+        "default": "scheme-1"
+      },
+      {
+        "type": "image_picker",
+        "id": "search_logo",
+        "label": "Logo",
+        "info": "Vises øverst til venstre. Hvis tomt vises butikkens navn."
+      },
+      {
+        "type": "header",
+        "content": "Før der søges"
+      },
+      {
+        "type": "paragraph",
+        "content": "Vises, når søgefeltet er tomt, og under beskeden, når en søgning ikke finder nogen produkter."
+      },
+      {
+        "type": "link_list",
+        "id": "search_idle_menu",
+        "label": "Kategorier",
+        "info": "Menuen vises som felter øverst. Den vises også i stedet for kategorierne, når ingen kollektioner matcher søgningen."
+      },
+      {
+        "type": "collection",
+        "id": "search_idle_collection",
+        "label": "Top produkter",
+        "info": "Kollektionens rækkefølge bruges. Vælg manuel sortering for at styre, hvilke produkter der vises først."
+      },
+      {
+        "type": "text",
+        "id": "search_idle_heading",
+        "label": "Overskrift",
+        "default": "Top produkter"
+      },
+      {
+        "type": "text",
+        "id": "search_idle_subheading",
+        "label": "Underoverskrift",
+        "default": "Top 10 mest populære produkter."
+      },
+      {
+        "type": "range",
+        "id": "search_idle_count",
+        "label": "Antal produkter",
+        "min": 3,
+        "max": 20,
+        "step": 1,
+        "default": 10
+      },
+      {
+        "type": "header",
+        "content": "Søgeresultater"
+      },
+      {
+        "type": "range",
+        "id": "search_products_to_show",
+        "label": "Antal produkter",
+        "min": 6,
+        "max": 48,
+        "step": 3,
+        "default": 24
+      },
+      {
+        "type": "range",
+        "id": "search_collections_to_show",
+        "label": "Antal kategorier",
+        "info": "Kollektioner, hvis titel indeholder søgningen. Kun kollektioner med metafeltet custom.search slået til vises.",
+        "min": 3,
+        "max": 15,
+        "step": 1,
+        "default": 8
+      },
+      {
+        "type": "text",
+        "id": "search_filter_labels",
+        "label": "Filtre",
+        "info": "Navnene på de filtre fra Search & Discovery, der vises, adskilt med komma.",
+        "default": "Størrelse, Type, Farve"
+      },
+      {
+        "type": "checkbox",
+        "id": "search_show_filter_counts",
+        "label": "Vis antal produkter pr. filterværdi",
+        "default": true
+      }
+    ]
+  },
+  {
     "name": "Gave",
     "settings": [
       {

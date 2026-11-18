@@ -1,0 +1,54 @@
+{%- doc -%}
+Sengefabrikken: the idle state of the Sengefabrikken search (theme settings > Sengefabrikken søgning), shown before a
+search is typed, and below the "no results" message when a search has no products. It shows the categories menu
+followed by the "Top produkter" grid.
+{%- enddoc -%}
+
+{%- liquid
+  assign idle_menu = settings.search_idle_menu
+  assign idle_collection = settings.search_idle_collection
+  assign idle_count = settings.search_idle_count | default: 10
+  assign hidden_types = 'Free,upsale' | split: ','
+-%}
+
+<div class="sengefabrikken-search__idle v-stack gap-10">
+  {%- if idle_menu.links.size > 0 -%}
+    <nav aria-label="{{ idle_menu.title | default: 'Kategorier' | escape }}">
+      <ul class="sengefabrikken-search__links sengefabrikken-search__links--grid unstyled-list" role="list">
+        {%- for link in idle_menu.links -%}
+          <li>
+            <a href="{{ link.url }}" class="sengefabrikken-search__link">
+              <span>{{ link.title }}</span>
+              {%- render 'icon' with 'chevron-right', width: 6, direction_aware: true -%}
+            </a>
+          </li>
+        {%- endfor -%}
+      </ul>
+    </nav>
+  {%- endif -%}
+
+  {%- if idle_collection != blank and idle_collection.products_count > 0 -%}
+    <div class="v-stack gap-6">
+      {%- if settings.search_idle_heading != blank or settings.search_idle_subheading != blank -%}
+        <div class="v-stack gap-1 text-center">
+          {%- if settings.search_idle_heading != blank -%}
+            <p class="h4">{{ settings.search_idle_heading }}</p>
+          {%- endif -%}
+
+          {%- if settings.search_idle_subheading != blank -%}
+            <p class="text-sm text-subdued">{{ settings.search_idle_subheading }}</p>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+
+      <div class="sengefabrikken-search__grid">
+        {%- comment -%}Products of type "Free" (configurator add-ons) and "upsale" (gifts) are only sold with other products{%- endcomment -%}
+        {%- for product in idle_collection.products limit: idle_count -%}
+          {%- unless hidden_types contains product.type -%}
+            {%- render 'sengefabrikken-product-card', product: product, compact: true -%}
+          {%- endunless -%}
+        {%- endfor -%}
+      </div>
+    </div>
+  {%- endif -%}
+</div>

@@ -285,7 +285,7 @@
         </button>
 
         {%- if section.settings.mobile_layout == 'logo_center_navigation_split' -%}
-          <a href="{{ routes.search_url }}" class="header__search-link tap-area md:hidden" aria-controls="search-drawer">
+          <a href="{{ routes.search_url }}" class="header__search-link tap-area md:hidden" aria-controls="{% if settings.sengefabrikken_search_enabled %}sengefabrikken-search{% else %}search-drawer{% endif %}">
             <span class="sr-only">{{ 'header.general.search' | t }}</span>
             {%- render 'icon' with 'search', mobile_width: 16, width: section.settings.desktop_icon_size -%}
           </a>
@@ -452,7 +452,7 @@
         </li>
 
         <li class="header__search-link {% if section.settings.mobile_layout == 'logo_center_navigation_split' %}md-max:hidden{% endif %}">
-          <a href="{{ routes.search_url }}" class="block tap-area {% if section.settings.large_icon_buttons %}header__icon-button{% endif %}" aria-controls="search-drawer">
+          <a href="{{ routes.search_url }}" class="block tap-area {% if section.settings.large_icon_buttons %}header__icon-button{% endif %}" aria-controls="{% if settings.sengefabrikken_search_enabled %}sengefabrikken-search{% else %}search-drawer{% endif %}">
             <span class="sr-only">{{ 'header.general.search' | t }}</span>
             {%- render 'icon' with 'search', mobile_width: 16, width: section.settings.desktop_icon_size -%}
           </a>

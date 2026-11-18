@@ -1,0 +1,306 @@
+/* Sengefabrikken: full screen search (see the sengefabrikken-search snippet and the sengefabrikken-search-results
+   section). The modal of the theme is used for the opening, the focus and the scroll lock, and fills the screen. */
+
+.sengefabrikken-search {
+  --modal-body-padding-block: 0;
+  --modal-body-padding-inline: 0;
+  --sengefabrikken-search-surface: 255 255 255;
+}
+
+.sengefabrikken-search::part(content) {
+  border-radius: 0;
+  width: 100%;
+  max-width: none;
+  height: 100%;
+  max-height: none;
+  margin: 0;
+  place-self: stretch;
+}
+
+.sengefabrikken-search::part(body) {
+  flex-grow: 1;
+  align-items: start;
+}
+
+/* The search has its own close button in the top bar */
+.sengefabrikken-search::part(close-button) {
+  display: none;
+}
+
+.sengefabrikken-search__inner {
+  align-content: start;
+  min-height: 100%;
+  display: grid;
+}
+
+/* Top bar: logo, search input and close button */
+
+.sengefabrikken-search__topbar {
+  z-index: 2;
+  background: rgb(var(--background));
+  grid-template: "logo close" auto "form form" auto / minmax(0, 1fr) auto;
+  align-items: center;
+  gap: .75rem 1rem;
+  padding: .75rem var(--container-gutter);
+  display: grid;
+  position: sticky;
+  inset-block-start: 0;
+}
+
+.sengefabrikken-search__logo {
+  grid-area: logo;
+  justify-self: start;
+}
+
+.sengefabrikken-search__logo img {
+  width: 100px;
+  height: auto;
+}
+
+.sengefabrikken-search__form {
+  background: rgb(var(--sengefabrikken-search-surface));
+  border: 1px solid rgb(var(--border-color));
+  border-radius: var(--rounded-full);
+  grid-area: form;
+  align-items: center;
+  gap: .625rem;
+  padding: .5rem .75rem .5rem 1rem;
+  display: flex;
+}
+
+.sengefabrikken-search__input {
+  background: none;
+  border: 0;
+  outline: 0;
+  flex-grow: 1;
+  min-width: 0;
+  padding: 0;
+  font-size: max(1rem, .875rem);
+}
+
+.sengefabrikken-search__input::-webkit-search-cancel-button {
+  display: none;
+}
+
+.sengefabrikken-search__clear {
+  opacity: .7;
+  place-content: center;
+  padding: .25rem;
+  display: grid;
+}
+
+.sengefabrikken-search__clear[hidden] {
+  display: none;
+}
+
+.sengefabrikken-search__close-wrapper {
+  grid-area: close;
+}
+
+.sengefabrikken-search__close {
+  --circle-button-size: 2.5rem;
+}
+
+@media screen and (min-width: 700px) {
+  .sengefabrikken-search__topbar {
+    grid-template: "logo form close" auto / minmax(0, 1fr) minmax(0, 32rem) minmax(0, 1fr);
+    padding-block: 1rem;
+  }
+
+  .sengefabrikken-search__logo img {
+    width: 120px;
+  }
+
+  .sengefabrikken-search__close-wrapper {
+    justify-self: end;
+  }
+}
+
+/* Body: idle state or results */
+
+.sengefabrikken-search__body {
+  padding-block: 1.5rem 3rem;
+}
+
+.sengefabrikken-search__body > * + * {
+  margin-block-start: 2.5rem;
+}
+
+.sengefabrikken-search__links {
+  gap: .5rem;
+  display: grid;
+}
+
+.sengefabrikken-search__links--grid {
+  grid-template-columns: repeat(auto-fill, minmax(9.5rem, 1fr));
+}
+
+.sengefabrikken-search__link {
+  background: rgb(var(--sengefabrikken-search-surface));
+  border-radius: .25rem;
+  justify-content: space-between;
+  align-items: center;
+  gap: .75rem;
+  padding: .625rem .75rem;
+  font-size: .8125rem;
+  transition: box-shadow .2s;
+  display: flex;
+}
+
+.sengefabrikken-search__link svg {
+  flex-shrink: 0;
+  opacity: .6;
+}
+
+@media (hover: hover) {
+  .sengefabrikken-search__link:hover {
+    box-shadow: 0 0 0 1px rgb(var(--text-color) / .3);
+  }
+}
+
+.sengefabrikken-search__grid {
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 16rem), 1fr));
+  gap: 1rem;
+  display: grid;
+}
+
+/* Results: categories next to the products on desktop, above them on mobile */
+
+.sengefabrikken-search__layout {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 2rem;
+  display: grid;
+}
+
+/* On mobile, the categories scroll horizontally to keep the products in view */
+@media screen and (max-width: 999px) {
+  .sengefabrikken-search__sidebar .sengefabrikken-search__links {
+    scrollbar-width: none;
+    margin-inline: calc(-1 * var(--container-gutter));
+    padding-inline: var(--container-gutter);
+    grid-auto-columns: max-content;
+    grid-auto-flow: column;
+    overflow-x: auto;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .sengefabrikken-search__layout {
+    grid-template-columns: 14rem minmax(0, 1fr);
+    gap: 3rem;
+  }
+
+  .sengefabrikken-search__sidebar {
+    align-self: start;
+  }
+
+  .sengefabrikken-search__main:only-child {
+    grid-column: 1 / -1;
+  }
+}
+
+.sengefabrikken-search__results-header {
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: .25rem 1rem;
+  display: flex;
+}
+
+.sengefabrikken-search__empty {
+  padding-block: 1rem;
+}
+
+/* Filters: dropdowns opening a list of checkboxes, and the active filters as removable chips */
+
+.sengefabrikken-search__filters {
+  gap: .75rem;
+  display: grid;
+  position: relative;
+}
+
+.sengefabrikken-search__filter-list {
+  flex-wrap: wrap;
+  gap: .5rem;
+  display: flex;
+}
+
+.sengefabrikken-search__filter-button {
+  background: rgb(var(--sengefabrikken-search-surface));
+  border: 1px solid rgb(var(--border-color));
+  cursor: pointer;
+  border-radius: .25rem;
+  align-items: center;
+  gap: .5rem;
+  padding: .375rem .75rem;
+  font-size: .8125rem;
+  list-style: none;
+  display: flex;
+}
+
+.sengefabrikken-search__filter-button::-webkit-details-marker {
+  display: none;
+}
+
+.sengefabrikken-search__filter[open] .sengefabrikken-search__filter-button {
+  border-color: rgb(var(--text-color));
+}
+
+.sengefabrikken-search__filter[open] .sengefabrikken-search__filter-button svg {
+  rotate: 180deg;
+}
+
+.sengefabrikken-search__filter-count {
+  color: rgb(var(--background));
+  background: rgb(var(--text-color));
+  border-radius: var(--rounded-full);
+  min-width: 1.125rem;
+  height: 1.125rem;
+  place-content: center;
+  padding-inline: .25rem;
+  font-size: .6875rem;
+  display: inline-grid;
+}
+
+/* The panel opens below the filters, full width on mobile and below its button on desktop */
+.sengefabrikken-search__filter-panel {
+  z-index: 3;
+  background: rgb(var(--sengefabrikken-search-surface));
+  border: 1px solid rgb(var(--border-color));
+  border-radius: .25rem;
+  max-height: 18rem;
+  margin-block-start: .375rem;
+  padding: 1rem;
+  position: absolute;
+  inset-inline: 0;
+  overflow-y: auto;
+  box-shadow: 0 10px 30px rgb(0 0 0 / .08);
+}
+
+@media screen and (min-width: 700px) {
+  .sengefabrikken-search__filter {
+    position: relative;
+  }
+
+  .sengefabrikken-search__filter-panel {
+    inset-inline: 0 auto;
+    min-width: 15rem;
+  }
+}
+
+.sengefabrikken-search__chips {
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .5rem;
+  display: flex;
+}
+
+.sengefabrikken-search__chip {
+  background: rgb(var(--sengefabrikken-search-surface));
+  border-radius: var(--rounded-full);
+  align-items: center;
+  gap: .5rem;
+  padding: .25rem .75rem;
+  font-size: .75rem;
+  display: flex;
+}

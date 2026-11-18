@@ -1,0 +1,50 @@
+{%- doc -%}
+Sengefabrikken: full screen search (theme settings > Sengefabrikken søgning). When enabled, it is rendered once in the
+layout and replaces the search drawer of the theme: the search links of the header open it instead (see the header
+section). The top bar holds the logo, the search input and the close button. Before a search is typed, the idle state
+is shown (categories and top products). While typing, the results are fetched from the sengefabrikken-search-results
+section (see <sengefabrikken-search> in sengefabrikken-search.js), which shows the matching categories, the filters of
+the Search & Discovery app and the matching products.
+{%- enddoc -%}
+
+{%- if settings.sengefabrikken_search_enabled -%}
+  {{- 'sengefabrikken-search.css' | asset_url | stylesheet_tag -}}
+  {{- 'sengefabrikken-product-card.css' | asset_url | stylesheet_tag -}}
+  {{- 'menu-drawer-cards.css' | asset_url | stylesheet_tag -}}
+  <script type="module" src="{{ 'sengefabrikken-search.js' | asset_url }}"></script>
+
+  <x-modal id="sengefabrikken-search" class="modal sengefabrikken-search color-scheme color-scheme--{{ settings.search_color_scheme.id }}" initial-focus="input[name='q']">
+    <sengefabrikken-search class="sengefabrikken-search__inner">
+      <div class="sengefabrikken-search__topbar">
+        <a href="{{ routes.root_url }}" class="sengefabrikken-search__logo">
+          {%- if settings.search_logo != blank -%}
+            {{- settings.search_logo | image_url: width: 360 | image_tag: sizes: '120px', widths: '120,240,360', alt: shop.name -}}
+          {%- else -%}
+            <span class="h5">{{ shop.name }}</span>
+          {%- endif -%}
+        </a>
+
+        <form action="{{ routes.search_url }}" method="GET" role="search" class="sengefabrikken-search__form">
+          {%- render 'icon' with 'search', width: 14 -%}
+
+          <label for="sengefabrikken-search-input" class="sr-only">Søg</label>
+          <input id="sengefabrikken-search-input" class="sengefabrikken-search__input" type="search" name="q" placeholder="Søg efter..." autocomplete="off" autocorrect="off" spellcheck="false">
+
+          <button type="reset" class="sengefabrikken-search__clear" aria-label="Ryd søgning" hidden>
+            {%- render 'icon' with 'close', width: 10 -%}
+          </button>
+        </form>
+
+        <dialog-close-button class="sengefabrikken-search__close-wrapper">
+          <button type="button" class="sengefabrikken-search__close circle-button" aria-label="Luk">
+            {%- render 'icon' with 'close', width: 12 -%}
+          </button>
+        </dialog-close-button>
+      </div>
+
+      <div class="sengefabrikken-search__body container" aria-live="polite" data-search-results>
+        {%- render 'sengefabrikken-search-idle' -%}
+      </div>
+    </sengefabrikken-search>
+  </x-modal>
+{%- endif -%}

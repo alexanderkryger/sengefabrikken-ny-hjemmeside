@@ -1,0 +1,194 @@
+{%- comment -%}
+Sengefabrikken: results of the Sengefabrikken search (see the sengefabrikken-search snippet). This section is not added
+to a template: it is fetched by <sengefabrikken-search> (sengefabrikken-search.js) through
+/search?q=…&type=product&section_id=sengefabrikken-search-results, so that the "search" object holds the matching
+products and the filters of the Search & Discovery app (the predictive search API does not return filters).
+
+- Kategorier: the collections whose title contains the search terms, among the collections having the "custom.search"
+  metafield set to true. When none matches, the categories menu of the idle state is shown instead.
+- Filters: the filters whose label is listed in the theme settings, shown as dropdowns, and the active filters as
+  removable chips. The filter inputs are read by the JS, which fetches the section again on change.
+- Products: the matching products, without the products of type "Free" and "upsale" (only sold with other products).
+  When there is no product, the idle state is shown below the message.
+
+All settings are theme settings (Sengefabrikken søgning), as a section rendered this way only gets its default settings.
+{%- endcomment -%}
+
+{%- if search.performed -%}
+  {%- paginate search.results by settings.search_products_to_show -%}
+    {%- liquid
+      assign allowed_filter_labels = settings.search_filter_labels | split: ','
+      assign hidden_types = 'Free,upsale' | split: ','
+      assign search_terms = search.terms | downcase | strip
+
+      # The allowed labels as "|Størrelse||Farve|", to match a whole label
+      assign allowed_labels = ''
+
+      for label in allowed_filter_labels
+        assign clean_label = label | strip
+        assign allowed_labels = allowed_labels | append: '|' | append: clean_label | append: '|'
+      endfor
+
+      assign product_results = search.results | where: 'object_type', 'product'
+      assign active_filters_count = 0
+      assign shown_filters_count = 0
+
+      for filter in search.filters
+        assign filter_key = '|' | append: filter.label | append: '|'
+
+        if allowed_labels contains filter_key and filter.type == 'list'
+          assign shown_filters_count = shown_filters_count | plus: 1
+          assign active_filters_count = active_filters_count | plus: filter.active_values.size
+        endif
+      endfor
+    -%}
+
+    {%- capture collection_links -%}
+      {%- assign rendered_collections = 0 -%}
+
+      {%- for search_collection in collections -%}
+        {%- if rendered_collections >= settings.search_collections_to_show -%}
+          {%- break -%}
+        {%- endif -%}
+
+        {%- assign collection_title = search_collection.title | downcase -%}
+
+        {%- if search_collection.metafields.custom.search.value == true and collection_title contains search_terms -%}
+          <li>
+            <a href="{{ search_collection.url }}" class="sengefabrikken-search__link">
+              <span>{{ search_collection.title }}</span>
+              {%- render 'icon' with 'chevron-right', width: 6, direction_aware: true -%}
+            </a>
+          </li>
+
+          {%- assign rendered_collections = rendered_collections | plus: 1 -%}
+        {%- endif -%}
+      {%- endfor -%}
+    {%- endcapture -%}
+
+    {%- liquid
+      assign sidebar_title = 'Kategorier'
+
+      # Without products, the categories menu is already shown by the idle state below the message
+      if collection_links == blank and product_results.size > 0
+        assign sidebar_title = 'Populære kategorier'
+
+        capture collection_links
+          for link in settings.search_idle_menu.links
+            echo '<li><a href="' | append: link.url | append: '" class="sengefabrikken-search__link"><span>' | append: link.title | append: '</span>'
+            render 'icon' with 'chevron-right', width: 6, direction_aware: true
+            echo '</a></li>'
+          endfor
+        endcapture
+      endif
+    -%}
+
+    <div class="sengefabrikken-search__layout">
+      {%- if collection_links != blank -%}
+        <nav class="sengefabrikken-search__sidebar v-stack gap-4" aria-label="{{ sidebar_title }}">
+          <p class="h5">{{ sidebar_title }}</p>
+
+          <ul class="sengefabrikken-search__links unstyled-list" role="list">
+            {{- collection_links -}}
+          </ul>
+        </nav>
+      {%- endif -%}
+
+      <div class="sengefabrikken-search__main v-stack gap-5">
+        <div class="sengefabrikken-search__results-header">
+          <p class="h5">Produkter</p>
+
+          {%- if product_results.size > 0 -%}
+            <p class="text-sm text-subdued">{{ search.results_count }} {% if search.results_count == 1 %}resultat{% else %}resultater{% endif %} for "{{ search.terms | escape }}"</p>
+          {%- endif -%}
+        </div>
+
+        {%- if shown_filters_count > 0 -%}
+          <form class="sengefabrikken-search__filters" data-search-filters>
+            <div class="sengefabrikken-search__filter-list">
+              {%- for filter in search.filters -%}
+                {%- assign filter_key = '|' | append: filter.label | append: '|' -%}
+
+                {%- unless allowed_labels contains filter_key and filter.type == 'list' -%}
+                  {%- continue -%}
+                {%- endunless -%}
+
+                <details class="sengefabrikken-search__filter">
+                  <summary class="sengefabrikken-search__filter-button">
+                    <span>{{ filter.label }}</span>
+
+                    {%- if filter.active_values.size > 0 -%}
+                      <span class="sengefabrikken-search__filter-count">{{ filter.active_values.size }}</span>
+                    {%- endif -%}
+
+                    {%- render 'icon' with 'chevron-down', width: 8 -%}
+                  </summary>
+
+                  <div class="sengefabrikken-search__filter-panel v-stack gap-2.5">
+                    {%- for filter_value in filter.values -%}
+                      {%- if filter_value.count == 0 and filter_value.active == false -%}
+                        {%- continue -%}
+                      {%- endif -%}
+
+                      {%- capture input_id -%}sengefabrikken-search-filter-{{ forloop.parentloop.index }}-{{ forloop.index }}{%- endcapture -%}
+
+                      <div class="checkbox-control">
+                        <input class="checkbox" type="checkbox" id="{{ input_id }}" name="{{ filter_value.param_name }}" value="{{ filter_value.value | escape }}" {% if filter_value.active %}checked{% endif %}>
+                        <label for="{{ input_id }}" class="text-sm">{{ filter_value.label }}{% if settings.search_show_filter_counts %} ({{ filter_value.count }}){% endif %}</label>
+                      </div>
+                    {%- endfor -%}
+                  </div>
+                </details>
+              {%- endfor -%}
+            </div>
+
+            {%- if active_filters_count > 0 -%}
+              <div class="sengefabrikken-search__chips">
+                {%- for filter in search.filters -%}
+                  {%- assign filter_key = '|' | append: filter.label | append: '|' -%}
+
+                  {%- unless allowed_labels contains filter_key and filter.type == 'list' -%}
+                    {%- continue -%}
+                  {%- endunless -%}
+
+                  {%- for active_value in filter.active_values -%}
+                    <button type="button" class="sengefabrikken-search__chip" data-remove-filter="{{ active_value.param_name }}" data-filter-value="{{ active_value.value | escape }}" aria-label="Fjern filter {{ filter.label }}: {{ active_value.label }}">
+                      {%- render 'icon' with 'close', width: 8 -%}
+                      <span>{{ filter.label }}: {{ active_value.label }}</span>
+                    </button>
+                  {%- endfor -%}
+                {%- endfor -%}
+
+                <button type="button" class="link text-sm" data-clear-filters>Ryd alle filtre</button>
+              </div>
+            {%- endif -%}
+          </form>
+        {%- endif -%}
+
+        {%- if product_results.size == 0 -%}
+          <p class="sengefabrikken-search__empty text-center">Ingen produkter matcher "{{ search.terms | escape }}". Se vores kategorier og mest populære produkter herunder.</p>
+        {%- else -%}
+          <div class="sengefabrikken-search__grid">
+            {%- for product in product_results -%}
+              {%- unless hidden_types contains product.type -%}
+                {%- render 'sengefabrikken-product-card', product: product, compact: true -%}
+              {%- endunless -%}
+            {%- endfor -%}
+          </div>
+        {%- endif -%}
+      </div>
+    </div>
+
+    {%- if product_results.size == 0 -%}
+      {%- render 'sengefabrikken-search-idle' -%}
+    {%- endif -%}
+  {%- endpaginate -%}
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Sengefabrikken søgeresultater",
+  "tag": "div",
+  "settings": []
+}
+{% endschema %}
