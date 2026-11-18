@@ -225,9 +225,7 @@
         "benefit_67mcei",
         "benefit_KfMxzb"
       ],
-      "custom_css": [
-        "p.campaign-card__title.heading.h3 {color: #252525;}"
-      ],
+      "custom_css": [],
       "name": "Kampagnekort",
       "settings": {
         "subheading": "",
