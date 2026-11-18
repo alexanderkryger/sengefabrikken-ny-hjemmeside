@@ -2,7 +2,8 @@
   {%- comment -%}
     Sengefabrikken: the scrolling content can be shown as a rounded box as wide as the page width ("Brug Sengefabrikken
     sidebredde"), like the slideshow. The section spacing settings then set the padding inside the box, the box keeps
-    the normal section spacing around it, and the rotation is not applied.
+    the normal section spacing around it (unless removed), and the rotation is not applied. The section spacing can also
+    be set to 0 to remove the space above and below the text.
   {%- endcomment -%}
   <style>
     {%- if section.settings.use_page_width %}
@@ -55,7 +56,7 @@
 
   {%- if section.settings.use_page_width -%}
     <div class="color-scheme color-scheme--{{ section.settings.page_width_color_scheme.id }}">
-      <div class="container section-spacing">
+      <div class="container {% unless section.settings.remove_page_width_spacing %}section-spacing{% endunless %}">
   {%- endif -%}
 
   <div class="color-scheme color-scheme--{{ section.settings.color_scheme.id }} {% if section.settings.use_page_width %}sengefabrikken-scrolling-box{% endif %}">
@@ -132,6 +133,13 @@
       "id": "page_width_color_scheme",
       "label": "Farveskema rundt om boksen",
       "default": "scheme-1",
+      "visible_if": "{{ section.settings.use_page_width }}"
+    },
+    {
+      "type": "checkbox",
+      "id": "remove_page_width_spacing",
+      "label": "Fjern afstand over og under boksen",
+      "default": false,
       "visible_if": "{{ section.settings.use_page_width }}"
     },
     {
@@ -229,7 +237,7 @@
     {
       "type": "range",
       "id": "section_vertical_spacing_mobile",
-      "min": 10,
+      "min": 0,
       "max": 120,
       "step": 2,
       "unit": "px",
@@ -239,7 +247,7 @@
     {
       "type": "range",
       "id": "section_vertical_spacing_desktop",
-      "min": 10,
+      "min": 0,
       "max": 120,
       "step": 2,
       "unit": "px",
