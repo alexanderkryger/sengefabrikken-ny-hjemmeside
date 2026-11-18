@@ -141,11 +141,11 @@
         "text_X99UaF": {
           "type": "text",
           "settings": {
-            "text": "<strong>🎁 GRATIS GAVE - </strong>VÆRDI OP TIL 1.798 KR.",
+            "text": "<em><strong>GRATIS GAVE</strong></em><strong> - </strong>VÆRDI OP TIL 1.798 KR.",
             "icon_position": "before_text",
-            "highlight_effect": "default",
-            "highlight_accent_color": "",
-            "highlight_text_color": ""
+            "highlight_effect": "tilted_marker",
+            "highlight_accent_color": "#FDDC7A",
+            "highlight_text_color": "#252525"
           }
         }
       },
@@ -174,11 +174,11 @@
         "text_DHLnHA": {
           "type": "text",
           "settings": {
-            "text": "<strong>⚡ BEGRÆNSET TILBUD - KUN MENS LAGER HAVES</strong>",
+            "text": "<em>BEGRÆNSET TILBUD</em> - KUN MENS LAGER HAVES",
             "icon_position": "before_text",
-            "highlight_effect": "default",
-            "highlight_accent_color": "",
-            "highlight_text_color": ""
+            "highlight_effect": "tilted_marker",
+            "highlight_accent_color": "#FDDC7A",
+            "highlight_text_color": "#252525"
           }
         }
       },
