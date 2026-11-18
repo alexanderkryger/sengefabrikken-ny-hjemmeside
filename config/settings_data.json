@@ -71,7 +71,7 @@
     "campaign_theme_scope": "collections",
     "campaign_pages": "black-month,sengeudsalg",
     "campaign_light_scheme_threshold": 250,
-    "campaign_heading_style": "none",
+    "campaign_heading_style": "gold",
     "page_full_width": false,
     "page_width": 1400,
     "section_color_transition": true,

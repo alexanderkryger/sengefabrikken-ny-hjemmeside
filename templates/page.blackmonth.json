@@ -125,7 +125,7 @@
       "name": "t:sections.slideshow.name",
       "settings": {
         "use_page_width": true,
-        "color_scheme": "scheme-2b5ea552-ee45-4763-a402-00199b79bef1",
+        "color_scheme": "scheme-f9cf78c5-9231-4df6-8731-70f748998ede",
         "allow_transparent_header": true,
         "image_size": "md",
         "transition_type": "curtain",
@@ -133,6 +133,72 @@
         "pause_auto_rotate_on_hover": false,
         "cycle_speed": 6,
         "background": "#000000"
+      }
+    },
+    "scrolling_content_Q8tXNR": {
+      "type": "scrolling-content",
+      "blocks": {
+        "text_X99UaF": {
+          "type": "text",
+          "settings": {
+            "text": "<strong>🎁 GRATIS GAVE - </strong>VÆRDI OP TIL 1.798 KR.",
+            "icon_position": "before_text",
+            "highlight_effect": "default",
+            "highlight_accent_color": "",
+            "highlight_text_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "text_X99UaF"
+      ],
+      "name": "t:sections.scrolling_content.name",
+      "settings": {
+        "color_scheme": "",
+        "scrolling_speed": 0.1,
+        "scroll_direction": "start-to-end",
+        "section_rotation": 0,
+        "pause_on_hover": false,
+        "text_font": "heading",
+        "text_font_size_mobile": 3.5,
+        "text_font_size_desktop": 2,
+        "section_vertical_spacing_mobile": 24,
+        "section_vertical_spacing_desktop": 60,
+        "item_horizontal_spacing_mobile": 40,
+        "item_horizontal_spacing_desktop": 50
+      }
+    },
+    "scrolling_content_inGMLt": {
+      "type": "scrolling-content",
+      "blocks": {
+        "text_DHLnHA": {
+          "type": "text",
+          "settings": {
+            "text": "<strong>⚡ BEGRÆNSET TILBUD - KUN MENS LAGER HAVES</strong>",
+            "icon_position": "before_text",
+            "highlight_effect": "default",
+            "highlight_accent_color": "",
+            "highlight_text_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "text_DHLnHA"
+      ],
+      "name": "t:sections.scrolling_content.name",
+      "settings": {
+        "color_scheme": "",
+        "scrolling_speed": 0.1,
+        "scroll_direction": "end-to-start",
+        "section_rotation": 0,
+        "pause_on_hover": false,
+        "text_font": "heading",
+        "text_font_size_mobile": 3.5,
+        "text_font_size_desktop": 2,
+        "section_vertical_spacing_mobile": 24,
+        "section_vertical_spacing_desktop": 60,
+        "item_horizontal_spacing_mobile": 40,
+        "item_horizontal_spacing_desktop": 50
       }
     },
     "sengefabrikken_product_list_zyFMMY": {
@@ -158,7 +224,7 @@
       },
       "name": "Sengefabrikken produkter",
       "settings": {
-        "color_scheme": "scheme-2b5ea552-ee45-4763-a402-00199b79bef1",
+        "color_scheme": "scheme-f9cf78c5-9231-4df6-8731-70f748998ede",
         "custom_id": "",
         "product_list": [
           "fabrikkens-trykaflastende-kontinental-sand-180x200-cm",
@@ -768,6 +834,8 @@
     "main",
     "product_navigation_hYpaR6",
     "slideshow_PxFxnk",
+    "scrolling_content_Q8tXNR",
+    "scrolling_content_inGMLt",
     "sengefabrikken_product_list_zyFMMY",
     "sengefabrikken_banner_HFRXNN",
     "sengefabrikken_product_list_3NzdxG",
