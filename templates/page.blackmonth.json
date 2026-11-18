@@ -84,8 +84,8 @@
           "name": "t:sections.slideshow.blocks.video.name",
           "settings": {
             "color_scheme": "",
-            "video": "shopify://files/videos/9X7_BANNER_FABRIK.mp4",
-            "mobile_video": "shopify://files/videos/1X1_BANNER_FABRIK.mp4",
+            "video": "shopify://files/videos/black month mood video 9;7.mp4",
+            "mobile_video": "shopify://files/videos/black month mood video 1;1.mp4",
             "slide_link": "",
             "content_max_width": 1000,
             "mobile_content_position": "place-self-center",
@@ -98,7 +98,7 @@
               "type": "logo",
               "name": "Logo",
               "settings": {
-                "logo": "shopify://shop_images/SF-staerke_priser.svg",
+                "logo": "shopify://shop_images/black26_logo.png",
                 "logo_width": 400,
                 "mobile_logo_width": 250
               },
