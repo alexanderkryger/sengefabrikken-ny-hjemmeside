@@ -241,6 +241,44 @@
         "cover_text_color": "#0f0f0f"
       }
     },
+    "gift_banner_gnPqdP": {
+      "type": "gift-banner",
+      "blocks": {
+        "gift_z7YUFy": {
+          "type": "gift",
+          "settings": {
+            "quantity": "",
+            "text": "Sengesæt i valgfri størrelse og farve"
+          }
+        }
+      },
+      "block_order": [
+        "gift_z7YUFy"
+      ],
+      "name": "Gavebanner",
+      "settings": {
+        "subheading": "Med hver seng får du",
+        "heading": "Gratis gaver",
+        "heading_tag": "h1",
+        "heading_scale": 130,
+        "value_text": "Værdi 1.298 kr.",
+        "content": "<p>OBS: Ved køb af enkeltseng får du 1 sengesæt. Ved køb af dobbeltseng får du 2.&nbsp;Du vælger selv størrelse og farve.</p>",
+        "uppercase_text": true,
+        "image": "shopify://shop_images/malthe-med-sengetoj.png",
+        "mobile_image": "shopify://shop_images/malthe-med-sengetoj_mobile.png",
+        "image_position": "end",
+        "image_max_height": 420,
+        "image_max_height_mobile": 320,
+        "image_offset": 120,
+        "hide_image_on_mobile": false,
+        "border_radius": 12,
+        "remove_vertical_spacing": false,
+        "background": "#353535",
+        "text_color": "#ffffff",
+        "accent_color": "#f4a63a",
+        "accent_text_color": "#2f1300"
+      }
+    },
     "sengefabrikken_product_list_zyFMMY": {
       "type": "sengefabrikken-product-list",
       "blocks": {
@@ -876,6 +914,7 @@
     "slideshow_PxFxnk",
     "scrolling_content_Q8tXNR",
     "campaign_cards_YdxLf9",
+    "gift_banner_gnPqdP",
     "sengefabrikken_product_list_zyFMMY",
     "sengefabrikken_banner_HFRXNN",
     "sengefabrikken_product_list_3NzdxG",
