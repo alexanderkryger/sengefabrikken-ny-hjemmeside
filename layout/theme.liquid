@@ -57,6 +57,11 @@
     {{- 'theme.css' | asset_url | stylesheet_tag: preload: true -}}
     {%- comment -%}Sengefabrikken: ribbon on the product cards{%- endcomment -%}
     {{- 'product-card-ribbon.css' | asset_url | stylesheet_tag -}}
+
+    {%- if settings.gift_popup_heading != blank -%}
+      {%- comment -%}Sengefabrikken: gift popup (theme settings > Gave){%- endcomment -%}
+      {{- 'sengefabrikken-gift-popup.css' | asset_url | stylesheet_tag -}}
+    {%- endif -%}
     {%- comment -%}Sengefabrikken: Yotpo style review stars{%- endcomment -%}
     {{- 'yotpo-stars.css' | asset_url | stylesheet_tag -}}
 
@@ -136,6 +141,9 @@
 
     {%- if request.page_type != 'password' -%}
       {%- sections 'footer-group' -%}
+
+      {%- comment -%}Sengefabrikken: gift popup, opened from the product cards{%- endcomment -%}
+      {%- render 'gift-popup' -%}
     {%- endif -%}
 
     <x-toast class="toast">

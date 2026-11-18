@@ -1,0 +1,58 @@
+/* Sengefabrikken: gift popup (see the gift-popup snippet). The image fills the top of the popup, the close button is
+   shown on top of it. */
+
+.gift-popup {
+  --modal-content-width: 26.25rem;
+  --modal-body-padding-block: 0;
+  --modal-body-padding-inline: 0;
+}
+
+.gift-popup::part(content) {
+  border-radius: .75rem;
+  overflow: hidden;
+}
+
+.gift-popup::part(close-button) {
+  z-index: 2;
+  color: #2f1300;
+}
+
+.gift-popup::part(close-button):before {
+  background: rgb(255 255 255 / .92);
+}
+
+.gift-popup__image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.gift-popup__body {
+  padding: 1.5rem 1.5rem 1.75rem;
+}
+
+.gift-popup__heading {
+  text-transform: uppercase;
+  letter-spacing: .04em;
+}
+
+.gift-popup__item {
+  align-items: baseline;
+  gap: .5rem;
+  display: flex;
+}
+
+.gift-popup__item svg {
+  color: rgb(var(--gift-popup-accent));
+  flex-shrink: 0;
+}
+
+.gift-popup__footer {
+  border-block-start: 1px solid rgb(var(--text-color) / .2);
+  padding-block-start: 1rem;
+}
+
+.gift-popup__value {
+  color: rgb(var(--gift-popup-accent));
+  font-weight: 700;
+}

@@ -1,0 +1,46 @@
+{%- doc -%}
+Sengefabrikken: the gift popup (theme settings > Gave), rendered once in the layout and opened by every element with
+aria-controls="gift-popup" (eg. the "Se gaver" link of the product cards whose product has a free gift in the
+"custom.product_upsale_free_variants" metafield). The popup is only rendered when its heading is set.
+{%- enddoc -%}
+
+{%- if settings.gift_popup_heading != blank -%}
+  {%- assign gift_items = settings.gift_popup_items | newline_to_br | split: '<br />' -%}
+
+  <x-modal id="gift-popup" class="modal gift-popup color-scheme color-scheme--{{ settings.gift_popup_color_scheme.id }}" style="--gift-popup-accent: {{ settings.gift_popup_accent.rgb }}">
+    {%- if settings.gift_popup_image != blank -%}
+      {{- settings.gift_popup_image | image_url: width: 1000 | image_tag: loading: 'lazy', sizes: '(max-width: 699px) 100vw, 420px', widths: '400,600,800,1000', class: 'gift-popup__image' -}}
+    {%- endif -%}
+
+    <div class="gift-popup__body v-stack gap-4">
+      <p class="h5 gift-popup__heading">🎁 {{ settings.gift_popup_heading | escape }}</p>
+
+      {%- if settings.gift_popup_items != blank -%}
+        <ul class="gift-popup__list unstyled-list v-stack gap-2" role="list">
+          {%- for item in gift_items -%}
+            {%- assign item_text = item | strip -%}
+
+            {%- if item_text != blank -%}
+              <li class="gift-popup__item">
+                {%- render 'icon' with 'success-checkmark', width: 12 -%}
+                <span>{{ item_text | escape }}</span>
+              </li>
+            {%- endif -%}
+          {%- endfor -%}
+        </ul>
+      {%- endif -%}
+
+      {%- if settings.gift_popup_note != blank or settings.gift_popup_value != blank -%}
+        <div class="gift-popup__footer h-stack justify-between align-center gap-4">
+          {%- if settings.gift_popup_note != blank -%}
+            <span class="text-xs">{{ settings.gift_popup_note | escape }}</span>
+          {%- endif -%}
+
+          {%- if settings.gift_popup_value != blank -%}
+            <span class="text-sm gift-popup__value">{{ settings.gift_popup_value | escape }}</span>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+    </div>
+  </x-modal>
+{%- endif -%}

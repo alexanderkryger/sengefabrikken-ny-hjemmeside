@@ -1404,6 +1404,82 @@
     ]
   },
   {
+    "name": "Gave",
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "Vises på produktkortene og i popup'en »Se gaver«, når produktet har en gratis gave i metafeltet custom.product_upsale_free_variants."
+      },
+      {
+        "type": "header",
+        "content": "Produktkort"
+      },
+      {
+        "type": "text",
+        "id": "gift_card_text",
+        "label": "Tekst på produktkort",
+        "info": "Lad feltet stå tomt for at skjule linjen.",
+        "default": "Gratis gaver inkluderet"
+      },
+      {
+        "type": "text",
+        "id": "gift_card_link_text",
+        "label": "Linktekst",
+        "info": "Åbner popup'en. Lad feltet stå tomt for at skjule linket.",
+        "default": "Se gaver"
+      },
+      {
+        "type": "header",
+        "content": "Popup"
+      },
+      {
+        "type": "image_picker",
+        "id": "gift_popup_image",
+        "label": "Billede",
+        "info": "Vises øverst i popup'en i fuld bredde."
+      },
+      {
+        "type": "text",
+        "id": "gift_popup_heading",
+        "label": "Overskrift",
+        "info": "Popup'en vises kun, hvis overskriften er udfyldt.",
+        "default": "Gratis gaver med din seng"
+      },
+      {
+        "type": "textarea",
+        "id": "gift_popup_items",
+        "label": "Gaver",
+        "info": "Én gave pr. linje.",
+        "default": "2 × Sengesæt i valgfri størrelse og farve"
+      },
+      {
+        "type": "text",
+        "id": "gift_popup_note",
+        "label": "Note",
+        "default": "Tilføjes automatisk til din ordre"
+      },
+      {
+        "type": "text",
+        "id": "gift_popup_value",
+        "label": "Værdi",
+        "default": "Værdi op til 1.798 kr."
+      },
+      {
+        "type": "color_scheme",
+        "id": "gift_popup_color_scheme",
+        "label": "Farveskema",
+        "default": "scheme-4"
+      },
+      {
+        "type": "color",
+        "id": "gift_popup_accent",
+        "label": "Accentfarve",
+        "info": "Flueben og værdi.",
+        "default": "#f2aa3c"
+      }
+    ]
+  },
+  {
     "name": "Kampagnetema",
     "settings": [
       {

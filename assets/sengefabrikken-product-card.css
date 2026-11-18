@@ -264,6 +264,13 @@
   flex-shrink: 0;
 }
 
+/* Free gift line, opening the gift popup (see the gift-popup snippet) */
+.sengefabrikken-card__gift-link {
+  color: rgb(var(--on-sale-text));
+  margin-inline-start: .25rem;
+  font-size: .75rem;
+}
+
 /* The second and third cards share a row, shown as a rounded box with its own background */
 .sengefabrikken-card-row {
   background: var(--sengefabrikken-card-row-background, transparent);

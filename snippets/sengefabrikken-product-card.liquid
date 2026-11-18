@@ -174,8 +174,23 @@ It shows:
     </div>
   {%- endcapture -%}
 
+  {%- liquid
+    # Free gift ("custom.product_upsale_free_variants" metafield): a line opening the gift popup (theme settings > Gave)
+    assign show_gift = false
+
+    if compact != true and settings.gift_card_text != blank and product.metafields.custom.product_upsale_free_variants.value != blank
+      assign show_gift = true
+    endif
+
+    assign show_bullets = show_gift
+
+    if bullets != blank and compact != true
+      assign show_bullets = true
+    endif
+  -%}
+
   {%- capture card_bullets -%}
-    {%- if bullets != blank and compact != true -%}
+    {%- if show_bullets -%}
       {%- assign bullet_list = bullets.content.value | strip_html | split: '**' -%}
 
       <div class="sengefabrikken-card__bullets">
@@ -184,6 +199,20 @@ It shows:
         {%- endif -%}
 
         <ul class="sengefabrikken-card__bullet-list" role="list">
+          {%- if show_gift -%}
+            <li class="sengefabrikken-card__bullet sengefabrikken-card__gift">
+              {%- render 'icon' with 'success-checkmark', width: 12 -%}
+
+              <span>
+                🎁 {{ settings.gift_card_text | escape }}
+
+                {%- if settings.gift_card_link_text != blank and settings.gift_popup_heading != blank -%}
+                  <button type="button" class="sengefabrikken-card__gift-link link" aria-controls="gift-popup" aria-expanded="false">{{ settings.gift_card_link_text | escape }}</button>
+                {%- endif -%}
+              </span>
+            </li>
+          {%- endif -%}
+
           {%- for bullet in bullet_list -%}
             {%- assign bullet_text = bullet | strip -%}
 
