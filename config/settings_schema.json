@@ -1619,9 +1619,19 @@
           {
             "value": "all",
             "label": "Hele butikken"
+          },
+          {
+            "value": "pages",
+            "label": "Kun de valgte sider"
           }
         ],
         "default": "collections"
+      },
+      {
+        "type": "text",
+        "id": "campaign_pages",
+        "label": "Også på disse sider",
+        "info": "Sidernes handles adskilt med komma, fx blackmonth, sengeudsalg. Skriv forside for forsiden. Siderne får kampagnetemaet uanset valget ovenfor."
       },
       {
         "type": "checkbox",

@@ -1,6 +1,7 @@
 {%- doc -%}
 Sengefabrikken: campaign theme (theme settings > Kampagnetema), eg. for Black Week or the January sale. When enabled, the
-chosen color scheme is used as the background of the page content (#main) on the chosen pages, and replaces the light
+chosen color scheme is used as the background of the page content (#main) on the chosen templates and on the pages
+listed in "Også på disse sider" (page handles, or "forside" for the home page), and replaces the light
 color schemes of its sections, so that the whole page takes the campaign colors without editing each template. The
 header, the footer, the overlays (popovers, drawers and modals) and the dark or colored sections (eg. banners) keep their
 own colors, as well as the product cards when "Behold produktkortenes farver" is enabled.
@@ -25,11 +26,28 @@ own colors, as well as the product cards when "Behold produktkortenes farver" is
         if template.name == 'collection' or template.name == 'list-collections' or template.name == 'search' or template.name == 'product'
           assign campaign_active = true
         endif
+      when 'pages'
+        # Only the pages listed below
       else
         if template.name == 'collection' or template.name == 'list-collections' or template.name == 'search'
           assign campaign_active = true
         endif
     endcase
+
+    # The pages listed in "Også på disse sider" (page handles, and "forside" for the home page) always get the theme
+    if campaign_active == false and settings.campaign_pages != blank
+      assign campaign_pages = settings.campaign_pages | downcase | split: ','
+
+      for campaign_page in campaign_pages
+        assign campaign_page = campaign_page | strip
+
+        if template.name == 'page' and campaign_page == page.handle
+          assign campaign_active = true
+        elsif template.name == 'index' and campaign_page == 'forside'
+          assign campaign_active = true
+        endif
+      endfor
+    endif
   endif
 
   if campaign_active and mode == 'selectors'
