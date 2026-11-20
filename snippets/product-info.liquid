@@ -521,8 +521,9 @@ no need to manually pass the section as it is globally available)
                 </div>
 
                 {%- if block.settings.help_text != blank -%}
+                  {%- comment -%}Sengefabrikken: @min@, @max@ and @step@ are the limits of the product (metafields){%- endcomment -%}
                   <div class="prose text-sm text-subdued">
-                    {{- block.settings.help_text -}}
+                    {{- block.settings.help_text | replace: '@min@', size_min | replace: '@max@', size_max | replace: '@step@', size_step -}}
                   </div>
                 {%- endif -%}
               </custom-size-form>

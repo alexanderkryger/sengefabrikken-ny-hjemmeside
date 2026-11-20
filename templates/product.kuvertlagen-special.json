@@ -181,7 +181,7 @@
             "width_label": "Bredde (cm)",
             "length_label": "Længde (cm)",
             "empty_text": "Indtast bredde og længde",
-            "help_text": "<p>Mål angives i hele 5 cm. Skal den være mindre end 40 cm eller større end 360 cm, så <a href=\"/pages/kontakt\">kontakt os</a>, så finder vi en løsning.</p>",
+            "help_text": "<p>Mål angives i hele @step@ cm. Skal den være mindre end @min@ cm eller større end @max@ cm, så <a href=\"/pages/kontakt\">kontakt os</a>, så finder vi en løsning.</p>",
             "required_text": "Indtast et mål i cm",
             "range_text": "Målet skal være mellem @min@ og @max@ cm",
             "step_text": "Målet skal være deleligt med @step@ cm",
