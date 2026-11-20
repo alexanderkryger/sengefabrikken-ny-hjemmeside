@@ -16,6 +16,7 @@
         "allow_transparent_header": true,
         "layout": "background",
         "show_description": true,
+        "text": "",
         "collection_title_size": "h2",
         "content_position": "place-self-center",
         "background_color_scheme": "",
@@ -23,7 +24,8 @@
         "image_size": "lg",
         "overlay_color": "#000000",
         "overlay_opacity": 20,
-        "quick_navigation_menu": ""
+        "quick_navigation_menu": "",
+        "quick_navigation_style": "cards"
       }
     },
     "main": {
@@ -31,6 +33,7 @@
       "blocks": {
         "sengefabrikken_split_HeTfkb": {
           "type": "sengefabrikken_split",
+          "disabled": true,
           "settings": {
             "color_scheme": "scheme-5",
             "position": 4,
@@ -52,6 +55,7 @@
         },
         "image_t7Xw9K": {
           "type": "image",
+          "disabled": true,
           "settings": {
             "color_scheme": "scheme-3",
             "position": 4,
