@@ -1,5 +1,8 @@
 {%- liquid
   assign image = section.settings.image | default: collection.image
+
+  # Sengefabrikken: optional banner text, shown instead of the collection description
+  assign banner_text = section.settings.text | default: collection.description
   assign color_scheme = section.settings.color_scheme
 
   if image == blank
@@ -56,9 +59,9 @@
             <div class="prose prose-justify-{{ text_alignment }}">
               <h1 class="{{ section.settings.collection_title_size }}">{{ collection.title }}</h1>
     
-              {%- if collection.description != blank and section.settings.show_description -%}
+              {%- if banner_text != blank and section.settings.show_description -%}
                 <div class="max-w-sm">
-                  {{- collection.description -}}
+                  {{- banner_text -}}
                 </div>
               {%- endif -%}
             </div>
@@ -79,9 +82,9 @@
           <div class="prose prose-justify-{{ section.settings.content_position | split: '-' | last }}">
             <h1 class="{{ section.settings.collection_title_size }}">{{ collection.title }}</h1>
   
-            {%- if collection.description != blank and section.settings.show_description -%}
+            {%- if banner_text != blank and section.settings.show_description -%}
               <div class="max-w-sm">
-                {{- collection.description -}}
+                {{- banner_text -}}
               </div>
             {%- endif -%}
           </div>
@@ -104,9 +107,9 @@
               <div class="prose prose-justify-{{ section.settings.content_position | split: '-' | last }} {{ section.settings.content_position }}">
                 <h1 class="{{ section.settings.collection_title_size }}">{{ collection.title }}</h1>
       
-                {%- if collection.description != blank and section.settings.show_description -%}
+                {%- if banner_text != blank and section.settings.show_description -%}
                   <div class="max-w-sm">
-                    {{- collection.description -}}
+                    {{- banner_text -}}
                   </div>
                 {%- endif -%}
               </div>
@@ -164,6 +167,12 @@
       "id": "show_description",
       "label": "t:sections.collection_banner.show_description",
       "default": true
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Tekst",
+      "info": "Vises i stedet for kollektionens beskrivelse. Tom: beskrivelsen vises."
     },
     {
       "type": "select",
