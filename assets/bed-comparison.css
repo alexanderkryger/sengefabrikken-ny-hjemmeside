@@ -51,6 +51,7 @@
 }
 
 .bed-comparison__model {
+  padding-block-start: 1.25rem;
   text-align: center;
   justify-items: center;
   align-content: start;
@@ -60,7 +61,7 @@
 }
 
 .bed-comparison__remove {
-  inset-block-start: 0;
+  inset-block-start: -1rem;
   inset-inline-end: 0;
   z-index: 1;
   opacity: .7;
@@ -148,6 +149,14 @@
 
 .bed-comparison.is-stuck :is(.bed-comparison__model-media, .bed-comparison__model-highlights, .bed-comparison__model-footer) {
   display: none;
+}
+
+.bed-comparison.is-stuck .bed-comparison__model {
+  padding-block-start: 0;
+}
+
+.bed-comparison.is-stuck .bed-comparison__remove {
+  inset-block-start: 0;
 }
 
 .bed-comparison.is-stuck .bed-comparison__model-title {

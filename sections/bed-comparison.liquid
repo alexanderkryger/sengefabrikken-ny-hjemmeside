@@ -6,6 +6,8 @@
 {%- endcomment -%}
 
 {{- 'bed-comparison.css' | asset_url | stylesheet_tag -}}
+{%- comment -%}The option rows of the drawer (bed types and models){%- endcomment -%}
+{{- 'product-group.css' | asset_url | stylesheet_tag -}}
 <script type="module" src="{{ 'bed-comparison.js' | asset_url }}"></script>
 
 {%- liquid
@@ -189,7 +191,7 @@
       {%- comment -%}New comparison: bed type (other comparison pages) and models{%- endcomment -%}
       <div class="bed-comparison__bar">
         <div class="container">
-          <button type="button" class="button button--outline" aria-controls="{{ drawer_id }}" aria-expanded="false">Start ny sammenligning</button>
+          {%- render 'button', content: 'Start ny sammenligning', style: 'outline', aria_controls: drawer_id -%}
         </div>
       </div>
 
