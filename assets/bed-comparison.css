@@ -306,6 +306,11 @@
   display: block;
 }
 
+/* The models have an image, a title and a price (the title spans 2 columns in the size rows, which have no image) */
+.bed-comparison__pick .product-group-option__title {
+  grid-column: auto;
+}
+
 /* Mobile: the label above the values, which share the whole width */
 
 @media screen and (max-width: 699px) {
