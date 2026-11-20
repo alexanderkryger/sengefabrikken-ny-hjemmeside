@@ -21,7 +21,14 @@
     {%- if section.settings.quick_navigation_menu.links.size > 0 -%}
       {% assign alignment = section.settings.content_position | split: 'place-self-' | last | split: '-' | last %}
 
-      <ul class="collection-quick-navigation {% if layout == 'plain' %}justify-{{ alignment }}{% else %}collection-quick-navigation--padded{% endif %} unstyled-list scroll-area bleed">
+      {%- comment -%}Sengefabrikken: the links can be shown as small vertical cards instead of circles{%- endcomment -%}
+      {%- assign quick_navigation_cards = false -%}
+      {%- if section.settings.quick_navigation_style == 'cards' -%}
+        {%- assign quick_navigation_cards = true -%}
+        {{- 'sengefabrikken-quick-navigation.css' | asset_url | stylesheet_tag -}}
+      {%- endif -%}
+
+      <ul class="collection-quick-navigation {% if quick_navigation_cards %}collection-quick-navigation--cards{% endif %} {% if layout == 'plain' %}justify-{{ alignment }}{% else %}collection-quick-navigation--padded{% endif %} unstyled-list scroll-area bleed">
         {%- for link in section.settings.quick_navigation_menu.links -%}
           <li>
             <a href="{{ link.url }}" class="collection-quick-navigation__item {% if link.active %}is-selected{% endif %} group">
@@ -35,7 +42,13 @@
                 endcase
               -%}
               
-              {%- if quick_navigation_image != blank -%}
+              {%- if quick_navigation_cards -%}
+                <div class="collection-quick-navigation__media">
+                  {%- if quick_navigation_image != blank -%}
+                    {{- quick_navigation_image | image_url: width: 480, height: 600, crop: 'center' | image_tag: loading: 'lazy', sizes: '(max-width: 699px) 112px, 144px', widths: '120,160,240,320,480', class: 'zoom-image group-hover:zoom' -}}
+                  {%- endif -%}
+                </div>
+              {%- elsif quick_navigation_image != blank -%}
                 <div class="overflow-hidden rounded-full">
                   {{- quick_navigation_image | image_url: width: quick_navigation_image.width, height: quick_navigation_image.width, crop: 'center' | image_tag: loading: 'lazy', sizes: '80px', widths: '80,160,240', class: 'zoom-image group-hover:zoom' -}}
                 </div>
@@ -346,6 +359,22 @@
       "id": "quick_navigation_menu",
       "label": "t:sections.collection_banner.quick_navigation_menu",
       "info": "t:sections.collection_banner.quick_navigation_menu_info"
+    },
+    {
+      "type": "select",
+      "id": "quick_navigation_style",
+      "label": "Hurtignavigation – visning",
+      "options": [
+        {
+          "value": "cards",
+          "label": "Kort"
+        },
+        {
+          "value": "circles",
+          "label": "Cirkler"
+        }
+      ],
+      "default": "cards"
     }
   ]
 }
