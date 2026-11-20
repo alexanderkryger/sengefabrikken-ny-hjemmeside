@@ -225,7 +225,7 @@
         "benefit_NNYVB9": {
           "type": "benefit",
           "settings": {
-            "text": "100 dages risikofri prøve",
+            "text": "gratis gave værdi op til 1.798 kr.&nbsp;",
             "text_size": "h2",
             "confetti_position": "right"
           }
@@ -233,7 +233,7 @@
         "benefit_67mcei": {
           "type": "benefit",
           "settings": {
-            "text": "Kundeservice alle dage fra 08 til 23",
+            "text": "100 dages risikofri prøve",
             "text_size": "h2",
             "confetti_position": "left"
           }
@@ -241,7 +241,7 @@
         "benefit_KfMxzb": {
           "type": "benefit",
           "settings": {
-            "text": "Gratis levering",
+            "text": "Kundeservice alle dage fra 09 til 18",
             "text_size": "h2",
             "confetti_position": "bottom"
           }
