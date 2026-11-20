@@ -54,9 +54,7 @@
       {%- endif -%}
     {%- else -%}
       <div class="container">
-        <span class="bed-comparison__sentinel" aria-hidden="true"></span>
-
-        {%- comment -%}The models: sticky while the attributes scroll below them{%- endcomment -%}
+        {%- comment -%}The models (see the compact bar below for the names while scrolling){%- endcomment -%}
         <div class="bed-comparison__models bed-comparison__grid">
           <div class="bed-comparison__label-cell"></div>
 
@@ -105,6 +103,26 @@
             <span class="bed-comparison__add-icon">{%- render 'icon' with 'quantity-plus', width: 12 -%}</span>
             <span>Tilføj model</span>
           </button>
+        </div>
+
+        {%- comment -%}
+          Names of the models while the attributes scroll: a bar that sticks below the header once the models are scrolled
+          past. It takes no room (0 height), so that showing it never moves the page.
+        {%- endcomment -%}
+        <div class="bed-comparison__compact" aria-hidden="true">
+          <div class="bed-comparison__compact-bar bed-comparison__grid">
+            <div class="bed-comparison__label-cell"></div>
+
+            {%- for i in model_indexes -%}
+              {%- liquid
+                assign product_key = 'product_' | append: i
+                assign title_key = 'product_title_' | append: i
+              -%}
+              <p class="bed-comparison__compact-title" data-model="{{ i }}">{{ section.settings[title_key] | default: section.settings[product_key].title | escape }}</p>
+            {%- endfor -%}
+
+            <span class="bed-comparison__compact-add"></span>
+          </div>
         </div>
 
         {%- comment -%}The attributes, by group (eg. "Topmadras", "Garanti"){%- endcomment -%}

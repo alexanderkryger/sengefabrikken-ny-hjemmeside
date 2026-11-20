@@ -3,7 +3,7 @@
  *
  * Driver for the bed-comparison section. It shows a few of the models side by side (the "max-columns" attribute on
  * desktop, 2 on mobile), lets the customer remove a model (×) or pick the models in the drawer, and keeps the models
- * shown in the URL (?vis=1,3,4). It also marks the row of the models as stuck, to show it in a compact way.
+ * shown in the URL (?vis=1,3,4). Once the models are scrolled past, it shows a compact bar with their names.
  *
  * The theme moves the drawer to the end of the body, so the drawer is found by its ID (the "drawer" attribute).
  */
@@ -118,6 +118,12 @@ class BedComparison extends HTMLElement {
       addButton.hidden = !canAdd;
     }
 
+    const compactAdd = this.querySelector('.bed-comparison__compact-add');
+
+    if (compactAdd) {
+      compactAdd.hidden = !canAdd;
+    }
+
     this.style.setProperty('--bed-comparison-columns', visible.length + (canAdd ? 1 : 0));
 
     this.#pickInputs.forEach((input) => input.checked = visible.includes(input.value));
@@ -130,24 +136,24 @@ class BedComparison extends HTMLElement {
     }
   }
 
-  // The row of the models is compact once it sticks below the header
+  // The compact bar is shown once the models are scrolled past (behind the header)
   #stuckObserver;
 
   #observeStuck() {
-    const sentinel = this.querySelector('.bed-comparison__sentinel');
+    const models = this.querySelector('.bed-comparison__models');
 
-    if (!sentinel) {
+    if (!models) {
       return;
     }
 
-    // The row sticks below the header (--sticky-area-height), so the sentinel leaves an area of the same height
+    // The header (--sticky-area-height) hides the top of the page
     const stickyAreaHeight = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--sticky-area-height'), 10) || 0;
 
     this.#stuckObserver = new IntersectionObserver(([entry]) => {
       this.classList.toggle('is-stuck', !entry.isIntersecting && entry.boundingClientRect.top < (entry.rootBounds?.top ?? 0));
     }, { rootMargin: `-${stickyAreaHeight + 1}px 0px 0px 0px` });
 
-    this.#stuckObserver.observe(sentinel);
+    this.#stuckObserver.observe(models);
   }
 }
 

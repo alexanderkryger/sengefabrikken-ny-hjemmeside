@@ -32,22 +32,10 @@
 
 /* The models */
 
-.bed-comparison__sentinel {
-  display: block;
-}
-
 .bed-comparison__models {
-  inset-block-start: var(--sticky-area-height, 0px);
-  z-index: 2;
   background: rgb(var(--background));
   background-image: linear-gradient(var(--bed-comparison-surface), var(--bed-comparison-surface));
   padding: 1.5rem 1rem;
-  transition: transform .2s ease-in-out;
-  position: sticky;
-}
-
-:root:has(.header.is-hidden) .bed-comparison__models {
-  transform: translateY(calc(-1 * var(--header-is-sticky, 0) * var(--header-height, 0px)));
 }
 
 .bed-comparison__model {
@@ -140,28 +128,49 @@
   display: grid;
 }
 
-/* Compact models once they stick below the header */
+/* Compact bar with the names of the models, once the models are scrolled past. The bar is in a sticky element of no
+   height, so that showing it does not move the page */
 
-.bed-comparison.is-stuck .bed-comparison__models {
-  box-shadow: 0 1px 0 rgb(var(--border-color));
-  padding-block: .75rem;
+.bed-comparison__compact {
+  inset-block-start: var(--sticky-area-height, 0px);
+  z-index: 2;
+  height: 0;
+  transition: transform .2s ease-in-out;
+  position: sticky;
 }
 
-.bed-comparison.is-stuck :is(.bed-comparison__model-media, .bed-comparison__model-highlights, .bed-comparison__model-footer) {
-  display: none;
+:root:has(.header.is-hidden) .bed-comparison__compact {
+  transform: translateY(calc(-1 * var(--header-is-sticky, 0) * var(--header-height, 0px)));
 }
 
-.bed-comparison.is-stuck .bed-comparison__model {
-  padding-block-start: 0;
-}
-
-.bed-comparison.is-stuck .bed-comparison__remove {
+.bed-comparison__compact-bar {
   inset-block-start: 0;
+  inset-inline: 0;
+  background: rgb(var(--background));
+  background-image: linear-gradient(var(--bed-comparison-surface), var(--bed-comparison-surface));
+  box-shadow: 0 1px 0 rgb(var(--border-color));
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  padding: .75rem 1rem;
+  transition: opacity .2s, visibility .2s;
+  position: absolute;
 }
 
-.bed-comparison.is-stuck .bed-comparison__model-title {
-  margin-block-start: 0;
-  padding-inline: 1.5rem;
+.bed-comparison.is-stuck .bed-comparison__compact-bar {
+  opacity: 1;
+  visibility: visible;
+}
+
+.bed-comparison__compact-title {
+  font-size: var(--text-sm);
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.bed-comparison__compact-add {
+  order: 99;
 }
 
 /* The groups */
@@ -323,11 +332,13 @@
   }
 
   .bed-comparison__models > .bed-comparison__label-cell,
+  .bed-comparison__compact-bar > .bed-comparison__label-cell,
   .bed-comparison__row--text > .bed-comparison__label-cell {
     display: none;
   }
 
-  .bed-comparison__models {
+  .bed-comparison__models,
+  .bed-comparison__compact-bar {
     padding-inline: .5rem;
   }
 
@@ -336,9 +347,10 @@
     overflow-wrap: anywhere;
   }
 
-  .bed-comparison.is-stuck .bed-comparison__model-title {
+  .bed-comparison__compact-title {
     font-size: var(--text-xs);
-    padding-inline: 0 1.5rem;
+    letter-spacing: .06em;
+    overflow-wrap: anywhere;
   }
 
   .bed-comparison__row {
@@ -358,6 +370,10 @@
 @media screen and (min-width: 1000px) {
   .bed-comparison__models {
     padding: 2rem 1.5rem;
+  }
+
+  .bed-comparison__compact-bar {
+    padding-inline: 1.5rem;
   }
 
   .bed-comparison__row {
