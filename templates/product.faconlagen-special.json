@@ -159,6 +159,7 @@
         },
         "variant_picker": {
           "type": "variant_picker",
+          "disabled": true,
           "settings": {
             "hide_sold_out_variants": false,
             "separate_options": false,
@@ -168,6 +169,23 @@
             "block_selector_style": "outline",
             "variant_image_options": "",
             "size_chart_page": ""
+          }
+        },
+        "custom_size": {
+          "type": "custom_size",
+          "settings": {
+            "endpoint_url": "https://greatsleepgroup.app.n8n.cloud/webhook/specialmaal",
+            "width_label": "Bredde (cm)",
+            "length_label": "Længde (cm)",
+            "empty_text": "Indtast bredde og længde",
+            "help_text": "<p>Mål angives i hele 5 cm. Skal den være mindre end 40 cm eller større end 390 cm, så <a href=\"/pages/kontakt\">kontakt os</a>, så finder vi en løsning.</p>",
+            "required_text": "Indtast et mål i cm",
+            "range_text": "Målet skal være mellem @min@ og @max@ cm",
+            "step_text": "Målet skal være deleligt med @step@ cm",
+            "error_text": "Vi kunne ikke beregne dit mål lige nu. Prøv igen eller kontakt os.",
+            "default_min": 40,
+            "default_max": 390,
+            "default_step": 5
           }
         },
         "product_group": {
@@ -200,23 +218,6 @@
             "payment_button_text_color": "",
             "show_delivery_time": true,
             "delivery_time_text": "Levering ([leveringstid])"
-          }
-        },
-        "custom_size": {
-          "type": "custom_size",
-          "settings": {
-            "endpoint_url": "https://greatsleepgroup.app.n8n.cloud/webhook/specialmaal",
-            "width_label": "Bredde (cm)",
-            "length_label": "Længde (cm)",
-            "empty_text": "Indtast bredde og længde",
-            "help_text": "<p>Mål angives i hele 5 cm. Skal den være mindre end 40 cm eller større end 390 cm, så <a href=\"/pages/kontakt\">kontakt os</a>, så finder vi en løsning.</p>",
-            "required_text": "Indtast et mål i cm",
-            "range_text": "Målet skal være mellem @min@ og @max@ cm",
-            "step_text": "Målet skal være deleligt med @step@ cm",
-            "error_text": "Vi kunne ikke beregne dit mål lige nu. Prøv igen eller kontakt os.",
-            "default_min": 40,
-            "default_max": 390,
-            "default_step": 5
           }
         }
       },
@@ -345,6 +346,7 @@
         "image_1": {
           "type": "image",
           "settings": {
+            "image": "shopify://shop_images/faonlagen.jpg",
             "rotation": 0,
             "hide_on_mobile": false,
             "label_text": "",
@@ -353,8 +355,7 @@
             "label_y": 70,
             "label_line_length": 60,
             "label_background": "#6b1424",
-            "label_text_color": "#ffffff",
-            "image": "shopify://shop_images/faonlagen.jpg"
+            "label_text_color": "#ffffff"
           }
         }
       },
@@ -406,6 +407,7 @@
         "image_1": {
           "type": "image",
           "settings": {
+            "image": "shopify://shop_images/satin_kuvertlagen_1.jpg",
             "rotation": 0,
             "hide_on_mobile": true,
             "label_text": "",
@@ -414,8 +416,7 @@
             "label_y": 50,
             "label_line_length": 60,
             "label_background": "#6b1424",
-            "label_text_color": "#ffffff",
-            "image": "shopify://shop_images/satin_kuvertlagen_1.jpg"
+            "label_text_color": "#ffffff"
           }
         }
       },
@@ -433,6 +434,7 @@
         "media_alignment": "center",
         "media_alignment_offset": 0,
         "media_mobile_alignment_offset": 0,
+        "image": "shopify://shop_images/satin_kuvertlagen_2.jpg",
         "hide_media_on_mobile": false,
         "content_percentage_width": 45,
         "text_alignment": "center",
@@ -458,8 +460,7 @@
         "button_1_style": "solid",
         "button_2_text": "",
         "button_2_link": "",
-        "button_2_style": "outline",
-        "image": "shopify://shop_images/satin_kuvertlagen_2.jpg"
+        "button_2_style": "outline"
       }
     },
     "trustpilot_reviews_PkjAdp": {
