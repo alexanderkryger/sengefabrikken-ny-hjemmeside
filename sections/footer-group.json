@@ -67,7 +67,7 @@
             "logo_width": 160,
             "title": "",
             "content": "<p>Hos Sengefabrikken leverer vi direkte fra fabrikken til dig, uden fordyrende mellemled undervejs. Du fortjener at sove godt – og det vil vi gerne hjælpe dig med!</p>",
-            "disclaimer_text": "<p>By signing up to our newsletter, you agree with our privacy policy.</p>",
+            "disclaimer_text": "",
             "attach_button": true,
             "input_background": "#faf7f4",
             "input_text_color": "#2f1300"
