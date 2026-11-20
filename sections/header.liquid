@@ -181,6 +181,33 @@
       background: rgb(var(--text-color) / .08);
     }
 
+    {%- if section.settings.icon_buttons_backdrop -%}
+      {%- comment -%}
+        Over an image (transparent header), the buttons get a blurred backdrop, dark behind light icons and light behind
+        dark icons, so that they stay visible on any image
+      {%- endcomment -%}
+      {%- liquid
+        assign backdrop_color = '0 0 0'
+        if section.settings.transparent_header_text_color != blank
+          assign transparent_text_brightness = section.settings.transparent_header_text_color | color_brightness
+          if transparent_text_brightness < 128
+            assign backdrop_color = '255 255 255'
+          endif
+        endif
+      -%}
+
+      :root:has(.shopify-section:first-child [allow-transparent-header]):not(:has(.shopify-section--header ~ .shopify-section-group-header-group)) #shopify-section-{{ section.id }} .header:not(.is-solid, :has([open])) .header__icon-button {
+        background: rgb({{ backdrop_color }} / .22);
+        border-color: rgb(var(--text-color) / .3);
+        -webkit-backdrop-filter: blur(8px);
+        backdrop-filter: blur(8px);
+      }
+
+      :root:has(.shopify-section:first-child [allow-transparent-header]):not(:has(.shopify-section--header ~ .shopify-section-group-header-group)) #shopify-section-{{ section.id }} .header:not(.is-solid, :has([open])) .header__icon-button:hover {
+        background: rgb({{ backdrop_color }} / .35);
+      }
+    {%- endif -%}
+
     #shopify-section-{{ section.id }} .header__cart-count {
       background: rgb(var(--header-cart-count-background));
       color: rgb(255 255 255);
@@ -768,6 +795,13 @@
       "id": "cart_count_background",
       "label": "Baggrund for antal i kurv",
       "default": "#650621"
+    },
+    {
+      "type": "checkbox",
+      "id": "icon_buttons_backdrop",
+      "label": "Tydelige knapper over billeder",
+      "info": "Med \"Store knapper\" og gennemsigtig header får menu, søg og kurv en sløret baggrund, så de kan ses på alle billeder.",
+      "default": true
     },
     {
       "type": "text",
