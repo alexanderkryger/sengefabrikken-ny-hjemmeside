@@ -2,7 +2,7 @@
 
 .bed-comparison {
   --bed-comparison-columns: var(--bed-comparison-max-columns, 3);
-  --bed-comparison-label-width: minmax(0, 1fr);
+  --bed-comparison-label-width: minmax(0, .7fr);
   --bed-comparison-surface: rgb(var(--text-color) / .03);
   padding-block-start: var(--section-vertical-spacing);
   display: block;
@@ -38,8 +38,14 @@
   padding: 1.5rem 1rem;
 }
 
+.bed-comparison__models-intro {
+  align-content: start;
+  justify-items: start;
+  gap: .5rem;
+  display: grid;
+}
+
 .bed-comparison__model {
-  padding-block-start: 1.25rem;
   text-align: center;
   justify-items: center;
   align-content: start;
@@ -48,17 +54,21 @@
   position: relative;
 }
 
+/* Remove button: a circle in the top right corner of the image (or of the model, without image) */
 .bed-comparison__remove {
-  inset-block-start: -1rem;
-  inset-inline-end: 0;
-  z-index: 1;
-  opacity: .7;
-  transition: opacity .2s;
+  inset-block-start: .5rem;
+  inset-inline-end: .5rem;
+  z-index: 2;
   position: absolute;
 }
 
-.bed-comparison__remove:hover {
-  opacity: 1;
+.bed-comparison__model--media .bed-comparison__remove:not(:hover):before {
+  background: rgb(var(--background));
+  box-shadow: 0 1px 4px rgb(0 0 0 / .12);
+}
+
+.bed-comparison__model:not(.bed-comparison__model--media) {
+  padding-block-start: 2.5rem;
 }
 
 .bed-comparison__model-media {
@@ -180,10 +190,10 @@
 }
 
 .bed-comparison__group-summary {
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   gap: .75rem;
-  padding-block: 1rem;
+  padding: 1rem;
   cursor: pointer;
   list-style: none;
   display: flex;
@@ -257,7 +267,6 @@
 
 .bed-comparison__row--text .bed-comparison__value {
   color: rgb(var(--text-color) / .75);
-  text-align: center;
 }
 
 .bed-comparison__empty {
@@ -353,7 +362,8 @@
     overflow-wrap: anywhere;
   }
 
-  .bed-comparison__row {
+  .bed-comparison__row,
+  .bed-comparison__group-summary {
     row-gap: 1rem;
     padding-inline: 0;
   }
@@ -376,7 +386,8 @@
     padding-inline: 1.5rem;
   }
 
-  .bed-comparison__row {
+  .bed-comparison__row,
+  .bed-comparison__group-summary {
     padding-inline: 1.5rem;
   }
 }

@@ -56,7 +56,11 @@
       <div class="container">
         {%- comment -%}The models (see the compact bar below for the names while scrolling){%- endcomment -%}
         <div class="bed-comparison__models bed-comparison__grid">
-          <div class="bed-comparison__label-cell"></div>
+          <div class="bed-comparison__label-cell bed-comparison__models-intro">
+            <p class="bed-comparison__label">Modeller</p>
+            <p class="text-sm text-subdued">Sammenlign op til {{ section.settings.columns_desktop }} modeller side om side.</p>
+            <button type="button" class="link text-sm" aria-controls="{{ drawer_id }}" aria-expanded="false">Skift modeller</button>
+          </div>
 
           {%- for i in model_indexes -%}
             {%- liquid
@@ -67,10 +71,10 @@
               assign highlights = section.settings[highlights_key] | newline_to_br | split: '<br />'
             -%}
 
-            <div class="bed-comparison__model" data-model="{{ i }}">
-              <button type="button" class="bed-comparison__remove tap-area" data-remove-model="{{ i }}">
+            <div class="bed-comparison__model {% if section.settings.show_images and model.featured_media != blank %}bed-comparison__model--media{% endif %}" data-model="{{ i }}">
+              <button type="button" class="bed-comparison__remove circle-button" data-remove-model="{{ i }}">
                 <span class="sr-only">Fjern {{ section.settings[title_key] | default: model.title | escape }} fra sammenligningen</span>
-                {%- render 'icon' with 'close', width: 12 -%}
+                {%- render 'icon' with 'close', width: 10 -%}
               </button>
 
               {%- if section.settings.show_images and model.featured_media != blank -%}
