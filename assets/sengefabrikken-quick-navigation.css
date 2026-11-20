@@ -1,7 +1,9 @@
 /* Sengefabrikken: quick navigation of the collection banner shown as small vertical cards (see collection-banner.liquid) */
 
+/* All the cards get the height of the highest one (titles on one or two lines) */
 .collection-quick-navigation--cards {
   column-gap: .75rem;
+  align-items: stretch;
 }
 
 .collection-quick-navigation--cards .collection-quick-navigation__item {
