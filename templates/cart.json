@@ -1,1 +1,71 @@
-{"sections":{"main":{"type":"main-cart","blocks":{"totals":{"type":"totals","settings":{}},"cart_note":{"type":"cart_note","settings":{}},"checkout_button":{"type":"checkout_button","settings":{}},"payment_methods":{"type":"payment_methods","settings":{}}},"block_order":["totals","cart_note","checkout_button","payment_methods"],"settings":{}}},"order":["main"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-cart",
+      "blocks": {
+        "totals": {
+          "type": "totals",
+          "settings": {
+            "show_order_weight": false,
+            "show_shipping_text": true
+          }
+        },
+        "cart_note": {
+          "type": "cart_note",
+          "settings": {
+            "open_by_default": false
+          }
+        },
+        "checkout_button": {
+          "type": "checkout_button",
+          "settings": {}
+        },
+        "payment_methods": {
+          "type": "payment_methods",
+          "disabled": true,
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "totals",
+        "cart_note",
+        "checkout_button",
+        "payment_methods"
+      ],
+      "settings": {
+        "color_scheme": "",
+        "allow_discount_application": false,
+        "show_shipping_estimator": false
+      }
+    },
+    "trustpilot_reviews_9cNiUw": {
+      "type": "trustpilot-reviews",
+      "name": "Trustpilot anmeldelser",
+      "settings": {
+        "color_scheme": "",
+        "heading_size": "h4",
+        "score_suffix": "på Trustpilot",
+        "count_prefix": "Baseret på",
+        "count_suffix": "anmeldelser",
+        "disclosure": "Viser vores 4- og 5-stjernede anmeldelser",
+        "autoscroll": true,
+        "seconds_per_card": 20,
+        "card_background": "#f6f1ec",
+        "card_border_color": "#e0dcd9"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "trustpilot_reviews_9cNiUw"
+  ]
+}
