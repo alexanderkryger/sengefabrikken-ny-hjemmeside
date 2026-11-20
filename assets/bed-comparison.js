@@ -17,7 +17,8 @@ class BedComparison extends HTMLElement {
     const fromUrl = (new URLSearchParams(window.location.search).get('vis') || '').split(',').filter((model) => this.#models.includes(model));
     this.#selected = fromUrl.length > 0 ? fromUrl : this.#models;
 
-    this.addEventListener('click', this.#onClick.bind(this), { signal });
+    // Capture phase: the button of the drawer also closes it (<dialog-close-button>), which stops the click
+    this.addEventListener('click', this.#onClick.bind(this), { capture: true, signal });
     this.addEventListener('change', this.#onPickChange.bind(this), { signal });
     this.#mobileQuery.addEventListener('change', () => this.#render(), { signal });
 
