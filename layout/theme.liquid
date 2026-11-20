@@ -54,6 +54,9 @@
 
     {{ content_for_header }}
 
+    {%- comment -%}Sengefabrikken: no cart page with the cart drawer{%- endcomment -%}
+    {%- render 'cart-page-redirect' -%}
+
     {{- 'theme.css' | asset_url | stylesheet_tag: preload: true -}}
     {%- comment -%}Sengefabrikken: ribbon on the product cards{%- endcomment -%}
     {{- 'product-card-ribbon.css' | asset_url | stylesheet_tag -}}

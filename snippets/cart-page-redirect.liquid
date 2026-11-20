@@ -1,0 +1,18 @@
+{%- doc -%}
+Sengefabrikken: with the cart drawer (theme settings > Kurv > Kurvtype), there is no cart page. The cart page (eg. the
+"back to cart" link of the checkout) redirects to the home page, which opens the cart drawer (#cart). The cart page stays
+available in the theme editor.
+{%- enddoc -%}
+
+{%- if settings.cart_type != 'page' -%}
+  {%- if request.page_type == 'cart' and request.design_mode == false -%}
+    <script>window.location.replace({{ routes.root_url | json }} + '#cart');</script>
+  {%- else -%}
+    <script type="module">
+      if (window.location.hash === '#cart') {
+        history.replaceState(history.state, '', window.location.pathname + window.location.search);
+        customElements.whenDefined('cart-drawer').then(() => document.getElementById('cart-drawer')?.show());
+      }
+    </script>
+  {%- endif -%}
+{%- endif -%}
