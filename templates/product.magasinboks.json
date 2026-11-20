@@ -751,8 +751,8 @@
             "hide_on_mobile": false,
             "label_text": "Topmadras",
             "label_shape": "up",
-            "label_x": 55,
-            "label_y": 69,
+            "label_x": 81,
+            "label_y": 54,
             "label_line_length": 60,
             "label_background": "#6b1424",
             "label_text_color": "#ffffff"
@@ -972,7 +972,7 @@
             "label_text": "Springmadras",
             "label_shape": "up_start",
             "label_x": 32,
-            "label_y": 70,
+            "label_y": 61,
             "label_line_length": 60,
             "label_background": "#6b1424",
             "label_text_color": "#ffffff"
@@ -1191,8 +1191,8 @@
             "hide_on_mobile": false,
             "label_text": "Opbevaringsboks",
             "label_shape": "right",
-            "label_x": 46,
-            "label_y": 80,
+            "label_x": 51,
+            "label_y": 73,
             "label_line_length": 60,
             "label_background": "#6b1424",
             "label_text_color": "#ffffff"
@@ -1336,6 +1336,7 @@
         "media_alignment": "center",
         "media_alignment_offset": 0,
         "media_mobile_alignment_offset": 0,
+        "video": "shopify://files/videos/Magasinboks_Loop.mp4",
         "hide_media_on_mobile": true,
         "content_percentage_width": 45,
         "text_alignment": "center",
@@ -1361,8 +1362,7 @@
         "button_1_style": "solid",
         "button_2_text": "",
         "button_2_link": "",
-        "button_2_style": "outline",
-        "video": "shopify://files/videos/Magasinboks_Loop.mp4"
+        "button_2_style": "outline"
       }
     },
     "value_chain_VHg3BX": {
