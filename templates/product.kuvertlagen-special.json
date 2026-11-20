@@ -124,6 +124,7 @@
         },
         "payment_terms": {
           "type": "payment_terms",
+          "disabled": true,
           "settings": {}
         },
         "separator": {
@@ -140,6 +141,7 @@
         },
         "disclosures": {
           "type": "disclosures",
+          "disabled": true,
           "settings": {
             "collapse_content": true,
             "uppercase_title": false,
@@ -148,6 +150,7 @@
         },
         "product_variations": {
           "type": "product_variations",
+          "disabled": true,
           "settings": {
             "option_name": "Farve",
             "option_value_metafield": "custom.farve_filter",
