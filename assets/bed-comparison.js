@@ -5,7 +5,7 @@
  * desktop, 2 on mobile), lets the customer remove a model (×) or pick the models in the drawer, and keeps the models
  * shown in the URL (?vis=1,3,4). It also marks the row of the models as stuck, to show it in a compact way.
  *
- * The theme moves the drawer to the end of the body when it opens, so the drawer is found by its ID ("drawer" attribute).
+ * The theme moves the drawer to the end of the body, so the drawer is found by its ID (the "drawer" attribute).
  */
 class BedComparison extends HTMLElement {
   #abortController;
