@@ -1,6 +1,7 @@
 /* Sengefabrikken: option rows used in the variant picker drawers and the product group drawers */
 
 .product-group-option-list {
+  align-content: start; /* With few options, they do not stretch to the height of the drawer */
   gap: .75rem;
   display: grid;
 }
@@ -110,6 +111,16 @@
 }
 
 .product-info:not(:has([data-block-type="product-variations"]:not(:empty))) [data-block-type="separator"] ~ [data-block-type="custom-size"]:not([data-block-type="separator"] ~ :not(:empty) ~ *) .custom-size > script + .accordion {
+  box-shadow: 0 1px 0 rgb(var(--border-color));
+}
+
+/* With drawers, the options of the variant picker (eg. height and quantity) are rows of a single list: no space between
+   them, and each row after the first only keeps its bottom line */
+.variant-picker:has(> .variant-picker__option > .accordion) {
+  row-gap: 0;
+}
+
+.variant-picker__option ~ .variant-picker__option > .accordion {
   box-shadow: 0 1px 0 rgb(var(--border-color));
 }
 
