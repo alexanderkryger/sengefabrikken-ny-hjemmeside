@@ -327,7 +327,7 @@
             "label_line_length": 60,
             "label_background": "#6b1424",
             "label_text_color": "#ffffff",
-            "image": "{{ product.featured_image }}"
+            "image": "shopify://shop_images/Dunpuden_3_1.jpg"
           }
         }
       },
