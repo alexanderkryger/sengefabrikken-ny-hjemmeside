@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "banner": {
@@ -7,6 +16,7 @@
         "allow_transparent_header": true,
         "layout": "background",
         "show_description": true,
+        "text": "<p>Madrasser og tilbehør efter mål - faste lave priser på skræddersyede madrasser</p>",
         "collection_title_size": "h2",
         "content_position": "place-self-center",
         "background_color_scheme": "",
@@ -14,8 +24,7 @@
         "image_size": "lg",
         "overlay_color": "#000000",
         "overlay_opacity": 20,
-        "quick_navigation_menu": "",
-        "text": "<p>Madrasser og tilbehør efter mål - faste lave priser på skræddersyede madrasser</p>"
+        "quick_navigation_menu": "specialm-l-1"
       }
     },
     "main": {
