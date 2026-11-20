@@ -17,8 +17,8 @@
           "name": "t:sections.slideshow.blocks.video.name",
           "settings": {
             "color_scheme": "",
-            "video": "shopify://files/videos/world_sleep_day_video_2026_16;9.mp4",
-            "mobile_video": "shopify://files/videos/world_sleep_day_video_2026_1;1.mp4",
+            "video": "shopify://files/videos/black month mood video 16;9_1_low.mp4",
+            "mobile_video": "shopify://files/videos/black month mood video 1;1.mp4",
             "slide_link": "",
             "content_max_width": 1000,
             "mobile_content_position": "place-self-center",
@@ -31,7 +31,7 @@
               "type": "logo",
               "name": "Logo",
               "settings": {
-                "logo": "shopify://shop_images/SF-staerke_priser.svg",
+                "logo": "shopify://shop_images/black26_logo.png",
                 "logo_width": 400,
                 "mobile_logo_width": 300
               },
@@ -45,8 +45,8 @@
                 "url": "shopify://pages/black-month",
                 "open_in_new_tab": false,
                 "style": "solid",
-                "background": "#fddc7a",
-                "text_color": "#650620"
+                "background": "#151515",
+                "text_color": "#FFDC7A"
               },
               "blocks": {}
             }
@@ -69,6 +69,79 @@
       "block_order": [
         "slideshow_video_slide_8GghKm"
       ],
+      "settings": {
+        "use_page_width": false,
+        "color_scheme": "",
+        "allow_transparent_header": true,
+        "image_size": "fill",
+        "transition_type": "fade",
+        "autoplay": true,
+        "pause_auto_rotate_on_hover": false,
+        "cycle_speed": 6,
+        "background": "#000000"
+      }
+    },
+    "slideshow_F7dFKi": {
+      "type": "slideshow",
+      "blocks": {
+        "slideshow_video_slide_kXD9eW": {
+          "type": "_slideshow-video-slide",
+          "name": "t:sections.slideshow.blocks.video.name",
+          "settings": {
+            "color_scheme": "",
+            "video": "shopify://files/videos/world_sleep_day_video_2026_16;9.mp4",
+            "mobile_video": "shopify://files/videos/world_sleep_day_video_2026_1;1.mp4",
+            "slide_link": "",
+            "content_max_width": 1000,
+            "mobile_content_position": "place-self-center",
+            "desktop_content_position": "sm:place-self-center",
+            "overlay_color": "#000000",
+            "overlay_opacity": 20
+          },
+          "blocks": {
+            "logo_NWTmzX": {
+              "type": "logo",
+              "name": "Logo",
+              "settings": {
+                "logo": "shopify://shop_images/SF-staerke_priser.svg",
+                "logo_width": 400,
+                "mobile_logo_width": 300
+              },
+              "blocks": {}
+            },
+            "button_JqDAzr": {
+              "type": "button",
+              "name": "t:blocks.button.name",
+              "settings": {
+                "text": "Se alle favoritter her",
+                "url": "shopify://pages/black-month",
+                "open_in_new_tab": false,
+                "style": "solid",
+                "background": "#fddc7a",
+                "text_color": "#650620"
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "logo_NWTmzX",
+            "button_JqDAzr"
+          ]
+        },
+        "slideshow-controls": {
+          "type": "_slideshow-controls",
+          "static": true,
+          "settings": {
+            "controls_style": "line",
+            "controls_color": "#ffffff"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "slideshow_video_slide_kXD9eW"
+      ],
+      "disabled": true,
       "settings": {
         "use_page_width": false,
         "color_scheme": "",
@@ -389,6 +462,7 @@
   },
   "order": [
     "slideshow",
+    "slideshow_F7dFKi",
     "sengefabrikken_product_list_EiFpJJ",
     "trust_icons_LD7wBg",
     "sengefabrikken_banner_6TBRN8",
