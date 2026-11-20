@@ -300,7 +300,7 @@ product-group-gift {
   display: grid;
   position: absolute;
   inset-block-end: calc(100% - 1rem);
-  inset-inline-end: -1.25rem;
+  inset-inline-end: -.5rem; /* On mobile, not further out than the page margin, or the page can be dragged sideways */
   rotate: 12deg;
 }
 
