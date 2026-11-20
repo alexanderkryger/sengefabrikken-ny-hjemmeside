@@ -1,0 +1,48 @@
+{%- doc -%}
+Sengefabrikken: the "Vælg Fasthed" row of the Specialmål products, opening a drawer with links to the same product in
+other firmnesses ("custom.firmness_products" metafield, the names come from the "custom.fasthed" metafield). Each firmness
+is its own product, with its own SKU prefix and price formula. The links keep the typed size (see custom-size-form.js).
+
+@param {object} product - the main product
+@param {string} [label] - the label of the row (default to "Vælg Fasthed")
+@param {object} [section]
+{%- enddoc -%}
+
+{%- assign firmness_products = product.metafields.custom.firmness_products.value -%}
+
+{%- if firmness_products != blank -%}
+  {%- capture drawer_id -%}product-firmness-drawer-{{ section.id }}{%- endcapture -%}
+  {%- assign row_label = label | default: 'Vælg Fasthed' -%}
+
+  <div class="accordion">
+    <button type="button" class="accordion__summary w-full" aria-controls="{{ drawer_id }}" aria-expanded="false">
+      <span class="h-stack wrap align-center gap-2">
+        <span>{{ row_label }}</span>
+        <span class="text-subdued">{{ product.metafields.custom.fasthed.value | default: product.title }}</span>
+      </span>
+
+      {%- render 'icon' with 'chevron-right', direction_aware: true -%}
+    </button>
+
+    <x-drawer id="{{ drawer_id }}" class="drawer color-scheme color-scheme--{{ settings.default_color_scheme.id }}">
+      <span class="h5" slot="header">{{ row_label }}</span>
+
+      <div class="product-group-option-list">
+        {%- for firmness_product in firmness_products -%}
+          {%- if firmness_product == product -%}
+            <span class="product-group-option is-selected" aria-current="page">
+          {%- else -%}
+            <a href="{{ firmness_product.url }}" class="product-group-option" data-keep-size>
+          {%- endif -%}
+            <span class="product-group-option__title">{{ firmness_product.metafields.custom.fasthed.value | default: firmness_product.title }}</span>
+            <span class="product-group-option__price">fra {{ firmness_product.price_min | money }}</span>
+          {%- if firmness_product == product -%}
+            </span>
+          {%- else -%}
+            </a>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    </x-drawer>
+  </div>
+{%- endif -%}

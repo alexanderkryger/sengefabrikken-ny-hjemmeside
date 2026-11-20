@@ -99,6 +99,20 @@
   margin-block-start: 0;
 }
 
+/* Same for the Specialmål block when it starts with the "Vælg Fasthed" row (product-firmness snippet): the line of the
+   separator becomes the top line of the row */
+.product-info:not(:has([data-block-type="product-variations"]:not(:empty))) [data-block-type="separator"]:has(~ [data-block-type="custom-size"] .custom-size > script + .accordion):not(:has(~ :not(:empty):not([data-block-type="custom-size"]) ~ [data-block-type="custom-size"])) {
+  margin-block-end: 0;
+}
+
+.product-info:not(:has([data-block-type="product-variations"]:not(:empty))) [data-block-type="separator"] ~ [data-block-type="custom-size"]:has(.custom-size > script + .accordion):not([data-block-type="separator"] ~ :not(:empty) ~ *) {
+  margin-block-start: 0;
+}
+
+.product-info:not(:has([data-block-type="product-variations"]:not(:empty))) [data-block-type="separator"] ~ [data-block-type="custom-size"]:not([data-block-type="separator"] ~ :not(:empty) ~ *) .custom-size > script + .accordion {
+  box-shadow: 0 1px 0 rgb(var(--border-color));
+}
+
 /* With drawers, the rows of the variant picker (the size and the options) and the rows of the product group form a single list:
    no space between both blocks, and a single line between the last option and the first group row */
 .product-info__block-item[data-block-type="variant-picker"]:has(.accordion):has(+ [data-block-type="product-group"]) {

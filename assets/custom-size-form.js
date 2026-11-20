@@ -13,6 +13,9 @@
  *
  * The submit listener sits on document in the capture phase, so that it always runs before the listener of the
  * product form, without touching theme.js.
+ *
+ * When each firmness is its own product (see the product-firmness snippet), the links to the other firmnesses carry the
+ * typed size (?width=…&length=…), and the size is filled in again from the URL on the other product.
  */
 class CustomSizeForm extends HTMLElement {
   #abortController;
@@ -33,6 +36,10 @@ class CustomSizeForm extends HTMLElement {
 
     this.addEventListener('input', this.#update.bind(this), { signal });
     document.addEventListener('submit', this.#onSubmit.bind(this), { capture: true, signal });
+
+    const searchParams = new URLSearchParams(window.location.search);
+    this.#widthInput.value ||= searchParams.get('width') ?? '';
+    this.#lengthInput.value ||= searchParams.get('length') ?? '';
 
     this.#update();
   }
@@ -95,6 +102,8 @@ class CustomSizeForm extends HTMLElement {
     const summaryElement = this.querySelector('[data-size-summary]');
     const priceElement = this.querySelector('[data-size-price]');
 
+    this.#updateKeepSizeLinks(widthValid && lengthValid);
+
     if (!widthValid || !lengthValid) {
       summaryElement.textContent = this.#config.strings.empty;
       priceElement.textContent = '';
@@ -115,6 +124,25 @@ class CustomSizeForm extends HTMLElement {
     });
 
     return true;
+  }
+
+  /**
+   * Adds the typed size to the links to the other firmnesses, or removes it when the size is not valid
+   */
+  #updateKeepSizeLinks(valid) {
+    this.querySelectorAll('a[data-keep-size]').forEach((link) => {
+      const url = new URL(link.href, window.location.origin);
+
+      if (valid) {
+        url.searchParams.set('width', this.#size.width);
+        url.searchParams.set('length', this.#size.length);
+      } else {
+        url.searchParams.delete('width');
+        url.searchParams.delete('length');
+      }
+
+      link.href = url.toString();
+    });
   }
 
   async #onSubmit(event) {

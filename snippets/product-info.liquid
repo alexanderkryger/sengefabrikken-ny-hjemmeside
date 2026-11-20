@@ -500,6 +500,9 @@ no need to manually pass the section as it is globally available)
                   }
                 </script>
 
+                {%- comment -%}Sengefabrikken: the firmness, when each firmness is its own product{%- endcomment -%}
+                {%- render 'product-firmness', product: product, section: section -%}
+
                 <div class="form-row">
                   <div class="form-control">
                     <input id="{{ width_id }}" class="input" type="number" inputmode="numeric" form="{{ product_form_id }}" min="{{ size_min }}" max="{{ size_max }}" step="{{ size_step }}" placeholder=" " required data-size-width>
