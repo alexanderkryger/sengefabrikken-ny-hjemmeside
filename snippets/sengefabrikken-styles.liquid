@@ -1,0 +1,274 @@
+{%- doc -%}
+Sengefabrikken: the small style sheets of Sengefabrikken's own features, inlined in the head instead of one request
+each (each request blocked the rendering of the page, which slowed down the first paint on mobile).
+{%- enddoc -%}
+
+<style>
+  /* product-card-ribbon */
+  /* Sengefabrikken: ribbon on top of the product cards, based on the product tags (see the product-card snippet) */
+
+  .product-card--ribbon {
+    --product-card-ribbon-height: 2rem;
+    border: 2px solid var(--product-card-ribbon-background);
+    border-radius: .75rem;
+    padding-block-start: var(--product-card-ribbon-height);
+    overflow: clip;
+  }
+
+  .product-card__ribbon {
+    z-index: 1;
+    height: var(--product-card-ribbon-height);
+    background: var(--product-card-ribbon-background);
+    color: var(--product-card-ribbon-text-color);
+    text-align: center;
+    place-content: center;
+    padding-inline: .75rem;
+    font-size: .8125rem;
+    line-height: 1.2;
+    display: grid;
+    position: absolute;
+    inset-block-start: 0;
+    inset-inline: 0;
+  }
+
+  @media screen and (min-width: 700px) {
+    .product-card--ribbon {
+      --product-card-ribbon-height: 2.25rem;
+    }
+
+    .product-card__ribbon {
+      font-size: .875rem;
+    }
+  }
+
+  {%- if settings.gift_popup_heading != blank -%}
+  /* sengefabrikken-gift-popup */
+  /* Sengefabrikken: gift popup (see the gift-popup snippet). The image fills the top of the popup, the close button is
+     shown on top of it. */
+
+  .gift-popup {
+    --modal-content-width: 26.25rem;
+    --modal-body-padding-block: 0;
+    --modal-body-padding-inline: 0;
+  }
+
+  .gift-popup::part(content) {
+    border-radius: .75rem;
+    overflow: hidden;
+  }
+
+  .gift-popup::part(close-button) {
+    z-index: 2;
+    color: #2f1300;
+  }
+
+  .gift-popup::part(close-button):before {
+    background: rgb(255 255 255 / .92);
+  }
+
+  .gift-popup__image {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .gift-popup__body {
+    padding: 1.5rem 1.5rem 1.75rem;
+  }
+
+  .gift-popup__heading {
+    text-transform: uppercase;
+    letter-spacing: .04em;
+  }
+
+  .gift-popup__item {
+    align-items: baseline;
+    gap: .5rem;
+    display: flex;
+  }
+
+  .gift-popup__item svg {
+    color: rgb(var(--gift-popup-accent));
+    flex-shrink: 0;
+  }
+
+  .gift-popup__footer {
+    border-block-start: 1px solid rgb(var(--text-color) / .2);
+    padding-block-start: 1rem;
+  }
+
+  gift-popup-value:not([hidden]) {
+    display: inline;
+  }
+
+  .gift-popup__value {
+    color: rgb(var(--gift-popup-accent));
+    font-weight: 700;
+  }
+  {%- endif -%}
+
+  /* yotpo-stars */
+  /*
+   * Sengefabrikken: review stars in the Yotpo style (see the yotpo-stars snippet). Each star is a green square, the part
+   * above the rating being grey, with a cream star on top.
+   */
+
+  .yotpo-stars {
+    --yotpo-star-size: 1.125rem;
+    gap: 2px;
+    flex-shrink: 0;
+    display: flex;
+  }
+
+  .yotpo-stars__star {
+    width: var(--yotpo-star-size);
+    height: calc(var(--yotpo-star-size) * 16 / 17.32);
+    color: #fefdf9;
+    background: linear-gradient(90deg, #24ac65 var(--yotpo-star-fill), #dcdce6 var(--yotpo-star-fill));
+    border-radius: 1px;
+    place-items: center;
+    display: grid;
+  }
+
+  .yotpo-stars__star svg {
+    width: 100%;
+    height: auto;
+  }
+
+  /* The theme rating badge (product page rating block and the standard product card) */
+  .rating-badge .yotpo-stars {
+    --yotpo-star-size: 1rem;
+  }
+
+  /* The rating of the product info opens the Yotpo reviews drawer (see the yotpo-reviews-drawer snippet) */
+  .product-info__rating-button {
+    text-align: inherit;
+    width: 100%;
+    display: block;
+  }
+
+  .product-info__rating-button .subheading {
+    text-underline-offset: .2em;
+  }
+
+  @media screen and (pointer: fine) {
+    .product-info__rating-button:hover .subheading {
+      text-decoration: underline;
+    }
+  }
+
+  {%- if settings.color_swatch_shape == 'thin_rectangle' -%}
+  /* color-swatch-thin-rectangle */
+  /* Sengefabrikken: "Thin rectangle" color swatch shape (theme settings > Color swatch). It is a wide, flat rectangle with
+     rounded corners, outlined a bit away from the shape when selected, like the circle shape (instead of the underline of
+     the rectangle shape). */
+
+  .color-swatch--thin-rectangle {
+    --swatch-width: 3.5rem;
+    --swatch-height: 1rem;
+    --swatch-disabled-icon-size: .5rem;
+    box-shadow: 0 0 0 1px rgb(var(--text-color) / .12) inset;
+    border-radius: .25rem;
+    background-clip: border-box;
+  }
+
+  .color-swatch--thin-rectangle.color-swatch--sm {
+    --swatch-width: 1.75rem;
+    --swatch-height: .625rem;
+    border-radius: .125rem;
+  }
+
+  .color-swatch--thin-rectangle .color-swatch__indicator {
+    display: none;
+  }
+
+  @media (pointer: fine) {
+    label.color-swatch--thin-rectangle:hover {
+      box-shadow: 0 0 0 1px rgb(var(--text-color) / .4) inset;
+    }
+  }
+
+  :checked + .color-swatch--thin-rectangle, .color-swatch--thin-rectangle.is-selected {
+    outline: var(--swatch-selected-border-size) solid currentColor;
+    outline-offset: var(--swatch-selected-border-offset);
+  }
+  {%- endif -%}
+
+  {%- if settings.section_color_transition -%}
+  /* section-color-transition */
+  /*
+   * Sengefabrikken: the page background fades into the color of the section in the middle of the screen (see
+   * section-color-transition.js, enabled in theme settings > Sengefabrikken layout).
+   */
+
+  section-color-transition {
+    display: none;
+  }
+
+  #main.has-section-color-transition {
+    background-color: var(--section-color-transition-background);
+    transition: background-color var(--section-color-transition-duration, .6s) ease;
+  }
+
+  #main.has-section-color-transition > .shopify-section > .color-scheme[data-color-transition] {
+    background-color: transparent;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    #main.has-section-color-transition {
+      transition: none;
+    }
+  }
+  {%- endif -%}
+
+  {%- if settings.campaign_theme_enabled and settings.campaign_badge_enabled -%}
+  /* sengefabrikken-campaign-badge */
+  /* Sengefabrikken: campaign badge (theme settings > Kampagnetema > Kampagnebadge), loaded only while the badge is enabled
+     (see the sengefabrikken-campaign-badge snippet). The size is set by the --campaign-badge-size variable. */
+
+  .sengefabrikken-campaign-badge {
+    width: var(--campaign-badge-size, 72px);
+    height: auto;
+    pointer-events: none;
+    object-fit: contain;
+    /* In the corner of the card, the image would otherwise shrink to the height of its grid row */
+    align-self: start;
+    max-height: none;
+  }
+
+  /* On the stock product card and the product gallery, the badge is placed on top of the media */
+  .sengefabrikken-campaign-badge--overlay {
+    z-index: 1;
+    position: absolute;
+    inset-block-start: .75rem;
+    inset-inline-end: .75rem;
+  }
+
+  @media screen and (min-width: 1000px) {
+    .sengefabrikken-campaign-badge--gallery {
+      width: calc(var(--campaign-badge-size, 72px) * 1.5);
+      inset-block-start: 1.25rem;
+      inset-inline-end: 1.25rem;
+    }
+  }
+
+  /* On the Sengefabrikken card, the campaign badge has the size of the quality icon of the corner, and on mobile slightly
+     overlaps its bottom */
+  .sengefabrikken-card__corner .sengefabrikken-campaign-badge {
+    width: 3.5rem;
+  }
+
+  @media screen and (max-width: 699px) {
+    .sengefabrikken-card__corner-icon + .sengefabrikken-campaign-badge {
+      margin-block-start: -1.5rem;
+    }
+  }
+
+  @media screen and (min-width: 700px) {
+    .sengefabrikken-card__corner .sengefabrikken-campaign-badge {
+      width: 4.5rem;
+    }
+  }
+  {%- endif -%}
+
+</style>

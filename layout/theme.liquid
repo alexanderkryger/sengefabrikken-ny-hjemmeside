@@ -61,25 +61,15 @@
     {%- render 'cart-page-redirect' -%}
 
     {{- 'theme.css' | asset_url | stylesheet_tag: preload: true -}}
-    {%- comment -%}Sengefabrikken: ribbon on the product cards{%- endcomment -%}
-    {{- 'product-card-ribbon.css' | asset_url | stylesheet_tag -}}
-
-    {%- if settings.gift_popup_heading != blank -%}
-      {%- comment -%}Sengefabrikken: gift popup (theme settings > Gave){%- endcomment -%}
-      {{- 'sengefabrikken-gift-popup.css' | asset_url | stylesheet_tag -}}
-    {%- endif -%}
-    {%- comment -%}Sengefabrikken: Yotpo style review stars{%- endcomment -%}
-    {{- 'yotpo-stars.css' | asset_url | stylesheet_tag -}}
-
-    {%- if settings.color_swatch_shape == 'thin_rectangle' -%}
-      {%- comment -%}Sengefabrikken: "Thin rectangle" color swatch shape{%- endcomment -%}
-      {{- 'color-swatch-thin-rectangle.css' | asset_url | stylesheet_tag -}}
-    {%- endif -%}
+    {%- comment -%}
+      Sengefabrikken: styles of the product card ribbon, gift popup, Yotpo stars, thin rectangle swatch, section color
+      transition and campaign badge (inlined)
+    {%- endcomment -%}
+    {%- render 'sengefabrikken-styles' -%}
     <script type="module" src="{{ 'yotpo-rating.js' | asset_url }}"></script>
 
     {%- if settings.section_color_transition -%}
       {%- comment -%}Sengefabrikken: the page background fades between the section colors{%- endcomment -%}
-      {{- 'section-color-transition.css' | asset_url | stylesheet_tag -}}
       <script type="module" src="{{ 'section-color-transition.js' | asset_url }}"></script>
     {%- endif -%}
 
@@ -87,8 +77,6 @@
     {%- render 'sengefabrikken-campaign-theme', mode: 'style' -%}
 
     {%- if settings.campaign_theme_enabled and settings.campaign_badge_enabled -%}
-      {{- 'sengefabrikken-campaign-badge.css' | asset_url | stylesheet_tag -}}
-
       <style>
         :root {
           --campaign-badge-size: {{ settings.campaign_badge_size }}px;
