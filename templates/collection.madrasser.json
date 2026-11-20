@@ -16,6 +16,7 @@
         "allow_transparent_header": true,
         "layout": "background",
         "show_description": true,
+        "text": "",
         "collection_title_size": "h2",
         "content_position": "place-self-center",
         "background_color_scheme": "",
@@ -23,7 +24,8 @@
         "image_size": "lg",
         "overlay_color": "#000000",
         "overlay_opacity": 20,
-        "quick_navigation_menu": ""
+        "quick_navigation_menu": "",
+        "quick_navigation_style": "cards"
       }
     },
     "main": {
@@ -76,7 +78,7 @@
         "sticky_filter_button": true,
         "sticky_filter_text": "Vælg størrelse",
         "picker_filter_labels": "Størrelse",
-        "default_filter_values": "180x200",
+        "default_filter_values": "90x200",
         "swatch_selector_size": "lg"
       }
     },
