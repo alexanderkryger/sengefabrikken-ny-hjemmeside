@@ -230,7 +230,8 @@
         {%- render 'social-media' -%}
       {%- endif -%}
 
-      <div class="v-stack gap-3">
+      {%- comment -%}Sengefabrikken: centered (the payment icons too){%- endcomment -%}
+      <div class="v-stack gap-3 justify-items-center text-center">
         {%- comment -%}Sengefabrikken: company name, CVR and a link to the cookie settings (Cookiebot){%- endcomment -%}
         <p class="text-sm">{{ 'now' | date: '%Y' }} Sengefabrikken ApS - CVR: 36453052 - <button type="button" onclick="window.Cookiebot?.renew()">Administrer cookies</button> {%- if section.settings.show_powered_by_shopify -%}{{ powered_by_link }}{%- endif -%}</p>
 
