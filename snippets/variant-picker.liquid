@@ -89,6 +89,8 @@ Render the variant picker option selectors.
 
         {%- if resolved_option_selector_style == 'drawer' -%}
           {%- comment -%}Sengefabrikken: each option is shown as a row opening a drawer with the option values{%- endcomment -%}
+          <script type="module" src="{{ 'variant-option-list.js' | asset_url }}"></script>
+
           {%- capture drawer_id -%}variant-drawer-{{ section.id }}-{{ product.id }}-{{ option.position }}{%- endcapture -%}
           {%- assign param_name = form_id | append: '-option' | append: option.position -%}
           {%- assign current_price = product.selected_or_first_available_variant.price -%}
@@ -110,7 +112,8 @@ Render the variant picker option selectors.
           <x-drawer id="{{ drawer_id }}" class="drawer color-scheme color-scheme--{{ settings.default_color_scheme.id }}">
             <span class="h5" slot="header">{{ option.name }}</span>
 
-            <div class="product-group-option-list">
+            {%- comment -%}Sengefabrikken: choosing a value closes the drawer (variant-option-list.js){%- endcomment -%}
+            <variant-option-list class="product-group-option-list">
               {%- for option_value in option.values -%}
                 {%- if hide_sold_out_variants == false or option_value.available or option_value.selected -%}
                   {%- liquid
@@ -144,7 +147,7 @@ Render the variant picker option selectors.
                   </label>
                 {%- endif -%}
               {%- endfor -%}
-            </div>
+            </variant-option-list>
 
             <dialog-close-button slot="footer" style="display: contents">
               <button type="button" class="button w-full">Bekræft</button>
