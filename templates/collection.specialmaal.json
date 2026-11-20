@@ -186,12 +186,37 @@
         "button_url": "",
         "button_style": "solid"
       }
+    },
+    "seo_text": {
+      "type": "seo-text",
+      "blocks": {
+        "text_standard": {
+          "type": "text",
+          "settings": {
+            "filter_value": "",
+            "heading_1": "",
+            "text_1": "<h2>Madrasser i specialmål</h2><p>Ikke alle senge passer til et standardmål. Har du en seng i et skævt mål, en hems, en alkove, en campingvogn eller en båd, kan det være svært at finde en madras, der passer. Hos Sengefabrikken kan du få madrasser og tilbehør skræddersyet efter dine mål – til faste lave priser.</p><p>Du indtaster blot bredde og længde på produktet, så beregner vi prisen med det samme. Målene angives i hele 5 cm, og du kan vælge mellem 40 og 300 cm. Prisen følger madrassens størrelse, så du betaler for det mål, du rent faktisk får.</p><h3>Topmadrasser efter mål</h3><p>En topmadras i specialmål giver dig den samme komfort som en <a href=\"https://www.sengefabrikken.dk/collections/topmadrasser\">topmadras</a> i standardmål – bare tilpasset din seng. Vælg Memory Top med trykaflastende memoryskum, der former sig efter kroppen, eller Latex Top med naturlatex, der er elastisk og holdbar.</p><h3>Springmadrasser og boxmadrasser efter mål</h3><p>Fagmandens Springmadras og Fagmandens Boxmadras fås i specialmål og i en Xtra Fast udgave, hvis du foretrækker en fastere liggeflade. De er oplagte, når sengen skal bygges op fra bunden i et mål, du ikke finder blandt vores almindelige <a href=\"https://www.sengefabrikken.dk/collections/springmadrasser\">springmadrasser</a> og <a href=\"https://www.sengefabrikken.dk/collections/boxmadrasser\">boxmadrasser</a>.</p><h3>Skummadrasser efter mål</h3><p>En <a href=\"https://www.sengefabrikken.dk/collections/skummadrasser\">skummadras</a> er let, fleksibel og prisvenlig, og derfor et godt valg til gæstesengen, campingvognen, båden eller hemsen. Vælg mellem Skummadrassen og Esther Skummadrassen i det mål, der passer til pladsen.</p>",
+            "heading_2": "",
+            "text_2": "<h3>Lagner og rullemadrasser efter mål</h3><p>Når madrassen har et særligt mål, skal tilbehøret passe til. Derfor kan du også få <a href=\"https://www.sengefabrikken.dk/collections/kuvertlagner\">kuvertlagner</a>, <a href=\"https://www.sengefabrikken.dk/collections/faconlagner\">faconlagner</a> og <a href=\"https://www.sengefabrikken.dk/collections/rullemadrasser\">rullemadrasser</a> i specialmål. Et lagen, der sidder ordentligt, giver en pæn seng og holder bedre, og en rullemadras skåner topmadrassen, så den holder længere.</p><h3>Kan du ikke finde dit mål?</h3><p>Skal din madras være mindre end 40 cm eller større end 300 cm, eller har den en form, der ikke er firkantet, så <a href=\"https://www.sengefabrikken.dk/pages/kontakt\">kontakt os</a>. Vores søvnspecialister hjælper dig gerne med at finde en løsning, der passer til netop din seng.</p><h3>Faste lave priser – også på specialmål</h3><p>Vi er 100% online og har ingen fysiske butikker eller mellemled. Det betyder, at vi kan holde prisen nede – også når madrassen skal laves i lige præcis dit mål. Hos Sengefabrikken får du kvalitet og god vejledning hele vejen, til en pris der giver mening.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_standard"
+      ],
+      "settings": {
+        "color_scheme": "scheme-1",
+        "title": "Skræddersyet til din seng",
+        "title_heading_size": "h3",
+        "heading_size": "h5"
+      }
     }
   },
   "order": [
     "banner",
     "main",
     "trustpilot_reviews_MGtkrf",
+    "seo_text",
     "faq_iWRBk6"
   ]
 }
