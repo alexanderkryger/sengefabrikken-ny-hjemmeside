@@ -55,6 +55,11 @@ class BedComparison extends HTMLElement {
   }
 
   #onClick(event) {
+    // Before the drawer is moved to the body, its clicks reach both listeners
+    if (event.currentTarget === this && this.#drawer?.contains(event.target)) {
+      return;
+    }
+
     const removeButton = event.target.closest('[data-remove-model]');
 
     if (removeButton) {
