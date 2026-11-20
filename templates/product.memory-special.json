@@ -168,8 +168,7 @@
             "block_selector_style": "outline",
             "variant_image_options": "",
             "size_chart_page": ""
-          },
-          "disabled": true
+          }
         },
         "product_group": {
           "type": "product_group",

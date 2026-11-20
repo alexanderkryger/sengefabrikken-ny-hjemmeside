@@ -290,7 +290,19 @@ no need to manually pass the section as it is globally available)
             {%- endif -%}
 
           {%- when 'variant_picker' -%}
-            {%- if product != blank -%}
+            {%- comment -%}Sengefabrikken: a product set up for Specialmål (custom_size block and size metafields) has no variant picker{%- endcomment -%}
+            {%- liquid
+              assign uses_custom_size = false
+              if product.metafields.custom.size_sku_prefix.value != blank and product.metafields.custom.size_price_per_m2.value != blank
+                for section_block in section.blocks
+                  if section_block.type == 'custom_size'
+                    assign uses_custom_size = true
+                  endif
+                endfor
+              endif
+            -%}
+
+            {%- if product != blank and uses_custom_size == false -%}
               {%- comment -%}Sengefabrikken: with drawers, the size row (see the product-group-size snippet) comes before the options{%- endcomment -%}
               {%- assign show_selected_value = true -%}
 

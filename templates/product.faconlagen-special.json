@@ -201,6 +201,23 @@
             "show_delivery_time": true,
             "delivery_time_text": "Levering ([leveringstid])"
           }
+        },
+        "custom_size": {
+          "type": "custom_size",
+          "settings": {
+            "endpoint_url": "https://greatsleepgroup.app.n8n.cloud/webhook/specialmaal",
+            "width_label": "Bredde (cm)",
+            "length_label": "Længde (cm)",
+            "empty_text": "Indtast bredde og længde",
+            "help_text": "<p>Mål angives i hele 5 cm. Skal den være mindre end 40 cm eller større end 390 cm, så <a href=\"/pages/kontakt\">kontakt os</a>, så finder vi en løsning.</p>",
+            "required_text": "Indtast et mål i cm",
+            "range_text": "Målet skal være mellem @min@ og @max@ cm",
+            "step_text": "Målet skal være deleligt med @step@ cm",
+            "error_text": "Vi kunne ikke beregne dit mål lige nu. Prøv igen eller kontakt os.",
+            "default_min": 40,
+            "default_max": 390,
+            "default_step": 5
+          }
         }
       },
       "block_order": [
@@ -215,6 +232,7 @@
         "disclosures",
         "product_variations",
         "variant_picker",
+        "custom_size",
         "product_group",
         "buy_buttons"
       ],
