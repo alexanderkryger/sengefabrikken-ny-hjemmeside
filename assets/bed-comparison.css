@@ -331,6 +331,16 @@
     padding-inline: .5rem;
   }
 
+  .bed-comparison__model-title {
+    letter-spacing: .06em;
+    overflow-wrap: anywhere;
+  }
+
+  .bed-comparison.is-stuck .bed-comparison__model-title {
+    font-size: var(--text-xs);
+    padding-inline: 0 1.5rem;
+  }
+
   .bed-comparison__row {
     row-gap: 1rem;
     padding-inline: 0;
