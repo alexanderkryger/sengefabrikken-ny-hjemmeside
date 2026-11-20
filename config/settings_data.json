@@ -58,6 +58,7 @@
     "product_listing_spacing": "none",
     "cart_type": "drawer",
     "cart_icon": "tote_bag",
+    "cart_empty_cart_link": "/",
     "sengefabrikken_search_enabled": true,
     "search_color_scheme": "scheme-2b5ea552-ee45-4763-a402-00199b79bef1",
     "search_logo": "shopify://shop_images/Sengefabrikken_logo.svg",
