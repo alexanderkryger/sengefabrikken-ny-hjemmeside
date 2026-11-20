@@ -1,0 +1,239 @@
+{
+  "sections": {
+    "comparison": {
+      "type": "bed-comparison",
+      "blocks": {
+        "comparison_row_6pRnTR": {
+          "type": "row",
+          "settings": {
+            "group": "Kort om",
+            "value_product_1": "Komfort-serien er vores budgetvenlige serie af danskproducerede kvalitetssenge. Skabt til dem, der ønsker en komfortabel seng i et stilrent design - til markedets skarpeste pris.",
+            "value_product_2": "Trykaflastende-serien er vores ergonomiske serie af danskproducerede kvalitetssenge. Skabt til dem, der ønsker ekstra aflastning og ergonomisk korrekt støtte - nat efter nat.",
+            "value_product_3": "Kølende-serien er vores temperaturregulerende serie af danskproducerede kvalitetssenge. Skabt til dem, der døjer med varmen om natten - og ikke ønsker at gå på kompromis med hverken komfort eller æstetik.",
+            "value_product_4": "Luksus-serien er vores mest eksklusive serie af danskproducerede kvalitetssenge. Skabt til dem, der nægter at gå på kompromis med komfort, støtte, æstetik og brug af naturlige materialer.",
+            "value_product_5": "Platin-serien er kronjuvelen blandt vores danskproducerede kvalitetssenge. Skabt til den ultimative luksussøgende, kombinerer denne serie fejlfri komfort med førsteklasses materialer og udsøgt design."
+          }
+        },
+        "comparison_row_DiTRFA": {
+          "type": "row",
+          "settings": {
+            "group": "Topmadras",
+            "label": "Kerne",
+            "image_product_1": "shopify://shop_images/Komfort_Top_Kerne_29312d42-4254-4da5-aa1e-dcab5b0a196a.jpg",
+            "value_product_1": "60 mm. komfortskum",
+            "image_product_2": "shopify://shop_images/Visco_Top_Kerne_1_c9e7ec5c-810b-463b-b896-e0a0df5395cf.jpg",
+            "value_product_2": "60 mm. viscoskum",
+            "image_product_3": "shopify://shop_images/Omnisoft_Top_Kerne_6519b4e2-a504-4518-90ea-6bc7661548e0.jpg",
+            "value_product_3": "60 mm. komfortskum",
+            "image_product_4": "shopify://shop_images/Latex_Top_Kerne_59153c96-2619-47a7-b308-e8d27329f4e2.jpg",
+            "value_product_4": "60 mm. latex",
+            "image_product_5": "shopify://shop_images/Latex_Top_Kerne_59153c96-2619-47a7-b308-e8d27329f4e2.jpg",
+            "value_product_5": "60 mm. latex"
+          }
+        },
+        "comparison_row_KDNTjB": {
+          "type": "row",
+          "settings": {
+            "group": "Topmadras",
+            "label": "Cover",
+            "image_product_1": "shopify://shop_images/01.Trykaflastende_Topmadras_Cover_601c0c86-5829-4518-b311-3b970a28f1d6.jpg",
+            "value_product_1": "Blødt Modal-cover.",
+            "image_product_2": "shopify://shop_images/01.Trykaflastende_Topmadras_Cover_601c0c86-5829-4518-b311-3b970a28f1d6.jpg",
+            "value_product_2": "Blødt Modal-cover.",
+            "image_product_3": "shopify://shop_images/Top_Cover_Outlast.webp",
+            "value_product_3": "Kølende Outlast-cover.",
+            "image_product_4": "shopify://shop_images/01.Trykaflastende_Topmadras_Cover_601c0c86-5829-4518-b311-3b970a28f1d6.jpg",
+            "value_product_4": "Blødt Modal-cover.",
+            "image_product_5": "shopify://shop_images/01.Trykaflastende_Topmadras_Cover_601c0c86-5829-4518-b311-3b970a28f1d6.jpg",
+            "value_product_5": "Blødt Modal-cover."
+          }
+        },
+        "comparison_row_KAhcn3": {
+          "type": "row",
+          "settings": {
+            "group": "Boxmadras",
+            "label": "Øverst komfortlag",
+            "image_product_1": "shopify://shop_images/Komfort_Box_Poly.webp",
+            "value_product_1": "Fjedre - Øverst: 220 pocketfjedre pr/m2.",
+            "image_product_2": "shopify://shop_images/Trykaflastende_Box_Poly.webp",
+            "value_product_2": "Fjedre - Øverst: 220 pocketfjedre pr/m2.",
+            "image_product_3": "shopify://shop_images/Kolende_Box_Poly.webp",
+            "value_product_3": "Fjedre - Øverst: 220 pocketfjedre pr/m2.",
+            "image_product_4": "shopify://shop_images/Luksus_Box_Mint.webp",
+            "value_product_4": "Fjedre - Øverst: 220 pocketfjedre pr/m2."
+          }
+        },
+        "comparison_row_7g9fzz": {
+          "type": "row",
+          "settings": {
+            "group": "Boxmadras",
+            "label": "Øverst komfortlag - Polsring",
+            "image_product_1": "shopify://shop_images/Poly_Polstring_f82e29a3-43d1-4ba8-afdb-f8c903b503a8.jpg",
+            "value_product_1": "25 mm komfortskum",
+            "image_product_2": "shopify://shop_images/Poly_Polstring_f82e29a3-43d1-4ba8-afdb-f8c903b503a8.jpg",
+            "value_product_2": "25 mm komfortskum",
+            "image_product_3": "shopify://shop_images/Poly_Polstring_f82e29a3-43d1-4ba8-afdb-f8c903b503a8.jpg",
+            "value_product_3": "25 mm komfortskum",
+            "image_product_4": "shopify://shop_images/Mint_Polstring_6b11385e-4acc-46b1-8d91-67bae7298add.webp",
+            "value_product_4": "25 mm mintskum",
+            "image_product_5": "shopify://shop_images/Latex_Polstring_9ed9f741-02c0-49f6-b712-c6a5a59fa16c.webp",
+            "value_product_5": "25 mm latex"
+          }
+        },
+        "comparison_row_trBqHz": {
+          "type": "row",
+          "settings": {
+            "group": "Boxmadras",
+            "label": "Nederst komfortlag",
+            "value_product_1": "Nederst: 150 bonellfjedre pr/m2.",
+            "value_product_2": "Nederst: 150 bonellfjedre pr/m2.",
+            "value_product_3": "Nederst: 150 bonellfjedre pr/m2.",
+            "value_product_4": "Nederst: 220 pocketfjedre pr/m2."
+          }
+        },
+        "comparison_row_jTVmFf": {
+          "type": "row",
+          "settings": {
+            "group": "Boxmadras",
+            "label": "Ramme",
+            "value_product_1": "8 cm træramme.",
+            "value_product_2": "12 cm træramme.",
+            "value_product_3": "12 cm træramme.",
+            "value_product_4": "20 cm træramme.",
+            "value_product_5": "25 år."
+          }
+        },
+        "comparison_row_wPX47t": {
+          "type": "row",
+          "settings": {
+            "group": "Boxmadras",
+            "label": "Lameller",
+            "value_product_1": "8 stk.",
+            "value_product_2": "11 stk.",
+            "value_product_3": "11 stk.",
+            "value_product_4": "11 stk."
+          }
+        },
+        "comparison_row_hcHJaF": {
+          "type": "row",
+          "settings": {
+            "group": "Garanti",
+            "label": "Rammebrud",
+            "value_product_1": "15 år.",
+            "value_product_2": "25 år.",
+            "value_product_3": "25 år.",
+            "value_product_4": "25 år.",
+            "value_product_5": "25 år."
+          }
+        },
+        "comparison_row_xRQ84V": {
+          "type": "row",
+          "settings": {
+            "group": "Garanti",
+            "label": "Garanti fjedrebrud",
+            "value_product_1": "15 år.",
+            "value_product_2": "25 år.",
+            "value_product_3": "25 år.",
+            "value_product_4": "25 år.",
+            "value_product_5": "25 år."
+          }
+        },
+        "comparison_row_g3gNKf": {
+          "type": "row",
+          "settings": {
+            "group": "Dimensioner",
+            "label": "Totalhøjde",
+            "value_product_1": "52 cm.",
+            "value_product_2": "56 cm.",
+            "value_product_3": "56 cm.",
+            "value_product_4": "62 cm."
+          }
+        },
+        "comparison_row_kWrGWX": {
+          "type": "row",
+          "settings": {
+            "group": "Dimensioner",
+            "label": "Ben",
+            "value_product_1": "19 cm.",
+            "value_product_2": "19 cm.",
+            "value_product_3": "19 cm.",
+            "value_product_4": "19 cm."
+          }
+        },
+        "comparison_row_eEVWAm": {
+          "type": "row",
+          "settings": {
+            "group": "Dimensioner",
+            "label": "Boxmadras",
+            "value_product_1": "26 cm.",
+            "value_product_2": "30 cm.",
+            "value_product_3": "30 cm.",
+            "value_product_4": "36 cm."
+          }
+        },
+        "comparison_row_JkGVfa": {
+          "type": "row",
+          "settings": {
+            "group": "Dimensioner",
+            "label": "Topmadras",
+            "value_product_1": "7 cm.",
+            "value_product_2": "7 cm.",
+            "value_product_3": "7 cm.",
+            "value_product_4": "7 cm."
+          }
+        },
+        "product_bullets_equal_aWGzrJ": {
+          "type": "common",
+          "settings": {
+            "heading": "Fælles for alle vores senge",
+            "bullets": "Produceret i Danmark\nPocketfjedre\n7 Komfortzoner\nMassiv FSC certificeret træramme\nEksklusive møbeltekstiler i flere farver\nFormonteret benbeslag\n100 nætters prøve\nGratis ombytning af fasthed"
+          }
+        }
+      },
+      "block_order": [
+        "comparison_row_6pRnTR",
+        "comparison_row_DiTRFA",
+        "comparison_row_KDNTjB",
+        "comparison_row_KAhcn3",
+        "comparison_row_7g9fzz",
+        "comparison_row_trBqHz",
+        "comparison_row_jTVmFf",
+        "comparison_row_wPX47t",
+        "comparison_row_hcHJaF",
+        "comparison_row_xRQ84V",
+        "comparison_row_g3gNKf",
+        "comparison_row_kWrGWX",
+        "comparison_row_eEVWAm",
+        "comparison_row_JkGVfa",
+        "product_bullets_equal_aWGzrJ"
+      ],
+      "settings": {
+        "color_scheme": "scheme-1",
+        "heading": "Sammenlign boxmadrasser",
+        "columns_desktop": 3,
+        "show_images": true,
+        "open_groups": "all",
+        "product_1": "fabrikkens-komfort-box-antracit-140x200-cm",
+        "product_title_1": "Komfort",
+        "product_2": "fabrikkens-trykaflastende-box-antracit-140x200-cm",
+        "product_title_2": "Trykaflastende",
+        "product_3": "fabrikkens-kolende-box-antracit-140x200-cm",
+        "product_title_3": "Kølende",
+        "product_4": "fabrikkens-luksus-box-antracit-140x200-cm",
+        "product_title_4": "Luksus",
+        "type_label_1": "Kontinentalseng",
+        "type_url_1": "shopify://pages/sammenlign-kontinental",
+        "type_image_1": "shopify://shop_images/sengefabrikken_kategori_kontinentalsenge.webp",
+        "type_label_2": "Elevationsseng",
+        "type_url_2": "shopify://pages/sammenlign-elevation",
+        "type_image_2": "shopify://shop_images/sengefabrikken_kategori_elevationssenge.webp",
+        "type_label_3": "Boxmadras",
+        "type_url_3": "shopify://pages/sammenlign-boxmadras",
+        "type_image_3": "shopify://shop_images/sengefabrikken_kategori_boxmadrasser.webp"
+      }
+    }
+  },
+  "order": [
+    "comparison"
+  ]
+}
