@@ -1,0 +1,39 @@
+{%- doc -%}
+Sengefabrikken: cookie banner of Cookiebot, and the bridge from its consent to:
+- the "DataLayer" custom pixel (Settings > Customer events), which updates the Google Consent Mode on the "consent_update"
+  event (booleans, as with Cookie Information before)
+- the Shopify customer privacy API, so that the Shopify pixels (Google & YouTube, Klaviyo) and the checkout follow the
+  same consent
+
+The footer link "Administrer cookies" opens the banner again (Cookiebot.renew()).
+{%- enddoc -%}
+
+<script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="51c05b80-c799-483b-9131-7f079584a573" data-culture="DA" async></script>
+
+<script>
+  window.addEventListener('CookiebotOnConsentReady', function() {
+    var consent = window.Cookiebot && window.Cookiebot.consent;
+
+    if (!consent) {
+      return;
+    }
+
+    window.Shopify.analytics.publish('consent_update', {
+      ad_storage: consent.marketing === true,
+      analytics_storage: consent.statistics === true
+    });
+
+    if (window.Shopify.loadFeatures) {
+      window.Shopify.loadFeatures([{ name: 'consent-tracking-api', version: '0.1' }], function(error) {
+        if (!error) {
+          window.Shopify.customerPrivacy.setTrackingConsent({
+            analytics: consent.statistics === true,
+            marketing: consent.marketing === true,
+            preferences: consent.preferences === true,
+            sale_of_data: consent.marketing === true
+          }, function() {});
+        }
+      });
+    }
+  });
+</script>

@@ -5,8 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, height=device-height, minimum-scale=1.0, maximum-scale=5.0">
 
-    {%- comment -%}Sengefabrikken: cookie banner (Cookie Information), first so that it blocks the cookies early{%- endcomment -%}
-    {%- render 'cookie-information' -%}
+    {%- comment -%}Sengefabrikken: cookie banner (Cookiebot), first in the head as Cookiebot requires{%- endcomment -%}
+    {%- render 'cookiebot' -%}
 
     {%- comment -%}Sengefabrikken: titles built from the size and mattress type filters on the collection pages{%- endcomment -%}
     <title>{% render 'sengefabrikken-page-title' %}</title>
