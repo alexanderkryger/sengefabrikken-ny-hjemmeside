@@ -1,7 +1,7 @@
 {%- liquid
   assign image = section.settings.image | default: collection.image
 
-  # Sengefabrikken: optional banner text, shown instead of the collection description
+  # Sengefabrikken: optional banner text (richtext), shown instead of the collection description
   assign banner_text = section.settings.text | default: collection.description
   assign color_scheme = section.settings.color_scheme
 
