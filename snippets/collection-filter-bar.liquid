@@ -4,8 +4,7 @@ the size and the color, shown next to each other. Only the list filters based on
 setting, are shown, and only one
 value can be selected per filter: each option links to the collection with the other values of the filter removed.
 
-The button reuses the theme's floating button element, so it is only visible between the collection toolbar and the
-footer.
+The button is always visible, except when the footer is in view (collection-filter-bar.js).
 
 @param {object} data_source - the source from which the data is extracted (collection or search)
 {%- enddoc -%}
@@ -53,6 +52,7 @@ footer.
 
 {%- if picker_filters.size > 0 -%}
   {{- 'collection-filter-bar.css' | asset_url | stylesheet_tag -}}
+  <script type="module" src="{{ 'collection-filter-bar.js' | asset_url }}"></script>
 
   {%- capture filter_bar_content -%}
     <span class="v-stack">
@@ -64,7 +64,7 @@ footer.
     </span>
   {%- endcapture -%}
 
-  <collection-facets-floating-button class="collection__floating-button collection-filter-bar">
+  <collection-filter-bar class="collection__floating-button collection-filter-bar">
     {%- render 'button', type: 'button', content: filter_bar_content, size: 'xl', icon: 'filters', icon_position: 'before_text', stretch: true, aria_controls: popover_id -%}
 
     <x-popover id="{{ popover_id }}" class="popover collection-filter-popover color-scheme color-scheme--{{ settings.default_color_scheme.id }}" template="drawer-popover-default-template" preferred-position="above" close-on-listbox-change role="dialog">
@@ -106,5 +106,5 @@ footer.
         {%- endfor -%}
       </div>
     </x-popover>
-  </collection-facets-floating-button>
+  </collection-filter-bar>
 {%- endif -%}
