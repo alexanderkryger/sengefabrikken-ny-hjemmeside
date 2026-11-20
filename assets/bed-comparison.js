@@ -138,3 +138,4 @@ class BedComparison extends HTMLElement {
 if (!window.customElements.get('bed-comparison')) {
   window.customElements.define('bed-comparison', BedComparison);
 }
+
