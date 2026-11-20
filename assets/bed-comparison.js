@@ -4,6 +4,8 @@
  * Driver for the bed-comparison section. It shows a few of the models side by side (the "max-columns" attribute on
  * desktop, 2 on mobile), lets the customer remove a model (×) or pick the models in the drawer, and keeps the models
  * shown in the URL (?vis=1,3,4). It also marks the row of the models as stuck, to show it in a compact way.
+ *
+ * The theme moves the drawer to the end of the body when it opens, so the drawer is found by its ID ("drawer" attribute).
  */
 class BedComparison extends HTMLElement {
   #abortController;
@@ -18,8 +20,9 @@ class BedComparison extends HTMLElement {
     this.#selected = fromUrl.length > 0 ? fromUrl : this.#models;
 
     // Capture phase: the button of the drawer also closes it (<dialog-close-button>), which stops the click
-    this.addEventListener('click', this.#onClick.bind(this), { capture: true, signal });
-    this.addEventListener('change', this.#onPickChange.bind(this), { signal });
+    this.addEventListener('click', this.#onClick.bind(this), { signal });
+    this.#drawer?.addEventListener('click', this.#onClick.bind(this), { capture: true, signal });
+    this.#drawer?.addEventListener('change', this.#onPickChange.bind(this), { signal });
     this.#mobileQuery.addEventListener('change', () => this.#render(), { signal });
 
     this.#render();
@@ -29,6 +32,14 @@ class BedComparison extends HTMLElement {
   disconnectedCallback() {
     this.#abortController?.abort();
     this.#stuckObserver?.disconnect();
+  }
+
+  get #drawer() {
+    return document.getElementById(this.getAttribute('drawer'));
+  }
+
+  get #pickInputs() {
+    return Array.from(this.#drawer?.querySelectorAll('[data-pick-model]') || []);
   }
 
   get #models() {
@@ -50,7 +61,7 @@ class BedComparison extends HTMLElement {
       this.#selected = this.#visible.filter((model) => model !== removeButton.getAttribute('data-remove-model'));
       this.#render({ updateUrl: true });
     } else if (event.target.closest('[data-apply-models]')) {
-      const picked = Array.from(this.querySelectorAll('[data-pick-model]:checked'), (input) => input.value);
+      const picked = this.#pickInputs.filter((input) => input.checked).map((input) => input.value);
 
       if (picked.length > 0) {
         this.#selected = picked;
@@ -70,12 +81,12 @@ class BedComparison extends HTMLElement {
   }
 
   #updatePickLimit() {
-    const inputs = Array.from(this.querySelectorAll('[data-pick-model]'));
+    const inputs = this.#pickInputs;
     const full = inputs.filter((input) => input.checked).length >= this.#maxColumns;
 
     inputs.forEach((input) => input.disabled = full && !input.checked);
 
-    const hint = this.querySelector('[data-pick-hint]');
+    const hint = this.#drawer?.querySelector('[data-pick-hint]');
 
     if (hint) {
       hint.textContent = `Vælg op til ${this.#maxColumns} modeller.`;
@@ -104,7 +115,7 @@ class BedComparison extends HTMLElement {
 
     this.style.setProperty('--bed-comparison-columns', visible.length + (canAdd ? 1 : 0));
 
-    this.querySelectorAll('[data-pick-model]').forEach((input) => input.checked = visible.includes(input.value));
+    this.#pickInputs.forEach((input) => input.checked = visible.includes(input.value));
     this.#updatePickLimit();
 
     if (updateUrl) {
@@ -138,4 +149,3 @@ class BedComparison extends HTMLElement {
 if (!window.customElements.get('bed-comparison')) {
   window.customElements.define('bed-comparison', BedComparison);
 }
-

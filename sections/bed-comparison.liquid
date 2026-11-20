@@ -35,7 +35,7 @@
 </style>
 
 <div class="color-scheme color-scheme--{{ section.settings.color_scheme.id }} color-scheme--bg">
-  <bed-comparison class="bed-comparison" max-columns="{{ section.settings.columns_desktop }}" {{ section.shopify_attributes }}>
+  <bed-comparison class="bed-comparison" max-columns="{{ section.settings.columns_desktop }}" drawer="{{ drawer_id }}" {{ section.shopify_attributes }}>
     {%- if section.settings.heading != blank or section.settings.text != blank -%}
       <div class="container">
         <div class="bed-comparison__intro prose text-center">
