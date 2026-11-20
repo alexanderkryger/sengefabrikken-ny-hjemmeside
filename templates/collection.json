@@ -101,9 +101,9 @@
         "show_active_facets": false,
         "only_metafield_filters": true,
         "sticky_filter_button": true,
-        "sticky_filter_text": "Vælg størrelse",
-        "picker_filter_labels": "Størrelse",
-        "default_filter_values": "180x200",
+        "sticky_filter_text": "Vælg størrelse og farve",
+        "picker_filter_labels": "Størrelse, Farve",
+        "default_filter_values": "180x200, Sand",
         "swatch_selector_size": "lg"
       }
     },
