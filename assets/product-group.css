@@ -116,11 +116,11 @@
 
 /* With drawers, the options of the variant picker (eg. height and quantity) are rows of a single list: no space between
    them, and each row after the first only keeps its bottom line */
-.variant-picker__option:has(> .accordion) + .variant-picker__option:has(> .accordion) {
-  margin-block-start: calc(-1 * var(--product-block-item-margin));
+.variant-picker:has(> .variant-picker__option > .accordion) {
+  row-gap: 0;
 }
 
-.variant-picker__option:has(> .accordion) + .variant-picker__option > .accordion {
+.variant-picker__option ~ .variant-picker__option > .accordion {
   box-shadow: 0 1px 0 rgb(var(--border-color));
 }
 

@@ -31,6 +31,7 @@
         "message-1",
         "message-2"
       ],
+      "disabled": true,
       "settings": {
         "color_scheme": "scheme-6",
         "enable_sticky": false,
@@ -38,6 +39,22 @@
         "show_arrows": false,
         "autoplay": true,
         "cycle_speed": 5
+      }
+    },
+    "countdown_condensed_7cgNhF": {
+      "type": "countdown-condensed",
+      "name": "t:sections.countdown_timer.name",
+      "settings": {
+        "color_scheme": "scheme-f9cf78c5-9231-4df6-8731-70f748998ede",
+        "heading": "Black Month slutter om",
+        "layout": "split",
+        "expiration_date": "2026-11-30",
+        "expiration_behavior": "leave",
+        "show_inline_timer": true,
+        "button_text": "Se Black month",
+        "button_url": "shopify://pages/black-month",
+        "button_style": "link",
+        "connect_button_with_heading": false
       }
     },
     "header": {
@@ -677,9 +694,10 @@
         "show_account_link": false,
         "large_icon_buttons": true,
         "cart_count_background": "#650621",
+        "icon_buttons_backdrop": true,
         "custom_button_text": "BLACK MONTH",
         "custom_button_url": "shopify://pages/sengeudsalg",
-        "custom_button_color": "#FFDC7A",
+        "custom_button_color": "#ffdc7a",
         "custom_button_bg": "#151515",
         "custom_button_text_2": "",
         "custom_button_url_2": "",
@@ -698,6 +716,7 @@
   },
   "order": [
     "announcement-bar",
+    "countdown_condensed_7cgNhF",
     "header"
   ]
 }
