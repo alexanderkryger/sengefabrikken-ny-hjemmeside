@@ -16,10 +16,13 @@
           "type": "row",
           "settings": {
             "group": "Kort om",
+            "label": "",
             "value_product_1": "Vores elastiske og fleksible topmadras med en kerne i komfortskum, der tilpasser sig dine bevægelser og holder sovemiljøet tørt.",
             "value_product_2": "Til dig, der ønsker ekstra aflastning. Kernen i memoryskum former sig efter kroppens tryk og varme og aflaster skuldre og hofter.",
             "value_product_3": "Til dig, der sover varmt. Outlast-coveret optager og afgiver varme, så temperaturen holdes jævn natten igennem.",
-            "value_product_4": "Vores mest eksklusive topmadras med en kerne i 100% naturlatex. Støttende, åndbar og allergivenlig."
+            "value_product_4": "Vores mest eksklusive topmadras med en kerne i 100% naturlatex. Støttende, åndbar og allergivenlig.",
+            "value_product_5": "",
+            "value_product_6": ""
           }
         },
         "row_kerne_materiale": {
@@ -28,13 +31,15 @@
             "group": "Kerne",
             "label": "Materiale",
             "value_product_1": "60 mm komfortskum",
-            "value_product_2": "60 mm memoryskum",
-            "value_product_3": "60 mm skum",
-            "value_product_4": "60 mm 100% naturlatex",
             "image_product_1": "shopify://shop_images/Komfort_Top_Kerne_29312d42-4254-4da5-aa1e-dcab5b0a196a.jpg",
+            "value_product_2": "60 mm memoryskum",
             "image_product_2": "shopify://shop_images/Visco_Top_Kerne_1_c9e7ec5c-810b-463b-b896-e0a0df5395cf.jpg",
+            "value_product_3": "60 mm skum",
             "image_product_3": "shopify://shop_images/Omnisoft_Top_Kerne_6519b4e2-a504-4518-90ea-6bc7661548e0.jpg",
-            "image_product_4": "shopify://shop_images/Latex_Top_Kerne_59153c96-2619-47a7-b308-e8d27329f4e2.jpg"
+            "value_product_4": "60 mm 100% naturlatex",
+            "image_product_4": "shopify://shop_images/Latex_Top_Kerne_59153c96-2619-47a7-b308-e8d27329f4e2.jpg",
+            "value_product_5": "",
+            "value_product_6": ""
           }
         },
         "row_kerne_densitet": {
@@ -45,7 +50,9 @@
             "value_product_1": "30 kg/m³",
             "value_product_2": "50 kg/m³",
             "value_product_3": "32 kg/m³",
-            "value_product_4": "65 kg/m³"
+            "value_product_4": "65 kg/m³",
+            "value_product_5": "",
+            "value_product_6": ""
           }
         },
         "row_kerne_egenskaber": {
@@ -56,7 +63,9 @@
             "value_product_1": "Elastisk og fugtabsorberende",
             "value_product_2": "Trykaflastende, former sig efter kroppen",
             "value_product_3": "Støttende og let trykaflastende",
-            "value_product_4": "Støttende, åndbar og allergivenlig"
+            "value_product_4": "Støttende, åndbar og allergivenlig",
+            "value_product_5": "",
+            "value_product_6": ""
           }
         },
         "row_betraek_materiale": {
@@ -65,13 +74,15 @@
             "group": "Betræk",
             "label": "Materiale",
             "value_product_1": "Modal af bøgetræ",
-            "value_product_2": "Tencel af FSC-certificeret træ",
-            "value_product_3": "Outlast, temperaturregulerende",
-            "value_product_4": "Tencel af FSC-certificeret træ",
             "image_product_1": "shopify://shop_images/01.Trykaflastende_Topmadras_Cover_601c0c86-5829-4518-b311-3b970a28f1d6.jpg",
+            "value_product_2": "Tencel af FSC-certificeret træ",
             "image_product_2": "shopify://shop_images/01.Trykaflastende_Topmadras_Cover_601c0c86-5829-4518-b311-3b970a28f1d6.jpg",
+            "value_product_3": "Outlast, temperaturregulerende",
             "image_product_3": "shopify://shop_images/Top_Cover_Outlast.webp",
-            "image_product_4": "shopify://shop_images/01.Trykaflastende_Topmadras_Cover_601c0c86-5829-4518-b311-3b970a28f1d6.jpg"
+            "value_product_4": "Tencel af FSC-certificeret træ",
+            "image_product_4": "shopify://shop_images/01.Trykaflastende_Topmadras_Cover_601c0c86-5829-4518-b311-3b970a28f1d6.jpg",
+            "value_product_5": "",
+            "value_product_6": ""
           }
         },
         "row_betraek_egenskaber": {
@@ -82,7 +93,9 @@
             "value_product_1": "Blødt, åndbart og fugtabsorberende",
             "value_product_2": "Blødt, åndbart og fugtabsorberende",
             "value_product_3": "Optager og afgiver varme",
-            "value_product_4": "Blødt, åndbart og fugtabsorberende"
+            "value_product_4": "Blødt, åndbart og fugtabsorberende",
+            "value_product_5": "",
+            "value_product_6": ""
           }
         },
         "row_betraek_vask": {
@@ -92,7 +105,10 @@
             "label": "Vask",
             "value_product_1": "Aftageligt, vaskbart ved 40°",
             "value_product_2": "Aftageligt, vaskbart ved 40°",
-            "value_product_4": "Aftageligt, vaskbart ved 40°"
+            "value_product_3": "Aftageligt, vaskbart ved 40°",
+            "value_product_4": "Aftageligt, vaskbart ved 40°",
+            "value_product_5": "",
+            "value_product_6": ""
           }
         },
         "row_betraek_antiskrid": {
@@ -102,7 +118,10 @@
             "label": "Antiskrid",
             "value_product_1": "Indbygget",
             "value_product_2": "Indbygget",
-            "value_product_4": "Indbygget"
+            "value_product_3": "Indbygget",
+            "value_product_4": "Indbygget",
+            "value_product_5": "",
+            "value_product_6": ""
           }
         },
         "row_dim_total": {
@@ -113,7 +132,9 @@
             "value_product_1": "Ca. 7 cm",
             "value_product_2": "Ca. 7 cm",
             "value_product_3": "Ca. 7 cm",
-            "value_product_4": "Ca. 7 cm"
+            "value_product_4": "Ca. 7 cm",
+            "value_product_5": "",
+            "value_product_6": ""
           }
         },
         "row_dim_kerne": {
@@ -124,7 +145,9 @@
             "value_product_1": "6 cm",
             "value_product_2": "6 cm",
             "value_product_3": "6 cm",
-            "value_product_4": "6 cm"
+            "value_product_4": "6 cm",
+            "value_product_5": "",
+            "value_product_6": ""
           }
         },
         "row_garanti": {
@@ -135,7 +158,9 @@
             "value_product_1": "5 år",
             "value_product_2": "5 år",
             "value_product_3": "5 år",
-            "value_product_4": "5 år"
+            "value_product_4": "5 år",
+            "value_product_5": "",
+            "value_product_6": ""
           }
         },
         "common": {
@@ -179,10 +204,19 @@
         "product_4": "luksus-topmadras-180x200-cm",
         "product_title_4": "Luksus",
         "highlights_4": "180x200 cm",
+        "product_5": "",
+        "product_title_5": "",
+        "highlights_5": "",
+        "product_6": "",
+        "product_title_6": "",
+        "highlights_6": "",
         "type_heading": "Type",
         "type_label_1": "",
+        "type_url_1": "",
         "type_label_2": "",
-        "type_label_3": ""
+        "type_url_2": "",
+        "type_label_3": "",
+        "type_url_3": ""
       }
     }
   },
