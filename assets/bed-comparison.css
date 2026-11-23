@@ -96,8 +96,6 @@
 }
 
 .bed-comparison__model-highlights {
-  list-style: none;
-  padding-inline-start: 0;
   color: rgb(var(--text-color) / .65);
   font-size: var(--text-xs);
   gap: .125rem;
@@ -396,4 +394,3 @@
     padding-inline: 1.5rem;
   }
 }
-

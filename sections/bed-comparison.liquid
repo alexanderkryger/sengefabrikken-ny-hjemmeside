@@ -86,7 +86,7 @@
               <a href="{{ model.url }}" class="bed-comparison__model-title">{{ section.settings[title_key] | default: model.title | escape }}</a>
 
               {%- if section.settings[highlights_key] != blank -%}
-                <ul class="bed-comparison__model-highlights" role="list">
+                <ul class="bed-comparison__model-highlights unstyled-list" role="list">
                   {%- for highlight in highlights -%}
                     {%- assign highlight = highlight | strip -%}
                     {%- if highlight != blank -%}
