@@ -468,6 +468,8 @@ no need to manually pass the section as it is globally available)
               assign size_min = product.metafields.custom.size_min_cm.value | default: block.settings.default_min
               assign size_max = product.metafields.custom.size_max_cm.value | default: block.settings.default_max
               assign size_step = product.metafields.custom.size_step_cm.value | default: block.settings.default_step
+              assign size_max_width = block.settings.max_width | default: size_max
+              assign size_max_length = block.settings.max_length | default: size_max
             -%}
 
             {%- if size_sku_prefix != blank and size_price_per_m2 != blank and block.settings.endpoint_url != blank -%}
@@ -505,12 +507,12 @@ no need to manually pass the section as it is globally available)
 
                 <div class="form-row">
                   <div class="form-control">
-                    <input id="{{ width_id }}" class="input" type="number" inputmode="numeric" form="{{ product_form_id }}" min="{{ size_min }}" max="{{ size_max }}" step="{{ size_step }}" placeholder=" " required data-size-width>
+                    <input id="{{ width_id }}" class="input" type="number" inputmode="numeric" form="{{ product_form_id }}" min="{{ size_min }}" max="{{ size_max_width }}" step="{{ size_step }}" placeholder=" " required data-size-width>
                     <label for="{{ width_id }}" class="floating-label">{{ block.settings.width_label }}</label>
                   </div>
 
                   <div class="form-control">
-                    <input id="{{ length_id }}" class="input" type="number" inputmode="numeric" form="{{ product_form_id }}" min="{{ size_min }}" max="{{ size_max }}" step="{{ size_step }}" placeholder=" " required data-size-length>
+                    <input id="{{ length_id }}" class="input" type="number" inputmode="numeric" form="{{ product_form_id }}" min="{{ size_min }}" max="{{ size_max_length }}" step="{{ size_step }}" placeholder=" " required data-size-length>
                     <label for="{{ length_id }}" class="floating-label">{{ block.settings.length_label }}</label>
                   </div>
                 </div>
@@ -521,9 +523,9 @@ no need to manually pass the section as it is globally available)
                 </div>
 
                 {%- if block.settings.help_text != blank -%}
-                  {%- comment -%}Sengefabrikken: @min@, @max@ and @step@ are the limits of the product (metafields){%- endcomment -%}
+                  {%- comment -%}Sengefabrikken: @min@, @max@, @max_width@, @max_length@ and @step@ are the limits of the product{%- endcomment -%}
                   <div class="prose text-sm text-subdued">
-                    {{- block.settings.help_text | replace: '@min@', size_min | replace: '@max@', size_max | replace: '@step@', size_step -}}
+                    {{- block.settings.help_text | replace: '@min@', size_min | replace: '@max_width@', size_max_width | replace: '@max_length@', size_max_length | replace: '@max@', size_max | replace: '@step@', size_step -}}
                   </div>
                 {%- endif -%}
               </custom-size-form>

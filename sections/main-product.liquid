@@ -1036,7 +1036,7 @@
           "type": "richtext",
           "id": "help_text",
           "label": "Hjælpetekst",
-          "info": "@min@, @max@ og @step@ erstattes af produktets mål (metafelterne).",
+          "info": "@min@, @max@, @max_width@, @max_length@ og @step@ erstattes af produktets mål.",
           "default": "<p>Mål angives i hele @step@ cm. Skal den være mindre end @min@ cm eller større end @max@ cm, så <a href=\"/pages/kontakt\">kontakt os</a>, så finder vi en løsning.</p>"
         },
         {
@@ -1091,6 +1091,22 @@
           "id": "default_step",
           "label": "Interval (cm)",
           "default": 5
+        },
+        {
+          "type": "header",
+          "content": "Maksimal bredde og længde"
+        },
+        {
+          "type": "number",
+          "id": "max_width",
+          "label": "Maksimal bredde (cm)",
+          "info": "Tom: maksimum ovenfor/metafeltet bruges. I hjælpeteksten erstattes @max_width@ af værdien."
+        },
+        {
+          "type": "number",
+          "id": "max_length",
+          "label": "Maksimal længde (cm)",
+          "info": "Tom: maksimum ovenfor/metafeltet bruges. I hjælpeteksten erstattes @max_length@ af værdien."
         }
       ]
     },

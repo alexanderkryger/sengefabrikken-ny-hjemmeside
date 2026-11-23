@@ -76,7 +76,8 @@ class CustomSizeForm extends HTMLElement {
    * Sets a custom validity message on a single input and returns whether it is valid
    */
   #validate(input) {
-    const { min, max, step, strings } = this.#config;
+    const { min, step, strings } = this.#config;
+    const max = parseInt(input.max, 10) || this.#config.max; // The width and the length can have their own maximum
     const value = parseInt(input.value, 10);
     let message = '';
 
