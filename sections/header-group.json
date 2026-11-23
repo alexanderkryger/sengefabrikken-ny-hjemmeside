@@ -682,7 +682,7 @@
         "logo_mobile_max_width": 95,
         "menu": "main-menu-4-0",
         "drawer_menu": "",
-        "secondary_menu": "",
+        "secondary_menu": "secondary-menu-4-0",
         "customer_account_menu": "customer-account-main-menu",
         "desktop_dropdown_menu_style": "below",
         "menu_open_trigger": "hover",
