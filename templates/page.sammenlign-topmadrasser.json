@@ -1,0 +1,183 @@
+{
+  "sections": {
+    "comparison": {
+      "type": "bed-comparison",
+      "blocks": {
+        "row_kort_om": {
+          "type": "row",
+          "settings": {
+            "group": "Kort om",
+            "value_product_1": "Vores elastiske og fleksible topmadras med en kerne i komfortskum, der tilpasser sig dine bevægelser og holder sovemiljøet tørt.",
+            "value_product_2": "Til dig, der ønsker ekstra aflastning. Kernen i memoryskum former sig efter kroppens tryk og varme og aflaster skuldre og hofter.",
+            "value_product_3": "Til dig, der sover varmt. Outlast-coveret optager og afgiver varme, så temperaturen holdes jævn natten igennem.",
+            "value_product_4": "Vores mest eksklusive topmadras med en kerne i 100% naturlatex. Støttende, åndbar og allergivenlig."
+          }
+        },
+        "row_kerne_materiale": {
+          "type": "row",
+          "settings": {
+            "group": "Kerne",
+            "label": "Materiale",
+            "value_product_1": "60 mm komfortskum",
+            "value_product_2": "60 mm memoryskum",
+            "value_product_3": "60 mm skum",
+            "value_product_4": "60 mm 100% naturlatex",
+            "image_product_1": "shopify://shop_images/Komfort_Top_Kerne_29312d42-4254-4da5-aa1e-dcab5b0a196a.jpg",
+            "image_product_2": "shopify://shop_images/Visco_Top_Kerne_1_c9e7ec5c-810b-463b-b896-e0a0df5395cf.jpg",
+            "image_product_3": "shopify://shop_images/Omnisoft_Top_Kerne_6519b4e2-a504-4518-90ea-6bc7661548e0.jpg",
+            "image_product_4": "shopify://shop_images/Latex_Top_Kerne_59153c96-2619-47a7-b308-e8d27329f4e2.jpg"
+          }
+        },
+        "row_kerne_densitet": {
+          "type": "row",
+          "settings": {
+            "group": "Kerne",
+            "label": "Densitet",
+            "value_product_1": "30 kg/m³",
+            "value_product_2": "50 kg/m³",
+            "value_product_3": "32 kg/m³",
+            "value_product_4": "65 kg/m³"
+          }
+        },
+        "row_kerne_egenskaber": {
+          "type": "row",
+          "settings": {
+            "group": "Kerne",
+            "label": "Egenskaber",
+            "value_product_1": "Elastisk og fugtabsorberende",
+            "value_product_2": "Trykaflastende, former sig efter kroppen",
+            "value_product_3": "Støttende og let trykaflastende",
+            "value_product_4": "Støttende, åndbar og allergivenlig"
+          }
+        },
+        "row_betraek_materiale": {
+          "type": "row",
+          "settings": {
+            "group": "Betræk",
+            "label": "Materiale",
+            "value_product_1": "Modal af bøgetræ",
+            "value_product_2": "Tencel af FSC-certificeret træ",
+            "value_product_3": "Outlast, temperaturregulerende",
+            "value_product_4": "Tencel af FSC-certificeret træ",
+            "image_product_1": "shopify://shop_images/01.Trykaflastende_Topmadras_Cover_601c0c86-5829-4518-b311-3b970a28f1d6.jpg",
+            "image_product_2": "shopify://shop_images/01.Trykaflastende_Topmadras_Cover_601c0c86-5829-4518-b311-3b970a28f1d6.jpg",
+            "image_product_3": "shopify://shop_images/Top_Cover_Outlast.webp",
+            "image_product_4": "shopify://shop_images/01.Trykaflastende_Topmadras_Cover_601c0c86-5829-4518-b311-3b970a28f1d6.jpg"
+          }
+        },
+        "row_betraek_egenskaber": {
+          "type": "row",
+          "settings": {
+            "group": "Betræk",
+            "label": "Egenskaber",
+            "value_product_1": "Blødt, åndbart og fugtabsorberende",
+            "value_product_2": "Blødt, åndbart og fugtabsorberende",
+            "value_product_3": "Optager og afgiver varme",
+            "value_product_4": "Blødt, åndbart og fugtabsorberende"
+          }
+        },
+        "row_betraek_vask": {
+          "type": "row",
+          "settings": {
+            "group": "Betræk",
+            "label": "Vask",
+            "value_product_1": "Aftageligt, vaskbart ved 40°",
+            "value_product_2": "Aftageligt, vaskbart ved 40°",
+            "value_product_4": "Aftageligt, vaskbart ved 40°"
+          }
+        },
+        "row_betraek_antiskrid": {
+          "type": "row",
+          "settings": {
+            "group": "Betræk",
+            "label": "Antiskrid",
+            "value_product_1": "Indbygget",
+            "value_product_2": "Indbygget",
+            "value_product_4": "Indbygget"
+          }
+        },
+        "row_dim_total": {
+          "type": "row",
+          "settings": {
+            "group": "Dimensioner",
+            "label": "Totalhøjde",
+            "value_product_1": "Ca. 7 cm",
+            "value_product_2": "Ca. 7 cm",
+            "value_product_3": "Ca. 7 cm",
+            "value_product_4": "Ca. 7 cm"
+          }
+        },
+        "row_dim_kerne": {
+          "type": "row",
+          "settings": {
+            "group": "Dimensioner",
+            "label": "Kernehøjde",
+            "value_product_1": "6 cm",
+            "value_product_2": "6 cm",
+            "value_product_3": "6 cm",
+            "value_product_4": "6 cm"
+          }
+        },
+        "row_garanti": {
+          "type": "row",
+          "settings": {
+            "group": "Garanti",
+            "label": "Garanti",
+            "value_product_1": "5 år",
+            "value_product_2": "5 år",
+            "value_product_3": "5 år",
+            "value_product_4": "5 år"
+          }
+        },
+        "common": {
+          "type": "common",
+          "settings": {
+            "heading": "Fælles for alle vores topmadrasser",
+            "bullets": "OEKO-TEX®-certificeret\n6 cm kerne\n5 års garanti\n100 dages prøve"
+          }
+        }
+      },
+      "block_order": [
+        "row_kort_om",
+        "row_kerne_materiale",
+        "row_kerne_densitet",
+        "row_kerne_egenskaber",
+        "row_betraek_materiale",
+        "row_betraek_egenskaber",
+        "row_betraek_vask",
+        "row_betraek_antiskrid",
+        "row_dim_total",
+        "row_dim_kerne",
+        "row_garanti",
+        "common"
+      ],
+      "settings": {
+        "color_scheme": "scheme-1",
+        "heading": "Sammenlign topmadrasser",
+        "text": "<p>Find den topmadras, der passer til din måde at sove på.</p>",
+        "columns_desktop": 4,
+        "show_images": true,
+        "open_groups": "all",
+        "product_1": "komfort-topmadras-180x200-cm",
+        "product_title_1": "Komfort",
+        "highlights_1": "Elastisk og fleksibel\nBlødt Modal-cover",
+        "product_2": "trykaflastende-topmadras-180x200-cm",
+        "product_title_2": "Trykaflastende",
+        "highlights_2": "Memoryskum\nAflaster skuldre og hofter",
+        "product_3": "kolende-topmadras-180x200-cm",
+        "product_title_3": "Kølende",
+        "highlights_3": "Varmeafledende\nOutlast-cover",
+        "product_4": "luksus-topmadras-180x200-cm",
+        "product_title_4": "Luksus",
+        "highlights_4": "100% naturlatex\nAllergivenlig",
+        "type_heading": "Type",
+        "type_label_1": "",
+        "type_label_2": "",
+        "type_label_3": ""
+      }
+    }
+  },
+  "order": [
+    "comparison"
+  ]
+}
