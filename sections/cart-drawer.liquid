@@ -291,7 +291,7 @@
     {%- unless cart.empty? -%}
       <div slot="footer">
         {%- form 'cart', cart -%}
-          {%- if section.settings.show_cart_note or section.settings.show_shipping_estimator -%}
+          {%- if section.settings.show_cart_note or section.settings.show_shipping_estimator or section.settings.show_share_cart -%}
             <div class="cart-drawer__footer-actions divide-x">
               {%- if section.settings.show_cart_note -%}
                 <x-drawer-popover class="drawer-popover" id="cart-drawer-order-note-popover">
@@ -327,6 +327,14 @@
                 <button type="button" class="cart-drawer__footer-action-button subheading" aria-controls="cart-drawer-shipping-estimator-popover" aria-expanded="false">
                   {%- render 'icon' with 'shipping-estimator' -%}
                   {{- 'cart.shipping_estimator.estimate_shipping' | t -}}
+                </button>
+              {%- endif -%}
+
+              {%- comment -%}Sengefabrikken: a link with the cart, to send to someone (see cart-share.js){%- endcomment -%}
+              {%- if section.settings.show_share_cart -%}
+                <button type="button" class="cart-drawer__footer-action-button subheading" data-share-cart>
+                  {%- render 'icon' with 'share' -%}
+                  Del kurv
                 </button>
               {%- endif -%}
             </div>
@@ -432,6 +440,7 @@
 {{- 'cart-drawer-line-item.css' | asset_url | stylesheet_tag -}}
 <script type="module" src="{{ 'line-item-group.js' | asset_url }}"></script>
 <script type="module" src="{{ 'cart-drawer-analytics.js' | asset_url }}"></script>
+<script type="module" src="{{ 'cart-share.js' | asset_url }}"></script>
 
 {% schema %}
 {
@@ -463,6 +472,13 @@
       "type": "checkbox",
       "id": "show_shipping_estimator",
       "label": "t:sections.cart_drawer.show_shipping_estimator",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_share_cart",
+      "label": "Vis \"Del kurv\"",
+      "info": "Kopierer et link med kurven, som kunden kan sende til andre. Linket erstatter modtagerens kurv med den delte.",
       "default": true
     },
     {
