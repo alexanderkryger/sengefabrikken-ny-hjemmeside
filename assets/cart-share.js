@@ -67,7 +67,8 @@ if (shared) {
     url.hash = 'cart';
 
     try {
-      const items = decode(shared).map(([id, quantity, properties]) => ({ id, quantity, ...(properties ? { properties } : {}) }));
+      // The cart lists the last added line first, so the lines are added in reverse to keep their order
+      const items = decode(shared).map(([id, quantity, properties]) => ({ id, quantity, ...(properties ? { properties } : {}) })).reverse();
 
       await postJson('cart/clear.js', {});
 
