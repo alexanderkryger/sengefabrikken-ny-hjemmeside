@@ -49,7 +49,9 @@ class FirmnessCalculator extends HTMLElement {
     this.#modal.querySelector('[data-calculator-back]').addEventListener('click', () => this.#showResult(false));
     this.#modal.querySelector('[data-calculator-close]').addEventListener('click', () => this.#modal.hide());
 
-    // At the top of the drawer, before the firmnesses
+    // At the top of the drawer, before the firmnesses. The popup goes to the body: in the drawer, it would be placed
+    // relatively to the drawer
+    document.body.append(this.#modal);
     this.#drawer.prepend(this);
     this.hidden = false;
   }
