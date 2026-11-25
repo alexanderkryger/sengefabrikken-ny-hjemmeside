@@ -116,7 +116,7 @@ class BedComparison extends HTMLElement {
 
     // An empty column to add a model, when there are fewer models than columns
     const addButton = this.querySelector('.bed-comparison__add');
-    const canAdd = visible.length < Math.min(this.#maxColumns, this.#models.length);
+    const canAdd = Boolean(addButton) && visible.length < Math.min(this.#maxColumns, this.#models.length);
 
     if (addButton) {
       addButton.hidden = !canAdd;
