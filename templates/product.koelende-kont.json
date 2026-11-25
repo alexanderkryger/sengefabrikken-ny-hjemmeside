@@ -215,7 +215,8 @@
             "payment_button_background": "",
             "payment_button_text_color": "",
             "show_delivery_time": true,
-            "delivery_time_text": "Levering ([leveringstid])"
+            "delivery_time_text": "Levering ([leveringstid])",
+            "usp_origin": "danish"
           }
         }
       },

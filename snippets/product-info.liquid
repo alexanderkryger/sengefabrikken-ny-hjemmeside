@@ -592,14 +592,41 @@ no need to manually pass the section as it is globally available)
                 payment_button_text_color: block.settings.payment_button_text_color
             -%}
 
-            {%- comment -%}Sengefabrikken: the delivery time of the product ("custom.leveringstid" metafield) below the buttons{%- endcomment -%}
-            {%- assign delivery_time = product.metafields.custom.leveringstid.value | default: product.metafields.custom.leveringstid -%}
+            {%- comment -%}
+              Sengefabrikken: selling points below the buttons: 100 days trial (or "Specialmål" on the products in custom size),
+              "Danskproduceret" (beds) or "Høj kvalitet", and the delivery time ("custom.leveringstid" metafield)
+            {%- endcomment -%}
+            {%- liquid
+              assign delivery_time = product.metafields.custom.leveringstid.value | default: product.metafields.custom.leveringstid
+              assign show_delivery = false
+              if block.settings.show_delivery_time and delivery_time != blank and block.settings.delivery_time_text != blank
+                assign show_delivery = true
+              endif
+            -%}
 
-            {%- if block.settings.show_delivery_time and delivery_time != blank and block.settings.delivery_time_text != blank -%}
-              <p class="sengefabrikken-delivery-time text-sm h-stack gap-2 justify-center">
-                {%- render 'icon' with 'picto-truck', width: 20 -%}
-                <span>{{ block.settings.delivery_time_text | replace: '[leveringstid]', delivery_time | escape }}</span>
-              </p>
+            {%- if block.settings.show_usps or show_delivery -%}
+              <ul class="sengefabrikken-buy-usps unstyled-list text-sm" role="list">
+                {%- if block.settings.show_usps -%}
+                  {%- if product.metafields.custom.size_sku_prefix != blank -%}
+                    <li class="h-stack gap-2">{%- render 'icon' with 'picto-measure', width: 18 -%}<span>Specialmål</span></li>
+                  {%- else -%}
+                    <li class="h-stack gap-2">{%- render 'icon' with 'picto-return', width: 18 -%}<span>100 dages prøve</span></li>
+                  {%- endif -%}
+
+                  {%- if block.settings.usp_origin == 'danish' -%}
+                    <li class="h-stack gap-2">{%- render 'icon' with 'picto-dansk-flag', width: 18 -%}<span>Danskproduceret</span></li>
+                  {%- else -%}
+                    <li class="h-stack gap-2">{%- render 'icon' with 'picto-checked', width: 18 -%}<span>Høj kvalitet</span></li>
+                  {%- endif -%}
+                {%- endif -%}
+
+                {%- if show_delivery -%}
+                  <li class="sengefabrikken-delivery-time h-stack gap-2">
+                    {%- render 'icon' with 'picto-truck', width: 18 -%}
+                    <span>{{ block.settings.delivery_time_text | replace: '[leveringstid]', delivery_time | escape }}</span>
+                  </li>
+                {%- endif -%}
+              </ul>
             {%- endif -%}
 
           {%- when 'volume_pricing' -%}

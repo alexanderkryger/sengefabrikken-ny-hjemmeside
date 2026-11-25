@@ -557,9 +557,27 @@ product-group-gift {
   }
 }
 
-/* Delivery time below the buy buttons (see the buy_buttons block in the product-info snippet) */
-.product-info .sengefabrikken-delivery-time {
+/* Selling points and delivery time below the buy buttons (see the buy_buttons block in the product-info snippet) */
+.sengefabrikken-buy-usps {
+  justify-content: space-between;
+  gap: .5rem 1rem;
   margin-block-start: .75rem;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.sengefabrikken-buy-usps:has(> :only-child) {
+  justify-content: center;
+}
+
+.sengefabrikken-buy-usps svg {
+  flex-shrink: 0;
+}
+
+@media screen and (max-width: 699px) {
+  .sengefabrikken-buy-usps {
+    font-size: var(--text-xs);
+  }
 }
 
 .sengefabrikken-delivery-time svg {
