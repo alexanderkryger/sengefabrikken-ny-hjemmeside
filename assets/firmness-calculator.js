@@ -19,7 +19,7 @@ const POSITION_ADJUSTMENT = { back: 0, side: -8, stomach: 8, mixed: 0 };
 class FirmnessCalculator extends HTMLElement {
   #initialized = false;
   #modal;
-  #drawer;
+  #drawers = [];
 
   connectedCallback() {
     // Moving the element into the row connects it again
@@ -30,14 +30,16 @@ class FirmnessCalculator extends HTMLElement {
     this.#initialized = true;
     this.#modal = this.querySelector('x-modal');
 
-    const summary = Array.from(this.closest('.product-info, .shopify-section')?.querySelectorAll('.accordion__summary[aria-controls]') || [])
-      .find((button) => /fasthed/i.test(button.textContent) && this.#groupsOf(document.getElementById(button.getAttribute('aria-controls'))).length > 0);
+    // A drawer per row: "Vælg Fasthed" (both sides in one drawer), or "Vælg Fasthed 1" and "Vælg Fasthed 2" (the two
+    // options of a box mattress for two)
+    this.#drawers = Array.from(this.closest('.product-info, .shopify-section')?.querySelectorAll('.accordion__summary[aria-controls]') || [])
+      .filter((button) => /fasthed/i.test(button.textContent))
+      .map((button) => document.getElementById(button.getAttribute('aria-controls')))
+      .filter((drawer, index, drawers) => drawer && drawers.indexOf(drawer) === index && this.#groupsOf(drawer).length > 0);
 
-    if (!summary) {
+    if (this.#drawers.length === 0) {
       return;
     }
-
-    this.#drawer = document.getElementById(summary.getAttribute('aria-controls'));
 
     // Two persons only on a double bed (from 160 cm, a firmness per side). Otherwise, a single person
     if (this.#groups.length < 2) {
@@ -57,10 +59,18 @@ class FirmnessCalculator extends HTMLElement {
     // At the top of the drawer, before the firmnesses. The popup goes to the body: in the drawer, it would be placed
     // relatively to the drawer
     document.body.append(this.#modal);
-    this.#drawer.prepend(this);
+    this.#drawers[0].prepend(this);
+
+    // The same button at the top of the other drawers
+    this.#drawers.slice(1).forEach((drawer) => {
+      const copy = document.createElement('div');
+      copy.className = 'firmness-calculator';
+      copy.append(this.querySelector('.firmness-calculator__button').cloneNode(true));
+      drawer.prepend(copy);
+    });
 
     // The drawer is moved to the end of the body when opened: the popup goes after it, to be shown above it
-    this.querySelector('.firmness-calculator__button').addEventListener('click', () => document.body.append(this.#modal), { capture: true });
+    this.#drawers.forEach((drawer) => drawer.querySelector('.firmness-calculator__button').addEventListener('click', () => document.body.append(this.#modal), { capture: true }));
     this.hidden = false;
   }
 
@@ -84,7 +94,7 @@ class FirmnessCalculator extends HTMLElement {
   }
 
   get #groups() {
-    return this.#groupsOf(this.#drawer);
+    return this.#drawers.flatMap((drawer) => this.#groupsOf(drawer));
   }
 
   // "Fast", "Fast - Anbefales mellem 70-100 kg." => 1
@@ -113,7 +123,7 @@ class FirmnessCalculator extends HTMLElement {
       : 'Udfyld for dig selv, og få en anbefaling til din madras.';
   }
 
-  #onSubmit(event) {
+  async #onSubmit(event) {
     event.preventDefault();
 
     const form = event.currentTarget;
@@ -131,25 +141,31 @@ class FirmnessCalculator extends HTMLElement {
       weight: parseFloat(form.elements[`weight-${i}`].value)
     }));
 
-    const groups = this.#groups;
+    const count = this.#groups.length;
     const recommendations = [];
 
-    groups.forEach((group, index) => {
-      // Two mattresses for one person: the same firmness on both
+    for (let index = 0; index < count; index++) {
+      // Two persons: one mattress each. One person: the same firmness on both
       const score = persons[Math.min(index, persons.length - 1)];
-      const input = this.#pick(group, this.#levelFor(score));
+
+      // Found again each time: a variant option re-renders the variant picker once picked
+      const input = this.#pick(this.#groups[index] || [], this.#levelFor(score));
 
       // Not a click: the popup would take it for a click outside of it, and close
       if (input && !input.checked) {
         input.checked = true;
         input.dispatchEvent(new Event('input', { bubbles: true }));
         input.dispatchEvent(new Event('change', { bubbles: true }));
+
+        if (index < count - 1) {
+          await new Promise((resolve) => setTimeout(resolve, 400));
+        }
       }
 
       recommendations.push({ index, level: input ? this.#levelOf(input) : -1 });
-    });
+    }
 
-    this.#renderRecommendations(recommendations, groups.length);
+        this.#renderRecommendations(recommendations, count);
     this.#showResult(true);
   }
 
