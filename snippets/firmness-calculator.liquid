@@ -2,8 +2,7 @@
 Sengefabrikken: "Beregn jeres fasthed". A button opening a popup where one or two persons fill in their sleeping position,
 height and weight. The recommended firmness (Medium, Fast or Xtra Fast) is then picked for the customer in the "Vælg
 Fasthed" row of the product: the two sides of a double bed (product group), or the variant of a box mattress. The
-button is placed at the top of the "Vælg Fasthed" drawer by firmness-calculator.js, and stays hidden on products without
-such a drawer.
+element stays hidden: firmness-calculator.js copies its button to the top of the "Vælg Fasthed" drawers, when there are.
 
 @param {object} section
 {%- enddoc -%}
@@ -14,7 +13,7 @@ such a drawer.
 {%- capture modal_id -%}firmness-calculator-{{ section.id }}{%- endcapture -%}
 
 <firmness-calculator class="firmness-calculator" hidden>
-  <button type="button" class="firmness-calculator__button text-sm" aria-controls="{{ modal_id }}" aria-expanded="false">
+  <button type="button" class="firmness-calculator__button text-sm" data-firmness-calculator-button aria-controls="{{ modal_id }}" aria-expanded="false">
     <svg aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round">
       <path d="M4 6h9M19 6h1M4 12h1M11 12h9M4 18h11M19 18h1"/>
       <circle cx="16" cy="6" r="2.25"/>
