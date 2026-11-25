@@ -195,7 +195,7 @@ class BedCompare extends HTMLElement {
     const content = this.#comparison.cloneNode(true);
     const indexes = this.#selected.slice(0, this.#maxModels).map((type) => this.#models.get(type)?.index).filter(Boolean);
 
-    content.querySelector('bed-comparison')?.setAttribute('selected', indexes.join(','));
+    content.setAttribute('selected', indexes.join(','));
 
     this.querySelector('[data-compare-content]').replaceChildren(content);
     this.querySelector('#bed-compare-modal').show();
@@ -205,4 +205,3 @@ class BedCompare extends HTMLElement {
 if (!window.customElements.get('bed-compare')) {
   window.customElements.define('bed-compare', BedCompare);
 }
-
