@@ -16,6 +16,8 @@ It shows:
 @param {boolean} [wide] - if set to true, the media is shown next to the info on desktop
 @param {number} [position] - the position of the card in the list, used to eagerly load the first images
 @param {boolean} [compact] - if set to true, only the ribbon, media, splash, title and price are shown (used in the menu)
+@param {boolean} [compare] - if set to true, a "Sammenlign" checkbox is shown, for the products that are in the comparison
+  of the page (see bed-compare)
 {%- enddoc -%}
 
 {%- liquid
@@ -257,6 +259,15 @@ It shows:
     {%- endif -%}
   {%- endcapture -%}
 
+  {%- capture card_compare -%}
+    {%- if compare and compact != true -%}
+      <label class="sengefabrikken-card__compare checkbox-control text-sm" data-compare-toggle hidden>
+        <input type="checkbox" class="checkbox" data-compare-type="{{ product.type | escape }}">
+        <span>Sammenlign</span>
+      </label>
+    {%- endif -%}
+  {%- endcapture -%}
+
   <div class="sengefabrikken-card__info">
     {%- if wide -%}
       <div class="sengefabrikken-card__header">
@@ -271,6 +282,7 @@ It shows:
       {{- card_bullets -}}
       {{- card_price -}}
       {{- card_rating -}}
+      {{- card_compare -}}
     {%- else -%}
       <div class="sengefabrikken-card__details">
         <div class="v-stack gap-4">
@@ -282,6 +294,7 @@ It shows:
       </div>
 
       {{- card_rating -}}
+      {{- card_compare -}}
     {%- endif -%}
   </div>
 </article>

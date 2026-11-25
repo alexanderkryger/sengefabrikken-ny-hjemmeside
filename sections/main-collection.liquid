@@ -4,6 +4,15 @@
   {%- assign show_filters = false -%}
 {%- endif -%}
 
+{%- comment -%}Sengefabrikken: the products can be compared when a comparison page is set (Sengefabrikken card only){%- endcomment -%}
+{%- liquid
+  assign compare = false
+
+  if section.settings.compare_page != blank and section.settings.product_card_style == 'sengefabrikken'
+    assign compare = true
+  endif
+-%}
+
 <style>
   #shopify-section-{{ section.id }} {
     --product-list-column-count: {{ section.settings.products_per_row_mobile | times: 1 }};
@@ -83,12 +92,17 @@
               {%- if section.settings.show_active_facets -%}
                 {%- render 'active-facets', source: collection, hash: "#collection" -%}
               {%- endif -%}
-              {%- render 'product-list', products: collection.products, allow_highlight: true, paginate: paginate, blocks: section.blocks, output_override_attributes: true, card_style: section.settings.product_card_style, card_row_background: section.settings.product_card_row_background, card_two_columns: section.settings.product_card_two_columns -%}
+              {%- render 'product-list', products: collection.products, allow_highlight: true, paginate: paginate, blocks: section.blocks, output_override_attributes: true, card_style: section.settings.product_card_style, card_row_background: section.settings.product_card_row_background, card_two_columns: section.settings.product_card_two_columns, compare: compare -%}
             </div>
 
             {%- render 'pagination', paginate: paginate, facet: true, hash: '#collection' -%}
           {%- endif -%}
         {%- endpaginate -%}
+
+        {%- comment -%}Sengefabrikken: comparison of the products of the collection, in a popup (see bed-compare){%- endcomment -%}
+        {%- if compare -%}
+          {%- render 'bed-compare', page: section.settings.compare_page, above_filter_bar: section.settings.sticky_filter_button -%}
+        {%- endif -%}
 
         {%- comment -%}Sengefabrikken: the sticky filter button replaces the floating button of the theme{%- endcomment -%}
         {%- if show_filters and section.settings.sticky_filter_button -%}
@@ -282,6 +296,12 @@ on desktop based on the settings
       "label": "Baggrund bag kort 2 og 3",
       "info": "Kun Sengefabrikken card. Vises i fuld bredde.",
       "default": "#fff4e2"
+    },
+    {
+      "type": "page",
+      "id": "compare_page",
+      "label": "Sammenligningsside",
+      "info": "Siden med sektionen \"Sammenlign senge\". Kortene får \"Sammenlign\" for produkter af samme produkttype som modellerne på siden, og sammenligningen åbner i en popup. Kun Sengefabrikken card."
     },
     {
       "type": "header",

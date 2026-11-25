@@ -6,6 +6,9 @@
  * shown in the URL (?vis=1,3,4). Once the models are scrolled past, it shows a compact bar with their names.
  *
  * The theme moves the drawer to the end of the body, so the drawer is found by its ID (the "drawer" attribute).
+ *
+ * In the comparison popup of the collection page (bed-compare.js), the models come from the "selected" attribute instead
+ * of the URL, the URL is left untouched, and removing a model fires "bed-comparison:change".
  */
 class BedComparison extends HTMLElement {
   #abortController;
@@ -16,7 +19,7 @@ class BedComparison extends HTMLElement {
     this.#abortController = new AbortController();
     const { signal } = this.#abortController;
 
-    const fromUrl = (new URLSearchParams(window.location.search).get('vis') || '').split(',').filter((model) => this.#models.includes(model));
+    const fromUrl = (this.getAttribute('selected') ?? new URLSearchParams(window.location.search).get('vis') ?? '').split(',').filter((model) => this.#models.includes(model));
     this.#selected = fromUrl.length > 0 ? fromUrl : this.#models;
 
     // Capture phase: the button of the drawer also closes it (<dialog-close-button>), which stops the click
@@ -65,6 +68,7 @@ class BedComparison extends HTMLElement {
     if (removeButton) {
       this.#selected = this.#visible.filter((model) => model !== removeButton.getAttribute('data-remove-model'));
       this.#render({ updateUrl: true });
+      this.dispatchEvent(new CustomEvent('bed-comparison:change', { bubbles: true, detail: { models: this.#visible } }));
     } else if (event.target.closest('[data-apply-models]')) {
       const picked = this.#pickInputs.filter((input) => input.checked).map((input) => input.value);
 
@@ -129,7 +133,7 @@ class BedComparison extends HTMLElement {
     this.#pickInputs.forEach((input) => input.checked = visible.includes(input.value));
     this.#updatePickLimit();
 
-    if (updateUrl) {
+    if (updateUrl && !this.hasAttribute('selected')) {
       const url = new URL(window.location.href);
       url.searchParams.set('vis', visible.join(','));
       history.replaceState(history.state, '', url.toString());
@@ -146,12 +150,13 @@ class BedComparison extends HTMLElement {
       return;
     }
 
-    // The header (--sticky-area-height) hides the top of the page
-    const stickyAreaHeight = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--sticky-area-height'), 10) || 0;
+    // The header (--sticky-area-height) hides the top of the page. In a modal, the body of the modal scrolls
+    const modalBody = this.closest('x-modal')?.shadowRoot?.querySelector('[part="body"]');
+    const stickyAreaHeight = modalBody ? 0 : parseInt(getComputedStyle(document.documentElement).getPropertyValue('--sticky-area-height'), 10) || 0;
 
     this.#stuckObserver = new IntersectionObserver(([entry]) => {
       this.classList.toggle('is-stuck', !entry.isIntersecting && entry.boundingClientRect.top < (entry.rootBounds?.top ?? 0));
-    }, { rootMargin: `-${stickyAreaHeight + 1}px 0px 0px 0px` });
+    }, { root: modalBody || null, rootMargin: `-${stickyAreaHeight + 1}px 0px 0px 0px` });
 
     this.#stuckObserver.observe(models);
   }

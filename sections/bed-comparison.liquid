@@ -71,7 +71,7 @@
               assign highlights = section.settings[highlights_key] | newline_to_br | split: '<br />'
             -%}
 
-            <div class="bed-comparison__model {% if section.settings.show_images and model.featured_media != blank %}bed-comparison__model--media{% endif %}" data-model="{{ i }}">
+            <div class="bed-comparison__model {% if section.settings.show_images and model.featured_media != blank %}bed-comparison__model--media{% endif %}" data-model="{{ i }}" data-model-type="{{ model.type | escape }}">
               <button type="button" class="bed-comparison__remove circle-button" data-remove-model="{{ i }}">
                 <span class="sr-only">Fjern {{ section.settings[title_key] | default: model.title | escape }} fra sammenligningen</span>
                 {%- render 'icon' with 'close', width: 10 -%}

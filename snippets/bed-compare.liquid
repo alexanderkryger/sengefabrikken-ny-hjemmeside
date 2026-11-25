@@ -1,0 +1,29 @@
+{%- doc -%}
+Sengefabrikken: comparison of the products of a collection. The cards have a "Sammenlign" checkbox (see the
+sengefabrikken-product-card snippet), the chosen models are shown in a bar at the bottom of the page, and the comparison
+opens in a popup, with the "Sammenlign senge" section of the comparison page (up to 3 models on desktop, 2 on mobile).
+
+@param {object} page - the comparison page (with the bed-comparison section)
+@param {boolean} [above_filter_bar] - if set to true, the bar is placed above the sticky filter button
+{%- enddoc -%}
+
+{{- 'bed-compare.css' | asset_url | stylesheet_tag -}}
+{{- 'bed-comparison.css' | asset_url | stylesheet_tag -}}
+<script type="module" src="{{ 'bed-comparison.js' | asset_url }}"></script>
+<script type="module" src="{{ 'bed-compare.js' | asset_url }}"></script>
+
+<bed-compare class="bed-compare {% if above_filter_bar %}bed-compare--above-filter-bar{% endif %}" page-url="{{ page.url }}">
+  <div class="bed-compare__bar color-scheme color-scheme--{{ settings.default_color_scheme.id }}" hidden>
+    <div class="bed-compare__items" data-compare-items></div>
+
+    <div class="bed-compare__actions">
+      <p class="text-xs text-subdued" data-compare-hint></p>
+      <button type="button" class="link text-sm" data-compare-clear>Ryd</button>
+      <button type="button" class="button" data-compare-open disabled>Sammenlign</button>
+    </div>
+  </div>
+
+  <x-modal id="bed-compare-modal" class="modal bed-compare-modal color-scheme color-scheme--{{ settings.default_color_scheme.id }}">
+    <div data-compare-content></div>
+  </x-modal>
+</bed-compare>

@@ -16,6 +16,7 @@ This component display a list of product that can be used in collection, search.
 @param {string} [card_style] - Sengefabrikken: "sengefabrikken" renders the Sengefabrikken card, laid out as one wide card followed by two cards
 @param {string} [card_row_background] - Sengefabrikken: background color of the row with the second and third Sengefabrikken cards (full width)
 @param {boolean} [card_two_columns] - Sengefabrikken: if set to true, the Sengefabrikken cards that are not wide are shown two per row
+@param {boolean} [compare] - Sengefabrikken: if set to true, the Sengefabrikken cards have a "Sammenlign" checkbox (see bed-compare)
 {%- enddoc -%}
 
 {%- if card_style == 'sengefabrikken' -%}
@@ -144,7 +145,7 @@ This component display a list of product that can be used in collection, search.
           echo '<div class="sengefabrikken-card-row" style="--sengefabrikken-card-row-background: ' | append: card_row_background | append: '">'
         endif
 
-        render 'sengefabrikken-product-card', product: product, wide: sengefabrikken_card_wide, position: forloop.index
+        render 'sengefabrikken-product-card', product: product, wide: sengefabrikken_card_wide, position: forloop.index, compare: compare
 
         if forloop.index == 3 or forloop.index == 2 and forloop.last
           echo '</div>'
