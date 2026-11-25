@@ -43,6 +43,9 @@ class FirmnessCalculator extends HTMLElement {
     if (this.#groups.length < 2) {
       this.#modal.querySelector('[name="persons"][value="1"]').checked = true;
       this.#modal.querySelector('.firmness-calculator__mode').hidden = true;
+      this.querySelector('[data-calculator-label]').textContent = 'Beregn din fasthed';
+      this.#modal.querySelector('[data-calculator-heading]').textContent = 'Beregn din fasthed';
+      this.#modal.querySelector('[data-calculator-result-text]').textContent = 'Vi har valgt fastheden for dig under "Vælg Fasthed". Du kan altid ændre den.';
       this.#renderMode();
     }
 

@@ -21,13 +21,13 @@ such a drawer.
       <circle cx="8" cy="12" r="2.25"/>
       <circle cx="17" cy="18" r="2.25"/>
     </svg>
-    Beregn jeres fasthed
+    <span data-calculator-label>Beregn jeres fasthed</span>
   </button>
 
   <x-modal id="{{ modal_id }}" class="modal firmness-calculator__modal color-scheme color-scheme--{{ settings.default_color_scheme.id }}">
     <form class="firmness-calculator__form" novalidate data-calculator-form>
       <div class="firmness-calculator__intro">
-        <p class="h4">Beregn jeres fasthed</p>
+        <p class="h4" data-calculator-heading>Beregn jeres fasthed</p>
         <p class="text-subdued" data-calculator-intro>Udfyld for hver af jer, og få en anbefaling til madras 1 og madras 2.</p>
       </div>
 
@@ -81,7 +81,7 @@ such a drawer.
     <div class="firmness-calculator__result" data-calculator-result hidden>
       <div class="firmness-calculator__intro">
         <p class="h4">Vores anbefaling</p>
-        <p class="text-subdued">Vi har valgt fastheden for jer under "Vælg Fasthed". I kan altid ændre den.</p>
+        <p class="text-subdued" data-calculator-result-text>Vi har valgt fastheden for jer under "Vælg Fasthed". I kan altid ændre den.</p>
       </div>
 
       <ul class="firmness-calculator__recommendations unstyled-list" role="list" data-calculator-recommendations></ul>
