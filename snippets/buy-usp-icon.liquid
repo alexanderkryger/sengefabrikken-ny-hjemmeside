@@ -1,0 +1,18 @@
+{%- doc -%}
+Sengefabrikken: the 16px icons of the selling points below the buy buttons (see the buy_buttons block in product-info).
+
+@param {string} icon - "repeat", "tag" or "home"
+{%- enddoc -%}
+
+<svg aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+  {%- case icon -%}
+    {%- when 'repeat' -%}
+      <path d="M4.667 10l-2 2 2 2M2.667 12H10.667A2.667 2.667 0 0 0 13.334 9.333V8"/>
+      <path d="M11.333 6l2-2-2-2M13.333 4H5.333A2.667 2.667 0 0 0 2.666 6.667V8"/>
+    {%- when 'tag' -%}
+      <path d="M2 2v5.333L8.667 14 14 8.667 7.333 2H2Z"/>
+      <circle cx="5" cy="5" r=".75" fill="currentColor" stroke="none"/>
+    {%- when 'home' -%}
+      <path d="M14 7.333l-1.333-1.185L8 2 3.333 6.148M12.667 6.148v7.185H9.333M2 7.333l1.333-1.185M3.333 6.148v7.185h3.334M6.667 13.333v-4h2.666v4"/>
+  {%- endcase -%}
+</svg>

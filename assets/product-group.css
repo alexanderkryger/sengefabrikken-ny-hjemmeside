@@ -567,7 +567,7 @@ product-group-gift {
 .sengefabrikken-buy-usps > * {
   grid-auto-flow: column;
   justify-content: space-between;
-  gap: .75rem;
+  gap: .5rem;
   display: grid;
 }
 
@@ -584,13 +584,8 @@ product-group-gift {
   flex-shrink: 0;
 }
 
-@container (max-width: 519px) {
-  .sengefabrikken-buy-usps li {
-    font-size: var(--text-xs);
-  }
-}
-
-@container (max-width: 409px) {
+/* Too narrow for one row of text: the icon above the text, in 3 equal columns */
+@container (max-width: 359px) {
   .sengefabrikken-buy-usps > * {
     grid-auto-columns: minmax(0, 1fr);
   }
@@ -599,7 +594,7 @@ product-group-gift {
     text-align: center;
     white-space: normal;
     flex-direction: column;
-    gap: .375rem;
+    gap: .25rem;
   }
 }
 

@@ -606,24 +606,24 @@ no need to manually pass the section as it is globally available)
 
             {%- if block.settings.show_usps or show_delivery -%}
               <div class="sengefabrikken-buy-usps">
-              <ul class="unstyled-list text-sm" role="list">
+              <ul class="unstyled-list text-xs" role="list">
                 {%- if block.settings.show_usps -%}
                   {%- if product.metafields.custom.size_sku_prefix != blank -%}
-                    <li class="h-stack gap-2">{%- render 'icon' with 'picto-measure', width: 18 -%}<span>Specialmål</span></li>
+                    <li class="h-stack gap-1.5">{%- render 'buy-usp-icon', icon: 'repeat' -%}<span>Specialmål</span></li>
                   {%- else -%}
-                    <li class="h-stack gap-2">{%- render 'icon' with 'picto-return', width: 18 -%}<span>100 dages prøve</span></li>
+                    <li class="h-stack gap-1.5">{%- render 'buy-usp-icon', icon: 'repeat' -%}<span>100 dages prøve</span></li>
                   {%- endif -%}
 
                   {%- if block.settings.usp_origin == 'danish' -%}
-                    <li class="h-stack gap-2">{%- render 'icon' with 'picto-dansk-flag', width: 18 -%}<span>Danskproduceret</span></li>
+                    <li class="h-stack gap-1.5">{%- render 'buy-usp-icon', icon: 'tag' -%}<span>Danskproduceret</span></li>
                   {%- else -%}
-                    <li class="h-stack gap-2">{%- render 'icon' with 'picto-checked', width: 18 -%}<span>Høj kvalitet</span></li>
+                    <li class="h-stack gap-1.5">{%- render 'buy-usp-icon', icon: 'tag' -%}<span>Høj kvalitet</span></li>
                   {%- endif -%}
                 {%- endif -%}
 
                 {%- if show_delivery -%}
-                  <li class="sengefabrikken-delivery-time h-stack gap-2">
-                    {%- render 'icon' with 'picto-truck', width: 18 -%}
+                  <li class="sengefabrikken-delivery-time h-stack gap-1.5">
+                    {%- render 'buy-usp-icon', icon: 'home' -%}
                     <span>{{ block.settings.delivery_time_text | replace: '[leveringstid]', delivery_time | escape }}</span>
                   </li>
                 {%- endif -%}
