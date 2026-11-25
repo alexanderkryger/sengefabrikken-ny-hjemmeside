@@ -1,0 +1,142 @@
+/* Sengefabrikken: "Beregn jeres fasthed" (see the firmness-calculator snippet) */
+
+.firmness-calculator {
+  padding-block-end: 1rem;
+  display: block;
+}
+
+.firmness-calculator[hidden] {
+  display: none;
+}
+
+.firmness-calculator__button {
+  color: #650621;
+  background: rgb(101 6 33 / .05);
+  border: 1px dashed rgb(101 6 33 / .45);
+  border-radius: 999px;
+  justify-content: center;
+  align-items: center;
+  gap: .5rem;
+  width: 100%;
+  padding: .625rem 1rem;
+  font-weight: bold;
+  transition: background .2s;
+  display: flex;
+}
+
+.firmness-calculator__button:hover {
+  background: rgb(101 6 33 / .1);
+}
+
+/* The popup */
+
+.firmness-calculator__modal {
+  --modal-content-width: 46rem;
+}
+
+.firmness-calculator__form,
+.firmness-calculator__result {
+  text-align: center;
+  gap: 1.5rem;
+  display: grid;
+}
+
+.firmness-calculator__form[hidden],
+.firmness-calculator__result[hidden] {
+  display: none;
+}
+
+.firmness-calculator__intro {
+  gap: .5rem;
+  padding-inline: 2rem;
+  display: grid;
+}
+
+/* "Vi er to" / "Jeg sover alene" */
+.firmness-calculator__mode {
+  background: rgb(var(--text-color) / .06);
+  border-radius: 999px;
+  justify-self: center;
+  padding: .25rem;
+  display: inline-flex;
+}
+
+.firmness-calculator__mode label {
+  cursor: pointer;
+  border-radius: 999px;
+  padding: .5rem 1rem;
+  font-size: var(--text-sm);
+  transition: background .2s, box-shadow .2s;
+}
+
+.firmness-calculator__mode :checked + label {
+  background: rgb(var(--background));
+  box-shadow: 0 1px 3px rgb(0 0 0 / .12);
+  font-weight: bold;
+}
+
+.firmness-calculator__mode :focus-visible + label {
+  outline: 2px solid rgb(var(--text-color));
+  outline-offset: 2px;
+}
+
+.firmness-calculator__persons {
+  gap: 1rem;
+  display: grid;
+}
+
+.firmness-calculator__person {
+  background: rgb(var(--text-color) / .04);
+  border: none;
+  border-radius: .75rem;
+  gap: .75rem;
+  min-width: 0;
+  margin: 0;
+  padding: 1rem;
+  display: grid;
+}
+
+.firmness-calculator__person[hidden] {
+  display: none;
+}
+
+.firmness-calculator__person-title {
+  float: left;
+  width: 100%;
+  margin-block-end: .25rem;
+}
+
+.firmness-calculator__person .form-control {
+  text-align: start;
+}
+
+.firmness-calculator__footer {
+  justify-items: center;
+  gap: .75rem;
+  display: grid;
+}
+
+.firmness-calculator__recommendations {
+  gap: .75rem;
+  display: grid;
+}
+
+.firmness-calculator__recommendation {
+  background: rgb(var(--text-color) / .04);
+  border-radius: .75rem;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  display: flex;
+}
+
+@media screen and (min-width: 700px) {
+  .firmness-calculator__persons:has(.firmness-calculator__person:not([hidden]) + .firmness-calculator__person:not([hidden])) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .firmness-calculator__person {
+    padding: 1.25rem;
+  }
+}

@@ -353,6 +353,11 @@ no need to manually pass the section as it is globally available)
           {%- when 'product_group' -%}
             {%- if product != blank -%}
               {%- render 'product-group', product: product, product_form_id: product_form_id, block: block -%}
+
+              {%- comment -%}Sengefabrikken: moves itself into the "Vælg Fasthed" row (product group or variant picker){%- endcomment -%}
+              {%- if block.settings.show_firmness_calculator != false -%}
+                {%- render 'firmness-calculator', section: section -%}
+              {%- endif -%}
             {%- endif -%}
 
           {%- when 'product_variations' -%}

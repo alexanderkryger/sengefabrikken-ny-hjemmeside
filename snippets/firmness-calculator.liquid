@@ -1,0 +1,94 @@
+{%- doc -%}
+Sengefabrikken: "Beregn jeres fasthed". A button opening a popup where one or two persons fill in their sleeping position,
+height and weight. The recommended firmness (Medium, Fast or Xtra Fast) is then picked for the customer in the "Vælg
+Fasthed" row of the product: the two sides of a double bed (product group), or the variant of a box mattress. The
+button is placed in the "Vælg Fasthed" row by firmness-calculator.js, and stays hidden on products without such a row.
+
+@param {object} section
+{%- enddoc -%}
+
+{{- 'firmness-calculator.css' | asset_url | stylesheet_tag -}}
+<script src="{{ 'firmness-calculator.js' | asset_url }}" type="module"></script>
+
+{%- capture modal_id -%}firmness-calculator-{{ section.id }}{%- endcapture -%}
+
+<firmness-calculator class="firmness-calculator" hidden>
+  <button type="button" class="firmness-calculator__button text-sm" aria-controls="{{ modal_id }}" aria-expanded="false">
+    <svg aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round">
+      <path d="M4 6h9M19 6h1M4 12h1M11 12h9M4 18h11M19 18h1"/>
+      <circle cx="16" cy="6" r="2.25"/>
+      <circle cx="8" cy="12" r="2.25"/>
+      <circle cx="17" cy="18" r="2.25"/>
+    </svg>
+    Beregn jeres fasthed
+  </button>
+
+  <x-modal id="{{ modal_id }}" class="modal firmness-calculator__modal color-scheme color-scheme--{{ settings.default_color_scheme.id }}">
+    <form class="firmness-calculator__form" novalidate data-calculator-form>
+      <div class="firmness-calculator__intro">
+        <p class="h4">Beregn jeres fasthed</p>
+        <p class="text-subdued" data-calculator-intro>Udfyld for hver af jer, og få en anbefaling til madras 1 og madras 2.</p>
+      </div>
+
+      <div class="firmness-calculator__mode" role="radiogroup" aria-label="Hvor mange sover i sengen?">
+        <input class="sr-only" type="radio" id="{{ modal_id }}-two" name="persons" value="2" checked>
+        <label for="{{ modal_id }}-two">Vi er to</label>
+        <input class="sr-only" type="radio" id="{{ modal_id }}-one" name="persons" value="1">
+        <label for="{{ modal_id }}-one">Jeg sover alene</label>
+      </div>
+
+      <div class="firmness-calculator__persons">
+        {%- for i in (1..2) -%}
+          <fieldset class="firmness-calculator__person" data-person="{{ i }}">
+            <legend class="firmness-calculator__person-title h6" data-person-title>Person {{ i }}</legend>
+
+            <div class="form-control">
+              <div class="relative">
+                <select id="{{ modal_id }}-position-{{ i }}" class="select" name="position-{{ i }}" required>
+                  <option value="" selected disabled></option>
+                  <option value="back">Ryg</option>
+                  <option value="side">Side</option>
+                  <option value="stomach">Mave</option>
+                  <option value="mixed">Skifter</option>
+                </select>
+                {%- render 'icon' with 'chevron-down' -%}
+                <label for="{{ modal_id }}-position-{{ i }}" class="floating-label">Sovestilling</label>
+              </div>
+            </div>
+
+            <div class="form-control">
+              <input id="{{ modal_id }}-height-{{ i }}" class="input" type="number" inputmode="numeric" name="height-{{ i }}" min="120" max="230" placeholder=" " required>
+              <label for="{{ modal_id }}-height-{{ i }}" class="floating-label">Højde (cm)</label>
+            </div>
+
+            <div class="form-control">
+              <input id="{{ modal_id }}-weight-{{ i }}" class="input" type="number" inputmode="numeric" name="weight-{{ i }}" min="30" max="250" placeholder=" " required>
+              <label for="{{ modal_id }}-weight-{{ i }}" class="floating-label">Vægt (kg)</label>
+            </div>
+          </fieldset>
+        {%- endfor -%}
+      </div>
+
+      <p class="firmness-calculator__error text-error text-sm" data-calculator-error hidden>Udfyld sovestilling, højde (120-230 cm) og vægt (30-250 kg).</p>
+
+      <div class="firmness-calculator__footer">
+        <button type="submit" class="button">Beregn fasthed</button>
+        <p class="text-xs text-subdued">Anbefalingen er baseret på vægt, højde og sovestilling.</p>
+      </div>
+    </form>
+
+    <div class="firmness-calculator__result" data-calculator-result hidden>
+      <div class="firmness-calculator__intro">
+        <p class="h4">Vores anbefaling</p>
+        <p class="text-subdued">Vi har valgt fastheden for jer under "Vælg Fasthed". I kan altid ændre den.</p>
+      </div>
+
+      <ul class="firmness-calculator__recommendations unstyled-list" role="list" data-calculator-recommendations></ul>
+
+      <div class="firmness-calculator__footer">
+        <button type="button" class="button" data-calculator-close>Fortsæt</button>
+        <button type="button" class="link text-sm" data-calculator-back>Beregn igen</button>
+      </div>
+    </div>
+  </x-modal>
+</firmness-calculator>
