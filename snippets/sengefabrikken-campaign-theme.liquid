@@ -62,8 +62,8 @@ own colors, as well as the product cards when "Behold produktkortenes farver" is
         assign background_brightness = color_scheme.settings.background | color_brightness
 
         if background_brightness >= settings.campaign_light_scheme_threshold
-          # The overlays (eg. the filter popover, the facets drawer or the gift popup) always keep their own colors
-          echo ', #main .color-scheme--' | append: color_scheme.id | append: ':not(.popover, .drawer, .modal'
+          # The overlays (eg. the filter popover, the facets drawer, the gift popup or the comparison bar) always keep their own colors
+          echo ', #main .color-scheme--' | append: color_scheme.id | append: ':not(.popover, .drawer, .modal, .bed-compare__bar'
 
           if settings.campaign_keep_product_cards
             echo ', product-card, .sengefabrikken-card'
