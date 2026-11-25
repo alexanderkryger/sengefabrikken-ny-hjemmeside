@@ -271,6 +271,10 @@ Two other metafields are rendered as well:
             {%- if drawer_videos != blank -%}
               {%- render 'product-group-videos', videos: drawer_videos -%}
             {%- endif -%}
+
+            <dialog-close-button slot="footer" style="display: contents">
+              <button type="button" class="button w-full">Bekræft</button>
+            </dialog-close-button>
           </x-drawer>
         </div>
       {%- endif -%}
