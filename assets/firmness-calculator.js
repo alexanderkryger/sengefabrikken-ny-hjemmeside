@@ -53,6 +53,9 @@ class FirmnessCalculator extends HTMLElement {
     // relatively to the drawer
     document.body.append(this.#modal);
     this.#drawer.prepend(this);
+
+    // The drawer is moved to the end of the body when opened: the popup goes after it, to be shown above it
+    this.querySelector('.firmness-calculator__button').addEventListener('click', () => document.body.append(this.#modal), { capture: true });
     this.hidden = false;
   }
 
@@ -192,5 +195,3 @@ class FirmnessCalculator extends HTMLElement {
 if (!window.customElements.get('firmness-calculator')) {
   window.customElements.define('firmness-calculator', FirmnessCalculator);
 }
-
-
