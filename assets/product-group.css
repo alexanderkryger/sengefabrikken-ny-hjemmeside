@@ -66,7 +66,7 @@
   background: rgb(var(--text-color) / .04);
   object-fit: contain;
   width: 100%;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 5 / 4;
   display: block;
 }
 
@@ -83,14 +83,10 @@
   display: flex;
 }
 
-/* Mobile: one card per row, with a wider image so that the cards stay low */
+/* Mobile: one card per row */
 @media screen and (max-width: 699px) {
   .product-group-option-list--cards {
     grid-template-columns: minmax(0, 1fr);
-  }
-
-  .product-group-option-list--cards .product-group-option__image {
-    aspect-ratio: 2 / 1;
   }
 }
 
