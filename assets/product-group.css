@@ -64,10 +64,18 @@
 
 .product-group-option-list--cards .product-group-option__image {
   background: rgb(var(--text-color) / .04);
-  object-fit: contain;
   width: 100%;
-  aspect-ratio: 5 / 4;
+  height: auto;
   display: block;
+}
+
+/* The image in its own format (no space above and below). Without image (eg. "Ingen Sengegavl"), the usual 4:3 */
+.product-group-option-list--cards img.product-group-option__image {
+  aspect-ratio: auto;
+}
+
+.product-group-option-list--cards span.product-group-option__image {
+  aspect-ratio: 4 / 3;
 }
 
 .product-group-option-list--cards .product-group-option > .v-stack {
