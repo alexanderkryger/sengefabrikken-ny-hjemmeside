@@ -566,23 +566,38 @@ product-group-gift {
 
 .sengefabrikken-buy-usps > * {
   grid-auto-flow: column;
-  grid-auto-columns: minmax(0, 1fr);
+  justify-content: space-between;
   gap: .75rem;
   display: grid;
 }
 
 .sengefabrikken-buy-usps li {
   justify-content: center;
-  text-align: center;
+  white-space: nowrap;
+}
+
+.sengefabrikken-buy-usps > :has(> :only-child) {
+  justify-content: center;
 }
 
 .sengefabrikken-buy-usps svg {
   flex-shrink: 0;
 }
 
-@container (max-width: 479px) {
+@container (max-width: 519px) {
   .sengefabrikken-buy-usps li {
     font-size: var(--text-xs);
+  }
+}
+
+@container (max-width: 409px) {
+  .sengefabrikken-buy-usps > * {
+    grid-auto-columns: minmax(0, 1fr);
+  }
+
+  .sengefabrikken-buy-usps li {
+    text-align: center;
+    white-space: normal;
     flex-direction: column;
     gap: .375rem;
   }
@@ -591,4 +606,3 @@ product-group-gift {
 .sengefabrikken-delivery-time svg {
   flex-shrink: 0;
 }
-
