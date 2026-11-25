@@ -126,8 +126,11 @@ class FirmnessCalculator extends HTMLElement {
       const score = groups.length === 1 ? persons.reduce((sum, value) => sum + value, 0) / persons.length : persons[Math.min(index, persons.length - 1)];
       const input = this.#pick(group, this.#levelFor(score));
 
+      // Not a click: the popup would take it for a click outside of it, and close
       if (input && !input.checked) {
-        input.click();
+        input.checked = true;
+        input.dispatchEvent(new Event('input', { bubbles: true }));
+        input.dispatchEvent(new Event('change', { bubbles: true }));
       }
 
       recommendations.push({ index, level: input ? this.#levelOf(input) : -1 });
