@@ -605,7 +605,8 @@ no need to manually pass the section as it is globally available)
             -%}
 
             {%- if block.settings.show_usps or show_delivery -%}
-              <ul class="sengefabrikken-buy-usps unstyled-list text-sm" role="list">
+              <div class="sengefabrikken-buy-usps">
+              <ul class="unstyled-list text-sm" role="list">
                 {%- if block.settings.show_usps -%}
                   {%- if product.metafields.custom.size_sku_prefix != blank -%}
                     <li class="h-stack gap-2">{%- render 'icon' with 'picto-measure', width: 18 -%}<span>Specialmål</span></li>
@@ -627,6 +628,7 @@ no need to manually pass the section as it is globally available)
                   </li>
                 {%- endif -%}
               </ul>
+              </div>
             {%- endif -%}
 
           {%- when 'volume_pricing' -%}

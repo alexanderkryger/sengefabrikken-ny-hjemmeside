@@ -557,26 +557,34 @@ product-group-gift {
   }
 }
 
-/* Selling points and delivery time below the buy buttons (see the buy_buttons block in the product-info snippet) */
+/* Selling points and delivery time below the buy buttons (see the buy_buttons block in the product-info snippet): on one
+   row, the icon next to the text when there is room, above it in a narrow column */
 .sengefabrikken-buy-usps {
-  justify-content: space-between;
-  gap: .5rem 1rem;
+  container-type: inline-size;
   margin-block-start: .75rem;
-  display: flex;
-  flex-wrap: wrap;
 }
 
-.sengefabrikken-buy-usps:has(> :only-child) {
+.sengefabrikken-buy-usps > * {
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(0, 1fr);
+  gap: .75rem;
+  display: grid;
+}
+
+.sengefabrikken-buy-usps li {
   justify-content: center;
+  text-align: center;
 }
 
 .sengefabrikken-buy-usps svg {
   flex-shrink: 0;
 }
 
-@media screen and (max-width: 699px) {
-  .sengefabrikken-buy-usps {
+@container (max-width: 479px) {
+  .sengefabrikken-buy-usps li {
     font-size: var(--text-xs);
+    flex-direction: column;
+    gap: .375rem;
   }
 }
 
