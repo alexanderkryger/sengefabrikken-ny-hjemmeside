@@ -193,3 +193,4 @@ if (!window.customElements.get('firmness-calculator')) {
   window.customElements.define('firmness-calculator', FirmnessCalculator);
 }
 
+
