@@ -116,10 +116,10 @@ class FirmnessCalculator extends HTMLElement {
     return this.#drawers.flatMap((drawer) => this.#groupsOf(drawer));
   }
 
-  // "Fast", "Fast - Anbefales mellem 70-100 kg." => 1
+  // "Fast", "Fast - Anbefales mellem 70-100 kg." or "Fast / Anbefales mellem 70-100 kg." => 1
   #levelOf(input) {
     const label = input.getAttribute('data-label') || document.querySelector(`label[for="${CSS.escape(input.id)}"] .v-stack > span:not(.product-group-option__badge)`)?.textContent || '';
-    return FIRMNESSES.indexOf(label.split(' - ')[0].trim().toLowerCase());
+    return FIRMNESSES.indexOf(label.split(/\s+[-\/]\s+/)[0].trim().toLowerCase());
   }
 
   get #twoPersons() {
