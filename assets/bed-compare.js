@@ -203,7 +203,7 @@ class BedCompare extends HTMLElement {
 
     openButton.disabled = count < 2;
     openButton.textContent = `Sammenlign (${count})`;
-    hint.textContent = count < 2 ? 'Vælg mindst 2 senge' : `Op til ${this.#maxModels} senge`;
+    hint.textContent = count < 2 ? 'Vælg mindst 2 modeller' : `Op til ${this.#maxModels} modeller`;
   }
 
   #open() {
