@@ -13,7 +13,7 @@ opens in a popup, with the "Sammenlign senge" section of the comparison page (up
 <script type="module" src="{{ 'bed-compare.js' | asset_url }}"></script>
 
 <bed-compare class="bed-compare {% if above_filter_bar %}bed-compare--above-filter-bar{% endif %}" page-url="{{ page.url }}">
-  <div class="bed-compare__bar color-scheme color-scheme--{{ settings.default_color_scheme.id }}" hidden>
+  <div class="bed-compare__bar color-scheme color-scheme--{{ settings.product_card_color_scheme.id }}" hidden>
     <div class="bed-compare__items" data-compare-items></div>
 
     <div class="bed-compare__actions">
