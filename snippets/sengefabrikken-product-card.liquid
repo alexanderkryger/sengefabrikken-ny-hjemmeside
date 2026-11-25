@@ -262,7 +262,7 @@ It shows:
   {%- capture card_compare -%}
     {%- if compare and compact != true -%}
       <label class="sengefabrikken-card__compare text-sm" data-compare-toggle hidden>
-        <input type="checkbox" class="sr-only" data-compare-type="{{ product.type | escape }}">
+        <input type="checkbox" class="sr-only" data-compare-type="{{ product.type | escape }}" data-compare-handle="{{ product.handle }}">
         <span class="sengefabrikken-card__compare-icon">
           <svg aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="{{ settings.icon_stroke_width }}">
             <path vector-effect="non-scaling-stroke" d="M2 4h8v16H2zM14 4h8v16h-8z"/>

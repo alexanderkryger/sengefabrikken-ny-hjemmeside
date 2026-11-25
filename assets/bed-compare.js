@@ -3,7 +3,9 @@
  *
  * Comparison of the products of a collection (see the bed-compare snippet). The comparison page (the "page-url"
  * attribute) is fetched once: its models are matched to the cards by product type, so only the cards of a model in the
- * comparison get the "Sammenlign" checkbox. The chosen models are kept in the session (across pages and filters) and
+ * comparison get the "Sammenlign" checkbox. When the models share their product type (eg. the topmadrasser, all
+ * "Topmadras"), they are matched by handle instead, without the size and "split" (komfort-splittopmadras-180x200-cm and
+ * komfort-topmadras-90x200-cm are both the "komfort-topmadras" model). The chosen models are kept in the session (across pages and filters) and
  * shown in a bar; "Sammenlign" opens the bed-comparison section of the page in a popup, with the chosen models.
  */
 const STORAGE_KEY = 'sengefabrikken-bed-compare';
@@ -11,7 +13,8 @@ const STORAGE_KEY = 'sengefabrikken-bed-compare';
 class BedCompare extends HTMLElement {
   #abortController;
   #selected = [];
-  #models = new Map(); // product type => { index, title }
+  #models = new Map(); // product type (or handle without size) => { index, title }
+  #matchByHandle = false;
   #comparison = null;
   #mobileQuery = window.matchMedia('(max-width: 699px)');
   #mutationObserver;
@@ -76,8 +79,12 @@ class BedCompare extends HTMLElement {
       comparison.querySelectorAll('x-drawer, .bed-comparison__bar, .bed-comparison__add, .bed-comparison__compact-add, [aria-controls^="bed-comparison-drawer"]').forEach((element) => element.remove());
       comparison.removeAttribute('drawer');
 
-      comparison.querySelectorAll('.bed-comparison__model').forEach((model) => {
-        const type = model.getAttribute('data-model-type');
+      const models = Array.from(comparison.querySelectorAll('.bed-comparison__model'));
+      const types = models.map((model) => model.getAttribute('data-model-type'));
+      this.#matchByHandle = new Set(types).size < types.length;
+
+      models.forEach((model) => {
+        const type = this.#keyOf(model.getAttribute('data-model-type'), model.getAttribute('data-model-handle'));
 
         if (type && !this.#models.has(type)) {
           this.#models.set(type, {
@@ -95,6 +102,18 @@ class BedCompare extends HTMLElement {
     }
   }
 
+  #keyOf(type, handle) {
+    if (!this.#matchByHandle) {
+      return type;
+    }
+
+    return (handle || '').replace(/-\d+x\d+(-cm)?$/, '').replace('-split', '-');
+  }
+
+  #inputKey(input) {
+    return this.#keyOf(input.getAttribute('data-compare-type'), input.getAttribute('data-compare-handle'));
+  }
+
   #onChange(event) {
     const input = event.target.closest?.('[data-compare-type]');
 
@@ -102,7 +121,7 @@ class BedCompare extends HTMLElement {
       return;
     }
 
-    const type = input.getAttribute('data-compare-type');
+    const type = this.#inputKey(input);
     this.#selected = this.#selected.filter((selectedType) => selectedType !== type);
 
     if (input.checked) {
@@ -144,7 +163,7 @@ class BedCompare extends HTMLElement {
     const full = this.#selected.length >= this.#maxModels;
 
     document.querySelectorAll('[data-compare-type]').forEach((input) => {
-      const type = input.getAttribute('data-compare-type');
+      const type = this.#inputKey(input);
       const toggle = input.closest('[data-compare-toggle]');
 
       if (toggle) {
