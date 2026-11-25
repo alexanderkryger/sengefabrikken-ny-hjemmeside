@@ -1,18 +1,57 @@
 /* Sengefabrikken: comparison of the products of a collection (see the bed-compare snippet) */
 
-/* "Sammenlign" on the cards */
+/* "Sammenlign" on the cards, on the row of the rating (see the sengefabrikken-product-card snippet) */
+.sengefabrikken-card__footer {
+  border-block-start: 1px solid rgb(var(--border-color));
+  justify-content: space-between;
+  align-items: center;
+  gap: .5rem 1rem;
+  padding-block-start: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.sengefabrikken-card__footer .sengefabrikken-card__rating {
+  border-block-start: none;
+  padding-block-start: 0;
+}
+
 .sengefabrikken-card__compare {
   cursor: pointer;
-  justify-self: start;
-  margin-block-start: .75rem;
+  user-select: none;
+  align-items: center;
+  gap: .5rem;
+  margin-inline-start: auto;
+  display: inline-flex;
 }
 
 .sengefabrikken-card__compare[hidden] {
   display: none;
 }
 
+.sengefabrikken-card__compare-icon {
+  border-radius: 50%;
+  flex-shrink: 0;
+  transition: box-shadow .2s;
+}
+
+.sengefabrikken-card__compare:has(:focus-visible) .sengefabrikken-card__compare-icon {
+  outline: 2px solid rgb(var(--text-color));
+  outline-offset: 2px;
+}
+
+/* Chosen: a ring around the icon, and "Valgt" */
+.sengefabrikken-card__compare:has(:checked) .sengefabrikken-card__compare-icon {
+  box-shadow: 0 0 0 2px rgb(var(--background)), 0 0 0 4px #650621;
+}
+
+.sengefabrikken-card__compare:not(:has(:checked)) .sengefabrikken-card__compare-text-checked,
+.sengefabrikken-card__compare:has(:checked) .sengefabrikken-card__compare-text {
+  display: none;
+}
+
 .sengefabrikken-card__compare:has(:disabled) {
-  opacity: .5;
+  opacity: .4;
   cursor: not-allowed;
 }
 
