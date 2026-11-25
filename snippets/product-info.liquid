@@ -192,6 +192,12 @@ no need to manually pass the section as it is globally available)
               <div class="v-stack gap-2">
                 {%- render 'price-list', product: product, variant: product.selected_or_first_available_variant, alignment: alignment, context: 'product' -%}
 
+                {%- comment -%}Sengefabrikken: Anyday monthly price, from 300 kr.{%- endcomment -%}
+                {%- if block.settings.show_anyday and product.price > 30000 -%}
+                  {%- capture anyday_price_selector -%}#shopify-section-{{ section.id }} [data-block-type="price"] sale-price{%- endcapture -%}
+                  {%- render 'anyday-price-widget', price_selector: anyday_price_selector -%}
+                {%- endif -%}
+
                 {%- if block.settings.show_taxes_notice -%}
                   <p class="subheading text-subdued">
                     {%- if cart.taxes_included -%}

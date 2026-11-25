@@ -382,8 +382,13 @@
 
               <div class="h-stack justify-between gap-4">
                 <span class="medium uppercase">{{ 'cart.general.total' | t }}</span>
-                <span class="medium">{{ cart.total_price | money_with_currency }}</span>
+                <span class="medium" data-cart-total>{{ cart.total_price | money_with_currency }}</span>
               </div>
+
+              {%- comment -%}Sengefabrikken: Anyday monthly price of the cart, from 300 kr.{%- endcomment -%}
+              {%- if section.settings.show_anyday and cart.total_price > 30000 -%}
+                {%- render 'anyday-price-widget', price_selector: '#cart-drawer [data-cart-total]' -%}
+              {%- endif -%}
 
               <!-- BUTTONS -->
               <div class="v-stack gap-3">
@@ -479,6 +484,13 @@
       "id": "show_share_cart",
       "label": "Vis \"Del kurv\"",
       "info": "Kopierer et link med kurven, som kunden kan sende til andre. Linket erstatter modtagerens kurv med den delte.",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_anyday",
+      "label": "Vis Anyday-afbetaling",
+      "info": "Vises under total fra 300 kr.",
       "default": true
     },
     {

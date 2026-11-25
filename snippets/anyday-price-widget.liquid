@@ -1,0 +1,9 @@
+{%- doc -%}
+Sengefabrikken: Anyday price widget ("del betalingen op"), which reads the price shown on the page and shows the monthly
+price. The widget follows the price element, so it updates when the variant, the size or the cart changes.
+
+@param {string} price_selector - CSS selector of the element with the price
+{%- enddoc -%}
+
+<script src="https://my.anyday.io/price-widget/anyday-price-widget.js" type="module" async></script>
+<anyday-price-widget class="anyday-price-widget" currency="DKK" price-selector="{{ price_selector | escape }}" token="d64dfc5f010f4d2c976b1e93d300d8df" price-format-locale="da-DK" locale="da-DK" theme="light" size="small" message="1" heading="2" orientation="logo-right" shop-name="sengefabrikken.dk" fully-clickable="true"></anyday-price-widget>
