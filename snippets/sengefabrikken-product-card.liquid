@@ -263,13 +263,12 @@ It shows:
     {%- if compare and compact != true -%}
       <label class="sengefabrikken-card__compare text-sm" data-compare-toggle hidden>
         <input type="checkbox" class="sr-only" data-compare-type="{{ product.type | escape }}">
-        <svg class="sengefabrikken-card__compare-icon" aria-hidden="true" focusable="false" width="28" height="28" viewBox="0 0 100 100" fill="none" stroke="#fefdf9" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="50" cy="50" r="50" fill="#650621" stroke="none"/>
-          <circle cx="30.5" cy="37" r="13"/>
-          <path d="M43.15 34H79.5a3 3 0 0 1 0 6H43.15"/>
-          <circle cx="68.5" cy="63" r="13"/>
-          <path d="M55.85 60H21.5a3 3 0 0 0 0 6h34.35"/>
-        </svg>
+        <span class="sengefabrikken-card__compare-icon">
+          <svg aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="{{ settings.icon_stroke_width }}">
+            <path vector-effect="non-scaling-stroke" d="M2 4h8v16H2zM14 4h8v16h-8z"/>
+            <path vector-effect="non-scaling-stroke" d="M4.5 9h3M4.5 13h3M16.5 9h3M16.5 13h3"/>
+          </svg>
+        </span>
         <span class="sengefabrikken-card__compare-text">Sammenlign</span>
         <span class="sengefabrikken-card__compare-text-checked">Valgt</span>
       </label>

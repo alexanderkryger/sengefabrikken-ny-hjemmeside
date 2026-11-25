@@ -30,9 +30,15 @@
 }
 
 .sengefabrikken-card__compare-icon {
+  color: #fefdf9;
+  background: #650621;
   border-radius: 50%;
   flex-shrink: 0;
+  place-items: center;
+  width: 1.75rem;
+  height: 1.75rem;
   transition: box-shadow .2s;
+  display: grid;
 }
 
 .sengefabrikken-card__compare:has(:focus-visible) .sengefabrikken-card__compare-icon {
