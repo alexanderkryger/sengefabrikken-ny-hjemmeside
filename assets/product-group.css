@@ -83,6 +83,17 @@
   display: flex;
 }
 
+/* Mobile: one card per row, with a wider image so that the cards stay low */
+@media screen and (max-width: 699px) {
+  .product-group-option-list--cards {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .product-group-option-list--cards .product-group-option__image {
+    aspect-ratio: 2 / 1;
+  }
+}
+
 .product-group-option--highlighted {
   border-color: rgb(var(--accent));
 }
