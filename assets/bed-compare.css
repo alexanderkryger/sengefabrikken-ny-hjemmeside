@@ -61,6 +61,18 @@
   cursor: not-allowed;
 }
 
+/* On mobile, only the icon (the text stays for screen readers), so that the row of the rating does not get too wide */
+@media screen and (max-width: 699px) {
+  .sengefabrikken-card__compare :is(.sengefabrikken-card__compare-text, .sengefabrikken-card__compare-text-checked) {
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+    width: 1px;
+    height: 1px;
+    position: absolute;
+    overflow: hidden;
+  }
+}
+
 /* The bar with the chosen models, above the sticky filter button */
 .bed-compare__bar {
   --bed-compare-offset: 1rem;
