@@ -87,7 +87,8 @@ class BedCompare extends HTMLElement {
         }
       });
 
-      this.#comparison = comparison.closest('.color-scheme') || comparison;
+      // Without the color scheme of the section: the comparison takes the colors of the popup
+      this.#comparison = comparison;
       this.#selected = this.#selected.filter((type) => this.#models.has(type));
     } catch (error) {
       // Without the comparison page, the cards keep their checkbox hidden
