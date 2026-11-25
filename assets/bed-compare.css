@@ -165,7 +165,21 @@
 
 .bed-compare-modal .bed-comparison__intro {
   margin-block-end: 1.5rem;
-  padding-inline-end: 2.5rem;
+  padding-inline: 2.5rem;
+}
+
+/* Smaller headings than on the comparison page */
+.bed-compare-modal .bed-comparison__intro :is(h1, .h2) {
+  font-size: var(--text-h5);
+}
+
+.bed-compare-modal .bed-comparison__group-summary .h3 {
+  font-size: var(--text-h5);
+}
+
+/* The names of the models stick to the top of the popup, above the padding of its body */
+.bed-compare-modal .bed-comparison__compact {
+  inset-block-start: calc(-1 * var(--modal-body-padding-block));
 }
 
 .bed-compare-modal .bed-comparison__common {
@@ -175,6 +189,14 @@
 @media screen and (min-width: 1000px) {
   .bed-compare--above-filter-bar .bed-compare__bar {
     --bed-compare-offset: 6rem;
+  }
+
+  .bed-compare-modal .bed-comparison__intro :is(h1, .h2) {
+    font-size: var(--text-h4);
+  }
+
+  .bed-compare-modal .bed-comparison__group-summary .h3 {
+    font-size: var(--text-h4);
   }
 
   .bed-compare-modal {
