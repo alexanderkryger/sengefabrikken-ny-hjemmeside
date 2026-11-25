@@ -5,11 +5,13 @@ product-group snippet).
 @param {object} group_product - the product from the group
 @param {string} input_name - the name shared by the radio inputs of the product
 @param {boolean} [preselect] - whether the first available variant is selected by default
+@param {boolean} [cards] - if set to true, the variants are shown as cards with a large image, two per row (eg. the
+  headboards, a design choice)
 {%- enddoc -%}
 
 {%- assign preselected = false -%}
 
-<div class="product-group-option-list">
+<div class="product-group-option-list {% if cards %}product-group-option-list--cards{% endif %}">
   {%- for variant in group_product.variants -%}
     {%- unless variant.available -%}
       {%- continue -%}
@@ -30,7 +32,13 @@ product-group snippet).
     {%- assign preselected = true -%}
 
     <label class="product-group-option {% if is_upgrade %}product-group-option--highlighted{% endif %}" for="{{ input_name }}-{{ variant.id }}" {% if variant_video != blank %}data-video="{{ variant_video.system.handle | escape }}"{% endif %}>
-      {%- if variant_image != blank -%}
+      {%- if cards -%}
+        {%- if variant_image != blank -%}
+          {{- variant_image | image_url: width: variant_image.width | image_tag: loading: 'lazy', sizes: '(max-width: 699px) 45vw, 220px', widths: '200,300,400,500,600', class: 'product-group-option__image' -}}
+        {%- else -%}
+          <span class="product-group-option__image"></span>
+        {%- endif -%}
+      {%- elsif variant_image != blank -%}
         {{- variant_image | image_url: width: variant_image.width | image_tag: loading: 'lazy', sizes: '64px', widths: '64,128,192', class: 'product-group-option__image' -}}
       {%- endif -%}
 

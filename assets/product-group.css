@@ -49,6 +49,40 @@
   white-space: nowrap;
 }
 
+/* Cards with a large image, two per row (design choices, eg. the headboards): the image, then the name and the price */
+.product-group-option-list--cards {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.product-group-option-list--cards .product-group-option {
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: auto 1fr auto;
+  align-items: start;
+  gap: .5rem;
+  padding: .5rem .5rem .75rem;
+}
+
+.product-group-option-list--cards .product-group-option__image {
+  background: rgb(var(--text-color) / .04);
+  object-fit: contain;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  display: block;
+}
+
+.product-group-option-list--cards .product-group-option > .v-stack {
+  padding-inline: .25rem;
+}
+
+.product-group-option-list--cards .product-group-option__price {
+  text-align: start;
+  white-space: normal;
+  flex-flow: row wrap;
+  column-gap: .5rem;
+  padding-inline: .25rem;
+  display: flex;
+}
+
 .product-group-option--highlighted {
   border-color: rgb(var(--accent));
 }
