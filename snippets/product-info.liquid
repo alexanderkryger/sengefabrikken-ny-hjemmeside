@@ -161,6 +161,12 @@ no need to manually pass the section as it is globally available)
             {%- comment -%}Sengefabrikken: the price can be shown next to the title (see the product-title-price snippet){%- endcomment -%}
             {%- if block.settings.show_price and product != blank and context != 'quick_buy' -%}
               {%- render 'product-title-price', product: product, block: block, title: product_title_html -%}
+
+              {%- comment -%}Sengefabrikken: Anyday monthly price, from 300 kr.{%- endcomment -%}
+              {%- if block.settings.show_anyday and product.price > 30000 -%}
+                {%- capture anyday_price_selector -%}#shopify-section-{{ section.id }} [data-block-type="title"] sale-price{%- endcapture -%}
+                {%- render 'anyday-price-widget', price_selector: anyday_price_selector -%}
+              {%- endif -%}
             {%- else -%}
               {{- product_title_html -}}
             {%- endif -%}
