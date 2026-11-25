@@ -585,7 +585,7 @@ product-group-gift {
 }
 
 /* Too narrow for one row of text: the icon above the text, in 3 equal columns */
-@container (max-width: 439px) {
+@container (max-width: 429px) {
   .sengefabrikken-buy-usps > * {
     grid-auto-columns: minmax(0, 1fr);
   }
