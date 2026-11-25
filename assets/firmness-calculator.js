@@ -1,8 +1,8 @@
 /**
  * Sengefabrikken: <firmness-calculator>
  *
- * "Beregn jeres fasthed" (see the firmness-calculator snippet). The element moves itself into the "Vælg Fasthed" row of
- * the product (the row whose button opens a drawer of firmness radios), and stays hidden when there is none.
+ * "Beregn jeres fasthed" (see the firmness-calculator snippet). The element moves itself to the top of the "Vælg Fasthed"
+ * drawer of the product (the drawer of firmness radios), and stays hidden when there is none.
  *
  * The drawer has a group of radios per mattress: the two sides of a double bed ("Venstre side" and "Højre side" of the
  * product group), or the single option of a box mattress. Person 1 gets the first mattress and person 2 the second; with
@@ -49,7 +49,8 @@ class FirmnessCalculator extends HTMLElement {
     this.#modal.querySelector('[data-calculator-back]').addEventListener('click', () => this.#showResult(false));
     this.#modal.querySelector('[data-calculator-close]').addEventListener('click', () => this.#modal.hide());
 
-    summary.after(this);
+    // At the top of the drawer, before the firmnesses
+    this.#drawer.prepend(this);
     this.hidden = false;
   }
 

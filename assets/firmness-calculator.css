@@ -1,7 +1,7 @@
 /* Sengefabrikken: "Beregn jeres fasthed" (see the firmness-calculator snippet) */
 
 .firmness-calculator {
-  padding-block-end: 1rem;
+  margin-block-end: 1.5rem;
   display: block;
 }
 
