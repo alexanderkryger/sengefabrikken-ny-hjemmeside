@@ -387,7 +387,7 @@
 
               {%- comment -%}Sengefabrikken: Anyday monthly price of the cart, from 300 kr.{%- endcomment -%}
               {%- if section.settings.show_anyday and cart.total_price > 30000 -%}
-                {%- render 'anyday-price-widget', price_selector: '#cart-drawer [data-cart-total]' -%}
+                {%- render 'anyday-price-widget', price_selector: '#cart-drawer [data-cart-total]', page: 'cart' -%}
               {%- endif -%}
 
               <!-- BUTTONS -->
