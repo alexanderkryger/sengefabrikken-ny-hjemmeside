@@ -224,3 +224,4 @@ class BedCompare extends HTMLElement {
 if (!window.customElements.get('bed-compare')) {
   window.customElements.define('bed-compare', BedCompare);
 }
+
