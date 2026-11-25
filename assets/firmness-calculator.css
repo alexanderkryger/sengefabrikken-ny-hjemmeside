@@ -61,6 +61,10 @@
   display: inline-flex;
 }
 
+.firmness-calculator__mode[hidden] {
+  display: none;
+}
+
 .firmness-calculator__mode label {
   cursor: pointer;
   border-radius: 999px;

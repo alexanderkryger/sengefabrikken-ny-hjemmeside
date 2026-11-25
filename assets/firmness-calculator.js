@@ -5,8 +5,8 @@
  * drawer of the product (the drawer of firmness radios), and stays hidden when there is none.
  *
  * The drawer has a group of radios per mattress: the two sides of a double bed ("Venstre side" and "Højre side" of the
- * product group), or the single option of a box mattress. Person 1 gets the first mattress and person 2 the second; with
- * a single mattress for two persons, their average is used, and a single person gets the same firmness on both sides.
+ * product group), or the single option of a box mattress. Person 1 gets the first mattress and person 2 the second, and a
+ * single person gets the same firmness on both sides. Two persons can only be filled in with two mattresses.
  *
  * The firmness follows the recommendation of the products (Medium under 70 kg, Fast 70-100 kg, Xtra Fast over 100 kg),
  * from a weight adjusted for the sleeping position (side sleepers sink in more, stomach sleepers need more support) and
@@ -39,9 +39,11 @@ class FirmnessCalculator extends HTMLElement {
 
     this.#drawer = document.getElementById(summary.getAttribute('aria-controls'));
 
-    // With a single mattress, the texts are about one mattress
+    // Two persons only on a double bed (from 160 cm, a firmness per side). Otherwise, a single person
     if (this.#groups.length < 2) {
-      this.#modal.querySelector('[data-calculator-intro]').textContent = 'Udfyld for hver af jer, og få en anbefaling til jeres madras.';
+      this.#modal.querySelector('[name="persons"][value="1"]').checked = true;
+      this.#modal.querySelector('.firmness-calculator__mode').hidden = true;
+      this.#renderMode();
     }
 
     this.#modal.querySelector('[data-calculator-form]').addEventListener('submit', this.#onSubmit.bind(this));
@@ -93,16 +95,18 @@ class FirmnessCalculator extends HTMLElement {
   }
 
   #onModeChange(event) {
-    if (event.target.name !== 'persons') {
-      return;
+    if (event.target.name === 'persons') {
+      this.#renderMode();
     }
+  }
 
+  #renderMode() {
     const person = this.#modal.querySelector('[data-person="2"]');
     person.hidden = !this.#twoPersons;
     person.disabled = !this.#twoPersons;
     this.#modal.querySelector('[data-person="1"] [data-person-title]').textContent = this.#twoPersons ? 'Person 1' : 'Dig';
     this.#modal.querySelector('[data-calculator-intro]').textContent = this.#twoPersons
-      ? (this.#groups.length < 2 ? 'Udfyld for hver af jer, og få en anbefaling til jeres madras.' : 'Udfyld for hver af jer, og få en anbefaling til madras 1 og madras 2.')
+      ? 'Udfyld for hver af jer, og få en anbefaling til madras 1 og madras 2.'
       : 'Udfyld for dig selv, og få en anbefaling til din madras.';
   }
 
@@ -128,8 +132,8 @@ class FirmnessCalculator extends HTMLElement {
     const recommendations = [];
 
     groups.forEach((group, index) => {
-      // One mattress for two persons: their average. Two mattresses for one person: the same firmness on both
-      const score = groups.length === 1 ? persons.reduce((sum, value) => sum + value, 0) / persons.length : persons[Math.min(index, persons.length - 1)];
+      // Two mattresses for one person: the same firmness on both
+      const score = persons[Math.min(index, persons.length - 1)];
       const input = this.#pick(group, this.#levelFor(score));
 
       // Not a click: the popup would take it for a click outside of it, and close
