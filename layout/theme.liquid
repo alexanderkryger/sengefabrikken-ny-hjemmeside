@@ -5,6 +5,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, height=device-height, minimum-scale=1.0, maximum-scale=5.0">
 
+    {%- comment -%}Sengefabrikken: the "upsale" and "free" products are only sold with another product: their page redirects to the front page{%- endcomment -%}
+    {%- assign product_type = product.type | downcase | strip -%}
+    {%- if template.name == 'product' and product_type == 'upsale' or template.name == 'product' and product_type == 'free' -%}
+      <meta name="robots" content="noindex">
+      <script>window.location.replace({{ routes.root_url | json }});</script>
+    {%- endif -%}
+
     {%- comment -%}Sengefabrikken: cookie banner (Cookiebot), first in the head as Cookiebot requires{%- endcomment -%}
     {%- render 'cookiebot' -%}
 
